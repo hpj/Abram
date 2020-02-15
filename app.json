@@ -1,0 +1,23 @@
+{
+  "name": "Abram",
+  "displayName": "Abram",
+  "expo": {
+    "name": "Abram",
+    "slug": "Abram",
+    "privacy": "unlisted",
+    "sdkVersion": "36.0.0",
+    "version": "0.0.1",
+    "entryPoint": "./src/index.js",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  }
+}

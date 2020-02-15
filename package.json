@@ -1,0 +1,42 @@
+{
+  "name": "abram",
+  "version": "0.1.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/hpj/abram.git"
+  },
+  "author": "Herp Project",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://gitlab.com/hpj/abram/issues"
+  },
+  "homepage": "https://gitlab.com/hpj/abram#readme",
+  "dependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.8.0",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-security": "^1.4.0",
+    "expo": "~36.0.2",
+    "react": "~16.12.0",
+    "react-dom": "~16.12.0",
+    "react-native": "~0.61.5",
+    "react-native-gesture-handler": "~1.5.0",
+    "react-native-reanimated": "~1.4.0",
+    "react-native-screens": "2.0.0-alpha.12",
+    "react-native-unimodules": "~0.7.0",
+    "react-native-vector-icons": "^6.6.0",
+    "react-native-web": "~0.12.1"
+  },
+  "devDependencies": {
+    "@babel/core": "~7.8.4",
+    "eslint-plugin-react-native": "^3.8.1",
+    "metro-react-native-babel-preset": "~0.58.0"
+  }
+}
