@@ -1,6 +1,11 @@
 Performance Issues and Bugs:
 
 Testing:
+  ☐ setup a testing env with jest
+
+  ☐ test bottom navigation
+  ☐ test routing
+  ☐ test navigation animations
 
 General:
   ☐ add Redux to control app-wide states (would be very useful)

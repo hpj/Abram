@@ -4,33 +4,85 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import { StyleSheet, View } from 'react-native';
+import { View, Animated } from 'react-native';
 
-import getTheme from '../colors.js';
+// import Animated from 'react-native-reanimated';
 
-const colors = getTheme();
+// import getTheme from '../colors.js';
 
 class NavigationView extends React.Component
 {
+  constructor()
+  {
+    super();
+
+    this.state = {
+      /** @type { Animated.Value } */
+      progress: undefined
+    };
+  }
+
+  componentDidMount()
+  {
+    const { active } = this.props;
+
+    this.setState({
+      animating: false,
+      progress: new Animated.Value((active) ? 1 : 0)
+    });
+  }
+
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps({ active })
+  {
+    const { progress } = this.state;
+    
+    if (!progress)
+      return;
+
+    if (active !== this.props.active)
+    {
+      this.setState({ animating: true }, () =>
+      {
+        Animated
+          .timing(progress, {
+            toValue: (active) ? 1 : 0,
+            duration: 255,
+            useNativeDriver: true
+          })
+          .start(() => this.setState({ animating: false }));
+      });
+    }
+  }
+
   render()
   {
     const { active, color } = this.props;
 
+    if (!this.state.progress)
+      return <View/>;
+
+    const opacity =
+      this.state.progress.interpolate({
+        inputRange: [ 0, 1 ],
+        outputRange: [ 0, 1 ]
+      });
+    
     return (
-      <View
+      <Animated.View
         style={ {
           position: 'absolute',
           left: 0,
           right: 0,
           top: 0,
           bottom: 0,
-          opacity: (active) ? 1 : 0,
+          opacity: opacity,
           backgroundColor: color
         } }
         pointerEvents={ (active) ? 'box-none' : 'none' }
       >
 
-      </View>
+      </Animated.View>
     );
   }
 }
@@ -38,14 +90,5 @@ class NavigationView extends React.Component
 NavigationView.propTypes = {
   active: PropTypes.bool.isRequired
 };
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: colors.whiteBackground
-//   }
-// });
 
 export default NavigationView;
