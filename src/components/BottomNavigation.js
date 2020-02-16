@@ -17,15 +17,15 @@ class BottomNavigation extends React.Component
         <Button
           badgeStyle={ styles.badge }
           backgroundStyle={ styles.background }
-          buttonStyle={ styles.button }
-          icon={ { name: 'inbox', size: 24, color: 'white'  } }
+          buttonStyle={ styles.entry }
+          icon={ { name: 'inbox', size: 24, color: colors.whiteText  } }
           onPress={ () => Alert.alert('1') }
         />
 
         <Button
-          backgroundStyle={ styles.background }
-          buttonStyle={ styles.button2 }
-          icon={ { name: 'compass', size: 24, color: 'black'  } }
+          backgroundStyle={ styles.backgroundInactive }
+          buttonStyle={ styles.entry }
+          icon={ { name: 'compass', size: 24, color: colors.inactiveWhiteText  } }
           onPress={ () => Alert.alert('2') }
         />
       </View>
@@ -40,11 +40,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
 
-    backgroundColor: colors.red
+    backgroundColor: colors.whiteBackground
   },
 
   badge: {
-    backgroundColor: 'black',
+    backgroundColor: colors.whiteText,
 
     width: 12,
     height: 12,
@@ -55,36 +55,35 @@ const styles = StyleSheet.create({
     position: 'absolute',
     alignItems: 'flex-end',
 
-    backgroundColor: 'orange',
+    backgroundColor: colors.bottomNavigationBackground,
     
-    width: 46,
-    height: 46,
-    borderRadius: 46
+    width: 44,
+    height: 44,
+    borderRadius: 44
   },
 
-  button: {
+  backgroundInactive: {
+    position: 'absolute',
+    alignItems: 'flex-end',
+
+    backgroundColor: colors.bottomNavigationBackgroundInactive,
+    
+    width: 44,
+    height: 44,
+    borderRadius: 44
+  },
+
+  entry: {
     flex: 1,
 
     alignItems: 'center',
     justifyContent: 'center',
 
     minWidth: 80,
-    maxWidth: 168,
+    // maxWidth: 168,
 
-    backgroundColor: 'green'
-  },
-
-  button2: {
-    flex: 1,
-
-    alignItems: 'center',
-    justifyContent: 'center',
-
-    minWidth: 80,
-    maxWidth: 168,
-
-    backgroundColor: 'yellow'
-  },
+    backgroundColor: colors.whiteBackground
+  }
 });
 
 export default BottomNavigation;

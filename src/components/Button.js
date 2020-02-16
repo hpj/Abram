@@ -6,6 +6,10 @@ import { Platform, View, TouchableNativeFeedback, TouchableOpacity, Text } from 
 
 import Icon from 'react-native-vector-icons/Feather';
 
+import getTheme from '../colors.js';
+
+const colors = getTheme();
+
 class Button extends React.Component
 {
   render()
@@ -16,6 +20,7 @@ class Button extends React.Component
 
     return (
       <Touchable
+        background={ TouchableNativeFeedback.Ripple(colors.ripple) }
         onPress={ onPress }
       >
         <View style={ buttonStyle }>
