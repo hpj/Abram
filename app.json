@@ -10,6 +10,10 @@
     "entryPoint": "./src/index.js",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "androidStatusBar": {
+      "barStyle": "dark-content",
+      "backgroundColor": "#ffffff"
+    },
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",

@@ -37,12 +37,12 @@ export default function()
 
 export function detectDeviceIsDark()
 {
-  return true;
-
   // if (localStorage.getItem('forceDark') === 'true')
   //   return true;
   // else if (localStorage.getItem('forceDark') === 'false')
   //   return false;
   // else
   //   return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  return true;
 }

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, SafeAreaView, StatusBar } from 'react-native';
 
 import BottomNavigation from './components/BottomNavigation.js';
 
@@ -8,24 +8,23 @@ import getTheme from './colors.js';
 
 const colors = getTheme();
 
-export default class App extends Component
+export default class App extends React.Component
 {
+  componentDidMount()
+  {
+    // set status-bar style
+
+    StatusBar.setBackgroundColor(colors.whiteBackground);
+    StatusBar.setBarStyle((colors.theme === 'dark') ? 'light-content' : 'dark-content');
+  }
+
   render()
   {
     return (
-      <View style={ styles.container }>
-        {/* <Text style={ styles.welcome }>Welcome to React Native</Text>
-        <Text style={ styles.instructions }>To get started, edit App.js</Text>
-        <Text style={ styles.instructions }>{instructions}</Text>
-
-        <Button
-          title="Press me"
-          color="#f194ff"
-          onPress={ () => Alert.alert('Button with adjusted color pressed') }
-        /> */}
+      <SafeAreaView style={ styles.container }>
 
         <BottomNavigation/>
-      </View>
+      </SafeAreaView>
     );
   }
 }
@@ -33,8 +32,7 @@ export default class App extends Component
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'flex-end',
     backgroundColor: colors.whiteBackground
   }
 });
