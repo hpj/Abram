@@ -7,7 +7,7 @@
     "privacy": "unlisted",
     "sdkVersion": "36.0.0",
     "version": "0.0.1",
-    "entryPoint": "./src/index.js",
+    "entryPoint": "/src/index.js",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "androidStatusBar": {

@@ -1,0 +1,14 @@
+Performance Issues and Bugs:
+
+Testing:
+
+General:
+  ☐ add Redux to control app-wide states (would be very useful)
+  ☐ add expo-sentry to monitor production errors
+
+UI/UX:
+  ☐ do cross-fade animation to NavigationView
+
+Chat:
+
+Discover:

@@ -22,7 +22,6 @@ export default class App extends React.Component
   {
     return (
       <SafeAreaView style={ styles.container }>
-
         <BottomNavigation/>
       </SafeAreaView>
     );
@@ -32,7 +31,6 @@ export default class App extends React.Component
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-end',
     backgroundColor: colors.whiteBackground
   }
 });
