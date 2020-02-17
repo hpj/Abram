@@ -47,7 +47,7 @@ class NavigationView extends React.Component
         Animated
           .timing(progress, {
             toValue: (active) ? 1 : 0,
-            duration: 255,
+            duration: 150,
             useNativeDriver: true
           })
           .start(() => this.setState({ animating: false }));
@@ -68,6 +68,12 @@ class NavigationView extends React.Component
         outputRange: [ 0, 1 ]
       });
     
+    const scale =
+    this.state.progress.interpolate({
+      inputRange: [ 0, 1 ],
+      outputRange: [ 0.8, 1 ]
+    });
+  
     return (
       <Animated.View
         style={ {
@@ -77,6 +83,14 @@ class NavigationView extends React.Component
           top: 0,
           bottom: 0,
           opacity: opacity,
+          transform: [
+            {
+              scaleX: scale
+            },
+            {
+              scaleY: scale
+            }
+          ],
           backgroundColor: color
         } }
         pointerEvents={ (active) ? 'box-none' : 'none' }

@@ -1,12 +1,17 @@
 import React from 'react';
 
-import { StyleSheet, View, Alert } from 'react-native';
-
-import NavigationView from './NavigationView.js';
+import { StyleSheet, View } from 'react-native';
 
 import Button from './Button.js';
 
+import { getStore } from '../store.js';
+
 import getTheme from '../colors.js';
+
+/**
+* @type { import('../store.js').default }
+*/
+let store;
 
 const colors = getTheme();
 
@@ -16,72 +21,51 @@ class BottomNavigation extends React.Component
   {
     super();
 
-    this.state = {
-      index: 0
-    };
+    // get store
+    store = getStore('app').mount(this);
+  }
+  
+  componentDidMount()
+  {
+    store.subscribe(this);
+  }
 
-    this.setIndex = this.setIndex.bind(this);
+  componentWillUnmount()
+  {
+    store.unsubscribe(this);
   }
 
   setIndex(value)
   {
-    this.setState({
+    store.set({
       index: value
     });
-  }
-
-  getView()
-  {
-    if (this.state.index === 0)
-      return <View style={ styles.test }/>;
-    else
-      return <View style={ styles.test2 }/>;
   }
 
   render()
   {
     return (
-      <View style={ styles.wrapper }>
+      <View style={ styles.container }>
+        <Button
+          badgeStyle={ styles.badge }
+          backgroundStyle={ styles.background }
+          buttonStyle={ styles.entry }
+          icon={ { name: 'inbox', size: 24, color: colors.whiteText  } }
+          onPress={ () => this.setIndex(0) }
+        />
 
-        <View style={ styles.views }>
-
-          <NavigationView active={ (this.state.index === 0) } color='red'/>
-          <NavigationView active={ (this.state.index === 1) } color='green'/>
-
-        </View>
-
-        <View style={ styles.container }>
-          <Button
-            badgeStyle={ styles.badge }
-            backgroundStyle={ styles.background }
-            buttonStyle={ styles.entry }
-            icon={ { name: 'inbox', size: 24, color: colors.whiteText  } }
-            onPress={ () => this.setIndex(0) }
-          />
-
-          <Button
-            backgroundStyle={ styles.backgroundInactive }
-            buttonStyle={ styles.entry }
-            icon={ { name: 'compass', size: 24, color: colors.inactiveWhiteText  } }
-            onPress={ () => this.setIndex(1) }
-          />
-
-        </View>
+        <Button
+          backgroundStyle={ styles.backgroundInactive }
+          buttonStyle={ styles.entry }
+          icon={ { name: 'compass', size: 24, color: colors.inactiveWhiteText  } }
+          onPress={ () => this.setIndex(1) }
+        />
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-    justifyContent: 'flex-end'
-  },
-
-  views: {
-    flex: 1
-  },
-
   container: {
     height: 56,
 
