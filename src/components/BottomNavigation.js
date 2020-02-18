@@ -112,9 +112,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
 
     minWidth: 80,
-    // maxWidth: 168,
-
-    backgroundColor: colors.whiteBackground
+    maxWidth: 168
   }
 });
 

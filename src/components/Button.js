@@ -20,7 +20,7 @@ class Button extends React.Component
 
     return (
       <Touchable
-        background={ TouchableNativeFeedback.Ripple(colors.ripple) }
+        background={ TouchableNativeFeedback.Ripple(colors.ripple, true) }
         onPress={ onPress }
       >
         <View style={ buttonStyle }>
