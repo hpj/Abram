@@ -58,25 +58,34 @@ export default class Store
   */
   subscribe(component)
   {
-    this.subscriptions.push(component);
+    if (component && component.setState && this.subscriptions.indexOf(component) < 0)
+    {
+      this.subscriptions.push(component);
 
-    component.setState(this.state);
+      component.setState(this.state);
 
-    return this;
+      return this;
+    }
+
+    return false;
   }
 
   /**
   * @param { import('react').Component } component
-  * @returns { Store }
+  * @returns { boolean }
   */
   unsubscribe(component)
   {
     const index = this.subscriptions.indexOf(component);
 
     if (index > -1)
+    {
       this.subscriptions.splice(index, 1);
 
-    return this;
+      return true;
+    }
+
+    return false;
   }
 
   /**
@@ -101,10 +110,10 @@ export default class Store
   */
   dispatch()
   {
-    this.subscriptions.forEach((comp) =>
+    this.subscriptions.forEach((component) =>
     {
-      if (comp && comp.setState)
-        comp.setState(this.state);
+      if (component && component.setState)
+        component.setState(this.state);
     });
 
     return this;
