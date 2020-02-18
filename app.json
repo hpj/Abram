@@ -16,7 +16,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000000"
     },
     "updates": {
       "enabled": true,
@@ -35,8 +35,8 @@
       ]
     },
     "androidStatusBar": {
-      "barStyle": "dark-content",
-      "backgroundColor": "#ffffff"
+      "barStyle": "light-content",
+      "backgroundColor": "#000000"
     },
     "androidNavigationBar": {
       "visible": true,
@@ -48,7 +48,7 @@
       "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#000000"
       }
     }
   }
