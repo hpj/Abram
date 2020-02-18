@@ -47,6 +47,7 @@ class BottomNavigation extends React.Component
     return (
       <View style={ styles.container }>
         <Button
+          testID={ 'bn-inbox' }
           badgeStyle={ styles.badge }
           backgroundStyle={ styles.background }
           buttonStyle={ styles.entry }
@@ -55,6 +56,7 @@ class BottomNavigation extends React.Component
         />
 
         <Button
+          testID={ 'bn-discover' }
           backgroundStyle={ styles.backgroundInactive }
           buttonStyle={ styles.entry }
           icon={ { name: 'compass', size: 24, color: colors.inactiveWhiteText  } }

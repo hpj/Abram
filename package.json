@@ -7,11 +7,12 @@
     "start": "expo start",
     "test": "jest",
     "test:coverage": "jest --collect-coverage",
-    "android": "expo start --android"
+    "test:update": "jest --updateSnapshot"
   },
   "jest": {
     "preset": "jest-expo",
     "setupFilesAfterEnv": [
+      "./setupTests.js",
       "jest-extended"
     ],
     "transformIgnorePatterns": [
@@ -58,6 +59,8 @@
     "jest-expo": "^36.0.1",
     "jest-extended": "^0.11.5",
     "metro-react-native-babel-preset": "~0.58.0",
+    "mockdate": "^2.0.5",
+    "react-native-testing-library": "^1.12.0",
     "react-test-renderer": "^16.12.0"
   }
 }
