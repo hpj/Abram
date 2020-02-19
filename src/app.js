@@ -35,7 +35,8 @@ export default class App extends React.Component
     // set status-bar style
 
     StatusBar.setBackgroundColor(colors.whiteBackground);
-    StatusBar.setBarStyle((colors.theme === 'dark') ? 'light-content' : 'dark-content');
+    // StatusBar.setBarStyle((colors.theme === 'dark') ? 'light-content' : 'dark-content');
+    StatusBar.setBarStyle('light-content');
   }
 
   componentWillUnmount()

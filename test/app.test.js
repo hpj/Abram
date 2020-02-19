@@ -26,18 +26,35 @@ afterEach(() =>
 
 describe('<App/>', () =>
 {
-  test('renders correctly', () =>
+  test('Snapshot', () =>
+  {
+    const component = render(<App/>);
+    
+    expect(component.toJSON()).toMatchSnapshot();
+  
+    component.unmount();
+  });
+
+  test('Testing <BottomNavigation/>', () =>
   {
     const component = render(<App/>);
 
-    expect(component.toJSON()).toMatchSnapshot();
-
     // simulate pressing the discover navigation button
     fireEvent.press(component.getByTestId('bn-discover'));
+    
+    // finish the view transition animation
+    global.timeTravel(150);
+    
+    expect(component.toJSON()).toMatchSnapshot();
+
+    // simulate pressing the inbox navigation button
+    fireEvent.press(component.getByTestId('bn-inbox'));
 
     // finish the view transition animation
     global.timeTravel(150);
-
+    
     expect(component.toJSON()).toMatchSnapshot();
+    
+    component.unmount();
   });
 });

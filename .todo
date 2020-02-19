@@ -1,13 +1,6 @@
 Performance Issues and Bugs:
 
 Testing:
-  ✔ setup a testing env with jest @done(20-02-18 17:41)
-
-  ☐ test bottom navigation
-  ☐ test routing
-  ☐ test navigation animations
-  ☐ test store
-
   ☐ expo's over-the-air updates
 
 General:
