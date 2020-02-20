@@ -17,8 +17,8 @@ export default function()
 
     ripple: alpha('#ffffff', '0.15'),
 
-    bottomNavigationBackground: '#4B4B4B',
-    bottomNavigationBackgroundInactive: alpha('#4B4B4B', '0.3'),
+    roundIconBackground: '#4B4B4B',
+    roundIconBackgroundInactive: alpha('#4B4B4B', '0.3'),
 
     red: '#9c0202',
     transparent: 'transparent'

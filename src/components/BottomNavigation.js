@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     alignItems: 'flex-end',
 
-    backgroundColor: colors.bottomNavigationBackground,
+    backgroundColor: colors.roundIconBackground,
     
     width: 44,
     height: 44,
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     alignItems: 'flex-end',
 
-    backgroundColor: colors.bottomNavigationBackgroundInactive,
+    backgroundColor: colors.roundIconBackgroundInactive,
     
     width: 44,
     height: 44,
