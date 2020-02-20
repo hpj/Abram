@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Dimensions } from 'react-native';
+
 import { registerRootComponent } from 'expo';
 import { activateKeepAwake } from 'expo-keep-awake';
 
@@ -24,6 +26,20 @@ if (__DEV__)
   activateKeepAwake();
 
 // create app-wide store
-createStore('app', { index: 0 });
+const store = createStore('app', {
+  index: 0,
+  size: {
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height
+  }
+});
+
+// update state when size changes
+Dimensions.addEventListener('change', ({ window }) => store.set({
+  size: {
+    width: window.width,
+    height: window.height
+  }
+}));
 
 registerRootComponent(() => <App/>);

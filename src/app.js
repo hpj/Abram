@@ -16,7 +16,7 @@ import { getStore } from './store.js';
 import getTheme from './colors.js';
 
 /**
-* @type { import('../store.js').default }
+* @type { import('./store.js').default }
 */
 let store;
 
@@ -28,8 +28,7 @@ export default class App extends React.Component
   {
     super();
 
-    // get store and subscribe to it
-
+    // get store
     store = getStore('app').mount(this);
   }
 

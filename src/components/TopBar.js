@@ -2,42 +2,69 @@ import React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
 
-import { RFValue } from 'react-native-responsive-fontsize';
+import Search from './Search.js';
 
-import Button from './Button.js';
+import ChatAvatars from './ChatAvatars.js';
+
+import { getStore } from '../store.js';
 
 import getTheme from '../colors.js';
+
+/**
+* @type { import('../store.js').default }
+*/
+let store;
 
 const colors = getTheme();
 
 class TopBar extends React.Component
 {
+  constructor()
+  {
+    super();
+
+    // get store
+    store = getStore('app').mount(this);
+  }
+
+  componentDidMount()
+  {
+    store.subscribe(this);
+  }
+
+  componentWillUnmount()
+  {
+    store.unsubscribe(this);
+  }
+
+  scaleFont(fontSize, standardHeight)
+  {
+    standardHeight = standardHeight || 1130;
+
+    const size = (fontSize * this.state.size.height) / standardHeight;
+
+    return Math.round(size);
+  }
+
   render()
   {
+    let title;
+
+    if (this.state.index === 0)
+      title = 'Inbox';
+    else
+      title = 'Discover';
+    
     return (
       <View style={ styles.wrapper }>
         <View style={ styles.container }>
-          <Text style={ styles.title }>
-            Inbox
+          <Text style={ { ...styles.title, fontSize: this.scaleFont(38) } }>
+            { title }
           </Text>
 
-          <View style={ styles.controls }>
-            <Button
-              testID={ 'tb-search' }
-              backgroundStyle={ styles.controlBackground }
-              buttonStyle={ styles.control }
-              icon={ { name: 'search', size: 24, color: colors.whiteText } }
-              // onPress={ () => this.setIndex(0) }
-            />
-          </View>
+          <Search/>
 
-          <View style={ styles.avatars }>
-            <Button
-              testID={ 'tb-options' }
-              image={ { source: require('../../assets/mockup/ker0olos.jpeg'), style: styles.avatar } }
-              // onPress={ () => this.setIndex(0) }
-            />
-          </View>
+          <ChatAvatars/>
         </View>
       </View>
     );
@@ -61,44 +88,7 @@ const styles = StyleSheet.create({
   title: {
     flex: 1,
     color: colors.whiteText,
-    fontWeight: 'bold',
-    fontSize: RFValue(38, 1130)
-  },
-
-  controls: {
-    backgroundColor: 'purple',
-    marginLeft: 15,
-    marginRight: 15
-  },
-
-  control: {
-    alignItems: 'center',
-    justifyContent: 'center',
-
-    width: 38,
-    height: 38
-  },
-
-  controlBackground: {
-    position: 'absolute',
-
-    backgroundColor: colors.roundIconBackground,
-    
-    width: 38,
-    height: 38,
-    borderRadius: 38
-  },
-
-  avatars: {
-    backgroundColor: 'blue'
-  },
-
-  avatar: {
-    backgroundColor: colors.roundIconBackground,
-    
-    width: 38,
-    height: 38,
-    borderRadius: 38
+    fontWeight: 'bold'
   }
 });
 
