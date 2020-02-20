@@ -49,17 +49,17 @@ class BottomNavigation extends React.Component
         <Button
           testID={ 'bn-inbox' }
           badgeStyle={ styles.badge }
-          backgroundStyle={ styles.background }
+          backgroundStyle={  (this.state.index === 0) ? styles.background : styles.backgroundInactive }
           buttonStyle={ styles.entry }
-          icon={ { name: 'inbox', size: 24, color: colors.whiteText  } }
+          icon={ { name: 'inbox', size: 24, color: (this.state.index === 0) ? colors.whiteText : colors.inactiveWhiteText } }
           onPress={ () => this.setIndex(0) }
         />
 
         <Button
           testID={ 'bn-discover' }
-          backgroundStyle={ styles.backgroundInactive }
+          backgroundStyle={  (this.state.index === 1) ? styles.background : styles.backgroundInactive }
           buttonStyle={ styles.entry }
-          icon={ { name: 'compass', size: 24, color: colors.inactiveWhiteText  } }
+          icon={ { name: 'compass', size: 24, color: (this.state.index === 1) ? colors.whiteText : colors.inactiveWhiteText } }
           onPress={ () => this.setIndex(1) }
         />
       </View>
