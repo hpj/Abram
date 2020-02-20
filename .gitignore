@@ -58,4 +58,6 @@ buck-out/
 .expo
 web-build
 
+mockup
+
 coverage

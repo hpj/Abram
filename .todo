@@ -5,7 +5,8 @@ Testing:
 
 General:
   ☐ add cacheable i18n solution
-  ☐ add a fail-over i18n.json
+
+  ☐ load i18n data during splash screen 
 
 UI/UX:
 
