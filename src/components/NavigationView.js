@@ -57,7 +57,7 @@ class NavigationView extends React.Component
 
   render()
   {
-    const { active, color } = this.props;
+    const { active } = this.props;
 
     if (!this.state.progress)
       return <View/>;
@@ -90,19 +90,19 @@ class NavigationView extends React.Component
             {
               scaleY: scale
             }
-          ],
-          backgroundColor: color
+          ]
         } }
         pointerEvents={ (active) ? 'box-none' : 'none' }
       >
-
+        { this.props.children }
       </Animated.View>
     );
   }
 }
 
 NavigationView.propTypes = {
-  active: PropTypes.bool.isRequired
+  active: PropTypes.bool.isRequired,
+  children: PropTypes.any
 };
 
 export default NavigationView;

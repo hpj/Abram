@@ -58,33 +58,27 @@ class TopBar extends React.Component
       title = i18n('discover');
     
     return (
-      <View style={ styles.wrapper }>
-        <View style={ styles.container }>
-          <Text style={ { ...styles.title, fontSize: this.scaleFont(38) } }>
-            { title }
-          </Text>
+      <View style={ styles.container }>
+        <Text style={ { ...styles.title, fontSize: this.scaleFont(38) } }>
+          { title }
+        </Text>
 
-          <Search/>
+        <Search/>
 
-          <ChatAvatars/>
-        </View>
+        <ChatAvatars/>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
-    height: 52,
-    // height: 52 + 30,
-    backgroundColor: colors.whiteBackground
-  },
-
   container: {
-    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    // marginTop: 15,
+
+    height: 52,
+
+    marginTop: 10,
     marginLeft: 20,
     marginRight: 20
   },

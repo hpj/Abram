@@ -70,55 +70,56 @@ class Search extends React.Component
 
   render()
   {
+    const { maximized } = this.state;
+
     const avatarsAmount = 1;
 
     const topBarMargin = 40;
 
-    const AvatarWidth = 38;
-    const HalfAvatarWidth = 38 / 2;
+    const avatarWidth = 38;
+    const halfAvatarWidth = 38 / 2;
 
-    const searchBarWidth =
+    const searchBarWidth = (maximized) ?
     // window width
-    this.state.size.width -
-    // minus top bar margin
-    topBarMargin -
-    // minus this container margin
-    styles.container.marginLeft -
-    // minus this container width
-    // styles.container.minWidth -
-    // minus main avatar width
-    AvatarWidth -
-    // minus the rest of avatars width
-    HalfAvatarWidth * (avatarsAmount - 1) +
-    // add some padding
-    5;
+      this.state.size.width -
+      // minus top bar margin
+      topBarMargin -
+      // minus this container margin
+      styles.container.marginLeft -
+      // minus this container width
+      // styles.container.minWidth -
+      // minus main avatar width
+      avatarWidth -
+      // minus the rest of avatars width
+      halfAvatarWidth * (avatarsAmount - 1) :
+      avatarWidth;
 
-    // search bar width + container width + padding
-    const searchBarLeft = -searchBarWidth + AvatarWidth + 5;
+    // negative search bar width + container width
+    const searchBarLeft = (maximized) ? -searchBarWidth + avatarWidth : 0;
 
     // search bar width - container width - margin
-    const searchBarInputWidth = searchBarWidth - AvatarWidth - HalfAvatarWidth;
+    const searchBarInputWidth = (maximized) ? searchBarWidth - avatarWidth - halfAvatarWidth : 0;
 
     return (
       <View style={ styles.container }>
 
         <View style={ {
           ...styles.background,
-          // left: searchBarLeft,
-          // width: searchBarWidth
+          left: searchBarLeft,
+          width: searchBarWidth
         } }/>
 
-        {/* <TextInput style={ {
+        <TextInput style={ {
           ...styles.input,
           fontSize: this.scaleFont(24),
           left: searchBarLeft,
           width: searchBarInputWidth
         } }
         placeholder={ 'Search' }
-        /> */}
+        />
 
         {
-          (!this.state.maximized) ?
+          (!maximized) ?
             <Button
               testID={ 'tb-search-maximize' }
               buttonStyle={ styles.button }
@@ -154,7 +155,6 @@ const styles = StyleSheet.create({
     
     backgroundColor: colors.roundIconBackground,
     
-    width: 38,
     height: 38,
     borderRadius: 38
   },

@@ -80,8 +80,13 @@ export default class App extends React.Component
 
         <View style={ styles.views }>
 
-          <NavigationView active={ (this.state.index === 0) } color='red'/>
-          <NavigationView active={ (this.state.index === 1) } color='green'/>
+          <NavigationView active={ (this.state.index === 0) }>
+            <View style={ { flex: 1, backgroundColor: 'red' } }/>
+          </NavigationView>
+
+          <NavigationView active={ (this.state.index === 1) }>
+            <View style={ { flex: 1, backgroundColor: 'green' } }/>
+          </NavigationView>
 
         </View>
 
