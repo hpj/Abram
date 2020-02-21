@@ -49,6 +49,9 @@ export default class App extends React.Component
       }
       else
       {
+        // allow UI to be rendered
+        store.set({ loaded: true });
+
         // set status-bar style
         StatusBar.setBackgroundColor(colors.whiteBackground);
         // StatusBar.setBarStyle((colors.theme === 'dark') ? 'light-content' : 'dark-content');
@@ -67,6 +70,9 @@ export default class App extends React.Component
 
   render()
   {
+    if (!this.state.loaded)
+      return <View/>;
+    
     return (
       <SafeAreaView style={ styles.container }>
 

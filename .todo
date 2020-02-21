@@ -1,13 +1,13 @@
 Performance Issues and Bugs:
 
 Testing:
+  ☐ test i18n
+
   ☐ test top bar
 
   ☐ expo's over-the-air updates
 
 General:
-  ☐ cache i18n data
-  ☐ load i18n data during splash screen 
 
 UI/UX:
   ☐ chat avatars on top of user avatar
@@ -15,6 +15,8 @@ UI/UX:
   ☐ chat avatars animations
 
   ☐ change the top bar title based on store index
+
+  ☐ add RTL support
 
 Chat:
 

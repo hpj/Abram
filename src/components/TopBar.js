@@ -8,6 +8,8 @@ import ChatAvatars from './ChatAvatars.js';
 
 import { getStore } from '../store.js';
 
+import i18n from '../i18n.js';
+
 import getTheme from '../colors.js';
 
 /**
@@ -51,9 +53,9 @@ class TopBar extends React.Component
     let title;
 
     if (this.state.index === 0)
-      title = 'Inbox';
+      title = i18n('inbox');
     else
-      title = 'Discover';
+      title = i18n('discover');
     
     return (
       <View style={ styles.wrapper }>
@@ -74,6 +76,7 @@ class TopBar extends React.Component
 const styles = StyleSheet.create({
   wrapper: {
     height: 52,
+    // height: 52 + 30,
     backgroundColor: colors.whiteBackground
   },
 
@@ -81,6 +84,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
+    // marginTop: 15,
     marginLeft: 20,
     marginRight: 20
   },
