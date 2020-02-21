@@ -5,8 +5,8 @@ import { AsyncStorage } from 'react-native';
 import axios from 'axios';
 
 export const locales = [
-  { label: 'English (United States)', id: 'en-US', direction: 'ltr' }
-  // { label: 'عربي (مصر)', locale: 'ar-EG', direction: 'rtl' }
+  { label: 'English (United States)', id: 'en-US', direction: 'ltr' },
+  { label: 'عربي (مصر)', id: 'ar-EG', direction: 'rtl' }
 ];
 
 /**
@@ -14,7 +14,7 @@ export const locales = [
 */
 export let locale = getDefault();
 
-function getDefault()
+export function getDefault()
 {
   // TODO save and load user's preference
 
@@ -85,13 +85,13 @@ export function fetch(localeId)
 /**
 * @param { string } country
 */
-export function setLocale(l)
+export function setLocale(id)
 {
   // TODO show the new translations after it was selected
 
   if (locale)
   {
-    const find = locales.find((e) => e.id === l);
+    const find = locales.find((e) => e.id === id);
 
     if (find)
       locale = find;
@@ -107,8 +107,6 @@ export function setLocale(l)
 */
 export default function i18n(key, ...args)
 {
-  args = args || [];
-
   if (locale && locale.json)
   {
     /**

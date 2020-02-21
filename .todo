@@ -1,8 +1,6 @@
 Performance Issues and Bugs:
 
 Testing:
-  ☐ test i18n
-
   ☐ test top bar
 
   ☐ expo's over-the-air updates
@@ -16,6 +14,7 @@ UI/UX:
 
   ☐ change the top bar title based on store index
 
+  ☐ add fallback support to i18n
   ☐ add RTL support
 
 Chat:
