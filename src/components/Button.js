@@ -18,7 +18,8 @@ class Button extends React.Component
 
     const {
       backgroundStyle, badgeStyle, buttonStyle,
-      textStyle, text, image, icon, onPress
+      textStyle, text, image, icon,
+      onPress
     } = this.props;
 
     return (
@@ -43,6 +44,10 @@ class Button extends React.Component
           {
             (text) ?  <Text style={ textStyle }>{ text }</Text> : <View/>
           }
+
+          {
+            this.props.children
+          }
          
         </View>
       </Touchable>
@@ -58,6 +63,7 @@ Button.propTypes = {
   text: PropTypes.string,
   icon: PropTypes.object,
   image: PropTypes.object,
+  children: PropTypes.any,
   onPress: PropTypes.func
 };
 

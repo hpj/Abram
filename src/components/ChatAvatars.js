@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
 
 import Button from './Button.js';
 
@@ -21,22 +21,26 @@ class ChatAvatars extends React.Component
       <View style={ styles.container }>
 
         <Button
+          buttonStyle={ styles.button }
           testID={ 'tb-options' }
-          image={ { source: require('../../assets/mockup/ker0olos.jpeg'), style: styles.user } }
-        />
-
-        <View style={ styles.chat }>
+        >
+          {/* eslint-disable-next-line react-native/no-inline-styles */}
+          <Image style={ {
+            ...styles.avatar,
+            position: (people.length) ? 'absolute' : 'relative'
+          } } source={ require('../../assets/mockup/ker0olos.jpeg') }/>
+          
           {
             people.map((source, i) =>
             {
-              return <Button
+              return <Image
                 key={ i }
-                testID={ 'tb-options' }
-                image={ { source: source, style: (i === 0) ? styles.avatar : styles.mostlyAvatar } }
+                style={ (i === 0) ? styles.avatar : styles.mostlyAvatar }
+                source={ source }
               />;
             })
           }
-        </View>
+        </Button>
 
       </View>
     );
@@ -45,22 +49,17 @@ class ChatAvatars extends React.Component
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'green',
+    // backgroundColor: 'green',
     minWidth: 38,
     height: 38
   },
 
-  user: {
-    position: 'absolute',
-    backgroundColor: colors.roundIconBackground,
-    
-    width: 38,
+  button: {
+    flexDirection: 'row',
+
+    minWidth: 38,
     height: 38,
     borderRadius: 38
-  },
-
-  chat: {
-    flexDirection: 'row'
   },
 
   avatar: {
