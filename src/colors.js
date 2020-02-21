@@ -20,6 +20,8 @@ export default function()
     roundIconBackground: '#4B4B4B',
     roundIconBackgroundInactive: alpha('#4B4B4B', '0.3'),
 
+    menuBackground: '#414141',
+
     red: '#9c0202',
     transparent: 'transparent'
   };

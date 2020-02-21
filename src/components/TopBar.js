@@ -39,11 +39,11 @@ class TopBar extends React.Component
     store.unsubscribe(this);
   }
 
-  scaleFont(fontSize, standardHeight)
+  scale(size, standardHeight)
   {
     standardHeight = standardHeight || 1130;
 
-    const size = (fontSize * this.state.size.height) / standardHeight;
+    size = (size * this.state.size.height) / standardHeight;
 
     return Math.round(size);
   }
@@ -59,7 +59,7 @@ class TopBar extends React.Component
     
     return (
       <View style={ styles.container }>
-        <Text style={ { ...styles.title, fontSize: this.scaleFont(38) } }>
+        <Text style={ { ...styles.title, fontSize: this.scale(38) } }>
           { title }
         </Text>
 
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
 
     height: 52,
 
-    marginTop: 10,
+    marginTop: 5,
     marginLeft: 20,
     marginRight: 20
   },

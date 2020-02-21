@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyleSheet, View, Image } from 'react-native';
+import { StyleSheet, View, Image, TouchableWithoutFeedback } from 'react-native';
 
 import Button from './Button.js';
 
@@ -44,54 +44,83 @@ class ChatAvatars extends React.Component
       // require('../../assets/mockup/sisi-0.jpg')
     ];
 
-    // window's width minus margin
-    const menuWidth = (menu) ? this.state.size.width - 40 : 0;
+    const menuRect ={
+      // margin
+      top: (menu) ? -5 : 0,
+      // negative window's width + margin + avatar width
+      left: (menu) ?  -this.state.size.width + 50 + 38 : 0,
+      // window's width minus margin
+      width: (menu) ? this.state.size.width - 40 : 0,
+      // 65% of window's height
+      height: (menu) ? this.state.size.height * 0.75 : 0
+    };
 
-    // 65% of window's height
-    const menuHeight = (menu) ? this.state.size.height * 0.65 : 0;
+    const holderRect ={
+      // top bar margin + margin
+      top: -15,
+      // negative window's width + avatar width + top bar margin
+      left: -this.state.size.width + 38 + 20,
+      // window width
+      width: this.state.size.width,
+      // window height + top bar height + top bar margin + margin
+      height: this.state.size.height + 40 + 10
+    };
 
-    const menuTop = (menu) ? -10 : 0;
-
-    // negative window's width + margin + avatar width
-    const menuLeft = (menu) ?  -this.state.size.width + 50 + 38 : 0;
+    const holderOpacity = (menu) ? 0.65 : 0;
 
     return (
-      <View style={ styles.container }>
+      <View style={ styles.wrapper }>
 
-        <View style={ {
-          ...styles.menu,
-          top: menuTop,
-          left: menuLeft,
+        <TouchableWithoutFeedback
+          onPress={ () => this.setState({ menu: false }) }
+        >
+          <View style={ {
+            ...styles.holder,
+            top: holderRect.top,
+            left: holderRect.left,
+            width: holderRect.width,
+            height: holderRect.height,
 
-          width: menuWidth,
-          height: menuHeight
-        } }>
+            opacity: holderOpacity
+          } }
+          pointerEvents={ (menu) ? 'box-only' : 'none' }/>
+        </TouchableWithoutFeedback>
+
+        <View style={ styles.container }>
+          <View style={ {
+            ...styles.menu,
+            top: menuRect.top,
+            left: menuRect.left,
+
+            width: menuRect.width,
+            height: menuRect.height
+          } }
+          />
+
+          <Button
+            testID={ 'tb-options' }
+            buttonStyle={ styles.button }
+            onPress={ () => this.setState({ menu: menu ^ true }) }
+          >
+            {/* eslint-disable-next-line react-native/no-inline-styles */}
+            <Image style={ {
+              ...styles.avatar,
+              position: (people.length) ? 'absolute' : 'relative'
+            } } source={ require('../../assets/mockup/ker0olos.jpeg') }/>
+  
+            {
+              people.map((source, i) =>
+              {
+                return <Image
+                  key={ i }
+                  style={ (i === 0) ? styles.avatar : styles.mostlyAvatar }
+                  source={ source }
+                />;
+              })
+            }
+          </Button>
 
         </View>
-
-        <Button
-          buttonStyle={ styles.button }
-          testID={ 'tb-options' }
-          onPress={ () => this.setState({ menu: menu ^ true }) }
-        >
-          {/* eslint-disable-next-line react-native/no-inline-styles */}
-          <Image style={ {
-            ...styles.avatar,
-            position: (people.length) ? 'absolute' : 'relative'
-          } } source={ require('../../assets/mockup/ker0olos.jpeg') }/>
-          
-          {
-            people.map((source, i) =>
-            {
-              return <Image
-                key={ i }
-                style={ (i === 0) ? styles.avatar : styles.mostlyAvatar }
-                source={ source }
-              />;
-            })
-          }
-        </Button>
-
       </View>
     );
   }
@@ -131,11 +160,18 @@ const styles = StyleSheet.create({
     borderRadius: 38
   },
 
+  holder: {
+    zIndex: 3,
+    position: 'absolute',
+
+    backgroundColor: colors.blackBackground
+  },
+
   menu: {
     zIndex: 3,
     position: 'absolute',
 
-    backgroundColor: 'yellow',
+    backgroundColor: colors.menuBackground,
     borderRadius: 15
   }
 });

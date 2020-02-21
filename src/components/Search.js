@@ -45,11 +45,11 @@ class Search extends React.Component
     store.unsubscribe(this);
   }
 
-  scaleFont(fontSize, standardHeight)
+  scale(size, standardHeight)
   {
     standardHeight = standardHeight || 1130;
 
-    const size = (fontSize * this.state.size.height) / standardHeight;
+    size = (size * this.state.size.height) / standardHeight;
 
     return Math.round(size);
   }
@@ -111,7 +111,7 @@ class Search extends React.Component
 
         <TextInput style={ {
           ...styles.input,
-          fontSize: this.scaleFont(24),
+          fontSize: this.scale(24),
           left: searchBarLeft,
           width: searchBarInputWidth
         } }
