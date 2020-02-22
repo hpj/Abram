@@ -9,6 +9,9 @@ import NavigationView from './components/NavigationView.js';
 import TopBar from './components/TopBar.js';
 import BottomNavigation from './components/BottomNavigation.js';
 
+import Inbox from './components/Inbox.js';
+import Discover from './components/Discover.js';
+
 import { load } from './loading.js';
 
 import { getStore } from './store.js';
@@ -81,11 +84,11 @@ export default class App extends React.Component
         <View style={ styles.views }>
 
           <NavigationView active={ (this.state.index === 0) }>
-            <View style={ { flex: 1, backgroundColor: 'red' } }/>
+            <Inbox/>
           </NavigationView>
 
           <NavigationView active={ (this.state.index === 1) }>
-            <View style={ { flex: 1, backgroundColor: 'green' } }/>
+            <Discover/>
           </NavigationView>
 
         </View>

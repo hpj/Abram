@@ -8,8 +8,6 @@ import { View, Animated } from 'react-native';
 
 // import Animated from 'react-native-reanimated';
 
-// import getTheme from '../colors.js';
-
 class NavigationView extends React.Component
 {
   constructor()
