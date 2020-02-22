@@ -4,6 +4,8 @@ import { StyleSheet, View } from 'react-native';
 
 import { getStore } from '../store.js';
 
+import { sizes } from '../sizes';
+
 import getTheme from '../colors.js';
 
 /**
@@ -35,7 +37,7 @@ class Inbox extends React.Component
 
   scale(size, standardHeight)
   {
-    standardHeight = standardHeight || 1130;
+    standardHeight = standardHeight || sizes.standardHeight;
 
     size = (size * this.state.size.height) / standardHeight;
 

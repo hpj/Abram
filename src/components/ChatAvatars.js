@@ -6,6 +6,8 @@ import Button from './Button.js';
 
 import { getStore } from '../store.js';
 
+import { sizes } from '../sizes';
+
 import getTheme from '../colors.js';
 
 /**
@@ -44,22 +46,23 @@ class ChatAvatars extends React.Component
       // require('../../assets/mockup/sisi-0.jpg')
     ];
 
-    const menuRect ={
-      // margin
+    const menuRect = {
+      // offset the menu's top from the avatar's top
       top: (menu) ? -5 : 0,
-      // negative window's width + margin + avatar width
-      left: (menu) ?  -this.state.size.width + 50 + 38 : 0,
+      // negative (window's width + window's margin + avatar width + offset)
+      left: (menu) ? -(this.state.size.width - (sizes.windowMargin * 2) - sizes.avatar - 5) : 0,
       // window's width minus margin
-      width: (menu) ? this.state.size.width - 40 : 0,
+      width: (menu) ? this.state.size.width - (sizes.windowMargin * 2) : 0,
       // 65% of window's height
       height: (menu) ? this.state.size.height * 0.65 : 0
     };
 
-    const holderRect ={
-      // top bar margin + margin
-      top: -(5 + 10),
-      // negative window's width + avatar width + top bar margin
-      left: -this.state.size.width + 38 + 20,
+    const holderRect = {
+      // the difference between the menu current and the top of the app window
+      top: -(sizes.topBarHeight - sizes.avatar),
+      // the difference between the menu current and the left side of the app window
+      // negative (window's width + avatar width + window margin)
+      left: -this.state.size.width + sizes.avatar + sizes.windowMargin,
       // window width
       width: this.state.size.width,
       // window height
@@ -128,36 +131,35 @@ class ChatAvatars extends React.Component
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: 'green',
-    minWidth: 38,
-    height: 38
+    minWidth: sizes.avatar,
+    height: sizes.avatar
   },
 
   button: {
     zIndex: 3,
     flexDirection: 'row',
 
-    minWidth: 38,
-    height: 38,
-    borderRadius: 38
+    minWidth: sizes.avatar,
+    height: sizes.avatar,
+    borderRadius: sizes.avatar
   },
 
   avatar: {
     backgroundColor: colors.roundIconBackground,
     
-    width: 38,
-    height: 38,
-    borderRadius: 38
+    width: sizes.avatar,
+    height: sizes.avatar,
+    borderRadius: sizes.avatar
   },
 
   mostlyAvatar: {
     backgroundColor: colors.roundIconBackground,
 
-    marginLeft: -(38/2),
+    marginLeft: -(sizes.avatar/2),
     
-    width: 38,
-    height: 38,
-    borderRadius: 38
+    width: sizes.avatar,
+    height: sizes.avatar,
+    borderRadius: sizes.avatar
   },
 
   holder: {

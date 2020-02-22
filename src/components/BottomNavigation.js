@@ -6,6 +6,8 @@ import Button from './Button.js';
 
 import { getStore } from '../store.js';
 
+import { sizes } from '../sizes';
+
 import getTheme from '../colors.js';
 
 /**
@@ -51,7 +53,7 @@ class BottomNavigation extends React.Component
           badgeStyle={ styles.badge }
           backgroundStyle={  (this.state.index === 0) ? styles.background : styles.backgroundInactive }
           buttonStyle={ styles.entry }
-          icon={ { name: 'inbox', size: 24, color: (this.state.index === 0) ? colors.whiteText : colors.inactiveWhiteText } }
+          icon={ { name: 'inbox', size: sizes.icon, color: (this.state.index === 0) ? colors.whiteText : colors.inactiveWhiteText } }
           onPress={ () => this.setIndex(0) }
         />
 
@@ -59,7 +61,7 @@ class BottomNavigation extends React.Component
           testID={ 'bn-discover' }
           backgroundStyle={  (this.state.index === 1) ? styles.background : styles.backgroundInactive }
           buttonStyle={ styles.entry }
-          icon={ { name: 'compass', size: 24, color: (this.state.index === 1) ? colors.whiteText : colors.inactiveWhiteText } }
+          icon={ { name: 'compass', size: sizes.icon, color: (this.state.index === 1) ? colors.whiteText : colors.inactiveWhiteText } }
           onPress={ () => this.setIndex(1) }
         />
       </View>
@@ -69,7 +71,7 @@ class BottomNavigation extends React.Component
 
 const styles = StyleSheet.create({
   container: {
-    height: 56,
+    height: sizes.navigationBar,
 
     flexDirection: 'row',
     justifyContent: 'center',
@@ -80,9 +82,9 @@ const styles = StyleSheet.create({
   badge: {
     backgroundColor: colors.whiteText,
 
-    width: 12,
-    height: 12,
-    borderRadius: 12
+    width: sizes.badge,
+    height: sizes.badge,
+    borderRadius: sizes.badge
   },
 
   background: {
@@ -91,9 +93,9 @@ const styles = StyleSheet.create({
 
     backgroundColor: colors.roundIconBackground,
     
-    width: 44,
-    height: 44,
-    borderRadius: 44
+    width: sizes.navigationBarButton,
+    height: sizes.navigationBarButton,
+    borderRadius: sizes.navigationBarButton
   },
 
   backgroundInactive: {
@@ -102,9 +104,9 @@ const styles = StyleSheet.create({
 
     backgroundColor: colors.roundIconBackgroundInactive,
     
-    width: 44,
-    height: 44,
-    borderRadius: 44
+    width: sizes.navigationBarButton,
+    height: sizes.navigationBarButton,
+    borderRadius: sizes.navigationBarButton
   },
 
   entry: {

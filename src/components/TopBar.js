@@ -10,6 +10,8 @@ import { getStore } from '../store.js';
 
 import i18n from '../i18n.js';
 
+import { sizes } from '../sizes';
+
 import getTheme from '../colors.js';
 
 /**
@@ -41,7 +43,7 @@ class TopBar extends React.Component
 
   scale(size, standardHeight)
   {
-    standardHeight = standardHeight || 1130;
+    standardHeight = standardHeight || sizes.standardHeight;
 
     size = (size * this.state.size.height) / standardHeight;
 
@@ -76,11 +78,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
 
-    height: 52,
+    height: sizes.topBarHeight,
 
-    marginTop: 5,
-    marginLeft: 20,
-    marginRight: 20
+    marginTop: sizes.topBarMiniMargin,
+
+    marginLeft: sizes.windowMargin,
+    marginRight: sizes.windowMargin
   },
 
   title: {

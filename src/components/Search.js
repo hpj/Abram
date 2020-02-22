@@ -6,6 +6,8 @@ import Button from './Button.js';
 
 import { getStore } from '../store.js';
 
+import { sizes } from '../sizes';
+
 import getTheme from '../colors.js';
 
 /**
@@ -47,7 +49,7 @@ class Search extends React.Component
 
   scale(size, standardHeight)
   {
-    standardHeight = standardHeight || 1130;
+    standardHeight = standardHeight || sizes.standardHeight;
 
     size = (size * this.state.size.height) / standardHeight;
 
@@ -74,31 +76,24 @@ class Search extends React.Component
 
     const avatarsAmount = 1;
 
-    const topBarMargin = 40;
-
-    const avatarWidth = 38;
-    const halfAvatarWidth = 38 / 2;
-
     const searchBarWidth = (maximized) ?
-    // window width
+      // window width
       this.state.size.width -
       // minus top bar margin
-      topBarMargin -
+      (sizes.windowMargin * 2)  -
       // minus this container margin
       styles.container.marginLeft -
-      // minus this container width
-      // styles.container.minWidth -
       // minus main avatar width
-      avatarWidth -
+      sizes.avatar -
       // minus the rest of avatars width
-      halfAvatarWidth * (avatarsAmount - 1) :
-      avatarWidth;
+      (sizes.avatar / 2) * (avatarsAmount - 1) :
+      sizes.avatar;
 
     // negative search bar width + container width
-    const searchBarLeft = (maximized) ? -searchBarWidth + avatarWidth : 0;
+    const searchBarLeft = (maximized) ? -searchBarWidth + sizes.avatar : 0;
 
     // search bar width - container width - margin
-    const searchBarInputWidth = (maximized) ? searchBarWidth - avatarWidth - halfAvatarWidth : 0;
+    const searchBarInputWidth = (maximized) ? searchBarWidth - sizes.avatar - (sizes.avatar / 2) : 0;
 
     return (
       <View style={ styles.container }>
@@ -123,13 +118,13 @@ class Search extends React.Component
             <Button
               testID={ 'tb-search-maximize' }
               buttonStyle={ styles.button }
-              icon={ { name: 'search', size: 24, color: colors.whiteText } }
+              icon={ { name: 'search', size: sizes.icon, color: colors.whiteText } }
               onPress={ this.maximizeSearch }
             /> :
             <Button
               testID={ 'tb-search-minimize' }
               buttonStyle={ styles.button }
-              icon={ { name: 'delete', size: 24, color: colors.whiteText } }
+              icon={ { name: 'delete', size: sizes.icon, color: colors.whiteText } }
               onPress={ this.minimizeSearch }
             />
         }
@@ -141,10 +136,8 @@ class Search extends React.Component
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: 'purple',
-
-    minWidth: 38,
-    height: 38,
+    minWidth: sizes.avatar,
+    height: sizes.avatar,
 
     marginLeft: 15,
     marginRight: 15
@@ -155,15 +148,15 @@ const styles = StyleSheet.create({
     
     backgroundColor: colors.roundIconBackground,
     
-    height: 38,
-    borderRadius: 38
+    height: sizes.avatar,
+    borderRadius: sizes.avatar
   },
 
   input: {
     position: 'absolute',
     color: colors.whiteText,
 
-    height: 38,
+    height: sizes.avatar,
     marginLeft: 15
   },
 
@@ -171,8 +164,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
 
-    width: 38,
-    height: 38
+    width: sizes.avatar,
+    height: sizes.avatar
   }
 });
 
