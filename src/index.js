@@ -3,6 +3,9 @@ import React from 'react';
 import { Dimensions } from 'react-native';
 
 import { registerRootComponent } from 'expo';
+
+import Constants from 'expo-constants';
+
 import { activateKeepAwake } from 'expo-keep-awake';
 
 import constants from 'expo-constants';
@@ -29,16 +32,16 @@ if (__DEV__)
 const store = createStore('app', {
   index: 0,
   size: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height
+    width: Dimensions.get('screen').width,
+    height: Dimensions.get('screen').height - Constants.statusBarHeight
   }
 });
 
 // update state when size changes
-Dimensions.addEventListener('change', ({ window }) => store.set({
+Dimensions.addEventListener('change', ({ screen }) => store.set({
   size: {
-    width: window.width,
-    height: window.height
+    width: screen.width,
+    height: screen.height - Constants.statusBarHeight
   }
 }));
 

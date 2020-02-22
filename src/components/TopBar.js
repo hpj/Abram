@@ -59,7 +59,7 @@ class TopBar extends React.Component
     
     return (
       <View style={ styles.container }>
-        <Text style={ { ...styles.title, fontSize: this.scale(38) } }>
+        <Text style={ { ...styles.title, fontSize: this.scale(34) } }>
           { title }
         </Text>
 

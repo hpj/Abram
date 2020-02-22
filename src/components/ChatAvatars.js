@@ -52,18 +52,18 @@ class ChatAvatars extends React.Component
       // window's width minus margin
       width: (menu) ? this.state.size.width - 40 : 0,
       // 65% of window's height
-      height: (menu) ? this.state.size.height * 0.75 : 0
+      height: (menu) ? this.state.size.height * 0.65 : 0
     };
 
     const holderRect ={
       // top bar margin + margin
-      top: -15,
+      top: -(5 + 10),
       // negative window's width + avatar width + top bar margin
       left: -this.state.size.width + 38 + 20,
       // window width
       width: this.state.size.width,
-      // window height + top bar height + top bar margin + margin
-      height: this.state.size.height + 40 + 10
+      // window height
+      height: this.state.size.height
     };
 
     const holderOpacity = (menu) ? 0.65 : 0;
