@@ -51,6 +51,9 @@ class Interactable extends React.Component
   {
     super();
 
+    // const startSpot = { y: 100 };
+    // const snapPoints = [ { y: 100 }, { y: 700 } ];
+
     const state = new Value(-1);
 
     const [ dragX, dragY ]  = [ new Value(0), new Value(0) ];
@@ -62,7 +65,7 @@ class Interactable extends React.Component
       {
         nativeEvent: {
           translationX: dragX,
-          translationY: dragY,
+          // translationY: dragY,
           state: state
         }
       }
@@ -71,6 +74,10 @@ class Interactable extends React.Component
     const [ clockX, clockY ] = [ new Clock(), new Clock() ];
 
     const [ transX, transY ] = [ new Value(0), new Value(0) ];
+
+    const snapStartX = () =>
+    {
+    };
 
     this.translateX = new Value(0);
 
@@ -92,21 +99,21 @@ class Interactable extends React.Component
       ]
     );
 
-    this.translateY = cond(
-      eq(state, State.ACTIVE), [
-        // active
-        stopClock(clockY),
-        set(transY, dragY),
-        transY
-      ], [
-        // inactive
-        set(transY, cond(
-          defined(transY),
-          runSpring(clockY, transY, 0, 0),
-          0
-        ))
-      ]
-    );
+    // this.translateY = cond(
+    //   eq(state, State.ACTIVE), [
+    //     // active
+    //     stopClock(clockY),
+    //     set(transY, dragY),
+    //     transY
+    //   ], [
+    //     // inactive
+    //     set(transY, cond(
+    //       defined(transY),
+    //       runSpring(clockY, transY, 0, 0),
+    //       0
+    //     ))
+    //   ]
+    // );
   }
 
   render()

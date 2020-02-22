@@ -2,6 +2,9 @@ Performance Issues and Bugs:
 
 Testing:
   ☐ test top bar
+    ☐ test search bar
+    ☐ test chat avatars
+    ☐ test menu
 
   ☐ expo's over-the-air updates
 

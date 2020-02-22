@@ -59,14 +59,15 @@ class ChatAvatars extends React.Component
 
     const holderRect = {
       // the difference between the menu current and the top of the app window
-      top: -(sizes.topBarHeight - sizes.avatar),
+      // negative (top bar height + avatar width + buffer)
+      top: -(sizes.topBarHeight - sizes.avatar - 5),
       // the difference between the menu current and the left side of the app window
-      // negative (window's width + avatar width + window margin)
-      left: -this.state.size.width + sizes.avatar + sizes.windowMargin,
-      // window width
-      width: this.state.size.width,
-      // window height
-      height: this.state.size.height
+      // negative (window's width + avatar width + window margin + buffer)
+      left: -this.state.size.width + sizes.avatar + sizes.windowMargin - 5,
+      // window width + buffer
+      width: this.state.size.width + 10,
+      // window height + buffer
+      height: this.state.size.height + 10
     };
 
     const holderOpacity = (menu) ? 0.65 : 0;
@@ -131,6 +132,8 @@ class ChatAvatars extends React.Component
 
 const styles = StyleSheet.create({
   container: {
+    zIndex: 3,
+
     minWidth: sizes.avatar,
     height: sizes.avatar
   },

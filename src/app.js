@@ -4,6 +4,8 @@ import { StyleSheet, StatusBar, SafeAreaView, View  } from 'react-native';
 
 import { SplashScreen } from 'expo';
 
+import BottomSheet from 'reanimated-bottom-sheet';
+
 import NavigationView from './components/NavigationView.js';
 
 import TopBar from './components/TopBar.js';
@@ -15,6 +17,8 @@ import Discover from './components/Discover.js';
 import { load } from './loading.js';
 
 import { getStore } from './store.js';
+
+import { sizes } from './sizes.js';
 
 import getTheme from './colors.js';
 
@@ -94,6 +98,31 @@ export default class App extends React.Component
         </View>
 
         <BottomNavigation/>
+
+        <View style={ {
+          ...styles.bottomSheet,
+          width: this.state.size.width,
+          height: this.state.size.height
+        } }>
+          <BottomSheet
+            snapPoints = { [ this.state.size.height, this.state.size.height / 2, 100 ] }
+            overdragResistanceFactor={ 0 }
+            // eslint-disable-next-line react-native/no-inline-styles
+            renderHeader = { () => <View style={ {
+              ...styles.bottomSheetHeader,
+              width: this.state.size.width
+            } }>
+              <View style={ styles.bottomSheetHandler }/>
+            </View> }
+            // eslint-disable-next-line react-native/no-inline-styles
+            renderContent = { () => <View style={ {
+              ...styles.bottomSheetContent,
+              width: this.state.size.width,
+              height: this.state.size.height - (sizes.topBarHeight + sizes.bottomSheetHeaderHeight)
+            } }/> }
+          />
+        </View>
+
       </SafeAreaView>
     );
   }
@@ -107,5 +136,31 @@ const styles = StyleSheet.create({
 
   views: {
     flex: 1
+  },
+
+  bottomSheet: {
+    zIndex: 2,
+    position: 'absolute'
+  },
+
+  bottomSheetHeader: {
+    backgroundColor: colors.whiteBackground,
+
+    alignItems: 'center',
+    height: sizes.topBarHeight + sizes.bottomSheetHeaderHeight
+  },
+
+  bottomSheetHandler: {
+    backgroundColor: colors.whiteText,
+
+    width: 45,
+    height: sizes.bottomSheetHeaderHeight,
+
+    marginTop: 10,
+    borderRadius: 10
+  },
+
+  bottomSheetContent: {
+    backgroundColor: 'orange'
   }
 });

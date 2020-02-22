@@ -136,6 +136,8 @@ class Search extends React.Component
 
 const styles = StyleSheet.create({
   container: {
+    zIndex: 3,
+
     minWidth: sizes.avatar,
     height: sizes.avatar,
 
