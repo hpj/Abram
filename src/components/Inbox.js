@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { StyleSheet, View } from 'react-native';
+import PropTypes from 'prop-types';
+
+import { StyleSheet, View, TouchableOpacity } from 'react-native';
 
 import { getStore } from '../store.js';
 
@@ -23,6 +25,10 @@ class Inbox extends React.Component
 
     // get store
     store = getStore('app').mount(this);
+
+    // bind functions to use as callbacks
+
+    this.onPress = this.onPress.bind(this);
   }
 
   componentDidMount()
@@ -44,6 +50,11 @@ class Inbox extends React.Component
     return Math.round(size);
   }
 
+  onPress()
+  {
+    this.props.bottomSheetSnapTp(0);
+  }
+
   render()
   {
     const people = [
@@ -63,23 +74,33 @@ class Inbox extends React.Component
         {
           people.map((entry, i) =>
           {
-            return <View
+            // TODO maybe try android ripples
+            return <TouchableOpacity
               key={ i }
-              style={ {
-                ...styles.wrapper,
-                height: this.scale(129)
-              } }
+              activeOpacity={ 0.75 }
+              onPress={ this.onPress }
             >
-              <View style={ styles.entry }>
+              <View
+                style={ {
+                  ...styles.wrapper,
+                  height: this.scale(129)
+                } }
+              >
+                <View style={ styles.entry }>
 
+                </View>
               </View>
-            </View>;
+            </TouchableOpacity>;
           })
         }
       </View>
     );
   }
 }
+
+Inbox.propTypes = {
+  bottomSheetSnapTp: PropTypes.func
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -94,9 +115,14 @@ const styles = StyleSheet.create({
     marginTop: 25
   },
 
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#DDDDDD',
+    padding: 10
+  },
+
   entry: {
     flex: 1,
-    backgroundColor: 'brown',
 
     marginLeft: 20,
     marginRight: 20

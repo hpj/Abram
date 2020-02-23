@@ -90,7 +90,7 @@ class NavigationView extends React.Component
             }
           ]
         } }
-        pointerEvents={ (active) ? 'box-only' : 'none' }
+        pointerEvents={ (active) ? 'box-none' : 'none' }
       >
         { this.props.children }
       </Animated.View>

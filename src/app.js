@@ -29,6 +29,8 @@ let store;
 
 const colors = getTheme();
 
+let bottomSheetRef;
+
 export default class App extends React.Component
 {
   constructor()
@@ -78,7 +80,17 @@ export default class App extends React.Component
   render()
   {
     if (!this.state.loaded)
+    {
       return <View/>;
+    }
+    else if (!bottomSheetRef)
+    {
+      bottomSheetRef = React.createRef();
+
+      // workaround: force a re-render to send
+      // bottomSheetRef to children
+      setTimeout(() => this.setState({}));
+    }
     
     return (
       <SafeAreaView style={ styles.container }>
@@ -88,7 +100,7 @@ export default class App extends React.Component
         <View style={ styles.views }>
 
           <NavigationView active={ (this.state.index === 0) }>
-            <Inbox/>
+            <Inbox bottomSheetSnapTp={ bottomSheetRef?.current?.snapTo }/>
           </NavigationView>
 
           <NavigationView active={ (this.state.index === 1) }>
@@ -103,9 +115,13 @@ export default class App extends React.Component
           ...styles.bottomSheet,
           width: this.state.size.width,
           height: this.state.size.height
-        } }>
+        } }
+        pointerEvents={ 'box-none' }
+        >
           <BottomSheet
-            snapPoints = { [ this.state.size.height, this.state.size.height / 2, 100 ] }
+            ref={ bottomSheetRef }
+            snapPoints = { [ this.state.size.height, 0 ] }
+            initialSnap={ 1 }
             overdragResistanceFactor={ 0 }
             // eslint-disable-next-line react-native/no-inline-styles
             renderHeader = { () => <View style={ {
