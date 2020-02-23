@@ -86,21 +86,25 @@ class Search extends React.Component
       // minus main avatar width
       sizes.avatar -
       // minus the rest of avatars width
-      (sizes.avatar / 2) * (avatarsAmount - 1) :
+      (sizes.avatar / 2) * (avatarsAmount - 1) +
+      // add offset
+      1 :
       sizes.avatar;
 
     // negative search bar width + container width
-    const searchBarLeft = (maximized) ? -searchBarWidth + sizes.avatar : 0;
+    const searchBarLeft = (maximized) ? sizes.avatar : 0;
 
     // search bar width - container width - margin
     const searchBarInputWidth = (maximized) ? searchBarWidth - sizes.avatar - (sizes.avatar / 2) : 0;
 
     return (
-      <View style={ styles.container }>
+      <View style={ {
+        ...styles.container,
+        width: searchBarWidth
+      } }>
 
         <View style={ {
           ...styles.background,
-          left: searchBarLeft,
           width: searchBarWidth
         } }/>
 
@@ -137,6 +141,7 @@ class Search extends React.Component
 const styles = StyleSheet.create({
   container: {
     zIndex: 3,
+    flexDirection: 'row-reverse',
 
     minWidth: sizes.avatar,
     height: sizes.avatar,
@@ -158,8 +163,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     color: colors.whiteText,
 
-    height: sizes.avatar,
-    marginLeft: 15
+    height: sizes.avatar
   },
 
   button: {

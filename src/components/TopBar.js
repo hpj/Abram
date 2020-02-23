@@ -65,9 +65,10 @@ class TopBar extends React.Component
           { title }
         </Text>
 
-        <Search/>
-
-        <ChatAvatars/>
+        <View style={ styles.controls }>
+          <Search/>
+          <ChatAvatars/>
+        </View>
       </View>
     );
   }
@@ -84,6 +85,13 @@ const styles = StyleSheet.create({
 
     marginLeft: sizes.windowMargin,
     marginRight: sizes.windowMargin
+  },
+
+  controls: {
+    position: 'absolute',
+    flexDirection: 'row',
+
+    right: 0
   },
 
   title: {
