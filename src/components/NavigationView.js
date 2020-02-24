@@ -13,12 +13,6 @@ class NavigationView extends React.Component
   constructor()
   {
     super();
-
-    this.state = {
-      animating: false
-    };
-
-    this.clock = new Animated.Clock();
   }
 
   componentDidMount()
@@ -36,16 +30,11 @@ class NavigationView extends React.Component
 
     if (active !== this.props.active)
     {
-      this.setState({ animating: true }, () =>
-      {
-        Animated
-          .timing(this.progress, {
-            duration: 150,
-            toValue: (active) ? 1 : 0,
-            easing: Easing.linear
-          })
-          .start(() => this.setState({ animating: false }));
-      });
+      Animated.timing(this.progress, {
+        duration: 150,
+        toValue: (active) ? 1 : 0,
+        easing: Easing.linear
+      }).start();
     }
   }
 

@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { StyleSheet, View, TextInput } from 'react-native';
+import { StyleSheet, TextInput } from 'react-native';
+
+import Animated, { Easing } from 'react-native-reanimated';
 
 import Button from './Button.js';
 
@@ -17,6 +19,8 @@ let store;
 
 const colors = getTheme();
 
+Animated.TextInput = Animated.createAnimatedComponent(TextInput);
+
 class Search extends React.Component
 {
   constructor()
@@ -28,13 +32,10 @@ class Search extends React.Component
 
     this.state = {
       maximized: false,
-      ...store.mount(this).state
+      ...store.state
     };
-    
-    // bind functions to use as callbacks
 
-    this.minimizeSearch = this.minimizeSearch.bind(this);
-    this.maximizeSearch = this.maximizeSearch.bind(this);
+    this.progress = new Animated.Value(0);
   }
   
   componentDidMount()
@@ -56,18 +57,17 @@ class Search extends React.Component
     return Math.round(size);
   }
 
-  minimizeSearch()
+  onPress(maximize)
   {
     this.setState({
-      maximized: false
+      maximized: maximize
     });
-  }
 
-  maximizeSearch()
-  {
-    this.setState({
-      maximized: true
-    });
+    Animated.timing(this.progress, {
+      duration: 100,
+      toValue: (maximize) ? 1 : 0,
+      easing: Easing.cubic
+    }).start();
   }
 
   render()
@@ -76,42 +76,65 @@ class Search extends React.Component
 
     const avatarsAmount = 1;
 
-    const searchBarWidth = (maximized) ?
-      // window width
-      this.state.size.width -
-      // minus top bar margin
-      (sizes.windowMargin * 2)  -
-      // minus this container margin
-      styles.container.marginLeft -
-      // minus main avatar width
-      sizes.avatar -
-      // minus the rest of avatars width
-      (sizes.avatar / 2) * (avatarsAmount - 1) +
-      // add offset
-      1 :
-      sizes.avatar;
+    const searchBarMinWidth = sizes.avatar;
 
-    // negative search bar width + container width
-    const searchBarLeft = (maximized) ? sizes.avatar : 0;
+    const searchBarMaxWidth =
+    // window width
+    this.state.size.width -
+    // minus top bar margin
+    (sizes.windowMargin * 2)  -
+    // minus this container margin
+    styles.container.marginLeft -
+    // minus main avatar width
+    sizes.avatar -
+    // minus the rest of avatars width
+    (sizes.avatar / 2) * (avatarsAmount - 1) +
+    // add offset
+    1;
 
-    // search bar width - container width - margin
-    const searchBarInputWidth = (maximized) ? searchBarWidth - sizes.avatar - (sizes.avatar / 2) : 0;
+    const searchBarWidth =
+    this.progress.interpolate({
+      inputRange: [ 0, 1 ],
+      outputRange: [
+        searchBarMinWidth,
+        searchBarMaxWidth
+      ]
+    });
+
+    const searchBarInputLeft =
+    this.progress.interpolate({
+      inputRange: [ 0, 1 ],
+      outputRange: [
+        0,
+        sizes.avatar
+      ]
+    });
+
+    const searchBarInputWidth =
+    this.progress.interpolate({
+      inputRange: [ 0, 1 ],
+      outputRange: [
+        0,
+        // search bar width - container width - margin
+        searchBarMaxWidth - sizes.avatar - (sizes.avatar / 2)
+      ]
+    });
 
     return (
-      <View style={ {
+      <Animated.View style={ {
         ...styles.container,
         width: searchBarWidth
       } }>
 
-        <View style={ {
+        <Animated.View style={ {
           ...styles.background,
           width: searchBarWidth
         } }/>
 
-        <TextInput style={ {
+        <Animated.TextInput style={ {
           ...styles.input,
           fontSize: this.scale(24),
-          left: searchBarLeft,
+          left: searchBarInputLeft,
           width: searchBarInputWidth
         } }
         placeholder={ 'Search' }
@@ -123,17 +146,16 @@ class Search extends React.Component
               testID={ 'tb-search-maximize' }
               buttonStyle={ styles.button }
               icon={ { name: 'search', size: sizes.icon, color: colors.whiteText } }
-              onPress={ this.maximizeSearch }
+              onPress={ () => this.onPress(true) }
             /> :
             <Button
               testID={ 'tb-search-minimize' }
               buttonStyle={ styles.button }
               icon={ { name: 'delete', size: sizes.icon, color: colors.whiteText } }
-              onPress={ this.minimizeSearch }
+              onPress={ () => this.onPress(false) }
             />
         }
-
-      </View>
+      </Animated.View>
     );
   }
 }
