@@ -30,7 +30,10 @@ if (__DEV__)
 
 // create app-wide store
 const store = createStore('app', {
+  // used to change the current view aka route
   index: 0,
+  // used to control the pointer events of the app holder view
+  holder: false,
   size: {
     width: Dimensions.get('screen').width,
     height: Dimensions.get('screen').height - Constants.statusBarHeight

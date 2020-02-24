@@ -92,26 +92,17 @@ class Search extends React.Component
     // add offset
     1;
 
-    const searchBarWidth =
-    this.progress.interpolate({
+    const searchBarWidth = this.progress.interpolate({
       inputRange: [ 0, 1 ],
-      outputRange: [
-        searchBarMinWidth,
-        searchBarMaxWidth
-      ]
+      outputRange: [ searchBarMinWidth, searchBarMaxWidth ]
     });
 
-    const searchBarInputLeft =
-    this.progress.interpolate({
+    const searchBarInputLeft = this.progress.interpolate({
       inputRange: [ 0, 1 ],
-      outputRange: [
-        0,
-        sizes.avatar
-      ]
+      outputRange: [ 0, sizes.avatar ]
     });
 
-    const searchBarInputWidth =
-    this.progress.interpolate({
+    const searchBarInputWidth = this.progress.interpolate({
       inputRange: [ 0, 1 ],
       outputRange: [
         0,

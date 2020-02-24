@@ -79,7 +79,7 @@ class TopBar extends React.Component
 
         <View style={ styles.controls }>
           <Search/>
-          <ChatAvatars/>
+          <ChatAvatars holderNode={ this.props.holderNode }/>
         </View>
       </Animated.View>
     );
@@ -87,12 +87,13 @@ class TopBar extends React.Component
 }
 
 TopBar.propTypes = {
+  holderNode: PropTypes.object,
   bottomSheetNode: PropTypes.object
 };
 
 const styles = StyleSheet.create({
   container: {
-    zIndex: 3,
+    zIndex: 4,
     flexDirection: 'row',
     alignItems: 'center',
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyleSheet, StatusBar, SafeAreaView, View  } from 'react-native';
+import { StyleSheet, StatusBar, SafeAreaView, View, TouchableWithoutFeedback  } from 'react-native';
 
 import { SplashScreen } from 'expo';
 
@@ -32,6 +32,8 @@ let store;
 const colors = getTheme();
 
 const bottomSheetNode = new Animated.Value();
+
+const holderNode = new Animated.Value(0);
 
 const bottomSheetRef = React.createRef();
 
@@ -67,7 +69,7 @@ export default class App extends React.Component
           // allow app UI to be rendered
           this.setState({ loaded: true }, () =>
           {
-            this.setState({}, this.componentDidMount);
+            this.forceUpdate(this.componentDidMount);
           });
   
           // set status-bar style
@@ -97,10 +99,15 @@ export default class App extends React.Component
     if (!this.state.loaded)
       return <View/>;
   
+    const holderOpacity = holderNode.interpolate({
+      inputRange: [ 0, 1 ],
+      outputRange: [ 0, 0.65 ]
+    });
+
     return (
       <SafeAreaView style={ styles.container }>
 
-        <TopBar bottomSheetNode={ bottomSheetNode }/>
+        <TopBar holderNode={ holderNode } bottomSheetNode={ bottomSheetNode }/>
 
         <View style={ styles.views }>
 
@@ -113,6 +120,18 @@ export default class App extends React.Component
           </NavigationView>
 
         </View>
+
+        <TouchableWithoutFeedback>
+          <Animated.View style={ {
+            ...styles.holder,
+            
+            width: this.state.size.width,
+            height: this.state.size.height,
+
+            opacity: holderOpacity
+          } }
+          pointerEvents={ (this.state.holder) ? 'box-only' : 'none' }/>
+        </TouchableWithoutFeedback>
 
         <BottomNavigation/>
 
@@ -176,6 +195,13 @@ const styles = StyleSheet.create({
   bottomSheet: {
     zIndex: 2,
     position: 'absolute'
+  },
+
+  holder: {
+    zIndex: 3,
+    position: 'absolute',
+
+    backgroundColor: colors.blackBackground
   },
 
   bottomSheetHeader: {
