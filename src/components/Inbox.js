@@ -52,7 +52,7 @@ class Inbox extends React.Component
 
   onPress()
   {
-    this.props.bottomSheetSnapTp(0);
+    this.props.bottomSheetSnapTo(1);
   }
 
   render()
@@ -99,7 +99,7 @@ class Inbox extends React.Component
 }
 
 Inbox.propTypes = {
-  bottomSheetSnapTp: PropTypes.func
+  bottomSheetSnapTo: PropTypes.func
 };
 
 const styles = StyleSheet.create({

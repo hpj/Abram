@@ -73,8 +73,7 @@ class ChatAvatars extends React.Component
     const holderOpacity = (menu) ? 0.65 : 0;
 
     return (
-      <View style={ styles.wrapper }>
-
+      <View>
         <TouchableWithoutFeedback
           onPress={ () => this.setState({ menu: false }) }
         >

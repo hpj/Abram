@@ -5,7 +5,7 @@ export const sizes = {
 
   topBarHeight: 52,
   topBarMiniMargin: 5,
-  topBarBigMargin: 5,
+  topBarBigMargin: 15,
 
   badge: 12,
   navigationBar: 56,

@@ -4,6 +4,8 @@ import { StyleSheet, StatusBar, SafeAreaView, View  } from 'react-native';
 
 import { SplashScreen } from 'expo';
 
+import Animated from 'react-native-reanimated';
+
 import BottomSheet from 'reanimated-bottom-sheet';
 
 import NavigationView from './components/NavigationView.js';
@@ -29,7 +31,9 @@ let store;
 
 const colors = getTheme();
 
-let bottomSheetRef;
+const bottomSheetNode = new Animated.Value();
+
+const bottomSheetRef = React.createRef();
 
 export default class App extends React.Component
 {
@@ -43,33 +47,44 @@ export default class App extends React.Component
 
   componentDidMount()
   {
-    SplashScreen.preventAutoHide();
-
-    store.subscribe(this);
-
-    // load resource and cache on app-start
-    // crashes the app if loading encounters an error
-    load((error) =>
+    if (!this.state.loaded)
     {
-      // encountered an error during loading
-      if (error)
-      {
-        throw new Error(error);
-      }
-      else
-      {
-        // allow UI to be rendered
-        store.set({ loaded: true });
-
-        // set status-bar style
-        StatusBar.setBackgroundColor(colors.whiteBackground);
-        // StatusBar.setBarStyle((colors.theme === 'dark') ? 'light-content' : 'dark-content');
-        StatusBar.setBarStyle('light-content');
+      SplashScreen.preventAutoHide();
   
-        // hides the splash screen and shows the app
-        SplashScreen.hide();
-      }
-    });
+      store.subscribe(this);
+  
+      // load resource and cache on app-start
+      // crashes the app if loading encounters an error
+      load((error) =>
+      {
+        // encountered an error during loading
+        if (error)
+        {
+          throw new Error(error);
+        }
+        else
+        {
+          // allow app UI to be rendered
+          this.setState({ loaded: true }, () =>
+          {
+            this.setState({}, this.componentDidMount);
+          });
+  
+          // set status-bar style
+          StatusBar.setBackgroundColor(colors.whiteBackground);
+          // StatusBar.setBarStyle((colors.theme === 'dark') ? 'light-content' : 'dark-content');
+          StatusBar.setBarStyle('light-content');
+    
+          // hides the splash screen and shows the app
+          SplashScreen.hide();
+        }
+      });
+    }
+    else
+    {
+      // fix the top bar margin being on reverse when the app starts
+      bottomSheetNode.setValue(1);
+    }
   }
 
   componentWillUnmount()
@@ -80,27 +95,17 @@ export default class App extends React.Component
   render()
   {
     if (!this.state.loaded)
-    {
       return <View/>;
-    }
-    else if (!bottomSheetRef)
-    {
-      bottomSheetRef = React.createRef();
-
-      // workaround: force a re-render to send
-      // bottomSheetRef to children
-      setTimeout(() => this.setState({}));
-    }
-    
+  
     return (
       <SafeAreaView style={ styles.container }>
 
-        <TopBar/>
+        <TopBar bottomSheetNode={ bottomSheetNode }/>
 
         <View style={ styles.views }>
 
           <NavigationView active={ (this.state.index === 0) }>
-            <Inbox bottomSheetSnapTp={ bottomSheetRef?.current?.snapTo }/>
+            <Inbox bottomSheetSnapTo={ bottomSheetRef.current?.snapTo }/>
           </NavigationView>
 
           <NavigationView active={ (this.state.index === 1) }>
@@ -120,22 +125,36 @@ export default class App extends React.Component
         >
           <BottomSheet
             ref={ bottomSheetRef }
-            snapPoints = { [ this.state.size.height, 0 ] }
-            initialSnap={ 1 }
+            callbackNode={ bottomSheetNode }
+
+            snapPoints = { [ 0, this.state.size.height ] }
+            
             overdragResistanceFactor={ 0 }
-            // eslint-disable-next-line react-native/no-inline-styles
-            renderHeader = { () => <View style={ {
-              ...styles.bottomSheetHeader,
-              width: this.state.size.width
-            } }>
-              <View style={ styles.bottomSheetHandler }/>
-            </View> }
-            // eslint-disable-next-line react-native/no-inline-styles
-            renderContent = { () => <View style={ {
-              ...styles.bottomSheetContent,
-              width: this.state.size.width,
-              height: this.state.size.height - (sizes.topBarHeight + sizes.bottomSheetHeaderHeight)
-            } }/> }
+
+            renderHeader = {
+              () =>
+                <View style={ styles.bottomSheetHeader }>
+                  <View style={ styles.bottomSheetHandler }/>
+
+                  <View style={ {
+                    ...styles.bottomSheetHeaderContent,
+                    width: this.state.size.width - (sizes.windowMargin * 2)
+                  } }>
+                    {/* <View/> */}
+                  </View>
+                </View>
+            }
+
+            renderContent = {
+              () =>
+                <View style={ {
+                  ...styles.bottomSheetContent,
+                  width: this.state.size.width,
+                  height: this.state.size.height - (sizes.topBarHeight + sizes.bottomSheetHeaderHeight)
+                } }>
+                  {/* <View/> */}
+                </View>
+            }
           />
         </View>
 
@@ -160,20 +179,30 @@ const styles = StyleSheet.create({
   },
 
   bottomSheetHeader: {
-    backgroundColor: colors.whiteBackground,
-
     alignItems: 'center',
-    height: sizes.topBarHeight + sizes.bottomSheetHeaderHeight
+    backgroundColor: colors.whiteBackground,
+    backgroundColor: 'green',
+
+    height: sizes.topBarHeight + sizes.topBarBigMargin
   },
 
   bottomSheetHandler: {
     backgroundColor: colors.whiteText,
 
     width: 45,
-    height: sizes.bottomSheetHeaderHeight,
+    height: 5,
 
     marginTop: 10,
     borderRadius: 10
+  },
+
+  bottomSheetHeaderContent: {
+    flex: 1,
+
+    backgroundColor: 'brown',
+
+    marginLeft: sizes.windowMargin,
+    marginRight: sizes.windowMargin
   },
 
   bottomSheetContent: {

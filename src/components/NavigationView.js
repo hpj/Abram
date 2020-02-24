@@ -4,9 +4,9 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import { View, Animated } from 'react-native';
+import { View } from 'react-native';
 
-// import Animated from 'react-native-reanimated';
+import Animated, { Easing } from 'react-native-reanimated';
 
 class NavigationView extends React.Component
 {
@@ -15,27 +15,23 @@ class NavigationView extends React.Component
     super();
 
     this.state = {
-      /** @type { Animated.Value } */
-      progress: undefined
+      animating: false
     };
+
+    this.clock = new Animated.Clock();
   }
 
   componentDidMount()
   {
     const { active } = this.props;
 
-    this.setState({
-      animating: false,
-      progress: new Animated.Value((active) ? 1 : 0)
-    });
+    this.progress = new Animated.Value((active) ? 1 : 0);
   }
 
   // eslint-disable-next-line camelcase
   UNSAFE_componentWillReceiveProps({ active })
   {
-    const { progress } = this.state;
-    
-    if (!progress)
+    if (!this.progress)
       return;
 
     if (active !== this.props.active)
@@ -43,10 +39,10 @@ class NavigationView extends React.Component
       this.setState({ animating: true }, () =>
       {
         Animated
-          .timing(progress, {
-            toValue: (active) ? 1 : 0,
+          .timing(this.progress, {
             duration: 150,
-            useNativeDriver: true
+            toValue: (active) ? 1 : 0,
+            easing: Easing.linear
           })
           .start(() => this.setState({ animating: false }));
       });
@@ -57,17 +53,17 @@ class NavigationView extends React.Component
   {
     const { active } = this.props;
 
-    if (!this.state.progress)
+    if (!this.progress)
       return <View/>;
 
     const opacity =
-      this.state.progress.interpolate({
+      this.progress.interpolate({
         inputRange: [ 0, 1 ],
         outputRange: [ 0, 1 ]
       });
     
     const scale =
-    this.state.progress.interpolate({
+    this.progress.interpolate({
       inputRange: [ 0, 1 ],
       outputRange: [ 0.8, 1 ]
     });
@@ -82,12 +78,8 @@ class NavigationView extends React.Component
           bottom: 0,
           opacity: opacity,
           transform: [
-            {
-              scaleX: scale
-            },
-            {
-              scaleY: scale
-            }
+            { scaleX: scale },
+            { scaleY: scale }
           ]
         } }
         pointerEvents={ (active) ? 'box-none' : 'none' }
