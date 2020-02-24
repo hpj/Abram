@@ -101,7 +101,7 @@ export default class App extends React.Component
   
     const holderOpacity = holderNode.interpolate({
       inputRange: [ 0, 1 ],
-      outputRange: [ 0, 0.65 ]
+      outputRange: [ 0, 0.75 ]
     });
 
     return (

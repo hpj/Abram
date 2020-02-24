@@ -35,6 +35,8 @@ class ChatAvatars extends React.Component
       ...store.state
     };
 
+    this.progress = new Animated.Value(0);
+
     // bind functions to use as callbacks
     this.onPress = this.onPress.bind(this);
   }
@@ -51,51 +53,59 @@ class ChatAvatars extends React.Component
 
   onPress()
   {
-    const reverse = this.state.menu ^ true;
-
-    // TODO
-    this.setState({ menu: reverse });
+    this.menu = this.menu ^ true;
 
     // control app's holder view
-    store.set({ holder: reverse });
+    store.set({ holder: this.menu });
+
+    Animated.timing(this.progress, {
+      duration: 200,
+      toValue: (this.menu) ? 1 : 0,
+      easing: Easing.circle
+    }).start();
 
     Animated.timing(this.props.holderNode, {
-      duration: 150,
-      toValue: (reverse) ? 1 : 0,
-      easing: Easing.linear
+      duration: 300,
+      toValue: (this.menu) ? 1 : 0,
+      easing: Easing.circle
     }).start();
   }
 
   render()
   {
-    const { menu } = this.state;
-    
     const people = [
       // require('../../assets/mockup/dina-0.jpg'),
       // require('../../assets/mockup/sisi-0.jpg')
     ];
 
-    const menuRect = {
-      // offset the menu's top from the avatar's top
-      top: (menu) ? -5 : 0,
-      // negative (window's width + window's margin + avatar width + offset)
-      left: (menu) ? -(this.state.size.width - sizes.windowMargin - sizes.avatar - 10) : 0,
-      // window's width minus margin
-      width: (menu) ? this.state.size.width - sizes.windowMargin : 0,
+    const menuWidth = this.progress.interpolate({
+      inputRange: [ 0, 1 ],
+      // window's width - window's margin - margin
+      outputRange: [ (this.state.size.width - sizes.windowMargin - 10) / 2, this.state.size.width - sizes.windowMargin - 10 ]
+    });
+
+    const menuHeight = this.progress.interpolate({
+      inputRange: [ 0, 1 ],
       // 65% of window's height
-      height: (menu) ? this.state.size.height * 0.65 : 0
-    };
+      outputRange: [ 0, this.state.size.height * 0.65 ]
+    });
+
+    const menuOpacity = this.progress.interpolate({
+      inputRange: [ 0, 1 ],
+      // 65% of window's height
+      outputRange: [ 0, 1 ]
+    });
 
     return (
       <View>
         <View style={ styles.container }>
-          <View style={ {
+          <Animated.View style={ {
             ...styles.menu,
-            top: menuRect.top,
-            left: menuRect.left,
 
-            width: menuRect.width,
-            height: menuRect.height
+            width: menuWidth,
+            height: menuHeight,
+
+            opacity: menuOpacity
           } }
           />
 
@@ -104,6 +114,7 @@ class ChatAvatars extends React.Component
             buttonStyle={ styles.button }
             onPress={ this.onPress }
           >
+            {/* eslint-disable-next-line react-native/no-inline-styles */}
             <Image style={ {
               ...styles.avatar,
               position: (people.length) ? 'absolute' : 'relative'
@@ -167,6 +178,9 @@ const styles = StyleSheet.create({
   menu: {
     zIndex: 4,
     position: 'absolute',
+
+    top: -5,
+    right: -5,
 
     backgroundColor: colors.menuBackground,
     borderRadius: 15

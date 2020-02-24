@@ -66,7 +66,7 @@ class Search extends React.Component
     Animated.timing(this.progress, {
       duration: 100,
       toValue: (maximize) ? 1 : 0,
-      easing: Easing.cubic
+      easing: Easing.linear
     }).start();
   }
 
