@@ -19,7 +19,7 @@ let store;
 
 const colors = getTheme();
 
-Animated.TextInput = Animated.createAnimatedComponent(TextInput);
+const AnimatedTextInput = Animated.createAnimatedComponent(TextInput);
 
 class Search extends React.Component
 {
@@ -122,7 +122,7 @@ class Search extends React.Component
           width: searchBarWidth
         } }/>
 
-        <Animated.TextInput style={ {
+        <AnimatedTextInput style={ {
           ...styles.input,
           fontSize: this.scale(24),
           left: searchBarInputLeft,

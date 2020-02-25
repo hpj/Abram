@@ -86,7 +86,7 @@ class TopBar extends React.Component
           marginTop: marginTop
         } }>
           <Search/>
-          <ChatAvatars holderNode={ this.props.holderNode }/>
+          <ChatAvatars holderNode={ this.props.holderNode } bottomSheetNode={ this.props.bottomSheetNode }/>
         </Animated.View>
       </View>
     );

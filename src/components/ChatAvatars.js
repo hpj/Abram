@@ -23,6 +23,8 @@ let store;
 
 const colors = getTheme();
 
+const AnimatedImage = Animated.createAnimatedComponent(Image);
+
 class ChatAvatars extends React.Component
 {
   constructor()
@@ -76,8 +78,8 @@ class ChatAvatars extends React.Component
   render()
   {
     const people = [
-      // require('../../assets/mockup/dina-0.jpg'),
-      // require('../../assets/mockup/sisi-0.jpg')
+      require('../../assets/mockup/dina-0.jpg'),
+      require('../../assets/mockup/sisi-0.jpg')
     ];
 
     const menuWidth = this.progress.interpolate({
@@ -96,6 +98,26 @@ class ChatAvatars extends React.Component
       inputRange: [ 0, 1 ],
       // 65% of window's height
       outputRange: [ 0, 1 ]
+    });
+
+    const avatarOpacity = Animated.interpolate(this.props.bottomSheetNode, {
+      inputRange: [ 0, 1 ],
+      outputRange: [ 1, 0 ]
+    });
+
+    const reverseAvatarOpacity = Animated.interpolate(this.props.bottomSheetNode, {
+      inputRange: [ 0, 1 ],
+      outputRange: [ 0, 1 ]
+    });
+
+    const avatarWidth = Animated.interpolate(this.props.bottomSheetNode, {
+      inputRange: [ 0, 1 ],
+      outputRange: [ (sizes.avatar / 2), 0 ]
+    });
+
+    const avatarMarginLeft = Animated.interpolate(this.props.bottomSheetNode, {
+      inputRange: [ 0, 1 ],
+      outputRange: [ -(sizes.avatar / 2), (sizes.avatar / 2) ]
     });
 
     return (
@@ -119,19 +141,29 @@ class ChatAvatars extends React.Component
               onPress={ this.onPress }
             >
               {/* eslint-disable-next-line react-native/no-inline-styles */}
-              <Image style={ {
+              <AnimatedImage style={ {
                 ...styles.avatar,
-                position: (people.length) ? 'absolute' : 'relative'
+                position: (people.length) ? 'absolute' : 'relative',
+                opacity: reverseAvatarOpacity
               } } source={ require('../../assets/mockup/ker0olos.jpeg') }/>
     
               {
                 people.map((source, i) =>
                 {
-                  return <Image
-                    key={ i }
-                    style={ (i === 0) ? styles.avatar : styles.mostlyAvatar }
-                    source={ source }
-                  />;
+                  return <Animated.View View key={ i } style={ {
+                    ...styles.avatarContainer,
+                    opacity: avatarOpacity,
+                    width: (i === 0) ? sizes.avatar : avatarWidth
+                  } }>
+                    <AnimatedImage
+                      // eslint-disable-next-line react-native/no-inline-styles
+                      style={ {
+                        ...styles.avatar,
+                        marginLeft: (i === 0) ? 0 : avatarMarginLeft
+                      } }
+                      source={ source }
+                    />
+                  </Animated.View>;
                 })
               }
             </Button>
@@ -144,7 +176,8 @@ class ChatAvatars extends React.Component
 }
 
 ChatAvatars.propTypes = {
-  holderNode: PropTypes.object
+  holderNode: PropTypes.object,
+  bottomSheetNode: PropTypes.object
 };
 
 const styles = StyleSheet.create({
@@ -169,19 +202,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
 
-  avatar: {
-    backgroundColor: colors.roundIconBackground,
-    
-    width: sizes.avatar,
+  avatarContainer: {
     height: sizes.avatar,
     borderRadius: sizes.avatar
   },
 
-  mostlyAvatar: {
+  avatar: {
     backgroundColor: colors.roundIconBackground,
 
-    marginLeft: -(sizes.avatar/2),
-    
     width: sizes.avatar,
     height: sizes.avatar,
     borderRadius: sizes.avatar
