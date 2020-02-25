@@ -76,7 +76,6 @@ class Inbox extends React.Component
         {
           people.map((entry, i) =>
           {
-            // TODO maybe try android ripples
             return <Button
               key={ i }
               borderless={ false }
@@ -106,8 +105,7 @@ Inbox.propTypes = {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: 'red'
+    flex: 1
   },
 
   wrapper: {

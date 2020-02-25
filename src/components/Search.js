@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyleSheet, TextInput } from 'react-native';
+import { StyleSheet, View, TextInput } from 'react-native';
 
 import Animated, { Easing } from 'react-native-reanimated';
 
@@ -131,23 +131,26 @@ class Search extends React.Component
         placeholder={ 'Search' }
         />
 
-        {
-          (!maximized) ?
-            <Button
-              testID={ 'tb-search-maximize' }
-              borderless={ true }
-              buttonStyle={ styles.button }
-              icon={ { name: 'search', size: sizes.icon, color: colors.whiteText } }
-              onPress={ () => this.onPress(true) }
-            /> :
-            <Button
-              testID={ 'tb-search-minimize' }
-              borderless={ true }
-              buttonStyle={ styles.button }
-              icon={ { name: 'delete', size: sizes.icon, color: colors.whiteText } }
-              onPress={ () => this.onPress(false) }
-            />
-        }
+        <View style={ styles.wrapper }>
+          {
+            (!maximized) ?
+              <Button
+                testID={ 'tb-search-maximize' }
+                borderless={ true }
+                buttonStyle={ styles.button }
+                icon={ { name: 'search', size: sizes.icon, color: colors.whiteText } }
+                onPress={ () => this.onPress(true) }
+              /> :
+              <Button
+                testID={ 'tb-search-minimize' }
+                borderless={ true }
+                buttonStyle={ styles.button }
+                icon={ { name: 'delete', size: sizes.icon, color: colors.whiteText } }
+                onPress={ () => this.onPress(false) }
+              />
+          }
+        </View>
+
       </Animated.View>
     );
   }
@@ -179,6 +182,14 @@ const styles = StyleSheet.create({
     color: colors.whiteText,
 
     height: sizes.avatar
+  },
+
+  wrapper: {
+    zIndex: 1,
+    
+    width: sizes.avatar,
+    height: sizes.avatar,
+    borderRadius: sizes.avatar
   },
 
   button: {

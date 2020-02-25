@@ -94,13 +94,11 @@ TopBar.propTypes = {
 const styles = StyleSheet.create({
   container: {
     zIndex: 4,
+    
     flexDirection: 'row',
     alignItems: 'center',
 
-    height: sizes.topBarHeight,
-
-    marginLeft: sizes.windowMargin,
-    marginRight: sizes.windowMargin
+    height: sizes.topBarHeight
   },
 
   controls: {
@@ -120,7 +118,9 @@ const styles = StyleSheet.create({
 
     flex: 1,
     color: colors.whiteText,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+
+    marginLeft: sizes.windowMargin
   }
 });
 

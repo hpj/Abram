@@ -109,29 +109,31 @@ class ChatAvatars extends React.Component
           } }
           />
 
-          <Button
-            testID={ 'tb-options' }
-            borderless={ true }
-            buttonStyle={ styles.button }
-            onPress={ this.onPress }
-          >
-            {/* eslint-disable-next-line react-native/no-inline-styles */}
-            <Image style={ {
-              ...styles.avatar,
-              position: (people.length) ? 'absolute' : 'relative'
-            } } source={ require('../../assets/mockup/ker0olos.jpeg') }/>
-  
-            {
-              people.map((source, i) =>
+          <View style={ styles.wrapper }>
+            <Button
+              testID={ 'tb-options' }
+              borderless={ true }
+              buttonStyle={ styles.button }
+              onPress={ this.onPress }
+            >
+              {/* eslint-disable-next-line react-native/no-inline-styles */}
+              <Image style={ {
+                ...styles.avatar,
+                position: (people.length) ? 'absolute' : 'relative'
+              } } source={ require('../../assets/mockup/ker0olos.jpeg') }/>
+    
               {
-                return <Image
-                  key={ i }
-                  style={ (i === 0) ? styles.avatar : styles.mostlyAvatar }
-                  source={ source }
-                />;
-              })
-            }
-          </Button>
+                people.map((source, i) =>
+                {
+                  return <Image
+                    key={ i }
+                    style={ (i === 0) ? styles.avatar : styles.mostlyAvatar }
+                    source={ source }
+                  />;
+                })
+              }
+            </Button>
+          </View>
 
         </View>
       </View>
@@ -145,17 +147,24 @@ ChatAvatars.propTypes = {
 
 const styles = StyleSheet.create({
   container: {
+    zIndex: 5,
+
     minWidth: sizes.avatar,
     height: sizes.avatar
   },
 
-  button: {
+  wrapper: {
     zIndex: 5,
-    flexDirection: 'row',
 
     minWidth: sizes.avatar,
     height: sizes.avatar,
-    borderRadius: sizes.avatar
+    borderRadius: sizes.avatar,
+    
+    marginRight: sizes.windowMargin
+  },
+
+  button: {
+    flexDirection: 'row'
   },
 
   avatar: {
