@@ -22,6 +22,8 @@ import { getStore } from './store.js';
 
 import { sizes } from './sizes.js';
 
+import { depth } from './depth.js';
+
 import getTheme from './colors.js';
 
 /**
@@ -145,11 +147,8 @@ export default class App extends React.Component
           <BottomSheet
             ref={ bottomSheetRef }
             callbackNode={ bottomSheetNode }
-
             snapPoints = { [ 0, this.state.size.height ] }
             
-            overdragResistanceFactor={ 0 }
-
             renderHeader = {
               () =>
                 <View style={ styles.bottomSheetHeader }>
@@ -193,12 +192,12 @@ const styles = StyleSheet.create({
   },
 
   bottomSheet: {
-    zIndex: 2,
+    zIndex: depth.bottomSheet,
     position: 'absolute'
   },
 
   holder: {
-    zIndex: 3,
+    zIndex: depth.handler,
     position: 'absolute',
 
     backgroundColor: colors.blackBackground
@@ -232,6 +231,7 @@ const styles = StyleSheet.create({
   },
 
   bottomSheetContent: {
+    // backgroundColor: colors.whiteBackground
     backgroundColor: 'orange'
   }
 });

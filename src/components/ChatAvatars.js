@@ -12,6 +12,8 @@ import { getStore } from '../store.js';
 
 import { sizes } from '../sizes';
 
+import { depth } from '../depth.js';
+
 import getTheme from '../colors.js';
 
 /**
@@ -147,14 +149,14 @@ ChatAvatars.propTypes = {
 
 const styles = StyleSheet.create({
   container: {
-    zIndex: 5,
+    zIndex: depth.menuAvatar,
 
     minWidth: sizes.avatar,
     height: sizes.avatar
   },
 
   wrapper: {
-    zIndex: 5,
+    zIndex: depth.menuAvatar,
 
     minWidth: sizes.avatar,
     height: sizes.avatar,
@@ -186,11 +188,11 @@ const styles = StyleSheet.create({
   },
 
   menu: {
-    zIndex: 4,
+    zIndex: depth.menu,
     position: 'absolute',
 
     top: -5,
-    right: -5,
+    right: 15,
 
     backgroundColor: colors.menuBackground,
     borderRadius: 15

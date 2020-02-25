@@ -158,7 +158,6 @@ class Search extends React.Component
 
 const styles = StyleSheet.create({
   container: {
-    zIndex: 3,
     flexDirection: 'row-reverse',
 
     minWidth: sizes.avatar,
@@ -185,7 +184,7 @@ const styles = StyleSheet.create({
   },
 
   wrapper: {
-    zIndex: 1,
+    zIndex: 0,
     
     width: sizes.avatar,
     height: sizes.avatar,

@@ -14,7 +14,9 @@ import { getStore } from '../store.js';
 
 import i18n from '../i18n.js';
 
-import { sizes } from '../sizes';
+import { sizes } from '../sizes.js';
+
+import { depth } from '../depth.js';
 
 import getTheme from '../colors.js';
 
@@ -69,19 +71,24 @@ class TopBar extends React.Component
     });
 
     return (
-      <Animated.View style={ {
-        ...styles.container,
-        marginTop: marginTop
-      } }>
-        <Text style={ { ...styles.title, fontSize: this.scale(34) } }>
-          { title }
-        </Text>
+      <View>
+        <Animated.View style={ {
+          ...styles.container,
+          marginTop: marginTop
+        } }>
+          <Text style={ { ...styles.title, fontSize: this.scale(34) } }>
+            { title }
+          </Text>
+        </Animated.View>
 
-        <View style={ styles.controls }>
+        <Animated.View style={ {
+          ...styles.controls,
+          marginTop: marginTop
+        } }>
           <Search/>
           <ChatAvatars holderNode={ this.props.holderNode }/>
-        </View>
-      </Animated.View>
+        </Animated.View>
+      </View>
     );
   }
 }
@@ -93,8 +100,6 @@ TopBar.propTypes = {
 
 const styles = StyleSheet.create({
   container: {
-    zIndex: 4,
-    
     flexDirection: 'row',
     alignItems: 'center',
 
@@ -102,6 +107,7 @@ const styles = StyleSheet.create({
   },
 
   controls: {
+    zIndex: depth.topBar,
     position: 'absolute',
 
     flexDirection: 'row',
