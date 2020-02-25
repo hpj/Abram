@@ -2,7 +2,9 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import { StyleSheet, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+
+import Button from '../components/Button.js';
 
 import { getStore } from '../store.js';
 
@@ -75,9 +77,9 @@ class Inbox extends React.Component
           people.map((entry, i) =>
           {
             // TODO maybe try android ripples
-            return <TouchableOpacity
+            return <Button
               key={ i }
-              activeOpacity={ 0.75 }
+              borderless={ false }
               onPress={ this.onPress }
             >
               <View
@@ -90,7 +92,7 @@ class Inbox extends React.Component
 
                 </View>
               </View>
-            </TouchableOpacity>;
+            </Button>;
           })
         }
       </View>
@@ -117,13 +119,13 @@ const styles = StyleSheet.create({
 
   button: {
     alignItems: 'center',
-    backgroundColor: '#DDDDDD',
-    padding: 10
+    backgroundColor: '#DDDDDD'
   },
 
   entry: {
     flex: 1,
-
+    backgroundColor: 'green',
+    
     marginLeft: 20,
     marginRight: 20
   }

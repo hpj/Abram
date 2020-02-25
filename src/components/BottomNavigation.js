@@ -52,6 +52,7 @@ class BottomNavigation extends React.Component
           testID={ 'bn-inbox' }
           badgeStyle={ styles.badge }
           backgroundStyle={  (this.state.index === 0) ? styles.background : styles.backgroundInactive }
+          borderless={ true }
           buttonStyle={ styles.entry }
           icon={ { name: 'inbox', size: sizes.icon, color: (this.state.index === 0) ? colors.whiteText : colors.inactiveWhiteText } }
           onPress={ () => this.setIndex(0) }
@@ -60,6 +61,7 @@ class BottomNavigation extends React.Component
         <Button
           testID={ 'bn-discover' }
           backgroundStyle={  (this.state.index === 1) ? styles.background : styles.backgroundInactive }
+          borderless={ true }
           buttonStyle={ styles.entry }
           icon={ { name: 'compass', size: sizes.icon, color: (this.state.index === 1) ? colors.whiteText : colors.inactiveWhiteText } }
           onPress={ () => this.setIndex(1) }

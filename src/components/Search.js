@@ -135,12 +135,14 @@ class Search extends React.Component
           (!maximized) ?
             <Button
               testID={ 'tb-search-maximize' }
+              borderless={ true }
               buttonStyle={ styles.button }
               icon={ { name: 'search', size: sizes.icon, color: colors.whiteText } }
               onPress={ () => this.onPress(true) }
             /> :
             <Button
               testID={ 'tb-search-minimize' }
+              borderless={ true }
               buttonStyle={ styles.button }
               icon={ { name: 'delete', size: sizes.icon, color: colors.whiteText } }
               onPress={ () => this.onPress(false) }

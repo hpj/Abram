@@ -59,15 +59,15 @@ class ChatAvatars extends React.Component
     store.set({ holder: this.menu });
 
     Animated.timing(this.progress, {
-      duration: 200,
+      duration: 100,
       toValue: (this.menu) ? 1 : 0,
-      easing: Easing.circle
+      easing: Easing.linear
     }).start();
 
     Animated.timing(this.props.holderNode, {
-      duration: 300,
+      duration: 200,
       toValue: (this.menu) ? 1 : 0,
-      easing: Easing.circle
+      easing: Easing.linear
     }).start();
   }
 
@@ -111,6 +111,7 @@ class ChatAvatars extends React.Component
 
           <Button
             testID={ 'tb-options' }
+            borderless={ true }
             buttonStyle={ styles.button }
             onPress={ this.onPress }
           >
