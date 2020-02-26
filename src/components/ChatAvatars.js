@@ -145,7 +145,7 @@ class ChatAvatars extends React.Component
                 ...styles.avatar,
                 position: (people.length) ? 'absolute' : 'relative',
                 opacity: reverseAvatarOpacity
-              } } source={ require('../../assets/mockup/ker0olos.jpeg') }/>
+              } } source={ this.state.profile.avatar }/>
     
               {
                 people.map((source, i) =>
