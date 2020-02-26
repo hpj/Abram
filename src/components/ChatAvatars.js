@@ -117,6 +117,11 @@ class ChatAvatars extends React.Component
 
     const avatarMarginLeft = Animated.interpolate(this.props.bottomSheetNode, {
       inputRange: [ 0, 1 ],
+      outputRange: [ 0, (sizes.avatar / 2) ]
+    });
+
+    const halfAvatarMarginLeft = Animated.interpolate(this.props.bottomSheetNode, {
+      inputRange: [ 0, 1 ],
       outputRange: [ -(sizes.avatar / 2), (sizes.avatar / 2) ]
     });
 
@@ -159,7 +164,7 @@ class ChatAvatars extends React.Component
                       // eslint-disable-next-line react-native/no-inline-styles
                       style={ {
                         ...styles.avatar,
-                        marginLeft: (i === 0) ? 0 : avatarMarginLeft
+                        marginLeft: (i === 0) ? avatarMarginLeft : halfAvatarMarginLeft
                       } }
                       source={ source }
                     />
