@@ -76,7 +76,12 @@ class TopBar extends React.Component
           ...styles.container,
           marginTop: marginTop
         } }>
-          <Text style={ { ...styles.title, fontSize: this.scale(34) } }>
+          {/* eslint-disable-next-line react-native/no-inline-styles */}
+          <Text style={ {
+            ...styles.title,
+            opacity: (this.state.searchMaximized) ? 0 : 1,
+            fontSize: this.scale(34)
+          } }>
             { title }
           </Text>
         </Animated.View>
@@ -85,7 +90,7 @@ class TopBar extends React.Component
           ...styles.controls,
           marginTop: marginTop
         } }>
-          <Search/>
+          <Search bottomSheetNode={ this.props.bottomSheetNode }/>
           <ChatAvatars holderNode={ this.props.holderNode } bottomSheetNode={ this.props.bottomSheetNode }/>
         </Animated.View>
       </View>

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import { StyleSheet, View, TextInput } from 'react-native';
 
 import Animated, { Easing } from 'react-native-reanimated';
@@ -59,26 +61,39 @@ class Search extends React.Component
 
   onPress(maximize)
   {
-    this.setState({
-      maximized: maximize
-    });
+    this.setState({ maximized: maximize });
+
+    if (!maximize)
+    {
+      store.set({
+        searchMaximized: maximize
+      });
+    }
 
     Animated.timing(this.progress, {
       duration: 100,
       toValue: (maximize) ? 1 : 0,
       easing: Easing.linear
-    }).start();
+    }).start((finished) =>
+    {
+      if (finished && maximize)
+      {
+        store.set({
+          searchMaximized: maximize
+        });
+      }
+    });
   }
 
   render()
   {
     const { maximized } = this.state;
 
-    const avatarsAmount = 1;
+    const avatarsAmount = Object.keys(this.state.activeEntry.avatars || {}).length || 1;
 
     const searchBarMinWidth = sizes.avatar;
 
-    const searchBarMaxWidth =
+    const searchBarDefaultWidth =
     // window width
     this.state.size.width -
     // minus top bar margin
@@ -87,30 +102,41 @@ class Search extends React.Component
     styles.container.marginLeft -
     // minus main avatar width
     sizes.avatar -
-    // minus the rest of avatars width
-    (sizes.avatar / 2) * (avatarsAmount - 1) +
     // add offset
     1;
 
-    const searchBarWidth = this.progress.interpolate({
-      inputRange: [ 0, 1 ],
-      outputRange: [ searchBarMinWidth, searchBarMaxWidth ]
-    });
+    const searchBarMaxWidth =
+    searchBarDefaultWidth -
+    // minus the rest of avatars width
+    (sizes.avatar / 2) * (avatarsAmount - 1);
 
-    const searchBarInputLeft = this.progress.interpolate({
-      inputRange: [ 0, 1 ],
-      outputRange: [ 0, sizes.avatar ]
-    });
-
-    const searchBarInputWidth = this.progress.interpolate({
+    const searchBarWidth = Animated.interpolate(this.props.bottomSheetNode, {
       inputRange: [ 0, 1 ],
       outputRange: [
-        0,
-        // search bar width - container width - margin
-        searchBarMaxWidth - sizes.avatar - (sizes.avatar / 2)
+        this.progress.interpolate({
+          inputRange: [ 0, 1 ],
+          outputRange: [ searchBarMinWidth, searchBarMaxWidth ]
+        }),
+        this.progress.interpolate({
+          inputRange: [ 0, 1 ],
+          outputRange: [ searchBarMinWidth, searchBarDefaultWidth ]
+        })
       ]
     });
 
+    const searchBarInputWidth = Animated.interpolate(this.props.bottomSheetNode, {
+      inputRange: [ 0, 1 ],
+      outputRange: [
+        this.progress.interpolate({
+          inputRange: [ 0, 1 ],
+          outputRange: [ 0, searchBarMaxWidth - sizes.avatar - (sizes.avatar / 2) ]
+        }),
+        this.progress.interpolate({
+          inputRange: [ 0, 1 ],
+          outputRange: [ 0, searchBarDefaultWidth - sizes.avatar - (sizes.avatar / 2) ]
+        })
+      ]
+    });
     return (
       <Animated.View style={ {
         ...styles.container,
@@ -125,7 +151,6 @@ class Search extends React.Component
         <AnimatedTextInput style={ {
           ...styles.input,
           fontSize: this.scale(24),
-          left: searchBarInputLeft,
           width: searchBarInputWidth
         } }
         placeholder={ 'Search' }
@@ -156,6 +181,11 @@ class Search extends React.Component
   }
 }
 
+Search.propTypes = {
+  holderNode: PropTypes.object,
+  bottomSheetNode: PropTypes.object
+};
+
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row-reverse',
@@ -180,7 +210,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
     color: colors.whiteText,
 
-    height: sizes.avatar
+    right: 0,
+    height: sizes.avatar,
+    
+    marginRight: 15
   },
 
   wrapper: {
