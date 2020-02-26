@@ -104,11 +104,6 @@ const styles = StyleSheet.create({
     marginTop: 25
   },
 
-  button: {
-    alignItems: 'center',
-    backgroundColor: '#DDDDDD'
-  },
-
   entry: {
     flex: 1,
     backgroundColor: 'green',

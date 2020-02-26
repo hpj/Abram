@@ -87,7 +87,7 @@ class ChatAvatars extends React.Component
   render()
   {
     // TODO show the most relevant 3
-    const avatars = this.values(this.state.activeEntry.avatars).splice(0, 3);
+    const avatars = this.values(this.state.activeEntry.avatars).splice(0, 2);
 
     const menuWidth = this.progress.interpolate({
       inputRange: [ 0, 1 ],
@@ -112,22 +112,12 @@ class ChatAvatars extends React.Component
       outputRange: [ 1, 0 ]
     });
 
-    const reverseAvatarOpacity = Animated.interpolate(this.props.bottomSheetNode, {
-      inputRange: [ 0, 1 ],
-      outputRange: [ -0.5, 1 ]
-    });
-
     const avatarWidth = Animated.interpolate(this.props.bottomSheetNode, {
       inputRange: [ 0, 1 ],
       outputRange: [ (sizes.avatar / 2), 0 ]
     });
 
     const avatarMarginLeft = Animated.interpolate(this.props.bottomSheetNode, {
-      inputRange: [ 0, 1 ],
-      outputRange: [ 0, (sizes.avatar / 2) ]
-    });
-
-    const halfAvatarMarginLeft = Animated.interpolate(this.props.bottomSheetNode, {
       inputRange: [ 0, 1 ],
       outputRange: [ -(sizes.avatar / 2), (sizes.avatar / 2) ]
     });
@@ -152,23 +142,21 @@ class ChatAvatars extends React.Component
               buttonStyle={ styles.button }
               onPress={ this.onPress }
             >
-              <AnimatedImage style={ {
-                ...styles.avatar,
-                opacity: reverseAvatarOpacity
-              } } source={ this.state.profile.avatar }/>
-    
+              <Animated.View style={ styles.avatarContainer }>
+                <AnimatedImage style={ styles.avatar } source={ this.state.profile.avatar }/>
+              </Animated.View>
               {
                 avatars.map((source, i) =>
                 {
-                  return <Animated.View View key={ i } style={ {
+                  return <Animated.View key={ i } style={ {
                     ...styles.avatarContainer,
                     opacity: avatarOpacity,
-                    width: (i === 0) ? sizes.avatar : avatarWidth
+                    width: avatarWidth
                   } }>
                     <AnimatedImage
                       style={ {
                         ...styles.avatar,
-                        marginLeft: (i === 0) ? avatarMarginLeft : halfAvatarMarginLeft
+                        marginLeft: avatarMarginLeft
                       } }
                       source={ source }
                     />
@@ -212,6 +200,7 @@ const styles = StyleSheet.create({
   },
 
   avatarContainer: {
+    width: sizes.avatar,
     height: sizes.avatar,
     borderRadius: sizes.avatar
   },

@@ -89,7 +89,7 @@ class Search extends React.Component
   {
     const { maximized } = this.state;
 
-    const avatarsAmount = Object.keys(this.state.activeEntry.avatars || {}).length || 1;
+    const avatarsAmount = Math.min(Object.keys(this.state.activeEntry.avatars || {}).length || 1, 2);
 
     const searchBarMinWidth = sizes.avatar;
 
@@ -108,7 +108,7 @@ class Search extends React.Component
     const searchBarMaxWidth =
     searchBarDefaultWidth -
     // minus the rest of avatars width
-    (sizes.avatar / 2) * (avatarsAmount - 1);
+    (sizes.avatar / 2) * (avatarsAmount);
 
     const searchBarWidth = Animated.interpolate(this.props.bottomSheetNode, {
       inputRange: [ 0, 1 ],
