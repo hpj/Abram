@@ -90,9 +90,10 @@ export default class Store
 
   /**
   * @param { {} } state
+  * @param { () => void } callback
   * @returns { Store }
   */
-  set(state)
+  set(state, callback)
   {
     this.state = {
       ...this.state,
@@ -100,22 +101,29 @@ export default class Store
     };
 
     // dispatch changes
-    this.dispatch();
+    this.dispatch().then(callback);
 
     return this;
   }
 
   /**
-  * @returns { Store }
+  * @returns { Promise }
   */
   dispatch()
   {
-    this.subscriptions.forEach((component) =>
+    return new Promise((resolve) =>
     {
-      if (component && component.setState)
-        component.setState(this.state);
-    });
+      const promises = [];
 
-    return this;
+      this.subscriptions.forEach((component) =>
+      {
+        if (component && component.setState)
+        {
+          promises.push(new Promise((resolve) => component.setState(this.state, resolve)));
+        }
+      });
+
+      Promise.all(promises).then(resolve);
+    });
   }
 }

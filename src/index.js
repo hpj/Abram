@@ -43,6 +43,8 @@ const store = createStore('app', {
     avatar: require('../assets/mockup/ker0olos.jpeg')
   },
 
+  activeEntry: {},
+
   inbox: [
     {
       displayName: 'Dina El-Wedidi',

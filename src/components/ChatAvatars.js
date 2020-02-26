@@ -75,12 +75,19 @@ class ChatAvatars extends React.Component
     }).start();
   }
 
+  values(obj)
+  {
+    if (!obj)
+      return [];
+
+    // eslint-disable-next-line security/detect-object-injection
+    return Object.keys(obj).map((k) => obj[k]);
+  }
+
   render()
   {
-    const people = [
-      require('../../assets/mockup/dina-0.jpg'),
-      require('../../assets/mockup/sisi-0.jpg')
-    ];
+    // TODO show the most relevant 3
+    const avatars = this.values(this.state.activeEntry.avatars).splice(0, 3);
 
     const menuWidth = this.progress.interpolate({
       inputRange: [ 0, 1 ],
@@ -107,7 +114,7 @@ class ChatAvatars extends React.Component
 
     const reverseAvatarOpacity = Animated.interpolate(this.props.bottomSheetNode, {
       inputRange: [ 0, 1 ],
-      outputRange: [ 0, 1 ]
+      outputRange: [ -0.5, 1 ]
     });
 
     const avatarWidth = Animated.interpolate(this.props.bottomSheetNode, {
@@ -145,15 +152,13 @@ class ChatAvatars extends React.Component
               buttonStyle={ styles.button }
               onPress={ this.onPress }
             >
-              {/* eslint-disable-next-line react-native/no-inline-styles */}
               <AnimatedImage style={ {
                 ...styles.avatar,
-                position: (people.length) ? 'absolute' : 'relative',
                 opacity: reverseAvatarOpacity
               } } source={ this.state.profile.avatar }/>
     
               {
-                people.map((source, i) =>
+                avatars.map((source, i) =>
                 {
                   return <Animated.View View key={ i } style={ {
                     ...styles.avatarContainer,
@@ -161,7 +166,6 @@ class ChatAvatars extends React.Component
                     width: (i === 0) ? sizes.avatar : avatarWidth
                   } }>
                     <AnimatedImage
-                      // eslint-disable-next-line react-native/no-inline-styles
                       style={ {
                         ...styles.avatar,
                         marginLeft: (i === 0) ? avatarMarginLeft : halfAvatarMarginLeft
@@ -213,6 +217,8 @@ const styles = StyleSheet.create({
   },
 
   avatar: {
+    position: 'absolute',
+
     backgroundColor: colors.roundIconBackground,
 
     width: sizes.avatar,

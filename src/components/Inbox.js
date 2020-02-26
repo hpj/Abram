@@ -27,10 +27,6 @@ class Inbox extends React.Component
 
     // get store
     store = getStore('app').mount(this);
-
-    // bind functions to use as callbacks
-
-    this.onPress = this.onPress.bind(this);
   }
 
   componentDidMount()
@@ -52,34 +48,27 @@ class Inbox extends React.Component
     return Math.round(size);
   }
 
-  onPress()
+  onPress(entry)
   {
-    this.props.bottomSheetSnapTo(1);
+    store.set({ activeEntry: entry }, () => this.props.bottomSheetSnapTo(1));
   }
 
   render()
   {
-    const people = [
-      {
-        name: 'Dina'
-      },
-      {
-        name: 'Council'
-      },
-      {
-        name: 'Sisi'
-      }
-    ];
+    // TODO render real content based on state.inbox
+
+    // TODO on press set a store state for active entry
+    // then snap the bottom sheet
 
     return (
       <View style={ styles.container }>
         {
-          people.map((entry, i) =>
+          this.state.inbox.map((entry, i) =>
           {
             return <Button
               key={ i }
               borderless={ false }
-              onPress={ this.onPress }
+              onPress={ () => this.onPress(entry) }
             >
               <View
                 style={ {
