@@ -20,7 +20,7 @@ import { load } from './loading.js';
 
 import { StoreComponent } from './store.js';
 
-import { sizes } from './sizes.js';
+import { screen, sizes } from './sizes.js';
 
 import { depth } from './depth.js';
 
@@ -108,9 +108,6 @@ export default class App extends StoreComponent
         <TouchableWithoutFeedback>
           <Animated.View style={ {
             ...styles.holder,
-            
-            width: this.state.size.width,
-            height: this.state.size.height,
 
             opacity: holderOpacity
           } }
@@ -119,17 +116,11 @@ export default class App extends StoreComponent
 
         <BottomNavigation/>
 
-        <View style={ {
-          ...styles.bottomSheet,
-          width: this.state.size.width,
-          height: this.state.size.height
-        } }
-        pointerEvents={ 'box-none' }
-        >
+        <View style={ styles.bottomSheet } pointerEvents={ 'box-none' }>
           <BottomSheet
             ref={ bottomSheetRef }
             callbackNode={ bottomSheetNode }
-            snapPoints = { [ 0, this.state.size.height ] }
+            snapPoints = { [ 0, screen.height ] }
             
             renderHeader = {
               () =>
@@ -138,7 +129,7 @@ export default class App extends StoreComponent
 
                   <View style={ {
                     ...styles.bottomSheetHeaderContent,
-                    width: this.state.size.width - (sizes.windowMargin * 2)
+                    width: screen.width - (sizes.windowMargin * 2)
                   } }>
                     {/* <View/> */}
                   </View>
@@ -149,8 +140,7 @@ export default class App extends StoreComponent
               () =>
                 <View style={ {
                   ...styles.bottomSheetContent,
-                  width: this.state.size.width,
-                  height: this.state.size.height - (sizes.topBarHeight + sizes.bottomSheetHeaderHeight)
+                  height: screen.height - (sizes.topBarHeight + sizes.bottomSheetHeaderHeight)
                 } }>
                   {/* <View/> */}
                 </View>
@@ -175,12 +165,18 @@ const styles = StyleSheet.create({
 
   bottomSheet: {
     zIndex: depth.bottomSheet,
-    position: 'absolute'
+    position: 'absolute',
+
+    width: screen.width,
+    height: screen.height
   },
 
   holder: {
     zIndex: depth.handler,
     position: 'absolute',
+
+    width: screen.width,
+    height: screen.height,
 
     backgroundColor: colors.blackBackground
   },
@@ -213,6 +209,8 @@ const styles = StyleSheet.create({
   },
 
   bottomSheetContent: {
+    width: screen.width,
+
     // backgroundColor: colors.whiteBackground
     backgroundColor: 'orange'
   }

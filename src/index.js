@@ -1,14 +1,10 @@
 import React from 'react';
 
-import { Dimensions } from 'react-native';
-
 import { registerRootComponent } from 'expo';
 
-import Constants from 'expo-constants';
+import constants from 'expo-constants';
 
 import { activateKeepAwake } from 'expo-keep-awake';
-
-import constants from 'expo-constants';
 
 import * as Sentry from 'sentry-expo';
 
@@ -77,23 +73,10 @@ const store = createStore('app', {
         'Bal7a': require('../assets/mockup/sisi-0.jpg')
       },
       messages: [
-        { owner: 'Bal7a', text: 'Did you really made it through the world’s championship of shit?', timestamp: subDays(new Date(), 4) }
+        { owner: 'Bal7a', text: 'Dude, I fucked up.', timestamp: subDays(new Date(), 4) }
       ]
     }
-  ],
-
-  size: {
-    width: Dimensions.get('screen').width,
-    height: Dimensions.get('screen').height - Constants.statusBarHeight
-  }
+  ]
 });
-
-// update state when size changes
-Dimensions.addEventListener('change', ({ screen }) => store.set({
-  size: {
-    width: screen.width,
-    height: screen.height - Constants.statusBarHeight
-  }
-}));
 
 registerRootComponent(() => <App/>);

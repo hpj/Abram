@@ -10,7 +10,7 @@ import Button from './Button.js';
 
 import { StoreComponent } from '../store.js';
 
-import { sizes } from '../sizes';
+import { screen, sizes } from '../sizes';
 
 import getTheme from '../colors.js';
 
@@ -29,15 +29,6 @@ class Search extends StoreComponent
     this.progress = new Animated.Value(0);
   }
   
-  scale(size, standardHeight)
-  {
-    standardHeight = standardHeight || sizes.standardHeight;
-
-    size = (size * this.state.size.height) / standardHeight;
-
-    return Math.round(size);
-  }
-
   onPress(maximize)
   {
     this.setState({ maximized: maximize });
@@ -74,7 +65,7 @@ class Search extends StoreComponent
 
     const searchBarDefaultWidth =
     // window width
-    this.state.size.width -
+    screen.width -
     // minus top bar margin
     (sizes.windowMargin * 2)  -
     // minus this container margin
@@ -129,7 +120,6 @@ class Search extends StoreComponent
 
         <AnimatedTextInput style={ {
           ...styles.input,
-          fontSize: this.scale(24),
           width: searchBarInputWidth
         } }
         placeholder={ 'Search' }
@@ -192,6 +182,7 @@ const styles = StyleSheet.create({
     right: 0,
     height: sizes.avatar,
     
+    fontSize: 18,
     marginRight: 15
   },
 

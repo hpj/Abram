@@ -24,15 +24,6 @@ const colors = getTheme();
 
 class TopBar extends StoreComponent
 {
-  scale(size, standardHeight)
-  {
-    standardHeight = standardHeight || sizes.standardHeight;
-
-    size = (size * this.state.size.height) / standardHeight;
-
-    return Math.round(size);
-  }
-
   render()
   {
     let title;
@@ -56,8 +47,7 @@ class TopBar extends StoreComponent
           {/* eslint-disable-next-line react-native/no-inline-styles */}
           <Text style={ {
             ...styles.title,
-            opacity: (this.state.searchMaximized) ? 0 : 1,
-            fontSize: this.scale(34)
+            opacity: (this.state.searchMaximized) ? 0 : 1
           } }>
             { title }
           </Text>
@@ -106,6 +96,8 @@ const styles = StyleSheet.create({
 
     flex: 1,
     color: colors.whiteText,
+
+    fontSize: 26,
     fontWeight: 'bold',
 
     marginLeft: sizes.windowMargin
