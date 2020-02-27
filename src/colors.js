@@ -12,12 +12,12 @@ export default function()
 
     inactiveWhiteText: alpha('#ffffff', '0.6'),
 
-    blackBackground: '#101010',
+    blackBackground: '#000000',
     blackText: '#c3c3c3',
 
     greyText: '#818181',
 
-    ripple: alpha('#ffffff', '0.15'),
+    ripple: alpha('#ffffff', '0.085'),
 
     roundIconBackground: '#4B4B4B',
     roundIconBackgroundInactive: alpha('#4B4B4B', '0.3'),

@@ -20,11 +20,11 @@ function relativeDate(date)
   const baseDate = new Date();
 
   if (isToday(date))
-    return format(date, '\'Today, \'HH:mm a');
+    return format(date, '\'Today, \'hh:mm a');
   else if (isYesterday(date))
-    return format(date, '\'Yesterday, \'HH:mm a');
+    return format(date, '\'Yesterday, \'hh:mm a');
   else if (differenceInDays(baseDate, date) <= 6)
-    return format(date, 'EEEE\', \'HH:mm a');
+    return format(date, 'EEEE\', \'hh:mm a');
   else
     return format(date, 'dd MMMM, yyyy');
 }
@@ -62,55 +62,56 @@ class Inbox extends StoreComponent
                       // TODO show the most relevant avatars
                       avatars.splice(0, 4).map((id, i, array) =>
                       {
-                        const size = responsive(sizes.inboxAvatar) / Math.min(array.length, 2);
+                        let size = responsive(sizes.inboxAvatar);
 
-                        const border = (array.length > 1) ? 3 : 0;
+                        const border = (array.length > 1) ? 2 : 0;
 
                         let left = 0;
                         let top = 0;
 
                         if (array.length === 2)
                         {
+                          size = size * 0.75;
+                          
                           if (i === 0)
                           {
-                            top = size - border - 10;
-                            left = size - border - 5;
-                          }
-                          else if (i === 1)
-                          {
-                            top = 5;
-                            left = 5;
+                            top = size * 0.5;
+                            left = size * 0.35;
                           }
                         }
                         else if (array.length === 3)
                         {
+                          size = size * 0.65;
+
                           if (i === 0)
                           {
-                            top = size - border - 5;
-                            left = (size / 2) - 5;
+                            top = size - 10;
+                            left = (size / 2) - 15;
                           }
                           else if (i === 2)
                           {
-                            top = border + 5;
-                            left = size - border;
+                            top = 10;
+                            left = size - 15;
                           }
                         }
                         else if (array.length === 4)
                         {
+                          size = size * 0.5;
+
                           if (i === 0)
                           {
-                            top = size - border - 5;
+                            top = size - 5;
                             left = 0;
                           }
                           else if (i === 2)
                           {
-                            top = size - border + 8;
-                            left = size - border;
+                            top = size + 5;
+                            left = size - 5;
                           }
                           else if (i === 3)
                           {
                             top = 8;
-                            left = size - border;
+                            left = size - 5;
                           }
                         }
 
@@ -197,9 +198,8 @@ const styles = StyleSheet.create({
 
     backgroundColor: colors.roundIconBackground,
 
-    borderRadius: responsive(sizes.inboxAvatar),
-
-    borderColor: colors.blackBackground
+    borderColor: colors.blackBackground,
+    borderRadius: responsive(sizes.inboxAvatar)
   },
 
   badge: {
@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
 
     marginLeft: -10,
 
-    borderWidth: 3,
+    borderWidth: 4,
     borderColor: colors.whiteBackground
   },
 
