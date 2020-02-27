@@ -8,48 +8,27 @@ import Animated, { Easing } from 'react-native-reanimated';
 
 import Button from './Button.js';
 
-import { getStore } from '../store.js';
+import { StoreComponent } from '../store.js';
 
 import { sizes } from '../sizes';
 
 import getTheme from '../colors.js';
 
-/**
-* @type { import('../store.js').default }
-*/
-let store;
-
 const colors = getTheme();
 
 const AnimatedTextInput = Animated.createAnimatedComponent(TextInput);
 
-class Search extends React.Component
+class Search extends StoreComponent
 {
   constructor()
   {
-    super();
-
-    // get store
-    store = getStore('app');
-
-    this.state = {
-      maximized: false,
-      ...store.state
-    };
+    super(undefined, {
+      maximized: false
+    });
 
     this.progress = new Animated.Value(0);
   }
   
-  componentDidMount()
-  {
-    store.subscribe(this);
-  }
-
-  componentWillUnmount()
-  {
-    store.unsubscribe(this);
-  }
-
   scale(size, standardHeight)
   {
     standardHeight = standardHeight || sizes.standardHeight;
@@ -65,7 +44,7 @@ class Search extends React.Component
 
     if (!maximize)
     {
-      store.set({
+      this.store.set({
         searchMaximized: maximize
       });
     }
@@ -78,7 +57,7 @@ class Search extends React.Component
     {
       if (finished && maximize)
       {
-        store.set({
+        this.store.set({
           searchMaximized: maximize
         });
       }

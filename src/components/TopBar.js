@@ -10,7 +10,7 @@ import Search from './Search.js';
 
 import ChatAvatars from './ChatAvatars.js';
 
-import { getStore } from '../store.js';
+import { StoreComponent } from '../store.js';
 
 import i18n from '../i18n.js';
 
@@ -20,33 +20,10 @@ import { depth } from '../depth.js';
 
 import getTheme from '../colors.js';
 
-/**
-* @type { import('../store.js').default }
-*/
-let store;
-
 const colors = getTheme();
 
-class TopBar extends React.Component
+class TopBar extends StoreComponent
 {
-  constructor()
-  {
-    super();
-
-    // get store
-    store = getStore('app').mount(this);
-  }
-
-  componentDidMount()
-  {
-    store.subscribe(this);
-  }
-
-  componentWillUnmount()
-  {
-    store.unsubscribe(this);
-  }
-
   scale(size, standardHeight)
   {
     standardHeight = standardHeight || sizes.standardHeight;

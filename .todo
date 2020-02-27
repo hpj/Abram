@@ -1,5 +1,4 @@
 Performance Issues and Bugs:
-  ☐ search width need access to avatar length
 
 Testing:
   ☐ test top bar
@@ -8,14 +7,9 @@ Testing:
     ☐ test menu
 
   ☐ expo's over-the-air updates
-
-General:
-  ☐ make adding a store to a component easier
   
 UI/UX:
   ☐ add fallback support to i18n
   ☐ add RTL support
-
-Chat:
 
 Discover:

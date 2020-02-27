@@ -18,18 +18,13 @@ import Discover from './components/Discover.js';
 
 import { load } from './loading.js';
 
-import { getStore } from './store.js';
+import { StoreComponent } from './store.js';
 
 import { sizes } from './sizes.js';
 
 import { depth } from './depth.js';
 
 import getTheme from './colors.js';
-
-/**
-* @type { import('./store.js').default }
-*/
-let store;
 
 const colors = getTheme();
 
@@ -39,23 +34,15 @@ const holderNode = new Animated.Value(0);
 
 const bottomSheetRef = React.createRef();
 
-export default class App extends React.Component
+export default class App extends StoreComponent
 {
-  constructor()
-  {
-    super();
-
-    // get store
-    store = getStore('app').mount(this);
-  }
-
   componentDidMount()
   {
+    super.componentDidMount();
+
     if (!this.state.loaded)
     {
       SplashScreen.preventAutoHide();
-  
-      store.subscribe(this);
   
       // load resource and cache on app-start
       // crashes the app if loading encounters an error
@@ -89,11 +76,6 @@ export default class App extends React.Component
       // fix the top bar margin being on reverse when the app starts
       bottomSheetNode.setValue(1);
     }
-  }
-
-  componentWillUnmount()
-  {
-    store.unsubscribe(this);
   }
 
   render()

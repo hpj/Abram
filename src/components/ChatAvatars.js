@@ -8,7 +8,7 @@ import Animated, { Easing } from 'react-native-reanimated';
 
 import Button from './Button.js';
 
-import { getStore } from '../store.js';
+import { StoreComponent } from '../store.js';
 
 import { sizes } from '../sizes';
 
@@ -16,43 +16,22 @@ import { depth } from '../depth.js';
 
 import getTheme from '../colors.js';
 
-/**
-* @type { import('../store.js').default }
-*/
-let store;
-
 const colors = getTheme();
 
 const AnimatedImage = Animated.createAnimatedComponent(Image);
 
-class ChatAvatars extends React.Component
+class ChatAvatars extends StoreComponent
 {
   constructor()
   {
-    super();
-
-    // get store
-    store = getStore('app');
-
-    this.state = {
-      menu: false,
-      ...store.state
-    };
+    super(undefined, {
+      menu: false
+    });
 
     this.progress = new Animated.Value(0);
 
     // bind functions to use as callbacks
     this.onPress = this.onPress.bind(this);
-  }
-  
-  componentDidMount()
-  {
-    store.subscribe(this);
-  }
-
-  componentWillUnmount()
-  {
-    store.unsubscribe(this);
   }
 
   onPress()
@@ -60,7 +39,7 @@ class ChatAvatars extends React.Component
     this.menu = this.menu ^ true;
 
     // control app's holder view
-    store.set({ holder: this.menu });
+    this.store.set({ holder: this.menu });
 
     Animated.timing(this.progress, {
       duration: 100,

@@ -4,42 +4,19 @@ import { StyleSheet, View } from 'react-native';
 
 import Button from './Button.js';
 
-import { getStore } from '../store.js';
+import { StoreComponent } from '../store.js';
 
 import { sizes } from '../sizes';
 
 import getTheme from '../colors.js';
 
-/**
-* @type { import('../store.js').default }
-*/
-let store;
-
 const colors = getTheme();
 
-class BottomNavigation extends React.Component
+class BottomNavigation extends StoreComponent
 {
-  constructor()
-  {
-    super();
-
-    // get store
-    store = getStore('app').mount(this);
-  }
-  
-  componentDidMount()
-  {
-    store.subscribe(this);
-  }
-
-  componentWillUnmount()
-  {
-    store.unsubscribe(this);
-  }
-
   setIndex(value)
   {
-    store.set({
+    this.store.set({
       index: value
     });
   }

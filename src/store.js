@@ -1,3 +1,5 @@
+import React from 'react';
+
 const stores = {};
 
 /**
@@ -28,6 +30,32 @@ export function deleteStore(name)
 {
   // eslint-disable-next-line security/detect-object-injection
   delete stores[name];
+}
+
+export class StoreComponent extends React.Component
+{
+  constructor(name, state)
+  {
+    super();
+    
+    // get store
+    this.store = getStore((typeof name === 'string') ? name : 'app');
+
+    this.state = {
+      ...state,
+      ...this.store.state
+    };
+  }
+
+  componentDidMount()
+  {
+    this.store.subscribe(this);
+  }
+
+  componentWillUnmount()
+  {
+    this.store.unsubscribe(this);
+  }
 }
 
 export default class Store

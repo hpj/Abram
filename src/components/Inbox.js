@@ -6,39 +6,16 @@ import { StyleSheet, View } from 'react-native';
 
 import Button from '../components/Button.js';
 
-import { getStore } from '../store.js';
+import { StoreComponent } from '../store.js';
 
 import { sizes } from '../sizes';
 
 import getTheme from '../colors.js';
 
-/**
-* @type { import('../store.js').default }
-*/
-let store;
-
 const colors = getTheme();
 
-class Inbox extends React.Component
+class Inbox extends StoreComponent
 {
-  constructor()
-  {
-    super();
-
-    // get store
-    store = getStore('app').mount(this);
-  }
-
-  componentDidMount()
-  {
-    store.subscribe(this);
-  }
-
-  componentWillUnmount()
-  {
-    store.unsubscribe(this);
-  }
-
   scale(size, standardHeight)
   {
     standardHeight = standardHeight || sizes.standardHeight;
@@ -50,7 +27,7 @@ class Inbox extends React.Component
 
   onPress(entry)
   {
-    store.set({ activeEntry: entry }, () => this.props.bottomSheetSnapTo(1));
+    this.store.set({ activeEntry: entry }, () => this.props.bottomSheetSnapTo(1));
   }
 
   render()
