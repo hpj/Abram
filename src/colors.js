@@ -15,6 +15,8 @@ export default function()
     blackBackground: '#101010',
     blackText: '#c3c3c3',
 
+    greyText: '#818181',
+
     ripple: alpha('#ffffff', '0.15'),
 
     roundIconBackground: '#4B4B4B',

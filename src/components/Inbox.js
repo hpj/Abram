@@ -11,20 +11,26 @@ import { StoreComponent } from '../store.js';
 import { sizes } from '../sizes';
 
 import getTheme from '../colors.js';
+import { format, differenceInDays, isToday, isYesterday } from 'date-fns';
 
 const colors = getTheme();
 
+function relativeDate(date)
+{
+  const baseDate = new Date();
+
+  if (isToday(date))
+    return format(date, '\'Today, \'HH:mm a');
+  else if (isYesterday(date))
+    return format(date, '\'Yesterday, \'HH:mm a');
+  else if (differenceInDays(baseDate, date) <= 6)
+    return format(date, 'EEEE\', \'HH:mm a');
+  else
+    return format(date, 'dd MMMM, yyyy');
+}
+
 class Inbox extends StoreComponent
 {
-  scale(size, standardHeight)
-  {
-    standardHeight = standardHeight || sizes.standardHeight;
-
-    size = (size * this.state.size.height) / standardHeight;
-
-    return Math.round(size);
-  }
-
   onPress(entry)
   {
     this.store.set({ activeEntry: entry }, () => this.props.bottomSheetSnapTo(1));
@@ -33,18 +39,22 @@ class Inbox extends StoreComponent
   render()
   {
     return (
-      <View style={ styles.container }>
+      <View style={ styles.wrapper }>
         {
           this.state.inbox.map((entry, t) =>
           {
             const avatars = Object.keys(entry.avatars);
+
+            const lastMessage = entry.messages[entry.messages.length - 1];
+            // const lastMessageTime = formatRelative(lastMessage.timestamp, new Date());
+            const lastMessageTime = relativeDate(lastMessage.timestamp);
             
             return <Button
               key={ t }
               borderless={ false }
               onPress={ () => this.onPress(entry) }
             >
-              <View style={ styles.wrapper }>
+              <View style={ styles.container }>
                 <View style={ styles.entry }>
 
                   <View style={ styles.avatars }>
@@ -127,7 +137,7 @@ class Inbox extends StoreComponent
                           {/* eslint-disable-next-line react-native/no-inline-styles */}
                           <View style={ {
                             ...styles.badge,
-                            opacity: (t !== 3 && left === 0 && top === 0) ? 1 : 0
+                            opacity: (t !== 2 && left === 0 && top === 0) ? 1 : 0
                           } }/>
                         </View>;
                       })
@@ -135,7 +145,9 @@ class Inbox extends StoreComponent
                   </View>
 
                   <View style={ styles.info }>
-                    
+                    <Text style={ styles.name }>{ entry.displayName }</Text>
+                    <Text style={ styles.time }>{ lastMessageTime }</Text>
+                    <Text style={ styles.preview } numberOfLines={ 1 }>{ lastMessage.text }</Text>
                   </View>
 
                 </View>
@@ -153,25 +165,17 @@ Inbox.propTypes = {
 };
 
 const styles = StyleSheet.create({
-  container: {
+  wrapper: {
     flex: 1
   },
 
-  wrapper: {
-    height: 123,
-
-    backgroundColor: 'red',
-    
-    marginBottom: sizes.windowMargin,
-    marginTop: sizes.windowMargin
+  container: {
+    marginTop: sizes.windowMargin,
+    marginBottom: sizes.windowMargin
   },
 
   entry: {
-    flex: 1,
     flexDirection: 'row',
-
-    backgroundColor: 'green',
-    
     marginLeft: sizes.windowMargin,
     marginRight: sizes.windowMargin
   },
@@ -181,9 +185,7 @@ const styles = StyleSheet.create({
     height: sizes.inboxAvatar,
 
     // based on badge width
-    marginLeft: 10,
-
-    backgroundColor: 'purple'
+    marginLeft: 5
   },
 
   avatarContainer: {
@@ -215,12 +217,31 @@ const styles = StyleSheet.create({
     marginLeft: -10,
 
     borderWidth: 3,
-    borderColor: colors.blackBackground
+    borderColor: colors.whiteBackground
   },
 
   info: {
     flex: 1,
-    backgroundColor: 'yellow'
+    marginLeft: 20
+  },
+
+  name: {
+    color: colors.whiteText,
+
+    fontSize: 18,
+    fontWeight: 'bold'
+  },
+
+  time: {
+    color: colors.greyText,
+    fontSize: 16
+  },
+
+  preview: {
+    color: colors.greyText,
+
+    marginTop: 10,
+    fontSize: 18
   }
 });
 
