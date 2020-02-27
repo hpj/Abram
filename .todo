@@ -1,6 +1,8 @@
 Performance Issues and Bugs:
 
 Testing:
+  ☐ bottom sheet messages scrolling <-> gesturing
+
   ☐ test top bar
     ☐ test search bar
     ☐ test chat avatars
@@ -9,6 +11,9 @@ Testing:
   ☐ expo's over-the-air updates
   
 UI/UX:
+  ☐ bottom sheet header
+  ☐ bottom sheet messages
+  
   ☐ add fallback support to i18n
   ☐ add RTL support
 

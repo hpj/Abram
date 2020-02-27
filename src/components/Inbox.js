@@ -8,7 +8,7 @@ import Button from '../components/Button.js';
 
 import { StoreComponent } from '../store.js';
 
-import { sizes } from '../sizes';
+import { sizes, responsive } from '../sizes';
 
 import getTheme from '../colors.js';
 import { format, differenceInDays, isToday, isYesterday } from 'date-fns';
@@ -62,7 +62,7 @@ class Inbox extends StoreComponent
                       // TODO show the most relevant avatars
                       avatars.splice(0, 4).map((id, i, array) =>
                       {
-                        const size = sizes.inboxAvatar / Math.min(array.length, 2);
+                        const size = responsive(sizes.inboxAvatar) / Math.min(array.length, 2);
 
                         const border = (array.length > 1) ? 3 : 0;
 
@@ -181,10 +181,9 @@ const styles = StyleSheet.create({
   },
 
   avatars: {
-    width: sizes.inboxAvatar,
-    height: sizes.inboxAvatar,
+    width: responsive(sizes.inboxAvatar),
+    height: responsive(sizes.inboxAvatar),
 
-    // based on badge width
     marginLeft: 5
   },
 
@@ -198,9 +197,7 @@ const styles = StyleSheet.create({
 
     backgroundColor: colors.roundIconBackground,
 
-    width: sizes.inboxAvatar,
-    height: sizes.inboxAvatar,
-    borderRadius: sizes.inboxAvatar,
+    borderRadius: responsive(sizes.inboxAvatar),
 
     borderColor: colors.blackBackground
   },
@@ -210,9 +207,9 @@ const styles = StyleSheet.create({
 
     backgroundColor: colors.whiteText,
 
-    width: 23,
-    height: 23,
-    borderRadius: 23,
+    width: responsive(23),
+    height: responsive(23),
+    borderRadius: responsive(23),
 
     marginLeft: -10,
 
@@ -228,20 +225,20 @@ const styles = StyleSheet.create({
   name: {
     color: colors.whiteText,
 
-    fontSize: 18,
+    fontSize: responsive(22),
     fontWeight: 'bold'
   },
 
   time: {
     color: colors.greyText,
-    fontSize: 16
+    fontSize: responsive(20)
   },
 
   preview: {
     color: colors.greyText,
 
     marginTop: 10,
-    fontSize: 18
+    fontSize: responsive(22)
   }
 });
 

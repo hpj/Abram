@@ -7,7 +7,7 @@ export const screen = {
   height: Dimensions.get('screen').height - constants.statusBarHeight
 };
 
-export function scale(height, standardHeight)
+export function responsive(height, standardHeight)
 {
   standardHeight = standardHeight || 1130;
 
