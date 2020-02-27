@@ -65,8 +65,9 @@ class ChatAvatars extends StoreComponent
 
   render()
   {
-    // TODO show the most relevant 3
-    const avatars = this.values(this.state.activeEntry.avatars).splice(0, 2);
+    const activeEntry = this.state.activeEntry;
+
+    const avatars = Object.keys(activeEntry.avatars || {});
 
     const menuWidth = this.progress.interpolate({
       inputRange: [ 0, 1 ],
@@ -125,7 +126,8 @@ class ChatAvatars extends StoreComponent
                 <AnimatedImage style={ styles.avatar } source={ this.state.profile.avatar }/>
               </Animated.View>
               {
-                avatars.map((source, i) =>
+                // TODO show the most relevant avatars
+                avatars.splice(0, 2).map((id, i) =>
                 {
                   return <Animated.View key={ i } style={ {
                     ...styles.avatarContainer,
@@ -137,7 +139,8 @@ class ChatAvatars extends StoreComponent
                         ...styles.avatar,
                         marginLeft: avatarMarginLeft
                       } }
-                      source={ source }
+                      // eslint-disable-next-line security/detect-object-injection
+                      source={ activeEntry.avatars[id] }
                     />
                   </Animated.View>;
                 })

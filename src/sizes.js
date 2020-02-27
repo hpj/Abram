@@ -13,6 +13,7 @@ export const sizes = {
   icon: 24,
   navigationBarButton: 44,
 
+  inboxAvatar: 70,
   avatar: 38,
 
   bottomSheetHeaderHeight: 5
