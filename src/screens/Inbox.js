@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 
 import { StyleSheet, View, Image, Text } from 'react-native';
 
+import { ScrollView } from 'react-native-gesture-handler';
+
 import { format, differenceInDays, isToday, isYesterday } from 'date-fns';
 
 import Button from '../components/Button.js';
@@ -47,7 +49,7 @@ class Inbox extends StoreComponent
   render()
   {
     return (
-      <View style={ styles.wrapper }>
+      <ScrollView style={ styles.wrapper }>
         {
           this.state.inbox.map((entry, t) =>
           {
@@ -175,7 +177,7 @@ class Inbox extends StoreComponent
             </Button>;
           })
         }
-      </View>
+      </ScrollView>
     );
   }
 }

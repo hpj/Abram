@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { StyleSheet, View, ScrollView, TextInput } from 'react-native';
+import { StyleSheet, View, TextInput } from 'react-native';
+
+import { ScrollView } from 'react-native-gesture-handler';
 
 import { sizes } from '../sizes.js';
 
