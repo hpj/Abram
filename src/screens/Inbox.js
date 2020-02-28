@@ -196,9 +196,9 @@ const styles = StyleSheet.create({
   avatar: {
     position: 'absolute',
 
-    backgroundColor: colors.roundIconBackground,
+    backgroundColor: colors.iconBackground,
 
-    borderColor: colors.blackBackground,
+    borderColor: colors.blackText,
     borderRadius: responsive(sizes.inboxAvatar)
   },
 
@@ -214,7 +214,7 @@ const styles = StyleSheet.create({
     marginLeft: -10,
 
     borderWidth: 4,
-    borderColor: colors.whiteBackground
+    borderColor: colors.blackText
   },
 
   info: {

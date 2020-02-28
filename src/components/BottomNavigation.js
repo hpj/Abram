@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
 
-    backgroundColor: colors.whiteBackground
+    backgroundColor: colors.blackBackground
   },
 
   badge: {
@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
 
     width: sizes.badge,
     height: sizes.badge,
+
     borderRadius: sizes.badge
   },
 
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     alignItems: 'flex-end',
 
-    backgroundColor: colors.roundIconBackground,
+    backgroundColor: colors.iconBackground,
     
     width: sizes.navigationBarButton,
     height: sizes.navigationBarButton,
@@ -81,7 +82,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     alignItems: 'flex-end',
 
-    backgroundColor: colors.roundIconBackgroundInactive,
+    backgroundColor: colors.iconBackgroundInactive,
     
     width: sizes.navigationBarButton,
     height: sizes.navigationBarButton,

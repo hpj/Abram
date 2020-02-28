@@ -65,7 +65,7 @@ export default class App extends StoreComponent
           });
   
           // set status-bar style
-          StatusBar.setBackgroundColor(colors.whiteBackground);
+          StatusBar.setBackgroundColor(colors.blackBackground);
           // StatusBar.setBarStyle((colors.theme === 'dark') ? 'light-content' : 'dark-content');
           StatusBar.setBarStyle('light-content');
     
@@ -139,15 +139,7 @@ export default class App extends StoreComponent
                 </View>
             }
 
-            renderContent = {
-              () =>
-                <View style={ {
-                  ...styles.bottomSheetContent,
-                  height: screen.height - (sizes.topBarHeight + sizes.bottomSheetHeaderHeight)
-                } }>
-                  <Chat/>
-                </View>
-            }
+            renderContent = { () => <Chat/> }
           />
         </View>
 
@@ -159,7 +151,7 @@ export default class App extends StoreComponent
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.whiteBackground
+    backgroundColor: colors.blackBackground
   },
 
   views: {
@@ -186,7 +178,7 @@ const styles = StyleSheet.create({
 
   bottomSheetHeader: {
     alignItems: 'center',
-    backgroundColor: colors.whiteBackground,
+    backgroundColor: colors.blackBackground,
 
     height: sizes.topBarHeight + sizes.topBarBigMargin
   },
@@ -206,9 +198,5 @@ const styles = StyleSheet.create({
 
     marginLeft: sizes.windowMargin,
     marginRight: sizes.windowMargin
-  },
-
-  bottomSheetContent: {
-    width: screen.width
   }
 });

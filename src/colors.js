@@ -8,21 +8,24 @@ export default function()
     theme: 'dark',
 
     whiteText: '#ffffff',
-    whiteBackground: '#000000',
-
+    whiteBackground: '#ffffff',
+    
     inactiveWhiteText: alpha('#ffffff', '0.6'),
-
+    
+    blackText: '#000000',
     blackBackground: '#000000',
-    blackText: '#c3c3c3',
 
     greyText: '#818181',
 
+    placeholder: alpha('#ffffff', '0.45'),
     ripple: alpha('#ffffff', '0.085'),
 
-    roundIconBackground: '#4B4B4B',
-    roundIconBackgroundInactive: alpha('#4B4B4B', '0.3'),
+    iconBackground: '#4B4B4B',
+    iconBackgroundInactive: alpha('#4B4B4B', '0.3'),
 
     menuBackground: '#414141',
+
+    messageBubble: '#1C1C1C',
 
     red: '#9c0202',
     transparent: 'transparent'
@@ -49,13 +52,6 @@ export default function()
 function alpha(color, value)
 {
   const obj = parse(color);
-
-  // if (!value)
-  //   value = obj.alpha;
-
-  // catch percent
-  // if (obj.space[0] === 'h')
-  //   return obj.space + [ 'a(', obj.values[0], ',', obj.values[1], '%,', obj.values[2], '%,', value, ')' ].join('');
 
   return obj.space + [ 'a(', obj.values, ',', value, ')' ].join('');
 }

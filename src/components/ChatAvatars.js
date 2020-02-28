@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
   avatar: {
     position: 'absolute',
 
-    backgroundColor: colors.roundIconBackground,
+    backgroundColor: colors.iconBackground,
 
     width: sizes.avatar,
     height: sizes.avatar,

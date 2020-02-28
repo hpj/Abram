@@ -21,7 +21,7 @@ class Discover extends React.Component
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.whiteBackground
+    backgroundColor: colors.blackBackground
   }
 });
 

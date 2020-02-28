@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     
-    backgroundColor: colors.whiteBackground,
+    backgroundColor: colors.blackBackground,
 
     right: 0,
     height: sizes.topBarHeight

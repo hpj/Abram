@@ -122,6 +122,7 @@ class Search extends StoreComponent
           ...styles.input,
           width: searchBarInputWidth
         } }
+        placeholderTextColor={ colors.placeholder }
         placeholder={ 'Search' }
         />
 
@@ -170,7 +171,7 @@ const styles = StyleSheet.create({
   background: {
     position: 'absolute',
     
-    backgroundColor: colors.roundIconBackground,
+    backgroundColor: colors.iconBackground,
     
     height: sizes.avatar,
     borderRadius: sizes.avatar
