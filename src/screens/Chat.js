@@ -2,11 +2,11 @@ import React from 'react';
 
 import { StyleSheet, View } from 'react-native';
 
-// import getTheme from '../colors.js';
+import getTheme from '../colors.js';
 
-// const colors = getTheme();
+const colors = getTheme();
 
-class Discover extends React.Component
+class Chat extends React.Component
 {
   render()
   {
@@ -21,8 +21,8 @@ class Discover extends React.Component
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'green'
+    backgroundColor: colors.whiteBackground
   }
 });
 
-export default Discover;
+export default Chat;

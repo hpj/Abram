@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 
 import { StyleSheet, View, Image, Text } from 'react-native';
 
+import { format, differenceInDays, isToday, isYesterday } from 'date-fns';
+
 import Button from '../components/Button.js';
 
 import { StoreComponent } from '../store.js';
@@ -11,7 +13,6 @@ import { StoreComponent } from '../store.js';
 import { sizes, responsive } from '../sizes';
 
 import getTheme from '../colors.js';
-import { format, differenceInDays, isToday, isYesterday } from 'date-fns';
 
 const colors = getTheme();
 
@@ -46,7 +47,6 @@ class Inbox extends StoreComponent
             const avatars = Object.keys(entry.avatars);
 
             const lastMessage = entry.messages[entry.messages.length - 1];
-            // const lastMessageTime = formatRelative(lastMessage.timestamp, new Date());
             const lastMessageTime = relativeDate(lastMessage.timestamp);
             
             return <Button

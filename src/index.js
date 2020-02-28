@@ -27,7 +27,7 @@ if (__DEV__)
   activateKeepAwake();
 
 // create app-wide store
-const store = createStore('app', {
+createStore('app', {
   // used to change the current view aka route
   index: 0,
   // used to control the pointer events of the app holder view

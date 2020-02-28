@@ -13,8 +13,11 @@ import NavigationView from './components/NavigationView.js';
 import TopBar from './components/TopBar.js';
 import BottomNavigation from './components/BottomNavigation.js';
 
-import Inbox from './components/Inbox.js';
-import Discover from './components/Discover.js';
+import Inbox from './screens/Inbox.js';
+import Discover from './screens/Discover.js';
+
+import ChatHeader from './screens/ChatHeader.js';
+import Chat from './screens/Chat.js';
 
 import { load } from './loading.js';
 
@@ -131,7 +134,7 @@ export default class App extends StoreComponent
                     ...styles.bottomSheetHeaderContent,
                     width: screen.width - (sizes.windowMargin * 2)
                   } }>
-                    {/* <View/> */}
+                    <ChatHeader/>
                   </View>
                 </View>
             }
@@ -142,7 +145,7 @@ export default class App extends StoreComponent
                   ...styles.bottomSheetContent,
                   height: screen.height - (sizes.topBarHeight + sizes.bottomSheetHeaderHeight)
                 } }>
-                  {/* <View/> */}
+                  <Chat/>
                 </View>
             }
           />
@@ -184,7 +187,6 @@ const styles = StyleSheet.create({
   bottomSheetHeader: {
     alignItems: 'center',
     backgroundColor: colors.whiteBackground,
-    backgroundColor: 'green',
 
     height: sizes.topBarHeight + sizes.topBarBigMargin
   },
@@ -202,16 +204,11 @@ const styles = StyleSheet.create({
   bottomSheetHeaderContent: {
     flex: 1,
 
-    backgroundColor: 'brown',
-
     marginLeft: sizes.windowMargin,
     marginRight: sizes.windowMargin
   },
 
   bottomSheetContent: {
-    width: screen.width,
-
-    // backgroundColor: colors.whiteBackground
-    backgroundColor: 'orange'
+    width: screen.width
   }
 });

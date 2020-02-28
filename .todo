@@ -11,9 +11,6 @@ Testing:
   ☐ expo's over-the-air updates
   
 UI/UX:
-  ☐ bottom sheet header
-  ☐ bottom sheet messages
-  
   ☐ add fallback support to i18n
   ☐ add RTL support
 
