@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Dimensions, Keyboard } from 'react-native';
+
 import { registerRootComponent } from 'expo';
 
 import constants from 'expo-constants';
@@ -27,11 +29,20 @@ if (__DEV__)
   activateKeepAwake();
 
 // create app-wide store
-createStore('app', {
+const store = createStore('app', {
   // used to change the current view aka route
   index: 0,
   // used to control the pointer events of the app holder view
   holder: false,
+
+  size: {
+    width: Dimensions.get('screen').width,
+    height: Dimensions.get('screen').height - constants.statusBarHeight
+  },
+
+  keyboard: {
+    height: 0
+  },
 
   profile: {
     displayName: 'Kerolos Zaki',
@@ -78,5 +89,25 @@ createStore('app', {
     }
   ]
 });
+
+// update state when size changes
+Dimensions.addEventListener('change', ({ screen }) => store.set({
+  size: {
+    width: screen.width,
+    height: screen.height - constants.statusBarHeight
+  }
+}));
+
+Keyboard.addListener('keyboardDidShow', (e) => store.set({
+  keyboard: {
+    height: e.endCoordinates.height
+  }
+}));
+
+Keyboard.addListener('keyboardDidHide', () => store.set({
+  keyboard: {
+    height: 0
+  }
+}));
 
 registerRootComponent(() => <App/>);

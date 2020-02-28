@@ -1,17 +1,8 @@
-import { Dimensions } from 'react-native';
-
-import constants from 'expo-constants';
-
-export const screen = {
-  width: Dimensions.get('screen').width,
-  height: Dimensions.get('screen').height - constants.statusBarHeight
-};
-
 export function responsive(height, standardHeight)
 {
   standardHeight = standardHeight || 1130;
 
-  height = (height * Dimensions.get('screen').height) / standardHeight;
+  height = (height * this.state.size.height) / standardHeight;
 
   return Math.round(height);
 }

@@ -10,7 +10,7 @@ import Button from './Button.js';
 
 import { StoreComponent } from '../store.js';
 
-import { screen, sizes } from '../sizes';
+import { sizes } from '../sizes';
 
 import { depth } from '../depth.js';
 
@@ -72,13 +72,13 @@ class ChatAvatars extends StoreComponent
     const menuWidth = this.progress.interpolate({
       inputRange: [ 0, 1 ],
       // window's width - window's margin - margin
-      outputRange: [ (screen.width - sizes.windowMargin - 10) / 2, screen.width - sizes.windowMargin - 10 ]
+      outputRange: [ (this.state.size.width - sizes.windowMargin - 10) / 2, this.state.size.width - sizes.windowMargin - 10 ]
     });
 
     const menuHeight = this.progress.interpolate({
       inputRange: [ 0, 1 ],
       // 65% of window's height
-      outputRange: [ 0, screen.height * 0.65 ]
+      outputRange: [ 0, this.state.size.height * 0.65 ]
     });
 
     const menuOpacity = this.progress.interpolate({

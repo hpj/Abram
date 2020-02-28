@@ -23,7 +23,7 @@ import { load } from './loading.js';
 
 import { StoreComponent } from './store.js';
 
-import { screen, sizes } from './sizes.js';
+import { sizes } from './sizes.js';
 
 import { depth } from './depth.js';
 
@@ -112,6 +112,8 @@ export default class App extends StoreComponent
           <Animated.View style={ {
             ...styles.holder,
 
+            width: this.state.size.width,
+            height: this.state.size.height,
             opacity: holderOpacity
           } }
           pointerEvents={ (this.state.holder) ? 'box-only' : 'none' }/>
@@ -119,12 +121,19 @@ export default class App extends StoreComponent
 
         <BottomNavigation/>
 
-        <View style={ styles.bottomSheet } pointerEvents={ 'box-none' }>
+        <View style={ {
+          ...styles.bottomSheet,
+          width: this.state.size.width,
+          height: this.state.size.height
+        } } pointerEvents={ 'box-none' }>
           <BottomSheet
             ref={ bottomSheetRef }
             callbackNode={ bottomSheetNode }
-            snapPoints = { [ 0, screen.height ] }
-            
+
+            snapPoints = { [ 0, this.state.size.height ] }
+
+            enabledContentGestureInteraction={ false }
+
             renderHeader = {
               () =>
                 <View style={ styles.bottomSheetHeader }>
@@ -132,7 +141,7 @@ export default class App extends StoreComponent
 
                   <View style={ {
                     ...styles.bottomSheetHeaderContent,
-                    width: screen.width - (sizes.windowMargin * 2)
+                    width: this.state.size.width - (sizes.windowMargin * 2)
                   } }>
                     <ChatHeader/>
                   </View>
@@ -160,18 +169,12 @@ const styles = StyleSheet.create({
 
   bottomSheet: {
     zIndex: depth.bottomSheet,
-    position: 'absolute',
-
-    width: screen.width,
-    height: screen.height
+    position: 'absolute'
   },
 
   holder: {
     zIndex: depth.handler,
     position: 'absolute',
-
-    width: screen.width,
-    height: screen.height,
 
     backgroundColor: colors.blackBackground
   },

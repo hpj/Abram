@@ -11,6 +11,8 @@ Testing:
   ☐ expo's over-the-air updates
   
 UI/UX:
+  ☐ scroll view inbox
+
   ☐ add fallback support to i18n
   ☐ add RTL support
 

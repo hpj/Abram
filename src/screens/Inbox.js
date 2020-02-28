@@ -32,6 +32,13 @@ function relativeDate(date)
 
 class Inbox extends StoreComponent
 {
+  constructor()
+  {
+    super();
+
+    this.responsive = responsive.bind(this);
+  }
+
   onPress(entry)
   {
     this.store.set({ activeEntry: entry }, () => this.props.bottomSheetSnapTo(1));
@@ -57,12 +64,17 @@ class Inbox extends StoreComponent
               <View style={ styles.container }>
                 <View style={ styles.entry }>
 
-                  <View style={ styles.avatars }>
+                  <View style={ {
+                    ...styles.avatars,
+
+                    width: this.responsive(sizes.inboxAvatar),
+                    height: this.responsive(sizes.inboxAvatar)
+                  } }>
                     {
                       // TODO show the most relevant avatars
                       avatars.splice(0, 4).map((id, i, array) =>
                       {
-                        let size = responsive(sizes.inboxAvatar);
+                        let size = this.responsive(sizes.inboxAvatar);
 
                         const border = (array.length > 1) ? 2 : 0;
 
@@ -129,7 +141,9 @@ class Inbox extends StoreComponent
                        
                               width: size + border,
                               height: size + border,
-                              borderWidth: border
+                              
+                              borderWidth: border,
+                              borderRadius: this.responsive(sizes.inboxAvatar)
                             } }
                             // eslint-disable-next-line security/detect-object-injection
                             source={ entry.avatars[id] }
@@ -138,6 +152,11 @@ class Inbox extends StoreComponent
                           {/* eslint-disable-next-line react-native/no-inline-styles */}
                           <View style={ {
                             ...styles.badge,
+
+                            width: this.responsive(23),
+                            height: this.responsive(23),
+                            borderRadius: this.responsive(23),
+
                             opacity: (t !== 2 && left === 0 && top === 0) ? 1 : 0
                           } }/>
                         </View>;
@@ -146,9 +165,9 @@ class Inbox extends StoreComponent
                   </View>
 
                   <View style={ styles.info }>
-                    <Text style={ styles.name }>{ entry.displayName }</Text>
-                    <Text style={ styles.time }>{ lastMessageTime }</Text>
-                    <Text style={ styles.preview } numberOfLines={ 1 }>{ lastMessage.text }</Text>
+                    <Text style={ { ...styles.name, fontSize: this.responsive(22) } }>{ entry.displayName }</Text>
+                    <Text style={ { ...styles.time, fontSize: this.responsive(20) } }>{ lastMessageTime }</Text>
+                    <Text style={ { ...styles.preview, fontSize: this.responsive(22) } } numberOfLines={ 1 }>{ lastMessage.text }</Text>
                   </View>
 
                 </View>
@@ -182,9 +201,6 @@ const styles = StyleSheet.create({
   },
 
   avatars: {
-    width: responsive(sizes.inboxAvatar),
-    height: responsive(sizes.inboxAvatar),
-
     marginLeft: 5
   },
 
@@ -198,18 +214,13 @@ const styles = StyleSheet.create({
 
     backgroundColor: colors.iconBackground,
 
-    borderColor: colors.blackText,
-    borderRadius: responsive(sizes.inboxAvatar)
+    borderColor: colors.blackText
   },
 
   badge: {
     position: 'absolute',
 
     backgroundColor: colors.whiteText,
-
-    width: responsive(23),
-    height: responsive(23),
-    borderRadius: responsive(23),
 
     marginLeft: -10,
 
@@ -224,21 +235,16 @@ const styles = StyleSheet.create({
 
   name: {
     color: colors.whiteText,
-
-    fontSize: responsive(22),
     fontWeight: 'bold'
   },
 
   time: {
-    color: colors.greyText,
-    fontSize: responsive(20)
+    color: colors.greyText
   },
 
   preview: {
     color: colors.greyText,
-
-    marginTop: 10,
-    fontSize: responsive(22)
+    marginTop: 10
   }
 });
 

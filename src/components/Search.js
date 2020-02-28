@@ -10,7 +10,7 @@ import Button from './Button.js';
 
 import { StoreComponent } from '../store.js';
 
-import { screen, sizes } from '../sizes';
+import { sizes } from '../sizes';
 
 import getTheme from '../colors.js';
 
@@ -65,7 +65,7 @@ class Search extends StoreComponent
 
     const searchBarDefaultWidth =
     // window width
-    screen.width -
+    this.state.size.width -
     // minus top bar margin
     (sizes.windowMargin * 2)  -
     // minus this container margin
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
     right: 0,
     height: sizes.avatar,
     
-    fontSize: 18,
+    fontSize: 16,
     marginRight: 15
   },
 

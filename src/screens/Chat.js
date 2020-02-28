@@ -2,18 +2,27 @@ import React from 'react';
 
 import { StyleSheet, View, ScrollView, TextInput } from 'react-native';
 
-import { sizes, screen } from '../sizes.js';
+import { sizes } from '../sizes.js';
 
 import getTheme from '../colors.js';
 
+import { StoreComponent } from '../store.js';
+
 const colors = getTheme();
 
-class Chat extends React.Component
+class Chat extends StoreComponent
 {
   render()
   {
+    const fieldHeight = (this.state.keyboard.height) ?
+      (sizes.topBarHeight + sizes.windowMargin) :
+      0;
+    
     return (
-      <View style={ styles.container }>
+      <View style={ {
+        ...styles.container,
+        height: (this.state.size.height - this.state.keyboard.height - fieldHeight) - (sizes.topBarHeight + sizes.topBarBigMargin)
+      } }>
         <ScrollView style={ styles.messages }>
 
           <View style={ { ...styles.message, backgroundColor: 'green' } }>
@@ -26,7 +35,10 @@ class Chat extends React.Component
 
         </ScrollView>
 
-        <View style={ styles.input }>
+        <View style={ {
+          ...styles.input,
+          width: this.state.size.width - (sizes.windowMargin * 2)
+        } }>
           <TextInput style={ styles.field }
             placeholderTextColor={ colors.placeholder }
             placeholder={ 'Write Message' }
@@ -40,26 +52,26 @@ class Chat extends React.Component
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'orange',
-    height: screen.height - (sizes.topBarHeight + sizes.topBarBigMargin)
+    backgroundColor: 'yellow'
   },
 
   messages: {
-
+    backgroundColor: 'orange'
   },
 
   message: {
-    height: 500
+    height: 100
   },
 
   input: {
     backgroundColor: 'purple',
 
-    // backgroundColor: colors.messageBubble,
-    width: screen.width - (sizes.windowMargin * 2),
+    height: sizes.topBarHeight,
 
-    marginTop: 10,
-    marginBottom: 10,
+    // backgroundColor: colors.messageBubble,
+
+    marginTop: sizes.windowMargin / 2,
+    marginBottom: sizes.windowMargin / 2,
     
     marginLeft: sizes.windowMargin,
     marginRight: sizes.windowMargin,
@@ -68,10 +80,9 @@ const styles = StyleSheet.create({
   },
 
   field: {
+    flex: 1,
+
     color: colors.whiteText,
-
-    height: sizes.topBarHeight,
-
     fontSize: 16,
 
     marginLeft: sizes.windowMargin,
