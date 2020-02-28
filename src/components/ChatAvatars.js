@@ -2,7 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import { StyleSheet, View, Image } from 'react-native';
+import { BackHandler, StyleSheet, View, Image } from 'react-native';
 
 import Animated, { Easing } from 'react-native-reanimated';
 
@@ -31,7 +31,9 @@ class ChatAvatars extends StoreComponent
     this.progress = new Animated.Value(0);
 
     // bind functions to use as callbacks
+    
     this.onPress = this.onPress.bind(this);
+    this.onBack = this.onBack.bind(this);
   }
 
   onPress()
@@ -40,6 +42,11 @@ class ChatAvatars extends StoreComponent
 
     // control app's holder view
     this.store.set({ holder: this.menu });
+
+    if (this.menu)
+      BackHandler.addEventListener('hardwareBackPress', this.onBack);
+    else
+      BackHandler.removeEventListener('hardwareBackPress', this.onBack);
 
     Animated.timing(this.progress, {
       duration: 100,
@@ -52,6 +59,13 @@ class ChatAvatars extends StoreComponent
       toValue: (this.menu) ? 1 : 0,
       easing: Easing.linear
     }).start();
+  }
+
+  onBack()
+  {
+    this.onPress();
+    
+    return true;
   }
 
   values(obj)

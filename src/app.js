@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyleSheet, StatusBar, SafeAreaView, View, TouchableWithoutFeedback  } from 'react-native';
+import { StyleSheet, StatusBar, BackHandler, SafeAreaView, View, TouchableWithoutFeedback  } from 'react-native';
 
 import { SplashScreen } from 'expo';
 
@@ -39,6 +39,15 @@ const bottomSheetRef = React.createRef();
 
 export default class App extends StoreComponent
 {
+  constructor()
+  {
+    super();
+
+    // bind functions to use as callbacks
+
+    this.onBack = this.onBack.bind(this);
+  }
+
   componentDidMount()
   {
     super.componentDidMount();
@@ -79,6 +88,22 @@ export default class App extends StoreComponent
       // fix the top bar margin being on reverse when the app starts
       bottomSheetNode.setValue(1);
     }
+  }
+
+  onSnap(index)
+  {
+    if (index)
+      BackHandler.addEventListener('hardwareBackPress', this.onBack);
+    else
+      BackHandler.removeEventListener('hardwareBackPress', this.onBack);
+  }
+
+  onBack()
+  {
+    // close bottom sheet
+    bottomSheetRef.current.snapTo(0);
+
+    return true;
   }
 
   render()
@@ -133,6 +158,9 @@ export default class App extends StoreComponent
             snapPoints = { [ 0, this.state.size.height ] }
 
             enabledContentGestureInteraction={ false }
+
+            onOpenStart={ () => this.onSnap(1) }
+            onCloseEnd={ () => this.onSnap(0) }
 
             renderHeader = {
               () =>
