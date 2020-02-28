@@ -99,11 +99,11 @@ class Search extends StoreComponent
       outputRange: [
         this.progress.interpolate({
           inputRange: [ 0, 1 ],
-          outputRange: [ 0, searchBarMaxWidth - sizes.avatar - (sizes.avatar / 2) ]
+          outputRange: [ 0, searchBarMaxWidth - sizes.avatar - (sizes.avatar / 2) - 5 ]
         }),
         this.progress.interpolate({
           inputRange: [ 0, 1 ],
-          outputRange: [ 0, searchBarDefaultWidth - sizes.avatar - (sizes.avatar / 2) ]
+          outputRange: [ 0, searchBarDefaultWidth - sizes.avatar - (sizes.avatar / 2) - 5 ]
         })
       ]
     });
@@ -138,7 +138,8 @@ class Search extends StoreComponent
               <Button
                 testID={ 'tb-search-minimize' }
                 borderless={ true }
-                buttonStyle={ styles.button }
+                // eslint-disable-next-line react-native/no-inline-styles
+                buttonStyle={ { ...styles.button, marginLeft: -5 } }
                 icon={ { name: 'delete', size: sizes.icon, color: colors.whiteText } }
                 onPress={ () => this.onPress(false) }
               />
