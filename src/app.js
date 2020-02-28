@@ -148,7 +148,14 @@ export default class App extends StoreComponent
                 </View>
             }
 
-            renderContent = { () => <Chat/> }
+            renderContent = { () =>
+              <View style={ {
+                ...styles.bottomSheetContent,
+                height: this.state.size.height
+              } }>
+                <Chat/>
+              </View>
+            }
           />
         </View>
 
@@ -201,5 +208,9 @@ const styles = StyleSheet.create({
 
     marginLeft: sizes.windowMargin,
     marginRight: sizes.windowMargin
+  },
+
+  bottomSheetContent: {
+    backgroundColor: colors.blackBackground
   }
 });

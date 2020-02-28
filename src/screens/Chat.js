@@ -25,13 +25,13 @@ class Chat extends StoreComponent
       } }>
         <ScrollView style={ styles.messages }>
 
-          <View style={ { ...styles.message, backgroundColor: 'green' } }>
+          {/* <View style={ { ...styles.message, backgroundColor: 'green' } }>
 
           </View>
 
           <View style={ { ...styles.message, backgroundColor: 'red' } }>
 
-          </View>
+          </View> */}
 
         </ScrollView>
 
@@ -52,23 +52,21 @@ class Chat extends StoreComponent
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'yellow'
+    backgroundColor: colors.blackBackground
   },
 
   messages: {
-    backgroundColor: 'orange'
+
   },
 
   message: {
-    height: 100
+    height: 500
   },
 
   input: {
-    backgroundColor: 'purple',
-
+    backgroundColor: colors.messageBubble,
+    
     height: sizes.topBarHeight,
-
-    // backgroundColor: colors.messageBubble,
 
     marginTop: sizes.windowMargin / 2,
     marginBottom: sizes.windowMargin / 2,
