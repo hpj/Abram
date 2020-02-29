@@ -27,7 +27,7 @@ function relativeDate(date)
   else if (differenceInDays(baseDate, date) <= 6)
     return format(date, 'EEEE\', \'hh:mm a');
   else
-    return format(date, 'dd MMMM, yyyy');
+    return format(date, 'd MMM yyyy');
 }
 
 class Inbox extends StoreComponent
@@ -41,7 +41,7 @@ class Inbox extends StoreComponent
 
   onPress(entry)
   {
-    this.store.set({ activeEntry: entry }, () => this.props.bottomSheetSnapTo(1));
+    this.store.set({ activeChat: entry }, () => this.props.bottomSheetSnapTo(1));
   }
 
   render()

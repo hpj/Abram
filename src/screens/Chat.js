@@ -2,6 +2,8 @@ import React from 'react';
 
 import { StyleSheet, View, FlatList, TextInput, Text, Image } from 'react-native';
 
+import { format, differenceInMinutes, differenceInDays, isToday, isYesterday } from 'date-fns';
+
 import Button from '../components/Button.js';
 
 import { sizes } from '../sizes.js';
@@ -12,16 +14,55 @@ import { StoreComponent } from '../store.js';
 
 const colors = getTheme();
 
+function relativeDate(messageTimestamp, prevMessageTimestamp)
+{
+  let showTime = false;
+
+  const date = new Date(messageTimestamp);
+
+  // if this is the first message in the conversation
+  if (!prevMessageTimestamp)
+  {
+    showTime = true;
+  }
+  else
+  {
+    // 5 minutes
+    const maxDiff = 5;
+
+    const prevMessageDate = new Date(prevMessageTimestamp);
+
+    // if the difference between this message the the previous
+    // is longer than the max minutes
+    if (differenceInMinutes(date, prevMessageDate) > maxDiff)
+      showTime = true;
+  }
+
+  if (!showTime)
+    return;
+  
+  const baseDate = new Date();
+
+  if (isToday(date))
+    return format(date, '\'Today, \'hh:mm a');
+  else if (isYesterday(date))
+    return format(date, '\'Yesterday, \'hh:mm a');
+  else if (differenceInDays(baseDate, date) <= 6)
+    return format(date, 'EEEE\', \'hh:mm a');
+  else
+    return format(date, 'd MMMM yyyy, hh:mm a');
+}
+
 class Chat extends StoreComponent
 {
   render()
   {
-    const activeEntry = this.state.activeEntry;
+    const activeChat = this.state.activeChat;
 
-    if (!activeEntry.displayName)
+    if (!activeChat.displayName)
       return <View/>;
 
-    const messages = [ ...activeEntry.messages ];
+    const messages = [ ...activeChat.messages ];
 
     const fieldHeight = (this.state.keyboard.height) ?
       (sizes.topBarHeight + sizes.windowMargin) :
@@ -46,17 +87,19 @@ class Chat extends StoreComponent
           inverted={ true }
           data={ messages.reverse() }
           keyExtractor={ (item, index) => index.toString() }
-          renderItem={ ({ item }) =>
+          renderItem={ ({ item, index }) =>
           {
             const self = item.owner === this.state.profile.username;
-            const avatar = (!self && activeEntry.members.length > 2) ? activeEntry.avatars[item.owner] : undefined;
+            const avatar = (!self && activeChat.members.length > 2) ? activeChat.avatars[item.owner] : undefined;
+            
+            const time = relativeDate(item.timestamp, messages[index + 1]?.timestamp);
             
             return <View>
-              {/* TODO {
-                (index === data.length - 1) ?
-                  <Text style={ styles.time }>{ '2019/12/12, 07:07 AM' }</Text> :
+              {
+                (time) ?
+                  <Text style={ styles.time }>{ time }</Text> :
                   <View/>
-              } */}
+              }
 
               {
                 (avatar) ?
@@ -120,6 +163,8 @@ const styles = StyleSheet.create({
     minHeight: 40,
 
     flexDirection: 'row',
+
+    alignItems: 'center',
     justifyContent: 'center',
 
     alignSelf: 'flex-start',
@@ -146,6 +191,8 @@ const styles = StyleSheet.create({
   },
 
   avatar: {
+    alignSelf: 'flex-start',
+
     width: sizes.chatAvatar,
     height: sizes.chatAvatar,
     borderRadius: sizes.chatAvatar,

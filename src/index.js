@@ -50,7 +50,7 @@ const store = createStore('app', {
     avatar: require('../assets/mockup/ker0olos.jpeg')
   },
 
-  activeEntry: {},
+  activeChat: {},
 
   inbox: [
     {
@@ -63,8 +63,10 @@ const store = createStore('app', {
         'ElwedidiDina': require('../assets/mockup/dina-0.jpg')
       },
       messages: [
+        // timestamp
         { owner: 'ElwedidiDina', text: 'Did you really made it through the world’s championship of shit?', timestamp: subDays(new Date(), 21) },
         { owner: 'ker0olos', text: 'No.', timestamp: addMinutes(subDays(new Date(), 21), 3) },
+        // timestamp
         { owner: 'ElwedidiDina', text: 'Hey Kay, We need to talk about your face.', timestamp: subHours(new Date(), 1) }
       ]
     },
@@ -85,8 +87,8 @@ const store = createStore('app', {
       },
       messages: [
         { owner: 'karkar-1', text: 'Ahmed is an idiot.', timestamp: subDays(new Date(), 21) },
-        { owner: 'ker0olos', text: 'I agree.', timestamp: addMinutes(subDays(new Date(), 21), 3) },
-        { owner: 'karkar-3', text: 'Maybe, we could kill him.', timestamp: subHours(new Date(), 2) }
+        { owner: 'ker0olos', text: 'I agree.', timestamp: addMinutes(subDays(new Date(), 21), 6) },
+        { owner: 'karkar-3', text: 'Maybe, we could kill him.', timestamp: subHours(new Date(), 26) }
       ]
     },
     {
@@ -99,7 +101,7 @@ const store = createStore('app', {
         'Bal7a': require('../assets/mockup/sisi-0.jpg')
       },
       messages: [
-        { owner: 'Bal7a', text: 'Dude, I fucked up.', timestamp: subDays(new Date(), 4) }
+        { owner: 'Bal7a', text: 'Dude, I fucked up.', timestamp: subDays(new Date(), 50) }
       ]
     }
   ]

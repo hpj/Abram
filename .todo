@@ -1,15 +1,12 @@
 Performance Issues and Bugs:
+  ☐ add all strings to i18n
 
 Testing:
-  ☐ test top bar
-    ☐ test search bar
-    ☐ test chat avatars
-    ☐ test menu
-
   ☐ expo's over-the-air updates
   
 UI/UX:
   ☐ send messages
+  ☐ select text from chat bubbles 
 
   ☐ add fallback support to i18n
   ☐ add RTL support

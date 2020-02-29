@@ -14,19 +14,19 @@ class ChatHeader extends StoreComponent
 {
   render()
   {
-    const activeEntry = this.state.activeEntry;
+    const activeChat = this.state.activeChat;
 
-    if (!activeEntry.displayName)
+    if (!activeChat.displayName)
       return <View/>;
 
     const lastMessageTime = `Active ${formatDistanceStrict(
-      activeEntry.messages[activeEntry.messages.length - 1].timestamp,
+      activeChat.messages[activeChat.messages.length - 1].timestamp,
       new Date()
     )} ago`;
 
     return (
       <View style={ styles.container }>
-        <Text style={ styles.name }>{ activeEntry.displayName }</Text>
+        <Text style={ styles.name }>{ activeChat.displayName }</Text>
         <Text style={ styles.time }>{ lastMessageTime }</Text>
       </View>
     );

@@ -59,7 +59,7 @@ class Search extends StoreComponent
   {
     const { maximized } = this.state;
 
-    const avatarsAmount = Math.min(Object.keys(this.state.activeEntry.avatars || {}).length || 1, 2);
+    const avatarsAmount = Math.min(this.state.activeChat.members?.length || 1, 2);
 
     const searchBarMinWidth = sizes.avatar;
 

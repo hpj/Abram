@@ -33,7 +33,6 @@ class ChatAvatars extends StoreComponent
     // bind functions to use as callbacks
     
     this.onPress = this.onPress.bind(this);
-    this.onBack = this.onBack.bind(this);
   }
 
   onPress()
@@ -44,9 +43,9 @@ class ChatAvatars extends StoreComponent
     this.store.set({ holder: this.menu });
 
     if (this.menu)
-      BackHandler.addEventListener('hardwareBackPress', this.onBack);
+      BackHandler.addEventListener('hardwareBackPress', this.onPress);
     else
-      BackHandler.removeEventListener('hardwareBackPress', this.onBack);
+      BackHandler.removeEventListener('hardwareBackPress', this.onPress);
 
     Animated.timing(this.progress, {
       duration: 100,
@@ -59,23 +58,18 @@ class ChatAvatars extends StoreComponent
       toValue: (this.menu) ? 1 : 0,
       easing: Easing.linear
     }).start();
-  }
 
-  onBack()
-  {
-    this.onPress();
-    
     return true;
   }
 
   render()
   {
-    const activeEntry = this.state.activeEntry;
+    const activeChat = this.state.activeChat;
 
     const members = [];
 
-    if (activeEntry.members)
-      members.push(...activeEntry.members);
+    if (activeChat.members)
+      members.push(...activeChat.members);
 
     // remove self from array
     members.splice(members.indexOf(this.state.profile.username), 1);
@@ -151,7 +145,7 @@ class ChatAvatars extends StoreComponent
                         marginLeft: avatarMarginLeft
                       } }
                       // eslint-disable-next-line security/detect-object-injection
-                      source={ activeEntry.avatars[id] }
+                      source={ activeChat.avatars[id] }
                     />
                   </Animated.View>;
                 })
