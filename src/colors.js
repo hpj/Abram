@@ -27,7 +27,7 @@ export default function()
 
     messageBubble: '#1C1C1C',
 
-    text: alpha('#ffffff', '0.9')
+    text: alpha('#ffffff', '0.8')
   };
 
   // const lightTheme = {

@@ -2,9 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import { StyleSheet, View, Image, Text } from 'react-native';
-
-import { ScrollView } from 'react-native-gesture-handler';
+import { StyleSheet, View, ScrollView, Image, Text } from 'react-native';
 
 import { format, differenceInDays, isToday, isYesterday } from 'date-fns';
 

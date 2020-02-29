@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { StyleSheet, View, TextInput, Text } from 'react-native';
-
-import { ScrollView } from 'react-native-gesture-handler';
+import { StyleSheet, View, FlatList, TextInput, Text, Image } from 'react-native';
 
 import Button from '../components/Button.js';
 
@@ -21,23 +19,72 @@ class Chat extends StoreComponent
     const fieldHeight = (this.state.keyboard.height) ?
       (sizes.topBarHeight + sizes.windowMargin) :
       0;
+
+    const viewHeight =
+      this.state.size.height -
+      this.state.keyboard.height -
+      fieldHeight -
+      (sizes.topBarHeight + sizes.topBarBigMargin);
     
+    const data = [
+      {
+        source: require('../../assets/mockup/dina-0.jpg'),
+        text: 'All that was said All that was said All that was said All that was said All that was said All that was said  All that was said'
+      },
+      {
+        source: require('../../assets/mockup/dina-0.jpg'),
+        text: '.'
+      },
+      {
+        text: '.'
+      },
+      {
+        text: 'All that was said All that was said All that was said All that was said All that was said All that was said  All that was said'
+      },
+      {
+        self: true,
+        text: '.'
+      }
+    ];
+
+    const bubbleWidth = this.state.size.width * sizes.chatBubbleMaxWidth;
+    const bubbleTextWidth = bubbleWidth - (sizes.windowMargin * 2);
+    const avatarBubbleTextWidth = bubbleTextWidth - sizes.chatAvatar - sizes.windowMargin;
+
     return (
       <View style={ {
         ...styles.container,
-        height: (this.state.size.height - this.state.keyboard.height - fieldHeight) - (sizes.topBarHeight + sizes.topBarBigMargin)
+        height: viewHeight
       } }>
-        <ScrollView style={ styles.messages }>
+        <FlatList
+          inverted={ true }
+          data={ data.reverse() }
+          keyExtractor={ (item, index) => index.toString() }
+          renderItem={ ({ item, index }) =>
+          {
+            
+            return <View>
+              {
+                (index === data.length - 1) ?
+                  <Text style={ styles.time }>{ '2019/12/12, 07:07 AM' }</Text> :
+                  <View/>
+              }
 
-          <View style={ styles.message }>
-            <Text style={ styles.text }>{ '.' }</Text>
-          </View>
+              {
+                (item.source) ?
 
-          <View style={ styles.messageAlt }>
-            <Text style={ styles.text }>{ '.' }</Text>
-          </View>
-          
-        </ScrollView>
+                  <View style={ { ...styles.message, maxWidth: bubbleWidth } }>
+                    <Image style={ styles.avatar } source={ item.source }/>
+                    <Text style={ { ...styles.text, maxWidth: avatarBubbleTextWidth } }>{ item.text }</Text>
+                  </View> :
+
+                  <View style={ { ...styles.message, ...((item.self) ? styles.messageAlt : undefined), maxWidth: bubbleWidth } }>
+                    <Text style={ { ...styles.text, maxWidth: bubbleTextWidth } }>{ item.text }</Text>
+                  </View>
+              }
+            </View>;
+          } }
+        />
 
         <View style={ {
           ...styles.input,
@@ -62,57 +109,61 @@ class Chat extends StoreComponent
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.blackBackground,
-
-    marginLeft: sizes.windowMargin,
-    marginRight: sizes.windowMargin
+    backgroundColor: colors.blackBackground
   },
 
-  messages: {
-    flexDirection: 'column-reverse'
+  time: {
+    color: colors.greyText,
+    textAlign: 'center',
+
+    marginTop: sizes.windowMargin / 2,
+    marginBottom: sizes.windowMargin / 2,
+
+    fontSize: 14
+  },
+
+  messageAlt: {
+    backgroundColor: colors.messageBubble,
+    alignSelf: 'flex-end',
+    borderWidth: 0
   },
 
   message: {
-    minWidth: 70,
-    maxWidth: '85%',
-    minHeight: 45,
+    minWidth: 55,
+    minHeight: 40,
 
-    alignItems: 'center',
+    flexDirection: 'row',
     justifyContent: 'center',
 
     alignSelf: 'flex-start',
+
     marginTop: 10,
+    marginBottom: 5,
+    marginLeft: sizes.windowMargin,
+    marginRight: sizes.windowMargin,
+
+    paddingVertical: sizes.windowMargin / 2,
 
     borderWidth: 3,
     borderColor: colors.messageBubble,
     borderRadius: 25
   },
 
-  messageAlt: {
-    minWidth: 70,
-    maxWidth: '85%',
-    minHeight: 45,
-
-    alignItems: 'center',
-    justifyContent: 'center',
-
-    alignSelf: 'flex-end',
-    backgroundColor: colors.messageBubble,
-
-    marginTop: 10,
-    borderRadius: 25
-  },
-
   text: {
-    // backgroundColor: 'red',
     color: colors.text,
 
-    marginTop: 10,
-    marginBottom: 10,
-    marginLeft: 20,
-    marginRight: 20,
+    fontSize: 16,
 
-    fontSize: 16
+    marginLeft: sizes.windowMargin,
+    marginRight: sizes.windowMargin
+  },
+
+  avatar: {
+    width: sizes.chatAvatar,
+    height: sizes.chatAvatar,
+    borderRadius: sizes.chatAvatar,
+
+    marginLeft: sizes.windowMargin
   },
 
   input: {
@@ -120,8 +171,10 @@ const styles = StyleSheet.create({
     backgroundColor: colors.messageBubble,
     
     height: sizes.topBarHeight,
-
-    marginTop: sizes.windowMargin * 1.5,
+    
+    marginLeft: sizes.windowMargin,
+    marginRight: sizes.windowMargin,
+    marginTop: sizes.windowMargin / 2,
     marginBottom: sizes.windowMargin / 2,
     
     borderRadius: sizes.topBarHeight

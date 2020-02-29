@@ -20,6 +20,9 @@ export const sizes = {
   icon: 24,
   navigationBarButton: 44,
 
+  chatAvatar: 28,
+  chatBubbleMaxWidth: 0.8,
+
   inboxAvatar: 70,
   avatar: 38,
 
