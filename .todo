@@ -9,7 +9,11 @@ Testing:
   ☐ expo's over-the-air updates
   
 UI/UX:
+  ☐ send messages
+
   ☐ add fallback support to i18n
   ☐ add RTL support
+
+  ☐ when designing backend use UUID ids as permanent instead of usernames
 
 Discover:

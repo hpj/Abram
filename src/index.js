@@ -55,17 +55,28 @@ const store = createStore('app', {
   inbox: [
     {
       displayName: 'Dina El-Wedidi',
+      members: [
+        'ker0olos',
+        'ElwedidiDina'
+      ],
       avatars: {
         'ElwedidiDina': require('../assets/mockup/dina-0.jpg')
       },
       messages: [
         { owner: 'ElwedidiDina', text: 'Did you really made it through the world’s championship of shit?', timestamp: subDays(new Date(), 21) },
-        { owner: 'ker0olos', text: 'No', timestamp: addMinutes(subDays(new Date(), 21), 3) },
+        { owner: 'ker0olos', text: 'No.', timestamp: addMinutes(subDays(new Date(), 21), 3) },
         { owner: 'ElwedidiDina', text: 'Hey Kay, We need to talk about your face.', timestamp: subHours(new Date(), 1) }
       ]
     },
     {
       displayName: 'Councill of Karkars',
+      members: [
+        'ker0olos',
+        'karkar-1',
+        'karkar-3',
+        'karkar-4',
+        'karkar-5'
+      ],
       avatars: {
         'karkar-1': require('../assets/mockup/karkar-1.jpg'),
         'karkar-3': require('../assets/mockup/karkar-3.jpg'),
@@ -75,11 +86,15 @@ const store = createStore('app', {
       messages: [
         { owner: 'karkar-1', text: 'Ahmed is an idiot.', timestamp: subDays(new Date(), 21) },
         { owner: 'ker0olos', text: 'I agree.', timestamp: addMinutes(subDays(new Date(), 21), 3) },
-        { owner: 'karkar-4', text: 'Maybe, we could kill him.', timestamp: subHours(new Date(), 2) }
+        { owner: 'karkar-3', text: 'Maybe, we could kill him.', timestamp: subHours(new Date(), 2) }
       ]
     },
     {
       displayName: 'Al-Sisi',
+      members: [
+        'ker0olos',
+        'Bal7a'
+      ],
       avatars: {
         'Bal7a': require('../assets/mockup/sisi-0.jpg')
       },

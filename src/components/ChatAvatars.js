@@ -68,20 +68,17 @@ class ChatAvatars extends StoreComponent
     return true;
   }
 
-  values(obj)
-  {
-    if (!obj)
-      return [];
-
-    // eslint-disable-next-line security/detect-object-injection
-    return Object.keys(obj).map((k) => obj[k]);
-  }
-
   render()
   {
     const activeEntry = this.state.activeEntry;
 
-    const avatars = Object.keys(activeEntry.avatars || {});
+    const members = [];
+
+    if (activeEntry.members)
+      members.push(...activeEntry.members);
+
+    // remove self from array
+    members.splice(members.indexOf(this.state.profile.username), 1);
 
     const menuWidth = this.progress.interpolate({
       inputRange: [ 0, 1 ],
@@ -141,7 +138,7 @@ class ChatAvatars extends StoreComponent
               </Animated.View>
               {
                 // TODO show the most relevant avatars
-                avatars.splice(0, 2).map((id, i) =>
+                members.splice(0, 2).map((id, i) =>
                 {
                   return <Animated.View key={ i } style={ {
                     ...styles.avatarContainer,

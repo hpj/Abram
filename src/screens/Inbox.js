@@ -51,7 +51,10 @@ class Inbox extends StoreComponent
         {
           this.state.inbox.map((entry, t) =>
           {
-            const avatars = Object.keys(entry.avatars);
+            const members = [ ...entry.members ];
+
+            // remove self from array
+            members.splice(members.indexOf(this.state.profile.username), 1);
 
             const lastMessage = entry.messages[entry.messages.length - 1];
             const lastMessageTime = relativeDate(lastMessage.timestamp);
@@ -72,7 +75,7 @@ class Inbox extends StoreComponent
                   } }>
                     {
                       // TODO show the most relevant avatars
-                      avatars.splice(0, 4).map((id, i, array) =>
+                      members.splice(0, 4).map((id, i, array) =>
                       {
                         let size = this.responsive(sizes.inboxAvatar);
 

@@ -16,6 +16,13 @@ class Chat extends StoreComponent
 {
   render()
   {
+    const activeEntry = this.state.activeEntry;
+
+    if (!activeEntry.displayName)
+      return <View/>;
+
+    const messages = [ ...activeEntry.messages ];
+
     const fieldHeight = (this.state.keyboard.height) ?
       (sizes.topBarHeight + sizes.windowMargin) :
       0;
@@ -26,27 +33,6 @@ class Chat extends StoreComponent
       fieldHeight -
       (sizes.topBarHeight + sizes.topBarBigMargin);
     
-    const data = [
-      {
-        source: require('../../assets/mockup/dina-0.jpg'),
-        text: 'All that was said All that was said All that was said All that was said All that was said All that was said  All that was said'
-      },
-      {
-        source: require('../../assets/mockup/dina-0.jpg'),
-        text: '.'
-      },
-      {
-        text: '.'
-      },
-      {
-        text: 'All that was said All that was said All that was said All that was said All that was said All that was said  All that was said'
-      },
-      {
-        self: true,
-        text: '.'
-      }
-    ];
-
     const bubbleWidth = this.state.size.width * sizes.chatBubbleMaxWidth;
     const bubbleTextWidth = bubbleWidth - (sizes.windowMargin * 2);
     const avatarBubbleTextWidth = bubbleTextWidth - sizes.chatAvatar - sizes.windowMargin;
@@ -58,27 +44,29 @@ class Chat extends StoreComponent
       } }>
         <FlatList
           inverted={ true }
-          data={ data.reverse() }
+          data={ messages.reverse() }
           keyExtractor={ (item, index) => index.toString() }
-          renderItem={ ({ item, index }) =>
+          renderItem={ ({ item }) =>
           {
+            const self = item.owner === this.state.profile.username;
+            const avatar = (!self && activeEntry.members.length > 2) ? activeEntry.avatars[item.owner] : undefined;
             
             return <View>
-              {
+              {/* TODO {
                 (index === data.length - 1) ?
                   <Text style={ styles.time }>{ '2019/12/12, 07:07 AM' }</Text> :
                   <View/>
-              }
+              } */}
 
               {
-                (item.source) ?
+                (avatar) ?
 
                   <View style={ { ...styles.message, maxWidth: bubbleWidth } }>
-                    <Image style={ styles.avatar } source={ item.source }/>
+                    <Image style={ styles.avatar } source={ avatar }/>
                     <Text style={ { ...styles.text, maxWidth: avatarBubbleTextWidth } }>{ item.text }</Text>
                   </View> :
 
-                  <View style={ { ...styles.message, ...((item.self) ? styles.messageAlt : undefined), maxWidth: bubbleWidth } }>
+                  <View style={ { ...styles.message, ...((self) ? styles.messageAlt : undefined), maxWidth: bubbleWidth } }>
                     <Text style={ { ...styles.text, maxWidth: bubbleTextWidth } }>{ item.text }</Text>
                   </View>
               }
@@ -124,8 +112,7 @@ const styles = StyleSheet.create({
 
   messageAlt: {
     backgroundColor: colors.messageBubble,
-    alignSelf: 'flex-end',
-    borderWidth: 0
+    alignSelf: 'flex-end'
   },
 
   message: {
