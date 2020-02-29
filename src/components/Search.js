@@ -140,8 +140,8 @@ class Search extends StoreComponent
                 testID={ 'tb-search-minimize' }
                 borderless={ true }
                 // eslint-disable-next-line react-native/no-inline-styles
-                buttonStyle={ { ...styles.button, marginLeft: -5 } }
-                icon={ { name: 'delete', size: sizes.icon, color: colors.whiteText } }
+                buttonStyle={ styles.button }
+                icon={ { name: 'x', size: sizes.icon, color: colors.whiteText } }
                 onPress={ () => this.onPress(false) }
               />
           }
