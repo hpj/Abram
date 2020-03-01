@@ -21,6 +21,8 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
+    "plugin:jest/style",
+    "plugin:jest/recommended",
     "plugin:security/recommended"
   ],
   "parser": "babel-eslint",

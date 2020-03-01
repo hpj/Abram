@@ -10,6 +10,8 @@ jest.mock('axios');
 
 afterEach(() =>
 {
+  axios.get.mockReset();
+
   // delete any data that was fetched
   locales.forEach((locale) =>
   {
@@ -50,11 +52,12 @@ describe('Testing i18n', () =>
     expect(locale.json).toBeUndefined();
     
     // mock axios response
-    axios.get
-      .mockImplementationOnce(() => Promise.resolve({ data: { test: true } }));
+    axios.get.mockImplementation(() => Promise.resolve({ data: { test: true } }));
 
     // fetch locale data
     await fetch('en-US');
+    
+    expect(axios.get).toHaveBeenCalledTimes(1);
 
     expect(locale.json).toContainAllKeys([
       'test'
@@ -71,14 +74,15 @@ describe('Testing i18n', () =>
     expect(locale.json).toBeUndefined();
     
     // mock axios response
-    axios.get
-      .mockImplementationOnce(() =>
-      {
-        throw new Error();
-      });
+    axios.get.mockImplementation(() =>
+    {
+      throw new Error();
+    });
 
     // fetch locale data
     await fetch('en-US');
+
+    expect(axios.get).toHaveBeenCalledTimes(1);
 
     expect(locale.json).toContainAllKeys([
       'offline'
@@ -98,14 +102,15 @@ describe('Testing i18n', () =>
     AsyncStorage.getItem = (data, cb) => cb(undefined, JSON.stringify({ cache: true }));
 
     // mock axios response
-    axios.get
-      .mockImplementationOnce(() =>
-      {
-        throw new Error();
-      });
+    axios.get.mockImplementation(() =>
+    {
+      throw new Error();
+    });
 
     // fetch locale data
     await fetch('en-US');
+
+    expect(axios.get).toHaveBeenCalledTimes(1);
 
     expect(locale.json).toContainAllKeys([
       'cache'
@@ -124,10 +129,12 @@ describe('Testing i18n', () =>
     // mock axios response
     const response = { data: { test: 'test-%0' } };
 
-    axios.get.mockImplementationOnce(() => Promise.resolve(response));
+    axios.get.mockImplementation(() => Promise.resolve(response));
 
     // fetch locale data
     await fetch('en-US');
+
+    expect(axios.get).toHaveBeenCalledTimes(1);
 
     expect(locale.json).toContainAllKeys([
       'test'
