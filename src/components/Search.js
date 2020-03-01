@@ -41,7 +41,7 @@ class Search extends StoreComponent
     }
 
     Animated.timing(this.progress, {
-      duration: 100,
+      duration: 65,
       toValue: (maximize) ? 1 : 0,
       easing: Easing.linear
     }).start((finished) =>

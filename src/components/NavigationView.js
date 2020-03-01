@@ -13,6 +13,8 @@ class NavigationView extends React.Component
   constructor()
   {
     super();
+
+    this.state = {  animating: false };
   }
 
   componentDidMount()
@@ -30,11 +32,18 @@ class NavigationView extends React.Component
 
     if (active !== this.props.active)
     {
-      Animated.timing(this.progress, {
-        duration: 150,
-        toValue: (active) ? 1 : 0,
-        easing: Easing.linear
-      }).start();
+      this.setState({ animating: true }, () =>
+      {
+        Animated.timing(this.progress, {
+          duration: 150,
+          toValue: (active) ? 1 : 0,
+          easing: Easing.linear
+        }).start(({ finished }) =>
+        {
+          if (finished)
+            this.setState({ animating: false });
+        });
+      });
     }
   }
 
@@ -50,12 +59,6 @@ class NavigationView extends React.Component
         inputRange: [ 0, 1 ],
         outputRange: [ 0, 1 ]
       });
-    
-    const scale =
-    this.progress.interpolate({
-      inputRange: [ 0, 1 ],
-      outputRange: [ 0.8, 1 ]
-    });
   
     return (
       <Animated.View
@@ -65,15 +68,11 @@ class NavigationView extends React.Component
           right: 0,
           top: 0,
           bottom: 0,
-          opacity: opacity,
-          transform: [
-            { scaleX: scale },
-            { scaleY: scale }
-          ]
+          opacity: opacity
         } }
         pointerEvents={ (active) ? 'box-none' : 'none' }
       >
-        { this.props.children }
+        { (!this.state.animating && !active) ? undefined : this.props.children }
       </Animated.View>
     );
   }

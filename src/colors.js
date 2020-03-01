@@ -32,16 +32,6 @@ export default function()
 
   // const lightTheme = {
   //   ...darkTheme,
-
-  //   theme: 'light',
-    
-  //   whiteText: '#ffffff',
-  //   whiteBackground: '#ffffff',
-   
-  //   blackText: '#000000',
-  //   blackBackground: '#000000',
-   
-  //   red: 'red'
   // };
 
   // return (dark) ? darkTheme : lightTheme;
