@@ -2,6 +2,7 @@
   "expo": {
     "name": "Abram",
     "slug": "Abram",
+    "description": "",
     "privacy": "unlisted",
     "owner": "Herp Project",
     "sdkVersion": "36.0.0",
