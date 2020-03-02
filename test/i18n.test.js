@@ -9,9 +9,6 @@ import i18n, { getDefault, fetch, locales, locale, setLocale } from '../src/i18n
 // mocks axios
 jest.mock('axios');
 
-// mock react native's AsyncStorage
-AsyncStorage.setItem = jest.fn();
-
 afterEach(() =>
 {
   axios.get.mockReset();

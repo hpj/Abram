@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing <App/> Navigation Views 1`] = `
+"Snapshot Diff:
+Compared values have no visual difference."
+`;
+
+exports[`Testing <App/> Navigation Views: Discover View Should Be Visible 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+  testID="v-navigation"
+>
+  <View
+    active={false}
+    pointerEvents="none"
+    style={
+      Object {
+        "height": "100%",
+        "opacity": 0,
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+    testID="v-inbox"
+  />
+  <View
+    active={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "height": "100%",
+        "opacity": 1,
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+    testID="v-discover"
+  />
+</View>
+`;
+
+exports[`Testing <App/> Navigation Views: Initial (Inbox) View Should Be Visible 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+  testID="v-navigation"
+>
+  <View
+    active={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "height": "100%",
+        "opacity": 1,
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+    testID="v-inbox"
+  />
+  <View
+    active={false}
+    pointerEvents="none"
+    style={
+      Object {
+        "height": "100%",
+        "opacity": 0,
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+    testID="v-discover"
+  />
+</View>
+`;

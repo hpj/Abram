@@ -130,14 +130,14 @@ class Search extends StoreComponent
           {
             (!maximized) ?
               <Button
-                testID={ 'tb-search-maximize' }
+                testID='bn-search-maximize'
                 borderless={ true }
                 buttonStyle={ styles.button }
                 icon={ { name: 'search', size: sizes.icon, color: colors.whiteText } }
                 onPress={ () => this.onPress(true) }
               /> :
               <Button
-                testID={ 'tb-search-minimize' }
+                testID='bn-search-minimize'
                 borderless={ true }
                 // eslint-disable-next-line react-native/no-inline-styles
                 buttonStyle={ styles.button }

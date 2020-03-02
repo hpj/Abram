@@ -26,7 +26,7 @@ class BottomNavigation extends StoreComponent
     return (
       <View style={ styles.container }>
         <Button
-          testID={ 'bn-inbox' }
+          testID='bn-inbox'
           badgeStyle={ styles.badge }
           backgroundStyle={  (this.state.index === 0) ? styles.background : styles.backgroundInactive }
           borderless={ true }
@@ -36,7 +36,7 @@ class BottomNavigation extends StoreComponent
         />
 
         <Button
-          testID={ 'bn-discover' }
+          testID='bn-discover'
           backgroundStyle={  (this.state.index === 1) ? styles.background : styles.backgroundInactive }
           borderless={ true }
           buttonStyle={ styles.entry }

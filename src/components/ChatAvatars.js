@@ -122,7 +122,7 @@ class ChatAvatars extends StoreComponent
 
           <View style={ styles.wrapper }>
             <Button
-              testID={ 'tb-options' }
+              testID='bn-menu'
               borderless={ true }
               buttonStyle={ styles.button }
               onPress={ this.onPress }

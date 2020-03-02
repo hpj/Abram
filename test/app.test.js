@@ -117,6 +117,17 @@ jest.mock('react-native-reanimated', () =>
 
   return {
     createAnimatedComponent: jest.fn((c) => c),
+    timing: jest.fn((value, { toValue }) =>
+    {
+      return {
+        start: jest.fn((callback) =>
+        {
+          value.setValue(toValue);
+  
+          callback({ finished: true });
+        })
+      };
+    }),
     View: View,
     Value: jest.fn().mockImplementation((value) =>
     {
@@ -127,7 +138,8 @@ jest.mock('react-native-reanimated', () =>
         setValue: (value) => v = value,
         interpolate: ({ inputRange, outputRange }) => outputRange[inputRange.indexOf(v)]
       };
-    })
+    }),
+    Easing: jest.fn()
   };
 });
 
@@ -162,42 +174,37 @@ afterEach(() =>
   deleteStore('app');
 });
 
-describe('<App/>', () =>
+describe('Testing <App/>', () =>
 {
-  test('Snapshot', async() =>
+  test('Navigation Views', async() =>
   {
     const component = render(<App/>);
 
     // wait for app loading
-    await waitForElement(() => component.getByTestId('main-view'));
+    await waitForElement(() => component.getByTestId('v-main-area'));
 
-    // expect(toJSON(component, 'bottom-sheet', 2)).toMatchSnapshot();
+    // initial view
+    const initial = toJSON(component, 'v-navigation', 2);
 
-    expect(1).toEqual(1);
-  
-    // component.unmount();
+    expect(initial).toMatchSnapshot('Initial (Inbox) View Should Be Visible');
+
+    // switch to discover view
+    // by simulating pressing the discover bottom navigation button
+    fireEvent.press(component.getByTestId('bn-discover'));
+
+    const discover = toJSON(component, 'v-navigation', 2);
+
+    expect(discover).toMatchSnapshot('Discover View Should Be Visible');
+
+    // switch back to inbox view
+    // by simulating pressing the discover bottom navigation button
+    fireEvent.press(component.getByTestId('bn-inbox'));
+
+    const inbox = toJSON(component, 'v-navigation', 2);
+
+    // initial view should be the same as inbox
+    expect(initial).toMatchDiffSnapshot(inbox);
+
+    component.unmount();
   });
-
-  // test('Testing <BottomNavigation/>', () =>
-  // {
-  //   const component = render(<App/>);
-
-  //   // simulate pressing the discover navigation button
-  //   fireEvent.press(component.getByTestId('bn-discover'));
-    
-  //   // finish the view transition animation
-  //   global.timeTravel(150);
-    
-  //   expect(component.toJSON()).toMatchSnapshot();
-
-  //   // simulate pressing the inbox navigation button
-  //   fireEvent.press(component.getByTestId('bn-inbox'));
-
-  //   // finish the view transition animation
-  //   global.timeTravel(150);
-    
-  //   expect(component.toJSON()).toMatchSnapshot();
-    
-  //   component.unmount();
-  // });
 });

@@ -117,17 +117,17 @@ export default class App extends StoreComponent
     });
 
     return (
-      <SafeAreaView testID='main-view' style={ styles.container }>
+      <SafeAreaView testID='v-main-area' style={ styles.container }>
 
         <TopBar holderNode={ holderNode } bottomSheetNode={ bottomSheetNode }/>
 
-        <View style={ styles.views }>
+        <View testID='v-navigation' style={ styles.views }>
 
-          <NavigationView active={ (this.state.index === 0) }>
+          <NavigationView testID='v-inbox' active={ (this.state.index === 0) }>
             <Inbox bottomSheetSnapTo={ bottomSheetRef.current?.snapTo }/>
           </NavigationView>
 
-          <NavigationView active={ (this.state.index === 1) }>
+          <NavigationView testID='v-discover' active={ (this.state.index === 1) }>
             <Discover/>
           </NavigationView>
 
@@ -146,7 +146,7 @@ export default class App extends StoreComponent
 
         <BottomNavigation/>
 
-        <View testID='bottom-sheet' style={ {
+        <View testID='v-bottom-sheet' style={ {
           ...styles.bottomSheet,
           width: this.state.size.width,
           height: this.state.size.height
