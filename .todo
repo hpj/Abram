@@ -1,8 +1,24 @@
 Performance Issues and Bugs:
   ☐ add all strings to i18n
+
+Pre:
   ☐ write the privacy policy
+  ☐ work on branding descriptions and motto
 
 Testing:
+  ☐ switching views using bottom navigation
+  ☐ maximizing nd minimizing search bar
+
+  ☐ opening and closing menu
+  
+  ☐ mock bottom sheet
+
+  ☐ snapshot inbox
+
+  ☐ test opening and closing chat
+    ☐ test input bar
+    ☐ test avatars
+
   ☐ expo's over-the-air updates
   
 UI/UX:
@@ -11,6 +27,8 @@ UI/UX:
 
   ☐ add fallback support to i18n
   ☐ add RTL support
+
+  ☐ write avataaars react native implementation
 
   ☐ when designing backend use UUID ids as permanent instead of usernames
 

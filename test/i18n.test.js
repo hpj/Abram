@@ -52,7 +52,7 @@ describe('Testing i18n', () =>
     expect(locale.json).toBeUndefined();
     
     // mock axios response
-    axios.get.mockImplementation(() => Promise.resolve({ data: { test: true } }));
+    axios.get.mockResolvedValue({ data: { test: true } });
 
     // fetch locale data
     await fetch('en-US');
@@ -127,9 +127,7 @@ describe('Testing i18n', () =>
     expect(locale.json).toBeUndefined();
     
     // mock axios response
-    const response = { data: { test: 'test-%0' } };
-
-    axios.get.mockImplementation(() => Promise.resolve(response));
+    axios.get.mockResolvedValue({ data: { test: 'test-%0' } });
 
     // fetch locale data
     await fetch('en-US');
