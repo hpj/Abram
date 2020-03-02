@@ -1,5 +1,4 @@
 /* eslint-disable security/detect-object-injection */
-/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/prop-types */
 
 import React from 'react';
@@ -8,19 +7,14 @@ import { render, fireEvent, waitForElement } from 'react-native-testing-library'
 
 import axios from 'axios';
 
-import { createStore, deleteStore } from '../src/store.js';
+import { createStore, getStore, deleteStore } from '../src/store.js';
 
 import App from '../src/app.js';
-
-// mocks axios
-jest.mock('axios', () => ({
-  get: jest.fn().mockResolvedValue({ data: { test: true } })
-}));
 
 /** splits react testing library json trees to parts to make it easier to review
 * @param { import('react-native-testing-library').RenderAPI } renderer
 * @param { string } testId
-* @param { 0 | 1 | 2 } shallow removes children from the returned object
+* @param { 'none' | 'one' | 'all' } [shallow] removes children from the returned object
 */
 function toJSON(renderer, testId, shallow)
 {
@@ -46,6 +40,9 @@ function toJSON(renderer, testId, shallow)
     return undefined;
   }
 
+  // default shallow is 'none'
+  shallow = shallow || 'none';
+
   const tree = renderer.toJSON();
 
   let target;
@@ -55,13 +52,18 @@ function toJSON(renderer, testId, shallow)
   else
     target = getByTestId(tree, testId);
 
-  if (target && shallow === 1)
+  if (target && shallow === 'none')
     target.children = [];
-  else if (target && shallow === 2)
+  else if (target && shallow === 'one')
     target.children.forEach((c) => c.children = []);
   
   return target;
 }
+
+// mocks axios
+jest.mock('axios', () => ({
+  get: jest.fn().mockResolvedValue({ data: { test: true } })
+}));
 
 // mock react native bottom sheet
 jest.mock('reanimated-bottom-sheet', () =>
@@ -153,8 +155,8 @@ beforeEach(() =>
 
     size:
     {
-      width: 500,
-      height: 800
+      width: 523,
+      height: 1131
     },
 
     keyboard: {
@@ -184,7 +186,7 @@ describe('Testing <App/>', () =>
     await waitForElement(() => component.getByTestId('v-main-area'));
 
     // initial view
-    const initial = toJSON(component, 'v-navigation', 2);
+    const initial = toJSON(component, 'v-navigation', 'one');
 
     expect(initial).toMatchSnapshot('Initial (Inbox) View Should Be Visible');
 
@@ -192,7 +194,7 @@ describe('Testing <App/>', () =>
     // by simulating pressing the discover bottom navigation button
     fireEvent.press(component.getByTestId('bn-discover'));
 
-    const discover = toJSON(component, 'v-navigation', 2);
+    const discover = toJSON(component, 'v-navigation', 'one');
 
     expect(discover).toMatchSnapshot('Discover View Should Be Visible');
 
@@ -200,11 +202,93 @@ describe('Testing <App/>', () =>
     // by simulating pressing the discover bottom navigation button
     fireEvent.press(component.getByTestId('bn-inbox'));
 
-    const inbox = toJSON(component, 'v-navigation', 2);
+    const inbox = toJSON(component, 'v-navigation', 'one');
 
     // initial view should be the same as inbox
     expect(initial).toMatchDiffSnapshot(inbox);
 
     component.unmount();
+  });
+
+  describe('Search Bar', () =>
+  {
+    test('Search Bar Width (No Bottom Sheet)', async() =>
+    {
+      const component = render(<App/>);
+
+      // wait for app loading
+      await waitForElement(() => component.getByTestId('v-main-area'));
+
+      const minimized = toJSON(component, 'search', 'one');
+
+      expect(minimized).toMatchSnapshot('Minimized Search bar');
+
+      // maximize the search bar
+      // by simulating pressing the search bar button
+      fireEvent.press(component.getByTestId('bn-search-maximize'));
+
+      const maximized = toJSON(component, 'search', 'one');
+
+      expect(maximized).toMatchSnapshot('Maximized Search bar');
+
+      // maximize the search bar
+      // by simulating pressing the search bar button
+      fireEvent.press(component.getByTestId('bn-search-minimize'));
+
+      const minimized2 = toJSON(component, 'search', 'one');
+
+      // initial view should be the same as inbox
+      expect(minimized).toMatchDiffSnapshot(minimized2);
+    });
+
+    // TODO need to activate bottom sheet before it can be tested correctly
+    test.skip('Search Bar Width (2 Avatars)', async() =>
+    {
+      getStore('app').set({
+        activeChat: {
+          members: [ 'Mana' ],
+          avatars: {
+            'Mana': 1,
+            'Mika': 2
+          }
+        }
+      });
+
+      const component = render(<App/>);
+
+      // wait for app loading
+      await waitForElement(() => component.getByTestId('v-main-area'));
+
+      const minimized = toJSON(component, 'search', 'one');
+
+      console.log(minimized);
+      
+
+      // expect(minimized).toMatchSnapshot('Minimized Search bar');
+
+      // maximize the search bar
+      // by simulating pressing the search bar button
+      fireEvent.press(component.getByTestId('bn-search-maximize'));
+
+      const maximized = toJSON(component, 'search', 'one');
+
+
+      console.log(maximized);
+
+      // expect(maximized).toMatchSnapshot('Maximized Search bar');
+
+      // maximize the search bar
+      // by simulating pressing the search bar button
+      fireEvent.press(component.getByTestId('bn-search-minimize'));
+
+      const minimized2 = toJSON(component, 'search', 'one');
+
+      expect(1).toEqual(1);
+
+      // initial view should be the same as inbox
+      // expect(minimized).toMatchDiffSnapshot(minimized2);
+    });
+
+    test.todo('Search Bar Width (3 Avatars)');
   });
 });

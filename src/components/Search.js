@@ -63,6 +63,9 @@ class Search extends StoreComponent
 
     const searchBarMinWidth = sizes.avatar;
 
+    // when the bottom sheet is not active
+    // the search bar takes it's default value
+    // since cht avatars are always 1
     const searchBarDefaultWidth =
     // window width
     this.state.size.width -
@@ -107,8 +110,9 @@ class Search extends StoreComponent
         })
       ]
     });
+    
     return (
-      <Animated.View style={ {
+      <Animated.View testID='search' style={ {
         ...styles.container,
         width: searchBarWidth
       } }>

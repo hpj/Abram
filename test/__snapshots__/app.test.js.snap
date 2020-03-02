@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Testing <App/> Navigation Views 1`] = `
-"Snapshot Diff:
-Compared values have no visual difference."
+Snapshot Diff:
+Compared values have no visual difference.
 `;
 
 exports[`Testing <App/> Navigation Views: Discover View Should Be Visible 1`] = `
@@ -77,6 +77,123 @@ exports[`Testing <App/> Navigation Views: Initial (Inbox) View Should Be Visible
       }
     }
     testID="v-discover"
+  />
+</View>
+`;
+
+exports[`Testing <App/> Search Bar Search Bar Width (No Bottom Sheet) 1`] = `
+Snapshot Diff:
+Compared values have no visual difference.
+`;
+
+exports[`Testing <App/> Search Bar Search Bar Width (No Bottom Sheet): Maximized Search bar 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row-reverse",
+      "height": 38,
+      "marginLeft": 15,
+      "marginRight": 15,
+      "minWidth": 38,
+      "width": 429,
+    }
+  }
+  testID="search"
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#4B4B4B",
+        "borderRadius": 38,
+        "height": 38,
+        "position": "absolute",
+        "width": 429,
+      }
+    }
+  />
+  <TextInput
+    allowFontScaling={true}
+    placeholder="Search"
+    placeholderTextColor="rgba(255,255,255,0.45)"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "color": "#ffffff",
+        "fontSize": 16,
+        "height": 38,
+        "marginRight": 15,
+        "position": "absolute",
+        "right": 0,
+        "width": 367,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <View
+    style={
+      Object {
+        "borderRadius": 38,
+        "height": 38,
+        "width": 38,
+        "zIndex": 0,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`Testing <App/> Search Bar Search Bar Width (No Bottom Sheet): Minimized Search bar 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row-reverse",
+      "height": 38,
+      "marginLeft": 15,
+      "marginRight": 15,
+      "minWidth": 38,
+      "width": 38,
+    }
+  }
+  testID="search"
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#4B4B4B",
+        "borderRadius": 38,
+        "height": 38,
+        "position": "absolute",
+        "width": 38,
+      }
+    }
+  />
+  <TextInput
+    allowFontScaling={true}
+    placeholder="Search"
+    placeholderTextColor="rgba(255,255,255,0.45)"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "color": "#ffffff",
+        "fontSize": 16,
+        "height": 38,
+        "marginRight": 15,
+        "position": "absolute",
+        "right": 0,
+        "width": 0,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <View
+    style={
+      Object {
+        "borderRadius": 38,
+        "height": 38,
+        "width": 38,
+        "zIndex": 0,
+      }
+    }
   />
 </View>
 `;

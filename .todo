@@ -5,16 +5,18 @@ Pre:
   ☐ write the privacy policy
   ☐ work on branding descriptions and motto
 
-Testing:
-  ✔ switching views using bottom navigation @done(20-03-02 09:49)
+  ☐ write the terms of service
+
+Testing: @today 
+  ☐ opening and closing menu
+    ☐ test holder
 
   ☐ maximizing and minimizing search bar
-
-  ☐ opening and closing menu
+    ☐ test search bar with chat avatars
   
   ✔ mock bottom sheet @done(20-03-02 07:24)
 
-  ☐ snapshot inbox
+  ☐ inbox
 
   ☐ test opening and closing chat bottom sheet
     ☐ test input bar
