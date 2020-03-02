@@ -7,10 +7,9 @@ Pre:
 
   ☐ write the terms of service
 
-Testing: @today 
-  ☐ opening and closing menu
-    ☐ test holder
-
+Testing:
+  ☐ chat avatars
+  
   ☐ maximizing and minimizing search bar
     ☐ test search bar with chat avatars
   

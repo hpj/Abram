@@ -189,7 +189,7 @@ describe('Testing <App/>', () =>
     // initial view
     const initial = toJSON(component, 'v-navigation', 'one');
 
-    expect(initial).toMatchSnapshot('Initial (Inbox) View Should Be Visible');
+    expect(initial).toMatchSnapshot('Initial Navigation View Should Be Inbox');
 
     // switch to discover view
     // by simulating pressing the discover bottom navigation button
@@ -197,7 +197,7 @@ describe('Testing <App/>', () =>
 
     const discover = toJSON(component, 'v-navigation', 'one');
 
-    expect(discover).toMatchSnapshot('Discover View Should Be Visible');
+    expect(discover).toMatchSnapshot('Navigation View Should Be Discover');
 
     // switch back to inbox view
     // by simulating pressing the discover bottom navigation button
@@ -222,7 +222,7 @@ describe('Testing <App/>', () =>
 
       const initial = toJSON(component, 'v-search', 'one');
 
-      expect(initial).toMatchSnapshot('Minimized Search bar');
+      expect(initial).toMatchSnapshot('Initial Search Bar Should Be Minimized');
 
       // maximize the search bar
       // by simulating pressing the search bar button
@@ -230,7 +230,7 @@ describe('Testing <App/>', () =>
 
       const maximized = toJSON(component, 'v-search', 'one');
 
-      expect(maximized).toMatchSnapshot('Maximized Search bar');
+      expect(maximized).toMatchSnapshot('Search Bar Should Be Maximized');
 
       // maximize the search bar
       // by simulating pressing the search bar button
@@ -289,5 +289,43 @@ describe('Testing <App/>', () =>
     });
 
     test.todo('Search Bar Width (3 Avatars)');
+  });
+
+  describe('Main Menu', () =>
+  {
+    test('Showing and Hiding Menu', async() =>
+    {
+      const component = render(<App/>);
+
+      // wait for app loading
+      await waitForElement(() => component.getByTestId('v-main-area'));
+
+      const initialMenu = toJSON(component, 'v-menu', 'one');
+      const initialHolder = toJSON(component, 'v-holder', 'none');
+
+      expect(initialMenu).toMatchSnapshot('Initial Menu View Should Be Hidden');
+      expect(initialHolder).toMatchSnapshot('Initial Holder View Should Be Hidden & Disabled');
+  
+      // show the main menu
+      // by simulating pressing the menu button
+      fireEvent.press(component.getByTestId('bn-menu'));
+
+      const activeMenu = toJSON(component, 'v-menu', 'one');
+      const activeHolder = toJSON(component, 'v-holder', 'none');
+
+      expect(activeMenu).toMatchSnapshot('Menu View Should Be Visible');
+      expect(activeHolder).toMatchSnapshot('Holder View Should Be Visible & Enabled');
+  
+      // hide the main menu
+      // by simulating pressing the menu button
+      fireEvent.press(component.getByTestId('bn-menu'));
+
+      const hiddenMenu = toJSON(component, 'v-menu', 'one');
+      const hiddenHolder = toJSON(component, 'v-holder', 'none');
+
+      // initial should be the same as hidden
+      expect(initialMenu).toMatchDiffSnapshot(hiddenMenu);
+      expect(initialHolder).toMatchDiffSnapshot(hiddenHolder);
+    });
   });
 });
