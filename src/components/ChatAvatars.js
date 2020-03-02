@@ -92,17 +92,17 @@ class ChatAvatars extends StoreComponent
       outputRange: [ 0, 1 ]
     });
 
-    const avatarOpacity = Animated.interpolate(this.props.bottomSheetNode, {
+    const avatarOpacity = this.props.bottomSheetNode.interpolate({
       inputRange: [ 0, 1 ],
       outputRange: [ 1, 0 ]
     });
 
-    const avatarWidth = Animated.interpolate(this.props.bottomSheetNode, {
+    const avatarWidth = this.props.bottomSheetNode.interpolate({
       inputRange: [ 0, 1 ],
       outputRange: [ (sizes.avatar / 2), 0 ]
     });
 
-    const avatarMarginLeft = Animated.interpolate(this.props.bottomSheetNode, {
+    const avatarMarginLeft = this.props.bottomSheetNode.interpolate({
       inputRange: [ 0, 1 ],
       outputRange: [ -(sizes.avatar / 2), (sizes.avatar / 2) ]
     });

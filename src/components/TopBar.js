@@ -33,7 +33,7 @@ class TopBar extends StoreComponent
     else
       title = i18n('discover');
 
-    const marginTop = Animated.interpolate(this.props.bottomSheetNode, {
+    const marginTop = this.props.bottomSheetNode.interpolate({
       inputRange: [ 0, 1 ],
       outputRange: [ sizes.topBarBigMargin, sizes.topBarMiniMargin ]
     });

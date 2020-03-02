@@ -59,7 +59,7 @@ class Search extends StoreComponent
   {
     const { maximized } = this.state;
 
-    const avatarsAmount = Math.min(this.state.activeChat.members?.length || 1, 2);
+    const avatarsAmount = Math.min(this.state.activeChat.members?.length - 1 || 1, 2);
 
     const searchBarMinWidth = sizes.avatar;
 
@@ -80,7 +80,7 @@ class Search extends StoreComponent
     // minus the rest of avatars width
     (sizes.avatar / 2) * (avatarsAmount);
 
-    const searchBarWidth = Animated.interpolate(this.props.bottomSheetNode, {
+    const searchBarWidth = this.props.bottomSheetNode.interpolate({
       inputRange: [ 0, 1 ],
       outputRange: [
         this.progress.interpolate({
@@ -94,7 +94,7 @@ class Search extends StoreComponent
       ]
     });
 
-    const searchBarInputWidth = Animated.interpolate(this.props.bottomSheetNode, {
+    const searchBarInputWidth = this.props.bottomSheetNode.interpolate({
       inputRange: [ 0, 1 ],
       outputRange: [
         this.progress.interpolate({

@@ -13,8 +13,7 @@
     "preset": "jest-expo",
     "setupFilesAfterEnv": [
       "jest-extended",
-      "snapshot-diff/extend-expect",
-      "react-native-gesture-handler/jestSetup"
+      "snapshot-diff/extend-expect"
     ],
     "transformIgnorePatterns": [
       "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base)"

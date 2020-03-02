@@ -90,9 +90,9 @@ export default class App extends StoreComponent
     }
   }
 
-  onSnap(index)
+  onOpen(open)
   {
-    if (index)
+    if (open)
       BackHandler.addEventListener('hardwareBackPress', this.onBack);
     else
       BackHandler.removeEventListener('hardwareBackPress', this.onBack);
@@ -117,7 +117,7 @@ export default class App extends StoreComponent
     });
 
     return (
-      <SafeAreaView style={ styles.container }>
+      <SafeAreaView testID='main-view' style={ styles.container }>
 
         <TopBar holderNode={ holderNode } bottomSheetNode={ bottomSheetNode }/>
 
@@ -146,7 +146,7 @@ export default class App extends StoreComponent
 
         <BottomNavigation/>
 
-        <View style={ {
+        <View testID='bottom-sheet' style={ {
           ...styles.bottomSheet,
           width: this.state.size.width,
           height: this.state.size.height
@@ -159,8 +159,8 @@ export default class App extends StoreComponent
 
             enabledContentGestureInteraction={ false }
 
-            onOpenStart={ () => this.onSnap(1) }
-            onCloseEnd={ () => this.onSnap(0) }
+            onOpenStart={ () => this.onOpen(true) }
+            onCloseEnd={ () => this.onOpen(false) }
 
             renderHeader = {
               () =>
