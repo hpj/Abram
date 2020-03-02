@@ -162,7 +162,7 @@ afterEach(() =>
   deleteStore('app');
 });
 
-describe.skip('<App/>', () =>
+describe('<App/>', () =>
 {
   test('Snapshot', async() =>
   {
