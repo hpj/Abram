@@ -6,7 +6,11 @@ import axios from 'axios';
 
 import i18n, { getDefault, fetch, locales, locale, setLocale } from '../src/i18n.js';
 
+// mocks axios
 jest.mock('axios');
+
+// mock react native's AsyncStorage
+AsyncStorage.setItem = jest.fn();
 
 afterEach(() =>
 {
@@ -99,7 +103,7 @@ describe('Testing i18n', () =>
     expect(locale.json).toBeUndefined();
 
     // mock react native response
-    AsyncStorage.getItem = (data, cb) => cb(undefined, JSON.stringify({ cache: true }));
+    AsyncStorage.getItem = jest.fn((data, cb) => cb(undefined, JSON.stringify({ cache: true })));
 
     // mock axios response
     axios.get.mockImplementation(() =>

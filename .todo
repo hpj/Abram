@@ -7,15 +7,16 @@ Pre:
 
 Testing:
   ☐ switching views using bottom navigation
-  ☐ maximizing nd minimizing search bar
+
+  ☐ maximizing and minimizing search bar
 
   ☐ opening and closing menu
   
-  ☐ mock bottom sheet
+  ✔ mock bottom sheet @done(20-03-02 07:24)
 
   ☐ snapshot inbox
 
-  ☐ test opening and closing chat
+  ☐ test opening and closing chat bottom sheet
     ☐ test input bar
     ☐ test avatars
 
@@ -29,6 +30,9 @@ UI/UX:
   ☐ add RTL support
 
   ☐ write avataaars react native implementation
+
+  ☐ design a mockup for Discover view
+  ☐ design a mockup for Menu (non-chat) view
 
   ☐ when designing backend use UUID ids as permanent instead of usernames
 
