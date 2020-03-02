@@ -126,7 +126,8 @@ jest.mock('react-native-reanimated', () =>
         {
           value.setValue(toValue);
   
-          callback({ finished: true });
+          if (callback)
+            callback({ finished: true });
         })
       };
     }),
@@ -219,15 +220,15 @@ describe('Testing <App/>', () =>
       // wait for app loading
       await waitForElement(() => component.getByTestId('v-main-area'));
 
-      const minimized = toJSON(component, 'search', 'one');
+      const initial = toJSON(component, 'v-search', 'one');
 
-      expect(minimized).toMatchSnapshot('Minimized Search bar');
+      expect(initial).toMatchSnapshot('Minimized Search bar');
 
       // maximize the search bar
       // by simulating pressing the search bar button
       fireEvent.press(component.getByTestId('bn-search-maximize'));
 
-      const maximized = toJSON(component, 'search', 'one');
+      const maximized = toJSON(component, 'v-search', 'one');
 
       expect(maximized).toMatchSnapshot('Maximized Search bar');
 
@@ -235,10 +236,10 @@ describe('Testing <App/>', () =>
       // by simulating pressing the search bar button
       fireEvent.press(component.getByTestId('bn-search-minimize'));
 
-      const minimized2 = toJSON(component, 'search', 'one');
+      const minimized = toJSON(component, 'v-search', 'one');
 
-      // initial view should be the same as inbox
-      expect(minimized).toMatchDiffSnapshot(minimized2);
+      // initial should be the same as minimized
+      expect(initial).toMatchDiffSnapshot(minimized);
     });
 
     // TODO need to activate bottom sheet before it can be tested correctly
@@ -259,19 +260,17 @@ describe('Testing <App/>', () =>
       // wait for app loading
       await waitForElement(() => component.getByTestId('v-main-area'));
 
-      const minimized = toJSON(component, 'search', 'one');
+      const initial = toJSON(component, 'v-search', 'one');
 
-      console.log(minimized);
+      console.log(initial);
       
-
-      // expect(minimized).toMatchSnapshot('Minimized Search bar');
+      // expect(initial).toMatchSnapshot('Minimized Search bar');
 
       // maximize the search bar
       // by simulating pressing the search bar button
       fireEvent.press(component.getByTestId('bn-search-maximize'));
 
-      const maximized = toJSON(component, 'search', 'one');
-
+      const maximized = toJSON(component, 'v-search', 'one');
 
       console.log(maximized);
 
@@ -281,12 +280,12 @@ describe('Testing <App/>', () =>
       // by simulating pressing the search bar button
       fireEvent.press(component.getByTestId('bn-search-minimize'));
 
-      const minimized2 = toJSON(component, 'search', 'one');
+      const minimized = toJSON(component, 'v-search', 'one');
 
       expect(1).toEqual(1);
 
-      // initial view should be the same as inbox
-      // expect(minimized).toMatchDiffSnapshot(minimized2);
+      // initial should be the same as minimized
+      // expect(initial).toMatchDiffSnapshot(minimized);
     });
 
     test.todo('Search Bar Width (3 Avatars)');

@@ -88,7 +88,6 @@ class ChatAvatars extends StoreComponent
 
     const menuOpacity = this.progress.interpolate({
       inputRange: [ 0, 1 ],
-      // 65% of window's height
       outputRange: [ 0, 1 ]
     });
 
@@ -109,7 +108,7 @@ class ChatAvatars extends StoreComponent
 
     return (
       <View>
-        <View style={ styles.container }>
+        <View testID='v-menu' style={ styles.container }>
           <Animated.View style={ {
             ...styles.menu,
 

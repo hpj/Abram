@@ -134,7 +134,7 @@ export default class App extends StoreComponent
         </View>
 
         <TouchableWithoutFeedback>
-          <Animated.View style={ {
+          <Animated.View testID='v-holder' style={ {
             ...styles.holder,
 
             width: this.state.size.width,

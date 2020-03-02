@@ -98,7 +98,7 @@ exports[`Testing <App/> Search Bar Search Bar Width (No Bottom Sheet): Maximized
       "width": 429,
     }
   }
-  testID="search"
+  testID="v-search"
 >
   <View
     style={
@@ -154,7 +154,7 @@ exports[`Testing <App/> Search Bar Search Bar Width (No Bottom Sheet): Minimized
       "width": 38,
     }
   }
-  testID="search"
+  testID="v-search"
 >
   <View
     style={

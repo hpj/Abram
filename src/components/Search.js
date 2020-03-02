@@ -112,7 +112,7 @@ class Search extends StoreComponent
     });
     
     return (
-      <Animated.View testID='search' style={ {
+      <Animated.View testID='v-search' style={ {
         ...styles.container,
         width: searchBarWidth
       } }>
