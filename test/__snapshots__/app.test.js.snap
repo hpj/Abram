@@ -339,3 +339,868 @@ exports[`Testing <App/> Search Bar Search Bar Width (No Bottom Sheet): Search Ba
   />
 </View>
 `;
+
+exports[`Testing <Inbox/> Group of 3 View: Should Be A Group View With 2 Avatars 1`] = `
+<RCTScrollView
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View>
+        <View>
+          <View />
+        </View>
+        <View />
+        <View />
+        <View />
+        <View
+          style={
+            Object {
+              "marginBottom": 20,
+              "marginTop": 20,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "marginLeft": 20,
+                "marginRight": 20,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "height": 70,
+                  "marginLeft": 5,
+                  "width": 70,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "height": 54.5,
+                    "justifyContent": "center",
+                    "left": 18.375,
+                    "position": "absolute",
+                    "top": 26.25,
+                    "width": 54.5,
+                  }
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "backgroundColor": "#4B4B4B",
+                      "borderColor": "#000000",
+                      "borderRadius": 70,
+                      "borderWidth": 2,
+                      "height": 54.5,
+                      "position": "absolute",
+                      "width": 54.5,
+                    }
+                  }
+                />
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#ffffff",
+                      "borderColor": "#000000",
+                      "borderRadius": 23,
+                      "borderWidth": 4,
+                      "height": 23,
+                      "marginLeft": -10,
+                      "opacity": 0,
+                      "position": "absolute",
+                      "width": 23,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "height": 54.5,
+                    "justifyContent": "center",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": 54.5,
+                  }
+                }
+              >
+                <Image
+                  source={2}
+                  style={
+                    Object {
+                      "backgroundColor": "#4B4B4B",
+                      "borderColor": "#000000",
+                      "borderRadius": 70,
+                      "borderWidth": 2,
+                      "height": 54.5,
+                      "position": "absolute",
+                      "width": 54.5,
+                    }
+                  }
+                />
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#ffffff",
+                      "borderColor": "#000000",
+                      "borderRadius": 23,
+                      "borderWidth": 4,
+                      "height": 23,
+                      "marginLeft": -10,
+                      "opacity": 1,
+                      "position": "absolute",
+                      "width": 23,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "marginLeft": 20,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 22,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                Group of Wholesome Girls
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 20,
+                  }
+                }
+              >
+                1 Feb 2001
+              </Text>
+              <Text
+                numberOfLines={1}
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 22,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`Testing <Inbox/> Group of 4 View: Should Be A Group View With 3 Avatars 1`] = `
+<RCTScrollView
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View>
+        <View>
+          <View />
+        </View>
+        <View />
+        <View />
+        <View />
+        <View
+          style={
+            Object {
+              "marginBottom": 20,
+              "marginTop": 20,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "marginLeft": 20,
+                "marginRight": 20,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "height": 70,
+                  "marginLeft": 5,
+                  "width": 70,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "height": 47.5,
+                    "justifyContent": "center",
+                    "left": 7.75,
+                    "position": "absolute",
+                    "top": 35.5,
+                    "width": 47.5,
+                  }
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "backgroundColor": "#4B4B4B",
+                      "borderColor": "#000000",
+                      "borderRadius": 70,
+                      "borderWidth": 2,
+                      "height": 47.5,
+                      "position": "absolute",
+                      "width": 47.5,
+                    }
+                  }
+                />
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#ffffff",
+                      "borderColor": "#000000",
+                      "borderRadius": 23,
+                      "borderWidth": 4,
+                      "height": 23,
+                      "marginLeft": -10,
+                      "opacity": 0,
+                      "position": "absolute",
+                      "width": 23,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "height": 47.5,
+                    "justifyContent": "center",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": 47.5,
+                  }
+                }
+              >
+                <Image
+                  source={2}
+                  style={
+                    Object {
+                      "backgroundColor": "#4B4B4B",
+                      "borderColor": "#000000",
+                      "borderRadius": 70,
+                      "borderWidth": 2,
+                      "height": 47.5,
+                      "position": "absolute",
+                      "width": 47.5,
+                    }
+                  }
+                />
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#ffffff",
+                      "borderColor": "#000000",
+                      "borderRadius": 23,
+                      "borderWidth": 4,
+                      "height": 23,
+                      "marginLeft": -10,
+                      "opacity": 1,
+                      "position": "absolute",
+                      "width": 23,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "height": 47.5,
+                    "justifyContent": "center",
+                    "left": 30.5,
+                    "position": "absolute",
+                    "top": 10,
+                    "width": 47.5,
+                  }
+                }
+              >
+                <Image
+                  source={3}
+                  style={
+                    Object {
+                      "backgroundColor": "#4B4B4B",
+                      "borderColor": "#000000",
+                      "borderRadius": 70,
+                      "borderWidth": 2,
+                      "height": 47.5,
+                      "position": "absolute",
+                      "width": 47.5,
+                    }
+                  }
+                />
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#ffffff",
+                      "borderColor": "#000000",
+                      "borderRadius": 23,
+                      "borderWidth": 4,
+                      "height": 23,
+                      "marginLeft": -10,
+                      "opacity": 0,
+                      "position": "absolute",
+                      "width": 23,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "marginLeft": 20,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 22,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                Group of Wholesome Girls
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 20,
+                  }
+                }
+              >
+                2 Mar 2002
+              </Text>
+              <Text
+                numberOfLines={1}
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 22,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`Testing <Inbox/> Group of 5 View: Should Be A Group View With 4 Avatars 1`] = `
+<RCTScrollView
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View>
+        <View>
+          <View />
+        </View>
+        <View />
+        <View />
+        <View />
+        <View
+          style={
+            Object {
+              "marginBottom": 20,
+              "marginTop": 20,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "marginLeft": 20,
+                "marginRight": 20,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "height": 70,
+                  "marginLeft": 5,
+                  "width": 70,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "height": 37,
+                    "justifyContent": "center",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 30,
+                    "width": 37,
+                  }
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "backgroundColor": "#4B4B4B",
+                      "borderColor": "#000000",
+                      "borderRadius": 70,
+                      "borderWidth": 2,
+                      "height": 37,
+                      "position": "absolute",
+                      "width": 37,
+                    }
+                  }
+                />
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#ffffff",
+                      "borderColor": "#000000",
+                      "borderRadius": 23,
+                      "borderWidth": 4,
+                      "height": 23,
+                      "marginLeft": -10,
+                      "opacity": 0,
+                      "position": "absolute",
+                      "width": 23,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "height": 37,
+                    "justifyContent": "center",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": 37,
+                  }
+                }
+              >
+                <Image
+                  source={2}
+                  style={
+                    Object {
+                      "backgroundColor": "#4B4B4B",
+                      "borderColor": "#000000",
+                      "borderRadius": 70,
+                      "borderWidth": 2,
+                      "height": 37,
+                      "position": "absolute",
+                      "width": 37,
+                    }
+                  }
+                />
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#ffffff",
+                      "borderColor": "#000000",
+                      "borderRadius": 23,
+                      "borderWidth": 4,
+                      "height": 23,
+                      "marginLeft": -10,
+                      "opacity": 1,
+                      "position": "absolute",
+                      "width": 23,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "height": 37,
+                    "justifyContent": "center",
+                    "left": 30,
+                    "position": "absolute",
+                    "top": 40,
+                    "width": 37,
+                  }
+                }
+              >
+                <Image
+                  source={3}
+                  style={
+                    Object {
+                      "backgroundColor": "#4B4B4B",
+                      "borderColor": "#000000",
+                      "borderRadius": 70,
+                      "borderWidth": 2,
+                      "height": 37,
+                      "position": "absolute",
+                      "width": 37,
+                    }
+                  }
+                />
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#ffffff",
+                      "borderColor": "#000000",
+                      "borderRadius": 23,
+                      "borderWidth": 4,
+                      "height": 23,
+                      "marginLeft": -10,
+                      "opacity": 0,
+                      "position": "absolute",
+                      "width": 23,
+                    }
+                  }
+                />
+              </View>
+              <View
+                style={
+                  Object {
+                    "height": 37,
+                    "justifyContent": "center",
+                    "left": 30,
+                    "position": "absolute",
+                    "top": 8,
+                    "width": 37,
+                  }
+                }
+              >
+                <Image
+                  source={4}
+                  style={
+                    Object {
+                      "backgroundColor": "#4B4B4B",
+                      "borderColor": "#000000",
+                      "borderRadius": 70,
+                      "borderWidth": 2,
+                      "height": 37,
+                      "position": "absolute",
+                      "width": 37,
+                    }
+                  }
+                />
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#ffffff",
+                      "borderColor": "#000000",
+                      "borderRadius": 23,
+                      "borderWidth": 4,
+                      "height": 23,
+                      "marginLeft": -10,
+                      "opacity": 0,
+                      "position": "absolute",
+                      "width": 23,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "marginLeft": 20,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 22,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                Group of Wholesome Girls
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 20,
+                  }
+                }
+              >
+                3 Apr 2003
+              </Text>
+              <Text
+                numberOfLines={1}
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 22,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`Testing <Inbox/> Group of 6 View 1`] = `
+Snapshot Diff:
+Compared values have no visual difference.
+`;
+
+exports[`Testing <Inbox/> Normal View: Should Be A Normal Inbox View With 1 Avatar 1`] = `
+<RCTScrollView
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View>
+        <View>
+          <View />
+        </View>
+        <View />
+        <View />
+        <View />
+        <View
+          style={
+            Object {
+              "marginBottom": 20,
+              "marginTop": 20,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "marginLeft": 20,
+                "marginRight": 20,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "height": 70,
+                  "marginLeft": 5,
+                  "width": 70,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "height": 70,
+                    "justifyContent": "center",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": 70,
+                  }
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "backgroundColor": "#4B4B4B",
+                      "borderColor": "#000000",
+                      "borderRadius": 70,
+                      "borderWidth": 0,
+                      "height": 70,
+                      "position": "absolute",
+                      "width": 70,
+                    }
+                  }
+                />
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#ffffff",
+                      "borderColor": "#000000",
+                      "borderRadius": 23,
+                      "borderWidth": 4,
+                      "height": 23,
+                      "marginLeft": -10,
+                      "opacity": 1,
+                      "position": "absolute",
+                      "width": 23,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "marginLeft": 20,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 22,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                Mika
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 20,
+                  }
+                }
+              >
+                9 Oct 1999
+              </Text>
+              <Text
+                numberOfLines={1}
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 22,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;

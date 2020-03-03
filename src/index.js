@@ -63,10 +63,8 @@ const store = createStore('app', {
         'ElwedidiDina': require('../assets/mockup/dina-0.jpg')
       },
       messages: [
-        // timestamp
         { owner: 'ElwedidiDina', text: 'Did you really made it through the world’s championship of shit?', timestamp: subDays(new Date(), 21) },
         { owner: 'ker0olos', text: 'No.', timestamp: addMinutes(subDays(new Date(), 21), 3) },
-        // timestamp
         { owner: 'ElwedidiDina', text: 'Hey Kay, We need to talk about your face.', timestamp: subHours(new Date(), 1) }
       ]
     },

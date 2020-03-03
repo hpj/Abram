@@ -11,6 +11,8 @@ import { createStore, getStore, deleteStore } from '../src/store.js';
 
 import App from '../src/app.js';
 
+import Inbox from '../src/screens/Inbox.js';
+
 /** splits react testing library json trees to parts to make it easier to review
 * @param { import('react-native-testing-library').RenderAPI } renderer
 * @param { string } testId
@@ -240,6 +242,8 @@ describe('Testing <App/>', () =>
 
       // initial should be the same as minimized
       expect(initial).toMatchDiffSnapshot(minimized);
+
+      component.unmount();
     });
 
     // TODO need to activate bottom sheet before it can be tested correctly
@@ -286,6 +290,8 @@ describe('Testing <App/>', () =>
 
       // initial should be the same as minimized
       // expect(initial).toMatchDiffSnapshot(minimized);
+
+      component.unmount();
     });
 
     test.todo('Search Bar Width (3 Avatars)');
@@ -326,6 +332,227 @@ describe('Testing <App/>', () =>
       // initial should be the same as hidden
       expect(initialMenu).toMatchDiffSnapshot(hiddenMenu);
       expect(initialHolder).toMatchDiffSnapshot(hiddenHolder);
+
+      component.unmount();
     });
+  });
+});
+
+describe('Testing <Inbox/>', () =>
+{
+  test('Normal View', () =>
+  {
+    getStore('app').set({
+      profile: {
+        username: 'Mana'
+      },
+      inbox: [
+        {
+          displayName: 'Mika',
+          members: [
+            'Mana',
+            'MikaTheCoolOne'
+          ],
+          avatars: {
+            'MikaTheCoolOne': 1
+          },
+          messages: [
+            { owner: 'MikaTheCoolOne', text: '', timestamp: new Date(1999, 9, 9) }
+          ]
+        }
+      ]
+    });
+  
+    const component = render(<Inbox/>);
+
+    expect(component.toJSON()).toMatchSnapshot('Should Be A Normal Inbox View With 1 Avatar');
+
+    component.unmount();
+  });
+  
+  test('Group of 3 View', () =>
+  {
+    getStore('app').set({
+      profile: {
+        username: 'Mana'
+      },
+      inbox: [
+        {
+          displayName: 'Group of Wholesome Girls',
+          members: [
+            'Mana',
+            'MikaTheCoolOne',
+            'SkyeTheDarkLord'
+          ],
+          avatars: {
+            'MikaTheCoolOne': 1,
+            'SkyeTheDarkLord': 2
+          },
+          messages: [
+            { owner: 'MikaTheCoolOne', text: '', timestamp: new Date(1999, 9, 9) },
+            { owner: 'SkyeTheDarkLord', text: '', timestamp: new Date(2001, 1, 1) }
+          ]
+        }
+      ]
+    });
+  
+    const component = render(<Inbox/>);
+
+    expect(component.toJSON()).toMatchSnapshot('Should Be A Group View With 2 Avatars');
+
+    component.unmount();
+  });
+
+  test('Group of 4 View', () =>
+  {
+    getStore('app').set({
+      profile: {
+        username: 'Mana'
+      },
+      inbox: [
+        {
+          displayName: 'Group of Wholesome Girls',
+          members: [
+            'Mana',
+            'MikaTheCoolOne',
+            'SkyeTheDarkLord',
+            'AquaTheGoddess'
+          ],
+          avatars: {
+            'MikaTheCoolOne': 1,
+            'SkyeTheDarkLord': 2,
+            'AquaTheGoddess': 3
+          },
+          messages: [
+            { owner: 'MikaTheCoolOne', text: '', timestamp: new Date(1999, 9, 9) },
+            { owner: 'SkyeTheDarkLord', text: '', timestamp: new Date(2001, 1, 1) },
+            { owner: 'AquaTheGoddess', text: '', timestamp: new Date(2002, 2, 2) }
+          ]
+        }
+      ]
+    });
+  
+    const component = render(<Inbox/>);
+
+    expect(component.toJSON()).toMatchSnapshot('Should Be A Group View With 3 Avatars');
+
+    component.unmount();
+  });
+
+  test('Group of 5 View', () =>
+  {
+    getStore('app').set({
+      profile: {
+        username: 'Mana'
+      },
+      inbox: [
+        {
+          displayName: 'Group of Wholesome Girls',
+          members: [
+            'Mana',
+            'MikaTheCoolOne',
+            'SkyeTheDarkLord',
+            'AquaTheGoddess',
+            'OrigamiTheShynificent'
+          ],
+          avatars: {
+            'MikaTheCoolOne': 1,
+            'SkyeTheDarkLord': 2,
+            'AquaTheGoddess': 3,
+            'OrigamiTheShynificent': 4
+          },
+          messages: [
+            { owner: 'MikaTheCoolOne', text: '', timestamp: new Date(1999, 9, 9) },
+            { owner: 'SkyeTheDarkLord', text: '', timestamp: new Date(2001, 1, 1) },
+            { owner: 'AquaTheGoddess', text: '', timestamp: new Date(2002, 2, 2) },
+            { owner: 'OrigamiTheShynificent', text: '', timestamp: new Date(2003, 3, 3) }
+          ]
+        }
+      ]
+    });
+  
+    const component = render(<Inbox/>);
+
+    expect(component.toJSON()).toMatchSnapshot('Should Be A Group View With 4 Avatars');
+
+    component.unmount();
+  });
+
+  test('Group of 6 View', () =>
+  {
+    getStore('app').set({
+      profile: {
+        username: 'Mana'
+      },
+      inbox: [
+        {
+          displayName: 'Group of Wholesome Girls',
+          members: [
+            'Mana',
+            'MikaTheCoolOne',
+            'SkyeTheDarkLord',
+            'AquaTheGoddess',
+            'OrigamiTheShynificent'
+          ],
+          avatars: {
+            'MikaTheCoolOne': 1,
+            'SkyeTheDarkLord': 2,
+            'AquaTheGoddess': 3,
+            'OrigamiTheShynificent': 4
+          },
+          messages: [
+            { owner: 'MikaTheCoolOne', text: '', timestamp: new Date(1999, 9, 9) },
+            { owner: 'SkyeTheDarkLord', text: '', timestamp: new Date(2001, 1, 1) },
+            { owner: 'AquaTheGoddess', text: '', timestamp: new Date(2002, 2, 2) },
+            { owner: 'OrigamiTheShynificent', text: '', timestamp: new Date(2003, 3, 3) }
+          ]
+        }
+      ]
+    });
+  
+    const groupOf5 = render(<Inbox/>);
+    const groupOf5Tree= groupOf5.toJSON();
+
+    groupOf5.unmount();
+
+    getStore('app').set({
+      profile: {
+        username: 'Mana'
+      },
+      inbox: [
+        {
+          displayName: 'Group of Wholesome Girls',
+          members: [
+            'Mana',
+            'MikaTheCoolOne',
+            'SkyeTheDarkLord',
+            'AquaTheGoddess',
+            'OrigamiTheShynificent',
+            'EmiThePsychopath'
+          ],
+          avatars: {
+            'MikaTheCoolOne': 1,
+            'SkyeTheDarkLord': 2,
+            'AquaTheGoddess': 3,
+            'OrigamiTheShynificent': 4,
+            'EmiThePsychopath': 5
+          },
+          messages: [
+            { owner: 'MikaTheCoolOne', text: '', timestamp: new Date(1999, 9, 9) },
+            { owner: 'SkyeTheDarkLord', text: '', timestamp: new Date(2001, 1, 1) },
+            { owner: 'AquaTheGoddess', text: '', timestamp: new Date(2002, 2, 2) },
+            { owner: 'OrigamiTheShynificent', text: '', timestamp: new Date(2003, 3, 3) }
+          ]
+        }
+      ]
+    });
+
+    const groupOf6 = render(<Inbox/>);
+    const groupOf6Tree= groupOf6.toJSON();
+
+    groupOf6.unmount();
+
+    // there should be no visual difference between the 2 groups
+    expect(groupOf5Tree).toMatchDiffSnapshot(groupOf6Tree);
   });
 });
