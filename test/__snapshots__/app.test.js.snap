@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testing <App/> Bottom Sheet Snap Using A Inbox Entry 1`] = `
+exports[`Testing <App/> Bottom Sheet Snapping (From Inbox) 1`] = `
 Snapshot Diff:
 Compared values have no visual difference.
 `;
 
-exports[`Testing <App/> Bottom Sheet Snap Using A Inbox Entry: Bottom Sheet View Should Have Y-Axis 0 1`] = `
+exports[`Testing <App/> Bottom Sheet Snapping (From Inbox): Bottom Sheet View Should Have Y-Axis 0 1`] = `
 <View
   pointerEvents="box-none"
   style={
@@ -28,7 +28,7 @@ exports[`Testing <App/> Bottom Sheet Snap Using A Inbox Entry: Bottom Sheet View
 </View>
 `;
 
-exports[`Testing <App/> Bottom Sheet Snap Using A Inbox Entry: Bottom Sheet View Should Have Y-Axis Equal To Height 1`] = `
+exports[`Testing <App/> Bottom Sheet Snapping (From Inbox): Bottom Sheet View Should Have Y-Axis Equal To Height 1`] = `
 <View
   pointerEvents="box-none"
   style={

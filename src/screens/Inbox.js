@@ -41,7 +41,7 @@ class Inbox extends StoreComponent
 
   onPress(entry)
   {
-    this.store.set({ activeChat: entry }, () => this.props.bottomSheetSnapTo(1));
+    this.store.set({ activeChat: entry }, () => this.props.bottomSheetSnapTo(0));
   }
 
   render()

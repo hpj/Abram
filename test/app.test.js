@@ -81,10 +81,6 @@ jest.mock('reanimated-bottom-sheet', () =>
     {
       super();
 
-      this.state = {
-        index: 0
-      };
-
       this.snapTo = this.snapTo.bind(this);
     }
 
@@ -106,15 +102,18 @@ jest.mock('reanimated-bottom-sheet', () =>
       if (this.props.callbackNode)
         this.props.callbackNode.setValue(index);
       
-      // change top based on new snap point
-      this.setState({ index });
+      // force the view to update
+      this.forceUpdate();
     }
 
     render()
     {
-      const index = this.state.index;
+      const top = this.props.callbackNode.interpolate({
+        inputRange: [ 0, 1 ],
+        outputRange: this.props.snapPoints
+      });
 
-      return <View style={ { top: this.props.snapPoints[index] } }>
+      return <View style={ { top: top } }>
         { this.props.renderHeader() }
         { this.props.renderContent() }
       </View>;
@@ -349,7 +348,7 @@ describe('Testing <App/>', () =>
 
   describe('Bottom Sheet', () =>
   {
-    test('Snap Using A Inbox Entry', async() =>
+    test('Snapping (From Inbox)', async() =>
     {
       getStore('app').set({
         profile: {

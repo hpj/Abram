@@ -59,7 +59,7 @@ class Search extends StoreComponent
   {
     const { maximized } = this.state;
 
-    const avatarsAmount = Math.min(this.state.activeChat.members?.length - 1 || 1, 2);
+    const avatarsAmount = Math.min(this.state.activeChat.members?.length - 1 || 0, 2);
 
     const searchBarMinWidth = sizes.avatar;
 
@@ -77,7 +77,7 @@ class Search extends StoreComponent
     sizes.avatar -
     // add offset
     1;
-
+    
     const searchBarMaxWidth =
     searchBarDefaultWidth -
     // minus the rest of avatars width

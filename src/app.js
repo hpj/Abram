@@ -31,7 +31,7 @@ import getTheme from './colors.js';
 
 const colors = getTheme();
 
-const bottomSheetNode = new Animated.Value();
+const bottomSheetNode = new Animated.Value(1);
 
 const holderNode = new Animated.Value(0);
 
@@ -52,42 +52,33 @@ export default class App extends StoreComponent
   {
     super.componentDidMount();
 
-    if (!this.state.loaded)
-    {
-      SplashScreen.preventAutoHide();
+    SplashScreen.preventAutoHide();
   
-      // load resource and cache on app-start
-      // crashes the app if loading encounters an error
-      load((error) =>
+    // load resource and cache on app-start
+    // crashes the app if loading encounters an error
+    load((error) =>
+    {
+      // encountered an error during loading
+      if (error)
       {
-        // encountered an error during loading
-        if (error)
-        {
-          throw new Error(error);
-        }
-        else
-        {
-          // allow app UI to be rendered
-          this.setState({ loaded: true }, () =>
-          {
-            this.forceUpdate(this.componentDidMount);
-          });
+        throw new Error(error);
+      }
+      else
+      {
+        // allow app UI to be rendered
+        // the second forced updated is
+        // needed to render the navigation view
+        this.setState({ loaded: true }, this.forceUpdate);
   
-          // set status-bar style
-          StatusBar.setBackgroundColor(colors.blackBackground);
-          // StatusBar.setBarStyle((colors.theme === 'dark') ? 'light-content' : 'dark-content');
-          StatusBar.setBarStyle('light-content');
+        // set status-bar style
+        StatusBar.setBackgroundColor(colors.blackBackground);
+        // StatusBar.setBarStyle((colors.theme === 'dark') ? 'light-content' : 'dark-content');
+        StatusBar.setBarStyle('light-content');
     
-          // hides the splash screen and shows the app
-          SplashScreen.hide();
-        }
-      });
-    }
-    else
-    {
-      // fix the top bar margin being on reverse when the app starts
-      bottomSheetNode.setValue(1);
-    }
+        // hides the splash screen and shows the app
+        SplashScreen.hide();
+      }
+    });
   }
 
   onOpen(open)
@@ -101,7 +92,7 @@ export default class App extends StoreComponent
   onBack()
   {
     // close bottom sheet
-    bottomSheetRef.current.snapTo(0);
+    bottomSheetRef.current.snapTo(1);
 
     return true;
   }
@@ -155,7 +146,8 @@ export default class App extends StoreComponent
             ref={ bottomSheetRef }
             callbackNode={ bottomSheetNode }
 
-            snapPoints = { [ 0, this.state.size.height ] }
+            initialSnap={ 1 }
+            snapPoints = { [ this.state.size.height, 0  ] }
 
             enabledContentGestureInteraction={ false }
 
