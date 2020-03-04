@@ -31,17 +31,16 @@ import getTheme from './colors.js';
 
 const colors = getTheme();
 
-const bottomSheetNode = new Animated.Value(1);
-
-const holderNode = new Animated.Value(0);
-
-const bottomSheetRef = React.createRef();
-
 export default class App extends StoreComponent
 {
   constructor()
   {
     super();
+
+    this.bottomSheetNode = new Animated.Value(1);
+    this.holderNode = new Animated.Value(0);
+
+    this.bottomSheetRef = React.createRef();
 
     // bind functions to use as callbacks
 
@@ -92,7 +91,7 @@ export default class App extends StoreComponent
   onBack()
   {
     // close bottom sheet
-    bottomSheetRef.current.snapTo(1);
+    this.bottomSheetRef.current.snapTo(1);
 
     return true;
   }
@@ -102,7 +101,7 @@ export default class App extends StoreComponent
     if (!this.state.loaded)
       return <View/>;
   
-    const holderOpacity = holderNode.interpolate({
+    const holderOpacity = this.holderNode.interpolate({
       inputRange: [ 0, 1 ],
       outputRange: [ 0, 0.75 ]
     });
@@ -110,12 +109,12 @@ export default class App extends StoreComponent
     return (
       <SafeAreaView testID='v-main-area' style={ styles.container }>
 
-        <TopBar holderNode={ holderNode } bottomSheetNode={ bottomSheetNode }/>
+        <TopBar holderNode={ this.holderNode } bottomSheetNode={ this.bottomSheetNode }/>
 
         <View testID='v-navigation' style={ styles.views }>
 
           <NavigationView testID='v-inbox' active={ (this.state.index === 0) }>
-            <Inbox bottomSheetSnapTo={ bottomSheetRef.current?.snapTo }/>
+            <Inbox bottomSheetSnapTo={ this.bottomSheetRef.current?.snapTo }/>
           </NavigationView>
 
           <NavigationView testID='v-discover' active={ (this.state.index === 1) }>
@@ -143,8 +142,8 @@ export default class App extends StoreComponent
           height: this.state.size.height
         } } pointerEvents={ 'box-none' }>
           <BottomSheet
-            ref={ bottomSheetRef }
-            callbackNode={ bottomSheetNode }
+            ref={ this.bottomSheetRef }
+            callbackNode={ this.bottomSheetNode }
 
             initialSnap={ 1 }
             snapPoints = { [ this.state.size.height, 0  ] }

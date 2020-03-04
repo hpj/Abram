@@ -274,6 +274,566 @@ exports[`Testing <App/> Navigation Views: Navigation View Should Be Discover 1`]
 </View>
 `;
 
+exports[`Testing <App/> Search Bar Search Bar Width (2 Avatars) (With Activated Bottom Sheet) 1`] = `
+Snapshot Diff:
+Compared values have no visual difference.
+`;
+
+exports[`Testing <App/> Search Bar Search Bar Width (2 Avatars) (With Activated Bottom Sheet): Bottom Sheet Should Have Y-Axis Equal To Height 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "height": 1131,
+      "position": "absolute",
+      "width": 523,
+      "zIndex": 1,
+    }
+  }
+  testID="v-bottom-sheet"
+>
+  <View
+    style={
+      Object {
+        "top": 1131,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`Testing <App/> Search Bar Search Bar Width (2 Avatars) (With Activated Bottom Sheet): Search Bar Should Be Maximize Width Max Width 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row-reverse",
+      "height": 38,
+      "marginLeft": 15,
+      "marginRight": 15,
+      "minWidth": 38,
+      "width": 410,
+    }
+  }
+  testID="v-search"
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#4B4B4B",
+        "borderRadius": 38,
+        "height": 38,
+        "position": "absolute",
+        "width": 410,
+      }
+    }
+  />
+  <TextInput
+    allowFontScaling={true}
+    placeholder="Search"
+    placeholderTextColor="rgba(255,255,255,0.45)"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "color": "#ffffff",
+        "fontSize": 16,
+        "height": 38,
+        "marginRight": 15,
+        "position": "absolute",
+        "right": 0,
+        "width": 348,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <View
+    style={
+      Object {
+        "borderRadius": 38,
+        "height": 38,
+        "width": 38,
+        "zIndex": 0,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`Testing <App/> Search Bar Search Bar Width (2 Avatars) (With Activated Bottom Sheet): Search Bar Should Be Minimized 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row-reverse",
+      "height": 38,
+      "marginLeft": 15,
+      "marginRight": 15,
+      "minWidth": 38,
+      "width": 38,
+    }
+  }
+  testID="v-search"
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#4B4B4B",
+        "borderRadius": 38,
+        "height": 38,
+        "position": "absolute",
+        "width": 38,
+      }
+    }
+  />
+  <TextInput
+    allowFontScaling={true}
+    placeholder="Search"
+    placeholderTextColor="rgba(255,255,255,0.45)"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "color": "#ffffff",
+        "fontSize": 16,
+        "height": 38,
+        "marginRight": 15,
+        "position": "absolute",
+        "right": 0,
+        "width": 0,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <View
+    style={
+      Object {
+        "borderRadius": 38,
+        "height": 38,
+        "width": 38,
+        "zIndex": 0,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`Testing <App/> Search Bar Search Bar Width (2 Avatars) (With Deactivated Bottom Sheet) 1`] = `
+Snapshot Diff:
+Compared values have no visual difference.
+`;
+
+exports[`Testing <App/> Search Bar Search Bar Width (2 Avatars) (With Deactivated Bottom Sheet): Bottom Sheet Should Have Y-Axis 0 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "height": 1131,
+      "position": "absolute",
+      "width": 523,
+      "zIndex": 1,
+    }
+  }
+  testID="v-bottom-sheet"
+>
+  <View
+    style={
+      Object {
+        "top": 0,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`Testing <App/> Search Bar Search Bar Width (2 Avatars) (With Deactivated Bottom Sheet): Search Bar Should Be Maximize Width Default Width 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row-reverse",
+      "height": 38,
+      "marginLeft": 15,
+      "marginRight": 15,
+      "minWidth": 38,
+      "width": 429,
+    }
+  }
+  testID="v-search"
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#4B4B4B",
+        "borderRadius": 38,
+        "height": 38,
+        "position": "absolute",
+        "width": 429,
+      }
+    }
+  />
+  <TextInput
+    allowFontScaling={true}
+    placeholder="Search"
+    placeholderTextColor="rgba(255,255,255,0.45)"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "color": "#ffffff",
+        "fontSize": 16,
+        "height": 38,
+        "marginRight": 15,
+        "position": "absolute",
+        "right": 0,
+        "width": 367,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <View
+    style={
+      Object {
+        "borderRadius": 38,
+        "height": 38,
+        "width": 38,
+        "zIndex": 0,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`Testing <App/> Search Bar Search Bar Width (2 Avatars) (With Deactivated Bottom Sheet): Search Bar Should Be Minimized 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row-reverse",
+      "height": 38,
+      "marginLeft": 15,
+      "marginRight": 15,
+      "minWidth": 38,
+      "width": 38,
+    }
+  }
+  testID="v-search"
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#4B4B4B",
+        "borderRadius": 38,
+        "height": 38,
+        "position": "absolute",
+        "width": 38,
+      }
+    }
+  />
+  <TextInput
+    allowFontScaling={true}
+    placeholder="Search"
+    placeholderTextColor="rgba(255,255,255,0.45)"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "color": "#ffffff",
+        "fontSize": 16,
+        "height": 38,
+        "marginRight": 15,
+        "position": "absolute",
+        "right": 0,
+        "width": 0,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <View
+    style={
+      Object {
+        "borderRadius": 38,
+        "height": 38,
+        "width": 38,
+        "zIndex": 0,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`Testing <App/> Search Bar Search Bar Width (3 Avatars) (With Activated Bottom Sheet) 1`] = `
+Snapshot Diff:
+Compared values have no visual difference.
+`;
+
+exports[`Testing <App/> Search Bar Search Bar Width (3 Avatars) (With Activated Bottom Sheet): Bottom Sheet Should Have Y-Axis Equal To Height 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "height": 1131,
+      "position": "absolute",
+      "width": 523,
+      "zIndex": 1,
+    }
+  }
+  testID="v-bottom-sheet"
+>
+  <View
+    style={
+      Object {
+        "top": 1131,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`Testing <App/> Search Bar Search Bar Width (3 Avatars) (With Activated Bottom Sheet): Search Bar Should Be Maximize Width Max Width 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row-reverse",
+      "height": 38,
+      "marginLeft": 15,
+      "marginRight": 15,
+      "minWidth": 38,
+      "width": 391,
+    }
+  }
+  testID="v-search"
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#4B4B4B",
+        "borderRadius": 38,
+        "height": 38,
+        "position": "absolute",
+        "width": 391,
+      }
+    }
+  />
+  <TextInput
+    allowFontScaling={true}
+    placeholder="Search"
+    placeholderTextColor="rgba(255,255,255,0.45)"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "color": "#ffffff",
+        "fontSize": 16,
+        "height": 38,
+        "marginRight": 15,
+        "position": "absolute",
+        "right": 0,
+        "width": 329,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <View
+    style={
+      Object {
+        "borderRadius": 38,
+        "height": 38,
+        "width": 38,
+        "zIndex": 0,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`Testing <App/> Search Bar Search Bar Width (3 Avatars) (With Activated Bottom Sheet): Search Bar Should Be Minimized 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row-reverse",
+      "height": 38,
+      "marginLeft": 15,
+      "marginRight": 15,
+      "minWidth": 38,
+      "width": 38,
+    }
+  }
+  testID="v-search"
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#4B4B4B",
+        "borderRadius": 38,
+        "height": 38,
+        "position": "absolute",
+        "width": 38,
+      }
+    }
+  />
+  <TextInput
+    allowFontScaling={true}
+    placeholder="Search"
+    placeholderTextColor="rgba(255,255,255,0.45)"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "color": "#ffffff",
+        "fontSize": 16,
+        "height": 38,
+        "marginRight": 15,
+        "position": "absolute",
+        "right": 0,
+        "width": 0,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <View
+    style={
+      Object {
+        "borderRadius": 38,
+        "height": 38,
+        "width": 38,
+        "zIndex": 0,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`Testing <App/> Search Bar Search Bar Width (3 Avatars) (With Deactivated Bottom Sheet) 1`] = `
+Snapshot Diff:
+Compared values have no visual difference.
+`;
+
+exports[`Testing <App/> Search Bar Search Bar Width (3 Avatars) (With Deactivated Bottom Sheet): Bottom Sheet Should Have Y-Axis 0 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "height": 1131,
+      "position": "absolute",
+      "width": 523,
+      "zIndex": 1,
+    }
+  }
+  testID="v-bottom-sheet"
+>
+  <View
+    style={
+      Object {
+        "top": 0,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`Testing <App/> Search Bar Search Bar Width (3 Avatars) (With Deactivated Bottom Sheet): Search Bar Should Be Maximize Width Default Width 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row-reverse",
+      "height": 38,
+      "marginLeft": 15,
+      "marginRight": 15,
+      "minWidth": 38,
+      "width": 429,
+    }
+  }
+  testID="v-search"
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#4B4B4B",
+        "borderRadius": 38,
+        "height": 38,
+        "position": "absolute",
+        "width": 429,
+      }
+    }
+  />
+  <TextInput
+    allowFontScaling={true}
+    placeholder="Search"
+    placeholderTextColor="rgba(255,255,255,0.45)"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "color": "#ffffff",
+        "fontSize": 16,
+        "height": 38,
+        "marginRight": 15,
+        "position": "absolute",
+        "right": 0,
+        "width": 367,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <View
+    style={
+      Object {
+        "borderRadius": 38,
+        "height": 38,
+        "width": 38,
+        "zIndex": 0,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`Testing <App/> Search Bar Search Bar Width (3 Avatars) (With Deactivated Bottom Sheet): Search Bar Should Be Minimized 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row-reverse",
+      "height": 38,
+      "marginLeft": 15,
+      "marginRight": 15,
+      "minWidth": 38,
+      "width": 38,
+    }
+  }
+  testID="v-search"
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#4B4B4B",
+        "borderRadius": 38,
+        "height": 38,
+        "position": "absolute",
+        "width": 38,
+      }
+    }
+  />
+  <TextInput
+    allowFontScaling={true}
+    placeholder="Search"
+    placeholderTextColor="rgba(255,255,255,0.45)"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "color": "#ffffff",
+        "fontSize": 16,
+        "height": 38,
+        "marginRight": 15,
+        "position": "absolute",
+        "right": 0,
+        "width": 0,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <View
+    style={
+      Object {
+        "borderRadius": 38,
+        "height": 38,
+        "width": 38,
+        "zIndex": 0,
+      }
+    }
+  />
+</View>
+`;
+
 exports[`Testing <App/> Search Bar Search Bar Width (No Bottom Sheet) 1`] = `
 Snapshot Diff:
 Compared values have no visual difference.

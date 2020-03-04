@@ -5,7 +5,7 @@ import React from 'react';
 
 import { BackHandler } from 'react-native';
 
-import { render, fireEvent, waitForElement, flushMicrotasksQueue } from 'react-native-testing-library';
+import { render, fireEvent, waitForElement, flushMicrotasksQueue, cleanup } from 'react-native-testing-library';
 
 import axios from 'axios';
 
@@ -186,6 +186,8 @@ beforeEach(() =>
 afterEach(() =>
 {
   deleteStore('app');
+
+  cleanup();
 });
 
 describe('Testing <App/>', () =>
@@ -255,15 +257,13 @@ describe('Testing <App/>', () =>
       component.unmount();
     });
 
-    // TODO need to activate bottom sheet before it can be tested correctly
-    test.skip('Search Bar Width (2 Avatars)', async() =>
+    test('Search Bar Width (2 Avatars) (With Deactivated Bottom Sheet)', async() =>
     {
       getStore('app').set({
         activeChat: {
-          members: [ 'Mana' ],
+          members: [ 'Mana', 'Mika' ],
           avatars: {
-            'Mana': 1,
-            'Mika': 2
+            'Mika': 1
           }
         }
       });
@@ -273,11 +273,13 @@ describe('Testing <App/>', () =>
       // wait for app loading
       await waitForElement(() => component.getByTestId('v-main-area'));
 
+      const bottomSheet = toJSON(component, 'v-bottom-sheet', 'one');
+
+      expect(bottomSheet).toMatchSnapshot('Bottom Sheet Should Have Y-Axis 0');
+
       const initial = toJSON(component, 'v-search', 'one');
 
-      console.log(initial);
-      
-      // expect(initial).toMatchSnapshot('Minimized Search bar');
+      expect(initial).toMatchSnapshot('Search Bar Should Be Minimized');
 
       // maximize the search bar
       // by simulating pressing the search bar button
@@ -285,9 +287,7 @@ describe('Testing <App/>', () =>
 
       const maximized = toJSON(component, 'v-search', 'one');
 
-      console.log(maximized);
-
-      // expect(maximized).toMatchSnapshot('Maximized Search bar');
+      expect(maximized).toMatchSnapshot('Search Bar Should Be Maximize Width Default Width');
 
       // maximize the search bar
       // by simulating pressing the search bar button
@@ -295,15 +295,182 @@ describe('Testing <App/>', () =>
 
       const minimized = toJSON(component, 'v-search', 'one');
 
-      expect(1).toEqual(1);
-
       // initial should be the same as minimized
-      // expect(initial).toMatchDiffSnapshot(minimized);
+      expect(initial).toMatchDiffSnapshot(minimized);
 
       component.unmount();
     });
 
-    test.todo('Search Bar Width (3 Avatars)');
+    test('Search Bar Width (2 Avatars) (With Activated Bottom Sheet)', async() =>
+    {
+      getStore('app').set({
+        profile: {
+          username: 'Mana'
+        },
+        inbox: [
+          {
+            displayName: 'Group of Wholesome Girls',
+            members: [
+              'Mana',
+              'MikaTheCoolOne'
+            ],
+            avatars: {
+              'MikaTheCoolOne': 1
+            },
+            messages: [
+              { owner: 'MikaTheCoolOne', text: '', timestamp: new Date(1999, 9, 9) }
+            ]
+          }
+        ]
+      });
+
+      const component = render(<App/>);
+
+      // wait for app loading
+      await waitForElement(() => component.getByTestId('v-main-area'));
+
+      // snap the bottom sheet the top of the screen
+      // this renders the chat avatars which makes search bar width thinner
+      fireEvent.press(component.getByTestId('bn-chat'));
+
+      await flushMicrotasksQueue();
+
+      const bottomSheet = toJSON(component, 'v-bottom-sheet', 'one');
+
+      expect(bottomSheet).toMatchSnapshot('Bottom Sheet Should Have Y-Axis Equal To Height');
+
+      const initial = toJSON(component, 'v-search', 'one');
+
+      expect(initial).toMatchSnapshot('Search Bar Should Be Minimized');
+
+      // maximize the search bar
+      // by simulating pressing the search bar button
+      fireEvent.press(component.getByTestId('bn-search-maximize'));
+
+      const maximized = toJSON(component, 'v-search', 'one');
+
+      expect(maximized).toMatchSnapshot('Search Bar Should Be Maximize Width Max Width');
+
+      // maximize the search bar
+      // by simulating pressing the search bar button
+      fireEvent.press(component.getByTestId('bn-search-minimize'));
+
+      const minimized = toJSON(component, 'v-search', 'one');
+
+      // initial should be the same as minimized
+      expect(initial).toMatchDiffSnapshot(minimized);
+
+      component.unmount();
+    });
+
+    test('Search Bar Width (3 Avatars) (With Deactivated Bottom Sheet)', async() =>
+    {
+      getStore('app').set({
+        activeChat: {
+          members: [ 'Mana', 'Mika', 'Skye' ],
+          avatars: {
+            'Mika': 1,
+            'Skye': 2
+          }
+        }
+      });
+
+      const component = render(<App/>);
+
+      // wait for app loading
+      await waitForElement(() => component.getByTestId('v-main-area'));
+
+      const bottomSheet = toJSON(component, 'v-bottom-sheet', 'one');
+
+      expect(bottomSheet).toMatchSnapshot('Bottom Sheet Should Have Y-Axis 0');
+
+      const initial = toJSON(component, 'v-search', 'one');
+
+      expect(initial).toMatchSnapshot('Search Bar Should Be Minimized');
+
+      // maximize the search bar
+      // by simulating pressing the search bar button
+      fireEvent.press(component.getByTestId('bn-search-maximize'));
+
+      const maximized = toJSON(component, 'v-search', 'one');
+
+      expect(maximized).toMatchSnapshot('Search Bar Should Be Maximize Width Default Width');
+
+      // maximize the search bar
+      // by simulating pressing the search bar button
+      fireEvent.press(component.getByTestId('bn-search-minimize'));
+
+      const minimized = toJSON(component, 'v-search', 'one');
+
+      // initial should be the same as minimized
+      expect(initial).toMatchDiffSnapshot(minimized);
+
+      component.unmount();
+    });
+
+    test('Search Bar Width (3 Avatars) (With Activated Bottom Sheet)', async() =>
+    {
+      getStore('app').set({
+        profile: {
+          username: 'Mana'
+        },
+        inbox: [
+          {
+            displayName: 'Group of Wholesome Girls',
+            members: [
+              'Mana',
+              'MikaTheCoolOne',
+              'SkyeTheDarkLord'
+            ],
+            avatars: {
+              'MikaTheCoolOne': 1,
+              'SkyeTheDarkLord': 2
+            },
+            messages: [
+              { owner: 'MikaTheCoolOne', text: '', timestamp: new Date(1999, 9, 9) }
+            ]
+          }
+        ]
+      });
+
+      const component = render(<App/>);
+
+      // wait for app loading
+      await waitForElement(() => component.getByTestId('v-main-area'));
+
+      // snap the bottom sheet the top of the screen
+      // this renders the chat avatars which makes search bar width thinner
+      fireEvent.press(component.getByTestId('bn-chat'));
+
+      await flushMicrotasksQueue();
+
+      const bottomSheet = toJSON(component, 'v-bottom-sheet', 'one');
+
+      expect(bottomSheet).toMatchSnapshot('Bottom Sheet Should Have Y-Axis Equal To Height');
+
+      const initial = toJSON(component, 'v-search', 'one');
+
+      expect(initial).toMatchSnapshot('Search Bar Should Be Minimized');
+
+      // maximize the search bar
+      // by simulating pressing the search bar button
+      fireEvent.press(component.getByTestId('bn-search-maximize'));
+
+      const maximized = toJSON(component, 'v-search', 'one');
+
+      expect(maximized).toMatchSnapshot('Search Bar Should Be Maximize Width Max Width');
+
+      // maximize the search bar
+      // by simulating pressing the search bar button
+      fireEvent.press(component.getByTestId('bn-search-minimize'));
+
+      const minimized = toJSON(component, 'v-search', 'one');
+
+      // initial should be the same as minimized
+      expect(initial).toMatchDiffSnapshot(minimized);
+
+      component.unmount();
+    });
   });
 
   describe('Main Menu', () =>
@@ -400,6 +567,8 @@ describe('Testing <App/>', () =>
 
       // initial view should be the same as inbox
       expect(initial).toMatchDiffSnapshot(closed);
+
+      component.unmount();
     });
   });
 });
