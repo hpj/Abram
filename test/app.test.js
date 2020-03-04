@@ -3,7 +3,9 @@
 
 import React from 'react';
 
-import { render, fireEvent, waitForElement } from 'react-native-testing-library';
+import { BackHandler } from 'react-native';
+
+import { render, fireEvent, waitForElement, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import axios from 'axios';
 
@@ -75,6 +77,17 @@ jest.mock('reanimated-bottom-sheet', () =>
 
   class BottomSheet extends Component
   {
+    constructor()
+    {
+      super();
+
+      this.state = {
+        index: 0
+      };
+
+      this.snapTo = this.snapTo.bind(this);
+    }
+
     snapTo(index)
     {
       // execute callback
@@ -89,20 +102,17 @@ jest.mock('reanimated-bottom-sheet', () =>
           this.props.onCloseEnd();
       }
 
-      // update index
-      this.index = index;
-
       // update callbackNode value
       if (this.props.callbackNode)
         this.props.callbackNode.setValue(index);
       
-      // change top based on snap point
-      this.forceUpdate();
+      // change top based on new snap point
+      this.setState({ index });
     }
 
     render()
     {
-      const index = this.index || 0;
+      const index = this.state.index;
 
       return <View style={ { top: this.props.snapPoints[index] } }>
         { this.props.renderHeader() }
@@ -334,6 +344,65 @@ describe('Testing <App/>', () =>
       expect(initialHolder).toMatchDiffSnapshot(hiddenHolder);
 
       component.unmount();
+    });
+  });
+
+  describe('Bottom Sheet', () =>
+  {
+    test('Snap Using A Inbox Entry', async() =>
+    {
+      getStore('app').set({
+        profile: {
+          username: 'Mana'
+        },
+        inbox: [
+          {
+            displayName: 'Mika',
+            members: [
+              'Mana',
+              'MikaTheCoolOne'
+            ],
+            avatars: {
+              'MikaTheCoolOne': 1
+            },
+            messages: [
+              { owner: 'MikaTheCoolOne', text: '', timestamp: new Date(1999, 9, 9) }
+            ]
+          }
+        ]
+      });
+
+      const component = render(<App/>);
+
+      // wait for app loading
+      await waitForElement(() => component.getByTestId('v-main-area'));
+  
+      const initial = toJSON(component, 'v-bottom-sheet', 'one');
+
+      expect(initial).toMatchSnapshot('Bottom Sheet View Should Have Y-Axis 0');
+
+      // snap the bottom sheet the top of the screen
+      // by simulating pressing a chat from inbox
+      fireEvent.press(component.getByTestId('bn-chat'));
+
+      await flushMicrotasksQueue();
+
+      const opened = toJSON(component, 'v-bottom-sheet', 'one');
+
+      expect(opened).toMatchSnapshot('Bottom Sheet View Should Have Y-Axis Equal To Height');
+      
+      // snap the bottom sheet the bottom of the screen
+      // by simulating pressing the hardware back button
+      BackHandler.mockPressBack();
+
+      await flushMicrotasksQueue();
+
+      const closed = toJSON(component, 'v-bottom-sheet', 'one');
+
+      // initial view should be the same as inbox
+      expect(initial).toMatchDiffSnapshot(closed);
+
+      expect(1).toEqual(1);
     });
   });
 });

@@ -61,6 +61,7 @@ class Inbox extends StoreComponent
             
             return <Button
               key={ t }
+              testID='bn-chat'
               borderless={ false }
               onPress={ () => this.onPress(entry) }
             >

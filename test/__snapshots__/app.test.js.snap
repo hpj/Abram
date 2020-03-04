@@ -1,5 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Testing <App/> Bottom Sheet Snap Using A Inbox Entry 1`] = `
+Snapshot Diff:
+Compared values have no visual difference.
+`;
+
+exports[`Testing <App/> Bottom Sheet Snap Using A Inbox Entry: Bottom Sheet View Should Have Y-Axis 0 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "height": 1131,
+      "position": "absolute",
+      "width": 523,
+      "zIndex": 1,
+    }
+  }
+  testID="v-bottom-sheet"
+>
+  <View
+    style={
+      Object {
+        "top": 0,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`Testing <App/> Bottom Sheet Snap Using A Inbox Entry: Bottom Sheet View Should Have Y-Axis Equal To Height 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "height": 1131,
+      "position": "absolute",
+      "width": 523,
+      "zIndex": 1,
+    }
+  }
+  testID="v-bottom-sheet"
+>
+  <View
+    style={
+      Object {
+        "top": 1131,
+      }
+    }
+  />
+</View>
+`;
+
 exports[`Testing <App/> Main Menu Showing and Hiding Menu 1`] = `
 Snapshot Diff:
 Compared values have no visual difference.
