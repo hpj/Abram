@@ -400,8 +400,6 @@ describe('Testing <App/>', () =>
 
       // initial view should be the same as inbox
       expect(initial).toMatchDiffSnapshot(closed);
-
-      expect(1).toEqual(1);
     });
   });
 });

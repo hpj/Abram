@@ -81,7 +81,7 @@ export default class App extends StoreComponent
     });
   }
 
-  onOpen(open)
+  onClose(open)
   {
     if (open)
       BackHandler.addEventListener('hardwareBackPress', this.onBack);
@@ -151,8 +151,8 @@ export default class App extends StoreComponent
 
             enabledContentGestureInteraction={ false }
 
-            onOpenStart={ () => this.onOpen(true) }
-            onCloseEnd={ () => this.onOpen(false) }
+            onOpenStart={ () => this.onClose(false) }
+            onCloseEnd={ () => this.onClose(true) }
 
             renderHeader = {
               () =>
