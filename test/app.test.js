@@ -849,6 +849,83 @@ describe('Testing <Inbox/>', () =>
 
     component.unmount();
   });
+
+  test('Timestamps Formatting', () =>
+  {
+    getStore('app').set({
+      profile: {
+        username: 'Mana'
+      },
+      inbox: [
+        {
+          displayName: 'Mika',
+          members: [
+            'Mana',
+            'MikaTheCoolOne'
+          ],
+          avatars: {
+            'MikaTheCoolOne': 1
+          },
+          messages: [
+            { owner: 'MikaTheCoolOne', text: 'Yay', timestamp: new Date() }
+          ]
+        },
+        {
+          displayName: 'Mika',
+          members: [
+            'Mana',
+            'MikaTheCoolOne'
+          ],
+          avatars: {
+            'MikaTheCoolOne': 1
+          },
+          messages: [
+            { owner: 'MikaTheCoolOne', text: 'Yay', timestamp: subDays(new Date(), 1) }
+          ]
+        },
+        {
+          displayName: 'Mika',
+          members: [
+            'Mana',
+            'MikaTheCoolOne'
+          ],
+          avatars: {
+            'MikaTheCoolOne': 1
+          },
+          messages: [
+            { owner: 'MikaTheCoolOne', text: 'Yay', timestamp: subDays(new Date(), 3) }
+          ]
+        },
+        {
+          displayName: 'Mika',
+          members: [
+            'Mana',
+            'MikaTheCoolOne'
+          ],
+          avatars: {
+            'MikaTheCoolOne': 1
+          },
+          messages: [
+            { owner: 'MikaTheCoolOne', text: 'Yay', timestamp: new Date(1999, 9, 9, 9, 0) }
+          ]
+        }
+      ]
+    });
+  
+    const component = render(<Inbox/>);
+
+    const parent = component.toJSON().children[0];
+
+    expect(parent.children[0]).toMatchSnapshot('Should Have A Timestamp of Today');
+  
+    expect(parent.children[1]).toMatchSnapshot('Should Have A Timestamp of Yesterday');
+    
+    expect(parent.children[2]).toMatchSnapshot('Should Have A Timestamp of This Week');
+
+    expect(parent.children[3]).toMatchSnapshot('Should Have A Timestamp of Full Date');
+
+    component.unmount();
+  });
   
   test('Group of 3 View', () =>
   {

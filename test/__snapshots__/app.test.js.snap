@@ -2276,3 +2276,571 @@ exports[`Testing <Inbox/> Normal View: Should Be A Normal Inbox View With 1 Avat
   </View>
 </RCTScrollView>
 `;
+
+exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Full Date 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+>
+  <View>
+    <View>
+      <View />
+    </View>
+    <View />
+    <View />
+    <View />
+    <View
+      style={
+        Object {
+          "marginBottom": 20,
+          "marginTop": 20,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "marginLeft": 20,
+            "marginRight": 20,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "height": 70,
+              "marginLeft": 5,
+              "width": 70,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "height": 70,
+                "justifyContent": "center",
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 70,
+              }
+            }
+          >
+            <Image
+              source={1}
+              style={
+                Object {
+                  "backgroundColor": "#4B4B4B",
+                  "borderColor": "#000000",
+                  "borderRadius": 70,
+                  "borderWidth": 0,
+                  "height": 70,
+                  "position": "absolute",
+                  "width": 70,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#ffffff",
+                  "borderColor": "#000000",
+                  "borderRadius": 23,
+                  "borderWidth": 4,
+                  "height": 23,
+                  "marginLeft": -10,
+                  "opacity": 1,
+                  "position": "absolute",
+                  "width": 23,
+                }
+              }
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flex": 1,
+              "marginLeft": 20,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 22,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Mika
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#818181",
+                "fontSize": 20,
+              }
+            }
+          >
+            9 Oct 1999
+          </Text>
+          <Text
+            numberOfLines={1}
+            style={
+              Object {
+                "color": "#818181",
+                "fontSize": 22,
+                "marginTop": 10,
+              }
+            }
+          >
+            Yay
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of This Week 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+>
+  <View>
+    <View>
+      <View />
+    </View>
+    <View />
+    <View />
+    <View />
+    <View
+      style={
+        Object {
+          "marginBottom": 20,
+          "marginTop": 20,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "marginLeft": 20,
+            "marginRight": 20,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "height": 70,
+              "marginLeft": 5,
+              "width": 70,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "height": 70,
+                "justifyContent": "center",
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 70,
+              }
+            }
+          >
+            <Image
+              source={1}
+              style={
+                Object {
+                  "backgroundColor": "#4B4B4B",
+                  "borderColor": "#000000",
+                  "borderRadius": 70,
+                  "borderWidth": 0,
+                  "height": 70,
+                  "position": "absolute",
+                  "width": 70,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#ffffff",
+                  "borderColor": "#000000",
+                  "borderRadius": 23,
+                  "borderWidth": 4,
+                  "height": 23,
+                  "marginLeft": -10,
+                  "opacity": 0,
+                  "position": "absolute",
+                  "width": 23,
+                }
+              }
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flex": 1,
+              "marginLeft": 20,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 22,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Mika
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#818181",
+                "fontSize": 20,
+              }
+            }
+          >
+            Saturday, 12:00 AM
+          </Text>
+          <Text
+            numberOfLines={1}
+            style={
+              Object {
+                "color": "#818181",
+                "fontSize": 22,
+                "marginTop": 10,
+              }
+            }
+          >
+            Yay
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Today 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+>
+  <View>
+    <View>
+      <View />
+    </View>
+    <View />
+    <View />
+    <View />
+    <View
+      style={
+        Object {
+          "marginBottom": 20,
+          "marginTop": 20,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "marginLeft": 20,
+            "marginRight": 20,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "height": 70,
+              "marginLeft": 5,
+              "width": 70,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "height": 70,
+                "justifyContent": "center",
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 70,
+              }
+            }
+          >
+            <Image
+              source={1}
+              style={
+                Object {
+                  "backgroundColor": "#4B4B4B",
+                  "borderColor": "#000000",
+                  "borderRadius": 70,
+                  "borderWidth": 0,
+                  "height": 70,
+                  "position": "absolute",
+                  "width": 70,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#ffffff",
+                  "borderColor": "#000000",
+                  "borderRadius": 23,
+                  "borderWidth": 4,
+                  "height": 23,
+                  "marginLeft": -10,
+                  "opacity": 1,
+                  "position": "absolute",
+                  "width": 23,
+                }
+              }
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flex": 1,
+              "marginLeft": 20,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 22,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Mika
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#818181",
+                "fontSize": 20,
+              }
+            }
+          >
+            Today, 12:00 AM
+          </Text>
+          <Text
+            numberOfLines={1}
+            style={
+              Object {
+                "color": "#818181",
+                "fontSize": 22,
+                "marginTop": 10,
+              }
+            }
+          >
+            Yay
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Yesterday 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+>
+  <View>
+    <View>
+      <View />
+    </View>
+    <View />
+    <View />
+    <View />
+    <View
+      style={
+        Object {
+          "marginBottom": 20,
+          "marginTop": 20,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "marginLeft": 20,
+            "marginRight": 20,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "height": 70,
+              "marginLeft": 5,
+              "width": 70,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "height": 70,
+                "justifyContent": "center",
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 70,
+              }
+            }
+          >
+            <Image
+              source={1}
+              style={
+                Object {
+                  "backgroundColor": "#4B4B4B",
+                  "borderColor": "#000000",
+                  "borderRadius": 70,
+                  "borderWidth": 0,
+                  "height": 70,
+                  "position": "absolute",
+                  "width": 70,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#ffffff",
+                  "borderColor": "#000000",
+                  "borderRadius": 23,
+                  "borderWidth": 4,
+                  "height": 23,
+                  "marginLeft": -10,
+                  "opacity": 1,
+                  "position": "absolute",
+                  "width": 23,
+                }
+              }
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flex": 1,
+              "marginLeft": 20,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 22,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Mika
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#818181",
+                "fontSize": 20,
+              }
+            }
+          >
+            Yesterday, 12:00 AM
+          </Text>
+          <Text
+            numberOfLines={1}
+            style={
+              Object {
+                "color": "#818181",
+                "fontSize": 22,
+                "marginTop": 10,
+              }
+            }
+          >
+            Yay
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
