@@ -10,7 +10,6 @@ Pre:
 
 Testing:
   ✔ test opening and closing chat bottom sheet @done(20-03-04 04:09)
-    ☐ test input bar
     ☐ test keyboard height
 
   ☐ expo's over-the-air updates

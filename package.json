@@ -11,6 +11,7 @@
   },
   "jest": {
     "preset": "jest-expo",
+    "globalSetup": "./jest-config.js",
     "setupFilesAfterEnv": [
       "jest-extended",
       "jest-date-mock",

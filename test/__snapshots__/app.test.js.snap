@@ -58,12 +58,12 @@ exports[`Testing <App/> Chat Messages List Normal 1`] = `
       Object {
         "owner": "Mana",
         "text": "<3",
-        "timestamp": 1999-10-09T07:01:00.000Z,
+        "timestamp": 1999-10-09T09:01:00.000Z,
       },
       Object {
         "owner": "MikaTheCoolOne",
         "text": "Yay",
-        "timestamp": 1999-10-09T07:00:00.000Z,
+        "timestamp": 1999-10-09T09:00:00.000Z,
       },
     ]
   }
@@ -388,12 +388,12 @@ exports[`Testing <App/> Chat Messages List With Avatars 1`] = `
       Object {
         "owner": "Mana",
         "text": "<3",
-        "timestamp": 1999-10-09T07:01:00.000Z,
+        "timestamp": 1999-10-09T09:01:00.000Z,
       },
       Object {
         "owner": "MikaTheCoolOne",
         "text": "Yay",
-        "timestamp": 1999-10-09T07:00:00.000Z,
+        "timestamp": 1999-10-09T09:00:00.000Z,
       },
     ]
   }
