@@ -51,6 +51,30 @@ exports[`Testing <App/> Bottom Sheet Snapping (From Inbox): Bottom Sheet View Sh
 </View>
 `;
 
+exports[`Testing <App/> Chat Height With Keyboard: Should Have Full Height 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#000000",
+      "height": 1064,
+    }
+  }
+  testID="v-chat"
+/>
+`;
+
+exports[`Testing <App/> Chat Height With Keyboard: Should Have Height Minus Keyboard Height & Margin 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#000000",
+      "height": 492,
+    }
+  }
+  testID="v-chat"
+/>
+`;
+
 exports[`Testing <App/> Chat Messages List Normal 1`] = `
 <View
   data={
@@ -379,29 +403,6 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
     </Text>
   </View>
 </View>
-`;
-
-exports[`Testing <App/> Chat Messages List With Avatars 1`] = `
-<View
-  data={
-    Array [
-      Object {
-        "owner": "Mana",
-        "text": "<3",
-        "timestamp": 1999-10-09T09:01:00.000Z,
-      },
-      Object {
-        "owner": "MikaTheCoolOne",
-        "text": "Yay",
-        "timestamp": 1999-10-09T09:00:00.000Z,
-      },
-    ]
-  }
-  inverted={true}
-  keyExtractor={[Function]}
-  renderItem={[Function]}
-  testID="v-messages"
-/>
 `;
 
 exports[`Testing <App/> Chat Messages List With Avatars: Should Be Message With Timestamp And Avatar And Without A Background 1`] = `

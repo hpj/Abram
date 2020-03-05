@@ -9,9 +9,6 @@ Pre:
   ☐ write the terms of service
 
 Testing:
-  ✔ test opening and closing chat bottom sheet @done(20-03-04 04:09)
-    ☐ test keyboard height
-
   ☐ expo's over-the-air updates
   
 UI/UX:

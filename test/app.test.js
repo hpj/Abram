@@ -524,7 +524,7 @@ describe('Testing <App/>', () =>
       await waitForElement(() => component.getByTestId('v-main-area'));
 
       const initialMenu = toJSON(component, 'v-menu', 'one');
-      const initialHolder = toJSON(component, 'v-holder', 'none');
+      const initialHolder = toJSON(component, 'v-holder');
 
       expect(initialMenu).toMatchSnapshot('Initial Menu View Should Be Hidden');
       expect(initialHolder).toMatchSnapshot('Initial Holder View Should Be Hidden & Disabled');
@@ -534,7 +534,7 @@ describe('Testing <App/>', () =>
       fireEvent.press(component.getByTestId('bn-menu'));
 
       const activeMenu = toJSON(component, 'v-menu', 'one');
-      const activeHolder = toJSON(component, 'v-holder', 'none');
+      const activeHolder = toJSON(component, 'v-holder');
 
       expect(activeMenu).toMatchSnapshot('Menu View Should Be Visible');
       expect(activeHolder).toMatchSnapshot('Holder View Should Be Visible & Enabled');
@@ -544,7 +544,7 @@ describe('Testing <App/>', () =>
       fireEvent.press(component.getByTestId('bn-menu'));
 
       const hiddenMenu = toJSON(component, 'v-menu', 'one');
-      const hiddenHolder = toJSON(component, 'v-holder', 'none');
+      const hiddenHolder = toJSON(component, 'v-holder');
 
       // initial should be the same as hidden
       expect(initialMenu).toMatchDiffSnapshot(hiddenMenu);
@@ -660,10 +660,9 @@ describe('Testing <App/>', () =>
   
         // separated messages to their own snapshots
         parent.children = [];
-  
+
         // to make sure when props change
         expect(parent).toMatchSnapshot();
-        
         component.unmount();
       });
 
@@ -759,15 +758,62 @@ describe('Testing <App/>', () =>
         expect(parent.children[0]).toMatchSnapshot('Should Be Message Without Timestamp And With A Background');
   
         expect(parent.children[1]).toMatchSnapshot('Should Be Message With Timestamp And Avatar And Without A Background');
-  
-        // separated messages to their own snapshots
-        parent.children = [];
-  
-        // to make sure when props change
-        expect(parent).toMatchSnapshot();
         
         component.unmount();
       });
+    });
+
+    test('Height With Keyboard', async() =>
+    {
+      const store = getStore('app').set({
+        profile: {
+          username: 'Mana'
+        },
+        inbox: [
+          {
+            displayName: 'Mika',
+            members: [
+              'Mana',
+              'MikaTheCoolOne'
+            ],
+            avatars: {
+              'MikaTheCoolOne': 1
+            },
+            messages: [
+              { owner: 'MikaTheCoolOne', text: 'Yay', timestamp: new Date(1999, 9, 9, 9, 0) },
+              { owner: 'Mana', text: '<3', timestamp: new Date(1999, 9, 9, 9, 1) }
+            ]
+          }
+        ]
+      });
+  
+      const component = render(<App/>);
+  
+      // wait for app loading
+      await waitForElement(() => component.getByTestId('v-main-area'));
+
+      // snap the bottom sheet the top of the screen
+      // by simulating pressing a chat from inbox
+      fireEvent.press(component.getByTestId('bn-chat'));
+
+      await flushMicrotasksQueue();
+
+      const initial = toJSON(component, 'v-chat');
+
+      expect(initial).toMatchSnapshot('Should Have Full Height');
+
+      // update keyboard height
+      store.set({
+        keyboard: {
+          height: 500
+        }
+      });
+
+      const altered = toJSON(component, 'v-chat');
+
+      expect(altered).toMatchSnapshot('Should Have Height Minus Keyboard Height & Margin');
+
+      component.unmount();
     });
   });
 });
