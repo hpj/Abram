@@ -3,20 +3,14 @@ Performance Issues and Bugs:
 
 Pre:
   ☐ write the privacy policy
+  
   ☐ work on branding descriptions and motto
 
   ☐ write the terms of service
 
 Testing:
-  ☐ chat avatars
-    ☐ when bottom sheet is disabled there should be only one avatar
-
-  ☐ maximizing and minimizing search bar
-    ☐ test search bar with chat avatars
-
   ✔ test opening and closing chat bottom sheet @done(20-03-04 04:09)
     ☐ test input bar
-    ☐ test avatars
     ☐ test keyboard height
 
   ☐ expo's over-the-air updates

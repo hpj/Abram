@@ -79,11 +79,12 @@ class Chat extends StoreComponent
     const avatarBubbleTextWidth = bubbleTextWidth - sizes.chatAvatar - sizes.windowMargin;
 
     return (
-      <View style={ {
+      <View testID='v-chat' style={ {
         ...styles.container,
         height: viewHeight
       } }>
         <FlatList
+          testID='v-messages'
           inverted={ true }
           data={ messages.reverse() }
           keyExtractor={ (item, index) => index.toString() }

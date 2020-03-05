@@ -5,9 +5,13 @@ import React from 'react';
 
 import { BackHandler } from 'react-native';
 
+import axios from 'axios';
+
 import { render, fireEvent, waitForElement, flushMicrotasksQueue, cleanup } from 'react-native-testing-library';
 
-import axios from 'axios';
+import { subDays } from 'date-fns';
+
+import { advanceTo, clear } from 'jest-date-mock';
 
 import { createStore, getStore, deleteStore } from '../src/store.js';
 
@@ -68,6 +72,39 @@ function toJSON(renderer, testId, shallow)
 jest.mock('axios', () => ({
   get: jest.fn().mockResolvedValue({ data: { test: true } })
 }));
+
+// mock the back button handler module
+jest.mock('react-native/Libraries/Utilities/BackHandler', () =>
+  // eslint-disable-next-line jest/no-mocks-import
+  require('react-native/Libraries/Utilities/__mocks__/BackHandler'));
+
+// mock the flat list component
+jest.mock('react-native/Libraries/Lists/FlatList', () =>
+{
+  const { Component, cloneElement } = require('react');
+  const { View } = require('react-native');
+
+  class FlatList extends Component
+  {
+    render()
+    {
+      return <View { ...this.props }>
+        {
+          this.props.data.map((item, index) =>
+          {
+            const key = this.props.keyExtractor(item, index);
+            
+            const element = this.props.renderItem({ item, index });
+            
+            return cloneElement(element, { key });
+          })
+        }
+      </View>;
+    }
+  }
+
+  return FlatList;
+});
 
 // mock react native bottom sheet
 jest.mock('reanimated-bottom-sheet', () =>
@@ -161,6 +198,8 @@ beforeEach(() =>
 {
   axios.get.mockReset();
   
+  advanceTo(new Date(2144, 0, 0));
+
   createStore('app', {
     index: 0,
     holder: false,
@@ -188,6 +227,8 @@ afterEach(() =>
   deleteStore('app');
 
   cleanup();
+
+  clear();
 });
 
 describe('Testing <App/>', () =>
@@ -569,6 +610,164 @@ describe('Testing <App/>', () =>
       expect(initial).toMatchDiffSnapshot(closed);
 
       component.unmount();
+    });
+  });
+
+  describe('Chat', () =>
+  {
+    describe('Messages List', () =>
+    {
+      test('Normal', async() =>
+      {
+        getStore('app').set({
+          profile: {
+            username: 'Mana'
+          },
+          inbox: [
+            {
+              displayName: 'Mika',
+              members: [
+                'Mana',
+                'MikaTheCoolOne'
+              ],
+              avatars: {
+                'MikaTheCoolOne': 1
+              },
+              messages: [
+                { owner: 'MikaTheCoolOne', text: 'Yay', timestamp: new Date(1999, 9, 9, 9, 0) },
+                { owner: 'Mana', text: '<3', timestamp: new Date(1999, 9, 9, 9, 1) }
+              ]
+            }
+          ]
+        });
+    
+        const component = render(<App/>);
+    
+        // wait for app loading
+        await waitForElement(() => component.getByTestId('v-main-area'));
+  
+        // snap the bottom sheet the top of the screen
+        // by simulating pressing a chat from inbox
+        fireEvent.press(component.getByTestId('bn-chat'));
+  
+        await flushMicrotasksQueue();
+  
+        const parent = toJSON(component, 'v-messages', 'all');
+        
+        expect(parent.children[0]).toMatchSnapshot('Should Be Message Without Timestamp And With A Background');
+  
+        expect(parent.children[1]).toMatchSnapshot('Should Be Message With Timestamp And Without A Background');
+  
+        // separated messages to their own snapshots
+        parent.children = [];
+  
+        // to make sure when props change
+        expect(parent).toMatchSnapshot();
+        
+        component.unmount();
+      });
+
+      test('Timestamps Formatting', async() =>
+      {
+        getStore('app').set({
+          profile: {
+            username: 'Mana'
+          },
+          inbox: [
+            {
+              displayName: 'Mika',
+              members: [
+                'Mana',
+                'MikaTheCoolOne'
+              ],
+              avatars: {
+                'MikaTheCoolOne': 1
+              },
+              messages: [
+                { owner: 'MikaTheCoolOne', text: 'Yay', timestamp: new Date(1999, 9, 9, 9, 0) },
+                { owner: 'MikaTheCoolOne', text: 'Yay', timestamp: subDays(new Date(), 3) },
+                { owner: 'MikaTheCoolOne', text: 'Yay', timestamp: subDays(new Date(), 1) },
+                { owner: 'MikaTheCoolOne', text: 'Yay', timestamp: new Date() }
+              ]
+            }
+          ]
+        });
+    
+        const component = render(<App/>);
+    
+        // wait for app loading
+        await waitForElement(() => component.getByTestId('v-main-area'));
+  
+        // snap the bottom sheet the top of the screen
+        // by simulating pressing a chat from inbox
+        fireEvent.press(component.getByTestId('bn-chat'));
+  
+        await flushMicrotasksQueue();
+  
+        const parent = toJSON(component, 'v-messages', 'all');
+        
+        expect(parent.children[0]).toMatchSnapshot('Should Have A Timestamp of Today');
+  
+        expect(parent.children[1]).toMatchSnapshot('Should Have A Timestamp of Yesterday');
+        
+        expect(parent.children[2]).toMatchSnapshot('Should Have A Timestamp of This Week');
+  
+        expect(parent.children[3]).toMatchSnapshot('Should Have A Timestamp of Full Date');
+        
+        component.unmount();
+      });
+      
+      test('With Avatars', async() =>
+      {
+        getStore('app').set({
+          profile: {
+            username: 'Mana'
+          },
+          inbox: [
+            {
+              displayName: 'Group of Wholesome Girls',
+              members: [
+                'Mana',
+                'MikaTheCoolOne',
+                'SkyeTheDarkLord'
+              ],
+              avatars: {
+                'MikaTheCoolOne': 1,
+                'SkyeTheDarkLord': 2
+              },
+              messages: [
+                { owner: 'MikaTheCoolOne', text: 'Yay', timestamp: new Date(1999, 9, 9, 9, 0) },
+                { owner: 'Mana', text: '<3', timestamp: new Date(1999, 9, 9, 9, 1) }
+              ]
+            }
+          ]
+        });
+    
+        const component = render(<App/>);
+    
+        // wait for app loading
+        await waitForElement(() => component.getByTestId('v-main-area'));
+  
+        // snap the bottom sheet the top of the screen
+        // by simulating pressing a chat from inbox
+        fireEvent.press(component.getByTestId('bn-chat'));
+  
+        await flushMicrotasksQueue();
+  
+        const parent = toJSON(component, 'v-messages', 'all');
+        
+        expect(parent.children[0]).toMatchSnapshot('Should Be Message Without Timestamp And With A Background');
+  
+        expect(parent.children[1]).toMatchSnapshot('Should Be Message With Timestamp And Avatar And Without A Background');
+  
+        // separated messages to their own snapshots
+        parent.children = [];
+  
+        // to make sure when props change
+        expect(parent).toMatchSnapshot();
+        
+        component.unmount();
+      });
     });
   });
 });
