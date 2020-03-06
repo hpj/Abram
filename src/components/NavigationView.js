@@ -27,9 +27,6 @@ class NavigationView extends React.Component
   // eslint-disable-next-line camelcase
   UNSAFE_componentWillReceiveProps({ active })
   {
-    if (!this.progress)
-      return;
-
     if (active !== this.props.active)
     {
       this.setState({ animating: true }, () =>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyleSheet, StatusBar, BackHandler, SafeAreaView, View, TouchableWithoutFeedback  } from 'react-native';
+import { StyleSheet, StatusBar, BackHandler, SafeAreaView, View, Text, TouchableWithoutFeedback } from 'react-native';
 
 import { SplashScreen } from 'expo';
 
@@ -57,26 +57,23 @@ export default class App extends StoreComponent
     // crashes the app if loading encounters an error
     load((error) =>
     {
+      // allow app UI to be rendered
+
       // encountered an error during loading
       if (error)
-      {
-        throw new Error(error);
-      }
+        this.setState({ error });
+      // the second forced updated is
+      // needed to render the navigation view
       else
-      {
-        // allow app UI to be rendered
-        // the second forced updated is
-        // needed to render the navigation view
         this.setState({ loaded: true }, this.forceUpdate);
+
+      // set status-bar style
+      StatusBar.setBackgroundColor(colors.blackBackground);
+      // StatusBar.setBarStyle((colors.theme === 'dark') ? 'light-content' : 'dark-content');
+      StatusBar.setBarStyle('light-content');
   
-        // set status-bar style
-        StatusBar.setBackgroundColor(colors.blackBackground);
-        // StatusBar.setBarStyle((colors.theme === 'dark') ? 'light-content' : 'dark-content');
-        StatusBar.setBarStyle('light-content');
-    
-        // hides the splash screen and shows the app
-        SplashScreen.hide();
-      }
+      // hides the splash screen and shows the app
+      SplashScreen.hide();
     });
   }
 
@@ -98,6 +95,11 @@ export default class App extends StoreComponent
 
   render()
   {
+    if (this.state.error)
+      return <SafeAreaView testID='v-error' style={ styles.error }>
+        <Text style={ styles.errorText }>{ this.state.error }</Text>
+      </SafeAreaView>;
+
     if (!this.state.loaded)
       return <View/>;
   
@@ -187,6 +189,24 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.blackBackground
+  },
+
+  error: {
+    flex: 1,
+    backgroundColor: colors.blackBackground,
+
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+
+  errorText: {
+    color: colors.whiteText,
+    backgroundColor: colors.red,
+
+    fontSize: 18,
+    borderRadius: 5,
+    padding: 15
+
   },
 
   views: {

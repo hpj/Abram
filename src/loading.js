@@ -8,5 +8,5 @@ export function load(callback)
   // setTimeout is a workaround the fact that
   // Expo~RN ignores all errors thrown from Promises
     .then(() => callback())
-    .catch((e) => setTimeout(() => callback(e || true)));
+    .catch((e) => callback(e || true));
 }

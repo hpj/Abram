@@ -15,6 +15,8 @@ import { advanceTo, clear } from 'jest-date-mock';
 
 import { createStore, getStore, deleteStore } from '../src/store.js';
 
+import { fetch } from '../src/i18n.js';
+
 import App from '../src/app.js';
 
 import Inbox from '../src/screens/Inbox.js';
@@ -175,7 +177,11 @@ jest.mock('react-native-reanimated', () =>
           value.setValue(toValue);
   
           if (callback)
+          {
+            callback({ finished: false });
+
             callback({ finished: true });
+          }
         })
       };
     }),
@@ -194,10 +200,11 @@ jest.mock('react-native-reanimated', () =>
   };
 });
 
+// mock our i18n module
+jest.mock('../src/i18n.js');
+
 beforeEach(() =>
 {
-  axios.get.mockReset();
-  
   advanceTo(new Date(2144, 0, 0));
 
   createStore('app', {
@@ -226,6 +233,10 @@ afterEach(() =>
 {
   deleteStore('app');
 
+  axios.get.mockReset();
+
+  jest.unmock('../src/i18n.js');
+
   cleanup();
 
   clear();
@@ -233,6 +244,23 @@ afterEach(() =>
 
 describe('Testing <App/>', () =>
 {
+  test('Loading Error', async() =>
+  {
+    // mock i18n module to throw error
+    // which will make the app fail loading
+    fetch.mockRejectedValueOnce('test');
+
+    const component = render(<App/>);
+
+    // wait for app error view
+    await waitForElement(() => component.getByTestId('v-error'));
+
+    // initial view
+    const view = component.toJSON();
+
+    expect(view).toMatchSnapshot();
+  });
+
   test('Navigation Views', async() =>
   {
     const component = render(<App/>);

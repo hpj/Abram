@@ -89,15 +89,12 @@ export function setLocale(id)
 {
   // TODO show the new translations after it was selected
 
-  if (locale)
-  {
-    const find = locales.find((e) => e.id === id);
+  const find = locales.find((e) => e.id === id);
 
-    if (find)
-      locale = find;
-    
-    return locale;
-  }
+  if (find)
+    locale = find;
+  
+  return locale;
 }
 
 /**
@@ -107,16 +104,13 @@ export function setLocale(id)
 */
 export default function i18n(key, ...args)
 {
-  if (locale && locale.json)
-  {
-    /**
-    * @type { string }
-    */
-    // eslint-disable-next-line security/detect-object-injection
-    let value = locale.json[key];
+  /**
+  * @type { string }
+  */
+  // eslint-disable-next-line security/detect-object-injection
+  let value = locale.json[key];
 
-    args.forEach((s, i) => value = value.replace(`%${i}`, s));
+  args.forEach((s, i) => value = value.replace(`%${i}`, s));
 
-    return value;
-  }
+  return value;
 }

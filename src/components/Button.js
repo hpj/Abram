@@ -2,7 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import { Platform, View, TouchableNativeFeedback, TouchableOpacity, Text, Image } from 'react-native';
+import { Platform, View, TouchableNativeFeedback, TouchableOpacity, Text } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Feather';
 
@@ -18,7 +18,7 @@ class Button extends React.Component
 
     const {
       backgroundStyle, badgeStyle, buttonStyle,
-      textStyle, text, image, icon, borderless,
+      textStyle, text, icon, borderless,
       activeOpacity, onPress
     } = this.props;
 
@@ -35,15 +35,11 @@ class Button extends React.Component
           </View>
 
           {
-            (image) ? <Image { ...image }/> : <View/>
+            (icon) ? <Icon { ...icon }/> : undefined
           }
 
           {
-            (icon) ? <Icon { ...icon }/> : <View/>
-          }
-
-          {
-            (text) ?  <Text style={ textStyle }>{ text }</Text> : <View/>
+            (text) ?  <Text style={ textStyle }>{ text }</Text> : undefined
           }
 
           {
@@ -65,7 +61,6 @@ Button.propTypes = {
   icon: PropTypes.object,
   borderless: PropTypes.bool,
   activeOpacity: PropTypes.bool,
-  image: PropTypes.object,
   children: PropTypes.any,
   onPress: PropTypes.func
 };

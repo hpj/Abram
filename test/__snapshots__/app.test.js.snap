@@ -512,6 +512,35 @@ exports[`Testing <App/> Chat Messages List With Avatars: Should Be Message Witho
 </View>
 `;
 
+exports[`Testing <App/> Loading Error 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#000000",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+  testID="v-error"
+>
+  <Text
+    style={
+      Object {
+        "backgroundColor": "red",
+        "borderRadius": 5,
+        "color": "#ffffff",
+        "fontSize": 18,
+        "padding": 15,
+      }
+    }
+  >
+    test
+  </Text>
+</RCTSafeAreaView>
+`;
+
 exports[`Testing <App/> Main Menu Showing and Hiding Menu 1`] = `
 Snapshot Diff:
 Compared values have no visual difference.
@@ -1442,9 +1471,6 @@ exports[`Testing <Inbox/> Group of 3 View: Should Be A Group View With 2 Avatars
         <View>
           <View />
         </View>
-        <View />
-        <View />
-        <View />
         <View
           style={
             Object {
@@ -1636,9 +1662,6 @@ exports[`Testing <Inbox/> Group of 4 View: Should Be A Group View With 3 Avatars
         <View>
           <View />
         </View>
-        <View />
-        <View />
-        <View />
         <View
           style={
             Object {
@@ -1872,9 +1895,6 @@ exports[`Testing <Inbox/> Group of 5 View: Should Be A Group View With 4 Avatars
         <View>
           <View />
         </View>
-        <View />
-        <View />
-        <View />
         <View
           style={
             Object {
@@ -2155,9 +2175,6 @@ exports[`Testing <Inbox/> Normal View: Should Be A Normal Inbox View With 1 Avat
         <View>
           <View />
         </View>
-        <View />
-        <View />
-        <View />
         <View
           style={
             Object {
@@ -2299,9 +2316,6 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Full
     <View>
       <View />
     </View>
-    <View />
-    <View />
-    <View />
     <View
       style={
         Object {
@@ -2441,9 +2455,6 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of This
     <View>
       <View />
     </View>
-    <View />
-    <View />
-    <View />
     <View
       style={
         Object {
@@ -2583,9 +2594,6 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Toda
     <View>
       <View />
     </View>
-    <View />
-    <View />
-    <View />
     <View
       style={
         Object {
@@ -2725,9 +2733,6 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Yest
     <View>
       <View />
     </View>
-    <View />
-    <View />
-    <View />
     <View
       style={
         Object {
