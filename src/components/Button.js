@@ -18,12 +18,13 @@ class Button extends React.Component
 
     const {
       backgroundStyle, badgeStyle, buttonStyle,
-      textStyle, text, icon, borderless,
+      textStyle, testID, text, icon, borderless,
       activeOpacity, onPress
     } = this.props;
 
     return (
       <Touchable
+        testID={ testID }
         background={ TouchableNativeFeedback.Ripple(colors.ripple, borderless) }
         activeOpacity={ activeOpacity }
         onPress={ onPress }
@@ -57,6 +58,7 @@ Button.propTypes = {
   badgeStyle: PropTypes.object,
   buttonStyle: PropTypes.object,
   textStyle: PropTypes.object,
+  testID: PropTypes.string,
   text: PropTypes.string,
   icon: PropTypes.object,
   borderless: PropTypes.bool,

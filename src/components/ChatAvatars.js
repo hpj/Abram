@@ -107,52 +107,51 @@ class ChatAvatars extends StoreComponent
     });
 
     return (
-      <View>
-        <View testID='v-menu' style={ styles.container }>
-          <Animated.View style={ {
-            ...styles.menu,
+      <View testID='v-menu' style={ styles.container }>
+        <Animated.View style={ {
+          ...styles.menu,
 
-            width: menuWidth,
-            height: menuHeight,
+          width: menuWidth,
+          height: menuHeight,
 
-            opacity: menuOpacity
-          } }
-          />
+          opacity: menuOpacity
+        } }
+        />
 
-          <View style={ styles.wrapper }>
-            <Button
-              testID='bn-menu'
-              borderless={ true }
-              buttonStyle={ styles.button }
-              onPress={ this.onPress }
-            >
-              <Animated.View style={ styles.avatarContainer }>
-                <AnimatedImage style={ styles.avatar } source={ this.state.profile.avatar }/>
-              </Animated.View>
+        <View style={ styles.wrapper }>
+          <Button
+            testID='bn-menu'
+            borderless={ true }
+            buttonStyle={ styles.button }
+            onPress={ this.onPress }
+          >
+            <Animated.View style={ styles.avatarContainer }>
+              <Image style={ styles.avatar } source={ this.state.profile.avatar }/>
+            </Animated.View>
+
+            {
+              // TODO show the most relevant avatars
+              members.splice(0, 2).map((id, i) =>
               {
-                // TODO show the most relevant avatars
-                members.splice(0, 2).map((id, i) =>
-                {
-                  return <Animated.View key={ i } style={ {
-                    ...styles.avatarContainer,
-                    opacity: avatarOpacity,
-                    width: avatarWidth
-                  } }>
-                    <AnimatedImage
-                      style={ {
-                        ...styles.avatar,
-                        marginLeft: avatarMarginLeft
-                      } }
-                      // eslint-disable-next-line security/detect-object-injection
-                      source={ activeChat.avatars[id] }
-                    />
-                  </Animated.View>;
-                })
-              }
-            </Button>
-          </View>
-
+                return <Animated.View key={ i } style={ {
+                  ...styles.avatarContainer,
+                  opacity: avatarOpacity,
+                  width: avatarWidth
+                } }>
+                  <AnimatedImage
+                    style={ {
+                      ...styles.avatar,
+                      marginLeft: avatarMarginLeft
+                    } }
+                    // eslint-disable-next-line security/detect-object-injection
+                    source={ activeChat.avatars[id] }
+                  />
+                </Animated.View>;
+              })
+            }
+          </Button>
         </View>
+
       </View>
     );
   }

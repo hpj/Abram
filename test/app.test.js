@@ -295,7 +295,7 @@ describe('Testing <App/>', () =>
 
   describe('Search Bar', () =>
   {
-    test('Search Bar Width (No Bottom Sheet)', async() =>
+    test('Width (With Deactivated Bottom Sheet)', async() =>
     {
       const component = render(<App/>);
 
@@ -326,7 +326,7 @@ describe('Testing <App/>', () =>
       component.unmount();
     });
 
-    test('Search Bar Width (2 Avatars) (With Deactivated Bottom Sheet)', async() =>
+    test('Width (2 Avatars) (With Deactivated Bottom Sheet)', async() =>
     {
       getStore('app').set({
         activeChat: {
@@ -370,11 +370,13 @@ describe('Testing <App/>', () =>
       component.unmount();
     });
 
-    test('Search Bar Width (2 Avatars) (With Activated Bottom Sheet)', async() =>
+    test('Width (2 Avatars) (With Activated Bottom Sheet)', async() =>
     {
       getStore('app').set({
         profile: {
-          username: 'Mana'
+          displayName: 'Mana',
+          username: 'Mana',
+          avatar: 0
         },
         inbox: [
           {
@@ -432,56 +434,13 @@ describe('Testing <App/>', () =>
       component.unmount();
     });
 
-    test('Search Bar Width (3 Avatars) (With Deactivated Bottom Sheet)', async() =>
-    {
-      getStore('app').set({
-        activeChat: {
-          members: [ 'Mana', 'Mika', 'Skye' ],
-          avatars: {
-            'Mika': 1,
-            'Skye': 2
-          }
-        }
-      });
-
-      const component = render(<App/>);
-
-      // wait for app loading
-      await waitForElement(() => component.getByTestId('v-main-area'));
-
-      const bottomSheet = toJSON(component, 'v-bottom-sheet', 'one');
-
-      expect(bottomSheet).toMatchSnapshot('Bottom Sheet Should Have Y-Axis 0');
-
-      const initial = toJSON(component, 'v-search', 'one');
-
-      expect(initial).toMatchSnapshot('Search Bar Should Be Minimized');
-
-      // maximize the search bar
-      // by simulating pressing the search bar button
-      fireEvent.press(component.getByTestId('bn-search-maximize'));
-
-      const maximized = toJSON(component, 'v-search', 'one');
-
-      expect(maximized).toMatchSnapshot('Search Bar Should Be Maximize Width Default Width');
-
-      // maximize the search bar
-      // by simulating pressing the search bar button
-      fireEvent.press(component.getByTestId('bn-search-minimize'));
-
-      const minimized = toJSON(component, 'v-search', 'one');
-
-      // initial should be the same as minimized
-      expect(initial).toMatchDiffSnapshot(minimized);
-
-      component.unmount();
-    });
-
-    test('Search Bar Width (3 Avatars) (With Activated Bottom Sheet)', async() =>
+    test('Width (3 Avatars)', async() =>
     {
       getStore('app').set({
         profile: {
-          username: 'Mana'
+          displayName: 'Mana',
+          username: 'Mana',
+          avatar: 0
         },
         inbox: [
           {
@@ -542,6 +501,211 @@ describe('Testing <App/>', () =>
     });
   });
 
+  describe('Chat Avatars', () =>
+  {
+    test('1 Avatars', async() =>
+    {
+      getStore('app').set({
+        profile: {
+          displayName: 'Mana',
+          username: 'Mana',
+          avatar: 0
+        }
+      });
+
+      const component = render(<App/>);
+
+      // wait for app loading
+      await waitForElement(() => component.getByTestId('v-main-area'));
+
+      const menu = toJSON(component, 'bn-menu', 'all');
+
+      expect(menu).toMatchSnapshot('Should Have 1 Avatar');
+
+      component.unmount();
+    });
+
+    test('2 Avatars', async() =>
+    {
+      getStore('app').set({
+        profile: {
+          displayName: 'Mana',
+          username: 'Mana',
+          avatar: 0
+        },
+        activeChat: {
+          members: [ 'Mana', 'MikaTheCoolOne' ],
+          avatars: {
+            'MikaTheCoolOne': 1
+          }
+        },
+        inbox: [
+          {
+            displayName: 'Mika',
+            members: [
+              'Mana',
+              'MikaTheCoolOne'
+            ],
+            avatars: {
+              'MikaTheCoolOne': 1
+            },
+            messages: [
+              { owner: 'MikaTheCoolOne', text: '', timestamp: new Date(1999, 9, 9) }
+            ]
+          }
+        ]
+      });
+
+      const component = render(<App/>);
+
+      // wait for app loading
+      await waitForElement(() => component.getByTestId('v-main-area'));
+
+      const initial = toJSON(component, 'bn-menu', 'all');
+
+      expect(initial).toMatchSnapshot('Should Have Client Avatar And Deactivated Chat Avatars');
+
+      // snap the bottom sheet the top of the screen
+      // this enables the chat avatars
+      fireEvent.press(component.getByTestId('bn-chat'));
+
+      await flushMicrotasksQueue();
+
+      // workaround:
+      // force update the menu since the mock of reanimated value doesn't update components
+      fireEvent.press(component.getByTestId('bn-menu'));
+
+      const active = toJSON(component, 'bn-menu', 'all');
+  
+      expect(active).toMatchSnapshot('Should Have Client Avatar And 1 Chat Avatar');
+
+      component.unmount();
+    });
+
+    test('3 Avatars', async() =>
+    {
+      getStore('app').set({
+        profile: {
+          displayName: 'Mana',
+          username: 'Mana',
+          avatar: 0
+        },
+        activeChat: {
+          members: [ 'Mana', 'MikaTheCoolOne', 'SkyeTheDarkLord' ],
+          avatars: {
+            'MikaTheCoolOne': 1,
+            'SkyeTheDarkLord': 2
+          }
+        },
+        inbox: [
+          {
+            displayName: 'Mika',
+            members: [
+              'Mana',
+              'MikaTheCoolOne',
+              'SkyeTheDarkLord'
+            ],
+            avatars: {
+              'MikaTheCoolOne': 1,
+              'SkyeTheDarkLord': 2
+            },
+            messages: [
+              { owner: 'MikaTheCoolOne', text: '', timestamp: new Date(1999, 9, 9) }
+            ]
+          }
+        ]
+      });
+
+      const component = render(<App/>);
+
+      // wait for app loading
+      await waitForElement(() => component.getByTestId('v-main-area'));
+
+      const initial = toJSON(component, 'bn-menu', 'all');
+
+      expect(initial).toMatchSnapshot('Should Have Client Avatar And Deactivated Chat Avatars');
+
+      // snap the bottom sheet the top of the screen
+      // this enables the chat avatars
+      fireEvent.press(component.getByTestId('bn-chat'));
+
+      await flushMicrotasksQueue();
+
+      // workaround:
+      // force update the menu since the mock of reanimated value doesn't update components
+      fireEvent.press(component.getByTestId('bn-menu'));
+
+      const active = toJSON(component, 'bn-menu', 'all');
+  
+      expect(active).toMatchSnapshot('Should Have Client Avatar And 2 Chat Avatar');
+
+      component.unmount();
+    });
+
+    test('4 Avatars', async() =>
+    {
+      getStore('app').set({
+        profile: {
+          displayName: 'Mana',
+          username: 'Mana',
+          avatar: 0
+        },
+        activeChat: {
+          members: [ 'Mana', 'MikaTheCoolOne', 'SkyeTheDarkLord', 'AquaTheGoddess' ],
+          avatars: {
+            'MikaTheCoolOne': 1,
+            'SkyeTheDarkLord': 2,
+            'AquaTheGoddess': 3
+          }
+        },
+        inbox: [
+          {
+            displayName: 'Mika',
+            members: [
+              'Mana',
+              'MikaTheCoolOne',
+              'SkyeTheDarkLord',
+              'AquaTheGoddess'
+            ],
+            avatars: {
+              'MikaTheCoolOne': 1,
+              'SkyeTheDarkLord': 2,
+              'AquaTheGoddess': 3
+            },
+            messages: [
+              { owner: 'MikaTheCoolOne', text: '', timestamp: new Date(1999, 9, 9) }
+            ]
+          }
+        ]
+      });
+
+      const component = render(<App/>);
+
+      // wait for app loading
+      await waitForElement(() => component.getByTestId('v-main-area'));
+
+      const initial = toJSON(component, 'bn-menu', 'all');
+
+      expect(initial).toMatchSnapshot('Should Have Client Avatar And Deactivated Chat Avatars');
+
+      // snap the bottom sheet the top of the screen
+      // this enables the chat avatars
+      fireEvent.press(component.getByTestId('bn-chat'));
+
+      await flushMicrotasksQueue();
+
+      // workaround:
+      // force update the menu since the mock of reanimated value doesn't update components
+      fireEvent.press(component.getByTestId('bn-menu'));
+
+      const active = toJSON(component, 'bn-menu', 'all');
+  
+      expect(active).toMatchSnapshot('Should Have Client Avatar And 2 Chat Avatar');
+
+      component.unmount();
+    });
+  });
+
   describe('Main Menu', () =>
   {
     test('Showing and Hiding Menu', async() =>
@@ -588,7 +752,9 @@ describe('Testing <App/>', () =>
     {
       getStore('app').set({
         profile: {
-          username: 'Mana'
+          displayName: 'Mana',
+          username: 'Mana',
+          avatar: 0
         },
         inbox: [
           {
@@ -649,7 +815,9 @@ describe('Testing <App/>', () =>
       {
         getStore('app').set({
           profile: {
-            username: 'Mana'
+            displayName: 'Mana',
+            username: 'Mana',
+            avatar: 0
           },
           inbox: [
             {
@@ -698,7 +866,9 @@ describe('Testing <App/>', () =>
       {
         getStore('app').set({
           profile: {
-            username: 'Mana'
+            displayName: 'Mana',
+            username: 'Mana',
+            avatar: 0
           },
           inbox: [
             {
@@ -748,7 +918,9 @@ describe('Testing <App/>', () =>
       {
         getStore('app').set({
           profile: {
-            username: 'Mana'
+            displayName: 'Mana',
+            username: 'Mana',
+            avatar: 0
           },
           inbox: [
             {
@@ -795,7 +967,9 @@ describe('Testing <App/>', () =>
     {
       const store = getStore('app').set({
         profile: {
-          username: 'Mana'
+          displayName: 'Mana',
+          username: 'Mana',
+          avatar: 0
         },
         inbox: [
           {
@@ -852,7 +1026,9 @@ describe('Testing <Inbox/>', () =>
   {
     getStore('app').set({
       profile: {
-        username: 'Mana'
+        displayName: 'Mana',
+        username: 'Mana',
+        avatar: 0
       },
       inbox: [
         {
@@ -882,7 +1058,9 @@ describe('Testing <Inbox/>', () =>
   {
     getStore('app').set({
       profile: {
-        username: 'Mana'
+        displayName: 'Mana',
+        username: 'Mana',
+        avatar: 0
       },
       inbox: [
         {
@@ -959,7 +1137,9 @@ describe('Testing <Inbox/>', () =>
   {
     getStore('app').set({
       profile: {
-        username: 'Mana'
+        displayName: 'Mana',
+        username: 'Mana',
+        avatar: 0
       },
       inbox: [
         {
@@ -992,7 +1172,9 @@ describe('Testing <Inbox/>', () =>
   {
     getStore('app').set({
       profile: {
-        username: 'Mana'
+        displayName: 'Mana',
+        username: 'Mana',
+        avatar: 0
       },
       inbox: [
         {
@@ -1028,7 +1210,9 @@ describe('Testing <Inbox/>', () =>
   {
     getStore('app').set({
       profile: {
-        username: 'Mana'
+        displayName: 'Mana',
+        username: 'Mana',
+        avatar: 0
       },
       inbox: [
         {
@@ -1067,7 +1251,9 @@ describe('Testing <Inbox/>', () =>
   {
     getStore('app').set({
       profile: {
-        username: 'Mana'
+        displayName: 'Mana',
+        username: 'Mana',
+        avatar: 0
       },
       inbox: [
         {
@@ -1102,7 +1288,9 @@ describe('Testing <Inbox/>', () =>
 
     getStore('app').set({
       profile: {
-        username: 'Mana'
+        displayName: 'Mana',
+        username: 'Mana',
+        avatar: 0
       },
       inbox: [
         {
