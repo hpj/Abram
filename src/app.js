@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyleSheet, StatusBar, BackHandler, SafeAreaView, View, Text, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, StatusBar, BackHandler, SafeAreaView, View, Text, TouchableWithoutFeedback, Image } from 'react-native';
 
 import { SplashScreen } from 'expo';
 
@@ -28,6 +28,8 @@ import { sizes } from './sizes.js';
 import { depth } from './depth.js';
 
 import getTheme from './colors.js';
+
+import Avatar from './avataaars';
 
 const colors = getTheme();
 
@@ -102,86 +104,98 @@ export default class App extends StoreComponent
 
     if (!this.state.loaded)
       return <View/>;
+
+    // eslint-disable-next-line react-native/no-inline-styles
+    return <View style={ {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: colors.red
+    } }>
+
+      <Avatar/>
+
+    </View>;
   
-    const holderOpacity = this.holderNode.interpolate({
-      inputRange: [ 0, 1 ],
-      outputRange: [ 0, 0.75 ]
-    });
+    // const holderOpacity = this.holderNode.interpolate({
+    //   inputRange: [ 0, 1 ],
+    //   outputRange: [ 0, 0.75 ]
+    // });
 
-    return (
-      <SafeAreaView testID='v-main-area' style={ styles.container }>
+    // return (
+    //   <SafeAreaView testID='v-main-area' style={ styles.container }>
 
-        <TopBar holderNode={ this.holderNode } bottomSheetNode={ this.bottomSheetNode }/>
+    //     <TopBar holderNode={ this.holderNode } bottomSheetNode={ this.bottomSheetNode }/>
 
-        <View testID='v-navigation' style={ styles.views }>
+    //     <View testID='v-navigation' style={ styles.views }>
 
-          <NavigationView testID='v-inbox' active={ (this.state.index === 0) }>
-            <Inbox bottomSheetSnapTo={ this.bottomSheetRef.current?.snapTo }/>
-          </NavigationView>
+    //       <NavigationView testID='v-inbox' active={ (this.state.index === 0) }>
+    //         <Inbox bottomSheetSnapTo={ this.bottomSheetRef.current?.snapTo }/>
+    //       </NavigationView>
 
-          <NavigationView testID='v-discover' active={ (this.state.index === 1) }>
-            <Discover/>
-          </NavigationView>
+    //       <NavigationView testID='v-discover' active={ (this.state.index === 1) }>
+    //         <Discover/>
+    //       </NavigationView>
 
-        </View>
+    //     </View>
 
-        <TouchableWithoutFeedback>
-          <Animated.View testID='v-holder' style={ {
-            ...styles.holder,
+    //     <TouchableWithoutFeedback>
+    //       <Animated.View testID='v-holder' style={ {
+    //         ...styles.holder,
 
-            width: this.state.size.width,
-            height: this.state.size.height,
-            opacity: holderOpacity
-          } }
-          pointerEvents={ (this.state.holder) ? 'box-only' : 'none' }/>
-        </TouchableWithoutFeedback>
+    //         width: this.state.size.width,
+    //         height: this.state.size.height,
+    //         opacity: holderOpacity
+    //       } }
+    //       pointerEvents={ (this.state.holder) ? 'box-only' : 'none' }/>
+    //     </TouchableWithoutFeedback>
 
-        <BottomNavigation/>
+    //     <BottomNavigation/>
 
-        <View testID='v-bottom-sheet' style={ {
-          ...styles.bottomSheet,
-          width: this.state.size.width,
-          height: this.state.size.height
-        } } pointerEvents={ 'box-none' }>
-          <BottomSheet
-            ref={ this.bottomSheetRef }
-            callbackNode={ this.bottomSheetNode }
+    //     <View testID='v-bottom-sheet' style={ {
+    //       ...styles.bottomSheet,
+    //       width: this.state.size.width,
+    //       height: this.state.size.height
+    //     } } pointerEvents={ 'box-none' }>
+    //       <BottomSheet
+    //         ref={ this.bottomSheetRef }
+    //         callbackNode={ this.bottomSheetNode }
 
-            initialSnap={ 1 }
-            snapPoints = { [ this.state.size.height, 0  ] }
+    //         initialSnap={ 1 }
+    //         snapPoints = { [ this.state.size.height, 0  ] }
 
-            enabledContentGestureInteraction={ false }
+    //         enabledContentGestureInteraction={ false }
 
-            onOpenStart={ () => this.onClose(false) }
-            onCloseEnd={ () => this.onClose(true) }
+    //         onOpenStart={ () => this.onClose(false) }
+    //         onCloseEnd={ () => this.onClose(true) }
 
-            renderHeader = {
-              () =>
-                <View style={ styles.bottomSheetHeader }>
-                  <View style={ styles.bottomSheetHandler }/>
+    //         renderHeader = {
+    //           () =>
+    //             <View style={ styles.bottomSheetHeader }>
+    //               <View style={ styles.bottomSheetHandler }/>
 
-                  <View style={ {
-                    ...styles.bottomSheetHeaderContent,
-                    width: this.state.size.width - (sizes.windowMargin * 2)
-                  } }>
-                    <ChatHeader/>
-                  </View>
-                </View>
-            }
+    //               <View style={ {
+    //                 ...styles.bottomSheetHeaderContent,
+    //                 width: this.state.size.width - (sizes.windowMargin * 2)
+    //               } }>
+    //                 <ChatHeader/>
+    //               </View>
+    //             </View>
+    //         }
 
-            renderContent = { () =>
-              <View style={ {
-                ...styles.bottomSheetContent,
-                height: this.state.size.height
-              } }>
-                <Chat/>
-              </View>
-            }
-          />
-        </View>
+    //         renderContent = { () =>
+    //           <View style={ {
+    //             ...styles.bottomSheetContent,
+    //             height: this.state.size.height
+    //           } }>
+    //             <Chat/>
+    //           </View>
+    //         }
+    //       />
+    //     </View>
 
-      </SafeAreaView>
-    );
+    //   </SafeAreaView>
+    // );
   }
 }
 
