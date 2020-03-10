@@ -2,6 +2,9 @@ cache:
   paths:
     - node_modules
 
+include:
+  - template: Dependency-Scanning.gitlab-ci.yml
+
 stages:
   - test
 
