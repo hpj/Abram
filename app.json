@@ -1,27 +1,31 @@
 {
   "expo": {
     "name": "Abram",
-    "slug": "Abram",
-    "description": "",
+    "slug": "abram",
+    "version": "0.1.0",
     "privacy": "unlisted",
-    "owner": "Herp Project",
-    "sdkVersion": "36.0.0",
-    "version": "0.0.1",
-    "entryPoint": "/src/index.js",
     "orientation": "portrait",
-    "platforms": [
-      "ios",
-      "android"
-    ],
     "icon": "./assets/icon.png",
+    "updates": {
+      "enabled": true,
+      "checkAutomatically": "ON_LOAD",
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#000000"
     },
-    "updates": {
-      "enabled": true,
-      "checkAutomatically": "ON_LOAD"
+    "androidStatusBar": {
+      "translucent": false,
+      "barStyle": "light-content",
+      "backgroundColor": "#000000"
+    },
+    "androidNavigationBar": {
+      "barStyle": "light-content"
     },
     "hooks": {
       "postPublish": [
@@ -34,23 +38,6 @@
           }
         }
       ]
-    },
-    "androidStatusBar": {
-      "barStyle": "light-content",
-      "backgroundColor": "#000000"
-    },
-    "androidNavigationBar": {
-      "visible": true,
-      "barStyle": "light-content",
-      "backgroundColor": "#000000"
-    },
-    "android": {
-      "package": "com.herpproject.abramTesting",
-      "versionCode": 1,
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/icon.png",
-        "backgroundColor": "#000000"
-      }
     }
   }
 }

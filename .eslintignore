@@ -1,5 +1,4 @@
 **/node_modules
 
 babel.config.js
-
-/public
+jest.global.js

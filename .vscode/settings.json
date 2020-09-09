@@ -1,5 +1,3 @@
 {
-  "files.exclude": {
-    "**/__snapshots__": false
-  }
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

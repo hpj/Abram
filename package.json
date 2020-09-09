@@ -1,7 +1,5 @@
 {
-  "name": "abram",
-  "version": "0.1.0",
-  "description": "",
+  "main": "src/index",
   "private": true,
   "scripts": {
     "start": "expo start",
@@ -11,65 +9,56 @@
   },
   "jest": {
     "preset": "jest-expo",
-    "globalSetup": "./jest-config.js",
+    "globalSetup": "./jest.global.ts",
     "setupFilesAfterEnv": [
       "jest-extended",
       "jest-date-mock",
       "snapshot-diff/extend-expect",
-      "./setupTests.js"
-    ],
-    "transformIgnorePatterns": [
-      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base)"
+      "./setupTests.ts"
     ],
     "coveragePathIgnorePatterns": [
       "/node_modules/"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@gitlab.com/hpj/abram.git"
-  },
-  "author": "Herp Project",
-  "license": "UNLICENSED",
-  "bugs": {
-    "url": "https://gitlab.com/hpj/abram/issues"
-  },
-  "homepage": "https://gitlab.com/hpj/abram#readme",
   "dependencies": {
-    "axios": "^0.19.2",
-    "color-parse": "^1.3.8",
-    "date-fns": "^2.10.0",
-    "expo": "^36.0.0",
-    "expo-constants": "~8.0.0",
-    "expo-localization": "~8.0.0",
-    "prop-types": "^15.7.2",
-    "react": "16.9.0",
-    "react-dom": "16.9.0",
-    "react-native": "0.61.4",
-    "react-native-gesture-handler": "~1.5.0",
-    "react-native-reanimated": "~1.4.0",
-    "react-native-screens": "2.0.0-alpha.12",
-    "react-native-unimodules": "0.7.0",
-    "react-native-vector-icons": "^6.6.0",
-    "react-native-web": "^0.11.7",
-    "reanimated-bottom-sheet": "^1.0.0-alpha.19",
-    "sentry-expo": "^2.0.1"
+    "@types/react-native-vector-icons": "^6.4.5",
+    "axios": "^0.20.0",
+    "date-fns": "^2.16.1",
+    "expo": "~38.0.8",
+    "expo-constants": "~9.1.1",
+    "expo-localization": "~8.2.1",
+    "react": "~16.11.0",
+    "react-dom": "~16.11.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz",
+    "react-native-gesture-handler": "~1.6.0",
+    "react-native-reanimated": "~1.9.0",
+    "react-native-unimodules": "^0.10.1",
+    "react-native-vector-icons": "^7.0.0",
+    "react-native-web": "~0.11.7",
+    "reanimated-bottom-sheet": "^1.0.0-alpha.22",
+    "sentry-expo": "^2.1.2",
+    "@react-native-community/async-storage": "~1.11.0"
   },
   "devDependencies": {
-    "@babel/core": "~7.8.6",
-    "@types/jest": "^25.1.3",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0",
-    "eslint-plugin-jest": "^23.8.1",
-    "eslint-plugin-react": "^7.18.3",
-    "eslint-plugin-react-native": "^3.8.1",
+    "@babel/core": "^7.8.6",
+    "@types/jest": "^26.0.13",
+    "@types/react": "~16.9.41",
+    "@types/react-native": "~0.62.13",
+    "@types/react-test-renderer": "^16.9.3",
+    "@typescript-eslint/eslint-plugin": "^4.1.0",
+    "@typescript-eslint/parser": "^4.1.0",
+    "eslint": "^7.8.1",
+    "eslint-plugin-jest": "^24.0.0",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-native": "^3.9.1",
     "eslint-plugin-security": "^1.4.0",
+    "jest": "^26.4.2",
     "jest-date-mock": "^1.0.8",
-    "jest-expo": "^36.0.0",
+    "jest-expo": "^38.0.2",
     "jest-extended": "^0.11.5",
-    "metro-react-native-babel-preset": "~0.58.0",
-    "react-native-testing-library": "^1.12.0",
-    "react-test-renderer": "^16.13.0",
-    "snapshot-diff": "^0.7.0"
+    "react-native-testing-library": "^6.0.0",
+    "react-test-renderer": "^16.13.1",
+    "snapshot-diff": "^0.8.1",
+    "typescript": "~3.9.5"
   }
 }
