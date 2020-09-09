@@ -165,19 +165,26 @@ exports[`Testing <App/> Chat Avatars 2 Avatars: Should Have Client Avatar And 1 
         }
       }
     >
-      <Image
-        source={1}
+      <View
         style={
           Object {
-            "backgroundColor": "#4B4B4B",
-            "borderRadius": 38,
-            "height": 38,
             "marginLeft": -19,
-            "position": "absolute",
-            "width": 38,
           }
         }
-      />
+      >
+        <Image
+          source={1}
+          style={
+            Object {
+              "backgroundColor": "#4B4B4B",
+              "borderRadius": 38,
+              "height": 38,
+              "position": "absolute",
+              "width": 38,
+            }
+          }
+        />
+      </View>
     </View>
   </View>
 </View>
@@ -243,19 +250,26 @@ exports[`Testing <App/> Chat Avatars 2 Avatars: Should Have Client Avatar And De
         }
       }
     >
-      <Image
-        source={1}
+      <View
         style={
           Object {
-            "backgroundColor": "#4B4B4B",
-            "borderRadius": 38,
-            "height": 38,
             "marginLeft": 19,
-            "position": "absolute",
-            "width": 38,
           }
         }
-      />
+      >
+        <Image
+          source={1}
+          style={
+            Object {
+              "backgroundColor": "#4B4B4B",
+              "borderRadius": 38,
+              "height": 38,
+              "position": "absolute",
+              "width": 38,
+            }
+          }
+        />
+      </View>
     </View>
   </View>
 </View>
@@ -321,19 +335,26 @@ exports[`Testing <App/> Chat Avatars 3 Avatars: Should Have Client Avatar And 2 
         }
       }
     >
-      <Image
-        source={1}
+      <View
         style={
           Object {
-            "backgroundColor": "#4B4B4B",
-            "borderRadius": 38,
-            "height": 38,
             "marginLeft": -19,
-            "position": "absolute",
-            "width": 38,
           }
         }
-      />
+      >
+        <Image
+          source={1}
+          style={
+            Object {
+              "backgroundColor": "#4B4B4B",
+              "borderRadius": 38,
+              "height": 38,
+              "position": "absolute",
+              "width": 38,
+            }
+          }
+        />
+      </View>
     </View>
     <View
       style={
@@ -345,19 +366,26 @@ exports[`Testing <App/> Chat Avatars 3 Avatars: Should Have Client Avatar And 2 
         }
       }
     >
-      <Image
-        source={2}
+      <View
         style={
           Object {
-            "backgroundColor": "#4B4B4B",
-            "borderRadius": 38,
-            "height": 38,
             "marginLeft": -19,
-            "position": "absolute",
-            "width": 38,
           }
         }
-      />
+      >
+        <Image
+          source={2}
+          style={
+            Object {
+              "backgroundColor": "#4B4B4B",
+              "borderRadius": 38,
+              "height": 38,
+              "position": "absolute",
+              "width": 38,
+            }
+          }
+        />
+      </View>
     </View>
   </View>
 </View>
@@ -423,19 +451,26 @@ exports[`Testing <App/> Chat Avatars 3 Avatars: Should Have Client Avatar And De
         }
       }
     >
-      <Image
-        source={1}
+      <View
         style={
           Object {
-            "backgroundColor": "#4B4B4B",
-            "borderRadius": 38,
-            "height": 38,
             "marginLeft": 19,
-            "position": "absolute",
-            "width": 38,
           }
         }
-      />
+      >
+        <Image
+          source={1}
+          style={
+            Object {
+              "backgroundColor": "#4B4B4B",
+              "borderRadius": 38,
+              "height": 38,
+              "position": "absolute",
+              "width": 38,
+            }
+          }
+        />
+      </View>
     </View>
     <View
       style={
@@ -447,19 +482,26 @@ exports[`Testing <App/> Chat Avatars 3 Avatars: Should Have Client Avatar And De
         }
       }
     >
-      <Image
-        source={2}
+      <View
         style={
           Object {
-            "backgroundColor": "#4B4B4B",
-            "borderRadius": 38,
-            "height": 38,
             "marginLeft": 19,
-            "position": "absolute",
-            "width": 38,
           }
         }
-      />
+      >
+        <Image
+          source={2}
+          style={
+            Object {
+              "backgroundColor": "#4B4B4B",
+              "borderRadius": 38,
+              "height": 38,
+              "position": "absolute",
+              "width": 38,
+            }
+          }
+        />
+      </View>
     </View>
   </View>
 </View>
@@ -525,19 +567,26 @@ exports[`Testing <App/> Chat Avatars 4 Avatars: Should Have Client Avatar And 2 
         }
       }
     >
-      <Image
-        source={1}
+      <View
         style={
           Object {
-            "backgroundColor": "#4B4B4B",
-            "borderRadius": 38,
-            "height": 38,
             "marginLeft": -19,
-            "position": "absolute",
-            "width": 38,
           }
         }
-      />
+      >
+        <Image
+          source={1}
+          style={
+            Object {
+              "backgroundColor": "#4B4B4B",
+              "borderRadius": 38,
+              "height": 38,
+              "position": "absolute",
+              "width": 38,
+            }
+          }
+        />
+      </View>
     </View>
     <View
       style={
@@ -549,19 +598,26 @@ exports[`Testing <App/> Chat Avatars 4 Avatars: Should Have Client Avatar And 2 
         }
       }
     >
-      <Image
-        source={2}
+      <View
         style={
           Object {
-            "backgroundColor": "#4B4B4B",
-            "borderRadius": 38,
-            "height": 38,
             "marginLeft": -19,
-            "position": "absolute",
-            "width": 38,
           }
         }
-      />
+      >
+        <Image
+          source={2}
+          style={
+            Object {
+              "backgroundColor": "#4B4B4B",
+              "borderRadius": 38,
+              "height": 38,
+              "position": "absolute",
+              "width": 38,
+            }
+          }
+        />
+      </View>
     </View>
   </View>
 </View>
@@ -627,19 +683,26 @@ exports[`Testing <App/> Chat Avatars 4 Avatars: Should Have Client Avatar And De
         }
       }
     >
-      <Image
-        source={1}
+      <View
         style={
           Object {
-            "backgroundColor": "#4B4B4B",
-            "borderRadius": 38,
-            "height": 38,
             "marginLeft": 19,
-            "position": "absolute",
-            "width": 38,
           }
         }
-      />
+      >
+        <Image
+          source={1}
+          style={
+            Object {
+              "backgroundColor": "#4B4B4B",
+              "borderRadius": 38,
+              "height": 38,
+              "position": "absolute",
+              "width": 38,
+            }
+          }
+        />
+      </View>
     </View>
     <View
       style={
@@ -651,19 +714,26 @@ exports[`Testing <App/> Chat Avatars 4 Avatars: Should Have Client Avatar And De
         }
       }
     >
-      <Image
-        source={2}
+      <View
         style={
           Object {
-            "backgroundColor": "#4B4B4B",
-            "borderRadius": 38,
-            "height": 38,
             "marginLeft": 19,
-            "position": "absolute",
-            "width": 38,
           }
         }
-      />
+      >
+        <Image
+          source={2}
+          style={
+            Object {
+              "backgroundColor": "#4B4B4B",
+              "borderRadius": 38,
+              "height": 38,
+              "position": "absolute",
+              "width": 38,
+            }
+          }
+        />
+      </View>
     </View>
   </View>
 </View>

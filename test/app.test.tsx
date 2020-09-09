@@ -506,7 +506,6 @@ describe('Testing <App/>', () =>
     });
   });
 
-  // TODO need update added one more layer of View with margin
   describe('Chat Avatars', () =>
   {
     test('1 Avatars', async() =>
