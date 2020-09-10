@@ -40,13 +40,6 @@ export default function()
   return darkTheme;
 }
 
-// function alpha(color: string, value: number)
-// {
-//   const obj = parse(color);
-
-//   return obj.space + [ 'a(', obj.values, ',', value, ')' ].join('');
-// }
-
 function alpha(color: string, value: number)
 {
   const r = parseInt(color.slice(1, 3), 16);

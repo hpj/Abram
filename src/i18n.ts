@@ -5,8 +5,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import axios from 'axios';
 
 export const locales: Locale[] = [
-  { label: 'English (United States)', id: 'en-US', direction: 'ltr' },
-  { label: 'عربي (مصر)', id: 'ar-EG', direction: 'rtl' }
+  { label: 'English (United States)', id: 'en-US', direction: 'ltr' }
 ];
 
 type Locale = { label: string, id: string, direction: string, json?: Record<string, string> }

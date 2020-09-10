@@ -28,7 +28,7 @@ class Search extends StoreComponent<{
 {
   constructor()
   {
-    super(undefined, {
+    super({
       maximized: false
     });
   }

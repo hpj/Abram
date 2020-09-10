@@ -154,7 +154,7 @@ describe('Testing i18n', () =>
     expect(i18n('test', 'i18n')).toBe('test-i18n');
   });
 
-  test('Changing The Locale', () =>
+  test.skip('Changing The Locale', () =>
   {
     expect(locale.id).toBe('en-US');
     expect(locale.direction).toBe('ltr');

@@ -1,6 +1,9 @@
 import React from 'react';
 
-import { StyleSheet, StatusBar, BackHandler, SafeAreaView, View, Text, TouchableWithoutFeedback } from 'react-native';
+import {
+  StyleSheet, StatusBar, BackHandler, Keyboard,
+  SafeAreaView, View, Text, TouchableWithoutFeedback
+} from 'react-native';
 
 import { SplashScreen } from 'expo';
 
@@ -86,12 +89,18 @@ export default class App extends StoreComponent<unknown, {
     });
   }
 
-  onClose(open: boolean): void
+  onClose(closed: boolean): void
   {
-    if (open)
-      BackHandler.addEventListener('hardwareBackPress', this.onBack);
-    else
+    if (closed)
+    {
+      Keyboard.dismiss();
+
       BackHandler.removeEventListener('hardwareBackPress', this.onBack);
+    }
+    else
+    {
+      BackHandler.addEventListener('hardwareBackPress', this.onBack);
+    }
   }
 
   onBack(): boolean

@@ -78,8 +78,6 @@ class Inbox extends StoreComponent<{ snapTo?: ((index: number) => void) | undefi
                       {
                         let size = this.responsive(sizes.inboxAvatar);
 
-                        const border = (array.length > 1) ? 2 : 0;
-
                         let left = 0;
                         let top = 0;
 
@@ -134,17 +132,16 @@ class Inbox extends StoreComponent<{ snapTo?: ((index: number) => void) | undefi
 
                           top: top,
                           left: left,
-                          width: size + border,
-                          height: size + border
+                          width: size,
+                          height: size
                         } }>
                           <Image
                             style={ {
                               ...styles.avatar,
                        
-                              width: size + border,
-                              height: size + border,
+                              width: size,
+                              height: size,
                               
-                              borderWidth: border,
                               borderRadius: this.responsive(sizes.inboxAvatar)
                             } }
                             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -160,6 +157,7 @@ class Inbox extends StoreComponent<{ snapTo?: ((index: number) => void) | undefi
 
                             width: this.responsive(23),
                             height: this.responsive(23),
+
                             borderRadius: this.responsive(23),
 
                             opacity: (t !== 2 && left === 0 && top === 0) ? 1 : 0
@@ -213,9 +211,7 @@ const styles = StyleSheet.create({
   avatar: {
     position: 'absolute',
 
-    backgroundColor: colors.iconBackground,
-
-    borderColor: colors.blackText
+    backgroundColor: colors.iconBackground
   },
 
   badge: {
@@ -225,7 +221,7 @@ const styles = StyleSheet.create({
 
     marginLeft: -10,
 
-    borderWidth: 4,
+    borderWidth: 3,
     borderColor: colors.blackText
   },
 

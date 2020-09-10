@@ -2,7 +2,11 @@ import React from 'react';
 
 import { StyleSheet, View, FlatList, TextInput, Text, Image } from 'react-native';
 
+import type { NativeSyntheticEvent, TextInputChangeEventData } from 'react-native';
+
 import { format, differenceInMinutes, differenceInDays, isToday, isYesterday } from 'date-fns';
+
+import EmojiRegex from 'emoji-regex';
 
 import { Size, Keyboard, Profile, InboxEntry } from '../types';
 
@@ -15,6 +19,8 @@ import getTheme from '../colors';
 import { StoreComponent } from '../store';
 
 const colors = getTheme();
+
+const emojiRegex = EmojiRegex();
 
 function relativeDate(messageTimestamp: Date, prevMessageTimestamp: Date): string | undefined
 {
@@ -59,29 +65,51 @@ class Chat extends StoreComponent<unknown, {
   size: Size,
   keyboard: Keyboard,
   profile: Profile,
-  activeChat: InboxEntry
+  activeChat: InboxEntry,
+  chatInputText: string
 }>
 {
+  constructor()
+  {
+    super();
+
+    // bind functions to use as callbacks
+
+    this.onChange = this.onChange.bind(this);
+  }
+
+  onChange(e: NativeSyntheticEvent<TextInputChangeEventData>): void
+  {
+    let text = e.nativeEvent.text;
+    
+    // filter emojis out of text
+    text = text.replace(emojiRegex, '');
+
+    this.setState({
+      chatInputText: text
+    });
+  }
+
   render(): JSX.Element
   {
-    const activeChat = this.state.activeChat;
+    const { profile, activeChat, size, keyboard } = this.state;
 
     if (!activeChat.displayName)
       return <View/>;
 
     const messages = [ ...activeChat.messages ];
 
-    const fieldHeight = (this.state.keyboard.height) ?
+    const fieldHeight = (keyboard.height) ?
       (sizes.topBarHeight + sizes.windowMargin) :
       0;
 
     const viewHeight =
-      this.state.size.height -
-      this.state.keyboard.height -
+      size.height -
+      keyboard.height -
       fieldHeight -
       (sizes.topBarHeight + sizes.topBarBigMargin);
     
-    const bubbleWidth = this.state.size.width * sizes.chatBubbleMaxWidth;
+    const bubbleWidth = size.width * sizes.chatBubbleMaxWidth;
     const bubbleTextWidth = bubbleWidth - (sizes.windowMargin * 2);
     const avatarBubbleTextWidth = bubbleTextWidth - sizes.chatAvatar - sizes.windowMargin;
 
@@ -97,7 +125,8 @@ class Chat extends StoreComponent<unknown, {
           keyExtractor={ (item, index) => index.toString() }
           renderItem={ ({ item, index }) =>
           {
-            const self = item.owner === this.state.profile.username;
+            const self = item.owner === profile.username;
+
             const avatar = (!self && activeChat.members.length > 2) ? activeChat.avatars[item.owner] : undefined;
             
             const time = relativeDate(item.timestamp, messages[index + 1]?.timestamp);
@@ -131,10 +160,13 @@ class Chat extends StoreComponent<unknown, {
 
         <View style={ {
           ...styles.input,
-          width: this.state.size.width - (sizes.windowMargin * 2)
+          width: size.width - (sizes.windowMargin * 2)
         } }>
-          <TextInput style={ styles.field }
+          <TextInput
+            style={ styles.field }
             multiline={ true }
+            value={ this.state.chatInputText }
+            onChange={ this.onChange }
             placeholderTextColor={ colors.placeholder }
             placeholder={ 'Write Message' }
           />
@@ -159,10 +191,10 @@ const styles = StyleSheet.create({
     color: colors.greyText,
     textAlign: 'center',
 
-    marginTop: sizes.windowMargin / 2,
-    marginBottom: sizes.windowMargin / 2,
+    marginTop: sizes.windowMargin,
+    marginBottom: sizes.windowMargin,
 
-    fontSize: 14
+    fontSize: 13
   },
 
   messageAlt: {

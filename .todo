@@ -1,9 +1,5 @@
 Performance Issues and Bugs:
-  ☐ add all strings to i18n
-
-  ☐ close keyboard if chat bottom sheet gets hidden
-
-  ☐ filter emojis out of text
+  ☐ move independent state declared on store for no reason
 
 Pre:
   ☐ write the privacy policy

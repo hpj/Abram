@@ -132,19 +132,12 @@ jest.mock('reanimated-bottom-sheet', () =>
     {
       // execute callback
       if (index === 1)
-      {
-        if (this.props.onOpenStart)
-          this.props.onOpenStart();
-      }
+        this.props.onCloseEnd?.();
       else if (index === 0)
-      {
-        if (this.props.onCloseEnd)
-          this.props.onCloseEnd();
-      }
+        this.props.onOpenStart?.();
 
       // update callbackNode value
-      if (this.props.callbackNode)
-        this.props.callbackNode.setValue(index);
+      this.props.callbackNode?.setValue(index);
       
       // force the view to update
       this.forceUpdate();

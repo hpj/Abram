@@ -19,7 +19,7 @@ export function getStore(): Store
 
 export class StoreComponent<Props = {}, State = {}> extends React.Component<Props, State>
 {
-  constructor(name?: string, state?: object)
+  constructor(state?: object)
   {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore

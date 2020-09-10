@@ -30,7 +30,7 @@ class ChatAvatars extends StoreComponent<
 {
   constructor()
   {
-    super(undefined, {
+    super({
       menu: false
     });
     

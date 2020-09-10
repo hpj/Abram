@@ -21,9 +21,11 @@
     ]
   },
   "dependencies": {
+    "@react-native-community/async-storage": "~1.11.0",
     "@types/react-native-vector-icons": "^6.4.5",
     "axios": "^0.20.0",
     "date-fns": "^2.16.1",
+    "emoji-regex": "^9.0.0",
     "expo": "~38.0.10",
     "expo-constants": "~9.1.1",
     "expo-localization": "~8.2.1",
@@ -36,8 +38,7 @@
     "react-native-vector-icons": "^7.0.0",
     "react-native-web": "~0.11.7",
     "reanimated-bottom-sheet": "^1.0.0-alpha.22",
-    "sentry-expo": "^2.1.2",
-    "@react-native-community/async-storage": "~1.11.0"
+    "sentry-expo": "^2.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
