@@ -768,12 +768,12 @@ exports[`Testing <App/> Chat Messages List Normal 1`] = `
   data={
     Array [
       Object {
-        "owner": "Mana",
+        "owner": "0",
         "text": "<3",
         "timestamp": 1999-10-09T09:01:00.000Z,
       },
       Object {
-        "owner": "MikaTheCoolOne",
+        "owner": "1",
         "text": "Yay",
         "timestamp": 1999-10-09T09:00:00.000Z,
       },

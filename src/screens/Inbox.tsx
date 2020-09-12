@@ -44,15 +44,18 @@ class Inbox extends StoreComponent<{ snapTo?: ((index: number) => void) | undefi
 
   render(): JSX.Element
   {
+    const { inbox, profile } = this.state;
+
     return (
       <ScrollView style={ styles.wrapper }>
         {
-          this.state.inbox.map((entry, t) =>
+          inbox.map((entry, t) =>
           {
             const members = [ ...entry.members ];
 
             // remove self from array
-            members.splice(members.indexOf(this.state.profile.username), 1);
+            members.splice(
+              members.findIndex(member => member.uuid === profile.uuid), 1);
 
             const lastMessage = entry.messages[entry.messages.length - 1];
             const lastMessageTime = relativeDate(lastMessage.timestamp);
@@ -74,7 +77,7 @@ class Inbox extends StoreComponent<{ snapTo?: ((index: number) => void) | undefi
                   } }>
                     {
                       // TODO show the most relevant avatars
-                      members.splice(0, 4).map((id, i, array) =>
+                      members.splice(0, 4).map((member, i, array) =>
                       {
                         let size = this.responsive(sizes.inboxAvatar);
 
@@ -146,9 +149,8 @@ class Inbox extends StoreComponent<{ snapTo?: ((index: number) => void) | undefi
                             } }
                             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                             //@ts-ignore
-                            // eslint-disable-next-line security/detect-object-injection
-                            source={ entry.avatars[id] }
-                            // source={ { uri: entry.avatars[id] } }
+                            source={ member.avatar }
+                            // source={ { uri: member.avatar } }
                           />
 
                           {/* eslint-disable-next-line react-native/no-inline-styles */}

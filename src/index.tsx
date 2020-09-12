@@ -52,6 +52,7 @@ const store = createStore({
   },
 
   profile: {
+    uuid: '0001',
     displayName: 'Kerolos Zaki',
     username: 'ker0olos',
     avatar: require('../assets/mockup/ker0olos.jpeg')
@@ -62,52 +63,88 @@ const store = createStore({
 
   inbox: [
     {
+      uuid: 'C-0001',
       displayName: 'Dina El-Wedidi',
       members: [
-        'ker0olos',
-        'ElwedidiDina'
+        {
+          uuid: '0001',
+          displayName: 'Kerolos Zaki',
+          username: 'ker0olos',
+          avatar: require('../assets/mockup/ker0olos.jpeg')
+        },
+        {
+          uuid: '0002',
+          displayName: 'Dina El-Wedidi',
+          username: 'ElwedidiDina',
+          avatar: require('../assets/mockup/dina-0.jpg')
+        }
       ],
-      avatars: {
-        'ElwedidiDina': require('../assets/mockup/dina-0.jpg')
-      },
       messages: [
-        { owner: 'ElwedidiDina', text: 'Did you really made it through the world’s championship of shit?', timestamp: subDays(new Date(), 21) },
-        { owner: 'ker0olos', text: 'No.', timestamp: addMinutes(subDays(new Date(), 21), 3) },
-        { owner: 'ElwedidiDina', text: 'Hey Kay, We need to talk about your face.', timestamp: subHours(new Date(), 1) }
+        { owner: '0002', text: 'Did you really made it through the world’s championship of shit?', timestamp: subDays(new Date(), 21) },
+        { owner: '0001', text: 'No.', timestamp: addMinutes(subDays(new Date(), 21), 3) },
+        { owner: '0002', text: 'Hey Kay, We need to talk about your face.', timestamp: subHours(new Date(), 1) }
       ]
     },
     {
+      uuid: 'C-0002',
       displayName: 'Councill of Karkars',
       members: [
-        'ker0olos',
-        'karkar-1',
-        'karkar-3',
-        'karkar-4',
-        'karkar-5'
+        {
+          uuid: '0001',
+          displayName: 'Kerolos Zaki',
+          username: 'ker0olos',
+          avatar: require('../assets/mockup/ker0olos.jpeg')
+        },
+        {
+          uuid: '0010',
+          displayName: 'Kerolos Zaki',
+          username: 'karkar-1',
+          avatar: require('../assets/mockup/karkar-1.jpg')
+        },
+        {
+          uuid: '0011',
+          displayName: 'Kerolos Zaki',
+          username: 'karkar-3',
+          avatar: require('../assets/mockup/karkar-3.jpg')
+        },
+        {
+          uuid: '0012',
+          displayName: 'Kerolos Zaki',
+          username: 'karkar-4',
+          avatar: require('../assets/mockup/karkar-4.jpg')
+        },
+        {
+          uuid: '0013',
+          displayName: 'Kerolos Zaki',
+          username: 'karkar-5',
+          avatar: require('../assets/mockup/karkar-5.jpg')
+        }
       ],
-      avatars: {
-        'karkar-1': require('../assets/mockup/karkar-1.jpg'),
-        'karkar-3': require('../assets/mockup/karkar-3.jpg'),
-        'karkar-4': require('../assets/mockup/karkar-4.jpg'),
-        'karkar-5': require('../assets/mockup/karkar-5.jpg')
-      },
       messages: [
-        { owner: 'karkar-1', text: 'Ahmed is an idiot.', timestamp: subDays(new Date(), 21) },
-        { owner: 'ker0olos', text: 'I agree.', timestamp: addMinutes(subDays(new Date(), 21), 6) },
-        { owner: 'karkar-3', text: 'Maybe, we could kill him.', timestamp: subHours(new Date(), 26) }
+        { owner: '0011', text: 'Ahmed is an idiot.', timestamp: subDays(new Date(), 21) },
+        { owner: '0001', text: 'I agree.', timestamp: addMinutes(subDays(new Date(), 21), 6) },
+        { owner: '0013', text: 'Maybe, we could kill him.', timestamp: subHours(new Date(), 26) }
       ]
     },
     {
+      uuid: 'C-0003',
       displayName: 'Al-Sisi',
       members: [
-        'ker0olos',
-        'Bal7a'
+        {
+          uuid: '0001',
+          displayName: 'Kerolos Zaki',
+          username: 'ker0olos',
+          avatar: require('../assets/mockup/ker0olos.jpeg')
+        },
+        {
+          uuid: '0100',
+          displayName: 'Al-Sisi',
+          username: 'Bal7a',
+          avatar: require('../assets/mockup/sisi-0.jpg')
+        }
       ],
-      avatars: {
-        'Bal7a': require('../assets/mockup/sisi-0.jpg')
-      },
       messages: [
-        { owner: 'Bal7a', text: 'Dude, I fucked up.', timestamp: subDays(new Date(), 50) }
+        { owner: '0100', text: 'Dude, I fucked up.', timestamp: subDays(new Date(), 50) }
       ]
     }
   ]

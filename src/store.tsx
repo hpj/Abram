@@ -109,8 +109,7 @@ export default class Store
 
     this.subscriptions.forEach((component) =>
     {
-      if (component?.setState)
-        promises.push(new Promise((resolve) => component.setState(this.state, resolve)));
+      promises.push(new Promise((resolve) => component?.setState?.(this.state, resolve)));
     });
 
     await Promise.all(promises);

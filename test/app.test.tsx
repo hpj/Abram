@@ -18,6 +18,8 @@ import { subDays } from 'date-fns';
 
 import { advanceTo, clear } from 'jest-date-mock';
 
+import { InboxEntry, Profile } from '../src/types';
+
 import { fetch } from '../src/i18n';
 
 import { createStore, getStore } from '../src/store';
@@ -333,11 +335,18 @@ describe('Testing <App/>', () =>
     {
       getStore().set({
         activeChat: {
-          members: [ 'Mana', 'Mika' ],
-          avatars: {
-            'Mika': 1
-          }
-        }
+          id: '0',
+          members: [
+            {
+              uuid: '0',
+              avatar: 0
+            },
+            {
+              uuid: '1',
+              avatar: 1
+            }
+          ]
+        } as InboxEntry
       });
 
       const component = render(<App/>);
@@ -532,31 +541,40 @@ describe('Testing <App/>', () =>
     {
       getStore().set({
         profile: {
-          displayName: 'Mana',
-          username: 'Mana',
+          uuid: '0',
           avatar: 0
-        },
+        } as Profile,
         activeChat: {
-          members: [ 'Mana', 'MikaTheCoolOne' ],
-          avatars: {
-            'MikaTheCoolOne': 1
-          }
-        },
+          members: [
+            {
+              uuid: '0',
+              avatar: 0
+            },
+            {
+              uuid: '1',
+              avatar: 1
+            }
+          ]
+        } as InboxEntry,
         inbox: [
           {
+            id: '0',
             displayName: 'Mika',
             members: [
-              'Mana',
-              'MikaTheCoolOne'
+              {
+                uuid: '0',
+                avatar: 0
+              },
+              {
+                uuid: '1',
+                avatar: 1
+              }
             ],
-            avatars: {
-              'MikaTheCoolOne': 1
-            },
             messages: [
-              { owner: 'MikaTheCoolOne', text: '', timestamp: new Date(1999, 9, 9) }
+              { owner: '1', text: '', timestamp: new Date(1999, 9, 9) }
             ]
           }
-        ]
+        ] as InboxEntry[]
       });
 
       const component = render(<App/>);
@@ -589,34 +607,48 @@ describe('Testing <App/>', () =>
     {
       getStore().set({
         profile: {
-          displayName: 'Mana',
-          username: 'Mana',
+          uuid: '0',
           avatar: 0
-        },
+        } as Profile,
         activeChat: {
-          members: [ 'Mana', 'MikaTheCoolOne', 'SkyeTheDarkLord' ],
-          avatars: {
-            'MikaTheCoolOne': 1,
-            'SkyeTheDarkLord': 2
-          }
-        },
+          members: [
+            {
+              uuid: '0',
+              avatar: 0
+            },
+            {
+              uuid: '1',
+              avatar: 1
+            },
+            {
+              uuid: '2',
+              avatar: 2
+            }
+          ]
+        } as InboxEntry,
         inbox: [
           {
+            id: '0',
             displayName: 'Mika',
             members: [
-              'Mana',
-              'MikaTheCoolOne',
-              'SkyeTheDarkLord'
+              {
+                uuid: '0',
+                avatar: 0
+              },
+              {
+                uuid: '1',
+                avatar: 1
+              },
+              {
+                uuid: '2',
+                avatar: 2
+              }
             ],
-            avatars: {
-              'MikaTheCoolOne': 1,
-              'SkyeTheDarkLord': 2
-            },
             messages: [
-              { owner: 'MikaTheCoolOne', text: '', timestamp: new Date(1999, 9, 9) }
+              { owner: '1', text: '', timestamp: new Date(1999, 9, 9) }
             ]
           }
-        ]
+        ] as InboxEntry[]
       });
 
       const component = render(<App/>);
@@ -649,38 +681,54 @@ describe('Testing <App/>', () =>
     {
       getStore().set({
         profile: {
-          displayName: 'Mana',
-          username: 'Mana',
+          uuid: '0',
           avatar: 0
-        },
+        } as Profile,
         activeChat: {
-          members: [ 'Mana', 'MikaTheCoolOne', 'SkyeTheDarkLord', 'AquaTheGoddess' ],
-          avatars: {
-            'MikaTheCoolOne': 1,
-            'SkyeTheDarkLord': 2,
-            'AquaTheGoddess': 3
-          }
-        },
+          members: [
+            {
+              uuid: '0',
+              avatar: 0
+            },
+            {
+              uuid: '1',
+              avatar: 1
+            },
+            {
+              uuid: '2',
+              avatar: 2
+            }
+          ]
+        } as InboxEntry,
         inbox: [
           {
+            id: '0',
             displayName: 'Mika',
             members: [
-              'Mana',
-              'MikaTheCoolOne',
-              'SkyeTheDarkLord',
-              'AquaTheGoddess'
+              {
+                uuid: '0',
+                avatar: 0
+              },
+              {
+                uuid: '1',
+                avatar: 1
+              },
+              {
+                uuid: '2',
+                avatar: 2
+              },
+              {
+                uuid: '3',
+                avatar: 3
+              }
             ],
-            avatars: {
-              'MikaTheCoolOne': 1,
-              'SkyeTheDarkLord': 2,
-              'AquaTheGoddess': 3
-            },
             messages: [
-              { owner: 'MikaTheCoolOne', text: '', timestamp: new Date(1999, 9, 9) }
+              { owner: '1', text: '', timestamp: new Date(1999, 9, 9) }
             ]
           }
-        ]
+        ] as InboxEntry[]
       });
+
 
       const component = render(<App/>);
 
@@ -755,25 +803,28 @@ describe('Testing <App/>', () =>
     {
       getStore().set({
         profile: {
-          displayName: 'Mana',
-          username: 'Mana',
+          uuid: '0',
           avatar: 0
-        },
+        } as Profile,
         inbox: [
           {
+            id: '0',
             displayName: 'Mika',
             members: [
-              'Mana',
-              'MikaTheCoolOne'
+              {
+                uuid: '0',
+                avatar: 0
+              },
+              {
+                uuid: '1',
+                avatar: 1
+              }
             ],
-            avatars: {
-              'MikaTheCoolOne': 1
-            },
             messages: [
-              { owner: 'MikaTheCoolOne', text: '', timestamp: new Date(1999, 9, 9) }
+              { owner: '1', text: '', timestamp: new Date(1999, 9, 9) }
             ]
           }
-        ]
+        ] as InboxEntry[]
       });
 
       const component = render(<App/>);
@@ -820,26 +871,29 @@ describe('Testing <App/>', () =>
       {
         getStore().set({
           profile: {
-            displayName: 'Mana',
-            username: 'Mana',
+            uuid: '0',
             avatar: 0
-          },
+          } as Profile,
           inbox: [
             {
+              id: '0',
               displayName: 'Mika',
               members: [
-                'Mana',
-                'MikaTheCoolOne'
+                {
+                  uuid: '0',
+                  avatar: 0
+                },
+                {
+                  uuid: '1',
+                  avatar: 1
+                }
               ],
-              avatars: {
-                'MikaTheCoolOne': 1
-              },
               messages: [
-                { owner: 'MikaTheCoolOne', text: 'Yay', timestamp: new Date(1999, 9, 9, 9, 0) },
-                { owner: 'Mana', text: '<3', timestamp: new Date(1999, 9, 9, 9, 1) }
+                { owner: '1', text: 'Yay', timestamp: new Date(1999, 9, 9, 9, 0) },
+                { owner: '0', text: '<3', timestamp: new Date(1999, 9, 9, 9, 1) }
               ]
             }
-          ]
+          ] as InboxEntry[]
         });
     
         const component = render(<App/>);
@@ -873,28 +927,31 @@ describe('Testing <App/>', () =>
       {
         getStore().set({
           profile: {
-            displayName: 'Mana',
-            username: 'Mana',
+            uuid: '0',
             avatar: 0
-          },
+          } as Profile,
           inbox: [
             {
+              id: '0',
               displayName: 'Mika',
               members: [
-                'Mana',
-                'MikaTheCoolOne'
+                {
+                  uuid: '0',
+                  avatar: 0
+                },
+                {
+                  uuid: '1',
+                  avatar: 1
+                }
               ],
-              avatars: {
-                'MikaTheCoolOne': 1
-              },
               messages: [
-                { owner: 'MikaTheCoolOne', text: 'Yay', timestamp: new Date(1999, 9, 9, 9, 0) },
-                { owner: 'MikaTheCoolOne', text: 'Yay', timestamp: subDays(new Date(), 3) },
-                { owner: 'MikaTheCoolOne', text: 'Yay', timestamp: subDays(new Date(), 1) },
-                { owner: 'MikaTheCoolOne', text: 'Yay', timestamp: new Date() }
+                { owner: '1', text: 'Yay', timestamp: new Date(1999, 9, 9, 9, 0) },
+                { owner: '1', text: 'Yay', timestamp: subDays(new Date(), 3) },
+                { owner: '1', text: 'Yay', timestamp: subDays(new Date(), 1) },
+                { owner: '1', text: 'Yay', timestamp: new Date() }
               ]
             }
-          ]
+          ] as InboxEntry[]
         });
     
         const component = render(<App/>);
@@ -925,28 +982,33 @@ describe('Testing <App/>', () =>
       {
         getStore().set({
           profile: {
-            displayName: 'Mana',
-            username: 'Mana',
+            uuid: '0',
             avatar: 0
-          },
+          } as Profile,
           inbox: [
             {
+              id: '0',
               displayName: 'Group of Wholesome Girls',
               members: [
-                'Mana',
-                'MikaTheCoolOne',
-                'SkyeTheDarkLord'
+                {
+                  uuid: '0',
+                  avatar: 0
+                },
+                {
+                  uuid: '1',
+                  avatar: 1
+                },
+                {
+                  uuid: '2',
+                  avatar: 2
+                }
               ],
-              avatars: {
-                'MikaTheCoolOne': 1,
-                'SkyeTheDarkLord': 2
-              },
               messages: [
-                { owner: 'MikaTheCoolOne', text: 'Yay', timestamp: new Date(1999, 9, 9, 9, 0) },
-                { owner: 'Mana', text: '<3', timestamp: new Date(1999, 9, 9, 9, 1) }
+                { owner: '1', text: 'Yay', timestamp: new Date(1999, 9, 9, 9, 0) },
+                { owner: '0', text: '<3', timestamp: new Date(1999, 9, 9, 9, 1) }
               ]
             }
-          ]
+          ] as InboxEntry[]
         });
     
         const component = render(<App/>);
@@ -974,26 +1036,29 @@ describe('Testing <App/>', () =>
     {
       const store = getStore().set({
         profile: {
-          displayName: 'Mana',
-          username: 'Mana',
+          uuid: '0',
           avatar: 0
-        },
+        } as Profile,
         inbox: [
           {
+            id: '0',
             displayName: 'Mika',
             members: [
-              'Mana',
-              'MikaTheCoolOne'
+              {
+                uuid: '0',
+                avatar: 0
+              },
+              {
+                uuid: '1',
+                avatar: 1
+              }
             ],
-            avatars: {
-              'MikaTheCoolOne': 1
-            },
             messages: [
-              { owner: 'MikaTheCoolOne', text: 'Yay', timestamp: new Date(1999, 9, 9, 9, 0) },
-              { owner: 'Mana', text: '<3', timestamp: new Date(1999, 9, 9, 9, 1) }
+              { owner: '1', text: 'Yay', timestamp: new Date(1999, 9, 9, 9, 0) },
+              { owner: '0', text: '<3', timestamp: new Date(1999, 9, 9, 9, 1) }
             ]
           }
-        ]
+        ] as InboxEntry[]
       });
   
       const component = render(<App/>);
@@ -1033,25 +1098,28 @@ describe('Testing <Inbox/>', () =>
   {
     getStore().set({
       profile: {
-        displayName: 'Mana',
-        username: 'Mana',
+        uuid: '0',
         avatar: 0
-      },
+      } as Profile,
       inbox: [
         {
+          id: '0',
           displayName: 'Mika',
           members: [
-            'Mana',
-            'MikaTheCoolOne'
+            {
+              uuid: '0',
+              avatar: 0
+            },
+            {
+              uuid: '1',
+              avatar: 1
+            }
           ],
-          avatars: {
-            'MikaTheCoolOne': 1
-          },
           messages: [
-            { owner: 'MikaTheCoolOne', text: '', timestamp: new Date(1999, 9, 9) }
+            { owner: '1', text: '', timestamp: new Date(1999, 9, 9, 9) }
           ]
         }
-      ]
+      ] as InboxEntry[]
     });
   
     const component = render(<Inbox/>);
@@ -1065,64 +1133,79 @@ describe('Testing <Inbox/>', () =>
   {
     getStore().set({
       profile: {
-        displayName: 'Mana',
-        username: 'Mana',
+        uuid: '0',
         avatar: 0
-      },
+      } as Profile,
       inbox: [
         {
+          id: '0',
           displayName: 'Mika',
           members: [
-            'Mana',
-            'MikaTheCoolOne'
+            {
+              uuid: '0',
+              avatar: 0
+            },
+            {
+              uuid: '1',
+              avatar: 1
+            }
           ],
-          avatars: {
-            'MikaTheCoolOne': 1
-          },
           messages: [
-            { owner: 'MikaTheCoolOne', text: 'Yay', timestamp: new Date() }
+            { owner: '1', text: 'Yay', timestamp: new Date() }
           ]
         },
         {
+          id: '1',
           displayName: 'Mika',
           members: [
-            'Mana',
-            'MikaTheCoolOne'
+            {
+              uuid: '0',
+              avatar: 0
+            },
+            {
+              uuid: '1',
+              avatar: 1
+            }
           ],
-          avatars: {
-            'MikaTheCoolOne': 1
-          },
           messages: [
-            { owner: 'MikaTheCoolOne', text: 'Yay', timestamp: subDays(new Date(), 1) }
+            { owner: '1', text: 'Yay', timestamp: subDays(new Date(), 1) }
           ]
         },
         {
+          id: '2',
           displayName: 'Mika',
           members: [
-            'Mana',
-            'MikaTheCoolOne'
+            {
+              uuid: '0',
+              avatar: 0
+            },
+            {
+              uuid: '1',
+              avatar: 1
+            }
           ],
-          avatars: {
-            'MikaTheCoolOne': 1
-          },
           messages: [
-            { owner: 'MikaTheCoolOne', text: 'Yay', timestamp: subDays(new Date(), 3) }
+            { owner: '1', text: 'Yay', timestamp: subDays(new Date(), 3) }
           ]
         },
         {
+          id: '3',
           displayName: 'Mika',
           members: [
-            'Mana',
-            'MikaTheCoolOne'
+            {
+              uuid: '0',
+              avatar: 0
+            },
+            {
+              uuid: '1',
+              avatar: 1
+            }
           ],
-          avatars: {
-            'MikaTheCoolOne': 1
-          },
           messages: [
-            { owner: 'MikaTheCoolOne', text: 'Yay', timestamp: new Date(1999, 9, 9, 9, 0) }
+            { owner: '1', text: 'Yay', timestamp: new Date(1999, 9, 9, 9, 0) }
           ]
         }
-      ]
+      ] as InboxEntry[]
     });
   
     const component = render(<Inbox/>);
@@ -1144,28 +1227,33 @@ describe('Testing <Inbox/>', () =>
   {
     getStore().set({
       profile: {
-        displayName: 'Mana',
-        username: 'Mana',
+        uuid: '0',
         avatar: 0
-      },
+      } as Profile,
       inbox: [
         {
+          id: '0',
           displayName: 'Group of Wholesome Girls',
           members: [
-            'Mana',
-            'MikaTheCoolOne',
-            'SkyeTheDarkLord'
+            {
+              uuid: '0',
+              avatar: 0
+            },
+            {
+              uuid: '1',
+              avatar: 1
+            },
+            {
+              uuid: '2',
+              avatar: 2
+            }
           ],
-          avatars: {
-            'MikaTheCoolOne': 1,
-            'SkyeTheDarkLord': 2
-          },
           messages: [
-            { owner: 'MikaTheCoolOne', text: '', timestamp: new Date(1999, 9, 9) },
-            { owner: 'SkyeTheDarkLord', text: '', timestamp: new Date(2001, 1, 1) }
+            { owner: '1', text: '', timestamp: new Date(1999, 9, 9) },
+            { owner: '2', text: '', timestamp: new Date(2001, 1, 1) }
           ]
         }
-      ]
+      ] as InboxEntry[]
     });
   
     const component = render(<Inbox/>);
@@ -1179,33 +1267,40 @@ describe('Testing <Inbox/>', () =>
   {
     getStore().set({
       profile: {
-        displayName: 'Mana',
-        username: 'Mana',
+        uuid: '0',
         avatar: 0
-      },
+      } as Profile,
       inbox: [
         {
+          id: '0',
           displayName: 'Group of Wholesome Girls',
           members: [
-            'Mana',
-            'MikaTheCoolOne',
-            'SkyeTheDarkLord',
-            'AquaTheGoddess'
+            {
+              uuid: '0',
+              avatar: 0
+            },
+            {
+              uuid: '1',
+              avatar: 1
+            },
+            {
+              uuid: '2',
+              avatar: 2
+            },
+            {
+              uuid: '3',
+              avatar: 3
+            }
           ],
-          avatars: {
-            'MikaTheCoolOne': 1,
-            'SkyeTheDarkLord': 2,
-            'AquaTheGoddess': 3
-          },
           messages: [
-            { owner: 'MikaTheCoolOne', text: '', timestamp: new Date(1999, 9, 9) },
-            { owner: 'SkyeTheDarkLord', text: '', timestamp: new Date(2001, 1, 1) },
-            { owner: 'AquaTheGoddess', text: '', timestamp: new Date(2002, 2, 2) }
+            { owner: '1', text: '', timestamp: new Date(1999, 9, 9) },
+            { owner: '2', text: '', timestamp: new Date(2001, 1, 1) },
+            { owner: '3', text: '', timestamp: new Date(2002, 2, 2) }
           ]
         }
-      ]
+      ] as InboxEntry[]
     });
-  
+
     const component = render(<Inbox/>);
 
     expect(component.toJSON()).toMatchSnapshot('Should Be A Group View With 3 Avatars');
@@ -1217,34 +1312,43 @@ describe('Testing <Inbox/>', () =>
   {
     getStore().set({
       profile: {
-        displayName: 'Mana',
-        username: 'Mana',
+        uuid: '0',
         avatar: 0
-      },
+      } as Profile,
       inbox: [
         {
+          id: '0',
           displayName: 'Group of Wholesome Girls',
           members: [
-            'Mana',
-            'MikaTheCoolOne',
-            'SkyeTheDarkLord',
-            'AquaTheGoddess',
-            'OrigamiTheShynificent'
+            {
+              uuid: '0',
+              avatar: 0
+            },
+            {
+              uuid: '1',
+              avatar: 1
+            },
+            {
+              uuid: '2',
+              avatar: 2
+            },
+            {
+              uuid: '3',
+              avatar: 3
+            },
+            {
+              uuid: '4',
+              avatar: 4
+            }
           ],
-          avatars: {
-            'MikaTheCoolOne': 1,
-            'SkyeTheDarkLord': 2,
-            'AquaTheGoddess': 3,
-            'OrigamiTheShynificent': 4
-          },
           messages: [
-            { owner: 'MikaTheCoolOne', text: '', timestamp: new Date(1999, 9, 9) },
-            { owner: 'SkyeTheDarkLord', text: '', timestamp: new Date(2001, 1, 1) },
-            { owner: 'AquaTheGoddess', text: '', timestamp: new Date(2002, 2, 2) },
-            { owner: 'OrigamiTheShynificent', text: '', timestamp: new Date(2003, 3, 3) }
+            { owner: '1', text: '', timestamp: new Date(1999, 9, 9) },
+            { owner: '2', text: '', timestamp: new Date(2001, 1, 1) },
+            { owner: '3', text: '', timestamp: new Date(2002, 2, 2) },
+            { owner: '4', text: '', timestamp: new Date(2003, 3, 3) }
           ]
         }
-      ]
+      ] as InboxEntry[]
     });
   
     const component = render(<Inbox/>);
@@ -1258,34 +1362,43 @@ describe('Testing <Inbox/>', () =>
   {
     getStore().set({
       profile: {
-        displayName: 'Mana',
-        username: 'Mana',
+        uuid: '0',
         avatar: 0
-      },
+      } as Profile,
       inbox: [
         {
+          id: '0',
           displayName: 'Group of Wholesome Girls',
           members: [
-            'Mana',
-            'MikaTheCoolOne',
-            'SkyeTheDarkLord',
-            'AquaTheGoddess',
-            'OrigamiTheShynificent'
+            {
+              uuid: '0',
+              avatar: 0
+            },
+            {
+              uuid: '1',
+              avatar: 1
+            },
+            {
+              uuid: '2',
+              avatar: 2
+            },
+            {
+              uuid: '3',
+              avatar: 3
+            },
+            {
+              uuid: '4',
+              avatar: 4
+            }
           ],
-          avatars: {
-            'MikaTheCoolOne': 1,
-            'SkyeTheDarkLord': 2,
-            'AquaTheGoddess': 3,
-            'OrigamiTheShynificent': 4
-          },
           messages: [
-            { owner: 'MikaTheCoolOne', text: '', timestamp: new Date(1999, 9, 9) },
-            { owner: 'SkyeTheDarkLord', text: '', timestamp: new Date(2001, 1, 1) },
-            { owner: 'AquaTheGoddess', text: '', timestamp: new Date(2002, 2, 2) },
-            { owner: 'OrigamiTheShynificent', text: '', timestamp: new Date(2003, 3, 3) }
+            { owner: '1', text: '', timestamp: new Date(1999, 9, 9) },
+            { owner: '2', text: '', timestamp: new Date(2001, 1, 1) },
+            { owner: '3', text: '', timestamp: new Date(2002, 2, 2) },
+            { owner: '4', text: '', timestamp: new Date(2003, 3, 3) }
           ]
         }
-      ]
+      ] as InboxEntry[]
     });
   
     const groupOf5 = render(<Inbox/>);
@@ -1295,36 +1408,47 @@ describe('Testing <Inbox/>', () =>
 
     getStore().set({
       profile: {
-        displayName: 'Mana',
-        username: 'Mana',
+        uuid: '0',
         avatar: 0
-      },
+      } as Profile,
       inbox: [
         {
+          id: '0',
           displayName: 'Group of Wholesome Girls',
           members: [
-            'Mana',
-            'MikaTheCoolOne',
-            'SkyeTheDarkLord',
-            'AquaTheGoddess',
-            'OrigamiTheShynificent',
-            'EmiThePsychopath'
+            {
+              uuid: '0',
+              avatar: 0
+            },
+            {
+              uuid: '1',
+              avatar: 1
+            },
+            {
+              uuid: '2',
+              avatar: 2
+            },
+            {
+              uuid: '3',
+              avatar: 3
+            },
+            {
+              uuid: '4',
+              avatar: 4
+            },
+            {
+              uuid: '5',
+              avatar: 5
+            }
           ],
-          avatars: {
-            'MikaTheCoolOne': 1,
-            'SkyeTheDarkLord': 2,
-            'AquaTheGoddess': 3,
-            'OrigamiTheShynificent': 4,
-            'EmiThePsychopath': 5
-          },
           messages: [
-            { owner: 'MikaTheCoolOne', text: '', timestamp: new Date(1999, 9, 9) },
-            { owner: 'SkyeTheDarkLord', text: '', timestamp: new Date(2001, 1, 1) },
-            { owner: 'AquaTheGoddess', text: '', timestamp: new Date(2002, 2, 2) },
-            { owner: 'OrigamiTheShynificent', text: '', timestamp: new Date(2003, 3, 3) }
+            { owner: '1', text: '', timestamp: new Date(1999, 9, 9) },
+            { owner: '2', text: '', timestamp: new Date(2001, 1, 1) },
+            { owner: '3', text: '', timestamp: new Date(2002, 2, 2) },
+            { owner: '4', text: '', timestamp: new Date(2003, 3, 3) }
           ]
         }
-      ]
+      ] as InboxEntry[]
     });
 
     const groupOf6 = render(<Inbox/>);

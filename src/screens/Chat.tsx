@@ -66,6 +66,8 @@ class Chat extends StoreComponent<unknown, {
   keyboard: Keyboard,
   profile: Profile,
   activeChat: InboxEntry,
+
+  // not a store property
   chatInputText: string
 }>
 {
@@ -125,9 +127,12 @@ class Chat extends StoreComponent<unknown, {
           keyExtractor={ (item, index) => index.toString() }
           renderItem={ ({ item, index }) =>
           {
-            const self = item.owner === profile.username;
+            const self = item.owner === profile.uuid;
 
-            const avatar = (!self && activeChat.members.length > 2) ? activeChat.avatars[item.owner] : undefined;
+            const avatar =
+              (!self && activeChat.members.length > 2) ?
+                activeChat.members.find(member => member.uuid === item.owner)?.avatar :
+                undefined;
             
             const time = relativeDate(item.timestamp, messages[index + 1]?.timestamp);
             

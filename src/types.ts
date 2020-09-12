@@ -1,7 +1,7 @@
 export type InboxEntry = {
+  id: string,
   displayName: string,
-  members: string[],
-  avatars: Record<string, string>,
+  members: Profile[],
   messages: Message[]
 }
 
@@ -12,9 +12,10 @@ export type Message = {
 }
 
 export type Profile = {
+  uuid: string,
   displayName: string,
   username: string,
-  avatar: string
+  avatar: string | number
 }
 
 export type Size = {

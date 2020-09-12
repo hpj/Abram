@@ -34,9 +34,9 @@ class Button extends React.Component<{
 {
   render(): JSX.Element
   {
+    /* istanbul ignore next */
     const TouchableComponent:
       React.ComponentType<TouchableOpacityProps | TouchableNativeFeedbackProps>
-      /* istanbul ignore next */
       = (Platform.OS === 'android') ? TouchableNativeFeedback : TouchableOpacity;
 
     const {

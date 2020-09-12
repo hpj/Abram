@@ -72,26 +72,29 @@ class ChatAvatars extends StoreComponent<
 
   render(): JSX.Element
   {
-    const activeChat = this.state.activeChat;
-
     const members = [];
+
+    const { size, profile, activeChat } = this.state;
+
+    const { bottomSheetNode } = this.props;
 
     if (activeChat.members)
       members.push(...activeChat.members);
 
     // remove self from array
-    members.splice(members.indexOf(this.state.profile.username), 1);
+    members.splice(
+      members.findIndex(member => member.uuid === profile.uuid), 1);
 
     const menuWidth = this.progress.interpolate({
       inputRange: [ 0, 1 ],
       // window's width - window's margin - margin
-      outputRange: [ (this.state.size.width - sizes.windowMargin - 10) / 2, this.state.size.width - sizes.windowMargin - 10 ]
+      outputRange: [ (size.width - sizes.windowMargin - 10) / 2, size.width - sizes.windowMargin - 10 ]
     });
 
     const menuHeight = this.progress.interpolate({
       inputRange: [ 0, 1 ],
       // 65% of window's height
-      outputRange: [ 0, this.state.size.height * 0.65 ]
+      outputRange: [ 0, size.height * 0.65 ]
     });
 
     const menuOpacity = this.progress.interpolate({
@@ -99,17 +102,17 @@ class ChatAvatars extends StoreComponent<
       outputRange: [ 0, 1 ]
     });
 
-    const avatarOpacity = this.props.bottomSheetNode.interpolate({
+    const avatarOpacity = bottomSheetNode.interpolate({
       inputRange: [ 0, 1 ],
       outputRange: [ 1, 0 ]
     });
 
-    const avatarWidth = this.props.bottomSheetNode.interpolate({
+    const avatarWidth = bottomSheetNode.interpolate({
       inputRange: [ 0, 1 ],
       outputRange: [ (sizes.avatar / 2), 0 ]
     });
 
-    const avatarMarginLeft = this.props.bottomSheetNode.interpolate({
+    const avatarMarginLeft = bottomSheetNode.interpolate({
       inputRange: [ 0, 1 ],
       outputRange: [ -(sizes.avatar / 2), (sizes.avatar / 2) ]
     });
@@ -137,14 +140,14 @@ class ChatAvatars extends StoreComponent<
               {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 //@ts-ignore
-                <Image style={ styles.avatar } source={ this.state.profile.avatar }/>
+                <Image style={ styles.avatar } source={ profile.avatar }/>
               }
-              {/* <Image style={ styles.avatar } source={ { uri: this.state.profile.avatar } }/> */}
+              {/* <Image style={ styles.avatar } source={ { uri: profile.avatar } }/> */}
             </Animated.View>
 
             {
               // TODO show the most relevant avatars
-              members.splice(0, 2).map((id, i) =>
+              members.splice(0, 2).map((member, i) =>
               {
                 return <Animated.View key={ i } style={ {
                   ...styles.avatarContainer,
@@ -156,9 +159,8 @@ class ChatAvatars extends StoreComponent<
                       style={ styles.avatar }
                       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                       //@ts-ignore
-                      // eslint-disable-next-line security/detect-object-injection
-                      source={ activeChat.avatars[id] }
-                      // source={ { uri: activeChat.avatars[id] } }
+                      source={ member.avatar }
+                      // source={ { uri: member.avatar } }
                     />
                   </Animated.View>
                 </Animated.View>;

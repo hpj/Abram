@@ -35,13 +35,15 @@ import getTheme from './colors';
 const colors = getTheme();
 
 export default class App extends StoreComponent<unknown, {
-  index: number,
   error: string,
   loaded: boolean,
+
+  index: number,
   size: {
     width: number,
     height: number
   },
+  
   holder: boolean
 }>
 {

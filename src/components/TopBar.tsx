@@ -24,8 +24,7 @@ class TopBar extends StoreComponent<{
   holderNode: Animated.Value<number>,
   bottomSheetNode: Animated.Value<number>
 }, {
-  index: number,
-  searchMaximized: boolean
+  index: number
 }>
 {
   render(): JSX.Element
@@ -49,10 +48,7 @@ class TopBar extends StoreComponent<{
           marginTop: marginTop
         } }>
           {/* eslint-disable-next-line react-native/no-inline-styles */}
-          <Text style={ {
-            ...styles.title,
-            opacity: (this.state.searchMaximized) ? 0 : 1
-          } }>
+          <Text style={ styles.title }>
             { title }
           </Text>
         </Animated.View>

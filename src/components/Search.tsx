@@ -23,47 +23,27 @@ class Search extends StoreComponent<{
 }, {
   size: Size,
   activeChat: InboxEntry,
-  maximized: boolean
+  searchMaximized: boolean
 }>
 {
-  constructor()
-  {
-    super({
-      maximized: false
-    });
-  }
-
   progress = new Animated.Value(0);
   
   onPress(maximize: boolean): void
   {
-    this.setState({ maximized: maximize });
-
-    if (!maximize)
-    {
-      this.store.set({
-        searchMaximized: maximize
-      });
-    }
+    this.store.set({
+      searchMaximized: maximize
+    });
 
     Animated.timing(this.progress, {
       duration: 65,
       toValue: (maximize) ? 1 : 0,
       easing: Easing.linear
-    }).start((finished) =>
-    {
-      if (finished && maximize)
-      {
-        this.store.set({
-          searchMaximized: maximize
-        });
-      }
-    });
+    }).start();
   }
 
   render(): JSX.Element
   {
-    const { maximized } = this.state;
+    const { searchMaximized } = this.state;
 
     const avatarsAmount = Math.min(this.state.activeChat.members?.length - 1 || 0, 2);
 
@@ -138,7 +118,7 @@ class Search extends StoreComponent<{
 
         <View style={ styles.wrapper }>
           {
-            (!maximized) ?
+            !searchMaximized ?
               <Button
                 testID='bn-search-maximize'
                 borderless={ true }
