@@ -63,7 +63,7 @@ const store = createStore({
 
   inbox: [
     {
-      uuid: 'C-0001',
+      id: 'C-0001',
       displayName: 'Dina El-Wedidi',
       members: [
         {
@@ -86,7 +86,7 @@ const store = createStore({
       ]
     },
     {
-      uuid: 'C-0002',
+      id: 'C-0002',
       displayName: 'Councill of Karkars',
       members: [
         {
@@ -127,7 +127,7 @@ const store = createStore({
       ]
     },
     {
-      uuid: 'C-0003',
+      id: 'C-0003',
       displayName: 'Al-Sisi',
       members: [
         {

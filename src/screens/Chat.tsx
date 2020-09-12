@@ -68,12 +68,17 @@ class Chat extends StoreComponent<unknown, {
   activeChat: InboxEntry,
 
   // not a store property
-  chatInputText: string
+  inputs: Record<string, string>
 }>
 {
   constructor()
   {
     super();
+
+    this.state = {
+      ...this.state,
+      inputs: {}
+    };
 
     // bind functions to use as callbacks
 
@@ -82,22 +87,26 @@ class Chat extends StoreComponent<unknown, {
 
   onChange(e: NativeSyntheticEvent<TextInputChangeEventData>): void
   {
+    const { inputs, activeChat } = this.state;
+
     let text = e.nativeEvent.text;
     
     // filter emojis out of text
     text = text.replace(emojiRegex, '');
 
-    this.setState({
-      chatInputText: text
-    });
+    inputs[activeChat.id] = text;
+
+    this.setState({ inputs });
   }
 
   render(): JSX.Element
   {
-    const { profile, activeChat, size, keyboard } = this.state;
+    const { size, keyboard, profile, activeChat, inputs } = this.state;
 
-    if (!activeChat.displayName)
+    if (!activeChat.id)
       return <View/>;
+
+    const value = inputs[activeChat.id];
 
     const messages = [ ...activeChat.messages ];
 
@@ -170,7 +179,7 @@ class Chat extends StoreComponent<unknown, {
           <TextInput
             style={ styles.field }
             multiline={ true }
-            value={ this.state.chatInputText }
+            value={ value }
             onChange={ this.onChange }
             placeholderTextColor={ colors.placeholder }
             placeholder={ 'Write Message' }
