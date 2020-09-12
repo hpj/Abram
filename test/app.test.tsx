@@ -334,6 +334,10 @@ describe('Testing <App/>', () =>
     test('Width (2 Avatars) (With Deactivated Bottom Sheet)', async() =>
     {
       getStore().set({
+        profile: {
+          uuid: '0',
+          avatar: 0
+        } as Profile,
         activeChat: {
           id: '0',
           members: [
@@ -345,6 +349,9 @@ describe('Testing <App/>', () =>
               uuid: '1',
               avatar: 1
             }
+          ],
+          messages: [
+            { owner: '1', text: '', timestamp: new Date(1999, 9, 9) }
           ]
         } as InboxEntry
       });
@@ -386,25 +393,25 @@ describe('Testing <App/>', () =>
     {
       getStore().set({
         profile: {
-          displayName: 'Mana',
-          username: 'Mana',
+          uuid: '0',
           avatar: 0
-        },
-        inbox: [
-          {
-            displayName: 'Group of Wholesome Girls',
-            members: [
-              'Mana',
-              'MikaTheCoolOne'
-            ],
-            avatars: {
-              'MikaTheCoolOne': 1
+        } as Profile,
+        inbox: [ {
+          id: '0',
+          members: [
+            {
+              uuid: '0',
+              avatar: 0
             },
-            messages: [
-              { owner: 'MikaTheCoolOne', text: '', timestamp: new Date(1999, 9, 9) }
-            ]
-          }
-        ]
+            {
+              uuid: '1',
+              avatar: 1
+            }
+          ],
+          messages: [
+            { owner: '1', text: '', timestamp: new Date(1999, 9, 9) }
+          ]
+        } ] as InboxEntry[]
       });
 
       const component = render(<App/>);
@@ -450,27 +457,29 @@ describe('Testing <App/>', () =>
     {
       getStore().set({
         profile: {
-          displayName: 'Mana',
-          username: 'Mana',
+          uuid: '0',
           avatar: 0
-        },
-        inbox: [
-          {
-            displayName: 'Group of Wholesome Girls',
-            members: [
-              'Mana',
-              'MikaTheCoolOne',
-              'SkyeTheDarkLord'
-            ],
-            avatars: {
-              'MikaTheCoolOne': 1,
-              'SkyeTheDarkLord': 2
+        } as Profile,
+        inbox: [ {
+          id: '0',
+          members: [
+            {
+              uuid: '0',
+              avatar: 0
             },
-            messages: [
-              { owner: 'MikaTheCoolOne', text: '', timestamp: new Date(1999, 9, 9) }
-            ]
-          }
-        ]
+            {
+              uuid: '1',
+              avatar: 1
+            },
+            {
+              uuid: '2',
+              avatar: 2
+            }
+          ],
+          messages: [
+            { owner: '1', text: '', timestamp: new Date(1999, 9, 9) }
+          ]
+        } ] as InboxEntry[]
       });
 
       const component = render(<App/>);

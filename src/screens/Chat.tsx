@@ -75,10 +75,10 @@ class Chat extends StoreComponent<unknown, {
   {
     super();
 
-    this.state = {
-      ...this.state,
-      inputs: {}
-    };
+    // this.state = {
+    //   ...this.state,
+    //   inputs: {}
+    // };
 
     // bind functions to use as callbacks
 
@@ -106,7 +106,7 @@ class Chat extends StoreComponent<unknown, {
     if (!activeChat.id)
       return <View/>;
 
-    const value = inputs[activeChat.id];
+    const value = inputs?.[activeChat.id];
 
     const messages = [ ...activeChat.messages ];
 
