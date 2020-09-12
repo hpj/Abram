@@ -80,6 +80,11 @@ function toJSON(renderer: RenderAPI, testId: string, shallow?: 'none' | 'one' | 
 // mocks axios
 const axiosMock = axios.get = jest.fn().mockResolvedValue({ data: { test: true } });
 
+jest.mock('expo-splash-screen', () => ({
+  preventAutoHideAsync: jest.fn().mockResolvedValue(true),
+  hideAsync: jest.fn().mockResolvedValue(true)
+}));
+
 // mock the back button handler module
 jest.mock('react-native/Libraries/Utilities/BackHandler', () =>
   // eslint-disable-next-line jest/no-mocks-import

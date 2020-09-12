@@ -68,7 +68,7 @@ export default class Store
 
   subscribe(component: React.Component): Store | undefined
   {
-    if (component && component.setState && this.subscriptions.indexOf(component) < 0)
+    if (component?.setState && this.subscriptions.indexOf(component) < 0)
     {
       this.subscriptions.push(component);
 
@@ -103,21 +103,16 @@ export default class Store
     return this;
   }
 
-  dispatch(): Promise<void>
+  async dispatch(): Promise<void>
   {
-    return new Promise((resolve: () => void) =>
+    const promises: Promise<void>[] = [];
+
+    this.subscriptions.forEach((component) =>
     {
-      const promises: Promise<void>[] = [];
-
-      this.subscriptions.forEach((component) =>
-      {
-        if (component && component.setState)
-        {
-          promises.push(new Promise((resolve) => component.setState(this.state, resolve)));
-        }
-      });
-
-      Promise.all(promises).then(resolve);
+      if (component?.setState)
+        promises.push(new Promise((resolve) => component.setState(this.state, resolve)));
     });
+
+    await Promise.all(promises);
   }
 }

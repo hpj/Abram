@@ -1,11 +1,11 @@
 import React from 'react';
 
 import {
-  StyleSheet, StatusBar, BackHandler, Keyboard,
+  StyleSheet, StatusBar, Platform, BackHandler, Keyboard,
   SafeAreaView, View, Text, TouchableWithoutFeedback
 } from 'react-native';
 
-import { SplashScreen } from 'expo';
+import * as SplashScreen from 'expo-splash-screen';
 
 import Animated from 'react-native-reanimated';
 
@@ -22,7 +22,7 @@ import Discover from './screens/Discover';
 import ChatHeader from './screens/ChatHeader';
 import Chat from './screens/Chat';
 
-import { load } from './loading';
+import { fetch, locale } from './i18n';
 
 import { StoreComponent } from './store';
 
@@ -59,34 +59,44 @@ export default class App extends StoreComponent<unknown, {
   bottomSheetNode = new Animated.Value(1)
   holderNode = new Animated.Value(0)
 
-  componentDidMount(): void
+  async load(): Promise<void>
+  {
+    await fetch(locale.id);
+  }
+
+  async componentDidMount(): Promise<void>
   {
     super.componentDidMount();
 
-    SplashScreen.preventAutoHide();
+    // console.log('hiding splash screen');
+
+    await SplashScreen.preventAutoHideAsync();
   
     // load resource and cache on app-start
-    // crashes the app if loading encounters an error
-    load((error) =>
+    try
     {
-      // allow app UI to be rendered
+      await this.load();
 
+      this.setState({ loaded: true }, this.forceUpdate);
+    }
+    catch (err)
+    {
       // encountered an error during loading
-      if (error)
-        this.setState({ error });
-      // the second forced updated is
-      // needed to render the navigation view
-      else
-        this.setState({ loaded: true }, this.forceUpdate);
-
+      this.setState({ error: err });
+    }
+    finally
+    {
       // set status-bar style
-      StatusBar.setBackgroundColor(colors.blackBackground);
+
+      if (Platform.OS === 'android')
+        StatusBar.setBackgroundColor(colors.blackBackground);
+
       StatusBar.setBarStyle('light-content');
       // StatusBar.setBarStyle((colors.theme === 'dark') ? 'light-content' : 'dark-content');
   
       // hides the splash screen and shows the app
-      SplashScreen.hide();
-    });
+      await SplashScreen.hideAsync();
+    }
   }
 
   onClose(closed: boolean): void
@@ -224,7 +234,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     borderRadius: 5,
     padding: 15
-
   },
 
   views: {

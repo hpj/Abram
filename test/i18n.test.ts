@@ -9,7 +9,7 @@ import i18n, { getDefault, fetch, locales, locale, setLocale } from '../src/i18n
 // mock async-storage
 jest.mock('@react-native-community/async-storage', () => ({
   setItem: jest.fn(),
-  getItem: jest.fn((err, cb) => cb())
+  getItem: jest.fn().mockResolvedValue('')
 }));
 
 // mocks axios
@@ -105,14 +105,7 @@ describe('Testing i18n', () =>
     expect(locale.json).toBeUndefined();
 
     // mock react native response
-    AsyncStorage.getItem = jest.fn((data, cb) =>
-    {
-      const value = JSON.stringify({ cache: true });
-
-      cb?.call(undefined, undefined, value);
-
-      return Promise.resolve(value);
-    });
+    AsyncStorage.getItem = jest.fn().mockResolvedValue(JSON.stringify({ cache: true }));
 
     // mock axios response
     axiosMock.mockImplementation(() =>

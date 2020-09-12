@@ -1,5 +1,3 @@
-// import parse from 'color-parse';
-
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function()
 {
@@ -36,7 +34,8 @@ export default function()
   //   ...darkTheme,
   // };
 
-  // return (dark) ? darkTheme : lightTheme;
+  // return dark ? darkTheme : lightTheme;
+
   return darkTheme;
 }
 
