@@ -47,9 +47,6 @@ class NavigationView extends React.Component<{
   {
     const { testID, active } = this.props;
 
-    if (!this.progress)
-      return <View/>;
-
     const opacity =
       this.progress.interpolate({
         inputRange: [ 0, 1 ],

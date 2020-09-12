@@ -87,5 +87,5 @@ export default function i18n(key: string, ...args: string[]): string
 
   args.forEach((s, i) => value = value?.replace(`%${i}`, s));
 
-  return value || '';
+  return value ?? '';
 }
