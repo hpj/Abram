@@ -8,7 +8,7 @@ import { format, differenceInMinutes, differenceInDays, isToday, isYesterday } f
 
 import EmojiRegex from 'emoji-regex';
 
-import { Size, Keyboard, Profile, InboxEntry } from '../types';
+import { Size, Keyboard, Profile, InboxEntry, Message } from '../types';
 
 import Button from '../components/Button';
 
@@ -75,26 +75,57 @@ class Chat extends StoreComponent<unknown, {
   {
     super();
 
-    // this.state = {
-    //   ...this.state,
-    //   inputs: {}
-    // };
+    this.state = {
+      ...this.state,
+      inputs: {}
+    };
 
     // bind functions to use as callbacks
 
     this.onChange = this.onChange.bind(this);
+
+    this.sendMessage = this.sendMessage.bind(this);
+  }
+
+  strip(s: string): string
+  {
+    let striped = s;
+    
+    // filter emojis out of text
+    striped = s.replace(emojiRegex, '');
+
+    return striped;
+  }
+
+  sendMessage(): void
+  {
+    const  { profile, activeChat, inputs } = this.state;
+
+    const value = inputs[activeChat.id] ?? '';
+
+    const message: Message = {
+      owner: profile.uuid,
+      text: this.strip(value),
+      timestamp: new Date()
+    };
+
+    // add message to UI
+    activeChat.messages.push(message);
+    
+    // clear input value
+    inputs[activeChat.id] = '';
+
+    // update state
+    this.setState({ activeChat, inputs });
   }
 
   onChange(e: NativeSyntheticEvent<TextInputChangeEventData>): void
   {
     const { inputs, activeChat } = this.state;
 
-    let text = e.nativeEvent.text;
-    
-    // filter emojis out of text
-    text = text.replace(emojiRegex, '');
+    const text = e.nativeEvent.text;
 
-    inputs[activeChat.id] = text;
+    inputs[activeChat.id] = this.strip(text);
 
     this.setState({ inputs });
   }
@@ -106,7 +137,7 @@ class Chat extends StoreComponent<unknown, {
     if (!activeChat.id)
       return <View/>;
 
-    const value = inputs?.[activeChat.id];
+    const value = inputs[activeChat.id] ?? '';
 
     const messages = [ ...activeChat.messages ];
 
@@ -187,7 +218,8 @@ class Chat extends StoreComponent<unknown, {
           <Button
             borderless={ true }
             buttonStyle={ styles.send }
-            icon={ { name: 'arrow-right', size: 18, color: colors.greyText } }
+            onPress={ this.sendMessage }
+            icon={ { name: 'arrow-right', size: 18, color: value.length > 0 ? colors.whiteText : colors.greyText } }
           />
         </View>
 

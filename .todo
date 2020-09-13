@@ -11,17 +11,17 @@ Testing:
   ☐ expo's over-the-air updates
   
 UI/UX:
-  ☐ send messages
   ☐ select text from chat bubbles 
 
   ☐ add fallback support to i18n
+
   ☐ add RTL support
 
-  ☐ write avataaars react native implementation
+  ☐ design a mockup for Menu (non-chat) view
+  
+  ☐ design a mockup for Sign up view
+  ☐ design a mockup for Profile view
 
   ☐ design a mockup for Discover view
-  ☐ design a mockup for Menu (non-chat) view
-
-  ☐ when designing backend use UUID ids as permanent instead of usernames
 
 Discover:
