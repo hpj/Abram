@@ -21,15 +21,20 @@ class ChatHeader extends StoreComponent<unknown, { activeChat: InboxEntry }>
     if (!activeChat.displayName)
       return <View/>;
 
-    const lastMessageTime = `Active ${formatDistanceStrict(
-      activeChat.messages[activeChat.messages.length - 1].timestamp,
-      new Date()
-    )} ago`;
+    let lastMessageDate = '';
+
+    const current = new Date();
+    const last = activeChat.messages[activeChat.messages.length - 1].timestamp;
+
+    if (current.getTime() - last.getTime() <= 60 * 1000)
+      lastMessageDate = 'Active recently';
+    else
+      lastMessageDate = `Active ${formatDistanceStrict(last, current)} ago`;
 
     return (
       <View style={ styles.container }>
         <Text style={ styles.name }>{ activeChat.displayName }</Text>
-        <Text style={ styles.time }>{ lastMessageTime }</Text>
+        <Text style={ styles.time }>{ lastMessageDate }</Text>
       </View>
     );
   }

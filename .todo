@@ -7,11 +7,15 @@ Pre:
 
   ☐ write the terms of service
 
+  ☐ use expo-updates
+    ☐ expo's over-the-air updates
+
 Testing:
-  ☐ expo's over-the-air updates
+  ☐ sending and striping messages
   
 UI/UX:
-  ☐ select text from chat bubbles 
+  ☐ sort inbox by date
+  ☐ save read messages state locally
 
   ☐ add fallback support to i18n
 

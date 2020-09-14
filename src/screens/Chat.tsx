@@ -101,11 +101,15 @@ class Chat extends StoreComponent<unknown, {
   {
     const  { profile, activeChat, inputs } = this.state;
 
-    const value = inputs[activeChat.id] ?? '';
+    // strip and trim
+    const value = this.strip(inputs[activeChat.id] ?? '').trim();
+
+    if (value.length <= 0)
+      return;
 
     const message: Message = {
       owner: profile.uuid,
-      text: this.strip(value),
+      text: this.strip(value).trim(),
       timestamp: new Date()
     };
 
@@ -116,7 +120,9 @@ class Chat extends StoreComponent<unknown, {
     inputs[activeChat.id] = '';
 
     // update state
-    this.setState({ activeChat, inputs });
+    this.setState({ inputs },
+      // update store
+      () =>  this.store.set({ activeChat }));
   }
 
   onChange(e: NativeSyntheticEvent<TextInputChangeEventData>): void

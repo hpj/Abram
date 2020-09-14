@@ -15,7 +15,7 @@
       "**/*"
     ],
     "splash": {
-      "image": "./assets/icon.png",
+      "image": "./assets/icon-t.png",
       "resizeMode": "contain",
       "backgroundColor": "#000000"
     },
@@ -26,6 +26,13 @@
     },
     "androidNavigationBar": {
       "barStyle": "light-content"
+    },
+    "android": {
+      "icon": "./assets/icon.png",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon-t.png",
+        "backgroundColor": "#000000"
+      }
     },
     "hooks": {
       "postPublish": [

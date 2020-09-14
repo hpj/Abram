@@ -26,7 +26,7 @@
     "axios": "^0.20.0",
     "date-fns": "^2.16.1",
     "emoji-regex": "^9.0.0",
-    "expo": "~38.0.10",
+    "expo": "^38.0.10",
     "expo-constants": "~9.1.1",
     "expo-localization": "~8.2.1",
     "react": "~16.11.0",
