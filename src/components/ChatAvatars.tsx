@@ -4,7 +4,7 @@ import { BackHandler, StyleSheet, View, Image } from 'react-native';
 
 import Animated, { Easing } from 'react-native-reanimated';
 
-import { Size, Profile, InboxEntry } from '../types';
+import type { Size, Profile, InboxEntry } from '../types';
 
 import Button from './Button';
 
@@ -16,13 +16,15 @@ import { depth } from '../depth';
 
 import getTheme from '../colors';
 
+declare const __TEST__: boolean;
+
 const colors = getTheme();
 
-class ChatAvatars extends StoreComponent<
-{
+class ChatAvatars extends StoreComponent<{
   holderNode: Animated.Value<number>,
   bottomSheetNode: Animated.Value<number>
 }, {
+  menu: boolean,
   size: Size,
   profile: Profile,
   activeChat: InboxEntry
@@ -37,35 +39,47 @@ class ChatAvatars extends StoreComponent<
     // bind functions to use as callbacks
     
     this.onPress = this.onPress.bind(this);
+    this.deactivate = this.deactivate.bind(this);
   }
 
-  menu = false;
+  timestamp = Date.now()
 
   progress = new Animated.Value(0);
 
-  onPress(): boolean
+  onPress(message?: 'deactivate'): void
   {
-    this.menu = this.menu ? false : true;
-
-    // control app's holder view
-    this.store.set({ holder: this.menu });
-
-    if (this.menu)
-      BackHandler.addEventListener('hardwareBackPress', this.onPress);
+    // to stop users from spamming buttons
+    if (Date.now() - this.timestamp > 300 || message === 'deactivate' || __TEST__)
+      this.timestamp = Date.now();
     else
-      BackHandler.removeEventListener('hardwareBackPress', this.onPress);
+      return;
+
+    const menu = this.state.menu ? false : true;
+
+    if (menu)
+      BackHandler.addEventListener('hardwareBackPress', this.deactivate);
+    else
+      BackHandler.removeEventListener('hardwareBackPress', this.deactivate);
 
     Animated.timing(this.progress, {
-      duration: 100,
-      toValue: (this.menu) ? 1 : 0,
+      duration: 150,
+      toValue: menu ? 1 : 0,
       easing: Easing.linear
     }).start();
 
     Animated.timing(this.props.holderNode, {
       duration: 200,
-      toValue: (this.menu) ? 1 : 0,
+      toValue: menu ? 1 : 0,
       easing: Easing.linear
     }).start();
+
+    // update store
+    this.store.set({ menu, holder: menu });
+  }
+
+  deactivate(): boolean
+  {
+    this.onPress('deactivate');
 
     return true;
   }
@@ -85,18 +99,6 @@ class ChatAvatars extends StoreComponent<
     members.splice(
       members.findIndex(member => member.uuid === profile.uuid), 1);
 
-    const menuWidth = this.progress.interpolate({
-      inputRange: [ 0, 1 ],
-      // window's width - window's margin - margin
-      outputRange: [ (size.width - sizes.windowMargin - 10) / 2, size.width - sizes.windowMargin - 10 ]
-    });
-
-    const menuHeight = this.progress.interpolate({
-      inputRange: [ 0, 1 ],
-      // 65% of window's height
-      outputRange: [ 0, size.height * 0.65 ]
-    });
-
     const menuOpacity = this.progress.interpolate({
       inputRange: [ 0, 1 ],
       outputRange: [ 0, 1 ]
@@ -109,12 +111,12 @@ class ChatAvatars extends StoreComponent<
 
     const avatarWidth = bottomSheetNode.interpolate({
       inputRange: [ 0, 1 ],
-      outputRange: [ (sizes.avatar / 2), 0 ]
+      outputRange: [ sizes.avatar / 2, 0 ]
     });
 
     const avatarMarginLeft = bottomSheetNode.interpolate({
       inputRange: [ 0, 1 ],
-      outputRange: [ -(sizes.avatar / 2), (sizes.avatar / 2) ]
+      outputRange: [ -(sizes.avatar / 2), sizes.avatar / 2 ]
     });
 
     return (
@@ -122,8 +124,8 @@ class ChatAvatars extends StoreComponent<
         <Animated.View style={ {
           ...styles.menu,
 
-          width: menuWidth,
-          height: menuHeight,
+          width: size.width - sizes.windowMargin - 10,
+          height: size.height * 0.65,
 
           opacity: menuOpacity
         } }
@@ -176,15 +178,13 @@ class ChatAvatars extends StoreComponent<
 
 const styles = StyleSheet.create({
   container: {
-    zIndex: depth.menuAvatar,
+    zIndex: depth.menu,
 
     minWidth: sizes.avatar,
     height: sizes.avatar
   },
 
   wrapper: {
-    zIndex: depth.menuAvatar,
-
     minWidth: sizes.avatar,
     height: sizes.avatar,
     borderRadius: sizes.avatar,
@@ -213,10 +213,9 @@ const styles = StyleSheet.create({
   },
 
   menu: {
-    zIndex: depth.menu,
     position: 'absolute',
 
-    top: -5,
+    top: -15,
     right: 15,
 
     backgroundColor: colors.menuBackground,

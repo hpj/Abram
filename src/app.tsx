@@ -19,7 +19,9 @@ import BottomNavigation from './components/BottomNavigation';
 import Inbox from './screens/Inbox';
 import Discover from './screens/Discover';
 
-import ChatHeader from './screens/ChatHeader';
+import ChatHeader from './components/ChatHeader';
+import ChatContext from './components/ChatContext';
+
 import Chat from './screens/Chat';
 
 import { fetch, locale } from './i18n';
@@ -44,7 +46,8 @@ export default class App extends StoreComponent<unknown, {
     height: number
   },
   
-  holder: boolean
+  holder: boolean,
+  context: boolean
 }>
 {
   constructor()
@@ -57,6 +60,7 @@ export default class App extends StoreComponent<unknown, {
   }
 
   bottomSheetRef: React.RefObject<BottomSheet> =  React.createRef()
+  chatContextRef: React.RefObject<ChatContext> =  React.createRef()
 
   bottomSheetNode = new Animated.Value(1)
   holderNode = new Animated.Value(0)
@@ -134,6 +138,8 @@ export default class App extends StoreComponent<unknown, {
     if (!this.state.loaded)
       return <View/>;
 
+    const { size, context, holder } = this.state;
+
     const holderOpacity = this.holderNode.interpolate({
       inputRange: [ 0, 1 ],
       outputRange: [ 0, 0.75 ]
@@ -141,6 +147,8 @@ export default class App extends StoreComponent<unknown, {
 
     return (
       <SafeAreaView testID='v-main-area' style={ styles.container }>
+
+        <ChatContext ref={ this.chatContextRef } holderNode={ this.holderNode }/>
 
         <TopBar holderNode={ this.holderNode } bottomSheetNode={ this.bottomSheetNode }/>
 
@@ -160,26 +168,28 @@ export default class App extends StoreComponent<unknown, {
           <Animated.View testID='v-holder' style={ {
             ...styles.holder,
 
-            width: this.state.size.width,
-            height: this.state.size.height,
+            zIndex: context ? depth.contextHolder : depth.menuHolder,
+
+            width: size.width,
+            height: size.height,
             opacity: holderOpacity
           } }
-          pointerEvents={ (this.state.holder) ? 'box-only' : 'none' }/>
+          pointerEvents={ holder ? 'box-only' : 'none' }/>
         </TouchableWithoutFeedback>
 
         <BottomNavigation/>
 
         <View testID='v-bottom-sheet' style={ {
           ...styles.bottomSheet,
-          width: this.state.size.width,
-          height: this.state.size.height
+          width: size.width,
+          height: size.height
         } } pointerEvents={ 'box-none' }>
           <BottomSheet
             ref={ this.bottomSheetRef }
             callbackNode={ this.bottomSheetNode }
 
             initialSnap={ 1 }
-            snapPoints = { [ this.state.size.height, 0  ] }
+            snapPoints = { [ size.height, 0  ] }
 
             enabledContentGestureInteraction={ false }
 
@@ -203,9 +213,9 @@ export default class App extends StoreComponent<unknown, {
             renderContent = { () =>
               <View style={ {
                 ...styles.bottomSheetContent,
-                height: this.state.size.height
+                height: size.height
               } }>
-                <Chat/>
+                <Chat chatContextRef={ this.chatContextRef }/>
               </View>
             }
           />
@@ -249,7 +259,6 @@ const styles = StyleSheet.create({
   },
 
   holder: {
-    zIndex: depth.handler,
     position: 'absolute',
 
     backgroundColor: colors.blackBackground

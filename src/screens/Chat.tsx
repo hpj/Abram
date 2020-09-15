@@ -4,13 +4,19 @@ import { StyleSheet, View, FlatList, TextInput, Text, Image } from 'react-native
 
 import type { NativeSyntheticEvent, TextInputChangeEventData } from 'react-native';
 
-import { format, differenceInMinutes, differenceInDays, isToday, isYesterday } from 'date-fns';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+
+import { differenceInMinutes } from 'date-fns';
 
 import EmojiRegex from 'emoji-regex';
 
-import { Size, Keyboard, Profile, InboxEntry, Message } from '../types';
+import type { Size, Keyboard, Profile, InboxEntry, Message } from '../types';
+
+import type ChatContext from '../components/ChatContext';
 
 import Button from '../components/Button';
+
+import * as utils from '../utils';
 
 import { sizes } from '../sizes';
 
@@ -48,20 +54,13 @@ function relativeDate(messageTimestamp: Date, prevMessageTimestamp: Date): strin
 
   if (!showTime)
     return;
-  
-  const baseDate = new Date();
 
-  if (isToday(date))
-    return format(date, '\'Today, \'hh:mm a');
-  else if (isYesterday(date))
-    return format(date, '\'Yesterday, \'hh:mm a');
-  else if (differenceInDays(baseDate, date) <= 6)
-    return format(date, 'EEEE\', \'hh:mm a');
-  else
-    return format(date, 'd MMMM yyyy, hh:mm a');
+  return utils.relativeDate(date, true);
 }
 
-class Chat extends StoreComponent<unknown, {
+class Chat extends StoreComponent<{
+  chatContextRef: React.RefObject<ChatContext>
+}, {
   size: Size,
   keyboard: Keyboard,
   profile: Profile,
@@ -123,6 +122,13 @@ class Chat extends StoreComponent<unknown, {
     this.setState({ inputs },
       // update store
       () =>  this.store.set({ activeChat }));
+  }
+
+  onPress(message: Message): void
+  {
+    const { chatContextRef } = this.props;
+
+    chatContextRef.current?.onActive(message);
   }
 
   onChange(e: NativeSyntheticEvent<TextInputChangeEventData>): void
@@ -191,7 +197,10 @@ class Chat extends StoreComponent<unknown, {
 
               {
                 (avatar) ?
-                  <View style={ { ...styles.message, maxWidth: bubbleWidth } }>
+                  <TouchableWithoutFeedback
+                    style={ { ...styles.message, maxWidth: bubbleWidth } }
+                    onPress={ () => this.onPress(item) }
+                  >
                     {
                       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                       //@ts-ignore
@@ -199,11 +208,14 @@ class Chat extends StoreComponent<unknown, {
                     }
                     {/* <Image style={ styles.avatar } source={ { uri: avatar } }/> */}
                     <Text style={ { ...styles.text, maxWidth: avatarBubbleTextWidth } }>{ item.text }</Text>
-                  </View> :
+                  </TouchableWithoutFeedback> :
 
-                  <View style={ { ...styles.message, ...((self) ? styles.messageAlt : undefined), maxWidth: bubbleWidth } }>
+                  <TouchableWithoutFeedback
+                    style={ { ...styles.message, ...(self ? styles.messageAlt : undefined), maxWidth: bubbleWidth } }
+                    onPress={ () => this.onPress(item) }
+                  >
                     <Text style={ { ...styles.text, maxWidth: bubbleTextWidth } }>{ item.text }</Text>
-                  </View>
+                  </TouchableWithoutFeedback>
               }
             </View>;
           } }
@@ -251,6 +263,12 @@ const styles = StyleSheet.create({
 
   messageAlt: {
     backgroundColor: colors.messageBubble,
+
+    borderWidth: 0,
+
+    minWidth: 55 + (4 * 2) + 10,
+    minHeight: 40 + (4 * 2) + 1.5,
+
     alignSelf: 'flex-end'
   },
 

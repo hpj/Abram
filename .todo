@@ -12,9 +12,13 @@ Pre:
 
 Testing:
   ☐ sending and striping messages
+    ☐ chat header "Active .. ago" states
+
+  ☐ chat context menu
   
 UI/UX:
   ☐ sort inbox by date
+  
   ☐ save read messages state locally
 
   ☐ add fallback support to i18n

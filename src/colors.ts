@@ -6,6 +6,8 @@ export default function()
   const darkTheme = {
     theme: 'dark',
 
+    transparent: '#FFFFFF00',
+
     whiteText: '#ffffff',
     whiteBackground: '#ffffff',
     
@@ -23,6 +25,7 @@ export default function()
     iconBackgroundInactive: alpha('#4B4B4B', 0.3),
 
     menuBackground: '#414141',
+    contextBackground: '#171717',
 
     messageBubble: '#1C1C1C',
     

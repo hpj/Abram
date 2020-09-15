@@ -2,33 +2,19 @@ import React from 'react';
 
 import { StyleSheet, View, ScrollView, Image, Text } from 'react-native';
 
-import { format, differenceInDays, isToday, isYesterday } from 'date-fns';
-
-import { Profile, InboxEntry } from '../types';
+import type { Profile, InboxEntry } from '../types';
 
 import Button from '../components/Button';
 
 import { StoreComponent } from '../store';
+
+import { relativeDate } from '../utils';
 
 import { sizes, responsive } from '../sizes';
 
 import getTheme from '../colors';
 
 const colors = getTheme();
-
-function relativeDate(date: Date): string
-{
-  const baseDate = new Date();
-
-  if (isToday(date))
-    return format(date, '\'Today, \'hh:mm a');
-  else if (isYesterday(date))
-    return format(date, '\'Yesterday, \'hh:mm a');
-  else if (differenceInDays(baseDate, date) <= 6)
-    return format(date, 'EEEE\', \'hh:mm a');
-  else
-    return format(date, 'd MMM yyyy');
-}
 
 class Inbox extends StoreComponent<{ snapTo?: ((index: number) => void) | undefined }, {
   profile: Profile,

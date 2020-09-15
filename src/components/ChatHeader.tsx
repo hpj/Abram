@@ -4,7 +4,7 @@ import { StyleSheet, View, Text } from 'react-native';
 
 import { formatDistanceStrict } from 'date-fns';
 
-import { InboxEntry } from '../types';
+import type { InboxEntry } from '../types';
 
 import { StoreComponent } from '../store';
 
@@ -18,7 +18,7 @@ class ChatHeader extends StoreComponent<unknown, { activeChat: InboxEntry }>
   {
     const activeChat = this.state.activeChat;
 
-    if (!activeChat.displayName)
+    if (!activeChat.id)
       return <View/>;
 
     let lastMessageDate = '';

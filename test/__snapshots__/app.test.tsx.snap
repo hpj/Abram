@@ -801,83 +801,119 @@ exports[`Testing <App/> Chat Messages List Normal: Should Be Message With Timest
   >
     9 October 1999, 09:00 AM
   </Text>
-  <View
+  <RNGestureHandlerButton
+    collapsable={false}
+    onGestureEvent={[Function]}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    onHandlerStateChange={[Function]}
+    rippleColor={0}
     style={
-      Object {
-        "alignItems": "center",
-        "alignSelf": "flex-start",
-        "borderColor": "#1C1C1C",
-        "borderRadius": 25,
-        "borderWidth": 3,
-        "flexDirection": "row",
-        "justifyContent": "center",
-        "marginBottom": 5,
-        "marginLeft": 20,
-        "marginRight": 20,
-        "marginTop": 10,
-        "maxWidth": 418.40000000000003,
-        "minHeight": 40,
-        "minWidth": 55,
-        "paddingVertical": 10,
-      }
+      Array [
+        Object {
+          "overflow": "hidden",
+        },
+        undefined,
+      ]
     }
   >
-    <Text
+    <View
+      accessible={true}
       style={
         Object {
-          "color": "rgba(255,255,255,0.8)",
-          "fontSize": 16,
+          "alignItems": "center",
+          "alignSelf": "flex-start",
+          "borderColor": "#1C1C1C",
+          "borderRadius": 25,
+          "borderWidth": 3,
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "marginBottom": 5,
           "marginLeft": 20,
           "marginRight": 20,
-          "maxWidth": 378.40000000000003,
+          "marginTop": 10,
+          "maxWidth": 418.40000000000003,
+          "minHeight": 40,
+          "minWidth": 55,
+          "paddingVertical": 10,
         }
       }
     >
-      Yay
-    </Text>
-  </View>
+      <Text
+        style={
+          Object {
+            "color": "rgba(255,255,255,0.8)",
+            "fontSize": 16,
+            "marginLeft": 20,
+            "marginRight": 20,
+            "maxWidth": 378.40000000000003,
+          }
+        }
+      >
+        Yay
+      </Text>
+    </View>
+  </RNGestureHandlerButton>
 </View>
 `;
 
 exports[`Testing <App/> Chat Messages List Normal: Should Be Message Without Timestamp And With A Background 1`] = `
 <View>
   <View />
-  <View
+  <RNGestureHandlerButton
+    collapsable={false}
+    onGestureEvent={[Function]}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    onHandlerStateChange={[Function]}
+    rippleColor={0}
     style={
-      Object {
-        "alignItems": "center",
-        "alignSelf": "flex-end",
-        "backgroundColor": "#1C1C1C",
-        "borderColor": "#1C1C1C",
-        "borderRadius": 25,
-        "borderWidth": 3,
-        "flexDirection": "row",
-        "justifyContent": "center",
-        "marginBottom": 5,
-        "marginLeft": 20,
-        "marginRight": 20,
-        "marginTop": 10,
-        "maxWidth": 418.40000000000003,
-        "minHeight": 40,
-        "minWidth": 55,
-        "paddingVertical": 10,
-      }
+      Array [
+        Object {
+          "overflow": "hidden",
+        },
+        undefined,
+      ]
     }
   >
-    <Text
+    <View
+      accessible={true}
       style={
         Object {
-          "color": "rgba(255,255,255,0.8)",
-          "fontSize": 16,
+          "alignItems": "center",
+          "alignSelf": "flex-end",
+          "backgroundColor": "#1C1C1C",
+          "borderColor": "#1C1C1C",
+          "borderRadius": 25,
+          "borderWidth": 0,
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "marginBottom": 5,
           "marginLeft": 20,
           "marginRight": 20,
-          "maxWidth": 378.40000000000003,
+          "marginTop": 10,
+          "maxWidth": 418.40000000000003,
+          "minHeight": 49.5,
+          "minWidth": 73,
+          "paddingVertical": 10,
         }
       }
     >
-      &lt;3
-    </Text>
-  </View>
+      <Text
+        style={
+          Object {
+            "color": "rgba(255,255,255,0.8)",
+            "fontSize": 16,
+            "marginLeft": 20,
+            "marginRight": 20,
+            "maxWidth": 378.40000000000003,
+          }
+        }
+      >
+        &lt;3
+      </Text>
+    </View>
+  </RNGestureHandlerButton>
 </View>
 `;
 
@@ -896,41 +932,59 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
   >
     9 October 1999, 09:00 AM
   </Text>
-  <View
+  <RNGestureHandlerButton
+    collapsable={false}
+    onGestureEvent={[Function]}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    onHandlerStateChange={[Function]}
+    rippleColor={0}
     style={
-      Object {
-        "alignItems": "center",
-        "alignSelf": "flex-start",
-        "borderColor": "#1C1C1C",
-        "borderRadius": 25,
-        "borderWidth": 3,
-        "flexDirection": "row",
-        "justifyContent": "center",
-        "marginBottom": 5,
-        "marginLeft": 20,
-        "marginRight": 20,
-        "marginTop": 10,
-        "maxWidth": 418.40000000000003,
-        "minHeight": 40,
-        "minWidth": 55,
-        "paddingVertical": 10,
-      }
+      Array [
+        Object {
+          "overflow": "hidden",
+        },
+        undefined,
+      ]
     }
   >
-    <Text
+    <View
+      accessible={true}
       style={
         Object {
-          "color": "rgba(255,255,255,0.8)",
-          "fontSize": 16,
+          "alignItems": "center",
+          "alignSelf": "flex-start",
+          "borderColor": "#1C1C1C",
+          "borderRadius": 25,
+          "borderWidth": 3,
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "marginBottom": 5,
           "marginLeft": 20,
           "marginRight": 20,
-          "maxWidth": 378.40000000000003,
+          "marginTop": 10,
+          "maxWidth": 418.40000000000003,
+          "minHeight": 40,
+          "minWidth": 55,
+          "paddingVertical": 10,
         }
       }
     >
-      Yay
-    </Text>
-  </View>
+      <Text
+        style={
+          Object {
+            "color": "rgba(255,255,255,0.8)",
+            "fontSize": 16,
+            "marginLeft": 20,
+            "marginRight": 20,
+            "maxWidth": 378.40000000000003,
+          }
+        }
+      >
+        Yay
+      </Text>
+    </View>
+  </RNGestureHandlerButton>
 </View>
 `;
 
@@ -949,41 +1003,59 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
   >
     Saturday, 12:00 AM
   </Text>
-  <View
+  <RNGestureHandlerButton
+    collapsable={false}
+    onGestureEvent={[Function]}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    onHandlerStateChange={[Function]}
+    rippleColor={0}
     style={
-      Object {
-        "alignItems": "center",
-        "alignSelf": "flex-start",
-        "borderColor": "#1C1C1C",
-        "borderRadius": 25,
-        "borderWidth": 3,
-        "flexDirection": "row",
-        "justifyContent": "center",
-        "marginBottom": 5,
-        "marginLeft": 20,
-        "marginRight": 20,
-        "marginTop": 10,
-        "maxWidth": 418.40000000000003,
-        "minHeight": 40,
-        "minWidth": 55,
-        "paddingVertical": 10,
-      }
+      Array [
+        Object {
+          "overflow": "hidden",
+        },
+        undefined,
+      ]
     }
   >
-    <Text
+    <View
+      accessible={true}
       style={
         Object {
-          "color": "rgba(255,255,255,0.8)",
-          "fontSize": 16,
+          "alignItems": "center",
+          "alignSelf": "flex-start",
+          "borderColor": "#1C1C1C",
+          "borderRadius": 25,
+          "borderWidth": 3,
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "marginBottom": 5,
           "marginLeft": 20,
           "marginRight": 20,
-          "maxWidth": 378.40000000000003,
+          "marginTop": 10,
+          "maxWidth": 418.40000000000003,
+          "minHeight": 40,
+          "minWidth": 55,
+          "paddingVertical": 10,
         }
       }
     >
-      Yay
-    </Text>
-  </View>
+      <Text
+        style={
+          Object {
+            "color": "rgba(255,255,255,0.8)",
+            "fontSize": 16,
+            "marginLeft": 20,
+            "marginRight": 20,
+            "maxWidth": 378.40000000000003,
+          }
+        }
+      >
+        Yay
+      </Text>
+    </View>
+  </RNGestureHandlerButton>
 </View>
 `;
 
@@ -1002,41 +1074,59 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
   >
     Today, 12:00 AM
   </Text>
-  <View
+  <RNGestureHandlerButton
+    collapsable={false}
+    onGestureEvent={[Function]}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    onHandlerStateChange={[Function]}
+    rippleColor={0}
     style={
-      Object {
-        "alignItems": "center",
-        "alignSelf": "flex-start",
-        "borderColor": "#1C1C1C",
-        "borderRadius": 25,
-        "borderWidth": 3,
-        "flexDirection": "row",
-        "justifyContent": "center",
-        "marginBottom": 5,
-        "marginLeft": 20,
-        "marginRight": 20,
-        "marginTop": 10,
-        "maxWidth": 418.40000000000003,
-        "minHeight": 40,
-        "minWidth": 55,
-        "paddingVertical": 10,
-      }
+      Array [
+        Object {
+          "overflow": "hidden",
+        },
+        undefined,
+      ]
     }
   >
-    <Text
+    <View
+      accessible={true}
       style={
         Object {
-          "color": "rgba(255,255,255,0.8)",
-          "fontSize": 16,
+          "alignItems": "center",
+          "alignSelf": "flex-start",
+          "borderColor": "#1C1C1C",
+          "borderRadius": 25,
+          "borderWidth": 3,
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "marginBottom": 5,
           "marginLeft": 20,
           "marginRight": 20,
-          "maxWidth": 378.40000000000003,
+          "marginTop": 10,
+          "maxWidth": 418.40000000000003,
+          "minHeight": 40,
+          "minWidth": 55,
+          "paddingVertical": 10,
         }
       }
     >
-      Yay
-    </Text>
-  </View>
+      <Text
+        style={
+          Object {
+            "color": "rgba(255,255,255,0.8)",
+            "fontSize": 16,
+            "marginLeft": 20,
+            "marginRight": 20,
+            "maxWidth": 378.40000000000003,
+          }
+        }
+      >
+        Yay
+      </Text>
+    </View>
+  </RNGestureHandlerButton>
 </View>
 `;
 
@@ -1055,41 +1145,59 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
   >
     Yesterday, 12:00 AM
   </Text>
-  <View
+  <RNGestureHandlerButton
+    collapsable={false}
+    onGestureEvent={[Function]}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    onHandlerStateChange={[Function]}
+    rippleColor={0}
     style={
-      Object {
-        "alignItems": "center",
-        "alignSelf": "flex-start",
-        "borderColor": "#1C1C1C",
-        "borderRadius": 25,
-        "borderWidth": 3,
-        "flexDirection": "row",
-        "justifyContent": "center",
-        "marginBottom": 5,
-        "marginLeft": 20,
-        "marginRight": 20,
-        "marginTop": 10,
-        "maxWidth": 418.40000000000003,
-        "minHeight": 40,
-        "minWidth": 55,
-        "paddingVertical": 10,
-      }
+      Array [
+        Object {
+          "overflow": "hidden",
+        },
+        undefined,
+      ]
     }
   >
-    <Text
+    <View
+      accessible={true}
       style={
         Object {
-          "color": "rgba(255,255,255,0.8)",
-          "fontSize": 16,
+          "alignItems": "center",
+          "alignSelf": "flex-start",
+          "borderColor": "#1C1C1C",
+          "borderRadius": 25,
+          "borderWidth": 3,
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "marginBottom": 5,
           "marginLeft": 20,
           "marginRight": 20,
-          "maxWidth": 378.40000000000003,
+          "marginTop": 10,
+          "maxWidth": 418.40000000000003,
+          "minHeight": 40,
+          "minWidth": 55,
+          "paddingVertical": 10,
         }
       }
     >
-      Yay
-    </Text>
-  </View>
+      <Text
+        style={
+          Object {
+            "color": "rgba(255,255,255,0.8)",
+            "fontSize": 16,
+            "marginLeft": 20,
+            "marginRight": 20,
+            "maxWidth": 378.40000000000003,
+          }
+        }
+      >
+        Yay
+      </Text>
+    </View>
+  </RNGestureHandlerButton>
 </View>
 `;
 
@@ -1108,95 +1216,131 @@ exports[`Testing <App/> Chat Messages List With Avatars: Should Be Message With 
   >
     9 October 1999, 09:00 AM
   </Text>
-  <View
+  <RNGestureHandlerButton
+    collapsable={false}
+    onGestureEvent={[Function]}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    onHandlerStateChange={[Function]}
+    rippleColor={0}
     style={
-      Object {
-        "alignItems": "center",
-        "alignSelf": "flex-start",
-        "borderColor": "#1C1C1C",
-        "borderRadius": 25,
-        "borderWidth": 3,
-        "flexDirection": "row",
-        "justifyContent": "center",
-        "marginBottom": 5,
-        "marginLeft": 20,
-        "marginRight": 20,
-        "marginTop": 10,
-        "maxWidth": 418.40000000000003,
-        "minHeight": 40,
-        "minWidth": 55,
-        "paddingVertical": 10,
-      }
+      Array [
+        Object {
+          "overflow": "hidden",
+        },
+        undefined,
+      ]
     }
   >
-    <Image
-      source={1}
+    <View
+      accessible={true}
       style={
         Object {
+          "alignItems": "center",
           "alignSelf": "flex-start",
-          "borderRadius": 28,
-          "height": 28,
-          "marginLeft": 20,
-          "width": 28,
-        }
-      }
-    />
-    <Text
-      style={
-        Object {
-          "color": "rgba(255,255,255,0.8)",
-          "fontSize": 16,
+          "borderColor": "#1C1C1C",
+          "borderRadius": 25,
+          "borderWidth": 3,
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "marginBottom": 5,
           "marginLeft": 20,
           "marginRight": 20,
-          "maxWidth": 330.40000000000003,
+          "marginTop": 10,
+          "maxWidth": 418.40000000000003,
+          "minHeight": 40,
+          "minWidth": 55,
+          "paddingVertical": 10,
         }
       }
     >
-      Yay
-    </Text>
-  </View>
+      <Image
+        source={1}
+        style={
+          Object {
+            "alignSelf": "flex-start",
+            "borderRadius": 28,
+            "height": 28,
+            "marginLeft": 20,
+            "width": 28,
+          }
+        }
+      />
+      <Text
+        style={
+          Object {
+            "color": "rgba(255,255,255,0.8)",
+            "fontSize": 16,
+            "marginLeft": 20,
+            "marginRight": 20,
+            "maxWidth": 330.40000000000003,
+          }
+        }
+      >
+        Yay
+      </Text>
+    </View>
+  </RNGestureHandlerButton>
 </View>
 `;
 
 exports[`Testing <App/> Chat Messages List With Avatars: Should Be Message Without Timestamp And With A Background 1`] = `
 <View>
   <View />
-  <View
+  <RNGestureHandlerButton
+    collapsable={false}
+    onGestureEvent={[Function]}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    onHandlerStateChange={[Function]}
+    rippleColor={0}
     style={
-      Object {
-        "alignItems": "center",
-        "alignSelf": "flex-end",
-        "backgroundColor": "#1C1C1C",
-        "borderColor": "#1C1C1C",
-        "borderRadius": 25,
-        "borderWidth": 3,
-        "flexDirection": "row",
-        "justifyContent": "center",
-        "marginBottom": 5,
-        "marginLeft": 20,
-        "marginRight": 20,
-        "marginTop": 10,
-        "maxWidth": 418.40000000000003,
-        "minHeight": 40,
-        "minWidth": 55,
-        "paddingVertical": 10,
-      }
+      Array [
+        Object {
+          "overflow": "hidden",
+        },
+        undefined,
+      ]
     }
   >
-    <Text
+    <View
+      accessible={true}
       style={
         Object {
-          "color": "rgba(255,255,255,0.8)",
-          "fontSize": 16,
+          "alignItems": "center",
+          "alignSelf": "flex-end",
+          "backgroundColor": "#1C1C1C",
+          "borderColor": "#1C1C1C",
+          "borderRadius": 25,
+          "borderWidth": 0,
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "marginBottom": 5,
           "marginLeft": 20,
           "marginRight": 20,
-          "maxWidth": 378.40000000000003,
+          "marginTop": 10,
+          "maxWidth": 418.40000000000003,
+          "minHeight": 49.5,
+          "minWidth": 73,
+          "paddingVertical": 10,
         }
       }
     >
-      &lt;3
-    </Text>
-  </View>
+      <Text
+        style={
+          Object {
+            "color": "rgba(255,255,255,0.8)",
+            "fontSize": 16,
+            "marginLeft": 20,
+            "marginRight": 20,
+            "maxWidth": 378.40000000000003,
+          }
+        }
+      >
+        &lt;3
+      </Text>
+    </View>
+  </RNGestureHandlerButton>
 </View>
 `;
 
@@ -1297,7 +1441,7 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Initial Menu View Sho
     Object {
       "height": 38,
       "minWidth": 38,
-      "zIndex": 5,
+      "zIndex": 4,
     }
   }
   testID="v-menu"
@@ -1307,13 +1451,12 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Initial Menu View Sho
       Object {
         "backgroundColor": "#414141",
         "borderRadius": 15,
-        "height": 0,
+        "height": 735.15,
         "opacity": 0,
         "position": "absolute",
         "right": 15,
-        "top": -5,
-        "width": 246.5,
-        "zIndex": 4,
+        "top": -15,
+        "width": 493,
       }
     }
   />
@@ -1324,7 +1467,6 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Initial Menu View Sho
         "height": 38,
         "marginRight": 20,
         "minWidth": 38,
-        "zIndex": 5,
       }
     }
   />
@@ -1337,7 +1479,7 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Menu View Should Be V
     Object {
       "height": 38,
       "minWidth": 38,
-      "zIndex": 5,
+      "zIndex": 4,
     }
   }
   testID="v-menu"
@@ -1351,9 +1493,8 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Menu View Should Be V
         "opacity": 1,
         "position": "absolute",
         "right": 15,
-        "top": -5,
+        "top": -15,
         "width": 493,
-        "zIndex": 4,
       }
     }
   />
@@ -1364,7 +1505,6 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Menu View Should Be V
         "height": 38,
         "marginRight": 20,
         "minWidth": 38,
-        "zIndex": 5,
       }
     }
   />
@@ -1525,7 +1665,6 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Activated Bottom Shee
         "borderRadius": 38,
         "height": 38,
         "width": 38,
-        "zIndex": 0,
       }
     }
   />
@@ -1581,7 +1720,6 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Activated Bottom Shee
         "borderRadius": 38,
         "height": 38,
         "width": 38,
-        "zIndex": 0,
       }
     }
   />
@@ -1665,7 +1803,6 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Deactivated Bottom Sh
         "borderRadius": 38,
         "height": 38,
         "width": 38,
-        "zIndex": 0,
       }
     }
   />
@@ -1721,7 +1858,6 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Deactivated Bottom Sh
         "borderRadius": 38,
         "height": 38,
         "width": 38,
-        "zIndex": 0,
       }
     }
   />
@@ -1805,7 +1941,6 @@ exports[`Testing <App/> Search Bar Width (3 Avatars): Search Bar Should Be Maxim
         "borderRadius": 38,
         "height": 38,
         "width": 38,
-        "zIndex": 0,
       }
     }
   />
@@ -1861,7 +1996,6 @@ exports[`Testing <App/> Search Bar Width (3 Avatars): Search Bar Should Be Minim
         "borderRadius": 38,
         "height": 38,
         "width": 38,
-        "zIndex": 0,
       }
     }
   />
@@ -1922,7 +2056,6 @@ exports[`Testing <App/> Search Bar Width (With Deactivated Bottom Sheet): Initia
         "borderRadius": 38,
         "height": 38,
         "width": 38,
-        "zIndex": 0,
       }
     }
   />
@@ -1978,7 +2111,6 @@ exports[`Testing <App/> Search Bar Width (With Deactivated Bottom Sheet): Search
         "borderRadius": 38,
         "height": 38,
         "width": 38,
-        "zIndex": 0,
       }
     }
   />

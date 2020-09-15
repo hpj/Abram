@@ -28,6 +28,9 @@ import App from '../src/app';
 
 import Inbox from '../src/screens/Inbox';
 
+// define __TEST__
+eval('__TEST__ = true;');
+
 /** splits react testing library json trees to parts to make it easier to review
 */
 function toJSON(renderer: RenderAPI, testId: string, shallow?: 'none' | 'one' | 'all'): ReactTestRendererJSON | undefined

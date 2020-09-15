@@ -4,7 +4,7 @@ import { StyleSheet, View, TextInput } from 'react-native';
 
 import Animated, { Easing } from 'react-native-reanimated';
 
-import { Size, InboxEntry } from '../types';
+import type { Size, InboxEntry } from '../types';
 
 import Button from './Button';
 
@@ -13,6 +13,8 @@ import { StoreComponent } from '../store';
 import { sizes } from '../sizes';
 
 import getTheme from '../colors';
+
+declare const __TEST__: boolean;
 
 const colors = getTheme();
 
@@ -26,10 +28,18 @@ class Search extends StoreComponent<{
   searchMaximized: boolean
 }>
 {
+  timestamp = Date.now()
+
   progress = new Animated.Value(0);
   
   onPress(maximize: boolean): void
   {
+    // to stop users from spamming buttons
+    if (Date.now() - this.timestamp > 500 || __TEST__)
+      this.timestamp = Date.now();
+    else
+      return;
+    
     this.store.set({
       searchMaximized: maximize
     });
@@ -174,8 +184,6 @@ const styles = StyleSheet.create({
   },
 
   wrapper: {
-    zIndex: 0,
-    
     width: sizes.avatar,
     height: sizes.avatar,
     borderRadius: sizes.avatar

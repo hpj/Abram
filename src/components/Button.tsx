@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 
 import type {
-  StyleProp, ViewStyle,
+  StyleProp, ViewStyle, TextStyle,
   TouchableOpacityProps, TouchableNativeFeedbackProps
 } from 'react-native';
 
@@ -23,7 +23,7 @@ class Button extends React.Component<{
   backgroundStyle?: StyleProp<ViewStyle>,
   badgeStyle?: StyleProp<ViewStyle>,
   buttonStyle?: StyleProp<ViewStyle>,
-  textStyle?: StyleProp<ViewStyle>,
+  textStyle?: StyleProp<TextStyle>,
   testID?: string,
   text?: string,
   icon?: IconProps,
