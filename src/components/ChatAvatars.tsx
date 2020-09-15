@@ -16,7 +16,9 @@ import { depth } from '../depth';
 
 import getTheme from '../colors';
 
-declare const __TEST__: boolean;
+declare const global: {
+  __TEST__: boolean
+};
 
 const colors = getTheme();
 
@@ -49,7 +51,7 @@ class ChatAvatars extends StoreComponent<{
   onPress(message?: 'deactivate'): void
   {
     // to stop users from spamming buttons
-    if (Date.now() - this.timestamp > 300 || message === 'deactivate' || __TEST__)
+    if (Date.now() - this.timestamp > 300 || message === 'deactivate' || global.__TEST__)
       this.timestamp = Date.now();
     else
       return;

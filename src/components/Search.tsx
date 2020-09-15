@@ -14,7 +14,9 @@ import { sizes } from '../sizes';
 
 import getTheme from '../colors';
 
-declare const __TEST__: boolean;
+declare const global: {
+  __TEST__: boolean
+};
 
 const colors = getTheme();
 
@@ -35,7 +37,7 @@ class Search extends StoreComponent<{
   onPress(maximize: boolean): void
   {
     // to stop users from spamming buttons
-    if (Date.now() - this.timestamp > 500 || __TEST__)
+    if (Date.now() - this.timestamp > 500 || global.__TEST__)
       this.timestamp = Date.now();
     else
       return;
