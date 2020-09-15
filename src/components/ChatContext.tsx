@@ -47,8 +47,6 @@ class ChatContext extends StoreComponent<{
     this.deactivate = this.deactivate.bind(this);
   }
 
-  responsive = responsive.bind(this);
-
   timestamp = Date.now()
 
   progress = new Animated.Value(0);
@@ -136,49 +134,33 @@ class ChatContext extends StoreComponent<{
           <View style={ styles.info }>
             {/* eslint-disable-next-line react-native/no-inline-styles */}
             <View style={ { flex: 1, justifyContent: 'center' } }>
-              <Text style={ { ...styles.name, fontSize: this.responsive(21) } }>{ member?.displayName }</Text>
-              <Text style={ { ...styles.time, fontSize: this.responsive(17) } }>{ relativeDate(contextMessage?.timestamp, true) }</Text>
+              <Text style={ styles.name }>{ member?.displayName }</Text>
+              <Text style={ styles.time }>{ relativeDate(contextMessage?.timestamp, true) }</Text>
             </View>
 
-            {/* <Image
-              style={ {
-                ...styles.avatar,
-                width: this.responsive(sizes.avatar * 1.35),
-                height: this.responsive(sizes.avatar * 1.35),
-                borderRadius: this.responsive(sizes.avatar * 1.35)
-              } }
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              //@ts-ignore
-              source={ member?.avatar }
-              // source={ { uri: member.avatar } }
-            /> */}
-          </View>
-
-          <View style={ styles.message }>
-            <Text
-              numberOfLines={ 3 }
-              ellipsizeMode={ 'tail' }
-
-              style={ { ...styles.messageText, fontSize: this.responsive(21) } }
-            >
-              { `"${contextMessage?.text}"` }
-            </Text>
-          </View>
-
-          <View style={ styles.actions }>
             <Button
               borderless={ true }
-              buttonStyle={ { ...styles.button, width: this.responsive(sizes.avatar * 1.25) } }
-              icon={ { name: 'copy', size: this.responsive(sizes.icon * 1.25), color: colors.whiteText } }
+              buttonStyle={ { ...styles.button, width: sizes.avatar * 1.2 } }
+              icon={ { name: 'copy', size: sizes.icon / 1.2, color: colors.whiteText } }
               onPress={ () =>
               {
+              // copy to clipboard
                 this.clipboard(contextMessage?.text);
 
+                // deactivate context menu
                 this.deactivate();
               } }
             />
-            <View style={ styles.filler }/>
           </View>
+
+          <Text
+            numberOfLines={ 3 }
+            ellipsizeMode={ 'tail' }
+            style={ styles.message }
+          >
+            { contextMessage?.text }
+          </Text>
+
         </View>
       </Animated.View>
     );
@@ -214,40 +196,21 @@ const styles = StyleSheet.create({
     marginVertical: sizes.windowMargin
   },
 
-  avatar: {
-    backgroundColor: colors.iconBackground
-  },
-
   name: {
-    color: colors.whiteText
+    marginRight: sizes.windowMargin,
+    color: colors.whiteText,
+    fontSize: 15
   },
 
   time: {
-    color: colors.greyText
-  },
-
-  message: {
-    marginHorizontal: sizes.windowMargin,
-    marginVertical: sizes.windowMargin / 1.5
-  },
-
-  messageText: {
+    marginRight: sizes.windowMargin,
     color: colors.greyText,
-    fontStyle: 'italic'
-  },
-
-  actions: {
-    marginHorizontal: sizes.windowMargin,
-    marginVertical: sizes.windowMargin
+    fontSize: 13
   },
 
   button: {
     alignItems: 'center',
     justifyContent: 'center'
-    
-    // padding: sizes.windowMargin / 2,
-    // backgroundColor: colors.red,
-    // borderRadius: sizes.windowMargin / 2
   },
 
   buttonText: {
@@ -255,8 +218,14 @@ const styles = StyleSheet.create({
     fontWeight: '700'
   },
 
-  filler: {
-    flexGrow: 1
+  message: {
+    marginHorizontal: sizes.windowMargin,
+    
+    marginTop: sizes.windowMargin / 2,
+    marginBottom: sizes.windowMargin * 1.5,
+
+    color: colors.greyText,
+    fontSize: 15
   }
 });
 
