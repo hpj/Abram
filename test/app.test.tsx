@@ -1101,6 +1101,84 @@ describe('Testing <App/>', () =>
 
       component.unmount();
     });
+  
+    test('Sending Messages', async() =>
+    {
+      getStore().set({
+        profile: {
+          uuid: '0',
+          avatar: 0
+        } as Profile,
+        inbox: [
+          {
+            id: '0',
+            displayName: 'Mika',
+            members: [
+              {
+                uuid: '0',
+                avatar: 0
+              },
+              {
+                uuid: '1',
+                avatar: 1
+              }
+            ],
+            messages: [
+              { owner: '1', text: 'Yay', timestamp: subDays(new Date(), 2) }
+            ]
+          }
+        ] as InboxEntry[]
+      });
+    
+      const component = render(<App/>);
+    
+      // wait for app loading
+      await waitFor(() => component.getByTestId('v-main-area'));
+  
+      // snap the bottom sheet the top of the screen
+      // by simulating pressing a chat from inbox
+      fireEvent.press(component.getByTestId('bn-chat'));
+  
+      await waitFor(() => true);
+  
+      const initialHeader = toJSON(component, 'v-chat-header', 'all');
+      
+      const initialMessages = toJSON(component, 'v-messages', 'all');
+      
+      expect(initialHeader).toMatchSnapshot('Should Have A Normal Date');
+        
+      expect(initialMessages?.children).toHaveLength(1);
+
+      // typing message
+
+      fireEvent.changeText(component.getByTestId('in-message'), '<3');
+      
+      const initialInput = toJSON(component, 'in-message', 'all');
+
+      expect(initialInput).toMatchSnapshot('Typing Message');
+
+      // send message
+
+      fireEvent.press(component.getByTestId('bn-message'));
+
+      await waitFor(() => true);
+      
+      const input = toJSON(component, 'in-message', 'all');
+
+      expect(input).toMatchSnapshot('Sent Message');
+
+      const header = toJSON(component, 'v-chat-header', 'all');
+      
+      const messages = toJSON(component, 'v-messages', 'all');
+      
+      expect(header).toMatchSnapshot('Should Have A Recently Active State');
+        
+      expect(messages?.children).toHaveLength(2);
+
+      expect(messages?.children?.[0]).toMatchSnapshot('Should Be A Message Equal to <3');
+  
+      component.unmount();
+    });
   });
 });
 

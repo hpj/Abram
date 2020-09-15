@@ -55,6 +55,17 @@
     "keyword-spacing": ["error", { "before": true, "after": true }],
     "no-trailing-spaces": ["error", { "skipBlankLines": true }],
 
+    "@typescript-eslint/member-delimiter-style": [ 2, {
+      "multiline": {
+        "delimiter": "comma",
+        "requireLast": false
+      },
+      "singleline": {
+          "delimiter": "comma",
+          "requireLast": false
+      }
+    } ],
+
     "@typescript-eslint/type-annotation-spacing": ["warn", {
       "before": false,
       "after": true,
@@ -68,6 +79,8 @@
 
     "react/display-name": [ 0 ],
     "react/jsx-curly-spacing": [ 2, "always" ],
+    "react/jsx-curly-brace-presence": [ 2, { "props": "always" } ],
+
     "jsx-quotes": ["error", "prefer-single"],
 
     "react-native/no-unused-styles": 2,

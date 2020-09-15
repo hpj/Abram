@@ -14,7 +14,7 @@ import { StoreComponent } from '../store';
 
 import { relativeDate } from '../utils';
 
-import { sizes, responsive } from '../sizes';
+import { sizes } from '../sizes';
 
 import { depth } from '../depth';
 
@@ -32,7 +32,7 @@ class ChatContext extends StoreComponent<{
   size: Size,
   activeChat: InboxEntry,
   context: boolean,
-  contextMessage: Message,
+  contextMessage: Message
 }>
 {
   constructor()
@@ -118,7 +118,7 @@ class ChatContext extends StoreComponent<{
     });
 
     return (
-      <Animated.View testID='v-chat-context' style={ {
+      <Animated.View testID={ 'v-chat-context' } style={ {
         ...styles.wrapper,
 
         top,

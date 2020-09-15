@@ -2,8 +2,6 @@ import React from 'react';
 
 import { StyleSheet, View, FlatList, TextInput, Text, Image } from 'react-native';
 
-import type { NativeSyntheticEvent, TextInputChangeEventData } from 'react-native';
-
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 import { differenceInMinutes } from 'date-fns';
@@ -131,11 +129,9 @@ class Chat extends StoreComponent<{
     chatContextRef.current?.onActive(message);
   }
 
-  onChange(e: NativeSyntheticEvent<TextInputChangeEventData>): void
+  onChange(text: string): void
   {
     const { inputs, activeChat } = this.state;
-
-    const text = e.nativeEvent.text;
 
     inputs[activeChat.id] = this.strip(text);
 
@@ -168,12 +164,12 @@ class Chat extends StoreComponent<{
     const avatarBubbleTextWidth = bubbleTextWidth - sizes.chatAvatar - sizes.windowMargin;
 
     return (
-      <View testID='v-chat' style={ {
+      <View testID={ 'v-chat' } style={ {
         ...styles.container,
         height: viewHeight
       } }>
         <FlatList
-          testID='v-messages'
+          testID={ 'v-messages' }
           inverted={ true }
           data={ messages.reverse() }
           keyExtractor={ (item, index) => index.toString() }
@@ -201,11 +197,8 @@ class Chat extends StoreComponent<{
                     style={ { ...styles.message, maxWidth: bubbleWidth } }
                     onPress={ () => this.onPress(item) }
                   >
-                    {
-                      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                      //@ts-ignore
-                      <Image style={ styles.avatar } source={ avatar }/>
-                    }
+                    {/* @ts-ignore */}
+                    <Image style={ styles.avatar } source={ avatar }/>
                     {/* <Image style={ styles.avatar } source={ { uri: avatar } }/> */}
                     <Text style={ { ...styles.text, maxWidth: avatarBubbleTextWidth } }>{ item.text }</Text>
                   </TouchableWithoutFeedback> :
@@ -226,14 +219,16 @@ class Chat extends StoreComponent<{
           width: size.width - (sizes.windowMargin * 2)
         } }>
           <TextInput
+            testID={ 'in-message' }
             style={ styles.field }
             multiline={ true }
             value={ value }
-            onChange={ this.onChange }
+            onChangeText={ this.onChange }
             placeholderTextColor={ colors.placeholder }
             placeholder={ 'Write Message' }
           />
           <Button
+            testID={ 'bn-message' }
             borderless={ true }
             buttonStyle={ styles.send }
             onPress={ this.sendMessage }

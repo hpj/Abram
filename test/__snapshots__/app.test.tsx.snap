@@ -1344,6 +1344,198 @@ exports[`Testing <App/> Chat Messages List With Avatars: Should Be Message Witho
 </View>
 `;
 
+exports[`Testing <App/> Chat Sending Messages: Sent Message 1`] = `
+<TextInput
+  allowFontScaling={true}
+  multiline={true}
+  onChangeText={[Function]}
+  placeholder="Write Message"
+  placeholderTextColor="rgba(255,255,255,0.45)"
+  rejectResponderTermination={true}
+  style={
+    Object {
+      "color": "#ffffff",
+      "flex": 1,
+      "fontSize": 16,
+      "marginBottom": 5,
+      "marginLeft": 20,
+      "marginRight": 5,
+      "marginTop": 5,
+    }
+  }
+  testID="in-message"
+  underlineColorAndroid="transparent"
+  value=""
+/>
+`;
+
+exports[`Testing <App/> Chat Sending Messages: Should Be A Message Equal to <3 1`] = `
+<View>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginBottom": 20,
+        "marginTop": 20,
+        "textAlign": "center",
+      }
+    }
+  >
+    Today, 12:00 AM
+  </Text>
+  <RNGestureHandlerButton
+    collapsable={false}
+    onGestureEvent={[Function]}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    onHandlerStateChange={[Function]}
+    rippleColor={0}
+    style={
+      Array [
+        Object {
+          "overflow": "hidden",
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "flex-end",
+          "backgroundColor": "#1C1C1C",
+          "borderColor": "#1C1C1C",
+          "borderRadius": 25,
+          "borderWidth": 0,
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "marginBottom": 5,
+          "marginLeft": 20,
+          "marginRight": 20,
+          "marginTop": 10,
+          "maxWidth": 418.40000000000003,
+          "minHeight": 49.5,
+          "minWidth": 73,
+          "paddingVertical": 10,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "rgba(255,255,255,0.8)",
+            "fontSize": 16,
+            "marginLeft": 20,
+            "marginRight": 20,
+            "maxWidth": 378.40000000000003,
+          }
+        }
+      >
+        &lt;3
+      </Text>
+    </View>
+  </RNGestureHandlerButton>
+</View>
+`;
+
+exports[`Testing <App/> Chat Sending Messages: Should Have A Normal Date 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#000000",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+  testID="v-chat-header"
+>
+  <Text
+    style={
+      Object {
+        "color": "#ffffff",
+        "fontSize": 15,
+        "fontWeight": "bold",
+      }
+    }
+  >
+    Mika
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+      }
+    }
+  >
+    Active 2 days ago
+  </Text>
+</View>
+`;
+
+exports[`Testing <App/> Chat Sending Messages: Should Have A Recently Active State 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#000000",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+  testID="v-chat-header"
+>
+  <Text
+    style={
+      Object {
+        "color": "#ffffff",
+        "fontSize": 15,
+        "fontWeight": "bold",
+      }
+    }
+  >
+    Mika
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+      }
+    }
+  >
+    Active recently
+  </Text>
+</View>
+`;
+
+exports[`Testing <App/> Chat Sending Messages: Typing Message 1`] = `
+<TextInput
+  allowFontScaling={true}
+  multiline={true}
+  onChangeText={[Function]}
+  placeholder="Write Message"
+  placeholderTextColor="rgba(255,255,255,0.45)"
+  rejectResponderTermination={true}
+  style={
+    Object {
+      "color": "#ffffff",
+      "flex": 1,
+      "fontSize": 16,
+      "marginBottom": 5,
+      "marginLeft": 20,
+      "marginRight": 5,
+      "marginTop": 5,
+    }
+  }
+  testID="in-message"
+  underlineColorAndroid="transparent"
+  value="<3"
+/>
+`;
+
 exports[`Testing <App/> Loading Error 1`] = `
 <RCTSafeAreaView
   emulateUnlessSupported={true}

@@ -131,7 +131,7 @@ export default class App extends StoreComponent<unknown, {
   render(): JSX.Element
   {
     if (this.state.error)
-      return <SafeAreaView testID='v-error' style={ styles.error }>
+      return <SafeAreaView testID={ 'v-error' } style={ styles.error }>
         <Text style={ styles.errorText }>{ this.state.error }</Text>
       </SafeAreaView>;
 
@@ -146,26 +146,26 @@ export default class App extends StoreComponent<unknown, {
     });
 
     return (
-      <SafeAreaView testID='v-main-area' style={ styles.container }>
+      <SafeAreaView testID={ 'v-main-area' } style={ styles.container }>
 
         <ChatContext ref={ this.chatContextRef } holderNode={ this.holderNode }/>
 
         <TopBar holderNode={ this.holderNode } bottomSheetNode={ this.bottomSheetNode }/>
 
-        <View testID='v-navigation' style={ styles.views }>
+        <View testID={ 'v-navigation' } style={ styles.views }>
 
-          <NavigationView testID='v-inbox' active={ (this.state.index === 0) }>
+          <NavigationView testID={ 'v-inbox' } active={ (this.state.index === 0) }>
             <Inbox snapTo={ this.bottomSheetRef.current?.snapTo }/>
           </NavigationView>
 
-          <NavigationView testID='v-discover' active={ (this.state.index === 1) }>
+          <NavigationView testID={ 'v-discover' } active={ (this.state.index === 1) }>
             <Discover/>
           </NavigationView>
 
         </View>
 
         <TouchableWithoutFeedback>
-          <Animated.View testID='v-holder' style={ {
+          <Animated.View testID={ 'v-holder' } style={ {
             ...styles.holder,
 
             zIndex: context ? depth.contextHolder : depth.menuHolder,
@@ -179,7 +179,7 @@ export default class App extends StoreComponent<unknown, {
 
         <BottomNavigation/>
 
-        <View testID='v-bottom-sheet' style={ {
+        <View testID={ 'v-bottom-sheet' } style={ {
           ...styles.bottomSheet,
           width: size.width,
           height: size.height

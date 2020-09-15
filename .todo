@@ -11,19 +11,15 @@ Pre:
     ☐ expo's over-the-air updates
 
 Testing:
-  ☐ sending and striping messages
-    ☐ chat header "Active .. ago" states
-
   ☐ chat context menu
   
 UI/UX:
+☐ save read messages state locally
+
   ☐ sort inbox by date
-  
-  ☐ save read messages state locally
+  ☐ sort avatars by date
 
   ☐ add fallback support to i18n
-
-  ☐ add RTL support
 
   ☐ design a mockup for Menu (non-chat) view
   
@@ -31,5 +27,7 @@ UI/UX:
   ☐ design a mockup for Profile view
 
   ☐ design a mockup for Discover view
+
+  ☐ add RTL support
 
 Discover:
