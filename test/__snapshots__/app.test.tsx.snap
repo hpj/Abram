@@ -739,6 +739,337 @@ exports[`Testing <App/> Chat Avatars 4 Avatars: Should Have Client Avatar And De
 </View>
 `;
 
+exports[`Testing <App/> Chat Chat Context 1`] = `
+Snapshot Diff:
+Compared values have no visual difference.
+`;
+
+exports[`Testing <App/> Chat Chat Context: Y-Axis should be 0 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "height": 1131,
+      "position": "absolute",
+      "top": 0,
+      "width": 523,
+      "zIndex": 6,
+    }
+  }
+  testID="v-chat-context"
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexGrow": 1,
+      }
+    }
+  >
+    <RNGestureHandlerButton
+      collapsable={false}
+      onGestureEvent={[Function]}
+      onGestureHandlerEvent={[Function]}
+      onGestureHandlerStateChange={[Function]}
+      onHandlerStateChange={[Function]}
+      rippleColor={0}
+      style={
+        Array [
+          Object {
+            "overflow": "hidden",
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        style={
+          Object {
+            "height": "100%",
+          }
+        }
+      />
+    </RNGestureHandlerButton>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#171717",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "marginHorizontal": 20,
+          "marginVertical": 20,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 15,
+              "marginRight": 20,
+            }
+          }
+        />
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "marginRight": 20,
+            }
+          }
+        >
+          Sunday, 12:00 AM
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "width": 45.6,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 20,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </View>
+    <Text
+      ellipsizeMode="tail"
+      numberOfLines={3}
+      style={
+        Object {
+          "color": "#818181",
+          "fontSize": 15,
+          "marginBottom": 30,
+          "marginHorizontal": 20,
+          "marginTop": 10,
+        }
+      }
+    >
+      Yay
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Testing <App/> Chat Chat Context: Y-Axis should be equal to screen's hight 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "height": 1131,
+      "position": "absolute",
+      "top": 1131,
+      "width": 523,
+      "zIndex": 6,
+    }
+  }
+  testID="v-chat-context"
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexGrow": 1,
+      }
+    }
+  >
+    <RNGestureHandlerButton
+      collapsable={false}
+      onGestureEvent={[Function]}
+      onGestureHandlerEvent={[Function]}
+      onGestureHandlerStateChange={[Function]}
+      onHandlerStateChange={[Function]}
+      rippleColor={0}
+      style={
+        Array [
+          Object {
+            "overflow": "hidden",
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        style={
+          Object {
+            "height": "100%",
+          }
+        }
+      />
+    </RNGestureHandlerButton>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#171717",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "marginHorizontal": 20,
+          "marginVertical": 20,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 15,
+              "marginRight": 20,
+            }
+          }
+        />
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "marginRight": 20,
+            }
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "width": 45.6,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 20,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+    </View>
+    <Text
+      ellipsizeMode="tail"
+      numberOfLines={3}
+      style={
+        Object {
+          "color": "#818181",
+          "fontSize": 15,
+          "marginBottom": 30,
+          "marginHorizontal": 20,
+          "marginTop": 10,
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
 exports[`Testing <App/> Chat Height With Keyboard: Should Have Full Height 1`] = `
 <View
   style={
@@ -838,6 +1169,7 @@ exports[`Testing <App/> Chat Messages List Normal: Should Be Message With Timest
           "paddingVertical": 10,
         }
       }
+      testID="bn-context"
     >
       <Text
         style={
@@ -898,6 +1230,7 @@ exports[`Testing <App/> Chat Messages List Normal: Should Be Message Without Tim
           "paddingVertical": 10,
         }
       }
+      testID="bn-context"
     >
       <Text
         style={
@@ -969,6 +1302,7 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
           "paddingVertical": 10,
         }
       }
+      testID="bn-context"
     >
       <Text
         style={
@@ -1040,6 +1374,7 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
           "paddingVertical": 10,
         }
       }
+      testID="bn-context"
     >
       <Text
         style={
@@ -1111,6 +1446,7 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
           "paddingVertical": 10,
         }
       }
+      testID="bn-context"
     >
       <Text
         style={
@@ -1182,6 +1518,7 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
           "paddingVertical": 10,
         }
       }
+      testID="bn-context"
     >
       <Text
         style={
@@ -1253,6 +1590,7 @@ exports[`Testing <App/> Chat Messages List With Avatars: Should Be Message With 
           "paddingVertical": 10,
         }
       }
+      testID="bn-context"
     >
       <Image
         source={1}
@@ -1325,6 +1663,7 @@ exports[`Testing <App/> Chat Messages List With Avatars: Should Be Message Witho
           "paddingVertical": 10,
         }
       }
+      testID="bn-context"
     >
       <Text
         style={
@@ -1422,6 +1761,7 @@ exports[`Testing <App/> Chat Sending Messages: Should Be A Message Equal to <3 1
           "paddingVertical": 10,
         }
       }
+      testID="bn-context"
     >
       <Text
         style={

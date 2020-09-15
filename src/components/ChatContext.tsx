@@ -32,7 +32,7 @@ class ChatContext extends StoreComponent<{
   size: Size,
   activeChat: InboxEntry,
   context: boolean,
-  contextMessage: Message
+  contextMessage?: Message
 }>
 {
   constructor()
@@ -43,7 +43,9 @@ class ChatContext extends StoreComponent<{
 
     // bind functions to use as callbacks
     
-    this.onActive = this.onActive.bind(this);
+    this.onClipboard = this.onClipboard.bind(this);
+
+    this.activate = this.activate.bind(this);
     this.deactivate = this.deactivate.bind(this);
   }
 
@@ -51,55 +53,80 @@ class ChatContext extends StoreComponent<{
 
   progress = new Animated.Value(0);
 
-  clipboard(text?: string): void
+  onClipboard(): void
   {
-    if (text && text.length)
-      Clipboard.setString(text);
+    const { contextMessage } = this.state;
+
+    if (contextMessage?.text?.length)
+      Clipboard.setString(contextMessage.text);
+
+    this.deactivate();
   }
 
-  onActive(message?: Message | 'deactivate'): void
+  activate(message: Message): void
   {
+    // istanbul ignore else
     // to stop users from spamming buttons
-    if (Date.now() - this.timestamp > 250 || message === 'deactivate' || global.__TEST__)
+    if (Date.now() - this.timestamp > 350 || global.__TEST__)
       this.timestamp = Date.now();
     else
       return;
 
-    const context = this.state.context ? false : true;
-
-    if (context && (!message || message === 'deactivate'))
-      return;
-    
-    if (context)
-      BackHandler.addEventListener('hardwareBackPress', this.deactivate);
-    else
-      BackHandler.removeEventListener('hardwareBackPress', this.deactivate);
+    BackHandler.addEventListener('hardwareBackPress', this.deactivate);
 
     // update store
     this.store.set({
-      context,
-      contextMessage: (context && message) ? message : this.state.contextMessage,
-      holder: context
+      context: true,
+      contextMessage: message,
+      holder: true
     }, () =>
     {
-      Animated.timing(this.progress, {
-        duration: context ? 200 : 300,
-        toValue: context ? 1 : 0,
-        easing: Easing.inOut(Easing.circle)
-      }).start();
-  
       Animated.timing(this.props.holderNode, {
         duration: 200,
-        toValue: context ? 1 : 0,
+        toValue: 1,
         easing: Easing.linear
       }).start();
-    });
 
+      Animated.timing(this.progress, {
+        duration: 200,
+        toValue: 1,
+        easing: Easing.inOut(Easing.circle)
+      }).start(() => this.store.dispatch());
+    });
   }
 
   deactivate(): boolean
   {
-    this.onActive('deactivate');
+    // istanbul ignore else
+    // to stop users from spamming buttons
+    if (Date.now() - this.timestamp > 350 || global.__TEST__)
+      this.timestamp = Date.now();
+    else
+      return true;
+
+    BackHandler.removeEventListener('hardwareBackPress', this.deactivate);
+
+    this.store.set({
+      context: false,
+      holder: false
+    }, () =>
+    {
+      Animated.timing(this.props.holderNode, {
+        duration: 200,
+        toValue: 0,
+        easing: Easing.linear
+      }).start();
+
+      Animated.timing(this.progress, {
+        duration: 300,
+        toValue: 0,
+        easing: Easing.inOut(Easing.circle)
+      }).start(({ finished }) =>
+      {
+        if (finished && !this.state.context)
+          this.store.set({ contextMessage: undefined });
+      });
+    });
 
     return true;
   }
@@ -126,12 +153,12 @@ class ChatContext extends StoreComponent<{
         height: size.height
       } }>
         <View style={ styles.blockerWrapper }>
-          <TouchableWithoutFeedback style={ styles.blockerContainer } onPress={ () => this.onActive() }/>
+          <TouchableWithoutFeedback style={ styles.blockerContainer } onPress={ () => this.deactivate() }/>
         </View>
 
         <View style={ styles.container }>
-          {/* info */}
           <View style={ styles.info }>
+
             {/* eslint-disable-next-line react-native/no-inline-styles */}
             <View style={ { flex: 1, justifyContent: 'center' } }>
               <Text style={ styles.name }>{ member?.displayName }</Text>
@@ -142,14 +169,7 @@ class ChatContext extends StoreComponent<{
               borderless={ true }
               buttonStyle={ { ...styles.button, width: sizes.avatar * 1.2 } }
               icon={ { name: 'copy', size: sizes.icon / 1.2, color: colors.whiteText } }
-              onPress={ () =>
-              {
-              // copy to clipboard
-                this.clipboard(contextMessage?.text);
-
-                // deactivate context menu
-                this.deactivate();
-              } }
+              onPress={ this.onClipboard }
             />
           </View>
 

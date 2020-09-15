@@ -12,7 +12,7 @@ import { render, fireEvent, waitFor, cleanup } from 'react-native-testing-librar
 
 import type { RenderAPI } from 'react-native-testing-library';
 
-import type { ReactTestRendererJSON } from 'react-test-renderer';
+import type { ReactTestInstance, ReactTestRendererJSON } from 'react-test-renderer';
 
 import { subDays } from 'date-fns';
 
@@ -187,13 +187,16 @@ jest.mock('react-native-reanimated', () =>
           if (callback)
           {
             callback({ finished: false });
-
             callback({ finished: true });
           }
         })
       };
     }),
     View: View,
+    Easing: {
+      linear: 0,
+      inOut: jest.fn()
+    },
     Value: jest.fn().mockImplementation((value) =>
     {
       let v = value || 0;
@@ -203,8 +206,7 @@ jest.mock('react-native-reanimated', () =>
         setValue: (value: number) => v = value,
         interpolate: ({ inputRange, outputRange }: any) => outputRange[inputRange.indexOf(v)]
       };
-    }),
-    Easing: jest.fn()
+    })
   };
 });
 
@@ -788,6 +790,8 @@ describe('Testing <App/>', () =>
       // by simulating pressing the menu button
       fireEvent.press(component.getByTestId('bn-menu'));
 
+      await waitFor(() => true);
+
       const activeMenu = toJSON(component, 'v-menu', 'one');
       const activeHolder = toJSON(component, 'v-holder');
 
@@ -795,8 +799,12 @@ describe('Testing <App/>', () =>
       expect(activeHolder).toMatchSnapshot('Holder View Should Be Visible & Enabled');
   
       // hide the main menu
-      // by simulating pressing the menu button
-      fireEvent.press(component.getByTestId('bn-menu'));
+      // by simulating pressing the hardware back button
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
+      BackHandler.mockPressBack();
+
+      await waitFor(() => true);
 
       const hiddenMenu = toJSON(component, 'v-menu', 'one');
       const hiddenHolder = toJSON(component, 'v-holder');
@@ -1177,6 +1185,74 @@ describe('Testing <App/>', () =>
 
       expect(messages?.children?.[0]).toMatchSnapshot('Should Be A Message Equal to <3');
   
+      component.unmount();
+    });
+
+    test('Chat Context', async() =>
+    {
+      getStore().set({
+        profile: {
+          uuid: '0',
+          avatar: 0
+        } as Profile,
+        inbox: [
+          {
+            id: '0',
+            displayName: 'Mika',
+            members: [
+              {
+                uuid: '0',
+                avatar: 0
+              },
+              {
+                uuid: '1',
+                avatar: 1
+              }
+            ],
+            messages: [
+              { owner: '1', text: 'Yay', timestamp: subDays(new Date(), 2) }
+            ]
+          }
+        ] as InboxEntry[]
+      });
+    
+      const component = render(<App/>);
+    
+      // wait for app loading
+      await waitFor(() => component.getByTestId('v-main-area'));
+  
+      // snap the bottom sheet the top of the screen
+      // by simulating pressing a chat from inbox
+      fireEvent.press(component.getByTestId('bn-chat'));
+  
+      await waitFor(() => true);
+  
+      const initialContext = toJSON(component, 'v-chat-context', 'all');
+
+      expect(initialContext).toMatchSnapshot('Y-Axis should be equal to screen\'s hight');
+
+      const message = component.getByTestId('v-messages').children[0] as ReactTestInstance;
+      
+      fireEvent.press(message.findByProps({ testID: 'bn-context' }));
+
+      await waitFor(() => true);
+
+      const context = toJSON(component, 'v-chat-context', 'all');
+
+      expect(context).toMatchSnapshot('Y-Axis should be 0');
+
+      // hide the main menu
+      // by simulating pressing the hardware back button
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
+      BackHandler.mockPressBack();
+
+      await waitFor(() => true);
+
+      const closedContext = toJSON(component, 'v-chat-context', 'all');
+
+      expect(closedContext).toMatchDiffSnapshot(initialContext);
+
       component.unmount();
     });
   });

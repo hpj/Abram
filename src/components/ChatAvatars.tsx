@@ -48,10 +48,11 @@ class ChatAvatars extends StoreComponent<{
 
   progress = new Animated.Value(0);
 
-  onPress(message?: 'deactivate'): void
+  onPress(): void
   {
+    // istanbul ignore else
     // to stop users from spamming buttons
-    if (Date.now() - this.timestamp > 300 || message === 'deactivate' || global.__TEST__)
+    if (Date.now() - this.timestamp > 350 || global.__TEST__)
       this.timestamp = Date.now();
     else
       return;
@@ -63,25 +64,26 @@ class ChatAvatars extends StoreComponent<{
     else
       BackHandler.removeEventListener('hardwareBackPress', this.deactivate);
 
-    Animated.timing(this.progress, {
-      duration: 150,
-      toValue: menu ? 1 : 0,
-      easing: Easing.linear
-    }).start();
-
-    Animated.timing(this.props.holderNode, {
-      duration: 200,
-      toValue: menu ? 1 : 0,
-      easing: Easing.linear
-    }).start();
-
     // update store
-    this.store.set({ menu, holder: menu });
+    this.store.set({ menu, holder: menu }, () =>
+    {
+      Animated.timing(this.props.holderNode, {
+        duration: 200,
+        toValue: menu ? 1 : 0,
+        easing: Easing.linear
+      }).start();
+
+      Animated.timing(this.progress, {
+        duration: 150,
+        toValue: menu ? 1 : 0,
+        easing: Easing.linear
+      }).start(() => this.store.dispatch());
+    });
   }
 
   deactivate(): boolean
   {
-    this.onPress('deactivate');
+    this.onPress();
 
     return true;
   }
@@ -122,7 +124,7 @@ class ChatAvatars extends StoreComponent<{
     });
 
     return (
-      <View testID='v-menu' style={ styles.container }>
+      <View testID={ 'v-menu' } style={ styles.container }>
         <Animated.View style={ {
           ...styles.menu,
 
@@ -135,17 +137,14 @@ class ChatAvatars extends StoreComponent<{
 
         <View style={ styles.wrapper }>
           <Button
-            testID='bn-menu'
+            testID={ 'bn-menu' }
             borderless={ true }
             buttonStyle={ styles.button }
             onPress={ this.onPress }
           >
             <Animated.View style={ styles.avatarContainer }>
-              {
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                //@ts-ignore
-                <Image style={ styles.avatar } source={ profile.avatar }/>
-              }
+              {/* @ts-ignore */}
+              <Image style={ styles.avatar } source={ profile.avatar }/>
               {/* <Image style={ styles.avatar } source={ { uri: profile.avatar } }/> */}
             </Animated.View>
 

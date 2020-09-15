@@ -36,6 +36,7 @@ class Search extends StoreComponent<{
   
   onPress(maximize: boolean): void
   {
+    // istanbul ignore else
     // to stop users from spamming buttons
     if (Date.now() - this.timestamp > 500 || global.__TEST__)
       this.timestamp = Date.now();

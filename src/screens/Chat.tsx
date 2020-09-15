@@ -126,7 +126,7 @@ class Chat extends StoreComponent<{
   {
     const { chatContextRef } = this.props;
 
-    chatContextRef.current?.onActive(message);
+    chatContextRef.current?.activate(message);
   }
 
   onChange(text: string): void
@@ -194,6 +194,7 @@ class Chat extends StoreComponent<{
               {
                 (avatar) ?
                   <TouchableWithoutFeedback
+                    testID={ 'bn-context' }
                     style={ { ...styles.message, maxWidth: bubbleWidth } }
                     onPress={ () => this.onPress(item) }
                   >
@@ -204,6 +205,7 @@ class Chat extends StoreComponent<{
                   </TouchableWithoutFeedback> :
 
                   <TouchableWithoutFeedback
+                    testID={ 'bn-context' }
                     style={ { ...styles.message, ...(self ? styles.messageAlt : undefined), maxWidth: bubbleWidth } }
                     onPress={ () => this.onPress(item) }
                   >
