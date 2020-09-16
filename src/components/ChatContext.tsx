@@ -53,6 +53,19 @@ class ChatContext extends StoreComponent<{
 
   progress = new Animated.Value(0);
 
+  stateWhitelist(changes: ChatContext['state']): boolean
+  {
+    if (
+      changes.size ||
+      changes.activeChat ||
+      changes.context ||
+      changes.contextMessage
+    )
+      return true;
+    
+    return false;
+  }
+
   onClipboard(): void
   {
     const { contextMessage } = this.state;
@@ -91,7 +104,8 @@ class ChatContext extends StoreComponent<{
         duration: 200,
         toValue: 1,
         easing: Easing.inOut(Easing.circle)
-      }).start(() => this.store.dispatch());
+      // returns component which is used by the reanimated mocks while testing
+      }).start(() => this);
     });
   }
 

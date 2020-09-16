@@ -18,10 +18,44 @@ const colors = getTheme();
 
 class Inbox extends StoreComponent<{ snapTo?: ((index: number) => void) | undefined }, {
   profile: Profile,
+  activeChat: InboxEntry,
   inbox: InboxEntry[]
 }>
 {
   responsive = responsive.bind(this);
+
+  stateWillChange({ inbox }: Inbox['state']): Partial<Inbox['state']>
+  {
+    // TODO limit entries using the backend, so this won't slow performance much
+
+    // sort the inbox every time the user sends a new messages or receives one
+    return {
+      inbox: inbox.sort((a, b) =>
+      {
+        const tA = a.messages[a.messages.length - 1];
+        const tB = b.messages[b.messages.length - 1];
+
+        if (tA.timestamp.getTime() > tB.timestamp.getTime())
+          return -1;
+        else if (tA.timestamp.getTime() < tB.timestamp.getTime())
+          return 1;
+        else
+          return 0;
+      })
+    };
+  }
+
+  stateWhitelist(changes: Inbox['state']): boolean
+  {
+    if (
+      changes.profile ||
+      changes.activeChat ||
+      changes.inbox
+    )
+      return true;
+    
+    return false;
+  }
 
   onPress(entry: InboxEntry): void
   {
@@ -33,7 +67,7 @@ class Inbox extends StoreComponent<{ snapTo?: ((index: number) => void) | undefi
     const { inbox, profile } = this.state;
 
     return (
-      <ScrollView style={ styles.wrapper }>
+      <ScrollView testID={ 'v-inbox' } style={ styles.wrapper }>
         {
           inbox.map((entry, t) =>
           {
@@ -45,10 +79,12 @@ class Inbox extends StoreComponent<{ snapTo?: ((index: number) => void) | undefi
 
             const lastMessage = entry.messages[entry.messages.length - 1];
             const lastMessageTime = relativeDate(lastMessage.timestamp);
-            
+
+            const badge = lastMessage.owner !== profile.uuid ;
+
             return <Button
               key={ t }
-              testID='bn-chat'
+              testID={ 'bn-chat' }
               borderless={ false }
               onPress={ () => this.onPress(entry) }
             >
@@ -62,7 +98,6 @@ class Inbox extends StoreComponent<{ snapTo?: ((index: number) => void) | undefi
                     height: this.responsive(sizes.inboxAvatar)
                   } }>
                     {
-                      // TODO show the most relevant avatars
                       members.splice(0, 4).map((member, i, array) =>
                       {
                         let size = this.responsive(sizes.inboxAvatar);
@@ -148,7 +183,7 @@ class Inbox extends StoreComponent<{ snapTo?: ((index: number) => void) | undefi
 
                             borderRadius: this.responsive(23),
 
-                            opacity: (t !== 2 && left === 0 && top === 0) ? 1 : 0
+                            opacity: (badge && left === 0 && top === 0) ? 1 : 0
                           } }/>
                         </View>;
                       })

@@ -84,6 +84,29 @@ class Chat extends StoreComponent<{
     this.sendMessage = this.sendMessage.bind(this);
   }
 
+  messages: Message[] = [];
+
+  stateWillChange({ activeChat }: Chat['state']): void
+  {
+    // TODO limit the number of messages using the backend, so this won't slow performance much
+    
+    // reverse happens because the way flat-list works
+    this.messages = activeChat?.messages?.concat().reverse();
+  }
+
+  stateWhitelist(changes: Chat['state']): boolean
+  {
+    if (
+      changes.size ||
+      changes.keyboard ||
+      changes.profile ||
+      changes.activeChat
+    )
+      return true;
+    
+    return false;
+  }
+
   strip(s: string): string
   {
     let striped = s;
@@ -147,8 +170,6 @@ class Chat extends StoreComponent<{
 
     const value = inputs[activeChat.id] ?? '';
 
-    const messages = [ ...activeChat.messages ];
-
     const fieldHeight = (keyboard.height) ?
       (sizes.topBarHeight + sizes.windowMargin) :
       0;
@@ -171,7 +192,7 @@ class Chat extends StoreComponent<{
         <FlatList
           testID={ 'v-messages' }
           inverted={ true }
-          data={ messages.reverse() }
+          data={ this.messages }
           keyExtractor={ (item, index) => index.toString() }
           renderItem={ ({ item, index }) =>
           {
@@ -182,7 +203,7 @@ class Chat extends StoreComponent<{
                 activeChat.members.find(member => member.uuid === item.owner)?.avatar :
                 undefined;
             
-            const time = relativeDate(item.timestamp, messages[index + 1]?.timestamp);
+            const time = relativeDate(item.timestamp, this.messages[index + 1]?.timestamp);
             
             return <View>
               {

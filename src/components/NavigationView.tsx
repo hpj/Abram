@@ -2,8 +2,6 @@
 
 import React from 'react';
 
-import { View } from 'react-native';
-
 import Animated, { Easing } from 'react-native-reanimated';
 
 class NavigationView extends React.Component<{

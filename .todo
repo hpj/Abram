@@ -1,7 +1,11 @@
 Performance Issues and Bugs:
+  ☐ handle forceUpdates ant animation ends better @critical 
 
-Pre:
+Public Beta:
   ☐ work on branding descriptions and motto
+
+  ☐ consuming native sign-in with google 
+    ☐ region locking
 
   ☐ write the privacy policy
 
@@ -13,19 +17,14 @@ Pre:
 Testing:
   
 UI/UX:
-☐ save read messages state locally
-
-  ☐ sort inbox by date
-  ☐ sort avatars by date
-
-  ☐ add fallback support to i18n
-
   ☐ design a mockup for Menu (non-chat) view
   
   ☐ design a mockup for Sign up view
   ☐ design a mockup for Profile view
 
   ☐ design a mockup for Discover view
+
+  ☐ add fallback support to i18n
 
   ☐ add RTL support
 

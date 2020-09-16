@@ -34,6 +34,18 @@ class Search extends StoreComponent<{
 
   progress = new Animated.Value(0);
   
+  stateWhitelist(changes: Search['state']): boolean
+  {
+    if (
+      changes.size ||
+      changes.activeChat ||
+      changes.searchMaximized
+    )
+      return true;
+    
+    return false;
+  }
+
   onPress(maximize: boolean): void
   {
     // istanbul ignore else
@@ -111,7 +123,7 @@ class Search extends StoreComponent<{
     });
     
     return (
-      <Animated.View testID='v-search' style={ {
+      <Animated.View testID={ 'v-search' } style={ {
         ...styles.container,
         width: searchBarWidth
       } }>
@@ -133,14 +145,14 @@ class Search extends StoreComponent<{
           {
             !searchMaximized ?
               <Button
-                testID='bn-search-maximize'
+                testID={ 'bn-search-maximize' }
                 borderless={ true }
                 buttonStyle={ styles.button }
                 icon={ { name: 'search', size: sizes.icon, color: colors.whiteText } }
                 onPress={ () => this.onPress(true) }
               /> :
               <Button
-                testID='bn-search-minimize'
+                testID={ 'bn-search-minimize' }
                 borderless={ true }
                 // eslint-disable-next-line react-native/no-inline-styles
                 buttonStyle={ styles.button }

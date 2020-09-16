@@ -120,6 +120,21 @@ export default class App extends StoreComponent<unknown, {
     }
   }
 
+  stateWhitelist(changes: App['state']): boolean
+  {
+    if (
+      changes.loaded ||
+      changes.error ||
+      changes.size ||
+      changes.holder ||
+      changes.context ||
+      changes.index
+    )
+      return true;
+    
+    return false;
+  }
+
   onBack(): boolean
   {
     // close bottom sheet

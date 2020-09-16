@@ -27,6 +27,16 @@ class TopBar extends StoreComponent<{
   index: number
 }>
 {
+  stateWhitelist(changes: TopBar['state']): boolean
+  {
+    if (
+      changes.index
+    )
+      return true;
+    
+    return false;
+  }
+
   render(): JSX.Element
   {
     let title;

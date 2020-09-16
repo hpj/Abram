@@ -187,7 +187,9 @@ jest.mock('react-native-reanimated', () =>
           if (callback)
           {
             callback({ finished: false });
-            callback({ finished: true });
+
+            // force update all the things
+            callback({ finished: true })?.store.subscriptions.forEach((component: React.Component) => component.forceUpdate());
           }
         })
       };
@@ -534,7 +536,6 @@ describe('Testing <App/>', () =>
       getStore().set({
         profile: {
           displayName: 'Mana',
-          username: 'Mana',
           avatar: 0
         }
       });
@@ -1134,6 +1135,23 @@ describe('Testing <App/>', () =>
             messages: [
               { owner: '1', text: 'Yay', timestamp: subDays(new Date(), 2) }
             ]
+          },
+          {
+            id: '1',
+            displayName: 'Skye',
+            members: [
+              {
+                uuid: '0',
+                avatar: 0
+              },
+              {
+                uuid: '2',
+                avatar: 2
+              }
+            ],
+            messages: [
+              { owner: '1', text: 'Ya?', timestamp: subDays(new Date(), 3) }
+            ]
           }
         ] as InboxEntry[]
       });
@@ -1145,16 +1163,20 @@ describe('Testing <App/>', () =>
   
       // snap the bottom sheet the top of the screen
       // by simulating pressing a chat from inbox
-      fireEvent.press(component.getByTestId('bn-chat'));
+      fireEvent.press(component.getAllByTestId('bn-chat')[1]);
   
       await waitFor(() => true);
   
       const initialHeader = toJSON(component, 'v-chat-header', 'all');
       
+      const initialInbox= toJSON(component, 'v-inbox', 'all');
+      
       const initialMessages = toJSON(component, 'v-messages', 'all');
       
       expect(initialHeader).toMatchSnapshot('Should Have A Normal Date');
-        
+      
+      expect(initialInbox).toMatchSnapshot();
+
       expect(initialMessages?.children).toHaveLength(1);
 
       // typing message
@@ -1177,9 +1199,13 @@ describe('Testing <App/>', () =>
 
       const header = toJSON(component, 'v-chat-header', 'all');
       
+      const inbox = toJSON(component, 'v-inbox', 'all');
+
       const messages = toJSON(component, 'v-messages', 'all');
       
       expect(header).toMatchSnapshot('Should Have A Recently Active State');
+
+      expect(inbox).toMatchSnapshot('Should Be Sorted With Skye on Top');
         
       expect(messages?.children).toHaveLength(2);
 

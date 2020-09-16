@@ -48,6 +48,19 @@ class ChatAvatars extends StoreComponent<{
 
   progress = new Animated.Value(0);
 
+  stateWhitelist(changes: ChatAvatars['state']): boolean
+  {
+    if (
+      changes.menu ||
+      changes.size ||
+      changes.profile ||
+      changes.activeChat
+    )
+      return true;
+    
+    return false;
+  }
+
   onPress(): void
   {
     // istanbul ignore else
@@ -77,7 +90,8 @@ class ChatAvatars extends StoreComponent<{
         duration: 150,
         toValue: menu ? 1 : 0,
         easing: Easing.linear
-      }).start(() => this.store.dispatch());
+      // returns component which is used by the reanimated mocks while testing
+      }).start(() => this);
     });
   }
 
@@ -149,7 +163,6 @@ class ChatAvatars extends StoreComponent<{
             </Animated.View>
 
             {
-              // TODO show the most relevant avatars
               members.splice(0, 2).map((member, i) =>
               {
                 return <Animated.View key={ i } style={ {

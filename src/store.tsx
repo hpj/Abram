@@ -1,5 +1,6 @@
-/* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable security/detect-object-injection */
+/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import React from 'react';
 
@@ -46,6 +47,34 @@ export class StoreComponent<Props = {}, State = {}> extends React.Component<Prop
   {
     this.store.unsubscribe(this);
   }
+
+  /** Emits before the state changes,
+  * allows modification to the state before it's dispatched
+  */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  stateWillChange(newState: State): Partial<State> | void
+  {
+    //
+  }
+
+  /** Whitelist what changes are allowed to be dispatched to this component,
+  * Improving performance (this is recommended, specially on large apps),
+  * Not overriding this function will allow the component to receive any and all dispatches
+  */
+  // istanbul ignore next
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  stateWhitelist(changes: Partial<State>): boolean
+  {
+    return true;
+  }
+
+  /** Emits every time a new state gets dispatched
+  */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  stateDidChange(state: State, changes: Partial<State>, old: State): void
+  {
+    //
+  }
 }
 
 export default class Store
@@ -53,11 +82,15 @@ export default class Store
   constructor(state?: object)
   {
     this.state = state ?? {};
+
+    this.changes = {};
   }
   
-  subscriptions: React.Component[] = []
+  subscriptions: StoreComponent[] = []
 
-  state: object
+  state: any
+
+  changes: any
 
   mount(component: React.Component): Store
   {
@@ -68,9 +101,9 @@ export default class Store
 
   subscribe(component: React.Component): Store | undefined
   {
-    if (component?.setState && this.subscriptions.indexOf(component) < 0)
+    if (component?.setState && this.subscriptions.indexOf(component as StoreComponent) < 0)
     {
-      this.subscriptions.push(component);
+      this.subscriptions.push(component as StoreComponent);
 
       component.setState(this.state);
 
@@ -80,7 +113,7 @@ export default class Store
 
   unsubscribe(component: React.Component): boolean | undefined
   {
-    const index = this.subscriptions.indexOf(component);
+    const index = this.subscriptions.indexOf(component as StoreComponent);
 
     if (index > -1)
     {
@@ -92,6 +125,11 @@ export default class Store
 
   set(state: object, callback?: () => void): Store
   {
+    this.changes = {
+      ...this.changes,
+      ...state
+    };
+
     this.state = {
       ...this.state,
       ...state
@@ -105,12 +143,65 @@ export default class Store
 
   async dispatch(): Promise<void>
   {
+    /** transform all values of the new state to true
+    */
+    const booleanify = (obj: any): any =>
+    {
+      const out = {} as any;
+
+      const keys = Object.keys(obj);
+
+      keys.forEach((key) =>
+      {
+        if (!Array.isArray(obj[key]) && typeof obj[key] === 'object')
+          out[key] = booleanify(obj[key]);
+        else
+          out[key] = true;
+      });
+
+      return out;
+    };
+    
     const promises: Promise<void>[] = [];
+
+    const changesFingerprint = booleanify(this.changes);
 
     this.subscriptions.forEach((component) =>
     {
-      promises.push(new Promise((resolve) => component?.setState?.(this.state, resolve)));
+      // callback to notify components when they state will change
+      const modified = component.stateWillChange?.call(component, this.state);
+
+      if (modified)
+      {
+        this.state = {
+          ...this.state,
+          ...modified
+        };
+      }
     });
+
+    this.subscriptions.forEach((component) =>
+    {
+      if (
+        typeof component.stateWhitelist === 'function' &&
+        component.stateWhitelist.call(component, changesFingerprint) !== true
+      )
+        return;
+      
+      const old = { ...component.state };
+
+      promises.push(new Promise((resolve) =>
+      {
+        component.setState(this.state, () =>
+        {
+          component.stateDidChange?.call(component, this.state, this.changes, old);
+          
+          resolve();
+        });
+      }));
+    });
+
+    this.changes = {};
 
     await Promise.all(promises);
   }

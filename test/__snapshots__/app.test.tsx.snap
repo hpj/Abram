@@ -1683,6 +1683,301 @@ exports[`Testing <App/> Chat Messages List With Avatars: Should Be Message Witho
 </View>
 `;
 
+exports[`Testing <App/> Chat Sending Messages 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "height": "100%",
+      "opacity": 1,
+      "position": "absolute",
+      "width": "100%",
+    }
+  }
+  testID="v-inbox"
+>
+  <RCTScrollView
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+    testID="v-inbox"
+  >
+    <View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-chat"
+      >
+        <View>
+          <View>
+            <View />
+          </View>
+          <View
+            style={
+              Object {
+                "marginBottom": 20,
+                "marginTop": 20,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "row",
+                  "marginLeft": 20,
+                  "marginRight": 20,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "height": 70,
+                    "marginLeft": 5,
+                    "width": 70,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "height": 70,
+                      "justifyContent": "center",
+                      "left": 0,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 70,
+                    }
+                  }
+                >
+                  <Image
+                    source={1}
+                    style={
+                      Object {
+                        "backgroundColor": "#4B4B4B",
+                        "borderRadius": 70,
+                        "height": 70,
+                        "position": "absolute",
+                        "width": 70,
+                      }
+                    }
+                  />
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#ffffff",
+                        "borderColor": "#000000",
+                        "borderRadius": 23,
+                        "borderWidth": 3,
+                        "height": 23,
+                        "marginLeft": -10,
+                        "opacity": 1,
+                        "position": "absolute",
+                        "width": 23,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "flex": 1,
+                    "marginLeft": 20,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 22,
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  Mika
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#818181",
+                      "fontSize": 20,
+                    }
+                  }
+                >
+                  Sunday, 12:00 AM
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    Object {
+                      "color": "#818181",
+                      "fontSize": 22,
+                      "marginTop": 10,
+                    }
+                  }
+                >
+                  Yay
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-chat"
+      >
+        <View>
+          <View>
+            <View />
+          </View>
+          <View
+            style={
+              Object {
+                "marginBottom": 20,
+                "marginTop": 20,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "row",
+                  "marginLeft": 20,
+                  "marginRight": 20,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "height": 70,
+                    "marginLeft": 5,
+                    "width": 70,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "height": 70,
+                      "justifyContent": "center",
+                      "left": 0,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 70,
+                    }
+                  }
+                >
+                  <Image
+                    source={2}
+                    style={
+                      Object {
+                        "backgroundColor": "#4B4B4B",
+                        "borderRadius": 70,
+                        "height": 70,
+                        "position": "absolute",
+                        "width": 70,
+                      }
+                    }
+                  />
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#ffffff",
+                        "borderColor": "#000000",
+                        "borderRadius": 23,
+                        "borderWidth": 3,
+                        "height": 23,
+                        "marginLeft": -10,
+                        "opacity": 1,
+                        "position": "absolute",
+                        "width": 23,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "flex": 1,
+                    "marginLeft": 20,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 22,
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  Skye
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#818181",
+                      "fontSize": 20,
+                    }
+                  }
+                >
+                  Saturday, 12:00 AM
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    Object {
+                      "color": "#818181",
+                      "fontSize": 22,
+                      "marginTop": 10,
+                    }
+                  }
+                >
+                  Ya?
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
 exports[`Testing <App/> Chat Sending Messages: Sent Message 1`] = `
 <TextInput
   allowFontScaling={true}
@@ -1781,6 +2076,301 @@ exports[`Testing <App/> Chat Sending Messages: Should Be A Message Equal to <3 1
 </View>
 `;
 
+exports[`Testing <App/> Chat Sending Messages: Should Be Sorted With Skye on Top 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "height": "100%",
+      "opacity": 1,
+      "position": "absolute",
+      "width": "100%",
+    }
+  }
+  testID="v-inbox"
+>
+  <RCTScrollView
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+    testID="v-inbox"
+  >
+    <View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-chat"
+      >
+        <View>
+          <View>
+            <View />
+          </View>
+          <View
+            style={
+              Object {
+                "marginBottom": 20,
+                "marginTop": 20,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "row",
+                  "marginLeft": 20,
+                  "marginRight": 20,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "height": 70,
+                    "marginLeft": 5,
+                    "width": 70,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "height": 70,
+                      "justifyContent": "center",
+                      "left": 0,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 70,
+                    }
+                  }
+                >
+                  <Image
+                    source={2}
+                    style={
+                      Object {
+                        "backgroundColor": "#4B4B4B",
+                        "borderRadius": 70,
+                        "height": 70,
+                        "position": "absolute",
+                        "width": 70,
+                      }
+                    }
+                  />
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#ffffff",
+                        "borderColor": "#000000",
+                        "borderRadius": 23,
+                        "borderWidth": 3,
+                        "height": 23,
+                        "marginLeft": -10,
+                        "opacity": 0,
+                        "position": "absolute",
+                        "width": 23,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "flex": 1,
+                    "marginLeft": 20,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 22,
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  Skye
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#818181",
+                      "fontSize": 20,
+                    }
+                  }
+                >
+                  Today, 12:00 AM
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    Object {
+                      "color": "#818181",
+                      "fontSize": 22,
+                      "marginTop": 10,
+                    }
+                  }
+                >
+                  &lt;3
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-chat"
+      >
+        <View>
+          <View>
+            <View />
+          </View>
+          <View
+            style={
+              Object {
+                "marginBottom": 20,
+                "marginTop": 20,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "row",
+                  "marginLeft": 20,
+                  "marginRight": 20,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "height": 70,
+                    "marginLeft": 5,
+                    "width": 70,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "height": 70,
+                      "justifyContent": "center",
+                      "left": 0,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 70,
+                    }
+                  }
+                >
+                  <Image
+                    source={1}
+                    style={
+                      Object {
+                        "backgroundColor": "#4B4B4B",
+                        "borderRadius": 70,
+                        "height": 70,
+                        "position": "absolute",
+                        "width": 70,
+                      }
+                    }
+                  />
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "#ffffff",
+                        "borderColor": "#000000",
+                        "borderRadius": 23,
+                        "borderWidth": 3,
+                        "height": 23,
+                        "marginLeft": -10,
+                        "opacity": 1,
+                        "position": "absolute",
+                        "width": 23,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "flex": 1,
+                    "marginLeft": 20,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 22,
+                      "fontWeight": "bold",
+                    }
+                  }
+                >
+                  Mika
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#818181",
+                      "fontSize": 20,
+                    }
+                  }
+                >
+                  Sunday, 12:00 AM
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  style={
+                    Object {
+                      "color": "#818181",
+                      "fontSize": 22,
+                      "marginTop": 10,
+                    }
+                  }
+                >
+                  Yay
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
 exports[`Testing <App/> Chat Sending Messages: Should Have A Normal Date 1`] = `
 <View
   style={
@@ -1801,7 +2391,7 @@ exports[`Testing <App/> Chat Sending Messages: Should Have A Normal Date 1`] = `
       }
     }
   >
-    Mika
+    Skye
   </Text>
   <Text
     style={
@@ -1811,7 +2401,7 @@ exports[`Testing <App/> Chat Sending Messages: Should Have A Normal Date 1`] = `
       }
     }
   >
-    Active 2 days ago
+    Active 3 days ago
   </Text>
 </View>
 `;
@@ -1836,7 +2426,7 @@ exports[`Testing <App/> Chat Sending Messages: Should Have A Recently Active Sta
       }
     }
   >
-    Mika
+    Skye
   </Text>
   <Text
     style={
@@ -2656,6 +3246,7 @@ exports[`Testing <Inbox/> Group of 3 View: Should Be A Group View With 2 Avatars
       "flex": 1,
     }
   }
+  testID="v-inbox"
 >
   <View>
     <View
@@ -2843,6 +3434,7 @@ exports[`Testing <Inbox/> Group of 4 View: Should Be A Group View With 3 Avatars
       "flex": 1,
     }
   }
+  testID="v-inbox"
 >
   <View>
     <View
@@ -3070,6 +3662,7 @@ exports[`Testing <Inbox/> Group of 5 View: Should Be A Group View With 4 Avatars
       "flex": 1,
     }
   }
+  testID="v-inbox"
 >
   <View>
     <View
@@ -3342,6 +3935,7 @@ exports[`Testing <Inbox/> Normal View: Should Be A Normal Inbox View With 1 Avat
       "flex": 1,
     }
   }
+  testID="v-inbox"
 >
   <View>
     <View
@@ -3700,7 +4294,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of This
                   "borderWidth": 3,
                   "height": 23,
                   "marginLeft": -10,
-                  "opacity": 0,
+                  "opacity": 1,
                   "position": "absolute",
                   "width": 23,
                 }

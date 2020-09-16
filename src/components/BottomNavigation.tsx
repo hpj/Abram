@@ -2,6 +2,8 @@ import React from 'react';
 
 import { StyleSheet, View } from 'react-native';
 
+import type { Profile, InboxEntry } from '../types';
+
 import Button from './Button';
 
 import { StoreComponent } from '../store';
@@ -13,9 +15,41 @@ import getTheme from '../colors';
 const colors = getTheme();
 
 class BottomNavigation extends StoreComponent<unknown, {
+  profile: Profile,
+  activeChat: InboxEntry[],
+  inbox: InboxEntry[],
   index: number
 }>
 {
+  constructor()
+  {
+    super();
+
+    this.stateWillChange(this.state);
+  }
+
+  inboxBadge = false;
+  discoverBadge = false;
+
+  stateWillChange({ profile, inbox }: BottomNavigation['state']): void
+  {
+    // turn badge on if inbox has any entries with unanswered messages
+    this.inboxBadge = inbox.some(entry => entry.messages[entry.messages.length - 1].owner !== profile.uuid);
+  }
+
+  stateWhitelist(changes: BottomNavigation['state']): boolean
+  {
+    if (
+      changes.profile ||
+      changes.activeChat ||
+      changes.inbox ||
+      changes.index
+    )
+      return true;
+
+    return false;
+  }
+
   setIndex(value: number): void
   {
     this.store.set({
@@ -28,8 +62,8 @@ class BottomNavigation extends StoreComponent<unknown, {
     return (
       <View style={ styles.container }>
         <Button
-          testID='bn-inbox'
-          badgeStyle={ styles.badge }
+          testID={ 'bn-inbox' }
+          badgeStyle={ this.inboxBadge ? styles.badge : undefined }
           backgroundStyle={  (this.state.index === 0) ? styles.background : styles.backgroundInactive }
           borderless={ true }
           buttonStyle={ styles.entry }
@@ -38,7 +72,8 @@ class BottomNavigation extends StoreComponent<unknown, {
         />
 
         <Button
-          testID='bn-discover'
+          testID={ 'bn-discover' }
+          badgeStyle={ this.discoverBadge ? styles.badge : undefined }
           backgroundStyle={  (this.state.index === 1) ? styles.background : styles.backgroundInactive }
           borderless={ true }
           buttonStyle={ styles.entry }
