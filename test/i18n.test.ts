@@ -12,12 +12,13 @@ jest.mock('@react-native-community/async-storage', () => ({
   getItem: jest.fn().mockResolvedValue('')
 }));
 
-// mocks axios
-const axiosMock = axios.get = jest.fn();
+jest.mock('axios', () => ({
+  get: jest.fn()
+}));
 
 afterEach(() =>
 {
-  axiosMock.mockReset();
+  (axios.get as jest.Mock).mockReset();
 
   // delete any data that was fetched
   locales.forEach((locale) => delete locale.json);
@@ -58,7 +59,7 @@ describe('Testing i18n', () =>
     expect(locale.json).toBeUndefined();
     
     // mock axios response
-    axiosMock.mockResolvedValue({ data: { test: true } });
+    (axios.get as jest.Mock).mockResolvedValue({ data: { test: true } });
 
     // fetch locale data
     await fetch('en-US');
@@ -80,7 +81,7 @@ describe('Testing i18n', () =>
     expect(locale.json).toBeUndefined();
     
     // mock axios response
-    axiosMock.mockImplementation(() =>
+    (axios.get as jest.Mock).mockImplementation(() =>
     {
       throw new Error();
     });
@@ -108,7 +109,7 @@ describe('Testing i18n', () =>
     AsyncStorage.getItem = jest.fn().mockResolvedValue(JSON.stringify({ cache: true }));
 
     // mock axios response
-    axiosMock.mockImplementation(() =>
+    (axios.get as jest.Mock).mockImplementation(() =>
     {
       throw new Error();
     });
@@ -133,7 +134,7 @@ describe('Testing i18n', () =>
     expect(locale.json).toBeUndefined();
     
     // mock axios response
-    axiosMock.mockResolvedValue({ data: { test: 'test-%0' } });
+    (axios.get as jest.Mock).mockResolvedValue({ data: { test: 'test-%0' } });
 
     // fetch locale data
     await fetch('en-US');

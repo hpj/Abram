@@ -63,7 +63,7 @@ class BottomNavigation extends StoreComponent<unknown, {
     const { index, additionNavigationIcon } = this.state;
 
     return (
-      <View style={ styles.container }>
+      <View testID={ 'v-bottom' } style={ styles.container }>
         <Button
           testID={ 'bn-inbox' }
           useAlternative={ true }

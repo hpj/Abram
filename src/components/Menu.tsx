@@ -68,6 +68,7 @@ class Menu extends StoreComponent<{
       </View>
       <View style={ styles.actions }>
         <Button
+          testID={ 'bn-profile' }
           buttonStyle={ styles.button  }
           textStyle={ styles.buttonText  }
           icon={ { name: 'user', size: sizes.icon * 0.85, color: colors.whiteText, style: styles.buttonIcon } }
@@ -76,6 +77,7 @@ class Menu extends StoreComponent<{
         />
 
         <Button
+          testID={ 'bn-settings' }
           buttonStyle={ styles.button  }
           textStyle={ styles.buttonText  }
           icon={ { name: 'settings', size: sizes.icon * 0.85, color: colors.whiteText, style: styles.buttonIcon } }
@@ -85,12 +87,14 @@ class Menu extends StoreComponent<{
       </View>
       <View style={ styles.legal }>
         <Button
+          testID={ 'bn-privacy' }
           buttonStyle={ styles.buttonAlt  }
           textStyle={ styles.buttonTextAlt  }
           text={ 'Privacy Policy' }
           onPress={ () => openURL('https://herpproject.com/abram/privacy') }
         />
         <Button
+          testID={ 'bn-terms' }
           buttonStyle={ styles.buttonAlt  }
           textStyle={ styles.buttonTextAlt  }
           text={ 'Terms of Service' }

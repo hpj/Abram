@@ -8,6 +8,8 @@ import { BackHandler } from 'react-native';
 
 import axios from 'axios';
 
+import * as Linking from 'expo-linking';
+
 import { render, fireEvent, waitFor, cleanup } from 'react-native-testing-library';
 
 import type { RenderAPI } from 'react-native-testing-library';
@@ -82,12 +84,17 @@ function toJSON(renderer: RenderAPI, testId: string, shallow?: 'none' | 'one' | 
   return target;
 }
 
-// mocks axios
-const axiosMock = axios.get = jest.fn().mockResolvedValue({ data: { test: true } });
+jest.mock('axios', () => ({
+  get: jest.fn().mockResolvedValue({ data: { test: true } })
+}));
 
 jest.mock('expo-splash-screen', () => ({
   preventAutoHideAsync: jest.fn().mockResolvedValue(true),
   hideAsync: jest.fn().mockResolvedValue(true)
+}));
+
+jest.mock('expo-linking', () => ({
+  openURL: jest.fn().mockResolvedValue(true)
 }));
 
 // mock the back button handler module
@@ -247,7 +254,8 @@ beforeEach(() =>
 
 afterEach(() =>
 {
-  axiosMock.mockReset();
+  (axios.get as jest.Mock).mockReset();
+  (Linking.openURL as jest.Mock).mockReset();
 
   cleanup();
 
@@ -781,7 +789,7 @@ describe('Testing <App/>', () =>
       // wait for app loading
       await waitFor(() => component.getByTestId('v-main-area'));
 
-      const initialMenu = toJSON(component, 'v-menu', 'one');
+      const initialMenu = toJSON(component, 'v-menu', 'all');
       const initialHolder = toJSON(component, 'v-holder');
 
       expect(initialMenu).toMatchSnapshot('Initial Menu View Should Be Hidden');
@@ -793,7 +801,7 @@ describe('Testing <App/>', () =>
 
       await waitFor(() => true);
 
-      const activeMenu = toJSON(component, 'v-menu', 'one');
+      const activeMenu = toJSON(component, 'v-menu', 'all');
       const activeHolder = toJSON(component, 'v-holder');
 
       expect(activeMenu).toMatchSnapshot('Menu View Should Be Visible');
@@ -807,7 +815,7 @@ describe('Testing <App/>', () =>
 
       await waitFor(() => true);
 
-      const hiddenMenu = toJSON(component, 'v-menu', 'one');
+      const hiddenMenu = toJSON(component, 'v-menu', 'all');
       const hiddenHolder = toJSON(component, 'v-holder');
 
       // initial should be the same as hidden
@@ -815,6 +823,98 @@ describe('Testing <App/>', () =>
       expect(initialHolder).toMatchDiffSnapshot(hiddenHolder);
 
       component.unmount();
+    });
+ 
+    test('Opening Privacy Policy', async() =>
+    {
+      const component = render(<App/>);
+
+      // wait for app loading
+      await waitFor(() => component.getByTestId('v-main-area'));
+
+      // show the main menu
+      // by simulating pressing the menu button
+      fireEvent.press(component.getByTestId('bn-privacy'));
+
+      expect(Linking.openURL).toHaveBeenCalledTimes(1);
+
+      expect(Linking.openURL).toHaveBeenCalledWith('https://herpproject.com/abram/privacy');
+    });
+
+    test('Opening Terms of Service', async() =>
+    {
+      const component = render(<App/>);
+
+      // wait for app loading
+      await waitFor(() => component.getByTestId('v-main-area'));
+
+      // show the main menu
+      // by simulating pressing the menu button
+      fireEvent.press(component.getByTestId('bn-terms'));
+
+      expect(Linking.openURL).toHaveBeenCalledTimes(1);
+
+      expect(Linking.openURL).toHaveBeenCalledWith('https://herpproject.com/abram/terms');
+    });
+  
+    test('Navigating to Profile', async() =>
+    {
+      const component = render(<App/>);
+
+      // wait for app loading
+      await waitFor(() => component.getByTestId('v-main-area'));
+
+      fireEvent.press(component.getByTestId('bn-menu'));
+
+      await waitFor(() => true);
+
+      fireEvent.press(component.getByTestId('bn-profile'));
+
+      await waitFor(() => true);
+
+      const menu = toJSON(component, 'v-menu', 'one');
+      const holder = toJSON(component, 'v-holder');
+
+      expect(menu).toMatchSnapshot('Menu View Should Be Hidden');
+      expect(holder).toMatchSnapshot('Holder View Should Be Hidden');
+
+      const bottom = toJSON(component, 'v-bottom', 'all');
+      
+      const profile = toJSON(component, 'v-navigation', 'one');
+
+      expect(bottom).toMatchSnapshot('Bottom Should Have A Additional Button With Profile Icon');
+
+      expect(profile).toMatchSnapshot('Navigation View Should Be Profile');
+    });
+  
+    test('Navigating to Settings', async() =>
+    {
+      const component = render(<App/>);
+
+      // wait for app loading
+      await waitFor(() => component.getByTestId('v-main-area'));
+
+      fireEvent.press(component.getByTestId('bn-menu'));
+
+      await waitFor(() => true);
+
+      fireEvent.press(component.getByTestId('bn-settings'));
+
+      await waitFor(() => true);
+
+      const menu = toJSON(component, 'v-menu', 'one');
+      const holder = toJSON(component, 'v-holder');
+
+      expect(menu).toMatchSnapshot('Menu View Should Be Hidden');
+      expect(holder).toMatchSnapshot('Holder View Should Be Hidden');
+
+      const bottom = toJSON(component, 'v-bottom', 'all');
+      
+      const profile = toJSON(component, 'v-navigation', 'one');
+
+      expect(bottom).toMatchSnapshot('Bottom Should Have A Additional Button With Settings Icon');
+
+      expect(profile).toMatchSnapshot('Navigation View Should Be Settings');
     });
   });
 
@@ -1236,7 +1336,7 @@ describe('Testing <App/>', () =>
               }
             ],
             messages: [
-              { owner: '1', text: 'Yay', timestamp: subDays(new Date(), 2) }
+              { owner: '1', text: 'Yay', timestamp: new Date() }
             ]
           }
         ] as InboxEntry[]
