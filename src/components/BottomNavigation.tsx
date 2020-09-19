@@ -18,6 +18,7 @@ class BottomNavigation extends StoreComponent<unknown, {
   profile: Profile,
   activeChat: InboxEntry[],
   inbox: InboxEntry[],
+  additionNavigationIcon: string,
   index: number
 }>
 {
@@ -59,27 +60,44 @@ class BottomNavigation extends StoreComponent<unknown, {
 
   render(): JSX.Element
   {
+    const { index, additionNavigationIcon } = this.state;
+
     return (
       <View style={ styles.container }>
         <Button
           testID={ 'bn-inbox' }
+          useAlternative={ true }
           badgeStyle={ this.inboxBadge ? styles.badge : undefined }
-          backgroundStyle={  (this.state.index === 0) ? styles.background : styles.backgroundInactive }
+          backgroundStyle={  (index === 0) ? styles.background : styles.backgroundInactive }
           borderless={ true }
           buttonStyle={ styles.entry }
-          icon={ { name: 'inbox', size: sizes.icon, color: (this.state.index === 0) ? colors.whiteText : colors.inactiveWhiteText } }
+          icon={ { name: 'inbox', size: sizes.icon, color: (index === 0) ? colors.whiteText : colors.inactiveWhiteText } }
           onPress={ () => this.setIndex(0) }
         />
 
         <Button
           testID={ 'bn-discover' }
+          useAlternative={ true }
           badgeStyle={ this.discoverBadge ? styles.badge : undefined }
-          backgroundStyle={  (this.state.index === 1) ? styles.background : styles.backgroundInactive }
+          backgroundStyle={  (index === 1) ? styles.background : styles.backgroundInactive }
           borderless={ true }
           buttonStyle={ styles.entry }
-          icon={ { name: 'compass', size: sizes.icon, color: (this.state.index === 1) ? colors.whiteText : colors.inactiveWhiteText } }
+          icon={ { name: 'compass', size: sizes.icon, color: (index === 1) ? colors.whiteText : colors.inactiveWhiteText } }
           onPress={ () => this.setIndex(1) }
         />
+
+        {
+          (index >= 2) ?
+            <Button
+              testID={ 'bn-additional' }
+              useAlternative={ true }
+              backgroundStyle={ styles.background }
+              borderless={ true }
+              buttonStyle={ styles.entry }
+              icon={ { name: additionNavigationIcon, size: sizes.icon, color: colors.whiteText } }
+            /> : undefined
+        }
+        
       </View>
     );
   }

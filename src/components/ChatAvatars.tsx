@@ -8,11 +8,11 @@ import type { Size, Profile, InboxEntry } from '../types';
 
 import Button from './Button';
 
+import Menu from './Menu';
+
 import { StoreComponent } from '../store';
 
 import { sizes } from '../sizes';
-
-import { depth } from '../depth';
 
 import getTheme from '../colors';
 
@@ -143,15 +143,18 @@ class ChatAvatars extends StoreComponent<{
           ...styles.menu,
 
           width: size.width - sizes.windowMargin - 10,
-          height: size.height * 0.65,
+          height: size.height * 0.55,
 
           opacity: menuOpacity
         } }
-        />
+        >
+          <Menu deactivate={ this.deactivate }/>
+        </Animated.View>
 
         <View style={ styles.wrapper }>
           <Button
             testID={ 'bn-menu' }
+            useAlternative={ true }
             borderless={ true }
             buttonStyle={ styles.button }
             onPress={ this.onPress }
@@ -192,8 +195,6 @@ class ChatAvatars extends StoreComponent<{
 
 const styles = StyleSheet.create({
   container: {
-    zIndex: depth.menu,
-
     minWidth: sizes.avatar,
     height: sizes.avatar
   },
@@ -202,7 +203,7 @@ const styles = StyleSheet.create({
     minWidth: sizes.avatar,
     height: sizes.avatar,
     borderRadius: sizes.avatar,
-    
+
     marginRight: sizes.windowMargin
   },
 
@@ -213,6 +214,7 @@ const styles = StyleSheet.create({
   avatarContainer: {
     width: sizes.avatar,
     height: sizes.avatar,
+
     borderRadius: sizes.avatar
   },
 
@@ -229,11 +231,11 @@ const styles = StyleSheet.create({
   menu: {
     position: 'absolute',
 
-    top: -15,
-    right: 15,
+    top: -(sizes.windowMargin * 0.45),
+    right: sizes.windowMargin * 0.5,
 
     backgroundColor: colors.menuBackground,
-    borderRadius: 15
+    borderRadius: sizes.windowMargin * 0.75
   }
 });
 

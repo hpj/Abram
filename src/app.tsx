@@ -13,16 +13,19 @@ import BottomSheet from 'reanimated-bottom-sheet';
 
 import NavigationView from './components/NavigationView';
 
-import TopBar from './components/TopBar';
-import BottomNavigation from './components/BottomNavigation';
-
 import Inbox from './screens/Inbox';
 import Discover from './screens/Discover';
 
-import ChatHeader from './components/ChatHeader';
-import ChatContext from './components/ChatContext';
+import Profile from './screens/Profile';
+import Settings from './screens/Settings';
+
+import TopBar from './components/TopBar';
+import BottomNavigation from './components/BottomNavigation';
 
 import Chat from './screens/Chat';
+
+import ChatHeader from './components/ChatHeader';
+import ChatContext from './components/ChatContext';
 
 import { fetch, locale } from './i18n';
 
@@ -169,12 +172,20 @@ export default class App extends StoreComponent<unknown, {
 
         <View testID={ 'v-navigation' } style={ styles.views }>
 
-          <NavigationView testID={ 'v-inbox' } active={ (this.state.index === 0) }>
+          <NavigationView testID={ 'v-inbox' } index={ 0 }>
             <Inbox snapTo={ this.bottomSheetRef.current?.snapTo }/>
           </NavigationView>
 
-          <NavigationView testID={ 'v-discover' } active={ (this.state.index === 1) }>
+          <NavigationView testID={ 'v-discover' } index={ 1 }>
             <Discover/>
+          </NavigationView>
+
+          <NavigationView testID={ 'v-profile' } index={ 2 }>
+            <Profile/>
+          </NavigationView>
+
+          <NavigationView testID={ 'v-settings' } index={ 3 }>
+            <Settings/>
           </NavigationView>
 
         </View>

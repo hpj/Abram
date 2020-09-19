@@ -6,8 +6,10 @@ export function relativeDate(date?: Date, full?: boolean): string
   
   if (!date)
     return '';
-  else if (isToday(date))
+  else if (isToday(date) && full)
     return format(date, '\'Today, \'hh:mm a');
+  else if (isToday(date))
+    return format(date, 'hh:mm a');
   else if (isYesterday(date))
     return format(date, '\'Yesterday, \'hh:mm a');
   else if (differenceInDays(baseDate, date) <= 6)

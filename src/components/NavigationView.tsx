@@ -2,68 +2,44 @@
 
 import React from 'react';
 
-import Animated, { Easing } from 'react-native-reanimated';
+import { View } from 'react-native';
 
-class NavigationView extends React.Component<{
+import { StoreComponent } from '../store';
+
+class NavigationView extends StoreComponent<{
   testID: string,
-  active: boolean
+  index: number
+}, {
+  index: number
 }>
 {
-  state = { animating: false };
-
-  progress: Animated.Value<number> = new Animated.Value();
-
-  componentDidMount(): void
+  stateWhitelist(changes: NavigationView['state']): boolean
   {
-    const { active } = this.props;
+    if (changes.index)
+      return true;
 
-    this.progress = new Animated.Value(active ? 1 : 0);
-  }
-
-  // TODO FIX change implementation
-  // eslint-disable-next-line camelcase
-  UNSAFE_componentWillReceiveProps({ active }: { active: boolean }): void
-  {
-    if (active === this.props.active)
-      return;
-    
-    this.setState({ animating: true }, () =>
-    {
-      Animated.timing(this.progress, {
-        duration: 150,
-        toValue: (active) ? 1 : 0,
-        easing: Easing.linear
-      }).start(({ finished }) =>
-      {
-        if (finished)
-          this.setState({ animating: false });
-      });
-    });
+    return false;
   }
 
   render(): JSX.Element
   {
-    const { testID, active } = this.props;
+    const { index, testID } = this.props;
 
-    const opacity =
-      this.progress.interpolate({
-        inputRange: [ 0, 1 ],
-        outputRange: [ 0, 1 ]
-      });
-  
+    const active = this.state.index === index;
+
     return (
-      <Animated.View
+      <View
         testID={ testID }
         style={ {
           position: 'absolute',
           width: '100%',
           height: '100%',
-          opacity: opacity
+          opacity: active ? 1 : 0
         } }
-        pointerEvents={ (active) ? 'box-none' : 'none' }
+        pointerEvents={ active ? 'box-none' : 'none' }
       >
-        { (!this.state.animating && !active) ? undefined : this.props.children }
-      </Animated.View>
+        { this.props.children }
+      </View>
     );
   }
 }

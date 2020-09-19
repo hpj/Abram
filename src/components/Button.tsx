@@ -2,9 +2,12 @@ import React from 'react';
 
 import {
   Platform, View,
-  TouchableNativeFeedback, TouchableOpacity,
-  Text
+  Text,
+  TouchableNativeFeedback,
+  TouchableOpacity
 } from 'react-native';
+
+import { TouchableNativeFeedback as GHTouchableNativeFeedback, TouchableOpacity as GHTouchableOpacity } from 'react-native-gesture-handler';
 
 import type {
   StyleProp, ViewStyle, TextStyle,
@@ -27,6 +30,7 @@ class Button extends React.Component<{
   testID?: string,
   text?: string,
   icon?: IconProps,
+  useAlternative?: boolean,
   borderless?: boolean,
   activeOpacity?: number,
   onPress?: () => void
@@ -34,21 +38,31 @@ class Button extends React.Component<{
 {
   render(): JSX.Element
   {
-    /* istanbul ignore next */
-    const TouchableComponent:
-      React.ComponentType<TouchableOpacityProps | TouchableNativeFeedbackProps>
-      = (Platform.OS === 'android') ? TouchableNativeFeedback : TouchableOpacity;
-
     const {
+      useAlternative,
       backgroundStyle, badgeStyle, buttonStyle,
       textStyle, testID, text, icon, borderless,
       activeOpacity, onPress
     } = this.props;
 
+    /* istanbul ignore next */
+    const TouchableComponent:
+      React.ComponentType<TouchableOpacityProps | TouchableNativeFeedbackProps>
+      = (Platform.OS === 'android') ? TouchableNativeFeedback : TouchableOpacity;
+
+    /* istanbul ignore next */
+    const GHTouchableComponent:
+      React.ComponentType<TouchableOpacityProps | TouchableNativeFeedbackProps>
+      = (Platform.OS === 'android') ? GHTouchableNativeFeedback : GHTouchableNativeFeedback;
+
+    const Component = !useAlternative ? GHTouchableComponent : TouchableComponent;
+
     return (
-      <TouchableComponent
+      <Component
         testID={ testID }
-        background={ TouchableNativeFeedback.Ripple(colors.ripple, borderless) }
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        //@ts-ignore
+        background={ (!useAlternative ? GHTouchableNativeFeedback : TouchableNativeFeedback).Ripple(colors.ripple, borderless) }
         activeOpacity={ activeOpacity }
         onPress={ onPress }
       >
@@ -63,7 +77,7 @@ class Button extends React.Component<{
           }
 
           {
-            (text) ?  <Text style={ textStyle }>{ text }</Text> : undefined
+            (text) ? <Text style={ textStyle }>{ text }</Text> : undefined
           }
 
           {
@@ -71,7 +85,7 @@ class Button extends React.Component<{
           }
          
         </View>
-      </TouchableComponent>
+      </Component>
     );
   }
 }

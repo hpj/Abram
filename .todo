@@ -1,5 +1,4 @@
 Performance Issues and Bugs:
-  ☐ handle forceUpdates ant animation ends better @critical 
 
 Public Beta:
   ☐ work on branding descriptions and motto
@@ -17,15 +16,18 @@ Public Beta:
 Testing:
   
 UI/UX:
-  ☐ design a mockup for Menu (non-chat) view
+  - design a mockup for Menu (non-chat) view
+    ✔ design a mockup for Main-Menu @done(20-09-18 19:10)
+    ☐ design a mockup for Chat Menu
   
-  ☐ design a mockup for Sign up view
+  ☐ design a mockup for Sign up views
+
   ☐ design a mockup for Profile view
 
   ☐ design a mockup for Discover view
 
-  ☐ add fallback support to i18n
+  ☐ add all used strings to i18n
 
-  ☐ add RTL support
+  ☐ RTL Layout support
 
 Discover:

@@ -753,7 +753,7 @@ exports[`Testing <App/> Chat Chat Context: Y-Axis should be 0 1`] = `
       "position": "absolute",
       "top": 0,
       "width": 523,
-      "zIndex": 6,
+      "zIndex": 5,
     }
   }
   testID="v-chat-context"
@@ -917,7 +917,7 @@ exports[`Testing <App/> Chat Chat Context: Y-Axis should be equal to screen's hi
       "position": "absolute",
       "top": 1131,
       "width": 523,
-      "zIndex": 6,
+      "zIndex": 5,
     }
   }
   testID="v-chat-context"
@@ -1123,14 +1123,15 @@ exports[`Testing <App/> Chat Messages List Normal: Should Be Message With Timest
     style={
       Object {
         "color": "#818181",
-        "fontSize": 13,
-        "marginBottom": 20,
-        "marginTop": 20,
+        "fontSize": 12,
+        "marginBottom": 7,
+        "marginHorizontal": 40,
+        "marginTop": 40,
         "textAlign": "center",
       }
     }
   >
-    9 October 1999, 09:00 AM
+    9 Oct 1999
   </Text>
   <RNGestureHandlerButton
     collapsable={false}
@@ -1256,14 +1257,15 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
     style={
       Object {
         "color": "#818181",
-        "fontSize": 13,
-        "marginBottom": 20,
-        "marginTop": 20,
+        "fontSize": 12,
+        "marginBottom": 7,
+        "marginHorizontal": 40,
+        "marginTop": 40,
         "textAlign": "center",
       }
     }
   >
-    9 October 1999, 09:00 AM
+    9 Oct 1999
   </Text>
   <RNGestureHandlerButton
     collapsable={false}
@@ -1328,9 +1330,10 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
     style={
       Object {
         "color": "#818181",
-        "fontSize": 13,
-        "marginBottom": 20,
-        "marginTop": 20,
+        "fontSize": 12,
+        "marginBottom": 7,
+        "marginHorizontal": 40,
+        "marginTop": 40,
         "textAlign": "center",
       }
     }
@@ -1400,14 +1403,15 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
     style={
       Object {
         "color": "#818181",
-        "fontSize": 13,
-        "marginBottom": 20,
-        "marginTop": 20,
+        "fontSize": 12,
+        "marginBottom": 7,
+        "marginHorizontal": 40,
+        "marginTop": 40,
         "textAlign": "center",
       }
     }
   >
-    Today, 12:00 AM
+    12:00 AM
   </Text>
   <RNGestureHandlerButton
     collapsable={false}
@@ -1472,9 +1476,10 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
     style={
       Object {
         "color": "#818181",
-        "fontSize": 13,
-        "marginBottom": 20,
-        "marginTop": 20,
+        "fontSize": 12,
+        "marginBottom": 7,
+        "marginHorizontal": 40,
+        "marginTop": 40,
         "textAlign": "center",
       }
     }
@@ -1544,14 +1549,15 @@ exports[`Testing <App/> Chat Messages List With Avatars: Should Be Message With 
     style={
       Object {
         "color": "#818181",
-        "fontSize": 13,
-        "marginBottom": 20,
-        "marginTop": 20,
+        "fontSize": 12,
+        "marginBottom": 7,
+        "marginHorizontal": 40,
+        "marginTop": 40,
         "textAlign": "center",
       }
     }
   >
-    9 October 1999, 09:00 AM
+    9 Oct 1999
   </Text>
   <RNGestureHandlerButton
     collapsable={false}
@@ -1715,31 +1721,34 @@ exports[`Testing <App/> Chat Sending Messages 1`] = `
         onResponderTerminate={[Function]}
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
         testID="bn-chat"
       >
         <View>
-          <View>
-            <View />
-          </View>
+          <View />
+        </View>
+        <View
+          style={
+            Object {
+              "marginBottom": 20,
+              "marginTop": 20,
+            }
+          }
+        >
           <View
             style={
               Object {
-                "marginBottom": 20,
-                "marginTop": 20,
+                "flexDirection": "row",
+                "marginLeft": 20,
+                "marginRight": 20,
               }
             }
           >
             <View
               style={
                 Object {
-                  "flexDirection": "row",
-                  "marginLeft": 20,
-                  "marginRight": 20,
+                  "height": 70,
+                  "marginLeft": 5,
+                  "width": 70,
                 }
               }
             >
@@ -1747,94 +1756,84 @@ exports[`Testing <App/> Chat Sending Messages 1`] = `
                 style={
                   Object {
                     "height": 70,
-                    "marginLeft": 5,
+                    "justifyContent": "center",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 0,
                     "width": 70,
                   }
                 }
               >
-                <View
+                <Image
+                  source={1}
                   style={
                     Object {
+                      "backgroundColor": "#4B4B4B",
+                      "borderRadius": 70,
                       "height": 70,
-                      "justifyContent": "center",
-                      "left": 0,
                       "position": "absolute",
-                      "top": 0,
                       "width": 70,
                     }
                   }
-                >
-                  <Image
-                    source={1}
-                    style={
-                      Object {
-                        "backgroundColor": "#4B4B4B",
-                        "borderRadius": 70,
-                        "height": 70,
-                        "position": "absolute",
-                        "width": 70,
-                      }
+                />
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#ffffff",
+                      "borderColor": "#000000",
+                      "borderRadius": 23,
+                      "borderWidth": 3,
+                      "height": 23,
+                      "marginLeft": -10,
+                      "opacity": 1,
+                      "position": "absolute",
+                      "width": 23,
                     }
-                  />
-                  <View
-                    style={
-                      Object {
-                        "backgroundColor": "#ffffff",
-                        "borderColor": "#000000",
-                        "borderRadius": 23,
-                        "borderWidth": 3,
-                        "height": 23,
-                        "marginLeft": -10,
-                        "opacity": 1,
-                        "position": "absolute",
-                        "width": 23,
-                      }
-                    }
-                  />
-                </View>
+                  }
+                />
               </View>
-              <View
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "marginLeft": 20,
+                }
+              }
+            >
+              <Text
                 style={
                   Object {
-                    "flex": 1,
-                    "marginLeft": 20,
+                    "color": "#ffffff",
+                    "fontSize": 22,
+                    "fontWeight": "bold",
                   }
                 }
               >
-                <Text
-                  style={
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 22,
-                      "fontWeight": "bold",
-                    }
+                Mika
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 20,
                   }
-                >
-                  Mika
-                </Text>
-                <Text
-                  style={
-                    Object {
-                      "color": "#818181",
-                      "fontSize": 20,
-                    }
+                }
+              >
+                Sunday, 12:00 AM
+              </Text>
+              <Text
+                numberOfLines={1}
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 22,
+                    "marginTop": 10,
                   }
-                >
-                  Sunday, 12:00 AM
-                </Text>
-                <Text
-                  numberOfLines={1}
-                  style={
-                    Object {
-                      "color": "#818181",
-                      "fontSize": 22,
-                      "marginTop": 10,
-                    }
-                  }
-                >
-                  Yay
-                </Text>
-              </View>
+                }
+              >
+                Yay
+              </Text>
             </View>
           </View>
         </View>
@@ -1849,31 +1848,34 @@ exports[`Testing <App/> Chat Sending Messages 1`] = `
         onResponderTerminate={[Function]}
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
         testID="bn-chat"
       >
         <View>
-          <View>
-            <View />
-          </View>
+          <View />
+        </View>
+        <View
+          style={
+            Object {
+              "marginBottom": 20,
+              "marginTop": 20,
+            }
+          }
+        >
           <View
             style={
               Object {
-                "marginBottom": 20,
-                "marginTop": 20,
+                "flexDirection": "row",
+                "marginLeft": 20,
+                "marginRight": 20,
               }
             }
           >
             <View
               style={
                 Object {
-                  "flexDirection": "row",
-                  "marginLeft": 20,
-                  "marginRight": 20,
+                  "height": 70,
+                  "marginLeft": 5,
+                  "width": 70,
                 }
               }
             >
@@ -1881,94 +1883,84 @@ exports[`Testing <App/> Chat Sending Messages 1`] = `
                 style={
                   Object {
                     "height": 70,
-                    "marginLeft": 5,
+                    "justifyContent": "center",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 0,
                     "width": 70,
                   }
                 }
               >
-                <View
+                <Image
+                  source={2}
                   style={
                     Object {
+                      "backgroundColor": "#4B4B4B",
+                      "borderRadius": 70,
                       "height": 70,
-                      "justifyContent": "center",
-                      "left": 0,
                       "position": "absolute",
-                      "top": 0,
                       "width": 70,
                     }
                   }
-                >
-                  <Image
-                    source={2}
-                    style={
-                      Object {
-                        "backgroundColor": "#4B4B4B",
-                        "borderRadius": 70,
-                        "height": 70,
-                        "position": "absolute",
-                        "width": 70,
-                      }
+                />
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#ffffff",
+                      "borderColor": "#000000",
+                      "borderRadius": 23,
+                      "borderWidth": 3,
+                      "height": 23,
+                      "marginLeft": -10,
+                      "opacity": 1,
+                      "position": "absolute",
+                      "width": 23,
                     }
-                  />
-                  <View
-                    style={
-                      Object {
-                        "backgroundColor": "#ffffff",
-                        "borderColor": "#000000",
-                        "borderRadius": 23,
-                        "borderWidth": 3,
-                        "height": 23,
-                        "marginLeft": -10,
-                        "opacity": 1,
-                        "position": "absolute",
-                        "width": 23,
-                      }
-                    }
-                  />
-                </View>
+                  }
+                />
               </View>
-              <View
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "marginLeft": 20,
+                }
+              }
+            >
+              <Text
                 style={
                   Object {
-                    "flex": 1,
-                    "marginLeft": 20,
+                    "color": "#ffffff",
+                    "fontSize": 22,
+                    "fontWeight": "bold",
                   }
                 }
               >
-                <Text
-                  style={
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 22,
-                      "fontWeight": "bold",
-                    }
+                Skye
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 20,
                   }
-                >
-                  Skye
-                </Text>
-                <Text
-                  style={
-                    Object {
-                      "color": "#818181",
-                      "fontSize": 20,
-                    }
+                }
+              >
+                Saturday, 12:00 AM
+              </Text>
+              <Text
+                numberOfLines={1}
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 22,
+                    "marginTop": 10,
                   }
-                >
-                  Saturday, 12:00 AM
-                </Text>
-                <Text
-                  numberOfLines={1}
-                  style={
-                    Object {
-                      "color": "#818181",
-                      "fontSize": 22,
-                      "marginTop": 10,
-                    }
-                  }
-                >
-                  Ya?
-                </Text>
-              </View>
+                }
+              >
+                Ya?
+              </Text>
             </View>
           </View>
         </View>
@@ -2009,14 +2001,15 @@ exports[`Testing <App/> Chat Sending Messages: Should Be A Message Equal to <3 1
     style={
       Object {
         "color": "#818181",
-        "fontSize": 13,
-        "marginBottom": 20,
-        "marginTop": 20,
+        "fontSize": 12,
+        "marginBottom": 7,
+        "marginHorizontal": 40,
+        "marginTop": 40,
         "textAlign": "center",
       }
     }
   >
-    Today, 12:00 AM
+    12:00 AM
   </Text>
   <RNGestureHandlerButton
     collapsable={false}
@@ -2108,31 +2101,34 @@ exports[`Testing <App/> Chat Sending Messages: Should Be Sorted With Skye on Top
         onResponderTerminate={[Function]}
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
         testID="bn-chat"
       >
         <View>
-          <View>
-            <View />
-          </View>
+          <View />
+        </View>
+        <View
+          style={
+            Object {
+              "marginBottom": 20,
+              "marginTop": 20,
+            }
+          }
+        >
           <View
             style={
               Object {
-                "marginBottom": 20,
-                "marginTop": 20,
+                "flexDirection": "row",
+                "marginLeft": 20,
+                "marginRight": 20,
               }
             }
           >
             <View
               style={
                 Object {
-                  "flexDirection": "row",
-                  "marginLeft": 20,
-                  "marginRight": 20,
+                  "height": 70,
+                  "marginLeft": 5,
+                  "width": 70,
                 }
               }
             >
@@ -2140,94 +2136,84 @@ exports[`Testing <App/> Chat Sending Messages: Should Be Sorted With Skye on Top
                 style={
                   Object {
                     "height": 70,
-                    "marginLeft": 5,
+                    "justifyContent": "center",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 0,
                     "width": 70,
                   }
                 }
               >
-                <View
+                <Image
+                  source={2}
                   style={
                     Object {
+                      "backgroundColor": "#4B4B4B",
+                      "borderRadius": 70,
                       "height": 70,
-                      "justifyContent": "center",
-                      "left": 0,
                       "position": "absolute",
-                      "top": 0,
                       "width": 70,
                     }
                   }
-                >
-                  <Image
-                    source={2}
-                    style={
-                      Object {
-                        "backgroundColor": "#4B4B4B",
-                        "borderRadius": 70,
-                        "height": 70,
-                        "position": "absolute",
-                        "width": 70,
-                      }
+                />
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#ffffff",
+                      "borderColor": "#000000",
+                      "borderRadius": 23,
+                      "borderWidth": 3,
+                      "height": 23,
+                      "marginLeft": -10,
+                      "opacity": 0,
+                      "position": "absolute",
+                      "width": 23,
                     }
-                  />
-                  <View
-                    style={
-                      Object {
-                        "backgroundColor": "#ffffff",
-                        "borderColor": "#000000",
-                        "borderRadius": 23,
-                        "borderWidth": 3,
-                        "height": 23,
-                        "marginLeft": -10,
-                        "opacity": 0,
-                        "position": "absolute",
-                        "width": 23,
-                      }
-                    }
-                  />
-                </View>
+                  }
+                />
               </View>
-              <View
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "marginLeft": 20,
+                }
+              }
+            >
+              <Text
                 style={
                   Object {
-                    "flex": 1,
-                    "marginLeft": 20,
+                    "color": "#ffffff",
+                    "fontSize": 22,
+                    "fontWeight": "bold",
                   }
                 }
               >
-                <Text
-                  style={
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 22,
-                      "fontWeight": "bold",
-                    }
+                Skye
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 20,
                   }
-                >
-                  Skye
-                </Text>
-                <Text
-                  style={
-                    Object {
-                      "color": "#818181",
-                      "fontSize": 20,
-                    }
+                }
+              >
+                12:00 AM
+              </Text>
+              <Text
+                numberOfLines={1}
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 22,
+                    "marginTop": 10,
                   }
-                >
-                  Today, 12:00 AM
-                </Text>
-                <Text
-                  numberOfLines={1}
-                  style={
-                    Object {
-                      "color": "#818181",
-                      "fontSize": 22,
-                      "marginTop": 10,
-                    }
-                  }
-                >
-                  &lt;3
-                </Text>
-              </View>
+                }
+              >
+                &lt;3
+              </Text>
             </View>
           </View>
         </View>
@@ -2242,31 +2228,34 @@ exports[`Testing <App/> Chat Sending Messages: Should Be Sorted With Skye on Top
         onResponderTerminate={[Function]}
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
         testID="bn-chat"
       >
         <View>
-          <View>
-            <View />
-          </View>
+          <View />
+        </View>
+        <View
+          style={
+            Object {
+              "marginBottom": 20,
+              "marginTop": 20,
+            }
+          }
+        >
           <View
             style={
               Object {
-                "marginBottom": 20,
-                "marginTop": 20,
+                "flexDirection": "row",
+                "marginLeft": 20,
+                "marginRight": 20,
               }
             }
           >
             <View
               style={
                 Object {
-                  "flexDirection": "row",
-                  "marginLeft": 20,
-                  "marginRight": 20,
+                  "height": 70,
+                  "marginLeft": 5,
+                  "width": 70,
                 }
               }
             >
@@ -2274,94 +2263,84 @@ exports[`Testing <App/> Chat Sending Messages: Should Be Sorted With Skye on Top
                 style={
                   Object {
                     "height": 70,
-                    "marginLeft": 5,
+                    "justifyContent": "center",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 0,
                     "width": 70,
                   }
                 }
               >
-                <View
+                <Image
+                  source={1}
                   style={
                     Object {
+                      "backgroundColor": "#4B4B4B",
+                      "borderRadius": 70,
                       "height": 70,
-                      "justifyContent": "center",
-                      "left": 0,
                       "position": "absolute",
-                      "top": 0,
                       "width": 70,
                     }
                   }
-                >
-                  <Image
-                    source={1}
-                    style={
-                      Object {
-                        "backgroundColor": "#4B4B4B",
-                        "borderRadius": 70,
-                        "height": 70,
-                        "position": "absolute",
-                        "width": 70,
-                      }
+                />
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#ffffff",
+                      "borderColor": "#000000",
+                      "borderRadius": 23,
+                      "borderWidth": 3,
+                      "height": 23,
+                      "marginLeft": -10,
+                      "opacity": 1,
+                      "position": "absolute",
+                      "width": 23,
                     }
-                  />
-                  <View
-                    style={
-                      Object {
-                        "backgroundColor": "#ffffff",
-                        "borderColor": "#000000",
-                        "borderRadius": 23,
-                        "borderWidth": 3,
-                        "height": 23,
-                        "marginLeft": -10,
-                        "opacity": 1,
-                        "position": "absolute",
-                        "width": 23,
-                      }
-                    }
-                  />
-                </View>
+                  }
+                />
               </View>
-              <View
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "marginLeft": 20,
+                }
+              }
+            >
+              <Text
                 style={
                   Object {
-                    "flex": 1,
-                    "marginLeft": 20,
+                    "color": "#ffffff",
+                    "fontSize": 22,
+                    "fontWeight": "bold",
                   }
                 }
               >
-                <Text
-                  style={
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 22,
-                      "fontWeight": "bold",
-                    }
+                Mika
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 20,
                   }
-                >
-                  Mika
-                </Text>
-                <Text
-                  style={
-                    Object {
-                      "color": "#818181",
-                      "fontSize": 20,
-                    }
+                }
+              >
+                Sunday, 12:00 AM
+              </Text>
+              <Text
+                numberOfLines={1}
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 22,
+                    "marginTop": 10,
                   }
-                >
-                  Sunday, 12:00 AM
-                </Text>
-                <Text
-                  numberOfLines={1}
-                  style={
-                    Object {
-                      "color": "#818181",
-                      "fontSize": 22,
-                      "marginTop": 10,
-                    }
-                  }
-                >
-                  Yay
-                </Text>
-              </View>
+                }
+              >
+                Yay
+              </Text>
             </View>
           </View>
         </View>
@@ -2563,7 +2542,6 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Initial Menu View Sho
     Object {
       "height": 38,
       "minWidth": 38,
-      "zIndex": 4,
     }
   }
   testID="v-menu"
@@ -2573,11 +2551,11 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Initial Menu View Sho
       Object {
         "backgroundColor": "#414141",
         "borderRadius": 15,
-        "height": 735.15,
+        "height": 622.0500000000001,
         "opacity": 0,
         "position": "absolute",
-        "right": 15,
-        "top": -15,
+        "right": 10,
+        "top": -9,
         "width": 493,
       }
     }
@@ -2601,7 +2579,6 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Menu View Should Be V
     Object {
       "height": 38,
       "minWidth": 38,
-      "zIndex": 4,
     }
   }
   testID="v-menu"
@@ -2611,11 +2588,11 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Menu View Should Be V
       Object {
         "backgroundColor": "#414141",
         "borderRadius": 15,
-        "height": 735.15,
+        "height": 622.0500000000001,
         "opacity": 1,
         "position": "absolute",
-        "right": 15,
-        "top": -15,
+        "right": 10,
+        "top": -9,
         "width": 493,
       }
     }
@@ -2671,6 +2648,30 @@ exports[`Testing <App/> Navigation Views: Initial Navigation View Should Be Inbo
     }
     testID="v-discover"
   />
+  <View
+    pointerEvents="none"
+    style={
+      Object {
+        "height": "100%",
+        "opacity": 0,
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+    testID="v-profile"
+  />
+  <View
+    pointerEvents="none"
+    style={
+      Object {
+        "height": "100%",
+        "opacity": 0,
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+    testID="v-settings"
+  />
 </View>
 `;
 
@@ -2706,6 +2707,30 @@ exports[`Testing <App/> Navigation Views: Navigation View Should Be Discover 1`]
       }
     }
     testID="v-discover"
+  />
+  <View
+    pointerEvents="none"
+    style={
+      Object {
+        "height": "100%",
+        "opacity": 0,
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+    testID="v-profile"
+  />
+  <View
+    pointerEvents="none"
+    style={
+      Object {
+        "height": "100%",
+        "opacity": 0,
+        "position": "absolute",
+        "width": "100%",
+      }
+    }
+    testID="v-settings"
   />
 </View>
 `;
@@ -2765,6 +2790,8 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Activated Bottom Shee
   />
   <TextInput
     allowFontScaling={true}
+    multiline={false}
+    onChangeText={[Function]}
     placeholder="Search"
     placeholderTextColor="rgba(255,255,255,0.45)"
     rejectResponderTermination={true}
@@ -2779,7 +2806,9 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Activated Bottom Shee
         "width": 348,
       }
     }
+    testID="in-search"
     underlineColorAndroid="transparent"
+    value=""
   />
   <View
     style={
@@ -2820,6 +2849,8 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Activated Bottom Shee
   />
   <TextInput
     allowFontScaling={true}
+    multiline={false}
+    onChangeText={[Function]}
     placeholder="Search"
     placeholderTextColor="rgba(255,255,255,0.45)"
     rejectResponderTermination={true}
@@ -2834,7 +2865,9 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Activated Bottom Shee
         "width": 0,
       }
     }
+    testID="in-search"
     underlineColorAndroid="transparent"
+    value=""
   />
   <View
     style={
@@ -2903,6 +2936,8 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Deactivated Bottom Sh
   />
   <TextInput
     allowFontScaling={true}
+    multiline={false}
+    onChangeText={[Function]}
     placeholder="Search"
     placeholderTextColor="rgba(255,255,255,0.45)"
     rejectResponderTermination={true}
@@ -2917,7 +2952,9 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Deactivated Bottom Sh
         "width": 367,
       }
     }
+    testID="in-search"
     underlineColorAndroid="transparent"
+    value=""
   />
   <View
     style={
@@ -2958,6 +2995,8 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Deactivated Bottom Sh
   />
   <TextInput
     allowFontScaling={true}
+    multiline={false}
+    onChangeText={[Function]}
     placeholder="Search"
     placeholderTextColor="rgba(255,255,255,0.45)"
     rejectResponderTermination={true}
@@ -2972,7 +3011,9 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Deactivated Bottom Sh
         "width": 0,
       }
     }
+    testID="in-search"
     underlineColorAndroid="transparent"
+    value=""
   />
   <View
     style={
@@ -3041,6 +3082,8 @@ exports[`Testing <App/> Search Bar Width (3 Avatars): Search Bar Should Be Maxim
   />
   <TextInput
     allowFontScaling={true}
+    multiline={false}
+    onChangeText={[Function]}
     placeholder="Search"
     placeholderTextColor="rgba(255,255,255,0.45)"
     rejectResponderTermination={true}
@@ -3055,7 +3098,9 @@ exports[`Testing <App/> Search Bar Width (3 Avatars): Search Bar Should Be Maxim
         "width": 329,
       }
     }
+    testID="in-search"
     underlineColorAndroid="transparent"
+    value=""
   />
   <View
     style={
@@ -3096,6 +3141,8 @@ exports[`Testing <App/> Search Bar Width (3 Avatars): Search Bar Should Be Minim
   />
   <TextInput
     allowFontScaling={true}
+    multiline={false}
+    onChangeText={[Function]}
     placeholder="Search"
     placeholderTextColor="rgba(255,255,255,0.45)"
     rejectResponderTermination={true}
@@ -3110,7 +3157,9 @@ exports[`Testing <App/> Search Bar Width (3 Avatars): Search Bar Should Be Minim
         "width": 0,
       }
     }
+    testID="in-search"
     underlineColorAndroid="transparent"
+    value=""
   />
   <View
     style={
@@ -3156,6 +3205,8 @@ exports[`Testing <App/> Search Bar Width (With Deactivated Bottom Sheet): Initia
   />
   <TextInput
     allowFontScaling={true}
+    multiline={false}
+    onChangeText={[Function]}
     placeholder="Search"
     placeholderTextColor="rgba(255,255,255,0.45)"
     rejectResponderTermination={true}
@@ -3170,7 +3221,9 @@ exports[`Testing <App/> Search Bar Width (With Deactivated Bottom Sheet): Initia
         "width": 0,
       }
     }
+    testID="in-search"
     underlineColorAndroid="transparent"
+    value=""
   />
   <View
     style={
@@ -3211,6 +3264,8 @@ exports[`Testing <App/> Search Bar Width (With Deactivated Bottom Sheet): Search
   />
   <TextInput
     allowFontScaling={true}
+    multiline={false}
+    onChangeText={[Function]}
     placeholder="Search"
     placeholderTextColor="rgba(255,255,255,0.45)"
     rejectResponderTermination={true}
@@ -3225,7 +3280,9 @@ exports[`Testing <App/> Search Bar Width (With Deactivated Bottom Sheet): Search
         "width": 367,
       }
     }
+    testID="in-search"
     underlineColorAndroid="transparent"
+    value=""
   />
   <View
     style={
@@ -3259,166 +3316,159 @@ exports[`Testing <Inbox/> Group of 3 View: Should Be A Group View With 2 Avatars
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
       testID="bn-chat"
     >
       <View>
-        <View>
-          <View />
-        </View>
+        <View />
+      </View>
+      <View
+        style={
+          Object {
+            "marginBottom": 20,
+            "marginTop": 20,
+          }
+        }
+      >
         <View
           style={
             Object {
-              "marginBottom": 20,
-              "marginTop": 20,
+              "flexDirection": "row",
+              "marginLeft": 20,
+              "marginRight": 20,
             }
           }
         >
           <View
             style={
               Object {
-                "flexDirection": "row",
-                "marginLeft": 20,
-                "marginRight": 20,
+                "height": 70,
+                "marginLeft": 5,
+                "width": 70,
               }
             }
           >
             <View
               style={
                 Object {
-                  "height": 70,
-                  "marginLeft": 5,
-                  "width": 70,
+                  "height": 52.5,
+                  "justifyContent": "center",
+                  "left": 18.375,
+                  "position": "absolute",
+                  "top": 26.25,
+                  "width": 52.5,
                 }
               }
             >
-              <View
+              <Image
+                source={1}
                 style={
                   Object {
+                    "backgroundColor": "#4B4B4B",
+                    "borderRadius": 70,
                     "height": 52.5,
-                    "justifyContent": "center",
-                    "left": 18.375,
                     "position": "absolute",
-                    "top": 26.25,
                     "width": 52.5,
                   }
                 }
-              >
-                <Image
-                  source={1}
-                  style={
-                    Object {
-                      "backgroundColor": "#4B4B4B",
-                      "borderRadius": 70,
-                      "height": 52.5,
-                      "position": "absolute",
-                      "width": 52.5,
-                    }
-                  }
-                />
-                <View
-                  style={
-                    Object {
-                      "backgroundColor": "#ffffff",
-                      "borderColor": "#000000",
-                      "borderRadius": 23,
-                      "borderWidth": 3,
-                      "height": 23,
-                      "marginLeft": -10,
-                      "opacity": 0,
-                      "position": "absolute",
-                      "width": 23,
-                    }
-                  }
-                />
-              </View>
+              />
               <View
                 style={
                   Object {
-                    "height": 52.5,
-                    "justifyContent": "center",
-                    "left": 0,
+                    "backgroundColor": "#ffffff",
+                    "borderColor": "#000000",
+                    "borderRadius": 23,
+                    "borderWidth": 3,
+                    "height": 23,
+                    "marginLeft": -10,
+                    "opacity": 0,
                     "position": "absolute",
-                    "top": 0,
-                    "width": 52.5,
+                    "width": 23,
                   }
                 }
-              >
-                <Image
-                  source={2}
-                  style={
-                    Object {
-                      "backgroundColor": "#4B4B4B",
-                      "borderRadius": 70,
-                      "height": 52.5,
-                      "position": "absolute",
-                      "width": 52.5,
-                    }
-                  }
-                />
-                <View
-                  style={
-                    Object {
-                      "backgroundColor": "#ffffff",
-                      "borderColor": "#000000",
-                      "borderRadius": 23,
-                      "borderWidth": 3,
-                      "height": 23,
-                      "marginLeft": -10,
-                      "opacity": 1,
-                      "position": "absolute",
-                      "width": 23,
-                    }
-                  }
-                />
-              </View>
+              />
             </View>
             <View
               style={
                 Object {
-                  "flex": 1,
-                  "marginLeft": 20,
+                  "height": 52.5,
+                  "justifyContent": "center",
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 0,
+                  "width": 52.5,
                 }
               }
             >
-              <Text
+              <Image
+                source={2}
                 style={
                   Object {
-                    "color": "#ffffff",
-                    "fontSize": 22,
-                    "fontWeight": "bold",
+                    "backgroundColor": "#4B4B4B",
+                    "borderRadius": 70,
+                    "height": 52.5,
+                    "position": "absolute",
+                    "width": 52.5,
                   }
                 }
-              >
-                Group of Wholesome Girls
-              </Text>
-              <Text
+              />
+              <View
                 style={
                   Object {
-                    "color": "#818181",
-                    "fontSize": 20,
+                    "backgroundColor": "#ffffff",
+                    "borderColor": "#000000",
+                    "borderRadius": 23,
+                    "borderWidth": 3,
+                    "height": 23,
+                    "marginLeft": -10,
+                    "opacity": 1,
+                    "position": "absolute",
+                    "width": 23,
                   }
                 }
-              >
-                1 Feb 2001
-              </Text>
-              <Text
-                numberOfLines={1}
-                style={
-                  Object {
-                    "color": "#818181",
-                    "fontSize": 22,
-                    "marginTop": 10,
-                  }
-                }
-              >
-                
-              </Text>
+              />
             </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "marginLeft": 20,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 22,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              Group of Wholesome Girls
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 20,
+                }
+              }
+            >
+              1 Feb 2001
+            </Text>
+            <Text
+              numberOfLines={1}
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 22,
+                  "marginTop": 10,
+                }
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -3447,206 +3497,199 @@ exports[`Testing <Inbox/> Group of 4 View: Should Be A Group View With 3 Avatars
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
       testID="bn-chat"
     >
       <View>
-        <View>
-          <View />
-        </View>
+        <View />
+      </View>
+      <View
+        style={
+          Object {
+            "marginBottom": 20,
+            "marginTop": 20,
+          }
+        }
+      >
         <View
           style={
             Object {
-              "marginBottom": 20,
-              "marginTop": 20,
+              "flexDirection": "row",
+              "marginLeft": 20,
+              "marginRight": 20,
             }
           }
         >
           <View
             style={
               Object {
-                "flexDirection": "row",
-                "marginLeft": 20,
-                "marginRight": 20,
+                "height": 70,
+                "marginLeft": 5,
+                "width": 70,
               }
             }
           >
             <View
               style={
                 Object {
-                  "height": 70,
-                  "marginLeft": 5,
-                  "width": 70,
+                  "height": 45.5,
+                  "justifyContent": "center",
+                  "left": 7.75,
+                  "position": "absolute",
+                  "top": 35.5,
+                  "width": 45.5,
                 }
               }
             >
-              <View
+              <Image
+                source={1}
                 style={
                   Object {
+                    "backgroundColor": "#4B4B4B",
+                    "borderRadius": 70,
                     "height": 45.5,
-                    "justifyContent": "center",
-                    "left": 7.75,
                     "position": "absolute",
-                    "top": 35.5,
                     "width": 45.5,
                   }
                 }
-              >
-                <Image
-                  source={1}
-                  style={
-                    Object {
-                      "backgroundColor": "#4B4B4B",
-                      "borderRadius": 70,
-                      "height": 45.5,
-                      "position": "absolute",
-                      "width": 45.5,
-                    }
-                  }
-                />
-                <View
-                  style={
-                    Object {
-                      "backgroundColor": "#ffffff",
-                      "borderColor": "#000000",
-                      "borderRadius": 23,
-                      "borderWidth": 3,
-                      "height": 23,
-                      "marginLeft": -10,
-                      "opacity": 0,
-                      "position": "absolute",
-                      "width": 23,
-                    }
-                  }
-                />
-              </View>
+              />
               <View
                 style={
                   Object {
-                    "height": 45.5,
-                    "justifyContent": "center",
-                    "left": 0,
+                    "backgroundColor": "#ffffff",
+                    "borderColor": "#000000",
+                    "borderRadius": 23,
+                    "borderWidth": 3,
+                    "height": 23,
+                    "marginLeft": -10,
+                    "opacity": 0,
                     "position": "absolute",
-                    "top": 0,
-                    "width": 45.5,
+                    "width": 23,
                   }
                 }
-              >
-                <Image
-                  source={2}
-                  style={
-                    Object {
-                      "backgroundColor": "#4B4B4B",
-                      "borderRadius": 70,
-                      "height": 45.5,
-                      "position": "absolute",
-                      "width": 45.5,
-                    }
-                  }
-                />
-                <View
-                  style={
-                    Object {
-                      "backgroundColor": "#ffffff",
-                      "borderColor": "#000000",
-                      "borderRadius": 23,
-                      "borderWidth": 3,
-                      "height": 23,
-                      "marginLeft": -10,
-                      "opacity": 1,
-                      "position": "absolute",
-                      "width": 23,
-                    }
-                  }
-                />
-              </View>
-              <View
-                style={
-                  Object {
-                    "height": 45.5,
-                    "justifyContent": "center",
-                    "left": 30.5,
-                    "position": "absolute",
-                    "top": 10,
-                    "width": 45.5,
-                  }
-                }
-              >
-                <Image
-                  source={3}
-                  style={
-                    Object {
-                      "backgroundColor": "#4B4B4B",
-                      "borderRadius": 70,
-                      "height": 45.5,
-                      "position": "absolute",
-                      "width": 45.5,
-                    }
-                  }
-                />
-                <View
-                  style={
-                    Object {
-                      "backgroundColor": "#ffffff",
-                      "borderColor": "#000000",
-                      "borderRadius": 23,
-                      "borderWidth": 3,
-                      "height": 23,
-                      "marginLeft": -10,
-                      "opacity": 0,
-                      "position": "absolute",
-                      "width": 23,
-                    }
-                  }
-                />
-              </View>
+              />
             </View>
             <View
               style={
                 Object {
-                  "flex": 1,
-                  "marginLeft": 20,
+                  "height": 45.5,
+                  "justifyContent": "center",
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 0,
+                  "width": 45.5,
                 }
               }
             >
-              <Text
+              <Image
+                source={2}
                 style={
                   Object {
-                    "color": "#ffffff",
-                    "fontSize": 22,
-                    "fontWeight": "bold",
+                    "backgroundColor": "#4B4B4B",
+                    "borderRadius": 70,
+                    "height": 45.5,
+                    "position": "absolute",
+                    "width": 45.5,
                   }
                 }
-              >
-                Group of Wholesome Girls
-              </Text>
-              <Text
+              />
+              <View
                 style={
                   Object {
-                    "color": "#818181",
-                    "fontSize": 20,
+                    "backgroundColor": "#ffffff",
+                    "borderColor": "#000000",
+                    "borderRadius": 23,
+                    "borderWidth": 3,
+                    "height": 23,
+                    "marginLeft": -10,
+                    "opacity": 1,
+                    "position": "absolute",
+                    "width": 23,
                   }
                 }
-              >
-                2 Mar 2002
-              </Text>
-              <Text
-                numberOfLines={1}
-                style={
-                  Object {
-                    "color": "#818181",
-                    "fontSize": 22,
-                    "marginTop": 10,
-                  }
-                }
-              >
-                
-              </Text>
+              />
             </View>
+            <View
+              style={
+                Object {
+                  "height": 45.5,
+                  "justifyContent": "center",
+                  "left": 30.5,
+                  "position": "absolute",
+                  "top": 10,
+                  "width": 45.5,
+                }
+              }
+            >
+              <Image
+                source={3}
+                style={
+                  Object {
+                    "backgroundColor": "#4B4B4B",
+                    "borderRadius": 70,
+                    "height": 45.5,
+                    "position": "absolute",
+                    "width": 45.5,
+                  }
+                }
+              />
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "borderColor": "#000000",
+                    "borderRadius": 23,
+                    "borderWidth": 3,
+                    "height": 23,
+                    "marginLeft": -10,
+                    "opacity": 0,
+                    "position": "absolute",
+                    "width": 23,
+                  }
+                }
+              />
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "marginLeft": 20,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 22,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              Group of Wholesome Girls
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 20,
+                }
+              }
+            >
+              2 Mar 2002
+            </Text>
+            <Text
+              numberOfLines={1}
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 22,
+                  "marginTop": 10,
+                }
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -3675,246 +3718,239 @@ exports[`Testing <Inbox/> Group of 5 View: Should Be A Group View With 4 Avatars
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
       testID="bn-chat"
     >
       <View>
-        <View>
-          <View />
-        </View>
+        <View />
+      </View>
+      <View
+        style={
+          Object {
+            "marginBottom": 20,
+            "marginTop": 20,
+          }
+        }
+      >
         <View
           style={
             Object {
-              "marginBottom": 20,
-              "marginTop": 20,
+              "flexDirection": "row",
+              "marginLeft": 20,
+              "marginRight": 20,
             }
           }
         >
           <View
             style={
               Object {
-                "flexDirection": "row",
-                "marginLeft": 20,
-                "marginRight": 20,
+                "height": 70,
+                "marginLeft": 5,
+                "width": 70,
               }
             }
           >
             <View
               style={
                 Object {
-                  "height": 70,
-                  "marginLeft": 5,
-                  "width": 70,
+                  "height": 35,
+                  "justifyContent": "center",
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 30,
+                  "width": 35,
                 }
               }
             >
-              <View
+              <Image
+                source={1}
                 style={
                   Object {
+                    "backgroundColor": "#4B4B4B",
+                    "borderRadius": 70,
                     "height": 35,
-                    "justifyContent": "center",
-                    "left": 0,
                     "position": "absolute",
-                    "top": 30,
                     "width": 35,
                   }
                 }
-              >
-                <Image
-                  source={1}
-                  style={
-                    Object {
-                      "backgroundColor": "#4B4B4B",
-                      "borderRadius": 70,
-                      "height": 35,
-                      "position": "absolute",
-                      "width": 35,
-                    }
-                  }
-                />
-                <View
-                  style={
-                    Object {
-                      "backgroundColor": "#ffffff",
-                      "borderColor": "#000000",
-                      "borderRadius": 23,
-                      "borderWidth": 3,
-                      "height": 23,
-                      "marginLeft": -10,
-                      "opacity": 0,
-                      "position": "absolute",
-                      "width": 23,
-                    }
-                  }
-                />
-              </View>
+              />
               <View
                 style={
                   Object {
-                    "height": 35,
-                    "justifyContent": "center",
-                    "left": 0,
+                    "backgroundColor": "#ffffff",
+                    "borderColor": "#000000",
+                    "borderRadius": 23,
+                    "borderWidth": 3,
+                    "height": 23,
+                    "marginLeft": -10,
+                    "opacity": 0,
                     "position": "absolute",
-                    "top": 0,
-                    "width": 35,
+                    "width": 23,
                   }
                 }
-              >
-                <Image
-                  source={2}
-                  style={
-                    Object {
-                      "backgroundColor": "#4B4B4B",
-                      "borderRadius": 70,
-                      "height": 35,
-                      "position": "absolute",
-                      "width": 35,
-                    }
-                  }
-                />
-                <View
-                  style={
-                    Object {
-                      "backgroundColor": "#ffffff",
-                      "borderColor": "#000000",
-                      "borderRadius": 23,
-                      "borderWidth": 3,
-                      "height": 23,
-                      "marginLeft": -10,
-                      "opacity": 1,
-                      "position": "absolute",
-                      "width": 23,
-                    }
-                  }
-                />
-              </View>
-              <View
-                style={
-                  Object {
-                    "height": 35,
-                    "justifyContent": "center",
-                    "left": 30,
-                    "position": "absolute",
-                    "top": 40,
-                    "width": 35,
-                  }
-                }
-              >
-                <Image
-                  source={3}
-                  style={
-                    Object {
-                      "backgroundColor": "#4B4B4B",
-                      "borderRadius": 70,
-                      "height": 35,
-                      "position": "absolute",
-                      "width": 35,
-                    }
-                  }
-                />
-                <View
-                  style={
-                    Object {
-                      "backgroundColor": "#ffffff",
-                      "borderColor": "#000000",
-                      "borderRadius": 23,
-                      "borderWidth": 3,
-                      "height": 23,
-                      "marginLeft": -10,
-                      "opacity": 0,
-                      "position": "absolute",
-                      "width": 23,
-                    }
-                  }
-                />
-              </View>
-              <View
-                style={
-                  Object {
-                    "height": 35,
-                    "justifyContent": "center",
-                    "left": 30,
-                    "position": "absolute",
-                    "top": 8,
-                    "width": 35,
-                  }
-                }
-              >
-                <Image
-                  source={4}
-                  style={
-                    Object {
-                      "backgroundColor": "#4B4B4B",
-                      "borderRadius": 70,
-                      "height": 35,
-                      "position": "absolute",
-                      "width": 35,
-                    }
-                  }
-                />
-                <View
-                  style={
-                    Object {
-                      "backgroundColor": "#ffffff",
-                      "borderColor": "#000000",
-                      "borderRadius": 23,
-                      "borderWidth": 3,
-                      "height": 23,
-                      "marginLeft": -10,
-                      "opacity": 0,
-                      "position": "absolute",
-                      "width": 23,
-                    }
-                  }
-                />
-              </View>
+              />
             </View>
             <View
               style={
                 Object {
-                  "flex": 1,
-                  "marginLeft": 20,
+                  "height": 35,
+                  "justifyContent": "center",
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 0,
+                  "width": 35,
                 }
               }
             >
-              <Text
+              <Image
+                source={2}
                 style={
                   Object {
-                    "color": "#ffffff",
-                    "fontSize": 22,
-                    "fontWeight": "bold",
+                    "backgroundColor": "#4B4B4B",
+                    "borderRadius": 70,
+                    "height": 35,
+                    "position": "absolute",
+                    "width": 35,
                   }
                 }
-              >
-                Group of Wholesome Girls
-              </Text>
-              <Text
+              />
+              <View
                 style={
                   Object {
-                    "color": "#818181",
-                    "fontSize": 20,
+                    "backgroundColor": "#ffffff",
+                    "borderColor": "#000000",
+                    "borderRadius": 23,
+                    "borderWidth": 3,
+                    "height": 23,
+                    "marginLeft": -10,
+                    "opacity": 1,
+                    "position": "absolute",
+                    "width": 23,
                   }
                 }
-              >
-                3 Apr 2003
-              </Text>
-              <Text
-                numberOfLines={1}
-                style={
-                  Object {
-                    "color": "#818181",
-                    "fontSize": 22,
-                    "marginTop": 10,
-                  }
-                }
-              >
-                
-              </Text>
+              />
             </View>
+            <View
+              style={
+                Object {
+                  "height": 35,
+                  "justifyContent": "center",
+                  "left": 30,
+                  "position": "absolute",
+                  "top": 40,
+                  "width": 35,
+                }
+              }
+            >
+              <Image
+                source={3}
+                style={
+                  Object {
+                    "backgroundColor": "#4B4B4B",
+                    "borderRadius": 70,
+                    "height": 35,
+                    "position": "absolute",
+                    "width": 35,
+                  }
+                }
+              />
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "borderColor": "#000000",
+                    "borderRadius": 23,
+                    "borderWidth": 3,
+                    "height": 23,
+                    "marginLeft": -10,
+                    "opacity": 0,
+                    "position": "absolute",
+                    "width": 23,
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "height": 35,
+                  "justifyContent": "center",
+                  "left": 30,
+                  "position": "absolute",
+                  "top": 8,
+                  "width": 35,
+                }
+              }
+            >
+              <Image
+                source={4}
+                style={
+                  Object {
+                    "backgroundColor": "#4B4B4B",
+                    "borderRadius": 70,
+                    "height": 35,
+                    "position": "absolute",
+                    "width": 35,
+                  }
+                }
+              />
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "borderColor": "#000000",
+                    "borderRadius": 23,
+                    "borderWidth": 3,
+                    "height": 23,
+                    "marginLeft": -10,
+                    "opacity": 0,
+                    "position": "absolute",
+                    "width": 23,
+                  }
+                }
+              />
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "marginLeft": 20,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 22,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              Group of Wholesome Girls
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 20,
+                }
+              }
+            >
+              3 Apr 2003
+            </Text>
+            <Text
+              numberOfLines={1}
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 22,
+                  "marginTop": 10,
+                }
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -3948,31 +3984,34 @@ exports[`Testing <Inbox/> Normal View: Should Be A Normal Inbox View With 1 Avat
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
       testID="bn-chat"
     >
       <View>
-        <View>
-          <View />
-        </View>
+        <View />
+      </View>
+      <View
+        style={
+          Object {
+            "marginBottom": 20,
+            "marginTop": 20,
+          }
+        }
+      >
         <View
           style={
             Object {
-              "marginBottom": 20,
-              "marginTop": 20,
+              "flexDirection": "row",
+              "marginLeft": 20,
+              "marginRight": 20,
             }
           }
         >
           <View
             style={
               Object {
-                "flexDirection": "row",
-                "marginLeft": 20,
-                "marginRight": 20,
+                "height": 70,
+                "marginLeft": 5,
+                "width": 70,
               }
             }
           >
@@ -3980,94 +4019,84 @@ exports[`Testing <Inbox/> Normal View: Should Be A Normal Inbox View With 1 Avat
               style={
                 Object {
                   "height": 70,
-                  "marginLeft": 5,
+                  "justifyContent": "center",
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 0,
                   "width": 70,
                 }
               }
             >
-              <View
+              <Image
+                source={1}
                 style={
                   Object {
+                    "backgroundColor": "#4B4B4B",
+                    "borderRadius": 70,
                     "height": 70,
-                    "justifyContent": "center",
-                    "left": 0,
                     "position": "absolute",
-                    "top": 0,
                     "width": 70,
                   }
                 }
-              >
-                <Image
-                  source={1}
-                  style={
-                    Object {
-                      "backgroundColor": "#4B4B4B",
-                      "borderRadius": 70,
-                      "height": 70,
-                      "position": "absolute",
-                      "width": 70,
-                    }
+              />
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "borderColor": "#000000",
+                    "borderRadius": 23,
+                    "borderWidth": 3,
+                    "height": 23,
+                    "marginLeft": -10,
+                    "opacity": 1,
+                    "position": "absolute",
+                    "width": 23,
                   }
-                />
-                <View
-                  style={
-                    Object {
-                      "backgroundColor": "#ffffff",
-                      "borderColor": "#000000",
-                      "borderRadius": 23,
-                      "borderWidth": 3,
-                      "height": 23,
-                      "marginLeft": -10,
-                      "opacity": 1,
-                      "position": "absolute",
-                      "width": 23,
-                    }
-                  }
-                />
-              </View>
+                }
+              />
             </View>
-            <View
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "marginLeft": 20,
+              }
+            }
+          >
+            <Text
               style={
                 Object {
-                  "flex": 1,
-                  "marginLeft": 20,
+                  "color": "#ffffff",
+                  "fontSize": 22,
+                  "fontWeight": "bold",
                 }
               }
             >
-              <Text
-                style={
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 22,
-                    "fontWeight": "bold",
-                  }
+              Mika
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 20,
                 }
-              >
-                Mika
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#818181",
-                    "fontSize": 20,
-                  }
+              }
+            >
+              9 Oct 1999
+            </Text>
+            <Text
+              numberOfLines={1}
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 22,
+                  "marginTop": 10,
                 }
-              >
-                9 Oct 1999
-              </Text>
-              <Text
-                numberOfLines={1}
-                style={
-                  Object {
-                    "color": "#818181",
-                    "fontSize": 22,
-                    "marginTop": 10,
-                  }
-                }
-              >
-                
-              </Text>
-            </View>
+              }
+            >
+              
+            </Text>
           </View>
         </View>
       </View>
@@ -4087,31 +4116,34 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Full
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
-  style={
-    Object {
-      "opacity": 1,
-    }
-  }
   testID="bn-chat"
 >
   <View>
-    <View>
-      <View />
-    </View>
+    <View />
+  </View>
+  <View
+    style={
+      Object {
+        "marginBottom": 20,
+        "marginTop": 20,
+      }
+    }
+  >
     <View
       style={
         Object {
-          "marginBottom": 20,
-          "marginTop": 20,
+          "flexDirection": "row",
+          "marginLeft": 20,
+          "marginRight": 20,
         }
       }
     >
       <View
         style={
           Object {
-            "flexDirection": "row",
-            "marginLeft": 20,
-            "marginRight": 20,
+            "height": 70,
+            "marginLeft": 5,
+            "width": 70,
           }
         }
       >
@@ -4119,94 +4151,84 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Full
           style={
             Object {
               "height": 70,
-              "marginLeft": 5,
+              "justifyContent": "center",
+              "left": 0,
+              "position": "absolute",
+              "top": 0,
               "width": 70,
             }
           }
         >
-          <View
+          <Image
+            source={1}
             style={
               Object {
+                "backgroundColor": "#4B4B4B",
+                "borderRadius": 70,
                 "height": 70,
-                "justifyContent": "center",
-                "left": 0,
                 "position": "absolute",
-                "top": 0,
                 "width": 70,
               }
             }
-          >
-            <Image
-              source={1}
-              style={
-                Object {
-                  "backgroundColor": "#4B4B4B",
-                  "borderRadius": 70,
-                  "height": 70,
-                  "position": "absolute",
-                  "width": 70,
-                }
+          />
+          <View
+            style={
+              Object {
+                "backgroundColor": "#ffffff",
+                "borderColor": "#000000",
+                "borderRadius": 23,
+                "borderWidth": 3,
+                "height": 23,
+                "marginLeft": -10,
+                "opacity": 1,
+                "position": "absolute",
+                "width": 23,
               }
-            />
-            <View
-              style={
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#000000",
-                  "borderRadius": 23,
-                  "borderWidth": 3,
-                  "height": 23,
-                  "marginLeft": -10,
-                  "opacity": 1,
-                  "position": "absolute",
-                  "width": 23,
-                }
-              }
-            />
-          </View>
+            }
+          />
         </View>
-        <View
+      </View>
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "marginLeft": 20,
+          }
+        }
+      >
+        <Text
           style={
             Object {
-              "flex": 1,
-              "marginLeft": 20,
+              "color": "#ffffff",
+              "fontSize": 22,
+              "fontWeight": "bold",
             }
           }
         >
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontSize": 22,
-                "fontWeight": "bold",
-              }
+          Mika
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 20,
             }
-          >
-            Mika
-          </Text>
-          <Text
-            style={
-              Object {
-                "color": "#818181",
-                "fontSize": 20,
-              }
+          }
+        >
+          9 Oct 1999
+        </Text>
+        <Text
+          numberOfLines={1}
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 22,
+              "marginTop": 10,
             }
-          >
-            9 Oct 1999
-          </Text>
-          <Text
-            numberOfLines={1}
-            style={
-              Object {
-                "color": "#818181",
-                "fontSize": 22,
-                "marginTop": 10,
-              }
-            }
-          >
-            Yay
-          </Text>
-        </View>
+          }
+        >
+          Yay
+        </Text>
       </View>
     </View>
   </View>
@@ -4224,31 +4246,34 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of This
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
-  style={
-    Object {
-      "opacity": 1,
-    }
-  }
   testID="bn-chat"
 >
   <View>
-    <View>
-      <View />
-    </View>
+    <View />
+  </View>
+  <View
+    style={
+      Object {
+        "marginBottom": 20,
+        "marginTop": 20,
+      }
+    }
+  >
     <View
       style={
         Object {
-          "marginBottom": 20,
-          "marginTop": 20,
+          "flexDirection": "row",
+          "marginLeft": 20,
+          "marginRight": 20,
         }
       }
     >
       <View
         style={
           Object {
-            "flexDirection": "row",
-            "marginLeft": 20,
-            "marginRight": 20,
+            "height": 70,
+            "marginLeft": 5,
+            "width": 70,
           }
         }
       >
@@ -4256,94 +4281,84 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of This
           style={
             Object {
               "height": 70,
-              "marginLeft": 5,
+              "justifyContent": "center",
+              "left": 0,
+              "position": "absolute",
+              "top": 0,
               "width": 70,
             }
           }
         >
-          <View
+          <Image
+            source={1}
             style={
               Object {
+                "backgroundColor": "#4B4B4B",
+                "borderRadius": 70,
                 "height": 70,
-                "justifyContent": "center",
-                "left": 0,
                 "position": "absolute",
-                "top": 0,
                 "width": 70,
               }
             }
-          >
-            <Image
-              source={1}
-              style={
-                Object {
-                  "backgroundColor": "#4B4B4B",
-                  "borderRadius": 70,
-                  "height": 70,
-                  "position": "absolute",
-                  "width": 70,
-                }
+          />
+          <View
+            style={
+              Object {
+                "backgroundColor": "#ffffff",
+                "borderColor": "#000000",
+                "borderRadius": 23,
+                "borderWidth": 3,
+                "height": 23,
+                "marginLeft": -10,
+                "opacity": 1,
+                "position": "absolute",
+                "width": 23,
               }
-            />
-            <View
-              style={
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#000000",
-                  "borderRadius": 23,
-                  "borderWidth": 3,
-                  "height": 23,
-                  "marginLeft": -10,
-                  "opacity": 1,
-                  "position": "absolute",
-                  "width": 23,
-                }
-              }
-            />
-          </View>
+            }
+          />
         </View>
-        <View
+      </View>
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "marginLeft": 20,
+          }
+        }
+      >
+        <Text
           style={
             Object {
-              "flex": 1,
-              "marginLeft": 20,
+              "color": "#ffffff",
+              "fontSize": 22,
+              "fontWeight": "bold",
             }
           }
         >
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontSize": 22,
-                "fontWeight": "bold",
-              }
+          Mika
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 20,
             }
-          >
-            Mika
-          </Text>
-          <Text
-            style={
-              Object {
-                "color": "#818181",
-                "fontSize": 20,
-              }
+          }
+        >
+          Saturday, 12:00 AM
+        </Text>
+        <Text
+          numberOfLines={1}
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 22,
+              "marginTop": 10,
             }
-          >
-            Saturday, 12:00 AM
-          </Text>
-          <Text
-            numberOfLines={1}
-            style={
-              Object {
-                "color": "#818181",
-                "fontSize": 22,
-                "marginTop": 10,
-              }
-            }
-          >
-            Yay
-          </Text>
-        </View>
+          }
+        >
+          Yay
+        </Text>
       </View>
     </View>
   </View>
@@ -4361,31 +4376,34 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Toda
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
-  style={
-    Object {
-      "opacity": 1,
-    }
-  }
   testID="bn-chat"
 >
   <View>
-    <View>
-      <View />
-    </View>
+    <View />
+  </View>
+  <View
+    style={
+      Object {
+        "marginBottom": 20,
+        "marginTop": 20,
+      }
+    }
+  >
     <View
       style={
         Object {
-          "marginBottom": 20,
-          "marginTop": 20,
+          "flexDirection": "row",
+          "marginLeft": 20,
+          "marginRight": 20,
         }
       }
     >
       <View
         style={
           Object {
-            "flexDirection": "row",
-            "marginLeft": 20,
-            "marginRight": 20,
+            "height": 70,
+            "marginLeft": 5,
+            "width": 70,
           }
         }
       >
@@ -4393,94 +4411,84 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Toda
           style={
             Object {
               "height": 70,
-              "marginLeft": 5,
+              "justifyContent": "center",
+              "left": 0,
+              "position": "absolute",
+              "top": 0,
               "width": 70,
             }
           }
         >
-          <View
+          <Image
+            source={1}
             style={
               Object {
+                "backgroundColor": "#4B4B4B",
+                "borderRadius": 70,
                 "height": 70,
-                "justifyContent": "center",
-                "left": 0,
                 "position": "absolute",
-                "top": 0,
                 "width": 70,
               }
             }
-          >
-            <Image
-              source={1}
-              style={
-                Object {
-                  "backgroundColor": "#4B4B4B",
-                  "borderRadius": 70,
-                  "height": 70,
-                  "position": "absolute",
-                  "width": 70,
-                }
+          />
+          <View
+            style={
+              Object {
+                "backgroundColor": "#ffffff",
+                "borderColor": "#000000",
+                "borderRadius": 23,
+                "borderWidth": 3,
+                "height": 23,
+                "marginLeft": -10,
+                "opacity": 1,
+                "position": "absolute",
+                "width": 23,
               }
-            />
-            <View
-              style={
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#000000",
-                  "borderRadius": 23,
-                  "borderWidth": 3,
-                  "height": 23,
-                  "marginLeft": -10,
-                  "opacity": 1,
-                  "position": "absolute",
-                  "width": 23,
-                }
-              }
-            />
-          </View>
+            }
+          />
         </View>
-        <View
+      </View>
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "marginLeft": 20,
+          }
+        }
+      >
+        <Text
           style={
             Object {
-              "flex": 1,
-              "marginLeft": 20,
+              "color": "#ffffff",
+              "fontSize": 22,
+              "fontWeight": "bold",
             }
           }
         >
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontSize": 22,
-                "fontWeight": "bold",
-              }
+          Mika
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 20,
             }
-          >
-            Mika
-          </Text>
-          <Text
-            style={
-              Object {
-                "color": "#818181",
-                "fontSize": 20,
-              }
+          }
+        >
+          12:00 AM
+        </Text>
+        <Text
+          numberOfLines={1}
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 22,
+              "marginTop": 10,
             }
-          >
-            Today, 12:00 AM
-          </Text>
-          <Text
-            numberOfLines={1}
-            style={
-              Object {
-                "color": "#818181",
-                "fontSize": 22,
-                "marginTop": 10,
-              }
-            }
-          >
-            Yay
-          </Text>
-        </View>
+          }
+        >
+          Yay
+        </Text>
       </View>
     </View>
   </View>
@@ -4498,31 +4506,34 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Yest
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
-  style={
-    Object {
-      "opacity": 1,
-    }
-  }
   testID="bn-chat"
 >
   <View>
-    <View>
-      <View />
-    </View>
+    <View />
+  </View>
+  <View
+    style={
+      Object {
+        "marginBottom": 20,
+        "marginTop": 20,
+      }
+    }
+  >
     <View
       style={
         Object {
-          "marginBottom": 20,
-          "marginTop": 20,
+          "flexDirection": "row",
+          "marginLeft": 20,
+          "marginRight": 20,
         }
       }
     >
       <View
         style={
           Object {
-            "flexDirection": "row",
-            "marginLeft": 20,
-            "marginRight": 20,
+            "height": 70,
+            "marginLeft": 5,
+            "width": 70,
           }
         }
       >
@@ -4530,94 +4541,84 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Yest
           style={
             Object {
               "height": 70,
-              "marginLeft": 5,
+              "justifyContent": "center",
+              "left": 0,
+              "position": "absolute",
+              "top": 0,
               "width": 70,
             }
           }
         >
-          <View
+          <Image
+            source={1}
             style={
               Object {
+                "backgroundColor": "#4B4B4B",
+                "borderRadius": 70,
                 "height": 70,
-                "justifyContent": "center",
-                "left": 0,
                 "position": "absolute",
-                "top": 0,
                 "width": 70,
               }
             }
-          >
-            <Image
-              source={1}
-              style={
-                Object {
-                  "backgroundColor": "#4B4B4B",
-                  "borderRadius": 70,
-                  "height": 70,
-                  "position": "absolute",
-                  "width": 70,
-                }
+          />
+          <View
+            style={
+              Object {
+                "backgroundColor": "#ffffff",
+                "borderColor": "#000000",
+                "borderRadius": 23,
+                "borderWidth": 3,
+                "height": 23,
+                "marginLeft": -10,
+                "opacity": 1,
+                "position": "absolute",
+                "width": 23,
               }
-            />
-            <View
-              style={
-                Object {
-                  "backgroundColor": "#ffffff",
-                  "borderColor": "#000000",
-                  "borderRadius": 23,
-                  "borderWidth": 3,
-                  "height": 23,
-                  "marginLeft": -10,
-                  "opacity": 1,
-                  "position": "absolute",
-                  "width": 23,
-                }
-              }
-            />
-          </View>
+            }
+          />
         </View>
-        <View
+      </View>
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "marginLeft": 20,
+          }
+        }
+      >
+        <Text
           style={
             Object {
-              "flex": 1,
-              "marginLeft": 20,
+              "color": "#ffffff",
+              "fontSize": 22,
+              "fontWeight": "bold",
             }
           }
         >
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "fontSize": 22,
-                "fontWeight": "bold",
-              }
+          Mika
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 20,
             }
-          >
-            Mika
-          </Text>
-          <Text
-            style={
-              Object {
-                "color": "#818181",
-                "fontSize": 20,
-              }
+          }
+        >
+          Yesterday, 12:00 AM
+        </Text>
+        <Text
+          numberOfLines={1}
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 22,
+              "marginTop": 10,
             }
-          >
-            Yesterday, 12:00 AM
-          </Text>
-          <Text
-            numberOfLines={1}
-            style={
-              Object {
-                "color": "#818181",
-                "fontSize": 22,
-                "marginTop": 10,
-              }
-            }
-          >
-            Yay
-          </Text>
-        </View>
+          }
+        >
+          Yay
+        </Text>
       </View>
     </View>
   </View>

@@ -27,9 +27,21 @@ class Search extends StoreComponent<{
 }, {
   size: Size,
   activeChat: InboxEntry,
-  searchMaximized: boolean
+  searchMaximized: boolean,
+  searchValue: string
 }>
 {
+  constructor()
+  {
+    super({
+      searchValue: ''
+    });
+
+    // bind functions to use as callbacks
+
+    this.onChange = this.onChange.bind(this);
+  }
+
   timestamp = Date.now()
 
   progress = new Animated.Value(0);
@@ -50,7 +62,7 @@ class Search extends StoreComponent<{
   {
     // istanbul ignore else
     // to stop users from spamming buttons
-    if (Date.now() - this.timestamp > 500 || global.__TEST__)
+    if (Date.now() - this.timestamp > 300 || global.__TEST__)
       this.timestamp = Date.now();
     else
       return;
@@ -63,12 +75,21 @@ class Search extends StoreComponent<{
       duration: 65,
       toValue: (maximize) ? 1 : 0,
       easing: Easing.linear
-    }).start();
+    }).start(({ finished }) =>
+    {
+      if (!maximize && finished)
+        this.onChange('');
+    });
+  }
+
+  onChange(text: string): void
+  {
+    this.setState({ searchValue: text });
   }
 
   render(): JSX.Element
   {
-    const { searchMaximized } = this.state;
+    const { searchMaximized, searchValue } = this.state;
 
     const avatarsAmount = Math.min(this.state.activeChat.members?.length - 1 || 0, 2);
 
@@ -133,10 +154,13 @@ class Search extends StoreComponent<{
           width: searchBarWidth
         } }/>
 
-        <AnimatedTextInput style={ {
+        <AnimatedTextInput testID={ 'in-search' } style={ {
           ...styles.input,
           width: searchBarInputWidth
         } }
+        multiline={ false }
+        value={ searchValue }
+        onChangeText={ this.onChange }
         placeholderTextColor={ colors.placeholder }
         placeholder={ 'Search' }
         />

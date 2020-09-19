@@ -5,9 +5,7 @@ export const depth = {
   
   topBar: 3,
 
-  menu: 4,
+  contextHolder: 4,
 
-  contextHolder: 5,
-
-  context: 6
+  context: 5
 };

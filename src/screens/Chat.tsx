@@ -53,7 +53,7 @@ function relativeDate(messageTimestamp: Date, prevMessageTimestamp: Date): strin
   if (!showTime)
     return;
 
-  return utils.relativeDate(date, true);
+  return utils.relativeDate(date, false);
 }
 
 class Chat extends StoreComponent<{
@@ -270,13 +270,15 @@ const styles = StyleSheet.create({
   },
 
   time: {
-    color: colors.greyText,
     textAlign: 'center',
+    color: colors.greyText,
 
-    marginTop: sizes.windowMargin,
-    marginBottom: sizes.windowMargin,
+    marginHorizontal: sizes.windowMargin * 2,
 
-    fontSize: 13
+    marginTop: sizes.windowMargin * 2,
+    marginBottom: sizes.windowMargin * 0.35,
+
+    fontSize: 12
   },
 
   messageAlt: {

@@ -29,9 +29,7 @@ class TopBar extends StoreComponent<{
 {
   stateWhitelist(changes: TopBar['state']): boolean
   {
-    if (
-      changes.index
-    )
+    if (changes.index)
       return true;
     
     return false;
@@ -39,12 +37,18 @@ class TopBar extends StoreComponent<{
 
   render(): JSX.Element
   {
+    const { index } = this.state;
+
     let title;
 
-    if (this.state.index === 0)
-      title = i18n('inbox');
-    else
-      title = i18n('discover');
+    if (index === 0)
+      title = 'Inbox';
+    else if (index === 1)
+      title = 'Discover';
+    else if (index === 2)
+      title = 'Profile';
+    else if (index === 3)
+      title = 'Settings';
 
     const marginTop = this.props.bottomSheetNode.interpolate({
       inputRange: [ 0, 1 ],

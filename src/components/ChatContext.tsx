@@ -181,6 +181,7 @@ class ChatContext extends StoreComponent<{
 
             <Button
               borderless={ true }
+              useAlternative={ true }
               buttonStyle={ { ...styles.button, width: sizes.avatar * 1.2 } }
               icon={ { name: 'copy', size: sizes.icon / 1.2, color: colors.whiteText } }
               onPress={ this.onClipboard }
