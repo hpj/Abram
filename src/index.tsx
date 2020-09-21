@@ -59,7 +59,7 @@ const store = createStore({
     // avatar: `${env.API_ENDPOINT}/avatar`
   },
 
-  activeChat: {},
+  activeChat: undefined,
 
   inbox: [
     {

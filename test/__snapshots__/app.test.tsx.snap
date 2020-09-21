@@ -748,50 +748,15 @@ exports[`Testing <App/> Chat Chat Context: Y-Axis should be 0 1`] = `
 <View
   style={
     Object {
+      "bottom": 0,
       "flex": 1,
-      "height": 1131,
       "position": "absolute",
-      "top": 0,
       "width": 523,
       "zIndex": 5,
     }
   }
   testID="v-chat-context"
 >
-  <View
-    style={
-      Object {
-        "flex": 1,
-        "flexGrow": 1,
-      }
-    }
-  >
-    <RNGestureHandlerButton
-      collapsable={false}
-      onGestureEvent={[Function]}
-      onGestureHandlerEvent={[Function]}
-      onGestureHandlerStateChange={[Function]}
-      onHandlerStateChange={[Function]}
-      rippleColor={0}
-      style={
-        Array [
-          Object {
-            "overflow": "hidden",
-          },
-          undefined,
-        ]
-      }
-    >
-      <View
-        accessible={true}
-        style={
-          Object {
-            "height": "100%",
-          }
-        }
-      />
-    </RNGestureHandlerButton>
-  </View>
   <View
     style={
       Object {
@@ -912,50 +877,15 @@ exports[`Testing <App/> Chat Chat Context: Y-Axis should be equal to screen's hi
 <View
   style={
     Object {
+      "bottom": -1131,
       "flex": 1,
-      "height": 1131,
       "position": "absolute",
-      "top": 1131,
       "width": 523,
       "zIndex": 5,
     }
   }
   testID="v-chat-context"
 >
-  <View
-    style={
-      Object {
-        "flex": 1,
-        "flexGrow": 1,
-      }
-    }
-  >
-    <RNGestureHandlerButton
-      collapsable={false}
-      onGestureEvent={[Function]}
-      onGestureHandlerEvent={[Function]}
-      onGestureHandlerStateChange={[Function]}
-      onHandlerStateChange={[Function]}
-      rippleColor={0}
-      style={
-        Array [
-          Object {
-            "overflow": "hidden",
-          },
-          undefined,
-        ]
-      }
-    >
-      <View
-        accessible={true}
-        style={
-          Object {
-            "height": "100%",
-          }
-        }
-      />
-    </RNGestureHandlerButton>
-  </View>
   <View
     style={
       Object {
@@ -2474,7 +2404,7 @@ exports[`Testing <App/> Loading Error 1`] = `
 </RCTSafeAreaView>
 `;
 
-exports[`Testing <App/> Main Menu Navigating to Profile: Bottom Should Have A Additional Button With Profile Icon 1`] = `
+exports[`Testing <App/> Menus Navigating to Profile: Bottom Should Have A Additional Button With Profile Icon 1`] = `
 <View
   style={
     Object {
@@ -2681,7 +2611,7 @@ exports[`Testing <App/> Main Menu Navigating to Profile: Bottom Should Have A Ad
 </View>
 `;
 
-exports[`Testing <App/> Main Menu Navigating to Profile: Holder View Should Be Hidden 1`] = `
+exports[`Testing <App/> Menus Navigating to Profile: Holder View Should Be Hidden 1`] = `
 <View
   accessible={true}
   focusable={false}
@@ -2707,7 +2637,7 @@ exports[`Testing <App/> Main Menu Navigating to Profile: Holder View Should Be H
 />
 `;
 
-exports[`Testing <App/> Main Menu Navigating to Profile: Menu View Should Be Hidden 1`] = `
+exports[`Testing <App/> Menus Navigating to Profile: Menu View Should Be Hidden 1`] = `
 <View
   style={
     Object {
@@ -2744,7 +2674,7 @@ exports[`Testing <App/> Main Menu Navigating to Profile: Menu View Should Be Hid
 </View>
 `;
 
-exports[`Testing <App/> Main Menu Navigating to Profile: Navigation View Should Be Profile 1`] = `
+exports[`Testing <App/> Menus Navigating to Profile: Navigation View Should Be Profile 1`] = `
 <View
   style={
     Object {
@@ -2804,7 +2734,7 @@ exports[`Testing <App/> Main Menu Navigating to Profile: Navigation View Should 
 </View>
 `;
 
-exports[`Testing <App/> Main Menu Navigating to Settings: Bottom Should Have A Additional Button With Settings Icon 1`] = `
+exports[`Testing <App/> Menus Navigating to Settings: Bottom Should Have A Additional Button With Settings Icon 1`] = `
 <View
   style={
     Object {
@@ -3011,7 +2941,7 @@ exports[`Testing <App/> Main Menu Navigating to Settings: Bottom Should Have A A
 </View>
 `;
 
-exports[`Testing <App/> Main Menu Navigating to Settings: Holder View Should Be Hidden 1`] = `
+exports[`Testing <App/> Menus Navigating to Settings: Holder View Should Be Hidden 1`] = `
 <View
   accessible={true}
   focusable={false}
@@ -3037,7 +2967,7 @@ exports[`Testing <App/> Main Menu Navigating to Settings: Holder View Should Be 
 />
 `;
 
-exports[`Testing <App/> Main Menu Navigating to Settings: Menu View Should Be Hidden 1`] = `
+exports[`Testing <App/> Menus Navigating to Settings: Menu View Should Be Hidden 1`] = `
 <View
   style={
     Object {
@@ -3074,7 +3004,7 @@ exports[`Testing <App/> Main Menu Navigating to Settings: Menu View Should Be Hi
 </View>
 `;
 
-exports[`Testing <App/> Main Menu Navigating to Settings: Navigation View Should Be Settings 1`] = `
+exports[`Testing <App/> Menus Navigating to Settings: Navigation View Should Be Settings 1`] = `
 <View
   style={
     Object {
@@ -3134,20 +3064,10 @@ exports[`Testing <App/> Main Menu Navigating to Settings: Navigation View Should
 </View>
 `;
 
-exports[`Testing <App/> Main Menu Showing and Hiding Menu 1`] = `
-Snapshot Diff:
-Compared values have no visual difference.
-`;
-
-exports[`Testing <App/> Main Menu Showing and Hiding Menu 2`] = `
-Snapshot Diff:
-Compared values have no visual difference.
-`;
-
-exports[`Testing <App/> Main Menu Showing and Hiding Menu: Holder View Should Be Visible & Enabled 1`] = `
+exports[`Testing <App/> Menus Showing Group Chat Menu: Holder View Should Be Visible & Enabled 1`] = `
 <View
   accessible={true}
-  focusable={false}
+  focusable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -3170,7 +3090,749 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Holder View Should Be
 />
 `;
 
-exports[`Testing <App/> Main Menu Showing and Hiding Menu: Initial Holder View Should Be Hidden & Disabled 1`] = `
+exports[`Testing <App/> Menus Showing Group Chat Menu: Menu View Should Be Visible 1`] = `
+<View
+  style={
+    Object {
+      "height": 38,
+      "minWidth": 38,
+    }
+  }
+  testID="v-menu"
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#414141",
+        "borderRadius": 15,
+        "height": 622.0500000000001,
+        "opacity": 1,
+        "position": "absolute",
+        "right": 10,
+        "top": -9,
+        "width": 493,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+      testID="v-menu-content"
+    >
+      <View
+        style={
+          Object {
+            "height": 38,
+            "justifyContent": "center",
+            "margin": 15,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "fontWeight": "700",
+            }
+          }
+        >
+          Group
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 16,
+              "fontWeight": "700",
+            }
+          }
+        >
+          Group of Wholesome Girls
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "flexGrow": 1,
+            "marginVertical": 17,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={false}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row-reverse",
+              "padding": 17,
+            }
+          }
+          testID="bn-chat-mute"
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                },
+                Object {
+                  "marginHorizontal": 23,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "flex": 1,
+                "fontSize": 14,
+                "marginHorizontal": 23,
+              }
+            }
+          >
+            Mute
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          focusable={false}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row-reverse",
+              "padding": 17,
+            }
+          }
+          testID="bn-chat-group"
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                },
+                Object {
+                  "marginHorizontal": 23,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "flex": 1,
+                "fontSize": 14,
+                "marginHorizontal": 23,
+              }
+            }
+          >
+            Group
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignSelf": "center",
+              "backgroundColor": "#818181",
+              "height": 1,
+              "marginVertical": 8,
+              "width": "85%",
+            }
+          }
+        />
+        <View
+          accessible={true}
+          focusable={false}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row-reverse",
+              "padding": 17,
+            }
+          }
+          testID="bn-chat-block"
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                },
+                Object {
+                  "marginHorizontal": 23,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "flex": 1,
+                "fontSize": 14,
+                "marginHorizontal": 23,
+              }
+            }
+          >
+            Leave, Block & Report
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "borderRadius": 38,
+        "height": 38,
+        "marginRight": 20,
+        "minWidth": 38,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="bn-menu"
+    >
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View>
+          <View />
+        </View>
+        <View
+          style={
+            Object {
+              "borderRadius": 38,
+              "height": 38,
+              "width": 38,
+            }
+          }
+        >
+          <Image
+            source={0}
+            style={
+              Object {
+                "backgroundColor": "#4B4B4B",
+                "borderRadius": 38,
+                "height": 38,
+                "position": "absolute",
+                "width": 38,
+              }
+            }
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "borderRadius": 38,
+              "height": 38,
+              "opacity": 1,
+              "width": 19,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "marginLeft": -19,
+              }
+            }
+          >
+            <Image
+              source={1}
+              style={
+                Object {
+                  "backgroundColor": "#4B4B4B",
+                  "borderRadius": 38,
+                  "height": 38,
+                  "position": "absolute",
+                  "width": 38,
+                }
+              }
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "borderRadius": 38,
+              "height": 38,
+              "opacity": 1,
+              "width": 19,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "marginLeft": -19,
+              }
+            }
+          >
+            <Image
+              source={2}
+              style={
+                Object {
+                  "backgroundColor": "#4B4B4B",
+                  "borderRadius": 38,
+                  "height": 38,
+                  "position": "absolute",
+                  "width": 38,
+                }
+              }
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Testing <App/> Menus Showing Normal Chat Menu: Holder View Should Be Visible & Enabled 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  pointerEvents="box-only"
+  style={
+    Object {
+      "backgroundColor": "#000000",
+      "height": 1131,
+      "opacity": 0.75,
+      "position": "absolute",
+      "width": 523,
+      "zIndex": 2,
+    }
+  }
+  testID="v-holder"
+/>
+`;
+
+exports[`Testing <App/> Menus Showing Normal Chat Menu: Menu View Should Be Visible 1`] = `
+<View
+  style={
+    Object {
+      "height": 38,
+      "minWidth": 38,
+    }
+  }
+  testID="v-menu"
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#414141",
+        "borderRadius": 15,
+        "height": 622.0500000000001,
+        "opacity": 1,
+        "position": "absolute",
+        "right": 10,
+        "top": -9,
+        "width": 493,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+      testID="v-menu-content"
+    >
+      <View
+        style={
+          Object {
+            "height": 38,
+            "justifyContent": "center",
+            "margin": 15,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "fontWeight": "700",
+            }
+          }
+        >
+          Chat
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 16,
+              "fontWeight": "700",
+            }
+          }
+        >
+          Mika
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "flexGrow": 1,
+            "marginVertical": 17,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={false}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row-reverse",
+              "padding": 17,
+            }
+          }
+          testID="bn-chat-mute"
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                },
+                Object {
+                  "marginHorizontal": 23,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "flex": 1,
+                "fontSize": 14,
+                "marginHorizontal": 23,
+              }
+            }
+          >
+            Mute
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignSelf": "center",
+              "backgroundColor": "#818181",
+              "height": 1,
+              "marginVertical": 8,
+              "width": "85%",
+            }
+          }
+        />
+        <View
+          accessible={true}
+          focusable={false}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row-reverse",
+              "padding": 17,
+            }
+          }
+          testID="bn-chat-block"
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                },
+                Object {
+                  "marginHorizontal": 23,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "flex": 1,
+                "fontSize": 14,
+                "marginHorizontal": 23,
+              }
+            }
+          >
+            Block & Report
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "borderRadius": 38,
+        "height": 38,
+        "marginRight": 20,
+        "minWidth": 38,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="bn-menu"
+    >
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View>
+          <View />
+        </View>
+        <View
+          style={
+            Object {
+              "borderRadius": 38,
+              "height": 38,
+              "width": 38,
+            }
+          }
+        >
+          <Image
+            source={0}
+            style={
+              Object {
+                "backgroundColor": "#4B4B4B",
+                "borderRadius": 38,
+                "height": 38,
+                "position": "absolute",
+                "width": 38,
+              }
+            }
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "borderRadius": 38,
+              "height": 38,
+              "opacity": 1,
+              "width": 19,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "marginLeft": -19,
+              }
+            }
+          >
+            <Image
+              source={1}
+              style={
+                Object {
+                  "backgroundColor": "#4B4B4B",
+                  "borderRadius": 38,
+                  "height": 38,
+                  "position": "absolute",
+                  "width": 38,
+                }
+              }
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Testing <App/> Menus Showing and Hiding Main Menu 1`] = `
+Snapshot Diff:
+Compared values have no visual difference.
+`;
+
+exports[`Testing <App/> Menus Showing and Hiding Main Menu 2`] = `
+Snapshot Diff:
+Compared values have no visual difference.
+`;
+
+exports[`Testing <App/> Menus Showing and Hiding Main Menu: Holder View Should Be Visible & Enabled 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  pointerEvents="box-only"
+  style={
+    Object {
+      "backgroundColor": "#000000",
+      "height": 1131,
+      "opacity": 0.75,
+      "position": "absolute",
+      "width": 523,
+      "zIndex": 2,
+    }
+  }
+  testID="v-holder"
+/>
+`;
+
+exports[`Testing <App/> Menus Showing and Hiding Main Menu: Initial Holder View Should Be Hidden & Disabled 1`] = `
 <View
   accessible={true}
   focusable={false}
@@ -3196,7 +3858,7 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Initial Holder View S
 />
 `;
 
-exports[`Testing <App/> Main Menu Showing and Hiding Menu: Initial Menu View Should Be Hidden 1`] = `
+exports[`Testing <App/> Menus Showing and Hiding Main Menu: Initial Menu View Should Be Hidden 1`] = `
 <View
   style={
     Object {
@@ -3246,7 +3908,7 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Initial Menu View Sho
             }
           }
         >
-          Hello,
+          Hello
         </Text>
         <Text
           style={
@@ -3294,7 +3956,7 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Initial Menu View Sho
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontSize": 20.4,
+                  "fontSize": 18,
                 },
                 Object {
                   "marginHorizontal": 23,
@@ -3351,7 +4013,7 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Initial Menu View Sho
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontSize": 20.4,
+                  "fontSize": 18,
                 },
                 Object {
                   "marginHorizontal": 23,
@@ -3401,7 +4063,7 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Initial Menu View Sho
           onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "padding": 13,
+              "padding": 9,
             }
           }
           testID="bn-privacy"
@@ -3413,7 +4075,8 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Initial Menu View Sho
             style={
               Object {
                 "color": "#818181",
-                "fontSize": 14,
+                "fontSize": 11,
+                "fontWeight": "700",
               }
             }
           >
@@ -3432,7 +4095,7 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Initial Menu View Sho
           onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "padding": 13,
+              "padding": 9,
             }
           }
           testID="bn-terms"
@@ -3444,7 +4107,8 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Initial Menu View Sho
             style={
               Object {
                 "color": "#818181",
-                "fontSize": 14,
+                "fontSize": 11,
+                "fontWeight": "700",
               }
             }
           >
@@ -3455,7 +4119,7 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Initial Menu View Sho
       <View
         style={
           Object {
-            "flexDirection": "row",
+            "alignItems": "center",
             "margin": 20,
           }
         }
@@ -3468,9 +4132,9 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Initial Menu View Sho
           }
           style={
             Object {
-              "flex": 1,
-              "height": 12,
+              "height": 8,
               "resizeMode": "contain",
+              "width": 32,
             }
           }
         />
@@ -3541,7 +4205,7 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Initial Menu View Sho
 </View>
 `;
 
-exports[`Testing <App/> Main Menu Showing and Hiding Menu: Menu View Should Be Visible 1`] = `
+exports[`Testing <App/> Menus Showing and Hiding Main Menu: Menu View Should Be Visible 1`] = `
 <View
   style={
     Object {
@@ -3591,7 +4255,7 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Menu View Should Be V
             }
           }
         >
-          Hello,
+          Hello
         </Text>
         <Text
           style={
@@ -3639,7 +4303,7 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Menu View Should Be V
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontSize": 20.4,
+                  "fontSize": 18,
                 },
                 Object {
                   "marginHorizontal": 23,
@@ -3696,7 +4360,7 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Menu View Should Be V
               Array [
                 Object {
                   "color": "#ffffff",
-                  "fontSize": 20.4,
+                  "fontSize": 18,
                 },
                 Object {
                   "marginHorizontal": 23,
@@ -3746,7 +4410,7 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Menu View Should Be V
           onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "padding": 13,
+              "padding": 9,
             }
           }
           testID="bn-privacy"
@@ -3758,7 +4422,8 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Menu View Should Be V
             style={
               Object {
                 "color": "#818181",
-                "fontSize": 14,
+                "fontSize": 11,
+                "fontWeight": "700",
               }
             }
           >
@@ -3777,7 +4442,7 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Menu View Should Be V
           onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "padding": 13,
+              "padding": 9,
             }
           }
           testID="bn-terms"
@@ -3789,7 +4454,8 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Menu View Should Be V
             style={
               Object {
                 "color": "#818181",
-                "fontSize": 14,
+                "fontSize": 11,
+                "fontWeight": "700",
               }
             }
           >
@@ -3800,7 +4466,7 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Menu View Should Be V
       <View
         style={
           Object {
-            "flexDirection": "row",
+            "alignItems": "center",
             "margin": 20,
           }
         }
@@ -3813,9 +4479,9 @@ exports[`Testing <App/> Main Menu Showing and Hiding Menu: Menu View Should Be V
           }
           style={
             Object {
-              "flex": 1,
-              "height": 12,
+              "height": 8,
               "resizeMode": "contain",
+              "width": 32,
             }
           }
         />

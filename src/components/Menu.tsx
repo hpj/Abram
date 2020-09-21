@@ -36,7 +36,6 @@ class Menu extends StoreComponent<{
 
   openPage(type: 'profile' | 'settings'): void
   {
-    
     if (type === 'profile')
     {
       this.store.set({
@@ -57,21 +56,22 @@ class Menu extends StoreComponent<{
     }
   }
 
-  render(): JSX.Element
+  renderMain(): JSX.Element
   {
-    const { profile, activeChat } = this.state;
+    const { profile } = this.state;
 
     return <View testID={ 'v-menu-content' } style={ styles.container }>
       <View style={ styles.header }>
-        <Text style={ styles.greetings }>Hello,</Text>
+        <Text style={ styles.greetings }>Hello</Text>
         <Text style={ styles.text }>{ profile.displayName }</Text>
       </View>
+
       <View style={ styles.actions }>
         <Button
           testID={ 'bn-profile' }
           buttonStyle={ styles.button  }
           textStyle={ styles.buttonText  }
-          icon={ { name: 'user', size: sizes.icon * 0.85, color: colors.whiteText, style: styles.buttonIcon } }
+          icon={ { name: 'user', size: sizes.icon * 0.75, color: colors.whiteText, style: styles.buttonIcon } }
           text={ 'Profile' }
           onPress={ () => this.openPage('profile') }
         />
@@ -80,12 +80,14 @@ class Menu extends StoreComponent<{
           testID={ 'bn-settings' }
           buttonStyle={ styles.button  }
           textStyle={ styles.buttonText  }
-          icon={ { name: 'settings', size: sizes.icon * 0.85, color: colors.whiteText, style: styles.buttonIcon } }
+          icon={ { name: 'settings', size: sizes.icon * 0.75, color: colors.whiteText, style: styles.buttonIcon } }
           text={ 'Settings' }
           onPress={ () => this.openPage('settings') }
         />
       </View>
+
       <View style={ styles.legal }>
+
         <Button
           testID={ 'bn-privacy' }
           buttonStyle={ styles.buttonAlt  }
@@ -93,6 +95,7 @@ class Menu extends StoreComponent<{
           text={ 'Privacy Policy' }
           onPress={ () => openURL('https://herpproject.com/abram/privacy') }
         />
+
         <Button
           testID={ 'bn-terms' }
           buttonStyle={ styles.buttonAlt  }
@@ -101,10 +104,64 @@ class Menu extends StoreComponent<{
           onPress={ () => openURL('https://herpproject.com/abram/terms') }
         />
       </View>
+
       <View style={ styles.footer }>
         <Image style={ styles.logo } source={ { uri: 'https://herpproject.com/assets/logo-white.png' } }/>
       </View>
     </View>;
+  }
+
+  renderChat(): JSX.Element
+  {
+    const { activeChat } = this.state;
+
+    return <View testID={ 'v-menu-content' } style={ styles.container }>
+      <View style={ styles.header }>
+        <Text style={ styles.greetings }>{ activeChat.members.length > 2 ? 'Group' : 'Chat' }</Text>
+        <Text style={ styles.text }>{ activeChat.displayName }</Text>
+      </View>
+
+
+      <View style={ styles.actions }>
+
+        <Button
+          testID={ 'bn-chat-mute' }
+          buttonStyle={ styles.button  }
+          textStyle={ styles.buttonText  }
+          icon={ { name: 'volume-x', size: sizes.icon * 0.75, color: colors.whiteText, style: styles.buttonIcon } }
+          text={ 'Mute' }
+        />
+
+        {
+          activeChat.members.length > 2 ?
+            <Button
+              testID={ 'bn-chat-group' }
+              buttonStyle={ styles.button  }
+              textStyle={ styles.buttonText  }
+              icon={ { name: 'edit-3', size: sizes.icon * 0.75, color: colors.whiteText, style: styles.buttonIcon } }
+              text={ 'Group' }
+            /> : undefined
+        }
+
+        <View style={ styles.space }/>
+
+        <Button
+          testID={ 'bn-chat-block' }
+          buttonStyle={ styles.button  }
+          textStyle={ styles.buttonText  }
+          icon={ { name: 'alert-circle', size: sizes.icon * 0.75, color: colors.whiteText, style: styles.buttonIcon } }
+          text={ activeChat.members.length > 2 ? 'Leave, Block & Report' : 'Block & Report' }
+        />
+      
+      </View>
+    </View>;
+  }
+
+  render(): JSX.Element
+  {
+    const { activeChat } = this.state;
+
+    return activeChat?.id ? this.renderChat() : this.renderMain();
   }
 }
 
@@ -156,29 +213,40 @@ const styles = StyleSheet.create({
     marginHorizontal: sizes.windowMargin * 1.15
   },
 
+  space: {
+    alignSelf: 'center',
+    width: '85%',
+    height: 1,
+    backgroundColor: colors.greyText,
+
+    marginVertical: 8
+  },
+
   legal: {
     justifyContent: 'center',
     flexDirection: 'row'
   },
 
   buttonAlt: {
-    padding: sizes.windowMargin * 0.65
+    padding: sizes.windowMargin * 0.45
   },
 
   buttonTextAlt: {
-    fontSize: 14,
+    fontSize: 11,
+    fontWeight: '700',
     color: colors.greyText
   },
 
   footer: {
-    flexDirection: 'row',
+    alignItems: 'center',
     margin: sizes.windowMargin
   },
 
   logo: {
-    flex: 1,
-    resizeMode: 'contain',
-    height: sizes.icon * 0.5
+    width: 32,
+    height: 8,
+
+    resizeMode: 'contain'
   }
 });
 

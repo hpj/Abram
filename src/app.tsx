@@ -50,7 +50,9 @@ export default class App extends StoreComponent<unknown, {
   },
   
   holder: boolean,
-  context: boolean
+  context: boolean,
+
+  holderCallback: () => void
 }>
 {
   constructor()
@@ -115,6 +117,8 @@ export default class App extends StoreComponent<unknown, {
     {
       Keyboard.dismiss();
 
+      this.store.set({ activeChat: undefined });
+
       BackHandler.removeEventListener('hardwareBackPress', this.onBack);
     }
     else
@@ -156,7 +160,7 @@ export default class App extends StoreComponent<unknown, {
     if (!this.state.loaded)
       return <View/>;
 
-    const { size, context, holder } = this.state;
+    const { size, context, holder, holderCallback } = this.state;
 
     const holderOpacity = this.holderNode.interpolate({
       inputRange: [ 0, 1 ],
@@ -190,7 +194,7 @@ export default class App extends StoreComponent<unknown, {
 
         </View>
 
-        <TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={ holderCallback }>
           <Animated.View testID={ 'v-holder' } style={ {
             ...styles.holder,
 

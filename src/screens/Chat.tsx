@@ -165,7 +165,7 @@ class Chat extends StoreComponent<{
   {
     const { size, keyboard, profile, activeChat, inputs } = this.state;
 
-    if (!activeChat.id)
+    if (!activeChat?.id)
       return <View/>;
 
     const value = inputs[activeChat.id] ?? '';
@@ -366,9 +366,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
 
     width: sizes.avatar,
-
-    marginTop: sizes.windowMargin / 2,
-    marginBottom: sizes.windowMargin / 2,
+    height: sizes.topBarHeight,
     
     marginLeft: sizes.windowMargin / 4,
     marginRight: sizes.windowMargin / 2,

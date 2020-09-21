@@ -26,7 +26,7 @@ class ChatHeader extends StoreComponent<unknown, { activeChat: InboxEntry }>
   {
     const activeChat = this.state.activeChat;
 
-    if (!activeChat.id)
+    if (!activeChat?.id)
       return <View/>;
 
     let lastMessageDate = '';

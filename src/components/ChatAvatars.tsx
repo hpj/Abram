@@ -78,7 +78,11 @@ class ChatAvatars extends StoreComponent<{
       BackHandler.removeEventListener('hardwareBackPress', this.deactivate);
 
     // update store
-    this.store.set({ menu, holder: menu }, () =>
+    this.store.set({
+      menu,
+      holder: menu,
+      holderCallback: menu ? this.deactivate : undefined
+    }, () =>
     {
       Animated.timing(this.props.holderNode, {
         duration: 200,
@@ -110,7 +114,7 @@ class ChatAvatars extends StoreComponent<{
 
     const { bottomSheetNode } = this.props;
 
-    if (activeChat.members)
+    if (activeChat?.members)
       members.push(...activeChat.members);
 
     // remove self from array

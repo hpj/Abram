@@ -780,9 +780,9 @@ describe('Testing <App/>', () =>
     });
   });
 
-  describe('Main Menu', () =>
+  describe('Menus', () =>
   {
-    test('Showing and Hiding Menu', async() =>
+    test('Showing and Hiding Main Menu', async() =>
     {
       const component = render(<App/>);
 
@@ -915,6 +915,119 @@ describe('Testing <App/>', () =>
       expect(bottom).toMatchSnapshot('Bottom Should Have A Additional Button With Settings Icon');
 
       expect(profile).toMatchSnapshot('Navigation View Should Be Settings');
+    });
+ 
+    test('Showing Normal Chat Menu', async() =>
+    {
+      getStore().set({
+        profile: {
+          uuid: '0',
+          avatar: 0
+        } as Profile,
+        inbox: [
+          {
+            id: '0',
+            displayName: 'Mika',
+            members: [
+              {
+                uuid: '0',
+                avatar: 0
+              },
+              {
+                uuid: '1',
+                avatar: 1
+              }
+            ],
+            messages: [
+              { owner: '1', text: 'Yay', timestamp: new Date() }
+            ]
+          }
+        ] as InboxEntry[]
+      });
+
+      const component = render(<App/>);
+
+      // wait for app loading
+      await waitFor(() => component.getByTestId('v-main-area'));
+
+      // snap the bottom sheet the top of the screen
+      // by simulating pressing a chat from inbox
+      fireEvent.press(component.getByTestId('bn-chat'));
+
+      await waitFor(() => true);
+
+      // show the main menu
+      // by simulating pressing the menu button
+      fireEvent.press(component.getByTestId('bn-menu'));
+
+      await waitFor(() => true);
+
+      const activeMenu = toJSON(component, 'v-menu', 'all');
+      const activeHolder = toJSON(component, 'v-holder');
+
+      expect(activeMenu).toMatchSnapshot('Menu View Should Be Visible');
+      expect(activeHolder).toMatchSnapshot('Holder View Should Be Visible & Enabled');
+
+      component.unmount();
+    });
+
+    test('Showing Group Chat Menu', async() =>
+    {
+      getStore().set({
+        profile: {
+          uuid: '0',
+          avatar: 0
+        } as Profile,
+        inbox: [
+          {
+            id: '0',
+            displayName: 'Group of Wholesome Girls',
+            members: [
+              {
+                uuid: '0',
+                avatar: 0
+              },
+              {
+                uuid: '1',
+                avatar: 1
+              },
+              {
+                uuid: '2',
+                avatar: 2
+              }
+            ],
+            messages: [
+              { owner: '1', text: '', timestamp: new Date(1999, 9, 9) },
+              { owner: '2', text: '', timestamp: new Date(2001, 1, 1) }
+            ]
+          }
+        ] as InboxEntry[]
+      });
+
+      const component = render(<App/>);
+
+      // wait for app loading
+      await waitFor(() => component.getByTestId('v-main-area'));
+
+      // snap the bottom sheet the top of the screen
+      // by simulating pressing a chat from inbox
+      fireEvent.press(component.getByTestId('bn-chat'));
+
+      await waitFor(() => true);
+
+      // show the main menu
+      // by simulating pressing the menu button
+      fireEvent.press(component.getByTestId('bn-menu'));
+
+      await waitFor(() => true);
+
+      const activeMenu = toJSON(component, 'v-menu', 'all');
+      const activeHolder = toJSON(component, 'v-holder');
+
+      expect(activeMenu).toMatchSnapshot('Menu View Should Be Visible');
+      expect(activeHolder).toMatchSnapshot('Holder View Should Be Visible & Enabled');
+
+      component.unmount();
     });
   });
 

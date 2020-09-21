@@ -91,7 +91,8 @@ class ChatContext extends StoreComponent<{
     this.store.set({
       context: true,
       contextMessage: message,
-      holder: true
+      holder: true,
+      holderCallback: this.deactivate
     }, () =>
     {
       Animated.timing(this.props.holderNode, {
@@ -122,7 +123,8 @@ class ChatContext extends StoreComponent<{
 
     this.store.set({
       context: false,
-      holder: false
+      holder: false,
+      holderCallback: undefined
     }, () =>
     {
       Animated.timing(this.props.holderNode, {
@@ -153,23 +155,18 @@ class ChatContext extends StoreComponent<{
 
     const member = activeChat?.members?.find(member => member.uuid === contextMessage?.owner);
 
-    const top = this.progress.interpolate({
+    const bottom = this.progress.interpolate({
       inputRange: [ 0, 1 ],
-      outputRange: [ size.height, 0 ]
+      outputRange: [ -size.height, 0 ]
     });
 
     return (
       <Animated.View testID={ 'v-chat-context' } style={ {
         ...styles.wrapper,
 
-        top,
-        width: size.width,
-        height: size.height
+        bottom: bottom,
+        width: size.width
       } }>
-        <View style={ styles.blockerWrapper }>
-          <TouchableWithoutFeedback style={ styles.blockerContainer } onPress={ () => this.deactivate() }/>
-        </View>
-
         <View style={ styles.container }>
           <View style={ styles.info }>
 
@@ -205,18 +202,9 @@ class ChatContext extends StoreComponent<{
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
+    position: 'absolute',
 
-    zIndex: depth.context,
-    position: 'absolute'
-  },
-
-  blockerWrapper: {
-    flex: 1,
-    flexGrow: 1
-  },
-
-  blockerContainer: {
-    height: '100%'
+    zIndex: depth.context
   },
 
   container: {
