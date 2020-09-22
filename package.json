@@ -22,7 +22,6 @@
   },
   "dependencies": {
     "@react-native-community/async-storage": "~1.11.0",
-    "@types/react-native-vector-icons": "^6.4.5",
     "axios": "^0.20.0",
     "date-fns": "^2.16.1",
     "emoji-regex": "^9.0.0",
@@ -48,6 +47,7 @@
     "@types/jest": "^26.0.13",
     "@types/react": "~16.9.49",
     "@types/react-native": "~0.62.18",
+    "@types/react-native-vector-icons": "^6.4.6",
     "@types/react-test-renderer": "^16.9.3",
     "@typescript-eslint/eslint-plugin": "^4.1.0",
     "@typescript-eslint/parser": "^4.1.0",

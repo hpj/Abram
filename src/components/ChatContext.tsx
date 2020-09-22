@@ -2,8 +2,6 @@ import React from 'react';
 
 import { BackHandler, Clipboard, StyleSheet, View, Text } from 'react-native';
 
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
-
 import Animated, { Easing } from 'react-native-reanimated';
 
 import type { Size, Message, InboxEntry } from '../types';

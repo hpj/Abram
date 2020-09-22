@@ -42,8 +42,6 @@ class Menu extends StoreComponent<{
         additionNavigationIcon: 'user',
         index: 2
       });
-
-      this.props.deactivate?.();
     }
     else if (type === 'settings')
     {
@@ -51,9 +49,9 @@ class Menu extends StoreComponent<{
         additionNavigationIcon: 'settings',
         index: 3
       });
-
-      this.props.deactivate?.();
     }
+
+    this.props.deactivate?.();
   }
 
   renderMain(): JSX.Element
