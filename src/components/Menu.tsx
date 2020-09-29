@@ -119,7 +119,6 @@ class Menu extends StoreComponent<{
         <Text style={ styles.text }>{ activeChat.displayName }</Text>
       </View>
 
-
       <View style={ styles.actions }>
 
         <Button
@@ -213,7 +212,7 @@ const styles = StyleSheet.create({
 
   space: {
     alignSelf: 'center',
-    width: '85%',
+    width: '15%',
     height: 1,
     backgroundColor: colors.greyText,
 

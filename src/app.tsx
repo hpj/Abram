@@ -49,8 +49,8 @@ export default class App extends StoreComponent<unknown, {
     height: number
   },
   
-  holder: boolean,
   context: boolean,
+  holder: boolean,
 
   holderCallback: () => void
 }>
@@ -117,12 +117,14 @@ export default class App extends StoreComponent<unknown, {
     {
       Keyboard.dismiss();
 
-      this.store.set({ activeChat: undefined });
+      this.store.set({ activeChat: undefined, chatCooldown: false });
 
       BackHandler.removeEventListener('hardwareBackPress', this.onBack);
     }
     else
     {
+      this.store.set({ chatCooldown: false });
+
       BackHandler.addEventListener('hardwareBackPress', this.onBack);
     }
   }
@@ -133,8 +135,9 @@ export default class App extends StoreComponent<unknown, {
       changes.loaded ||
       changes.error ||
       changes.size ||
-      changes.holder ||
       changes.context ||
+      changes.holder ||
+      changes.holderCallback ||
       changes.index
     )
       return true;
@@ -204,7 +207,7 @@ export default class App extends StoreComponent<unknown, {
             height: size.height,
             opacity: holderOpacity
           } }
-          pointerEvents={ holder ? 'box-only' : 'none' }/>
+          pointerEvents={ (context || holder) ? 'box-only' : 'none' }/>
         </TouchableWithoutFeedback>
 
         <BottomNavigation/>

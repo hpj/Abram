@@ -6,12 +6,6 @@ import axios from 'axios';
 
 import i18n, { getDefault, fetch, locales, locale, setLocale } from '../src/i18n';
 
-// mock async-storage
-jest.mock('@react-native-community/async-storage', () => ({
-  setItem: jest.fn(),
-  getItem: jest.fn().mockResolvedValue('')
-}));
-
 jest.mock('axios', () => ({
   get: jest.fn()
 }));
@@ -96,34 +90,6 @@ describe('Testing i18n', () =>
     ]);
 
     expect(i18n('offline')).toBeString();
-  });
-
-  test('Fetching Data (Cache)', async() =>
-  {
-    expect(locale.id).toBe('en-US');
-    expect(locale.direction).toBe('ltr');
-    
-    expect(locale.json).toBeUndefined();
-
-    // mock react native response
-    AsyncStorage.getItem = jest.fn().mockResolvedValue(JSON.stringify({ cache: true }));
-
-    // mock axios response
-    (axios.get as jest.Mock).mockImplementation(() =>
-    {
-      throw new Error();
-    });
-
-    // fetch locale data
-    await fetch('en-US');
-
-    expect(axios.get).toHaveBeenCalledTimes(1);
-
-    expect(locale.json).toContainAllKeys([
-      'cache'
-    ]);
-
-    expect(i18n('cache')).toBeTruthy();
   });
 
   test('Completing A Value', async() =>

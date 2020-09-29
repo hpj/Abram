@@ -16,13 +16,18 @@ import getTheme from '../colors';
 
 const colors = getTheme();
 
-class Inbox extends StoreComponent<{ snapTo?: ((index: number) => void) | undefined }, {
+class Inbox extends StoreComponent<{
+  snapTo?: ((index: number) => void) | undefined
+}, {
   profile: Profile,
   activeChat: InboxEntry,
+  chatCooldown: boolean,
   inbox: InboxEntry[]
 }>
 {
   responsive = responsive.bind(this);
+
+  queue?: InboxEntry;
 
   stateWillChange({ inbox }: Inbox['state']): Partial<Inbox['state']>
   {
@@ -50,6 +55,7 @@ class Inbox extends StoreComponent<{ snapTo?: ((index: number) => void) | undefi
     if (
       changes.profile ||
       changes.activeChat ||
+      changes.chatCooldown ||
       changes.inbox
     )
       return true;
@@ -57,9 +63,29 @@ class Inbox extends StoreComponent<{ snapTo?: ((index: number) => void) | undefi
     return false;
   }
 
+  stateDidChange(state: Inbox['state']): void
+  {
+    if (!state.activeChat && this.queue)
+      this.onPress(this.queue);
+  }
+
   onPress(entry: InboxEntry): void
   {
-    this.store.set({ activeChat: entry }, () => this.props.snapTo?.(0));
+    if (this.state.chatCooldown)
+      return;
+    
+    // if there's already an active chat then queue the new one to open after
+    // this one is closed
+    if (this.state.activeChat)
+    {
+      this.queue = entry;
+    }
+    else
+    {
+      this.queue = undefined;
+  
+      this.store.set({ activeChat: entry, chatCooldown: true }, () => this.props.snapTo?.(0));
+    }
   }
 
   render(): JSX.Element

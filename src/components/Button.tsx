@@ -31,6 +31,7 @@ class Button extends React.Component<{
   text?: string,
   icon?: IconProps,
   useAlternative?: boolean,
+  disabled?: boolean,
   borderless?: boolean,
   activeOpacity?: number,
   onPress?: () => void
@@ -41,8 +42,8 @@ class Button extends React.Component<{
     const {
       useAlternative,
       backgroundStyle, badgeStyle, buttonStyle,
-      textStyle, testID, text, icon, borderless,
-      activeOpacity, onPress
+      textStyle, testID, text, icon, disabled,
+      borderless, activeOpacity, onPress
     } = this.props;
 
     /* istanbul ignore next */
@@ -64,6 +65,7 @@ class Button extends React.Component<{
         //@ts-ignore
         background={ (!useAlternative ? GHTouchableNativeFeedback : TouchableNativeFeedback).Ripple(colors.ripple, borderless) }
         activeOpacity={ activeOpacity }
+        disabled={ disabled }
         onPress={ onPress }
       >
         <View style={ buttonStyle }>

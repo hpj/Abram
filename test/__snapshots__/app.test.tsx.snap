@@ -240,37 +240,6 @@ exports[`Testing <App/> Chat Avatars 2 Avatars: Should Have Client Avatar And De
         }
       />
     </View>
-    <View
-      style={
-        Object {
-          "borderRadius": 38,
-          "height": 38,
-          "opacity": 0,
-          "width": 0,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "marginLeft": 19,
-          }
-        }
-      >
-        <Image
-          source={1}
-          style={
-            Object {
-              "backgroundColor": "#4B4B4B",
-              "borderRadius": 38,
-              "height": 38,
-              "position": "absolute",
-              "width": 38,
-            }
-          }
-        />
-      </View>
-    </View>
   </View>
 </View>
 `;
@@ -441,68 +410,6 @@ exports[`Testing <App/> Chat Avatars 3 Avatars: Should Have Client Avatar And De
         }
       />
     </View>
-    <View
-      style={
-        Object {
-          "borderRadius": 38,
-          "height": 38,
-          "opacity": 0,
-          "width": 0,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "marginLeft": 19,
-          }
-        }
-      >
-        <Image
-          source={1}
-          style={
-            Object {
-              "backgroundColor": "#4B4B4B",
-              "borderRadius": 38,
-              "height": 38,
-              "position": "absolute",
-              "width": 38,
-            }
-          }
-        />
-      </View>
-    </View>
-    <View
-      style={
-        Object {
-          "borderRadius": 38,
-          "height": 38,
-          "opacity": 0,
-          "width": 0,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "marginLeft": 19,
-          }
-        }
-      >
-        <Image
-          source={2}
-          style={
-            Object {
-              "backgroundColor": "#4B4B4B",
-              "borderRadius": 38,
-              "height": 38,
-              "position": "absolute",
-              "width": 38,
-            }
-          }
-        />
-      </View>
-    </View>
   </View>
 </View>
 `;
@@ -672,68 +579,6 @@ exports[`Testing <App/> Chat Avatars 4 Avatars: Should Have Client Avatar And De
           }
         }
       />
-    </View>
-    <View
-      style={
-        Object {
-          "borderRadius": 38,
-          "height": 38,
-          "opacity": 0,
-          "width": 0,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "marginLeft": 19,
-          }
-        }
-      >
-        <Image
-          source={1}
-          style={
-            Object {
-              "backgroundColor": "#4B4B4B",
-              "borderRadius": 38,
-              "height": 38,
-              "position": "absolute",
-              "width": 38,
-            }
-          }
-        />
-      </View>
-    </View>
-    <View
-      style={
-        Object {
-          "borderRadius": 38,
-          "height": 38,
-          "opacity": 0,
-          "width": 0,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "marginLeft": 19,
-          }
-        }
-      >
-        <Image
-          source={2}
-          style={
-            Object {
-              "backgroundColor": "#4B4B4B",
-              "borderRadius": 38,
-              "height": 38,
-              "position": "absolute",
-              "width": 38,
-            }
-          }
-        />
-      </View>
     </View>
   </View>
 </View>
@@ -3283,7 +3128,7 @@ exports[`Testing <App/> Menus Showing Group Chat Menu: Menu View Should Be Visib
               "backgroundColor": "#818181",
               "height": 1,
               "marginVertical": 8,
-              "width": "85%",
+              "width": "15%",
             }
           }
         />
@@ -3636,7 +3481,7 @@ exports[`Testing <App/> Menus Showing Normal Chat Menu: Menu View Should Be Visi
               "backgroundColor": "#818181",
               "height": 1,
               "marginVertical": 8,
-              "width": "85%",
+              "width": "15%",
             }
           }
         />

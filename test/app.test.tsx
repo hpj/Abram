@@ -246,7 +246,7 @@ beforeEach(() =>
 
     profile: {},
 
-    activeChat: {},
+    activeChat: undefined,
 
     inbox: []
   });
@@ -567,18 +567,6 @@ describe('Testing <App/>', () =>
           uuid: '0',
           avatar: 0
         } as Profile,
-        activeChat: {
-          members: [
-            {
-              uuid: '0',
-              avatar: 0
-            },
-            {
-              uuid: '1',
-              avatar: 1
-            }
-          ]
-        } as InboxEntry,
         inbox: [
           {
             id: '0',
@@ -633,22 +621,6 @@ describe('Testing <App/>', () =>
           uuid: '0',
           avatar: 0
         } as Profile,
-        activeChat: {
-          members: [
-            {
-              uuid: '0',
-              avatar: 0
-            },
-            {
-              uuid: '1',
-              avatar: 1
-            },
-            {
-              uuid: '2',
-              avatar: 2
-            }
-          ]
-        } as InboxEntry,
         inbox: [
           {
             id: '0',
@@ -707,22 +679,6 @@ describe('Testing <App/>', () =>
           uuid: '0',
           avatar: 0
         } as Profile,
-        activeChat: {
-          members: [
-            {
-              uuid: '0',
-              avatar: 0
-            },
-            {
-              uuid: '1',
-              avatar: 1
-            },
-            {
-              uuid: '2',
-              avatar: 2
-            }
-          ]
-        } as InboxEntry,
         inbox: [
           {
             id: '0',
@@ -751,7 +707,6 @@ describe('Testing <App/>', () =>
           }
         ] as InboxEntry[]
       });
-
 
       const component = render(<App/>);
 
