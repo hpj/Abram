@@ -19,6 +19,8 @@ import Discover from './screens/Discover';
 import Profile from './screens/Profile';
 import Settings from './screens/Settings';
 
+import Menu from './components/Menu';
+
 import TopBar from './components/TopBar';
 import BottomNavigation from './components/BottomNavigation';
 
@@ -66,6 +68,7 @@ export default class App extends StoreComponent<unknown, {
 
   bottomSheetRef: React.RefObject<BottomSheet> =  React.createRef()
   chatContextRef: React.RefObject<ChatContext> =  React.createRef()
+  topBarRef: React.RefObject<TopBar> =  React.createRef()
 
   bottomSheetNode = new Animated.Value(1)
   holderNode = new Animated.Value(0)
@@ -78,8 +81,6 @@ export default class App extends StoreComponent<unknown, {
   async componentDidMount(): Promise<void>
   {
     super.componentDidMount();
-
-    // console.log('hiding splash screen');
 
     await SplashScreen.preventAutoHideAsync();
   
@@ -175,7 +176,9 @@ export default class App extends StoreComponent<unknown, {
 
         <ChatContext ref={ this.chatContextRef } holderNode={ this.holderNode }/>
 
-        <TopBar holderNode={ this.holderNode } bottomSheetNode={ this.bottomSheetNode }/>
+        <Menu holderNode={ this.holderNode } deactivate={ this.topBarRef.current?.chatAvatarsRef.current?.deactivate }/>
+
+        <TopBar ref={ this.topBarRef } holderNode={ this.holderNode } bottomSheetNode={ this.bottomSheetNode }/>
 
         <View testID={ 'v-navigation' } style={ styles.views }>
 

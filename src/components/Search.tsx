@@ -26,8 +26,11 @@ class Search extends StoreComponent<{
   bottomSheetNode: Animated.Value<number>
 }, {
   size: Size,
+  menu: boolean,
   activeChat: InboxEntry,
   searchMaximized: boolean,
+
+  // local state
   searchValue: string
 }>
 {
@@ -50,6 +53,7 @@ class Search extends StoreComponent<{
   {
     if (
       changes.size ||
+      changes.menu ||
       changes.activeChat ||
       changes.searchMaximized
     )
@@ -89,7 +93,7 @@ class Search extends StoreComponent<{
 
   render(): JSX.Element
   {
-    const { searchMaximized, activeChat, searchValue } = this.state;
+    const { size, menu, activeChat, searchMaximized, searchValue } = this.state;
 
     const avatarsAmount = Math.min(activeChat?.members?.length - 1 || 0, 2);
 
@@ -100,15 +104,13 @@ class Search extends StoreComponent<{
     // since cht avatars are always 1
     const searchBarDefaultWidth =
     // window width
-    this.state.size.width -
+    size.width -
     // minus top bar margin
     (sizes.windowMargin * 2)  -
     // minus this container margin
     styles.container.marginLeft -
     // minus main avatar width
-    sizes.avatar -
-    // add offset
-    1;
+    sizes.avatar;
     
     const searchBarMaxWidth =
     searchBarDefaultWidth -
@@ -142,11 +144,16 @@ class Search extends StoreComponent<{
         })
       ]
     });
+
     
     return (
+      // eslint-disable-next-line react-native/no-inline-styles
       <Animated.View testID={ 'v-search' } style={ {
         ...styles.container,
-        width: searchBarWidth
+        width: searchBarWidth,
+
+        // due to a z-index issue search has to be hidden when menu is enabled
+        opacity: menu ? 0 : 1
       } }>
 
         <Animated.View style={ {
@@ -195,6 +202,8 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row-reverse',
 
+    backgroundColor: colors.blackBackground,
+    
     minWidth: sizes.avatar,
     height: sizes.avatar,
 
@@ -206,7 +215,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     
     backgroundColor: colors.iconBackground,
-    
+
     height: sizes.avatar,
     borderRadius: sizes.avatar
   },

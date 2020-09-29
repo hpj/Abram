@@ -2,11 +2,15 @@ import React from 'react';
 
 import { StyleSheet, View, Image, Text } from 'react-native';
 
+import Animated, { Easing } from 'react-native-reanimated';
+
 import { openURL } from 'expo-linking';
 
-import type { Profile, InboxEntry } from '../types';
+import type { Size, Profile, InboxEntry } from '../types';
 
 import Button from './Button';
+
+import { depth } from '../depth';
 
 import { StoreComponent } from '../store';
 
@@ -17,9 +21,12 @@ import getTheme from '../colors';
 const colors = getTheme();
 
 class Menu extends StoreComponent<{
-  deactivate: () => void
+  holderNode: Animated.Value<number>,
+  deactivate: (() => boolean) | undefined
 }, {
   profile: Profile,
+  menu: boolean,
+  size: Size,
   activeChat: InboxEntry
 }>
 {
@@ -27,11 +34,35 @@ class Menu extends StoreComponent<{
   {
     if (
       changes.profile ||
+      changes.menu ||
       changes.activeChat
     )
       return true;
     
     return false;
+  }
+
+  progress = new Animated.Value(0);
+
+  stateDidChange(state: Menu['state'], changes: Menu['state'], old: Menu['state']): void
+  {
+    if (state.menu !== old.menu)
+    {
+      const { menu } = state;
+
+      Animated.timing(this.props.holderNode, {
+        duration: 65,
+        toValue: menu ? 1 : 0,
+        easing: Easing.linear
+      }).start();
+  
+      Animated.timing(this.progress, {
+        duration: 35,
+        toValue: menu ? 1 : 0,
+        easing: Easing.in(Easing.linear)
+      // returns component which is used by the reanimated mocks while testing
+      }).start(() => this);
+    }
   }
 
   openPage(type: 'profile' | 'settings'): void
@@ -156,13 +187,52 @@ class Menu extends StoreComponent<{
 
   render(): JSX.Element
   {
-    const { activeChat } = this.state;
+    const { size, activeChat, menu } = this.state;
 
-    return activeChat?.id ? this.renderChat() : this.renderMain();
+    const width = size.width - sizes.windowMargin - 10;
+    const height = size.height * 0.55;
+
+    const menuWidth = this.progress.interpolate({
+      inputRange: [ 0, 1 ],
+      outputRange: [ width * 0.75, width ]
+    });
+
+    const menuHeight= this.progress.interpolate({
+      inputRange: [ 0, 1 ],
+      outputRange: [ height * 0.95, height ]
+    });
+
+    const top = activeChat === undefined ?
+      sizes.windowMargin * 0.25 :
+      (sizes.windowMargin * 0.25) + (sizes.topBarBigMargin - sizes.topBarMiniMargin);
+
+    // eslint-disable-next-line react-native/no-inline-styles
+    return <Animated.View testID={ 'v-menu' } style={ {
+      ...styles.menu,
+
+      top: top,
+      width: menuWidth,
+      height: menuHeight,
+
+      opacity: menu ? 1 : 0
+    } }
+    pointerEvents={ menu ? 'box-none' : 'none' }>
+      { activeChat?.id ? this.renderChat() : this.renderMain() }
+    </Animated.View>;
   }
 }
 
 const styles = StyleSheet.create({
+  menu: {
+    position: 'absolute',
+    zIndex: depth.topBar,
+
+    right: sizes.windowMargin * 0.5,
+
+    backgroundColor: colors.menuBackground,
+    borderRadius: sizes.windowMargin * 0.75
+  },
+
   container: {
     flex: 1
   },

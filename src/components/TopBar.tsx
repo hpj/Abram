@@ -10,8 +10,6 @@ import ChatAvatars from './ChatAvatars';
 
 import { StoreComponent } from '../store';
 
-import i18n from '../i18n';
-
 import { sizes } from '../sizes';
 
 import { depth } from '../depth';
@@ -27,6 +25,8 @@ class TopBar extends StoreComponent<{
   index: number
 }>
 {
+  chatAvatarsRef: React.RefObject<ChatAvatars> = React.createRef()
+
   stateWhitelist(changes: TopBar['state']): boolean
   {
     if (changes.index)
@@ -58,7 +58,7 @@ class TopBar extends StoreComponent<{
     return (
       <View>
         <Animated.View style={ {
-          ...styles.container,
+          ...styles.titleContainer,
           marginTop: marginTop
         } }>
           {/* eslint-disable-next-line react-native/no-inline-styles */}
@@ -72,7 +72,7 @@ class TopBar extends StoreComponent<{
           marginTop: marginTop
         } }>
           <Search bottomSheetNode={ this.props.bottomSheetNode }/>
-          <ChatAvatars holderNode={ this.props.holderNode } bottomSheetNode={ this.props.bottomSheetNode }/>
+          <ChatAvatars ref={ this.chatAvatarsRef } holderNode={ this.props.holderNode } bottomSheetNode={ this.props.bottomSheetNode }/>
         </Animated.View>
       </View>
     );
@@ -80,11 +80,20 @@ class TopBar extends StoreComponent<{
 }
 
 const styles = StyleSheet.create({
-  container: {
+  titleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
 
     height: sizes.topBarHeight
+  },
+
+  title: {
+    color: colors.whiteText,
+
+    fontSize: 26,
+    fontWeight: 'bold',
+
+    marginLeft: sizes.windowMargin
   },
 
   controls: {
@@ -93,23 +102,9 @@ const styles = StyleSheet.create({
 
     flexDirection: 'row',
     alignItems: 'center',
-    
-    backgroundColor: colors.blackBackground,
 
     right: 0,
     height: sizes.topBarHeight
-  },
-
-  title: {
-    position: 'absolute',
-
-    flex: 1,
-    color: colors.whiteText,
-
-    fontSize: 26,
-    fontWeight: 'bold',
-
-    marginLeft: sizes.windowMargin
   }
 });
 

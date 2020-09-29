@@ -2484,10 +2484,18 @@ exports[`Testing <App/> Menus Navigating to Profile: Holder View Should Be Hidde
 
 exports[`Testing <App/> Menus Navigating to Profile: Menu View Should Be Hidden 1`] = `
 <View
+  pointerEvents="none"
   style={
     Object {
-      "height": 38,
-      "minWidth": 38,
+      "backgroundColor": "#414141",
+      "borderRadius": 15,
+      "height": 590.9475,
+      "opacity": 0,
+      "position": "absolute",
+      "right": 10,
+      "top": 5,
+      "width": 369.75,
+      "zIndex": 3,
     }
   }
   testID="v-menu"
@@ -2495,26 +2503,10 @@ exports[`Testing <App/> Menus Navigating to Profile: Menu View Should Be Hidden 
   <View
     style={
       Object {
-        "backgroundColor": "#414141",
-        "borderRadius": 15,
-        "height": 622.0500000000001,
-        "opacity": 0,
-        "position": "absolute",
-        "right": 10,
-        "top": -9,
-        "width": 493,
+        "flex": 1,
       }
     }
-  />
-  <View
-    style={
-      Object {
-        "borderRadius": 38,
-        "height": 38,
-        "marginRight": 20,
-        "minWidth": 38,
-      }
-    }
+    testID="v-menu-content"
   />
 </View>
 `;
@@ -2814,10 +2806,18 @@ exports[`Testing <App/> Menus Navigating to Settings: Holder View Should Be Hidd
 
 exports[`Testing <App/> Menus Navigating to Settings: Menu View Should Be Hidden 1`] = `
 <View
+  pointerEvents="none"
   style={
     Object {
-      "height": 38,
-      "minWidth": 38,
+      "backgroundColor": "#414141",
+      "borderRadius": 15,
+      "height": 590.9475,
+      "opacity": 0,
+      "position": "absolute",
+      "right": 10,
+      "top": 5,
+      "width": 369.75,
+      "zIndex": 3,
     }
   }
   testID="v-menu"
@@ -2825,26 +2825,10 @@ exports[`Testing <App/> Menus Navigating to Settings: Menu View Should Be Hidden
   <View
     style={
       Object {
-        "backgroundColor": "#414141",
-        "borderRadius": 15,
-        "height": 622.0500000000001,
-        "opacity": 0,
-        "position": "absolute",
-        "right": 10,
-        "top": -9,
-        "width": 493,
+        "flex": 1,
       }
     }
-  />
-  <View
-    style={
-      Object {
-        "borderRadius": 38,
-        "height": 38,
-        "marginRight": 20,
-        "minWidth": 38,
-      }
-    }
+    testID="v-menu-content"
   />
 </View>
 `;
@@ -2937,10 +2921,18 @@ exports[`Testing <App/> Menus Showing Group Chat Menu: Holder View Should Be Vis
 
 exports[`Testing <App/> Menus Showing Group Chat Menu: Menu View Should Be Visible 1`] = `
 <View
+  pointerEvents="box-none"
   style={
     Object {
-      "height": 38,
-      "minWidth": 38,
+      "backgroundColor": "#414141",
+      "borderRadius": 15,
+      "height": 622.0500000000001,
+      "opacity": 1,
+      "position": "absolute",
+      "right": 10,
+      "top": 15,
+      "width": 493,
+      "zIndex": 3,
     }
   }
   testID="v-menu"
@@ -2948,371 +2940,232 @@ exports[`Testing <App/> Menus Showing Group Chat Menu: Menu View Should Be Visib
   <View
     style={
       Object {
-        "backgroundColor": "#414141",
-        "borderRadius": 15,
-        "height": 622.0500000000001,
-        "opacity": 1,
-        "position": "absolute",
-        "right": 10,
-        "top": -9,
-        "width": 493,
+        "flex": 1,
       }
     }
+    testID="v-menu-content"
   >
     <View
       style={
         Object {
-          "flex": 1,
+          "height": 38,
+          "justifyContent": "center",
+          "margin": 15,
         }
       }
-      testID="v-menu-content"
     >
-      <View
+      <Text
         style={
           Object {
-            "height": 38,
-            "justifyContent": "center",
-            "margin": 15,
+            "color": "#818181",
+            "fontSize": 13,
+            "fontWeight": "700",
           }
         }
       >
+        Group
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 16,
+            "fontWeight": "700",
+          }
+        }
+      >
+        Group of Wholesome Girls
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "flexGrow": 1,
+          "marginVertical": 17,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row-reverse",
+            "padding": 17,
+          }
+        }
+        testID="bn-chat-mute"
+      >
+        <View>
+          <View />
+        </View>
         <Text
+          allowFontScaling={false}
           style={
-            Object {
-              "color": "#818181",
-              "fontSize": 13,
-              "fontWeight": "700",
-            }
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontSize": 18,
+              },
+              Object {
+                "marginHorizontal": 23,
+              },
+              Object {
+                "fontFamily": "feather",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
           }
         >
-          Group
+          
         </Text>
         <Text
           style={
             Object {
               "color": "#ffffff",
-              "fontSize": 16,
-              "fontWeight": "700",
+              "flex": 1,
+              "fontSize": 14,
+              "marginHorizontal": 23,
             }
           }
         >
-          Group of Wholesome Girls
+          Mute
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row-reverse",
+            "padding": 17,
+          }
+        }
+        testID="bn-chat-group"
+      >
+        <View>
+          <View />
+        </View>
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontSize": 18,
+              },
+              Object {
+                "marginHorizontal": 23,
+              },
+              Object {
+                "fontFamily": "feather",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "flex": 1,
+              "fontSize": 14,
+              "marginHorizontal": 23,
+            }
+          }
+        >
+          Group
         </Text>
       </View>
       <View
         style={
           Object {
-            "flexGrow": 1,
-            "marginVertical": 17,
+            "alignSelf": "center",
+            "backgroundColor": "#818181",
+            "height": 1,
+            "marginVertical": 8,
+            "width": "15%",
           }
         }
-      >
-        <View
-          accessible={true}
-          focusable={false}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "alignItems": "center",
-              "flexDirection": "row-reverse",
-              "padding": 17,
-            }
-          }
-          testID="bn-chat-mute"
-        >
-          <View>
-            <View />
-          </View>
-          <Text
-            allowFontScaling={false}
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                },
-                Object {
-                  "marginHorizontal": 23,
-                },
-                Object {
-                  "fontFamily": "feather",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 14,
-                "marginHorizontal": 23,
-              }
-            }
-          >
-            Mute
-          </Text>
-        </View>
-        <View
-          accessible={true}
-          focusable={false}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "alignItems": "center",
-              "flexDirection": "row-reverse",
-              "padding": 17,
-            }
-          }
-          testID="bn-chat-group"
-        >
-          <View>
-            <View />
-          </View>
-          <Text
-            allowFontScaling={false}
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                },
-                Object {
-                  "marginHorizontal": 23,
-                },
-                Object {
-                  "fontFamily": "feather",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 14,
-                "marginHorizontal": 23,
-              }
-            }
-          >
-            Group
-          </Text>
-        </View>
-        <View
-          style={
-            Object {
-              "alignSelf": "center",
-              "backgroundColor": "#818181",
-              "height": 1,
-              "marginVertical": 8,
-              "width": "15%",
-            }
-          }
-        />
-        <View
-          accessible={true}
-          focusable={false}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "alignItems": "center",
-              "flexDirection": "row-reverse",
-              "padding": 17,
-            }
-          }
-          testID="bn-chat-block"
-        >
-          <View>
-            <View />
-          </View>
-          <Text
-            allowFontScaling={false}
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                },
-                Object {
-                  "marginHorizontal": 23,
-                },
-                Object {
-                  "fontFamily": "feather",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 14,
-                "marginHorizontal": 23,
-              }
-            }
-          >
-            Leave, Block & Report
-          </Text>
-        </View>
-      </View>
-    </View>
-  </View>
-  <View
-    style={
-      Object {
-        "borderRadius": 38,
-        "height": 38,
-        "marginRight": 20,
-        "minWidth": 38,
-      }
-    }
-  >
-    <View
-      accessible={true}
-      focusable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="bn-menu"
-    >
+      />
       <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "flexDirection": "row",
+            "alignItems": "center",
+            "flexDirection": "row-reverse",
+            "padding": 17,
           }
         }
+        testID="bn-chat-block"
       >
         <View>
           <View />
         </View>
-        <View
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontSize": 18,
+              },
+              Object {
+                "marginHorizontal": 23,
+              },
+              Object {
+                "fontFamily": "feather",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
           style={
             Object {
-              "borderRadius": 38,
-              "height": 38,
-              "width": 38,
+              "color": "#ffffff",
+              "flex": 1,
+              "fontSize": 14,
+              "marginHorizontal": 23,
             }
           }
         >
-          <Image
-            source={0}
-            style={
-              Object {
-                "backgroundColor": "#4B4B4B",
-                "borderRadius": 38,
-                "height": 38,
-                "position": "absolute",
-                "width": 38,
-              }
-            }
-          />
-        </View>
-        <View
-          style={
-            Object {
-              "borderRadius": 38,
-              "height": 38,
-              "opacity": 1,
-              "width": 19,
-            }
-          }
-        >
-          <View
-            style={
-              Object {
-                "marginLeft": -19,
-              }
-            }
-          >
-            <Image
-              source={1}
-              style={
-                Object {
-                  "backgroundColor": "#4B4B4B",
-                  "borderRadius": 38,
-                  "height": 38,
-                  "position": "absolute",
-                  "width": 38,
-                }
-              }
-            />
-          </View>
-        </View>
-        <View
-          style={
-            Object {
-              "borderRadius": 38,
-              "height": 38,
-              "opacity": 1,
-              "width": 19,
-            }
-          }
-        >
-          <View
-            style={
-              Object {
-                "marginLeft": -19,
-              }
-            }
-          >
-            <Image
-              source={2}
-              style={
-                Object {
-                  "backgroundColor": "#4B4B4B",
-                  "borderRadius": 38,
-                  "height": 38,
-                  "position": "absolute",
-                  "width": 38,
-                }
-              }
-            />
-          </View>
-        </View>
+          Leave, Block & Report
+        </Text>
       </View>
     </View>
   </View>
@@ -3347,10 +3200,18 @@ exports[`Testing <App/> Menus Showing Normal Chat Menu: Holder View Should Be Vi
 
 exports[`Testing <App/> Menus Showing Normal Chat Menu: Menu View Should Be Visible 1`] = `
 <View
+  pointerEvents="box-none"
   style={
     Object {
-      "height": 38,
-      "minWidth": 38,
+      "backgroundColor": "#414141",
+      "borderRadius": 15,
+      "height": 622.0500000000001,
+      "opacity": 1,
+      "position": "absolute",
+      "right": 10,
+      "top": 15,
+      "width": 493,
+      "zIndex": 3,
     }
   }
   testID="v-menu"
@@ -3358,283 +3219,175 @@ exports[`Testing <App/> Menus Showing Normal Chat Menu: Menu View Should Be Visi
   <View
     style={
       Object {
-        "backgroundColor": "#414141",
-        "borderRadius": 15,
-        "height": 622.0500000000001,
-        "opacity": 1,
-        "position": "absolute",
-        "right": 10,
-        "top": -9,
-        "width": 493,
+        "flex": 1,
       }
     }
+    testID="v-menu-content"
   >
     <View
       style={
         Object {
-          "flex": 1,
+          "height": 38,
+          "justifyContent": "center",
+          "margin": 15,
         }
       }
-      testID="v-menu-content"
     >
-      <View
+      <Text
         style={
           Object {
-            "height": 38,
-            "justifyContent": "center",
-            "margin": 15,
+            "color": "#818181",
+            "fontSize": 13,
+            "fontWeight": "700",
           }
         }
       >
+        Chat
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 16,
+            "fontWeight": "700",
+          }
+        }
+      >
+        Mika
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "flexGrow": 1,
+          "marginVertical": 17,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row-reverse",
+            "padding": 17,
+          }
+        }
+        testID="bn-chat-mute"
+      >
+        <View>
+          <View />
+        </View>
         <Text
+          allowFontScaling={false}
           style={
-            Object {
-              "color": "#818181",
-              "fontSize": 13,
-              "fontWeight": "700",
-            }
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontSize": 18,
+              },
+              Object {
+                "marginHorizontal": 23,
+              },
+              Object {
+                "fontFamily": "feather",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
           }
         >
-          Chat
+          
         </Text>
         <Text
           style={
             Object {
               "color": "#ffffff",
-              "fontSize": 16,
-              "fontWeight": "700",
+              "flex": 1,
+              "fontSize": 14,
+              "marginHorizontal": 23,
             }
           }
         >
-          Mika
+          Mute
         </Text>
       </View>
       <View
         style={
           Object {
-            "flexGrow": 1,
-            "marginVertical": 17,
+            "alignSelf": "center",
+            "backgroundColor": "#818181",
+            "height": 1,
+            "marginVertical": 8,
+            "width": "15%",
           }
         }
-      >
-        <View
-          accessible={true}
-          focusable={false}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "alignItems": "center",
-              "flexDirection": "row-reverse",
-              "padding": 17,
-            }
-          }
-          testID="bn-chat-mute"
-        >
-          <View>
-            <View />
-          </View>
-          <Text
-            allowFontScaling={false}
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                },
-                Object {
-                  "marginHorizontal": 23,
-                },
-                Object {
-                  "fontFamily": "feather",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 14,
-                "marginHorizontal": 23,
-              }
-            }
-          >
-            Mute
-          </Text>
-        </View>
-        <View
-          style={
-            Object {
-              "alignSelf": "center",
-              "backgroundColor": "#818181",
-              "height": 1,
-              "marginVertical": 8,
-              "width": "15%",
-            }
-          }
-        />
-        <View
-          accessible={true}
-          focusable={false}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "alignItems": "center",
-              "flexDirection": "row-reverse",
-              "padding": 17,
-            }
-          }
-          testID="bn-chat-block"
-        >
-          <View>
-            <View />
-          </View>
-          <Text
-            allowFontScaling={false}
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                },
-                Object {
-                  "marginHorizontal": 23,
-                },
-                Object {
-                  "fontFamily": "feather",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 14,
-                "marginHorizontal": 23,
-              }
-            }
-          >
-            Block & Report
-          </Text>
-        </View>
-      </View>
-    </View>
-  </View>
-  <View
-    style={
-      Object {
-        "borderRadius": 38,
-        "height": 38,
-        "marginRight": 20,
-        "minWidth": 38,
-      }
-    }
-  >
-    <View
-      accessible={true}
-      focusable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="bn-menu"
-    >
+      />
       <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "flexDirection": "row",
+            "alignItems": "center",
+            "flexDirection": "row-reverse",
+            "padding": 17,
           }
         }
+        testID="bn-chat-block"
       >
         <View>
           <View />
         </View>
-        <View
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontSize": 18,
+              },
+              Object {
+                "marginHorizontal": 23,
+              },
+              Object {
+                "fontFamily": "feather",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
           style={
             Object {
-              "borderRadius": 38,
-              "height": 38,
-              "width": 38,
+              "color": "#ffffff",
+              "flex": 1,
+              "fontSize": 14,
+              "marginHorizontal": 23,
             }
           }
         >
-          <Image
-            source={0}
-            style={
-              Object {
-                "backgroundColor": "#4B4B4B",
-                "borderRadius": 38,
-                "height": 38,
-                "position": "absolute",
-                "width": 38,
-              }
-            }
-          />
-        </View>
-        <View
-          style={
-            Object {
-              "borderRadius": 38,
-              "height": 38,
-              "opacity": 1,
-              "width": 19,
-            }
-          }
-        >
-          <View
-            style={
-              Object {
-                "marginLeft": -19,
-              }
-            }
-          >
-            <Image
-              source={1}
-              style={
-                Object {
-                  "backgroundColor": "#4B4B4B",
-                  "borderRadius": 38,
-                  "height": 38,
-                  "position": "absolute",
-                  "width": 38,
-                }
-              }
-            />
-          </View>
-        </View>
+          Block & Report
+        </Text>
       </View>
     </View>
   </View>
@@ -3705,10 +3458,18 @@ exports[`Testing <App/> Menus Showing and Hiding Main Menu: Initial Holder View 
 
 exports[`Testing <App/> Menus Showing and Hiding Main Menu: Initial Menu View Should Be Hidden 1`] = `
 <View
+  pointerEvents="none"
   style={
     Object {
-      "height": 38,
-      "minWidth": 38,
+      "backgroundColor": "#414141",
+      "borderRadius": 15,
+      "height": 590.9475,
+      "opacity": 0,
+      "position": "absolute",
+      "right": 10,
+      "top": 5,
+      "width": 369.75,
+      "zIndex": 3,
     }
   }
   testID="v-menu"
@@ -3716,335 +3477,259 @@ exports[`Testing <App/> Menus Showing and Hiding Main Menu: Initial Menu View Sh
   <View
     style={
       Object {
-        "backgroundColor": "#414141",
-        "borderRadius": 15,
-        "height": 622.0500000000001,
-        "opacity": 0,
-        "position": "absolute",
-        "right": 10,
-        "top": -9,
-        "width": 493,
+        "flex": 1,
       }
     }
+    testID="v-menu-content"
   >
     <View
       style={
         Object {
-          "flex": 1,
+          "height": 38,
+          "justifyContent": "center",
+          "margin": 15,
         }
       }
-      testID="v-menu-content"
     >
-      <View
+      <Text
         style={
           Object {
-            "height": 38,
-            "justifyContent": "center",
-            "margin": 15,
+            "color": "#818181",
+            "fontSize": 13,
+            "fontWeight": "700",
           }
         }
       >
+        Hello
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 16,
+            "fontWeight": "700",
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "flexGrow": 1,
+          "marginVertical": 17,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row-reverse",
+            "padding": 17,
+          }
+        }
+        testID="bn-profile"
+      >
+        <View>
+          <View />
+        </View>
         <Text
+          allowFontScaling={false}
           style={
-            Object {
-              "color": "#818181",
-              "fontSize": 13,
-              "fontWeight": "700",
-            }
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontSize": 18,
+              },
+              Object {
+                "marginHorizontal": 23,
+              },
+              Object {
+                "fontFamily": "feather",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
           }
         >
-          Hello
+          
         </Text>
         <Text
           style={
             Object {
               "color": "#ffffff",
-              "fontSize": 16,
-              "fontWeight": "700",
+              "flex": 1,
+              "fontSize": 14,
+              "marginHorizontal": 23,
             }
           }
-        />
+        >
+          Profile
+        </Text>
       </View>
       <View
-        style={
-          Object {
-            "flexGrow": 1,
-            "marginVertical": 17,
-          }
-        }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "alignItems": "center",
-              "flexDirection": "row-reverse",
-              "padding": 17,
-            }
-          }
-          testID="bn-profile"
-        >
-          <View>
-            <View />
-          </View>
-          <Text
-            allowFontScaling={false}
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                },
-                Object {
-                  "marginHorizontal": 23,
-                },
-                Object {
-                  "fontFamily": "feather",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 14,
-                "marginHorizontal": 23,
-              }
-            }
-          >
-            Profile
-          </Text>
-        </View>
-        <View
-          accessible={true}
-          focusable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "alignItems": "center",
-              "flexDirection": "row-reverse",
-              "padding": 17,
-            }
-          }
-          testID="bn-settings"
-        >
-          <View>
-            <View />
-          </View>
-          <Text
-            allowFontScaling={false}
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                },
-                Object {
-                  "marginHorizontal": 23,
-                },
-                Object {
-                  "fontFamily": "feather",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 14,
-                "marginHorizontal": 23,
-              }
-            }
-          >
-            Settings
-          </Text>
-        </View>
-      </View>
-      <View
-        style={
-          Object {
-            "flexDirection": "row",
-            "justifyContent": "center",
-          }
-        }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "padding": 9,
-            }
-          }
-          testID="bn-privacy"
-        >
-          <View>
-            <View />
-          </View>
-          <Text
-            style={
-              Object {
-                "color": "#818181",
-                "fontSize": 11,
-                "fontWeight": "700",
-              }
-            }
-          >
-            Privacy Policy
-          </Text>
-        </View>
-        <View
-          accessible={true}
-          focusable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "padding": 9,
-            }
-          }
-          testID="bn-terms"
-        >
-          <View>
-            <View />
-          </View>
-          <Text
-            style={
-              Object {
-                "color": "#818181",
-                "fontSize": 11,
-                "fontWeight": "700",
-              }
-            }
-          >
-            Terms of Service
-          </Text>
-        </View>
-      </View>
-      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
           Object {
             "alignItems": "center",
-            "margin": 20,
+            "flexDirection": "row-reverse",
+            "padding": 17,
           }
         }
-      >
-        <Image
-          source={
-            Object {
-              "uri": "https://herpproject.com/assets/logo-white.png",
-            }
-          }
-          style={
-            Object {
-              "height": 8,
-              "resizeMode": "contain",
-              "width": 32,
-            }
-          }
-        />
-      </View>
-    </View>
-  </View>
-  <View
-    style={
-      Object {
-        "borderRadius": 38,
-        "height": 38,
-        "marginRight": 20,
-        "minWidth": 38,
-      }
-    }
-  >
-    <View
-      accessible={true}
-      focusable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="bn-menu"
-    >
-      <View
-        style={
-          Object {
-            "flexDirection": "row",
-          }
-        }
+        testID="bn-settings"
       >
         <View>
           <View />
         </View>
-        <View
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontSize": 18,
+              },
+              Object {
+                "marginHorizontal": 23,
+              },
+              Object {
+                "fontFamily": "feather",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
           style={
             Object {
-              "borderRadius": 38,
-              "height": 38,
-              "width": 38,
+              "color": "#ffffff",
+              "flex": 1,
+              "fontSize": 14,
+              "marginHorizontal": 23,
             }
           }
         >
-          <Image
-            style={
-              Object {
-                "backgroundColor": "#4B4B4B",
-                "borderRadius": 38,
-                "height": 38,
-                "position": "absolute",
-                "width": 38,
-              }
-            }
-          />
-        </View>
+          Settings
+        </Text>
       </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "padding": 9,
+          }
+        }
+        testID="bn-privacy"
+      >
+        <View>
+          <View />
+        </View>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 11,
+              "fontWeight": "700",
+            }
+          }
+        >
+          Privacy Policy
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "padding": 9,
+          }
+        }
+        testID="bn-terms"
+      >
+        <View>
+          <View />
+        </View>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 11,
+              "fontWeight": "700",
+            }
+          }
+        >
+          Terms of Service
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "margin": 20,
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": "https://herpproject.com/assets/logo-white.png",
+          }
+        }
+        style={
+          Object {
+            "height": 8,
+            "resizeMode": "contain",
+            "width": 32,
+          }
+        }
+      />
     </View>
   </View>
 </View>
@@ -4052,10 +3737,18 @@ exports[`Testing <App/> Menus Showing and Hiding Main Menu: Initial Menu View Sh
 
 exports[`Testing <App/> Menus Showing and Hiding Main Menu: Menu View Should Be Visible 1`] = `
 <View
+  pointerEvents="box-none"
   style={
     Object {
-      "height": 38,
-      "minWidth": 38,
+      "backgroundColor": "#414141",
+      "borderRadius": 15,
+      "height": 622.0500000000001,
+      "opacity": 1,
+      "position": "absolute",
+      "right": 10,
+      "top": 5,
+      "width": 493,
+      "zIndex": 3,
     }
   }
   testID="v-menu"
@@ -4063,335 +3756,259 @@ exports[`Testing <App/> Menus Showing and Hiding Main Menu: Menu View Should Be 
   <View
     style={
       Object {
-        "backgroundColor": "#414141",
-        "borderRadius": 15,
-        "height": 622.0500000000001,
-        "opacity": 1,
-        "position": "absolute",
-        "right": 10,
-        "top": -9,
-        "width": 493,
+        "flex": 1,
       }
     }
+    testID="v-menu-content"
   >
     <View
       style={
         Object {
-          "flex": 1,
+          "height": 38,
+          "justifyContent": "center",
+          "margin": 15,
         }
       }
-      testID="v-menu-content"
     >
-      <View
+      <Text
         style={
           Object {
-            "height": 38,
-            "justifyContent": "center",
-            "margin": 15,
+            "color": "#818181",
+            "fontSize": 13,
+            "fontWeight": "700",
           }
         }
       >
+        Hello
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 16,
+            "fontWeight": "700",
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "flexGrow": 1,
+          "marginVertical": 17,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row-reverse",
+            "padding": 17,
+          }
+        }
+        testID="bn-profile"
+      >
+        <View>
+          <View />
+        </View>
         <Text
+          allowFontScaling={false}
           style={
-            Object {
-              "color": "#818181",
-              "fontSize": 13,
-              "fontWeight": "700",
-            }
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontSize": 18,
+              },
+              Object {
+                "marginHorizontal": 23,
+              },
+              Object {
+                "fontFamily": "feather",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
           }
         >
-          Hello
+          
         </Text>
         <Text
           style={
             Object {
               "color": "#ffffff",
-              "fontSize": 16,
-              "fontWeight": "700",
+              "flex": 1,
+              "fontSize": 14,
+              "marginHorizontal": 23,
             }
           }
-        />
+        >
+          Profile
+        </Text>
       </View>
       <View
-        style={
-          Object {
-            "flexGrow": 1,
-            "marginVertical": 17,
-          }
-        }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "alignItems": "center",
-              "flexDirection": "row-reverse",
-              "padding": 17,
-            }
-          }
-          testID="bn-profile"
-        >
-          <View>
-            <View />
-          </View>
-          <Text
-            allowFontScaling={false}
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                },
-                Object {
-                  "marginHorizontal": 23,
-                },
-                Object {
-                  "fontFamily": "feather",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 14,
-                "marginHorizontal": 23,
-              }
-            }
-          >
-            Profile
-          </Text>
-        </View>
-        <View
-          accessible={true}
-          focusable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "alignItems": "center",
-              "flexDirection": "row-reverse",
-              "padding": 17,
-            }
-          }
-          testID="bn-settings"
-        >
-          <View>
-            <View />
-          </View>
-          <Text
-            allowFontScaling={false}
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 18,
-                },
-                Object {
-                  "marginHorizontal": 23,
-                },
-                Object {
-                  "fontFamily": "feather",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 14,
-                "marginHorizontal": 23,
-              }
-            }
-          >
-            Settings
-          </Text>
-        </View>
-      </View>
-      <View
-        style={
-          Object {
-            "flexDirection": "row",
-            "justifyContent": "center",
-          }
-        }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "padding": 9,
-            }
-          }
-          testID="bn-privacy"
-        >
-          <View>
-            <View />
-          </View>
-          <Text
-            style={
-              Object {
-                "color": "#818181",
-                "fontSize": 11,
-                "fontWeight": "700",
-              }
-            }
-          >
-            Privacy Policy
-          </Text>
-        </View>
-        <View
-          accessible={true}
-          focusable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "padding": 9,
-            }
-          }
-          testID="bn-terms"
-        >
-          <View>
-            <View />
-          </View>
-          <Text
-            style={
-              Object {
-                "color": "#818181",
-                "fontSize": 11,
-                "fontWeight": "700",
-              }
-            }
-          >
-            Terms of Service
-          </Text>
-        </View>
-      </View>
-      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
           Object {
             "alignItems": "center",
-            "margin": 20,
+            "flexDirection": "row-reverse",
+            "padding": 17,
           }
         }
-      >
-        <Image
-          source={
-            Object {
-              "uri": "https://herpproject.com/assets/logo-white.png",
-            }
-          }
-          style={
-            Object {
-              "height": 8,
-              "resizeMode": "contain",
-              "width": 32,
-            }
-          }
-        />
-      </View>
-    </View>
-  </View>
-  <View
-    style={
-      Object {
-        "borderRadius": 38,
-        "height": 38,
-        "marginRight": 20,
-        "minWidth": 38,
-      }
-    }
-  >
-    <View
-      accessible={true}
-      focusable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="bn-menu"
-    >
-      <View
-        style={
-          Object {
-            "flexDirection": "row",
-          }
-        }
+        testID="bn-settings"
       >
         <View>
           <View />
         </View>
-        <View
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontSize": 18,
+              },
+              Object {
+                "marginHorizontal": 23,
+              },
+              Object {
+                "fontFamily": "feather",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
           style={
             Object {
-              "borderRadius": 38,
-              "height": 38,
-              "width": 38,
+              "color": "#ffffff",
+              "flex": 1,
+              "fontSize": 14,
+              "marginHorizontal": 23,
             }
           }
         >
-          <Image
-            style={
-              Object {
-                "backgroundColor": "#4B4B4B",
-                "borderRadius": 38,
-                "height": 38,
-                "position": "absolute",
-                "width": 38,
-              }
-            }
-          />
-        </View>
+          Settings
+        </Text>
       </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "padding": 9,
+          }
+        }
+        testID="bn-privacy"
+      >
+        <View>
+          <View />
+        </View>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 11,
+              "fontWeight": "700",
+            }
+          }
+        >
+          Privacy Policy
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "padding": 9,
+          }
+        }
+        testID="bn-terms"
+      >
+        <View>
+          <View />
+        </View>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 11,
+              "fontWeight": "700",
+            }
+          }
+        >
+          Terms of Service
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "margin": 20,
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": "https://herpproject.com/assets/logo-white.png",
+          }
+        }
+        style={
+          Object {
+            "height": 8,
+            "resizeMode": "contain",
+            "width": 32,
+          }
+        }
+      />
     </View>
   </View>
 </View>
@@ -4554,12 +4171,14 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Activated Bottom Shee
 <View
   style={
     Object {
+      "backgroundColor": "#000000",
       "flexDirection": "row-reverse",
       "height": 38,
       "marginLeft": 15,
       "marginRight": 15,
       "minWidth": 38,
-      "width": 410,
+      "opacity": 1,
+      "width": 411,
     }
   }
   testID="v-search"
@@ -4571,7 +4190,7 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Activated Bottom Shee
         "borderRadius": 38,
         "height": 38,
         "position": "absolute",
-        "width": 410,
+        "width": 411,
       }
     }
   />
@@ -4590,7 +4209,7 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Activated Bottom Shee
         "marginRight": 15,
         "position": "absolute",
         "right": 0,
-        "width": 348,
+        "width": 349,
       }
     }
     testID="in-search"
@@ -4613,11 +4232,13 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Activated Bottom Shee
 <View
   style={
     Object {
+      "backgroundColor": "#000000",
       "flexDirection": "row-reverse",
       "height": 38,
       "marginLeft": 15,
       "marginRight": 15,
       "minWidth": 38,
+      "opacity": 1,
       "width": 38,
     }
   }
@@ -4700,12 +4321,14 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Deactivated Bottom Sh
 <View
   style={
     Object {
+      "backgroundColor": "#000000",
       "flexDirection": "row-reverse",
       "height": 38,
       "marginLeft": 15,
       "marginRight": 15,
       "minWidth": 38,
-      "width": 429,
+      "opacity": 1,
+      "width": 430,
     }
   }
   testID="v-search"
@@ -4717,7 +4340,7 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Deactivated Bottom Sh
         "borderRadius": 38,
         "height": 38,
         "position": "absolute",
-        "width": 429,
+        "width": 430,
       }
     }
   />
@@ -4736,7 +4359,7 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Deactivated Bottom Sh
         "marginRight": 15,
         "position": "absolute",
         "right": 0,
-        "width": 367,
+        "width": 368,
       }
     }
     testID="in-search"
@@ -4759,11 +4382,13 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Deactivated Bottom Sh
 <View
   style={
     Object {
+      "backgroundColor": "#000000",
       "flexDirection": "row-reverse",
       "height": 38,
       "marginLeft": 15,
       "marginRight": 15,
       "minWidth": 38,
+      "opacity": 1,
       "width": 38,
     }
   }
@@ -4846,12 +4471,14 @@ exports[`Testing <App/> Search Bar Width (3 Avatars): Search Bar Should Be Maxim
 <View
   style={
     Object {
+      "backgroundColor": "#000000",
       "flexDirection": "row-reverse",
       "height": 38,
       "marginLeft": 15,
       "marginRight": 15,
       "minWidth": 38,
-      "width": 391,
+      "opacity": 1,
+      "width": 392,
     }
   }
   testID="v-search"
@@ -4863,7 +4490,7 @@ exports[`Testing <App/> Search Bar Width (3 Avatars): Search Bar Should Be Maxim
         "borderRadius": 38,
         "height": 38,
         "position": "absolute",
-        "width": 391,
+        "width": 392,
       }
     }
   />
@@ -4882,7 +4509,7 @@ exports[`Testing <App/> Search Bar Width (3 Avatars): Search Bar Should Be Maxim
         "marginRight": 15,
         "position": "absolute",
         "right": 0,
-        "width": 329,
+        "width": 330,
       }
     }
     testID="in-search"
@@ -4905,11 +4532,13 @@ exports[`Testing <App/> Search Bar Width (3 Avatars): Search Bar Should Be Minim
 <View
   style={
     Object {
+      "backgroundColor": "#000000",
       "flexDirection": "row-reverse",
       "height": 38,
       "marginLeft": 15,
       "marginRight": 15,
       "minWidth": 38,
+      "opacity": 1,
       "width": 38,
     }
   }
@@ -4969,11 +4598,13 @@ exports[`Testing <App/> Search Bar Width (With Deactivated Bottom Sheet): Initia
 <View
   style={
     Object {
+      "backgroundColor": "#000000",
       "flexDirection": "row-reverse",
       "height": 38,
       "marginLeft": 15,
       "marginRight": 15,
       "minWidth": 38,
+      "opacity": 1,
       "width": 38,
     }
   }
@@ -5028,12 +4659,14 @@ exports[`Testing <App/> Search Bar Width (With Deactivated Bottom Sheet): Search
 <View
   style={
     Object {
+      "backgroundColor": "#000000",
       "flexDirection": "row-reverse",
       "height": 38,
       "marginLeft": 15,
       "marginRight": 15,
       "minWidth": 38,
-      "width": 429,
+      "opacity": 1,
+      "width": 430,
     }
   }
   testID="v-search"
@@ -5045,7 +4678,7 @@ exports[`Testing <App/> Search Bar Width (With Deactivated Bottom Sheet): Search
         "borderRadius": 38,
         "height": 38,
         "position": "absolute",
-        "width": 429,
+        "width": 430,
       }
     }
   />
@@ -5064,7 +4697,7 @@ exports[`Testing <App/> Search Bar Width (With Deactivated Bottom Sheet): Search
         "marginRight": 15,
         "position": "absolute",
         "right": 0,
-        "width": 367,
+        "width": 368,
       }
     }
     testID="in-search"

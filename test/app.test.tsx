@@ -204,6 +204,7 @@ jest.mock('react-native-reanimated', () =>
     View: View,
     Easing: {
       linear: 0,
+      in: jest.fn(),
       inOut: jest.fn()
     },
     Value: jest.fn().mockImplementation((value) =>
@@ -1010,7 +1011,7 @@ describe('Testing <App/>', () =>
               }
             ],
             messages: [
-              { owner: '1', text: '', timestamp: new Date(1999, 9, 9) }
+              { owner: '1', text: '<3', timestamp: new Date(1999, 9, 9) }
             ]
           }
         ] as InboxEntry[]
