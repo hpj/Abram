@@ -128,7 +128,7 @@ const store = createStore({
     },
     {
       id: 'C-0003',
-      displayName: 'Al-Sisi',
+      displayName: 'Amir Eid',
       members: [
         {
           uuid: '0001',
@@ -138,13 +138,13 @@ const store = createStore({
         },
         {
           uuid: '0100',
-          displayName: 'Al-Sisi',
-          username: 'Bal7a',
-          avatar: require('../assets/mockup/sisi-0.jpg')
+          displayName: 'Amid Eid',
+          username: 'amir',
+          avatar: require('../assets/mockup/amir-0.jpg')
         }
       ],
       messages: [
-        { owner: '0100', text: 'Dude, I fucked up.', timestamp: subDays(new Date(), 50) }
+        { owner: '0100', text: 'Sharmoofers bad.', timestamp: subDays(new Date(), 50) }
       ]
     }
   ]
