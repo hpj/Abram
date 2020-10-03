@@ -915,14 +915,7 @@ exports[`Testing <App/> Chat Messages List Normal: Should Be Message With Timest
     onGestureHandlerStateChange={[Function]}
     onHandlerStateChange={[Function]}
     rippleColor={0}
-    style={
-      Array [
-        Object {
-          "overflow": "hidden",
-        },
-        undefined,
-      ]
-    }
+    testID="bn-context"
   >
     <View
       accessible={true}
@@ -945,7 +938,6 @@ exports[`Testing <App/> Chat Messages List Normal: Should Be Message With Timest
           "paddingVertical": 10,
         }
       }
-      testID="bn-context"
     >
       <Text
         style={
@@ -975,14 +967,7 @@ exports[`Testing <App/> Chat Messages List Normal: Should Be Message Without Tim
     onGestureHandlerStateChange={[Function]}
     onHandlerStateChange={[Function]}
     rippleColor={0}
-    style={
-      Array [
-        Object {
-          "overflow": "hidden",
-        },
-        undefined,
-      ]
-    }
+    testID="bn-context"
   >
     <View
       accessible={true}
@@ -1006,7 +991,6 @@ exports[`Testing <App/> Chat Messages List Normal: Should Be Message Without Tim
           "paddingVertical": 10,
         }
       }
-      testID="bn-context"
     >
       <Text
         style={
@@ -1049,14 +1033,7 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
     onGestureHandlerStateChange={[Function]}
     onHandlerStateChange={[Function]}
     rippleColor={0}
-    style={
-      Array [
-        Object {
-          "overflow": "hidden",
-        },
-        undefined,
-      ]
-    }
+    testID="bn-context"
   >
     <View
       accessible={true}
@@ -1079,7 +1056,6 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
           "paddingVertical": 10,
         }
       }
-      testID="bn-context"
     >
       <Text
         style={
@@ -1122,14 +1098,7 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
     onGestureHandlerStateChange={[Function]}
     onHandlerStateChange={[Function]}
     rippleColor={0}
-    style={
-      Array [
-        Object {
-          "overflow": "hidden",
-        },
-        undefined,
-      ]
-    }
+    testID="bn-context"
   >
     <View
       accessible={true}
@@ -1152,7 +1121,6 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
           "paddingVertical": 10,
         }
       }
-      testID="bn-context"
     >
       <Text
         style={
@@ -1195,14 +1163,7 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
     onGestureHandlerStateChange={[Function]}
     onHandlerStateChange={[Function]}
     rippleColor={0}
-    style={
-      Array [
-        Object {
-          "overflow": "hidden",
-        },
-        undefined,
-      ]
-    }
+    testID="bn-context"
   >
     <View
       accessible={true}
@@ -1225,7 +1186,6 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
           "paddingVertical": 10,
         }
       }
-      testID="bn-context"
     >
       <Text
         style={
@@ -1268,14 +1228,7 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
     onGestureHandlerStateChange={[Function]}
     onHandlerStateChange={[Function]}
     rippleColor={0}
-    style={
-      Array [
-        Object {
-          "overflow": "hidden",
-        },
-        undefined,
-      ]
-    }
+    testID="bn-context"
   >
     <View
       accessible={true}
@@ -1298,7 +1251,6 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
           "paddingVertical": 10,
         }
       }
-      testID="bn-context"
     >
       <Text
         style={
@@ -1341,14 +1293,7 @@ exports[`Testing <App/> Chat Messages List With Avatars: Should Be Message With 
     onGestureHandlerStateChange={[Function]}
     onHandlerStateChange={[Function]}
     rippleColor={0}
-    style={
-      Array [
-        Object {
-          "overflow": "hidden",
-        },
-        undefined,
-      ]
-    }
+    testID="bn-context"
   >
     <View
       accessible={true}
@@ -1371,7 +1316,6 @@ exports[`Testing <App/> Chat Messages List With Avatars: Should Be Message With 
           "paddingVertical": 10,
         }
       }
-      testID="bn-context"
     >
       <Image
         source={1}
@@ -1413,14 +1357,7 @@ exports[`Testing <App/> Chat Messages List With Avatars: Should Be Message Witho
     onGestureHandlerStateChange={[Function]}
     onHandlerStateChange={[Function]}
     rippleColor={0}
-    style={
-      Array [
-        Object {
-          "overflow": "hidden",
-        },
-        undefined,
-      ]
-    }
+    testID="bn-context"
   >
     <View
       accessible={true}
@@ -1444,7 +1381,6 @@ exports[`Testing <App/> Chat Messages List With Avatars: Should Be Message Witho
           "paddingVertical": 10,
         }
       }
-      testID="bn-context"
     >
       <Text
         style={
@@ -1793,14 +1729,7 @@ exports[`Testing <App/> Chat Sending Messages: Should Be A Message Equal to <3 1
     onGestureHandlerStateChange={[Function]}
     onHandlerStateChange={[Function]}
     rippleColor={0}
-    style={
-      Array [
-        Object {
-          "overflow": "hidden",
-        },
-        undefined,
-      ]
-    }
+    testID="bn-context"
   >
     <View
       accessible={true}
@@ -1824,7 +1753,6 @@ exports[`Testing <App/> Chat Sending Messages: Should Be A Message Equal to <3 1
           "paddingVertical": 10,
         }
       }
-      testID="bn-context"
     >
       <Text
         style={
