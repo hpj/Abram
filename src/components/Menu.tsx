@@ -282,11 +282,11 @@ const styles = StyleSheet.create({
 
   space: {
     alignSelf: 'center',
-    width: '15%',
+    width: '90%',
     height: 1,
     backgroundColor: colors.greyText,
 
-    marginVertical: 8
+    marginVertical: 12
   },
 
   legal: {

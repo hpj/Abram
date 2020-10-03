@@ -2417,12 +2417,12 @@ exports[`Testing <App/> Menus Navigating to Profile: Menu View Should Be Hidden 
     Object {
       "backgroundColor": "#414141",
       "borderRadius": 15,
-      "height": 590.9475,
+      "height": 622.0500000000001,
       "opacity": 0,
       "position": "absolute",
       "right": 10,
-      "top": 5,
-      "width": 369.75,
+      "top": 0,
+      "width": 493,
       "zIndex": 3,
     }
   }
@@ -2739,12 +2739,12 @@ exports[`Testing <App/> Menus Navigating to Settings: Menu View Should Be Hidden
     Object {
       "backgroundColor": "#414141",
       "borderRadius": 15,
-      "height": 590.9475,
+      "height": 622.0500000000001,
       "opacity": 0,
       "position": "absolute",
       "right": 10,
-      "top": 5,
-      "width": 369.75,
+      "top": 0,
+      "width": 493,
       "zIndex": 3,
     }
   }
@@ -3033,8 +3033,8 @@ exports[`Testing <App/> Menus Showing Group Chat Menu: Menu View Should Be Visib
             "alignSelf": "center",
             "backgroundColor": "#818181",
             "height": 1,
-            "marginVertical": 8,
-            "width": "15%",
+            "marginVertical": 12,
+            "width": "90%",
           }
         }
       />
@@ -3250,17 +3250,6 @@ exports[`Testing <App/> Menus Showing Normal Chat Menu: Menu View Should Be Visi
         </Text>
       </View>
       <View
-        style={
-          Object {
-            "alignSelf": "center",
-            "backgroundColor": "#818181",
-            "height": 1,
-            "marginVertical": 8,
-            "width": "15%",
-          }
-        }
-      />
-      <View
         accessible={true}
         focusable={false}
         onClick={[Function]}
@@ -3391,12 +3380,12 @@ exports[`Testing <App/> Menus Showing and Hiding Main Menu: Initial Menu View Sh
     Object {
       "backgroundColor": "#414141",
       "borderRadius": 15,
-      "height": 590.9475,
+      "height": 622.0500000000001,
       "opacity": 0,
       "position": "absolute",
       "right": 10,
-      "top": 5,
-      "width": 369.75,
+      "top": 0,
+      "width": 493,
       "zIndex": 3,
     }
   }
