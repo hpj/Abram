@@ -57,9 +57,9 @@ class Menu extends StoreComponent<{
       }).start();
   
       Animated.timing(this.progress, {
-        duration: 35,
+        duration: 100,
         toValue: menu ? 1 : 0,
-        easing: Easing.in(Easing.linear)
+        easing: Easing.linear
       // returns component which is used by the reanimated mocks while testing
       }).start(() => this);
     }
@@ -171,7 +171,11 @@ class Menu extends StoreComponent<{
             /> : undefined
         }
 
-        <View style={ styles.space }/>
+        {
+          activeChat.members.length > 2 ?
+            <View style={ styles.space }
+            /> : undefined
+        }
 
         <Button
           testID={ 'bn-chat-block' }
@@ -192,27 +196,23 @@ class Menu extends StoreComponent<{
     const width = size.width - sizes.windowMargin - 10;
     const height = size.height * 0.55;
 
-    const menuWidth = this.progress.interpolate({
-      inputRange: [ 0, 1 ],
-      outputRange: [ width * 0.75, width ]
-    });
-
-    const menuHeight= this.progress.interpolate({
-      inputRange: [ 0, 1 ],
-      outputRange: [ height * 0.95, height ]
-    });
-
-    const top = activeChat === undefined ?
+    const top = (activeChat === undefined) ?
       sizes.windowMargin * 0.25 :
       (sizes.windowMargin * 0.25) + (sizes.topBarBigMargin - sizes.topBarMiniMargin);
+
+    const y = this.progress.interpolate({
+      inputRange: [ 0, 1 ],
+      outputRange: [ top - 5, top ]
+    });
 
     // eslint-disable-next-line react-native/no-inline-styles
     return <Animated.View testID={ 'v-menu' } style={ {
       ...styles.menu,
 
-      top: top,
-      width: menuWidth,
-      height: menuHeight,
+      top: y,
+      
+      width: width,
+      height: height,
 
       opacity: menu ? 1 : 0
     } }
