@@ -64,43 +64,35 @@ exports[`Testing <App/> Chat Avatars 1 Avatars: Should Have 1 Avatar 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
-      "opacity": 1,
+      "flexDirection": "row",
     }
   }
   testID="bn-menu"
 >
+  <View>
+    <View />
+  </View>
   <View
     style={
       Object {
-        "flexDirection": "row",
+        "borderRadius": 38,
+        "height": 38,
+        "width": 38,
       }
     }
   >
-    <View>
-      <View />
-    </View>
-    <View
+    <Image
+      source={0}
       style={
         Object {
+          "backgroundColor": "#4B4B4B",
           "borderRadius": 38,
           "height": 38,
+          "position": "absolute",
           "width": 38,
         }
       }
-    >
-      <Image
-        source={0}
-        style={
-          Object {
-            "backgroundColor": "#4B4B4B",
-            "borderRadius": 38,
-            "height": 38,
-            "position": "absolute",
-            "width": 38,
-          }
-        }
-      />
-    </View>
+    />
   </View>
 </View>
 `;
@@ -118,32 +110,55 @@ exports[`Testing <App/> Chat Avatars 2 Avatars: Should Have Client Avatar And 1 
   onStartShouldSetResponder={[Function]}
   style={
     Object {
-      "opacity": 1,
+      "flexDirection": "row",
     }
   }
   testID="bn-menu"
 >
+  <View>
+    <View />
+  </View>
   <View
     style={
       Object {
-        "flexDirection": "row",
+        "borderRadius": 38,
+        "height": 38,
+        "width": 38,
       }
     }
   >
-    <View>
-      <View />
-    </View>
+    <Image
+      source={0}
+      style={
+        Object {
+          "backgroundColor": "#4B4B4B",
+          "borderRadius": 38,
+          "height": 38,
+          "position": "absolute",
+          "width": 38,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "borderRadius": 38,
+        "height": 38,
+        "opacity": 1,
+        "width": 19,
+      }
+    }
+  >
     <View
       style={
         Object {
-          "borderRadius": 38,
-          "height": 38,
-          "width": 38,
+          "marginLeft": -19,
         }
       }
     >
       <Image
-        source={0}
+        source={1}
         style={
           Object {
             "backgroundColor": "#4B4B4B",
@@ -154,37 +169,6 @@ exports[`Testing <App/> Chat Avatars 2 Avatars: Should Have Client Avatar And 1 
           }
         }
       />
-    </View>
-    <View
-      style={
-        Object {
-          "borderRadius": 38,
-          "height": 38,
-          "opacity": 1,
-          "width": 19,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "marginLeft": -19,
-          }
-        }
-      >
-        <Image
-          source={1}
-          style={
-            Object {
-              "backgroundColor": "#4B4B4B",
-              "borderRadius": 38,
-              "height": 38,
-              "position": "absolute",
-              "width": 38,
-            }
-          }
-        />
-      </View>
     </View>
   </View>
 </View>
@@ -203,43 +187,35 @@ exports[`Testing <App/> Chat Avatars 2 Avatars: Should Have Client Avatar And De
   onStartShouldSetResponder={[Function]}
   style={
     Object {
-      "opacity": 1,
+      "flexDirection": "row",
     }
   }
   testID="bn-menu"
 >
+  <View>
+    <View />
+  </View>
   <View
     style={
       Object {
-        "flexDirection": "row",
+        "borderRadius": 38,
+        "height": 38,
+        "width": 38,
       }
     }
   >
-    <View>
-      <View />
-    </View>
-    <View
+    <Image
+      source={0}
       style={
         Object {
+          "backgroundColor": "#4B4B4B",
           "borderRadius": 38,
           "height": 38,
+          "position": "absolute",
           "width": 38,
         }
       }
-    >
-      <Image
-        source={0}
-        style={
-          Object {
-            "backgroundColor": "#4B4B4B",
-            "borderRadius": 38,
-            "height": 38,
-            "position": "absolute",
-            "width": 38,
-          }
-        }
-      />
-    </View>
+    />
   </View>
 </View>
 `;
@@ -257,32 +233,55 @@ exports[`Testing <App/> Chat Avatars 3 Avatars: Should Have Client Avatar And 2 
   onStartShouldSetResponder={[Function]}
   style={
     Object {
-      "opacity": 1,
+      "flexDirection": "row",
     }
   }
   testID="bn-menu"
 >
+  <View>
+    <View />
+  </View>
   <View
     style={
       Object {
-        "flexDirection": "row",
+        "borderRadius": 38,
+        "height": 38,
+        "width": 38,
       }
     }
   >
-    <View>
-      <View />
-    </View>
+    <Image
+      source={0}
+      style={
+        Object {
+          "backgroundColor": "#4B4B4B",
+          "borderRadius": 38,
+          "height": 38,
+          "position": "absolute",
+          "width": 38,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "borderRadius": 38,
+        "height": 38,
+        "opacity": 1,
+        "width": 19,
+      }
+    }
+  >
     <View
       style={
         Object {
-          "borderRadius": 38,
-          "height": 38,
-          "width": 38,
+          "marginLeft": -19,
         }
       }
     >
       <Image
-        source={0}
+        source={1}
         style={
           Object {
             "backgroundColor": "#4B4B4B",
@@ -294,67 +293,36 @@ exports[`Testing <App/> Chat Avatars 3 Avatars: Should Have Client Avatar And 2 
         }
       />
     </View>
+  </View>
+  <View
+    style={
+      Object {
+        "borderRadius": 38,
+        "height": 38,
+        "opacity": 1,
+        "width": 19,
+      }
+    }
+  >
     <View
       style={
         Object {
-          "borderRadius": 38,
-          "height": 38,
-          "opacity": 1,
-          "width": 19,
+          "marginLeft": -19,
         }
       }
     >
-      <View
+      <Image
+        source={2}
         style={
           Object {
-            "marginLeft": -19,
+            "backgroundColor": "#4B4B4B",
+            "borderRadius": 38,
+            "height": 38,
+            "position": "absolute",
+            "width": 38,
           }
         }
-      >
-        <Image
-          source={1}
-          style={
-            Object {
-              "backgroundColor": "#4B4B4B",
-              "borderRadius": 38,
-              "height": 38,
-              "position": "absolute",
-              "width": 38,
-            }
-          }
-        />
-      </View>
-    </View>
-    <View
-      style={
-        Object {
-          "borderRadius": 38,
-          "height": 38,
-          "opacity": 1,
-          "width": 19,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "marginLeft": -19,
-          }
-        }
-      >
-        <Image
-          source={2}
-          style={
-            Object {
-              "backgroundColor": "#4B4B4B",
-              "borderRadius": 38,
-              "height": 38,
-              "position": "absolute",
-              "width": 38,
-            }
-          }
-        />
-      </View>
+      />
     </View>
   </View>
 </View>
@@ -373,43 +341,35 @@ exports[`Testing <App/> Chat Avatars 3 Avatars: Should Have Client Avatar And De
   onStartShouldSetResponder={[Function]}
   style={
     Object {
-      "opacity": 1,
+      "flexDirection": "row",
     }
   }
   testID="bn-menu"
 >
+  <View>
+    <View />
+  </View>
   <View
     style={
       Object {
-        "flexDirection": "row",
+        "borderRadius": 38,
+        "height": 38,
+        "width": 38,
       }
     }
   >
-    <View>
-      <View />
-    </View>
-    <View
+    <Image
+      source={0}
       style={
         Object {
+          "backgroundColor": "#4B4B4B",
           "borderRadius": 38,
           "height": 38,
+          "position": "absolute",
           "width": 38,
         }
       }
-    >
-      <Image
-        source={0}
-        style={
-          Object {
-            "backgroundColor": "#4B4B4B",
-            "borderRadius": 38,
-            "height": 38,
-            "position": "absolute",
-            "width": 38,
-          }
-        }
-      />
-    </View>
+    />
   </View>
 </View>
 `;
@@ -427,32 +387,55 @@ exports[`Testing <App/> Chat Avatars 4 Avatars: Should Have Client Avatar And 2 
   onStartShouldSetResponder={[Function]}
   style={
     Object {
-      "opacity": 1,
+      "flexDirection": "row",
     }
   }
   testID="bn-menu"
 >
+  <View>
+    <View />
+  </View>
   <View
     style={
       Object {
-        "flexDirection": "row",
+        "borderRadius": 38,
+        "height": 38,
+        "width": 38,
       }
     }
   >
-    <View>
-      <View />
-    </View>
+    <Image
+      source={0}
+      style={
+        Object {
+          "backgroundColor": "#4B4B4B",
+          "borderRadius": 38,
+          "height": 38,
+          "position": "absolute",
+          "width": 38,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "borderRadius": 38,
+        "height": 38,
+        "opacity": 1,
+        "width": 19,
+      }
+    }
+  >
     <View
       style={
         Object {
-          "borderRadius": 38,
-          "height": 38,
-          "width": 38,
+          "marginLeft": -19,
         }
       }
     >
       <Image
-        source={0}
+        source={1}
         style={
           Object {
             "backgroundColor": "#4B4B4B",
@@ -464,67 +447,36 @@ exports[`Testing <App/> Chat Avatars 4 Avatars: Should Have Client Avatar And 2 
         }
       />
     </View>
+  </View>
+  <View
+    style={
+      Object {
+        "borderRadius": 38,
+        "height": 38,
+        "opacity": 1,
+        "width": 19,
+      }
+    }
+  >
     <View
       style={
         Object {
-          "borderRadius": 38,
-          "height": 38,
-          "opacity": 1,
-          "width": 19,
+          "marginLeft": -19,
         }
       }
     >
-      <View
+      <Image
+        source={2}
         style={
           Object {
-            "marginLeft": -19,
+            "backgroundColor": "#4B4B4B",
+            "borderRadius": 38,
+            "height": 38,
+            "position": "absolute",
+            "width": 38,
           }
         }
-      >
-        <Image
-          source={1}
-          style={
-            Object {
-              "backgroundColor": "#4B4B4B",
-              "borderRadius": 38,
-              "height": 38,
-              "position": "absolute",
-              "width": 38,
-            }
-          }
-        />
-      </View>
-    </View>
-    <View
-      style={
-        Object {
-          "borderRadius": 38,
-          "height": 38,
-          "opacity": 1,
-          "width": 19,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "marginLeft": -19,
-          }
-        }
-      >
-        <Image
-          source={2}
-          style={
-            Object {
-              "backgroundColor": "#4B4B4B",
-              "borderRadius": 38,
-              "height": 38,
-              "position": "absolute",
-              "width": 38,
-            }
-          }
-        />
-      </View>
+      />
     </View>
   </View>
 </View>
@@ -543,43 +495,35 @@ exports[`Testing <App/> Chat Avatars 4 Avatars: Should Have Client Avatar And De
   onStartShouldSetResponder={[Function]}
   style={
     Object {
-      "opacity": 1,
+      "flexDirection": "row",
     }
   }
   testID="bn-menu"
 >
+  <View>
+    <View />
+  </View>
   <View
     style={
       Object {
-        "flexDirection": "row",
+        "borderRadius": 38,
+        "height": 38,
+        "width": 38,
       }
     }
   >
-    <View>
-      <View />
-    </View>
-    <View
+    <Image
+      source={0}
       style={
         Object {
+          "backgroundColor": "#4B4B4B",
           "borderRadius": 38,
           "height": 38,
+          "position": "absolute",
           "width": 38,
         }
       }
-    >
-      <Image
-        source={0}
-        style={
-          Object {
-            "backgroundColor": "#4B4B4B",
-            "borderRadius": 38,
-            "height": 38,
-            "position": "absolute",
-            "width": 38,
-          }
-        }
-      />
-    </View>
+    />
   </View>
 </View>
 `;
@@ -2421,7 +2365,7 @@ exports[`Testing <App/> Menus Navigating to Profile: Menu View Should Be Hidden 
       "opacity": 0,
       "position": "absolute",
       "right": 10,
-      "top": 0,
+      "top": 72,
       "width": 493,
       "zIndex": 3,
     }
@@ -2743,7 +2687,7 @@ exports[`Testing <App/> Menus Navigating to Settings: Menu View Should Be Hidden
       "opacity": 0,
       "position": "absolute",
       "right": 10,
-      "top": 0,
+      "top": 72,
       "width": 493,
       "zIndex": 3,
     }
@@ -2858,7 +2802,7 @@ exports[`Testing <App/> Menus Showing Group Chat Menu: Menu View Should Be Visib
       "opacity": 1,
       "position": "absolute",
       "right": 10,
-      "top": 15,
+      "top": 75,
       "width": 493,
       "zIndex": 3,
     }
@@ -2873,38 +2817,6 @@ exports[`Testing <App/> Menus Showing Group Chat Menu: Menu View Should Be Visib
     }
     testID="v-menu-content"
   >
-    <View
-      style={
-        Object {
-          "height": 38,
-          "justifyContent": "center",
-          "margin": 15,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "#818181",
-            "fontSize": 13,
-            "fontWeight": "700",
-          }
-        }
-      >
-        Group
-      </Text>
-      <Text
-        style={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 16,
-            "fontWeight": "700",
-          }
-        }
-      >
-        Group of Wholesome Girls
-      </Text>
-    </View>
     <View
       style={
         Object {
@@ -3137,7 +3049,7 @@ exports[`Testing <App/> Menus Showing Normal Chat Menu: Menu View Should Be Visi
       "opacity": 1,
       "position": "absolute",
       "right": 10,
-      "top": 15,
+      "top": 75,
       "width": 493,
       "zIndex": 3,
     }
@@ -3152,38 +3064,6 @@ exports[`Testing <App/> Menus Showing Normal Chat Menu: Menu View Should Be Visi
     }
     testID="v-menu-content"
   >
-    <View
-      style={
-        Object {
-          "height": 38,
-          "justifyContent": "center",
-          "margin": 15,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "#818181",
-            "fontSize": 13,
-            "fontWeight": "700",
-          }
-        }
-      >
-        Chat
-      </Text>
-      <Text
-        style={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 16,
-            "fontWeight": "700",
-          }
-        }
-      >
-        Mika
-      </Text>
-    </View>
     <View
       style={
         Object {
@@ -3249,6 +3129,17 @@ exports[`Testing <App/> Menus Showing Normal Chat Menu: Menu View Should Be Visi
           Mute
         </Text>
       </View>
+      <View
+        style={
+          Object {
+            "alignSelf": "center",
+            "backgroundColor": "#818181",
+            "height": 1,
+            "marginVertical": 12,
+            "width": "90%",
+          }
+        }
+      />
       <View
         accessible={true}
         focusable={false}
@@ -3384,7 +3275,7 @@ exports[`Testing <App/> Menus Showing and Hiding Main Menu: Initial Menu View Sh
       "opacity": 0,
       "position": "absolute",
       "right": 10,
-      "top": 0,
+      "top": 72,
       "width": 493,
       "zIndex": 3,
     }
@@ -3399,36 +3290,6 @@ exports[`Testing <App/> Menus Showing and Hiding Main Menu: Initial Menu View Sh
     }
     testID="v-menu-content"
   >
-    <View
-      style={
-        Object {
-          "height": 38,
-          "justifyContent": "center",
-          "margin": 15,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "#818181",
-            "fontSize": 13,
-            "fontWeight": "700",
-          }
-        }
-      >
-        Hello
-      </Text>
-      <Text
-        style={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 16,
-            "fontWeight": "700",
-          }
-        }
-      />
-    </View>
     <View
       style={
         Object {
@@ -3663,7 +3524,7 @@ exports[`Testing <App/> Menus Showing and Hiding Main Menu: Menu View Should Be 
       "opacity": 1,
       "position": "absolute",
       "right": 10,
-      "top": 5,
+      "top": 75,
       "width": 493,
       "zIndex": 3,
     }
@@ -3678,36 +3539,6 @@ exports[`Testing <App/> Menus Showing and Hiding Main Menu: Menu View Should Be 
     }
     testID="v-menu-content"
   >
-    <View
-      style={
-        Object {
-          "height": 38,
-          "justifyContent": "center",
-          "margin": 15,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "#818181",
-            "fontSize": 13,
-            "fontWeight": "700",
-          }
-        }
-      >
-        Hello
-      </Text>
-      <Text
-        style={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 16,
-            "fontWeight": "700",
-          }
-        }
-      />
-    </View>
     <View
       style={
         Object {
@@ -4094,12 +3925,25 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Activated Bottom Shee
       "marginLeft": 15,
       "marginRight": 15,
       "minWidth": 38,
-      "opacity": 1,
       "width": 411,
     }
   }
   testID="v-search"
 >
+  <View
+    style={
+      Object {
+        "backgroundColor": "#000000",
+        "height": 38,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "top": 0,
+        "width": 38,
+        "zIndex": 3,
+      }
+    }
+  />
   <View
     style={
       Object {
@@ -4155,12 +3999,25 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Activated Bottom Shee
       "marginLeft": 15,
       "marginRight": 15,
       "minWidth": 38,
-      "opacity": 1,
       "width": 38,
     }
   }
   testID="v-search"
 >
+  <View
+    style={
+      Object {
+        "backgroundColor": "#000000",
+        "height": 38,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "top": 0,
+        "width": 38,
+        "zIndex": 3,
+      }
+    }
+  />
   <View
     style={
       Object {
@@ -4244,12 +4101,25 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Deactivated Bottom Sh
       "marginLeft": 15,
       "marginRight": 15,
       "minWidth": 38,
-      "opacity": 1,
       "width": 430,
     }
   }
   testID="v-search"
 >
+  <View
+    style={
+      Object {
+        "backgroundColor": "#000000",
+        "height": 38,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "top": 0,
+        "width": 38,
+        "zIndex": 3,
+      }
+    }
+  />
   <View
     style={
       Object {
@@ -4305,12 +4175,25 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Deactivated Bottom Sh
       "marginLeft": 15,
       "marginRight": 15,
       "minWidth": 38,
-      "opacity": 1,
       "width": 38,
     }
   }
   testID="v-search"
 >
+  <View
+    style={
+      Object {
+        "backgroundColor": "#000000",
+        "height": 38,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "top": 0,
+        "width": 38,
+        "zIndex": 3,
+      }
+    }
+  />
   <View
     style={
       Object {
@@ -4394,12 +4277,25 @@ exports[`Testing <App/> Search Bar Width (3 Avatars): Search Bar Should Be Maxim
       "marginLeft": 15,
       "marginRight": 15,
       "minWidth": 38,
-      "opacity": 1,
       "width": 392,
     }
   }
   testID="v-search"
 >
+  <View
+    style={
+      Object {
+        "backgroundColor": "#000000",
+        "height": 38,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "top": 0,
+        "width": 38,
+        "zIndex": 3,
+      }
+    }
+  />
   <View
     style={
       Object {
@@ -4455,12 +4351,25 @@ exports[`Testing <App/> Search Bar Width (3 Avatars): Search Bar Should Be Minim
       "marginLeft": 15,
       "marginRight": 15,
       "minWidth": 38,
-      "opacity": 1,
       "width": 38,
     }
   }
   testID="v-search"
 >
+  <View
+    style={
+      Object {
+        "backgroundColor": "#000000",
+        "height": 38,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "top": 0,
+        "width": 38,
+        "zIndex": 3,
+      }
+    }
+  />
   <View
     style={
       Object {
@@ -4521,12 +4430,25 @@ exports[`Testing <App/> Search Bar Width (With Deactivated Bottom Sheet): Initia
       "marginLeft": 15,
       "marginRight": 15,
       "minWidth": 38,
-      "opacity": 1,
       "width": 38,
     }
   }
   testID="v-search"
 >
+  <View
+    style={
+      Object {
+        "backgroundColor": "#000000",
+        "height": 38,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "top": 0,
+        "width": 38,
+        "zIndex": 3,
+      }
+    }
+  />
   <View
     style={
       Object {
@@ -4582,12 +4504,25 @@ exports[`Testing <App/> Search Bar Width (With Deactivated Bottom Sheet): Search
       "marginLeft": 15,
       "marginRight": 15,
       "minWidth": 38,
-      "opacity": 1,
       "width": 430,
     }
   }
   testID="v-search"
 >
+  <View
+    style={
+      Object {
+        "backgroundColor": "#000000",
+        "height": 38,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "top": 0,
+        "width": 38,
+        "zIndex": 3,
+      }
+    }
+  />
   <View
     style={
       Object {

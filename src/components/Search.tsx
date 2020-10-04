@@ -12,6 +12,8 @@ import { StoreComponent } from '../store';
 
 import { sizes } from '../sizes';
 
+import { depth } from '../depth';
+
 import getTheme from '../colors';
 
 declare const global: {
@@ -23,10 +25,10 @@ const colors = getTheme();
 const AnimatedTextInput = Animated.createAnimatedComponent(TextInput);
 
 class Search extends StoreComponent<{
+  holderNode: Animated.Value<number>,
   bottomSheetNode: Animated.Value<number>
 }, {
   size: Size,
-  menu: boolean,
   activeChat: InboxEntry,
   searchMaximized: boolean,
 
@@ -53,7 +55,6 @@ class Search extends StoreComponent<{
   {
     if (
       changes.size ||
-      changes.menu ||
       changes.activeChat ||
       changes.searchMaximized
     )
@@ -93,7 +94,7 @@ class Search extends StoreComponent<{
 
   render(): JSX.Element
   {
-    const { size, menu, activeChat, searchMaximized, searchValue } = this.state;
+    const { size, activeChat, searchMaximized, searchValue } = this.state;
 
     const avatarsAmount = Math.min(activeChat?.members?.length - 1 || 0, 2);
 
@@ -145,56 +146,63 @@ class Search extends StoreComponent<{
       ]
     });
 
-    
-    return (
-      // eslint-disable-next-line react-native/no-inline-styles
-      <Animated.View testID={ 'v-search' } style={ {
-        ...styles.container,
-        width: searchBarWidth,
+    const holderOpacity = this.props.holderNode?.interpolate({
+      inputRange: [ 0, 1 ],
+      outputRange: [ 0, 0.75 ]
+    });
 
-        // due to a z-index issue search has to be hidden when menu is enabled
-        opacity: menu ? 0 : 1
-      } }>
+    return <Animated.View testID={ 'v-search' } style={ {
+      ...styles.container,
+      width: searchBarWidth
+    } }>
 
-        <Animated.View style={ {
-          ...styles.background,
-          width: searchBarWidth
-        } }/>
+      <Animated.View style={ {
+        ...styles.holder,
+        
+        width: searchBarMinWidth,
+        height: searchBarMinWidth,
 
-        <AnimatedTextInput testID={ 'in-search' } style={ {
-          ...styles.input,
-          width: searchBarInputWidth
-        } }
-        multiline={ false }
-        value={ searchValue }
-        onChangeText={ this.onChange }
-        placeholderTextColor={ colors.placeholder }
-        placeholder={ 'Search' }
-        />
+        opacity: holderOpacity
+      } }/>
 
-        <View style={ styles.wrapper }>
-          {
-            !searchMaximized ?
-              <Button
-                testID={ 'bn-search-maximize' }
-                borderless={ true }
-                buttonStyle={ styles.button }
-                icon={ { name: 'search', size: sizes.icon, color: colors.whiteText } }
-                onPress={ () => this.onPress(true) }
-              /> :
-              <Button
-                testID={ 'bn-search-minimize' }
-                borderless={ true }
-                // eslint-disable-next-line react-native/no-inline-styles
-                buttonStyle={ styles.button }
-                icon={ { name: 'x', size: sizes.icon, color: colors.whiteText } }
-                onPress={ () => this.onPress(false) }
-              />
-          }
-        </View>
+      <Animated.View style={ {
+        ...styles.background,
+        width: searchBarWidth
+      } }/>
 
-      </Animated.View>
-    );
+      <AnimatedTextInput testID={ 'in-search' } style={ {
+        ...styles.input,
+        width: searchBarInputWidth
+      } }
+      multiline={ false }
+      value={ searchValue }
+      onChangeText={ this.onChange }
+      placeholderTextColor={ colors.placeholder }
+      placeholder={ 'Search' }
+      />
+
+      <View style={ styles.wrapper }>
+        {
+          !searchMaximized ?
+            <Button
+              testID={ 'bn-search-maximize' }
+              borderless={ true }
+              buttonStyle={ styles.button }
+              icon={ { name: 'search', size: sizes.icon, color: colors.whiteText } }
+              onPress={ () => this.onPress(true) }
+            /> :
+            <Button
+              testID={ 'bn-search-minimize' }
+              borderless={ true }
+              // eslint-disable-next-line react-native/no-inline-styles
+              buttonStyle={ styles.button }
+              icon={ { name: 'x', size: sizes.icon, color: colors.whiteText } }
+              onPress={ () => this.onPress(false) }
+            />
+        }
+      </View>
+
+    </Animated.View>;
   }
 }
 
@@ -207,8 +215,18 @@ const styles = StyleSheet.create({
     minWidth: sizes.avatar,
     height: sizes.avatar,
 
+    // right: 20,
     marginLeft: 15,
     marginRight: 15
+  },
+
+  holder: {
+    zIndex: depth.topBar,
+    position: 'absolute',
+    backgroundColor: colors.blackBackground,
+
+    top: 0,
+    left: 0
   },
 
   background: {

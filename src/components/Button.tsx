@@ -23,6 +23,7 @@ import getTheme from '../colors';
 const colors = getTheme();
 
 class Button extends React.Component<{
+  wrapperStyle?: StyleProp<ViewStyle>,
   backgroundStyle?: StyleProp<ViewStyle>,
   badgeStyle?: StyleProp<ViewStyle>,
   buttonStyle?: StyleProp<ViewStyle>,
@@ -41,7 +42,7 @@ class Button extends React.Component<{
   {
     const {
       useAlternative,
-      backgroundStyle, badgeStyle, buttonStyle,
+      wrapperStyle, backgroundStyle, badgeStyle, buttonStyle,
       textStyle, testID, text, icon, disabled,
       borderless, activeOpacity, onPress
     } = this.props;
@@ -61,6 +62,7 @@ class Button extends React.Component<{
     return (
       <Component
         testID={ testID }
+        style={ wrapperStyle }
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
         background={ (!useAlternative ? GHTouchableNativeFeedback : TouchableNativeFeedback).Ripple(colors.ripple, borderless) }

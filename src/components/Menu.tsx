@@ -24,7 +24,6 @@ class Menu extends StoreComponent<{
   holderNode: Animated.Value<number>,
   deactivate: (() => boolean) | undefined
 }, {
-  profile: Profile,
   menu: boolean,
   size: Size,
   activeChat: InboxEntry
@@ -33,7 +32,6 @@ class Menu extends StoreComponent<{
   stateWhitelist(changes: Menu['state']): boolean
   {
     if (
-      changes.profile ||
       changes.menu ||
       changes.activeChat
     )
@@ -51,13 +49,13 @@ class Menu extends StoreComponent<{
       const { menu } = state;
 
       Animated.timing(this.props.holderNode, {
-        duration: 65,
+        duration: 150,
         toValue: menu ? 1 : 0,
         easing: Easing.linear
       }).start();
   
       Animated.timing(this.progress, {
-        duration: 100,
+        duration: 200,
         toValue: menu ? 1 : 0,
         easing: Easing.linear
       // returns component which is used by the reanimated mocks while testing
@@ -87,13 +85,7 @@ class Menu extends StoreComponent<{
 
   renderMain(): JSX.Element
   {
-    const { profile } = this.state;
-
     return <View testID={ 'v-menu-content' } style={ styles.container }>
-      <View style={ styles.header }>
-        <Text style={ styles.greetings }>Hello</Text>
-        <Text style={ styles.text }>{ profile.displayName }</Text>
-      </View>
 
       <View style={ styles.actions }>
         <Button
@@ -145,10 +137,6 @@ class Menu extends StoreComponent<{
     const { activeChat } = this.state;
 
     return <View testID={ 'v-menu-content' } style={ styles.container }>
-      <View style={ styles.header }>
-        <Text style={ styles.greetings }>{ activeChat.members.length > 2 ? 'Group' : 'Chat' }</Text>
-        <Text style={ styles.text }>{ activeChat.displayName }</Text>
-      </View>
 
       <View style={ styles.actions }>
 
@@ -171,11 +159,7 @@ class Menu extends StoreComponent<{
             /> : undefined
         }
 
-        {
-          activeChat.members.length > 2 ?
-            <View style={ styles.space }
-            /> : undefined
-        }
+        <View style={ styles.space }/>
 
         <Button
           testID={ 'bn-chat-block' }
@@ -196,16 +180,18 @@ class Menu extends StoreComponent<{
     const width = size.width - sizes.windowMargin - 10;
     const height = size.height * 0.55;
 
-    const top = (activeChat === undefined) ?
-      sizes.windowMargin * 0.25 :
-      (sizes.windowMargin * 0.25) + (sizes.topBarBigMargin - sizes.topBarMiniMargin);
+    const top  = sizes.topBarHeight + (sizes.windowMargin * 1.15);
 
+    const opacity = this.progress.interpolate({
+      inputRange: [ 0, 1 ],
+      outputRange: [ 0, 1 ]
+    });
+    
     const y = this.progress.interpolate({
       inputRange: [ 0, 1 ],
-      outputRange: [ top - 5, top ]
+      outputRange: [ top - 3, top ]
     });
 
-    // eslint-disable-next-line react-native/no-inline-styles
     return <Animated.View testID={ 'v-menu' } style={ {
       ...styles.menu,
 
@@ -214,7 +200,7 @@ class Menu extends StoreComponent<{
       width: width,
       height: height,
 
-      opacity: menu ? 1 : 0
+      opacity
     } }
     pointerEvents={ menu ? 'box-none' : 'none' }>
       { activeChat?.id ? this.renderChat() : this.renderMain() }
@@ -238,22 +224,21 @@ const styles = StyleSheet.create({
   },
 
   header: {
-    height: sizes.avatar,
-    margin: sizes.windowMargin * 0.75,
+    position: 'absolute',
+    justifyContent: 'center',
 
-    justifyContent: 'center'
-  },
-
-  greetings: {
-    fontSize: 13,
-    color: colors.greyText,
-    fontWeight: '700'
+    left: 0
   },
 
   text: {
-    fontSize: 16,
+    fontSize: 15,
     color: colors.whiteText,
-    fontWeight: '700'
+    fontWeight: 'bold'
+  },
+
+  info: {
+    fontSize: 13,
+    color: colors.greyText
   },
 
   actions: {

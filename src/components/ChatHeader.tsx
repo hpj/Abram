@@ -12,7 +12,9 @@ import getTheme from '../colors';
 
 const colors = getTheme();
 
-class ChatHeader extends StoreComponent<unknown, { activeChat: InboxEntry }>
+class ChatHeader extends StoreComponent<unknown, {
+  activeChat: InboxEntry
+}>
 {
   stateWhitelist(changes: ChatHeader['state']): boolean
   {
@@ -24,7 +26,7 @@ class ChatHeader extends StoreComponent<unknown, { activeChat: InboxEntry }>
 
   render(): JSX.Element
   {
-    const activeChat = this.state.activeChat;
+    const { activeChat } = this.state;
 
     if (!activeChat?.id)
       return <View/>;

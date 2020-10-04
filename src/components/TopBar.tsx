@@ -55,32 +55,52 @@ class TopBar extends StoreComponent<{
       outputRange: [ sizes.topBarBigMargin, sizes.topBarMiniMargin ]
     });
 
-    return (
-      <View>
-        <Animated.View style={ {
-          ...styles.titleContainer,
-          marginTop: marginTop
-        } }>
-          {/* eslint-disable-next-line react-native/no-inline-styles */}
-          <Text style={ styles.title }>
-            { title }
-          </Text>
-        </Animated.View>
+    return <View>
+      <Animated.View style={ {
+        ...styles.titleContainer,
+        marginTop: marginTop
+      } }>
+        {/* eslint-disable-next-line react-native/no-inline-styles */}
+        <Text style={ styles.title }>
+          { title }
+        </Text>
+      </Animated.View>
 
-        <Animated.View style={ {
-          ...styles.controls,
-          marginTop: marginTop
-        } }>
-          <Search bottomSheetNode={ this.props.bottomSheetNode }/>
-          <ChatAvatars ref={ this.chatAvatarsRef } holderNode={ this.props.holderNode } bottomSheetNode={ this.props.bottomSheetNode }/>
-        </Animated.View>
-      </View>
-    );
+      <Animated.View style={ {
+        ...styles.controls,
+        marginTop: marginTop
+      } }>
+        <Search holderNode={ this.props.holderNode } bottomSheetNode={ this.props.bottomSheetNode }/>
+        <ChatAvatars ref={ this.chatAvatarsRef } holderNode={ this.props.holderNode } bottomSheetNode={ this.props.bottomSheetNode }/>
+      </Animated.View>
+    </View>;
+
+    // return <Animated.View style={ {
+    //     ...styles.container,
+    //     marginTop
+    //   } }>
+    //     <View style={ styles.titleContainer }>
+    //       <Text style={ styles.title }>{ title }</Text>
+    //     </View>
+
+    //     <View style={ styles.controls }>
+    //       <Search holderNode={ this.props.holderNode } bottomSheetNode={ this.props.bottomSheetNode }/>
+    //       <ChatAvatars ref={ this.chatAvatarsRef } holderNode={ this.props.holderNode } bottomSheetNode={ this.props.bottomSheetNode }/>
+    //     </View>
+    //   </Animated.View>;
   }
 }
 
 const styles = StyleSheet.create({
+  // container: {
+  //   zIndex: depth.topBar,
+  //   flexDirection: 'row',
+
+  //   height: sizes.topBarHeight
+  // },
+
   titleContainer: {
+    // flexGrow: 1,
     flexDirection: 'row',
     alignItems: 'center',
 

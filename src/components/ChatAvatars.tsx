@@ -120,8 +120,8 @@ class ChatAvatars extends StoreComponent<{
       <View style={ styles.wrapper }>
         <Button
           testID={ 'bn-menu' }
-          useAlternative={ true }
           borderless={ true }
+          wrapperStyle={ styles.buttonWrapper }
           buttonStyle={ styles.button }
           onPress={ this.onPress }
         >
@@ -169,6 +169,10 @@ const styles = StyleSheet.create({
     borderRadius: sizes.avatar,
 
     marginRight: sizes.windowMargin
+  },
+
+  buttonWrapper: {
+    width: '200%'
   },
 
   button: {
