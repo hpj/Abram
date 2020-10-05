@@ -3412,6 +3412,63 @@ exports[`Testing <App/> Menus Showing and Hiding Main Menu: Initial Menu View Sh
           Settings
         </Text>
       </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row-reverse",
+            "padding": 17,
+          }
+        }
+        testID="bn-logout"
+      >
+        <View>
+          <View />
+        </View>
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontSize": 18,
+              },
+              Object {
+                "marginHorizontal": 23,
+              },
+              Object {
+                "fontFamily": "feather",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "flex": 1,
+              "fontSize": 14,
+              "marginHorizontal": 23,
+            }
+          }
+        >
+          Log out
+        </Text>
+      </View>
     </View>
     <View
       style={
@@ -3659,6 +3716,63 @@ exports[`Testing <App/> Menus Showing and Hiding Main Menu: Menu View Should Be 
           }
         >
           Settings
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row-reverse",
+            "padding": 17,
+          }
+        }
+        testID="bn-logout"
+      >
+        <View>
+          <View />
+        </View>
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontSize": 18,
+              },
+              Object {
+                "marginHorizontal": 23,
+              },
+              Object {
+                "fontFamily": "feather",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "flex": 1,
+              "fontSize": 14,
+              "marginHorizontal": 23,
+            }
+          }
+        >
+          Log out
         </Text>
       </View>
     </View>
