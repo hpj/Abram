@@ -1033,7 +1033,7 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
       }
     }
   >
-    Saturday, 12:00 AM
+    Saturday
   </Text>
   <RNGestureHandlerButton
     collapsable={false}
@@ -1163,7 +1163,7 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
       }
     }
   >
-    Yesterday, 12:00 AM
+    Yesterday
   </Text>
   <RNGestureHandlerButton
     collapsable={false}
@@ -1475,7 +1475,7 @@ exports[`Testing <App/> Chat Sending Messages 1`] = `
                   }
                 }
               >
-                Sunday, 12:00 AM
+                Sunday
               </Text>
               <Text
                 numberOfLines={1}
@@ -1602,7 +1602,7 @@ exports[`Testing <App/> Chat Sending Messages 1`] = `
                   }
                 }
               >
-                Saturday, 12:00 AM
+                Saturday
               </Text>
               <Text
                 numberOfLines={1}
@@ -1974,7 +1974,7 @@ exports[`Testing <App/> Chat Sending Messages: Should Be Sorted With Skye on Top
                   }
                 }
               >
-                Sunday, 12:00 AM
+                Sunday
               </Text>
               <Text
                 numberOfLines={1}
@@ -5731,7 +5731,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of This
             }
           }
         >
-          Saturday, 12:00 AM
+          Saturday
         </Text>
         <Text
           numberOfLines={1}
@@ -5991,7 +5991,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Yest
             }
           }
         >
-          Yesterday, 12:00 AM
+          Yesterday
         </Text>
         <Text
           numberOfLines={1}

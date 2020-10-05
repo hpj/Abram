@@ -219,7 +219,10 @@ class Inbox extends StoreComponent<{
                   <View style={ styles.info }>
                     <Text style={ { ...styles.name, fontSize: this.responsive(22) } }>{ entry.displayName }</Text>
                     <Text style={ { ...styles.time, fontSize: this.responsive(20) } }>{ lastMessageTime }</Text>
-                    <Text style={ { ...styles.preview, fontSize: this.responsive(22) } } numberOfLines={ 1 }>{ lastMessage.text }</Text>
+                    {/* \u200E is used to force all text to renter from left to right */}
+                    <Text style={ { ...styles.preview, fontSize: this.responsive(22) } } numberOfLines={ 1 }>
+                      { '\u200E' + lastMessage.text }
+                    </Text>
                   </View>
 
                 </View>

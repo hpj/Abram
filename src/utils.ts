@@ -6,14 +6,31 @@ export function relativeDate(date?: Date, full?: boolean): string
   
   if (!date)
     return '';
+
+  // today
+  
   else if (isToday(date) && full)
     return format(date, '\'Today, \'hh:mm a');
   else if (isToday(date))
     return format(date, 'hh:mm a');
-  else if (isYesterday(date))
+
+
+  // yesterday
+
+  else if (isYesterday(date) && full)
     return format(date, '\'Yesterday, \'hh:mm a');
-  else if (differenceInDays(baseDate, date) <= 6)
+  else if (isYesterday(date))
+    return 'Yesterday';
+
+  // this week
+
+  else if (differenceInDays(baseDate, date) <= 6 && full)
     return format(date, 'EEEE\', \'hh:mm a');
+  else if (differenceInDays(baseDate, date) <= 6)
+    return format(date, 'EEEE');
+
+  // longer than a week
+
   else if (full)
     return format(date, 'd MMMM yyyy, hh:mm a');
   else

@@ -14,16 +14,19 @@ Public Beta:
     ☐ expo's over-the-air updates
 
 Testing:
+  ☐ on different screen sizes
   
 UI/UX:
+  ☐ design a mockup for Profiles
+  
   ☐ design a mockup for Sign up views
-
-  ☐ design a mockup for Profile view
 
   ☐ design a mockup for Discover view
 
   ☐ add all used strings to i18n
 
   ☐ RTL Layout support
+
+  ☐ make search actually function
 
 Discover:

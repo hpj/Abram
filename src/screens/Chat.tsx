@@ -4,7 +4,7 @@ import { StyleSheet, View, FlatList, TextInput, Text, Image } from 'react-native
 
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
-import { differenceInMinutes } from 'date-fns';
+import { isToday, differenceInMinutes, isSameDay } from 'date-fns';
 
 import EmojiRegex from 'emoji-regex';
 
@@ -44,9 +44,12 @@ function relativeDate(messageTimestamp: Date, prevMessageTimestamp: Date): strin
 
     const prevMessageDate = new Date(prevMessageTimestamp);
 
-    // if the difference between this message the the previous
-    // is longer than the max minutes
-    if (differenceInMinutes(date, prevMessageDate) > maxDiff)
+    // messages are on a different days
+    if (!isSameDay(messageTimestamp, prevMessageDate))
+      showTime = true;
+
+    // messages are from today but have a [max] minutes between them
+    else if (isToday(messageTimestamp) && differenceInMinutes(date, prevMessageDate) > maxDiff)
       showTime = true;
   }
 
