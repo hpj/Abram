@@ -5,7 +5,7 @@ export const depth = {
 
   topBar: 3,
 
-  contextHolder: 4,
+  popupHolder: 4,
 
-  context: 5
+  popup: 5
 };

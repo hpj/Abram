@@ -529,263 +529,116 @@ exports[`Testing <App/> Chat Avatars 4 Avatars: Should Have Client Avatar And De
 `;
 
 exports[`Testing <App/> Chat Chat Context 1`] = `
-Snapshot Diff:
-Compared values have no visual difference.
-`;
-
-exports[`Testing <App/> Chat Chat Context: Y-Axis should be 0 1`] = `
 <View
-  style={
-    Object {
-      "bottom": 0,
-      "flex": 1,
-      "position": "absolute",
-      "width": 523,
-      "zIndex": 5,
-    }
-  }
   testID="v-chat-context"
 >
   <View
     style={
       Object {
-        "backgroundColor": "#171717",
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "marginHorizontal": 20,
+        "marginVertical": 20,
       }
     }
   >
     <View
       style={
         Object {
-          "flexDirection": "row",
+          "flex": 1,
           "justifyContent": "center",
-          "marginHorizontal": 20,
-          "marginVertical": 20,
         }
       }
     >
-      <View
+      <Text
         style={
           Object {
-            "flex": 1,
-            "justifyContent": "center",
+            "color": "#ffffff",
+            "fontSize": 15,
+            "marginRight": 20,
           }
         }
       >
-        <Text
-          style={
-            Object {
-              "color": "#ffffff",
-              "fontSize": 15,
-              "marginRight": 20,
-            }
-          }
-        />
-        <Text
-          style={
-            Object {
-              "color": "#818181",
-              "fontSize": 13,
-              "marginRight": 20,
-            }
-          }
-        >
-          Today, 12:00 AM
-        </Text>
-      </View>
-      <View
-        accessible={true}
-        focusable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
+        Mika
+      </Text>
+      <Text
         style={
           Object {
-            "opacity": 1,
+            "color": "#818181",
+            "fontSize": 13,
+            "marginRight": 20,
           }
         }
       >
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "justifyContent": "center",
-              "width": 45.6,
-            }
-          }
-        >
-          <View>
-            <View />
-          </View>
-          <Text
-            allowFontScaling={false}
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 20,
-                },
-                undefined,
-                Object {
-                  "fontFamily": "feather",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-        </View>
-      </View>
+        Today, 12:00 AM
+      </Text>
     </View>
-    <Text
-      ellipsizeMode="tail"
-      numberOfLines={3}
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "color": "#818181",
-          "fontSize": 15,
-          "marginBottom": 30,
-          "marginHorizontal": 20,
-          "marginTop": 10,
+          "opacity": 1,
         }
       }
     >
-      Yay
-    </Text>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+            "width": 45.6,
+          }
+        }
+      >
+        <View>
+          <View />
+        </View>
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontSize": 20,
+              },
+              undefined,
+              Object {
+                "fontFamily": "feather",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
   </View>
-</View>
-`;
-
-exports[`Testing <App/> Chat Chat Context: Y-Axis should be equal to screen's hight 1`] = `
-<View
-  style={
-    Object {
-      "bottom": -1131,
-      "flex": 1,
-      "position": "absolute",
-      "width": 523,
-      "zIndex": 5,
-    }
-  }
-  testID="v-chat-context"
->
-  <View
+  <Text
+    ellipsizeMode="tail"
+    numberOfLines={3}
     style={
       Object {
-        "backgroundColor": "#171717",
+        "color": "#818181",
+        "fontSize": 15,
+        "marginBottom": 30,
+        "marginHorizontal": 20,
+        "marginTop": 10,
       }
     }
   >
-    <View
-      style={
-        Object {
-          "flexDirection": "row",
-          "justifyContent": "center",
-          "marginHorizontal": 20,
-          "marginVertical": 20,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "flex": 1,
-            "justifyContent": "center",
-          }
-        }
-      >
-        <Text
-          style={
-            Object {
-              "color": "#ffffff",
-              "fontSize": 15,
-              "marginRight": 20,
-            }
-          }
-        />
-        <Text
-          style={
-            Object {
-              "color": "#818181",
-              "fontSize": 13,
-              "marginRight": 20,
-            }
-          }
-        >
-          
-        </Text>
-      </View>
-      <View
-        accessible={true}
-        focusable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-      >
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "justifyContent": "center",
-              "width": 45.6,
-            }
-          }
-        >
-          <View>
-            <View />
-          </View>
-          <Text
-            allowFontScaling={false}
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 20,
-                },
-                undefined,
-                Object {
-                  "fontFamily": "feather",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-        </View>
-      </View>
-    </View>
-    <Text
-      ellipsizeMode="tail"
-      numberOfLines={3}
-      style={
-        Object {
-          "color": "#818181",
-          "fontSize": 15,
-          "marginBottom": 30,
-          "marginHorizontal": 20,
-          "marginTop": 10,
-        }
-      }
-    />
-  </View>
+    Yay
+  </Text>
 </View>
 `;
 
@@ -1344,6 +1197,57 @@ exports[`Testing <App/> Chat Messages List With Avatars: Should Be Message Witho
 </View>
 `;
 
+exports[`Testing <App/> Chat Popup 1`] = `
+Snapshot Diff:
+Compared values have no visual difference.
+`;
+
+exports[`Testing <App/> Chat Popup: Y-Axis should be 0 1`] = `
+<View
+  style={
+    Object {
+      "bottom": 0,
+      "flex": 1,
+      "position": "absolute",
+      "width": 523,
+      "zIndex": 5,
+    }
+  }
+  testID="v-popup"
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#171717",
+      }
+    }
+  />
+</View>
+`;
+
+exports[`Testing <App/> Chat Popup: Y-Axis should be equal to screen's hight 1`] = `
+<View
+  style={
+    Object {
+      "bottom": -1131,
+      "flex": 1,
+      "position": "absolute",
+      "width": 523,
+      "zIndex": 5,
+    }
+  }
+  testID="v-popup"
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#171717",
+      }
+    }
+  />
+</View>
+`;
+
 exports[`Testing <App/> Chat Sending Messages 1`] = `
 <View
   pointerEvents="box-none"
@@ -1487,7 +1391,7 @@ exports[`Testing <App/> Chat Sending Messages 1`] = `
                   }
                 }
               >
-                Yay
+                ‎Yay
               </Text>
             </View>
           </View>
@@ -1614,7 +1518,7 @@ exports[`Testing <App/> Chat Sending Messages 1`] = `
                   }
                 }
               >
-                Ya?
+                ‎Ya?
               </Text>
             </View>
           </View>
@@ -1859,7 +1763,7 @@ exports[`Testing <App/> Chat Sending Messages: Should Be Sorted With Skye on Top
                   }
                 }
               >
-                &lt;3
+                ‎&lt;3
               </Text>
             </View>
           </View>
@@ -1986,7 +1890,7 @@ exports[`Testing <App/> Chat Sending Messages: Should Be Sorted With Skye on Top
                   }
                 }
               >
-                Yay
+                ‎Yay
               </Text>
             </View>
           </View>
@@ -4853,7 +4757,7 @@ exports[`Testing <Inbox/> Group of 3 View: Should Be A Group View With 2 Avatars
                 }
               }
             >
-              
+              ‎
             </Text>
           </View>
         </View>
@@ -5074,7 +4978,7 @@ exports[`Testing <Inbox/> Group of 4 View: Should Be A Group View With 3 Avatars
                 }
               }
             >
-              
+              ‎
             </Text>
           </View>
         </View>
@@ -5335,7 +5239,7 @@ exports[`Testing <Inbox/> Group of 5 View: Should Be A Group View With 4 Avatars
                 }
               }
             >
-              
+              ‎
             </Text>
           </View>
         </View>
@@ -5481,7 +5385,7 @@ exports[`Testing <Inbox/> Normal View: Should Be A Normal Inbox View With 1 Avat
                 }
               }
             >
-              
+              ‎
             </Text>
           </View>
         </View>
@@ -5613,7 +5517,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Full
             }
           }
         >
-          Yay
+          ‎Yay
         </Text>
       </View>
     </View>
@@ -5743,7 +5647,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of This
             }
           }
         >
-          Yay
+          ‎Yay
         </Text>
       </View>
     </View>
@@ -5873,7 +5777,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Toda
             }
           }
         >
-          Yay
+          ‎Yay
         </Text>
       </View>
     </View>
@@ -6003,7 +5907,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Yest
             }
           }
         >
-          Yay
+          ‎Yay
         </Text>
       </View>
     </View>

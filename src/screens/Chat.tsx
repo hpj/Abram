@@ -10,7 +10,7 @@ import EmojiRegex from 'emoji-regex';
 
 import type { Size, Keyboard, Profile, InboxEntry, Message } from '../types';
 
-import type ChatContext from '../components/ChatContext';
+import ChatContext from '../components/ChatContext';
 
 import Button from '../components/Button';
 
@@ -59,13 +59,12 @@ function relativeDate(messageTimestamp: Date, prevMessageTimestamp: Date): strin
   return utils.relativeDate(date, false);
 }
 
-class Chat extends StoreComponent<{
-  chatContextRef: React.RefObject<ChatContext>
-}, {
+class Chat extends StoreComponent<unknown, {
   size: Size,
   keyboard: Keyboard,
   profile: Profile,
   activeChat: InboxEntry,
+  popup: boolean,
 
   // not a store property
   inputs: Record<string, string>
@@ -103,7 +102,8 @@ class Chat extends StoreComponent<{
       changes.size ||
       changes.keyboard ||
       changes.profile ||
-      changes.activeChat
+      changes.activeChat ||
+      changes.popup
     )
       return true;
     
@@ -150,9 +150,14 @@ class Chat extends StoreComponent<{
 
   onPress(message: Message): void
   {
-    const { chatContextRef } = this.props;
-
-    chatContextRef.current?.activate(message);
+    if (this.state.popup)
+      return;
+    
+    // open a popup containing the chat context
+    this.store.set({
+      popup: true,
+      popupContent: () => <ChatContext activeChat={ this.state.activeChat } message={ message }/>
+    });
   }
 
   onChange(text: string): void

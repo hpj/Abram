@@ -106,8 +106,6 @@ class Menu extends StoreComponent<{
           onPress={ () => this.openPage('settings') }
         />
 
-
-
         <Button
           testID={ 'bn-logout' }
           buttonStyle={ styles.button  }

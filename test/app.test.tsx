@@ -1383,7 +1383,7 @@ describe('Testing <App/>', () =>
       component.unmount();
     });
 
-    test('Chat Context', async() =>
+    test('Popup', async() =>
     {
       getStore().set({
         profile: {
@@ -1422,9 +1422,9 @@ describe('Testing <App/>', () =>
   
       await waitFor(() => true);
   
-      const initialContext = toJSON(component, 'v-chat-context', 'all');
+      const initialPopup = toJSON(component, 'v-popup', 'one');
 
-      expect(initialContext).toMatchSnapshot('Y-Axis should be equal to screen\'s hight');
+      expect(initialPopup).toMatchSnapshot('Y-Axis should be equal to screen\'s hight');
 
       const message = component.getByTestId('v-messages').children[0] as ReactTestInstance;
       
@@ -1432,9 +1432,9 @@ describe('Testing <App/>', () =>
 
       await waitFor(() => true);
 
-      const context = toJSON(component, 'v-chat-context', 'all');
+      const full = toJSON(component, 'v-popup', 'one');
 
-      expect(context).toMatchSnapshot('Y-Axis should be 0');
+      expect(full).toMatchSnapshot('Y-Axis should be 0');
 
       // hide the main menu
       // by simulating pressing the hardware back button
@@ -1444,9 +1444,62 @@ describe('Testing <App/>', () =>
 
       await waitFor(() => true);
 
-      const closedContext = toJSON(component, 'v-chat-context', 'all');
+      const closed = toJSON(component, 'v-popup', 'one');
 
-      expect(closedContext).toMatchDiffSnapshot(initialContext);
+      expect(closed).toMatchDiffSnapshot(initialPopup);
+
+      component.unmount();
+    });
+
+    test('Chat Context', async() =>
+    {
+      getStore().set({
+        profile: {
+          uuid: '0',
+          avatar: 0
+        } as Profile,
+        inbox: [
+          {
+            id: '0',
+            displayName: 'Mika',
+            members: [
+              {
+                uuid: '0',
+                avatar: 0
+              },
+              {
+                uuid: '1',
+                displayName: 'Mika',
+                avatar: 1
+              }
+            ],
+            messages: [
+              { owner: '1', text: 'Yay', timestamp: new Date() }
+            ]
+          }
+        ] as InboxEntry[]
+      });
+    
+      const component = render(<App/>);
+    
+      // wait for app loading
+      await waitFor(() => component.getByTestId('v-main-area'));
+  
+      // snap the bottom sheet the top of the screen
+      // by simulating pressing a chat from inbox
+      fireEvent.press(component.getByTestId('bn-chat'));
+  
+      await waitFor(() => true);
+  
+      const message = component.getByTestId('v-messages').children[0] as ReactTestInstance;
+      
+      fireEvent.press(message.findByProps({ testID: 'bn-context' }));
+
+      await waitFor(() => true);
+
+      const context = toJSON(component, 'v-chat-context', 'all');
+
+      expect(context).toMatchSnapshot();
 
       component.unmount();
     });

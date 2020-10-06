@@ -24,10 +24,10 @@ import Menu from './components/Menu';
 import TopBar from './components/TopBar';
 import BottomNavigation from './components/BottomNavigation';
 
-import Chat from './screens/Chat';
+import Popup from './components/Popup';
 
+import Chat from './screens/Chat';
 import ChatHeader from './components/ChatHeader';
-import ChatContext from './components/ChatContext';
 
 import { fetch, locale } from './i18n';
 
@@ -51,10 +51,11 @@ export default class App extends StoreComponent<unknown, {
     height: number
   },
   
-  context: boolean,
+  popup: boolean,
   holder: boolean,
-
-  holderCallback: () => void
+  
+  popupContent: (() => JSX.Element),
+  holderCallback: (() => void)
 }>
 {
   constructor()
@@ -67,11 +68,27 @@ export default class App extends StoreComponent<unknown, {
   }
 
   bottomSheetRef: React.RefObject<BottomSheet> =  React.createRef()
-  chatContextRef: React.RefObject<ChatContext> =  React.createRef()
   topBarRef: React.RefObject<TopBar> =  React.createRef()
 
   bottomSheetNode = new Animated.Value(1)
   holderNode = new Animated.Value(0)
+
+  stateWhitelist(changes: App['state']): boolean
+  {
+    if (
+      changes.loaded ||
+      changes.error ||
+      changes.size ||
+      changes.popup ||
+      changes.popupContent ||
+      changes.holder ||
+      changes.holderCallback ||
+      changes.index
+    )
+      return true;
+    
+    return false;
+  }
 
   async load(): Promise<void>
   {
@@ -130,22 +147,6 @@ export default class App extends StoreComponent<unknown, {
     }
   }
 
-  stateWhitelist(changes: App['state']): boolean
-  {
-    if (
-      changes.loaded ||
-      changes.error ||
-      changes.size ||
-      changes.context ||
-      changes.holder ||
-      changes.holderCallback ||
-      changes.index
-    )
-      return true;
-    
-    return false;
-  }
-
   onBack(): boolean
   {
     // close bottom sheet
@@ -164,7 +165,7 @@ export default class App extends StoreComponent<unknown, {
     if (!this.state.loaded)
       return <View/>;
 
-    const { size, context, holder, holderCallback } = this.state;
+    const { size, popup, holder, popupContent, holderCallback } = this.state;
 
     const holderOpacity = this.holderNode.interpolate({
       inputRange: [ 0, 1 ],
@@ -174,7 +175,7 @@ export default class App extends StoreComponent<unknown, {
     return (
       <SafeAreaView testID={ 'v-main-area' } style={ styles.container }>
 
-        <ChatContext ref={ this.chatContextRef } holderNode={ this.holderNode }/>
+        <Popup content={ popupContent?.() } holderNode={ this.holderNode }/>
 
         <Menu holderNode={ this.holderNode } deactivate={ this.topBarRef.current?.chatAvatarsRef.current?.deactivate }/>
 
@@ -204,13 +205,13 @@ export default class App extends StoreComponent<unknown, {
           <Animated.View testID={ 'v-holder' } style={ {
             ...styles.holder,
 
-            zIndex: context ? depth.contextHolder : depth.menuHolder,
+            zIndex: popup ? depth.popupHolder : depth.menuHolder,
 
             width: size.width,
             height: size.height,
             opacity: holderOpacity
           } }
-          pointerEvents={ (context || holder) ? 'box-only' : 'none' }/>
+          pointerEvents={ (popup || holder) ? 'box-only' : 'none' }/>
         </TouchableWithoutFeedback>
 
         <BottomNavigation/>
@@ -251,7 +252,7 @@ export default class App extends StoreComponent<unknown, {
                 ...styles.bottomSheetContent,
                 height: size.height
               } }>
-                <Chat chatContextRef={ this.chatContextRef }/>
+                <Chat/>
               </View>
             }
           />
