@@ -64,7 +64,6 @@ class Chat extends StoreComponent<unknown, {
   keyboard: Keyboard,
   profile: Profile,
   activeChat: InboxEntry,
-  popup: boolean,
 
   // not a store property
   inputs: Record<string, string>
@@ -102,8 +101,7 @@ class Chat extends StoreComponent<unknown, {
       changes.size ||
       changes.keyboard ||
       changes.profile ||
-      changes.activeChat ||
-      changes.popup
+      changes.activeChat
     )
       return true;
     
@@ -150,7 +148,7 @@ class Chat extends StoreComponent<unknown, {
 
   onPress(message: Message): void
   {
-    if (this.state.popup)
+    if (this.store.state.popup)
       return;
     
     // open a popup containing the chat context

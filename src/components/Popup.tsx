@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BackHandler, StyleSheet, View } from 'react-native';
+import { BackHandler, StyleSheet, ScrollView } from 'react-native';
 
 import Animated, { Easing } from 'react-native-reanimated';
 
@@ -143,17 +143,17 @@ class Popup extends StoreComponent<{
       bottom: bottom,
       width: size.width
     } }>
-      <View style={ styles.container }>
-
+      <ScrollView style={ {
+        ...styles.container,
+        maxHeight: size.height * 0.65
+      } }>
         {
-          content
           // clone the element and add the deactivate button to it so it can deactivate itself
-          // content ? React.cloneElement(content, {
-          //   deactivate: this.deactivate
-          // }) : undefined
+          content ? React.cloneElement(content, {
+            deactivate: this.deactivate
+          }) : undefined
         }
-
-      </View>
+      </ScrollView>
     </Animated.View>;
   }
 }

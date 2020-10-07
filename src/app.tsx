@@ -209,7 +209,7 @@ export default class App extends StoreComponent<unknown, {
         </NavigationView>
 
         <NavigationView testID={ 'v-profile' } index={ 2 }>
-          <Profile profile={ focusedProfile } editable={ focusedProfile?.uuid === profile.uuid }/>
+          <Profile user={ profile } profile={ focusedProfile }/>
         </NavigationView>
 
         <NavigationView testID={ 'v-settings' } index={ 3 }>

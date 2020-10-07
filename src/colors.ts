@@ -33,7 +33,8 @@ export default function()
     // what is used for, looks unnecessary
     text: alpha('#ffffff', 0.8),
 
-    red: 'red'
+    green: '#2f9634',
+    red: '#631515'
   };
 
   // const lightTheme = {

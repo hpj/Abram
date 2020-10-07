@@ -4,29 +4,103 @@ import { StyleSheet, ScrollView, View, Text, Image } from 'react-native';
 
 import type { Profile as TProfile } from '../types';
 
-// import Button from './Button';
+import { getStore } from '../store';
 
 import getTheme from '../colors';
 
 import { sizes } from '../sizes';
 
+import Button from '../components/Button';
+
 const colors = getTheme();
 
 class Profile extends React.Component<{
-  profile: TProfile,
-  editable: boolean
+  user: TProfile,
+  profile: TProfile
 }>
 {
+  sharedInterests(): { shared: string[], mismatched: string[] }
+  {
+    const { user, profile } = this.props;
+
+    const shared: string[] = [];
+    const mismatched: string[] = [];
+
+    profile.interests.forEach((value) =>
+    {
+      if (user.interests.includes(value))
+        shared.push(value);
+      else
+        mismatched.push(value);
+    });
+
+    profile.interests.filter(value => user.interests.includes(value));
+
+    return {
+      shared,
+      mismatched
+    };
+  }
+
+  openInterests({ shared, mismatched }: { shared: string[], mismatched: string[] }): void
+  {
+    const store = getStore();
+
+    if (store.state.popup)
+      return;
+    
+    const { user, profile } = this.props;
+
+    const editable = user.uuid === profile.uuid;
+
+    const concat = shared.concat(mismatched);
+
+    // open a popup containing the all interests
+    store.set({
+      popup: true,
+      popupContent: () =>
+      {
+        return <View>
+          <Text style={ styles.title }>
+            { editable ? 'Your Interests' : `Interests of ${profile.displayName}` }
+          </Text>
+
+          <View style={ styles.interests }>
+            {
+              concat.map((value, i) =>
+              {
+                const isShared = i < shared.length;
+
+                return <View key={ i } style={ {
+                  ...styles.rectangleSlim,
+                  backgroundColor: isShared ? colors.green : colors.red
+                } }>
+                  <Text style={ styles.rectangleValue }>{ value }</Text>
+                </View>;
+              })
+            }
+          </View>
+        </View>;
+      }
+    });
+  }
+
   render(): JSX.Element
   {
-    const { profile, editable } = this.props;
+    const { user, profile } = this.props;
 
-    if (!profile?.uuid)
+    if (!profile?.uuid || !user?.uuid)
       return <View/>;
+
+    const editable = user.uuid === profile.uuid;
 
     const infoKeys = Object.keys(profile.info);
 
+    const { shared, mismatched } = this.sharedInterests();
+
     return <ScrollView style={ styles.container }>
+
+      {/* Bio */}
 
       {
         // bio is optional
@@ -35,6 +109,8 @@ class Profile extends React.Component<{
           : undefined
       }
 
+      {/* Avatar */}
+
       {/* eslint-disable-next-line react-native/no-inline-styles */}
       <View style={ { alignItems: 'center' } }>
         {/* @ts-ignore */}
@@ -42,10 +118,14 @@ class Profile extends React.Component<{
         {/* <Image style={ styles.avatar } source={ { uri: avatar } }/> */}
       </View>
 
+      {/* Titles and Names */}
+
       <View style={ styles.titles }>
         <Text style={ styles.displayName }>{ profile.displayName }</Text>
         <Text style={ styles.nickname }>{ profile.nickname }</Text>
       </View>
+
+      {/* Demographics and Info */}
 
       <View style={ styles.info }>
         {
@@ -72,6 +152,8 @@ class Profile extends React.Component<{
         }
       </View>
 
+      {/* Questions and Ice Breakers */}
+
       {
         // ice breakers are optional
         profile.iceBreakers?.length ?
@@ -90,13 +172,15 @@ class Profile extends React.Component<{
           </View> : undefined
       }
 
+      {/* Interests */}
+
       <Text style={ styles.title }>
         { editable ? 'Your Interests' : 'Shared Interests' }
       </Text>
 
-      <View style={ styles.interests }>
+      <Button buttonStyle={ styles.interests } onPress={ () => this.openInterests({ shared, mismatched }) }>
         {
-          profile.interests.slice(0, 6).map((value, i) =>
+          shared.slice(0, 6).map((value, i) =>
           {
 
             return <View key={ i } style={ styles.rectangleSlim }>
@@ -107,11 +191,11 @@ class Profile extends React.Component<{
         }
         
         {
-          (profile.interests.length - 6 > 0) ? <View key={ 6 } style={ styles.rectangleSlim }>
-            <Text style={ styles.rectangleExtend }>{ `${profile.interests.length - 6}+` }</Text>
+          (shared.length - 6 > 0) ? <View key={ 6 } style={ styles.rectangleSlim }>
+            <Text style={ styles.rectangleExtend }>{ `${shared.length - 6}+` }</Text>
           </View> : undefined
         }
-      </View>
+      </Button>
 
     </ScrollView>;
   }
