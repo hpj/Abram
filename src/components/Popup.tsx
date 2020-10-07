@@ -137,26 +137,24 @@ class Popup extends StoreComponent<{
       outputRange: [ -size.height, 0 ]
     });
 
-    return (
-      <Animated.View testID={ 'v-popup' } style={ {
-        ...styles.wrapper,
+    return <Animated.View testID={ 'v-popup' } style={ {
+      ...styles.wrapper,
 
-        bottom: bottom,
-        width: size.width
-      } }>
-        <View style={ styles.container }>
+      bottom: bottom,
+      width: size.width
+    } }>
+      <View style={ styles.container }>
 
-          {
-            content
-            // clone the element and add the deactivate button to it so it can deactivate itself
-            // content ? React.cloneElement(content, {
-            //   deactivate: this.deactivate
-            // }) : undefined
-          }
+        {
+          content
+          // clone the element and add the deactivate button to it so it can deactivate itself
+          // content ? React.cloneElement(content, {
+          //   deactivate: this.deactivate
+          // }) : undefined
+        }
 
-        </View>
-      </Animated.View>
-    );
+      </View>
+    </Animated.View>;
   }
 }
 

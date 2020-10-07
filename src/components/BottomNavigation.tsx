@@ -54,6 +54,7 @@ class BottomNavigation extends StoreComponent<unknown, {
   setIndex(value: number): void
   {
     this.store.set({
+      title: value ? 'Discover' : 'Inbox',
       index: value
     });
   }
@@ -62,44 +63,42 @@ class BottomNavigation extends StoreComponent<unknown, {
   {
     const { index, additionNavigationIcon } = this.state;
 
-    return (
-      <View testID={ 'v-bottom' } style={ styles.container }>
-        <Button
-          testID={ 'bn-inbox' }
-          useAlternative={ true }
-          badgeStyle={ this.inboxBadge ? styles.badge : undefined }
-          backgroundStyle={  (index === 0) ? styles.background : styles.backgroundInactive }
-          borderless={ true }
-          buttonStyle={ styles.entry }
-          icon={ { name: 'inbox', size: sizes.icon, color: (index === 0) ? colors.whiteText : colors.inactiveWhiteText } }
-          onPress={ () => this.setIndex(0) }
-        />
+    return <View testID={ 'v-bottom' } style={ styles.container }>
+      <Button
+        testID={ 'bn-inbox' }
+        useAlternative={ true }
+        badgeStyle={ this.inboxBadge ? styles.badge : undefined }
+        backgroundStyle={  (index === 0) ? styles.background : styles.backgroundInactive }
+        borderless={ true }
+        buttonStyle={ styles.entry }
+        icon={ { name: 'inbox', size: sizes.icon, color: (index === 0) ? colors.whiteText : colors.inactiveWhiteText } }
+        onPress={ () => this.setIndex(0) }
+      />
 
-        <Button
-          testID={ 'bn-discover' }
-          useAlternative={ true }
-          badgeStyle={ this.discoverBadge ? styles.badge : undefined }
-          backgroundStyle={  (index === 1) ? styles.background : styles.backgroundInactive }
-          borderless={ true }
-          buttonStyle={ styles.entry }
-          icon={ { name: 'compass', size: sizes.icon, color: (index === 1) ? colors.whiteText : colors.inactiveWhiteText } }
-          onPress={ () => this.setIndex(1) }
-        />
+      <Button
+        testID={ 'bn-discover' }
+        useAlternative={ true }
+        badgeStyle={ this.discoverBadge ? styles.badge : undefined }
+        backgroundStyle={  (index === 1) ? styles.background : styles.backgroundInactive }
+        borderless={ true }
+        buttonStyle={ styles.entry }
+        icon={ { name: 'compass', size: sizes.icon, color: (index === 1) ? colors.whiteText : colors.inactiveWhiteText } }
+        onPress={ () => this.setIndex(1) }
+      />
 
-        {
-          (index >= 2) ?
-            <Button
-              testID={ 'bn-additional' }
-              useAlternative={ true }
-              backgroundStyle={ styles.background }
-              borderless={ true }
-              buttonStyle={ styles.entry }
-              icon={ { name: additionNavigationIcon, size: sizes.icon, color: colors.whiteText } }
-            /> : undefined
-        }
+      {
+        (index >= 2) ?
+          <Button
+            testID={ 'bn-additional' }
+            useAlternative={ true }
+            backgroundStyle={ styles.background }
+            borderless={ true }
+            buttonStyle={ styles.entry }
+            icon={ { name: additionNavigationIcon, size: sizes.icon, color: colors.whiteText } }
+          /> : undefined
+      }
         
-      </View>
-    );
+    </View>;
   }
 }
 

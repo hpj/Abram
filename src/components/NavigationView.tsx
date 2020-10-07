@@ -27,20 +27,18 @@ class NavigationView extends StoreComponent<{
 
     const active = this.state.index === index;
 
-    return (
-      <View
-        testID={ testID }
-        style={ {
-          position: 'absolute',
-          width: '100%',
-          height: '100%',
-          opacity: active ? 1 : 0
-        } }
-        pointerEvents={ active ? 'box-none' : 'none' }
-      >
-        { this.props.children }
-      </View>
-    );
+    return <View
+      testID={ testID }
+      style={ {
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        opacity: active ? 1 : 0
+      } }
+      pointerEvents={ active ? 'box-none' : 'none' }
+    >
+      { this.props.children }
+    </View>;
   }
 }
 

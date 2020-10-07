@@ -10,11 +10,9 @@ class Settings extends React.Component
 {
   render(): JSX.Element
   {
-    return (
-      <View style={ styles.container }>
+    return <View style={ styles.container }>
         
-      </View>
-    );
+    </View>;
   }
 }
 

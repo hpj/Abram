@@ -11,19 +11,35 @@ export type Message = {
   timestamp: Date
 }
 
+export type ProfileInfo = {
+  origin: string,
+  speaks: string[],
+  profession: string,
+  romantically: 'Open' | 'Closed',
+  sex: 'Woman' | 'Man' | 'Other',
+  sexuality: 'Straight' | 'Gay' | 'Lesbian' | 'Bi',
+  religion: string,
+  age: number
+}
+
 export type Profile = {
   uuid: string,
+  avatar: string | number,
+  
+  bio: string,
   displayName: string,
-  username: string,
-  avatar: string | number
+  nickname: string,
+
+  info: ProfileInfo,
+  interests: string[],
+  iceBreakers: string[]
 }
 
 export type Size = {
   width: number,
-  height: number,
+  height: number
 }
 
 export type Keyboard = {
-  width: number,
-  height: number,
+  height: number
 }

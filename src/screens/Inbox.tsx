@@ -92,146 +92,144 @@ class Inbox extends StoreComponent<{
   {
     const { inbox, profile } = this.state;
 
-    return (
-      <ScrollView testID={ 'v-inbox' } style={ styles.wrapper }>
+    return <ScrollView testID={ 'v-inbox' } style={ styles.wrapper }>
+      {
+        inbox.map((entry, t) =>
         {
-          inbox.map((entry, t) =>
-          {
-            const members = [ ...entry.members ];
+          const members = [ ...entry.members ];
 
-            // remove self from array
-            members.splice(
-              members.findIndex(member => member.uuid === profile.uuid), 1);
+          // remove self from array
+          members.splice(
+            members.findIndex(member => member.uuid === profile.uuid), 1);
 
-            const lastMessage = entry.messages[entry.messages.length - 1];
-            const lastMessageTime = relativeDate(lastMessage.timestamp);
+          const lastMessage = entry.messages[entry.messages.length - 1];
+          const lastMessageTime = relativeDate(lastMessage.timestamp);
 
-            const badge = lastMessage.owner !== profile.uuid ;
+          const badge = lastMessage.owner !== profile.uuid ;
 
-            return <Button
-              key={ t }
-              testID={ 'bn-chat' }
-              borderless={ false }
-              onPress={ () => this.onPress(entry) }
-            >
-              <View style={ styles.container }>
-                <View style={ styles.entry }>
+          return <Button
+            key={ t }
+            testID={ 'bn-chat' }
+            borderless={ false }
+            onPress={ () => this.onPress(entry) }
+          >
+            <View style={ styles.container }>
+              <View style={ styles.entry }>
 
-                  <View style={ {
-                    ...styles.avatars,
+                <View style={ {
+                  ...styles.avatars,
 
-                    width: this.responsive(sizes.inboxAvatar),
-                    height: this.responsive(sizes.inboxAvatar)
-                  } }>
+                  width: this.responsive(sizes.inboxAvatar),
+                  height: this.responsive(sizes.inboxAvatar)
+                } }>
+                  {
+                    members.splice(0, 4).map((member, i, array) =>
                     {
-                      members.splice(0, 4).map((member, i, array) =>
+                      let size = this.responsive(sizes.inboxAvatar);
+
+                      let left = 0;
+                      let top = 0;
+
+                      if (array.length === 2)
                       {
-                        let size = this.responsive(sizes.inboxAvatar);
-
-                        let left = 0;
-                        let top = 0;
-
-                        if (array.length === 2)
-                        {
-                          size = size * 0.75;
+                        size = size * 0.75;
                           
-                          if (i === 0)
-                          {
-                            top = size * 0.5;
-                            left = size * 0.35;
-                          }
-                        }
-                        else if (array.length === 3)
+                        if (i === 0)
                         {
-                          size = size * 0.65;
-
-                          if (i === 0)
-                          {
-                            top = size - 10;
-                            left = (size / 2) - 15;
-                          }
-                          else if (i === 2)
-                          {
-                            top = 10;
-                            left = size - 15;
-                          }
+                          top = size * 0.5;
+                          left = size * 0.35;
                         }
-                        else if (array.length === 4)
+                      }
+                      else if (array.length === 3)
+                      {
+                        size = size * 0.65;
+
+                        if (i === 0)
                         {
-                          size = size * 0.5;
-
-                          if (i === 0)
-                          {
-                            top = size - 5;
-                            left = 0;
-                          }
-                          else if (i === 2)
-                          {
-                            top = size + 5;
-                            left = size - 5;
-                          }
-                          else if (i === 3)
-                          {
-                            top = 8;
-                            left = size - 5;
-                          }
+                          top = size - 10;
+                          left = (size / 2) - 15;
                         }
+                        else if (i === 2)
+                        {
+                          top = 10;
+                          left = size - 15;
+                        }
+                      }
+                      else if (array.length === 4)
+                      {
+                        size = size * 0.5;
 
-                        return <View key={ i } style={ {
-                          ...styles.avatarContainer,
+                        if (i === 0)
+                        {
+                          top = size - 5;
+                          left = 0;
+                        }
+                        else if (i === 2)
+                        {
+                          top = size + 5;
+                          left = size - 5;
+                        }
+                        else if (i === 3)
+                        {
+                          top = 8;
+                          left = size - 5;
+                        }
+                      }
 
-                          top: top,
-                          left: left,
-                          width: size,
-                          height: size
-                        } }>
-                          <Image
-                            style={ {
-                              ...styles.avatar,
+                      return <View key={ i } style={ {
+                        ...styles.avatarContainer,
+
+                        top: top,
+                        left: left,
+                        width: size,
+                        height: size
+                      } }>
+                        <Image
+                          style={ {
+                            ...styles.avatar,
                        
-                              width: size,
-                              height: size,
+                            width: size,
+                            height: size,
                               
-                              borderRadius: this.responsive(sizes.inboxAvatar)
-                            } }
-                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                            //@ts-ignore
-                            source={ member.avatar }
-                            // source={ { uri: member.avatar } }
-                          />
+                            borderRadius: this.responsive(sizes.inboxAvatar)
+                          } }
+                          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                          //@ts-ignore
+                          source={ member.avatar }
+                          // source={ { uri: member.avatar } }
+                        />
 
-                          {/* eslint-disable-next-line react-native/no-inline-styles */}
-                          <View style={ {
-                            ...styles.badge,
+                        {/* eslint-disable-next-line react-native/no-inline-styles */}
+                        <View style={ {
+                          ...styles.badge,
 
-                            width: this.responsive(23),
-                            height: this.responsive(23),
+                          width: this.responsive(23),
+                          height: this.responsive(23),
 
-                            borderRadius: this.responsive(23),
+                          borderRadius: this.responsive(23),
 
-                            opacity: (badge && left === 0 && top === 0) ? 1 : 0
-                          } }/>
-                        </View>;
-                      })
-                    }
-                  </View>
-
-                  <View style={ styles.info }>
-                    <Text style={ { ...styles.name, fontSize: this.responsive(22) } }>{ entry.displayName }</Text>
-                    <Text style={ { ...styles.time, fontSize: this.responsive(20) } }>{ lastMessageTime }</Text>
-                    {/* \u200E is used to force all text to renter from left to right */}
-                    <Text style={ { ...styles.preview, fontSize: this.responsive(22) } } numberOfLines={ 1 }>
-                      { '\u200E' + lastMessage.text }
-                    </Text>
-                  </View>
-
+                          opacity: (badge && left === 0 && top === 0) ? 1 : 0
+                        } }/>
+                      </View>;
+                    })
+                  }
                 </View>
+
+                <View style={ styles.info }>
+                  <Text style={ { ...styles.name, fontSize: this.responsive(22) } }>{ entry.displayName }</Text>
+                  <Text style={ { ...styles.time, fontSize: this.responsive(20) } }>{ lastMessageTime }</Text>
+                  {/* \u200E is used to force all text to renter from left to right */}
+                  <Text style={ { ...styles.preview, fontSize: this.responsive(22) } } numberOfLines={ 1 }>
+                    { '\u200E' + lastMessage.text }
+                  </Text>
+                </View>
+
               </View>
-            </Button>;
-          })
-        }
-      </ScrollView>
-    );
+            </View>
+          </Button>;
+        })
+      }
+    </ScrollView>;
   }
 }
 

@@ -192,83 +192,81 @@ class Chat extends StoreComponent<unknown, {
     const bubbleTextWidth = bubbleWidth - (sizes.windowMargin * 2);
     const avatarBubbleTextWidth = bubbleTextWidth - sizes.chatAvatar - sizes.windowMargin;
 
-    return (
-      <View testID={ 'v-chat' } style={ {
-        ...styles.container,
-        height: viewHeight
-      } }>
-        <FlatList
-          testID={ 'v-messages' }
-          inverted={ true }
-          data={ this.messages }
-          keyExtractor={ (item, index) => index.toString() }
-          renderItem={ ({ item, index }) =>
-          {
-            const self = item.owner === profile.uuid;
+    return <View testID={ 'v-chat' } style={ {
+      ...styles.container,
+      height: viewHeight
+    } }>
+      <FlatList
+        testID={ 'v-messages' }
+        inverted={ true }
+        data={ this.messages }
+        keyExtractor={ (item, index) => index.toString() }
+        renderItem={ ({ item, index }) =>
+        {
+          const self = item.owner === profile.uuid;
 
-            const avatar =
+          const avatar =
               (!self && activeChat.members.length > 2) ?
                 activeChat.members.find(member => member.uuid === item.owner)?.avatar :
                 undefined;
             
-            const time = relativeDate(item.timestamp, this.messages[index + 1]?.timestamp);
+          const time = relativeDate(item.timestamp, this.messages[index + 1]?.timestamp);
             
-            return <View>
-              {
-                (time) ?
-                  <Text style={ styles.time }>{ time }</Text> :
-                  <View/>
-              }
+          return <View>
+            {
+              (time) ?
+                <Text style={ styles.time }>{ time }</Text> :
+                <View/>
+            }
 
-              {
-                (avatar) ?
-                  <TouchableWithoutFeedback
-                    testID={ 'bn-context' }
-                    style={ { ...styles.message, maxWidth: bubbleWidth } }
-                    onPress={ () => this.onPress(item) }
-                  >
-                    {/* @ts-ignore */}
-                    <Image style={ styles.avatar } source={ avatar }/>
-                    {/* <Image style={ styles.avatar } source={ { uri: avatar } }/> */}
-                    <Text style={ { ...styles.text, maxWidth: avatarBubbleTextWidth } }>{ item.text }</Text>
-                  </TouchableWithoutFeedback> :
+            {
+              (avatar) ?
+                <TouchableWithoutFeedback
+                  testID={ 'bn-context' }
+                  style={ { ...styles.message, maxWidth: bubbleWidth } }
+                  onPress={ () => this.onPress(item) }
+                >
+                  {/* @ts-ignore */}
+                  <Image style={ styles.avatar } source={ avatar }/>
+                  {/* <Image style={ styles.avatar } source={ { uri: avatar } }/> */}
+                  <Text style={ { ...styles.text, maxWidth: avatarBubbleTextWidth } }>{ item.text }</Text>
+                </TouchableWithoutFeedback> :
 
-                  <TouchableWithoutFeedback
-                    testID={ 'bn-context' }
-                    style={ { ...styles.message, ...(self ? styles.messageAlt : undefined), maxWidth: bubbleWidth } }
-                    onPress={ () => this.onPress(item) }
-                  >
-                    <Text style={ { ...styles.text, maxWidth: bubbleTextWidth } }>{ item.text }</Text>
-                  </TouchableWithoutFeedback>
-              }
-            </View>;
-          } }
+                <TouchableWithoutFeedback
+                  testID={ 'bn-context' }
+                  style={ { ...styles.message, ...(self ? styles.messageAlt : undefined), maxWidth: bubbleWidth } }
+                  onPress={ () => this.onPress(item) }
+                >
+                  <Text style={ { ...styles.text, maxWidth: bubbleTextWidth } }>{ item.text }</Text>
+                </TouchableWithoutFeedback>
+            }
+          </View>;
+        } }
+      />
+
+      <View style={ {
+        ...styles.input,
+        width: size.width - (sizes.windowMargin * 2)
+      } }>
+        <TextInput
+          testID={ 'in-message' }
+          style={ styles.field }
+          multiline={ true }
+          value={ value }
+          onChangeText={ this.onChange }
+          placeholderTextColor={ colors.placeholder }
+          placeholder={ 'Write Message' }
         />
-
-        <View style={ {
-          ...styles.input,
-          width: size.width - (sizes.windowMargin * 2)
-        } }>
-          <TextInput
-            testID={ 'in-message' }
-            style={ styles.field }
-            multiline={ true }
-            value={ value }
-            onChangeText={ this.onChange }
-            placeholderTextColor={ colors.placeholder }
-            placeholder={ 'Write Message' }
-          />
-          <Button
-            testID={ 'bn-message' }
-            borderless={ true }
-            buttonStyle={ styles.send }
-            onPress={ this.sendMessage }
-            icon={ { name: 'arrow-right', size: 18, color: value.length > 0 ? colors.whiteText : colors.greyText } }
-          />
-        </View>
-
+        <Button
+          testID={ 'bn-message' }
+          borderless={ true }
+          buttonStyle={ styles.send }
+          onPress={ this.sendMessage }
+          icon={ { name: 'arrow-right', size: 18, color: value.length > 0 ? colors.whiteText : colors.greyText } }
+        />
       </View>
-    );
+
+    </View>;
   }
 }
 
@@ -290,7 +288,7 @@ const styles = StyleSheet.create({
   },
 
   messageAlt: {
-    backgroundColor: colors.messageBubble,
+    backgroundColor: colors.messageBackground,
 
     borderWidth: 0,
 
@@ -319,7 +317,7 @@ const styles = StyleSheet.create({
     paddingVertical: sizes.windowMargin / 2,
 
     borderWidth: 3,
-    borderColor: colors.messageBubble,
+    borderColor: colors.messageBackground,
     borderRadius: 25
   },
 
@@ -344,7 +342,7 @@ const styles = StyleSheet.create({
 
   input: {
     flexDirection: 'row',
-    backgroundColor: colors.messageBubble,
+    backgroundColor: colors.messageBackground,
     
     height: sizes.topBarHeight,
     

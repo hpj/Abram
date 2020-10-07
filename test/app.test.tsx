@@ -891,6 +891,8 @@ describe('Testing <App/>', () =>
               },
               {
                 uuid: '1',
+                displayName: 'Mika',
+                nickname: 'Mika',
                 avatar: 1
               }
             ],
@@ -945,11 +947,15 @@ describe('Testing <App/>', () =>
               },
               {
                 uuid: '1',
-                avatar: 1
+                avatar: 1,
+                displayName: 'Mika',
+                nickname: 'Mika'
               },
               {
                 uuid: '2',
-                avatar: 2
+                avatar: 2,
+                displayName: 'Skye',
+                nickname: 'Skye'
               }
             ],
             messages: [

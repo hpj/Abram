@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyleSheet, View, Image, Text } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
 
 import Animated, { Easing } from 'react-native-reanimated';
 
@@ -21,18 +21,22 @@ import getTheme from '../colors';
 const colors = getTheme();
 
 class Menu extends StoreComponent<{
+  snapTo?: ((index: number) => void) | undefined,
   holderNode: Animated.Value<number>,
   deactivate: (() => boolean) | undefined
 }, {
-  menu: boolean,
   size: Size,
+  menu: boolean,
+  profile: Profile,
   activeChat: InboxEntry
 }>
 {
   stateWhitelist(changes: Menu['state']): boolean
   {
     if (
+      changes.size ||
       changes.menu ||
+      changes.profile ||
       changes.activeChat
     )
       return true;
@@ -63,23 +67,31 @@ class Menu extends StoreComponent<{
     }
   }
 
-  openPage(type: 'profile' | 'settings'): void
+  openProfile(profile: Profile): void
   {
-    if (type === 'profile')
-    {
-      this.store.set({
-        additionNavigationIcon: 'user',
-        index: 2
-      });
-    }
-    else if (type === 'settings')
-    {
-      this.store.set({
-        additionNavigationIcon: 'settings',
-        index: 3
-      });
-    }
+    this.store.set({
+      title: '',
+      index: 2,
+      additionNavigationIcon: 'user',
+      focusedProfile: profile
+    });
 
+    // deactivate menu
+    this.props.deactivate?.();
+
+    // snap close the bottom sheet
+    this.props.snapTo?.(1);
+  }
+
+  openSettings(): void
+  {
+    this.store.set({
+      title: 'Settings',
+      index: 3,
+      additionNavigationIcon: 'settings'
+    });
+
+    // deactivate menu
     this.props.deactivate?.();
   }
 
@@ -94,7 +106,7 @@ class Menu extends StoreComponent<{
           textStyle={ styles.buttonText  }
           icon={ { name: 'user', size: sizes.icon * 0.75, color: colors.whiteText, style: styles.buttonIcon } }
           text={ 'Profile' }
-          onPress={ () => this.openPage('profile') }
+          onPress={ () => this.openProfile(this.store.state.profile) }
         />
 
         <Button
@@ -103,7 +115,7 @@ class Menu extends StoreComponent<{
           textStyle={ styles.buttonText  }
           icon={ { name: 'settings', size: sizes.icon * 0.75, color: colors.whiteText, style: styles.buttonIcon } }
           text={ 'Settings' }
-          onPress={ () => this.openPage('settings') }
+          onPress={ () => this.openSettings() }
         />
 
         <Button
@@ -142,11 +154,42 @@ class Menu extends StoreComponent<{
 
   renderChat(): JSX.Element
   {
-    const { activeChat } = this.state;
+    const { profile, activeChat } = this.state;
+
+    const members = [ ...activeChat.members ];
+
+    // remove self from array
+    members.splice(
+      members.findIndex(member => member.uuid === profile.uuid), 1);
 
     return <View testID={ 'v-menu-content' } style={ styles.container }>
 
       <View style={ styles.actions }>
+
+        {
+          activeChat.members.length > 2 ?
+            <Button
+              testID={ 'bn-chat-group-title' }
+              buttonStyle={ styles.button  }
+              textStyle={ styles.buttonText  }
+              icon={ { name: 'edit-2', size: sizes.icon * 0.6, color: colors.whiteText, style: styles.buttonIcon } }
+              text={ 'Title' }
+            /> : undefined
+        }
+
+        {
+          members.map((member, index) => <Button
+            key={ index }
+            testID={ 'bn-chat-profile' }
+            buttonStyle={ styles.button  }
+            textStyle={ styles.buttonText  }
+            icon={ { name: 'user', size: sizes.icon * 0.75, color: colors.whiteText, style: styles.buttonIcon } }
+            text={ member.nickname }
+            onPress={ () => this.openProfile(member) }
+          />)
+        }
+
+        <View style={ styles.space }/>
 
         <Button
           testID={ 'bn-chat-mute' }
@@ -156,24 +199,11 @@ class Menu extends StoreComponent<{
           text={ 'Mute' }
         />
 
-        {
-          activeChat.members.length > 2 ?
-            <Button
-              testID={ 'bn-chat-group' }
-              buttonStyle={ styles.button  }
-              textStyle={ styles.buttonText  }
-              icon={ { name: 'edit-3', size: sizes.icon * 0.75, color: colors.whiteText, style: styles.buttonIcon } }
-              text={ 'Group' }
-            /> : undefined
-        }
-
-        <View style={ styles.space }/>
-
         <Button
           testID={ 'bn-chat-block' }
           buttonStyle={ styles.button  }
           textStyle={ styles.buttonText  }
-          icon={ { name: 'alert-circle', size: sizes.icon * 0.75, color: colors.whiteText, style: styles.buttonIcon } }
+          icon={ { name: 'alert-triangle', size: sizes.icon * 0.75, color: colors.whiteText, style: styles.buttonIcon } }
           text={ activeChat.members.length > 2 ? 'Leave, Block & Report' : 'Block & Report' }
         />
       
@@ -293,7 +323,7 @@ const styles = StyleSheet.create({
 
   buttonTextAlt: {
     fontSize: 11,
-    fontWeight: '700',
+    fontWeight: 'bold',
     color: colors.greyText
   },
 

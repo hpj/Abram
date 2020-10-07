@@ -10,6 +10,8 @@ import { activateKeepAwake } from 'expo-keep-awake';
 
 import * as Sentry from 'sentry-expo';
 
+import { Profile, InboxEntry, Keyboard as TKeyboard, Size } from './types';
+
 import { createStore } from './store';
 
 import App from './app';
@@ -36,7 +38,8 @@ if (__DEV__)
 
 // create app-wide store
 const store = createStore({
-  // used to change the current view aka route
+  // default view
+  title: 'Inbox',
   index: 0,
   
   // used to control the pointer events of the app holder view
@@ -45,19 +48,31 @@ const store = createStore({
   size: {
     width: Dimensions.get('screen').width,
     height: Dimensions.get('screen').height - constants.statusBarHeight
-  },
+  } as Size,
 
   keyboard: {
     height: 0
-  },
+  } as TKeyboard,
 
   profile: {
     uuid: '0001',
+    avatar: require('../assets/mockup/karkar-0.jpg'),
+    // avatar: `${env.API_ENDPOINT}/avatar`,
+
+    bio: 'The self-proclaimed world\'s greatest Mastermind.',
     displayName: 'Kerolos Zaki',
-    username: 'ker0olos',
-    avatar: require('../assets/mockup/ker0olos.jpeg')
-    // avatar: `${env.API_ENDPOINT}/avatar`
-  },
+    nickname: 'Kay',
+
+    info: {
+      romantically: 'Open'
+    },
+    
+    interests: [
+      'Visual Novels', 'Anime', 'Books', 'Cooking', 'Romance', 'Storytelling',
+      'Acting', 'Directing', 'Reading', 'Design', 'Technology', 'Walking',
+      'Video Games'
+    ]
+  } as Profile,
 
   activeChat: undefined,
 
@@ -69,14 +84,37 @@ const store = createStore({
         {
           uuid: '0001',
           displayName: 'Kerolos Zaki',
-          username: 'ker0olos',
-          avatar: require('../assets/mockup/ker0olos.jpeg')
+          avatar: require('../assets/mockup/karkar-0.jpg')
         },
         {
           uuid: '0002',
+          avatar: require('../assets/mockup/dina-0.jpg'),
+
+          bio: 'I love screaming and I hate this app.',
           displayName: 'Dina El-Wedidi',
-          username: 'ElwedidiDina',
-          avatar: require('../assets/mockup/dina-0.jpg')
+          nickname: 'Dina',
+
+          info: {
+            origin: 'Egypt',
+            speaks: [ 'English', 'Arabic' ],
+            profession: 'Singer',
+            romantically: 'Closed',
+            sex: 'Woman',
+            sexuality: 'Straight',
+            religion: 'Muslim',
+            age: 33
+          },
+
+          iceBreakers: [
+            'Do you like the spotlight?',
+            'How much do you hate Kerolos?'
+          ],
+
+          interests: [
+            'Visual Novels', 'Music', 'Books', 'Cooking', 'Blacksmithing', 'Travailing', 'Bath Rooms',
+            'Boxing', 'Mountain Climbing', 'Acting', 'Sculpting', 'Tennis', 'Woodworking', 'Cars', 'Driving',
+            'Singing', 'Movies', 'Moving Making', 'Directing', 'Sculpting', 'Drawing'
+          ]
         }
       ],
       messages: [
@@ -91,33 +129,56 @@ const store = createStore({
       members: [
         {
           uuid: '0001',
-          displayName: 'Kerolos Zaki',
-          username: 'ker0olos',
-          avatar: require('../assets/mockup/ker0olos.jpeg')
+          avatar: require('../assets/mockup/karkar-0.jpg'),
+          displayName: 'Kerolos Zaki'
         },
         {
           uuid: '0010',
+          avatar: require('../assets/mockup/karkar-1.jpg'),
           displayName: 'Kerolos Zaki',
-          username: 'karkar-1',
-          avatar: require('../assets/mockup/karkar-1.jpg')
+          nickname: 'Karkar',
+          info: {
+            romantically: 'Open'
+          },
+          interests: [
+            'Meditation', 'Mountain Biking', 'Kite Flying'
+          ]
         },
         {
           uuid: '0011',
+          avatar: require('../assets/mockup/karkar-3.jpg'),
           displayName: 'Kerolos Zaki',
-          username: 'karkar-3',
-          avatar: require('../assets/mockup/karkar-3.jpg')
+          nickname: 'Karkar',
+          info: {
+            romantically: 'Open'
+          },
+          interests: [
+            'Knitting', 'Wine Tasting', 'Model Trains'
+          ]
         },
         {
           uuid: '0012',
+          avatar: require('../assets/mockup/karkar-4.jpg'),
           displayName: 'Kerolos Zaki',
-          username: 'karkar-4',
-          avatar: require('../assets/mockup/karkar-4.jpg')
+          nickname: 'Karkar',
+          info: {
+            romantically: 'Open'
+          },
+          interests: [
+            'Croquet', 'Mountain Biking', 'Jigsaw Puzzles'
+          ]
         },
         {
           uuid: '0013',
+          avatar: require('../assets/mockup/karkar-5.jpg'),
           displayName: 'Kerolos Zaki',
-          username: 'karkar-5',
-          avatar: require('../assets/mockup/karkar-5.jpg')
+          nickname: 'Karkar',
+          info: {
+            romantically: 'Open'
+          },
+          interests: [
+            'Home brewing', 'Tombstone rubbing', 'Squash'
+          ]
         }
       ],
       messages: [
@@ -133,21 +194,30 @@ const store = createStore({
         {
           uuid: '0001',
           displayName: 'Kerolos Zaki',
-          username: 'ker0olos',
-          avatar: require('../assets/mockup/ker0olos.jpeg')
+          avatar: require('../assets/mockup/karkar-0.jpg')
         },
         {
           uuid: '0100',
+          avatar: require('../assets/mockup/amir-0.jpg'),
+          
+          bio: 'I am depressed because of Sharmoofers.',
           displayName: 'Amid Eid',
-          username: 'amir',
-          avatar: require('../assets/mockup/amir-0.jpg')
+          nickname: 'Amir',
+
+          info: {
+            romantically: 'Closed'
+          },
+
+          interests: [
+            'Grave Robbing', 'First Edition Book Collecting', 'Table Tennis'
+          ]
         }
       ],
       messages: [
         { owner: '0100', text: 'Sharmoofers bad.', timestamp: subDays(new Date(), 50) }
       ]
     }
-  ]
+  ] as InboxEntry[]
 });
 
 // update state when size changes

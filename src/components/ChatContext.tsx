@@ -45,34 +45,32 @@ class ChatContext extends React.Component<{
 
     const member = activeChat?.members?.find(member => member.uuid === message?.owner);
 
-    return (
-      <View testID={ 'v-chat-context' }>
-        <View style={ styles.info }>
+    return <View testID={ 'v-chat-context' }>
+      <View style={ styles.info }>
 
-          {/* eslint-disable-next-line react-native/no-inline-styles */}
-          <View style={ { flex: 1, justifyContent: 'center' } }>
-            <Text style={ styles.name }>{ member?.displayName }</Text>
-            <Text style={ styles.time }>{ relativeDate(message?.timestamp, true) }</Text>
-          </View>
-
-          <Button
-            borderless={ true }
-            useAlternative={ true }
-            buttonStyle={ { ...styles.button, width: sizes.avatar * 1.2 } }
-            icon={ { name: 'copy', size: sizes.icon / 1.2, color: colors.whiteText } }
-            onPress={ this.onClipboard }
-          />
+        {/* eslint-disable-next-line react-native/no-inline-styles */}
+        <View style={ { flex: 1, justifyContent: 'center' } }>
+          <Text style={ styles.name }>{ member?.displayName }</Text>
+          <Text style={ styles.time }>{ relativeDate(message?.timestamp, true) }</Text>
         </View>
 
-        <Text
-          numberOfLines={ 3 }
-          ellipsizeMode={ 'tail' }
-          style={ styles.message }
-        >
-          { message?.text }
-        </Text>
+        <Button
+          borderless={ true }
+          useAlternative={ true }
+          buttonStyle={ { ...styles.button, width: sizes.avatar * 1.2 } }
+          icon={ { name: 'copy', size: sizes.icon / 1.2, color: colors.whiteText } }
+          onPress={ this.onClipboard }
+        />
       </View>
-    );
+
+      <Text
+        numberOfLines={ 3 }
+        ellipsizeMode={ 'tail' }
+        style={ styles.message }
+      >
+        { message?.text }
+      </Text>
+    </View>;
   }
 }
 

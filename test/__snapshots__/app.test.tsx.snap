@@ -2746,6 +2746,188 @@ exports[`Testing <App/> Menus Showing Group Chat Menu: Menu View Should Be Visib
             "padding": 17,
           }
         }
+        testID="bn-chat-group-title"
+      >
+        <View>
+          <View />
+        </View>
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontSize": 14.399999999999999,
+              },
+              Object {
+                "marginHorizontal": 23,
+              },
+              Object {
+                "fontFamily": "feather",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "flex": 1,
+              "fontSize": 14,
+              "marginHorizontal": 23,
+            }
+          }
+        >
+          Title
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row-reverse",
+            "padding": 17,
+          }
+        }
+        testID="bn-chat-profile"
+      >
+        <View>
+          <View />
+        </View>
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontSize": 18,
+              },
+              Object {
+                "marginHorizontal": 23,
+              },
+              Object {
+                "fontFamily": "feather",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "flex": 1,
+              "fontSize": 14,
+              "marginHorizontal": 23,
+            }
+          }
+        >
+          Mika
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row-reverse",
+            "padding": 17,
+          }
+        }
+        testID="bn-chat-profile"
+      >
+        <View>
+          <View />
+        </View>
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontSize": 18,
+              },
+              Object {
+                "marginHorizontal": 23,
+              },
+              Object {
+                "fontFamily": "feather",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "flex": 1,
+              "fontSize": 14,
+              "marginHorizontal": 23,
+            }
+          }
+        >
+          Skye
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignSelf": "center",
+            "backgroundColor": "#818181",
+            "height": 1,
+            "marginVertical": 12,
+            "width": "90%",
+          }
+        }
+      />
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row-reverse",
+            "padding": 17,
+          }
+        }
         testID="bn-chat-mute"
       >
         <View>
@@ -2803,74 +2985,6 @@ exports[`Testing <App/> Menus Showing Group Chat Menu: Menu View Should Be Visib
             "padding": 17,
           }
         }
-        testID="bn-chat-group"
-      >
-        <View>
-          <View />
-        </View>
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontSize": 18,
-              },
-              Object {
-                "marginHorizontal": 23,
-              },
-              Object {
-                "fontFamily": "feather",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-        <Text
-          style={
-            Object {
-              "color": "#ffffff",
-              "flex": 1,
-              "fontSize": 14,
-              "marginHorizontal": 23,
-            }
-          }
-        >
-          Group
-        </Text>
-      </View>
-      <View
-        style={
-          Object {
-            "alignSelf": "center",
-            "backgroundColor": "#818181",
-            "height": 1,
-            "marginVertical": 12,
-            "width": "90%",
-          }
-        }
-      />
-      <View
-        accessible={true}
-        focusable={false}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row-reverse",
-            "padding": 17,
-          }
-        }
         testID="bn-chat-block"
       >
         <View>
@@ -2896,7 +3010,7 @@ exports[`Testing <App/> Menus Showing Group Chat Menu: Menu View Should Be Visib
             ]
           }
         >
-          
+          
         </Text>
         <Text
           style={
@@ -2978,6 +3092,74 @@ exports[`Testing <App/> Menus Showing Normal Chat Menu: Menu View Should Be Visi
     >
       <View
         accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row-reverse",
+            "padding": 17,
+          }
+        }
+        testID="bn-chat-profile"
+      >
+        <View>
+          <View />
+        </View>
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": "#ffffff",
+                "fontSize": 18,
+              },
+              Object {
+                "marginHorizontal": 23,
+              },
+              Object {
+                "fontFamily": "feather",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "flex": 1,
+              "fontSize": 14,
+              "marginHorizontal": 23,
+            }
+          }
+        >
+          Mika
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignSelf": "center",
+            "backgroundColor": "#818181",
+            "height": 1,
+            "marginVertical": 12,
+            "width": "90%",
+          }
+        }
+      />
+      <View
+        accessible={true}
         focusable={false}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -3034,17 +3216,6 @@ exports[`Testing <App/> Menus Showing Normal Chat Menu: Menu View Should Be Visi
         </Text>
       </View>
       <View
-        style={
-          Object {
-            "alignSelf": "center",
-            "backgroundColor": "#818181",
-            "height": 1,
-            "marginVertical": 12,
-            "width": "90%",
-          }
-        }
-      />
-      <View
         accessible={true}
         focusable={false}
         onClick={[Function]}
@@ -3086,7 +3257,7 @@ exports[`Testing <App/> Menus Showing Normal Chat Menu: Menu View Should Be Visi
             ]
           }
         >
-          
+          
         </Text>
         <Text
           style={
@@ -3407,7 +3578,7 @@ exports[`Testing <App/> Menus Showing and Hiding Main Menu: Initial Menu View Sh
             Object {
               "color": "#818181",
               "fontSize": 11,
-              "fontWeight": "700",
+              "fontWeight": "bold",
             }
           }
         >
@@ -3439,7 +3610,7 @@ exports[`Testing <App/> Menus Showing and Hiding Main Menu: Initial Menu View Sh
             Object {
               "color": "#818181",
               "fontSize": 11,
-              "fontWeight": "700",
+              "fontWeight": "bold",
             }
           }
         >
@@ -3713,7 +3884,7 @@ exports[`Testing <App/> Menus Showing and Hiding Main Menu: Menu View Should Be 
             Object {
               "color": "#818181",
               "fontSize": 11,
-              "fontWeight": "700",
+              "fontWeight": "bold",
             }
           }
         >
@@ -3745,7 +3916,7 @@ exports[`Testing <App/> Menus Showing and Hiding Main Menu: Menu View Should Be 
             Object {
               "color": "#818181",
               "fontSize": 11,
-              "fontWeight": "700",
+              "fontWeight": "bold",
             }
           }
         >

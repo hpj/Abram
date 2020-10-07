@@ -22,14 +22,14 @@ class TopBar extends StoreComponent<{
   holderNode: Animated.Value<number>,
   bottomSheetNode: Animated.Value<number>
 }, {
-  index: number
+  title: string
 }>
 {
   chatAvatarsRef: React.RefObject<ChatAvatars> = React.createRef()
 
   stateWhitelist(changes: TopBar['state']): boolean
   {
-    if (changes.index)
+    if (changes.title)
       return true;
     
     return false;
@@ -37,18 +37,7 @@ class TopBar extends StoreComponent<{
 
   render(): JSX.Element
   {
-    const { index } = this.state;
-
-    let title;
-
-    if (index === 0)
-      title = 'Inbox';
-    else if (index === 1)
-      title = 'Discover';
-    else if (index === 2)
-      title = 'Profile';
-    else if (index === 3)
-      title = 'Settings';
+    const { title } = this.state;
 
     const marginTop = this.props.bottomSheetNode.interpolate({
       inputRange: [ 0, 1 ],

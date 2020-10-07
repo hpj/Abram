@@ -1,4 +1,5 @@
 Performance Issues and Bugs:
+  ☐ search's holder does not expend with its width @high 
 
 Public Beta:
   ☐ work on branding descriptions and motto
@@ -14,11 +15,14 @@ Public Beta:
     ☐ expo's over-the-air updates
 
 Testing:
+  - test profile view
+    ☐ test others @high
+    
+    ☐ test personal (needs more UI elements first)
+
   ☐ on different screen sizes
   
 UI/UX:
-  ☐ design a mockup for Profiles
-  
   ☐ design a mockup for Sign up views
 
   ☐ design a mockup for Discover view

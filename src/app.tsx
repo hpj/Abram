@@ -29,6 +29,8 @@ import Popup from './components/Popup';
 import Chat from './screens/Chat';
 import ChatHeader from './components/ChatHeader';
 
+import { Profile as TProfile } from './types';
+
 import { fetch, locale } from './i18n';
 
 import { StoreComponent } from './store';
@@ -45,11 +47,15 @@ export default class App extends StoreComponent<unknown, {
   error: string,
   loaded: boolean,
 
-  index: number,
   size: {
     width: number,
     height: number
   },
+
+  index: number,
+
+  profile: TProfile,
+  focusedProfile: TProfile,
   
   popup: boolean,
   holder: boolean,
@@ -76,14 +82,21 @@ export default class App extends StoreComponent<unknown, {
   stateWhitelist(changes: App['state']): boolean
   {
     if (
-      changes.loaded ||
       changes.error ||
+      changes.loaded ||
+
       changes.size ||
+
+      changes.index ||
+
+      changes.profile ||
+      changes.focusedProfile ||
+
       changes.popup ||
-      changes.popupContent ||
       changes.holder ||
-      changes.holderCallback ||
-      changes.index
+
+      changes.popupContent ||
+      changes.holderCallback
     )
       return true;
     
@@ -165,101 +178,104 @@ export default class App extends StoreComponent<unknown, {
     if (!this.state.loaded)
       return <View/>;
 
-    const { size, popup, holder, popupContent, holderCallback } = this.state;
+    const {
+      size,
+      profile, focusedProfile,
+      popup, holder,
+      popupContent, holderCallback
+    } = this.state;
 
     const holderOpacity = this.holderNode.interpolate({
       inputRange: [ 0, 1 ],
       outputRange: [ 0, 0.75 ]
     });
 
-    return (
-      <SafeAreaView testID={ 'v-main-area' } style={ styles.container }>
+    return <SafeAreaView testID={ 'v-main-area' } style={ styles.container }>
 
-        <Popup content={ popupContent?.() } holderNode={ this.holderNode }/>
+      <Popup content={ popupContent?.() } holderNode={ this.holderNode }/>
 
-        <Menu holderNode={ this.holderNode } deactivate={ this.topBarRef.current?.chatAvatarsRef.current?.deactivate }/>
+      <Menu snapTo={ this.bottomSheetRef.current?.snapTo } holderNode={ this.holderNode } deactivate={ this.topBarRef.current?.chatAvatarsRef.current?.deactivate }/>
 
-        <TopBar ref={ this.topBarRef } holderNode={ this.holderNode } bottomSheetNode={ this.bottomSheetNode }/>
+      <TopBar ref={ this.topBarRef } holderNode={ this.holderNode } bottomSheetNode={ this.bottomSheetNode }/>
 
-        <View testID={ 'v-navigation' } style={ styles.views }>
+      <View testID={ 'v-navigation' } style={ styles.views }>
 
-          <NavigationView testID={ 'v-inbox' } index={ 0 }>
-            <Inbox snapTo={ this.bottomSheetRef.current?.snapTo }/>
-          </NavigationView>
+        <NavigationView testID={ 'v-inbox' } index={ 0 }>
+          <Inbox snapTo={ this.bottomSheetRef.current?.snapTo }/>
+        </NavigationView>
 
-          <NavigationView testID={ 'v-discover' } index={ 1 }>
-            <Discover/>
-          </NavigationView>
+        <NavigationView testID={ 'v-discover' } index={ 1 }>
+          <Discover/>
+        </NavigationView>
 
-          <NavigationView testID={ 'v-profile' } index={ 2 }>
-            <Profile/>
-          </NavigationView>
+        <NavigationView testID={ 'v-profile' } index={ 2 }>
+          <Profile profile={ focusedProfile } editable={ focusedProfile?.uuid === profile.uuid }/>
+        </NavigationView>
 
-          <NavigationView testID={ 'v-settings' } index={ 3 }>
-            <Settings/>
-          </NavigationView>
+        <NavigationView testID={ 'v-settings' } index={ 3 }>
+          <Settings/>
+        </NavigationView>
 
-        </View>
+      </View>
 
-        <TouchableWithoutFeedback onPress={ holderCallback }>
-          <Animated.View testID={ 'v-holder' } style={ {
-            ...styles.holder,
+      <TouchableWithoutFeedback onPress={ holderCallback }>
+        <Animated.View testID={ 'v-holder' } style={ {
+          ...styles.holder,
 
-            zIndex: popup ? depth.popupHolder : depth.menuHolder,
+          zIndex: popup ? depth.popupHolder : depth.menuHolder,
 
-            width: size.width,
-            height: size.height,
-            opacity: holderOpacity
-          } }
-          pointerEvents={ (popup || holder) ? 'box-only' : 'none' }/>
-        </TouchableWithoutFeedback>
-
-        <BottomNavigation/>
-
-        <View testID={ 'v-bottom-sheet' } style={ {
-          ...styles.bottomSheet,
           width: size.width,
-          height: size.height
-        } } pointerEvents={ 'box-none' }>
-          <BottomSheet
-            ref={ this.bottomSheetRef }
-            callbackNode={ this.bottomSheetNode }
+          height: size.height,
+          opacity: holderOpacity
+        } }
+        pointerEvents={ (popup || holder) ? 'box-only' : 'none' }/>
+      </TouchableWithoutFeedback>
 
-            initialSnap={ 1 }
-            snapPoints = { [ size.height, 0  ] }
+      <BottomNavigation/>
 
-            enabledContentGestureInteraction={ false }
+      <View testID={ 'v-bottom-sheet' } style={ {
+        ...styles.bottomSheet,
+        width: size.width,
+        height: size.height
+      } } pointerEvents={ 'box-none' }>
+        <BottomSheet
+          ref={ this.bottomSheetRef }
+          callbackNode={ this.bottomSheetNode }
 
-            onOpenStart={ () => this.onClose(false) }
-            onCloseEnd={ () => this.onClose(true) }
+          initialSnap={ 1 }
+          snapPoints = { [ size.height, 0  ] }
 
-            renderHeader = {
-              () =>
-                <View style={ styles.bottomSheetHeader }>
-                  <View style={ styles.bottomSheetHandler }/>
+          enabledContentGestureInteraction={ false }
 
-                  <View style={ {
-                    ...styles.bottomSheetHeaderContent,
-                    width: this.state.size.width - (sizes.windowMargin * 2)
-                  } }>
-                    <ChatHeader/>
-                  </View>
+          onOpenStart={ () => this.onClose(false) }
+          onCloseEnd={ () => this.onClose(true) }
+
+          renderHeader = {
+            () =>
+              <View style={ styles.bottomSheetHeader }>
+                <View style={ styles.bottomSheetHandler }/>
+
+                <View style={ {
+                  ...styles.bottomSheetHeaderContent,
+                  width: this.state.size.width - (sizes.windowMargin * 2)
+                } }>
+                  <ChatHeader/>
                 </View>
-            }
-
-            renderContent = { () =>
-              <View style={ {
-                ...styles.bottomSheetContent,
-                height: size.height
-              } }>
-                <Chat/>
               </View>
-            }
-          />
-        </View>
+          }
 
-      </SafeAreaView>
-    );
+          renderContent = { () =>
+            <View style={ {
+              ...styles.bottomSheetContent,
+              height: size.height
+            } }>
+              <Chat/>
+            </View>
+          }
+        />
+      </View>
+
+    </SafeAreaView>;
   }
 }
 

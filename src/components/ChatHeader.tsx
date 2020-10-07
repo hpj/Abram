@@ -41,12 +41,10 @@ class ChatHeader extends StoreComponent<unknown, {
     else
       lastMessageDate = `Active ${formatDistanceStrict(last, current)} ago`;
 
-    return (
-      <View testID={ 'v-chat-header' } style={ styles.container }>
-        <Text style={ styles.name }>{ activeChat.displayName }</Text>
-        <Text style={ styles.time }>{ lastMessageDate }</Text>
-      </View>
-    );
+    return <View testID={ 'v-chat-header' } style={ styles.container }>
+      <Text style={ styles.name }>{ activeChat.displayName }</Text>
+      <Text style={ styles.time }>{ lastMessageDate }</Text>
+    </View>;
   }
 }
 

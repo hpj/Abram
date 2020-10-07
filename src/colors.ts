@@ -27,9 +27,12 @@ export default function()
     menuBackground: '#414141',
     popupBackground: '#171717',
 
-    messageBubble: '#1C1C1C',
+    messageBackground: '#1C1C1C',
+    rectangleBackground: '#151515',
     
+    // what is used for, looks unnecessary
     text: alpha('#ffffff', 0.8),
+
     red: 'red'
   };
 

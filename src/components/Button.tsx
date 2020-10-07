@@ -59,38 +59,36 @@ class Button extends React.Component<{
 
     const Component = !useAlternative ? GHTouchableComponent : TouchableComponent;
 
-    return (
-      <Component
-        testID={ testID }
-        style={ wrapperStyle }
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        //@ts-ignore
-        background={ (!useAlternative ? GHTouchableNativeFeedback : TouchableNativeFeedback).Ripple(colors.ripple, borderless) }
-        activeOpacity={ activeOpacity }
-        disabled={ disabled }
-        onPress={ onPress }
-      >
-        <View style={ buttonStyle }>
+    return <Component
+      testID={ testID }
+      style={ wrapperStyle }
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
+      background={ (!useAlternative ? GHTouchableNativeFeedback : TouchableNativeFeedback).Ripple(colors.ripple, borderless) }
+      activeOpacity={ activeOpacity }
+      disabled={ disabled }
+      onPress={ onPress }
+    >
+      <View style={ buttonStyle }>
 
-          <View style={ backgroundStyle }>
-            <View style={ badgeStyle }/>
-          </View>
-
-          {
-            (icon) ? <Icon { ...icon }/> : undefined
-          }
-
-          {
-            (text) ? <Text style={ textStyle }>{ text }</Text> : undefined
-          }
-
-          {
-            this.props.children
-          }
-         
+        <View style={ backgroundStyle }>
+          <View style={ badgeStyle }/>
         </View>
-      </Component>
-    );
+
+        {
+          (icon) ? <Icon { ...icon }/> : undefined
+        }
+
+        {
+          (text) ? <Text style={ textStyle }>{ text }</Text> : undefined
+        }
+
+        {
+          this.props.children
+        }
+         
+      </View>
+    </Component>;
   }
 }
 
