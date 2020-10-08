@@ -1,14 +1,16 @@
 export type InboxEntry = {
   id: string,
+  createdAt: Date,
+  updatedAt: Date,
   displayName: string,
   members: Profile[],
   messages: Message[]
 }
 
 export type Message = {
+  createdAt: Date,
   owner: string,
-  text: string,
-  timestamp: Date
+  text: string
 }
 
 export type ProfileInfo = {
@@ -16,7 +18,8 @@ export type ProfileInfo = {
   speaks: string[],
   profession: string,
   romantically: 'Open' | 'Closed',
-  sex: 'Woman' | 'Man' | 'Other',
+  worksAt: string,
+  gender: 'Woman' | 'Man' | 'Non-binary',
   sexuality: 'Straight' | 'Gay' | 'Lesbian' | 'Bi',
   religion: string,
   age: number

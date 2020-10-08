@@ -106,8 +106,10 @@ class Menu extends StoreComponent<{
           textStyle={ styles.buttonText  }
           icon={ { name: 'user', size: sizes.icon * 0.75, color: colors.whiteText, style: styles.buttonIcon } }
           text={ 'Profile' }
-          onPress={ () => this.openProfile(this.store.state.profile) }
+          onPress={ () => this.openProfile(this.state.profile) }
         />
+
+        <View style={ styles.space }/>
 
         <Button
           testID={ 'bn-settings' }

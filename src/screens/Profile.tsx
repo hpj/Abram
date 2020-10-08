@@ -10,6 +10,8 @@ import getTheme from '../colors';
 
 import { sizes } from '../sizes';
 
+import { pronoun, sharedInterests } from '../utils';
+
 import Button from '../components/Button';
 
 const colors = getTheme();
@@ -19,27 +21,25 @@ class Profile extends React.Component<{
   profile: TProfile
 }>
 {
+  disabledInfo(key: string): boolean
+  {
+    if (key === 'romantically')
+      return false;
+    
+    return true;
+  }
+
+  pressInfo(key: string): void
+  {
+    if (key === 'romantically')
+      this.openRomantic();
+  }
+
   sharedInterests(): { shared: string[], mismatched: string[] }
   {
     const { user, profile } = this.props;
 
-    const shared: string[] = [];
-    const mismatched: string[] = [];
-
-    profile.interests.forEach((value) =>
-    {
-      if (user.interests.includes(value))
-        shared.push(value);
-      else
-        mismatched.push(value);
-    });
-
-    profile.interests.filter(value => user.interests.includes(value));
-
-    return {
-      shared,
-      mismatched
-    };
+    return sharedInterests(user, profile);
   }
 
   openInterests({ shared, mismatched }: { shared: string[], mismatched: string[] }): void
@@ -62,7 +62,7 @@ class Profile extends React.Component<{
       {
         return <View>
           <Text style={ styles.title }>
-            { editable ? 'Your Interests' : `Interests of ${profile.displayName}` }
+            { editable ? 'Your Interests' : `Interests of ${profile.nickname}` }
           </Text>
 
           <View style={ styles.interests }>
@@ -85,14 +85,74 @@ class Profile extends React.Component<{
     });
   }
 
+  openRomantic(): void
+  {
+    const store = getStore();
+
+    if (store.state.popup)
+      return;
+    
+    const { profile } = this.props;
+
+    // const editable = profile.uuid == user.uuid;
+
+    // open a popup containing the all interests
+    store.set({
+      popup: true,
+      popupContent: () =>
+      {
+        const p = pronoun(profile.info.gender);
+
+        return <View>
+
+          <Text style={ styles.titleBig }>
+            Romantic Availability
+          </Text>
+
+          {
+            profile.info.romantically === 'Closed' ?
+
+              // Closed
+              <Text style={ styles.demographic }>
+                <Text>{`${profile.nickname} has ${p.their} romantic availability set to `}</Text>
+                <Text style={ { color: colors.whiteText } }>CLOSED</Text>
+                <Text>{ `,\n\nIf you attempt flirting with ${p.them}, it can result in your account getting ` }</Text>
+                <Text style={ { color: colors.whiteText } }>TERMINATED</Text>
+                <Text>.</Text>
+              </Text> :
+              
+              // Open
+              <Text style={ styles.demographic }>
+                <Text>{`${profile.nickname} has ${p.their} romantic availability set to `}</Text>
+                <Text style={ { color: colors.whiteText } }>OPEN</Text>
+                <Text>{ `, meaning that ${p.they} is okay with flirting.` }</Text>
+
+                {/* Keep in mind sexuality, religion, gender do exist when flirting with someone. */}
+                <Text>
+                  { `\n\nKeep in mind, ${profile.nickname} is a ` }
+                </Text>
+                <Text style={ { color: colors.whiteText } }>
+                  { [ profile.info.sexuality, profile.info.religion, profile.info.gender ].join(' ').trim() }
+                </Text>
+                {
+                  !profile.info.sexuality ? <Text>{`, and ${p.they} did not specify ${p.their} sexuality`}</Text> : undefined
+                }
+                <Text>.</Text>
+              </Text>
+          }
+        </View>;
+      }
+    });
+  }
+
   render(): JSX.Element
   {
-    const { user, profile } = this.props;
+    const { profile, user } = this.props;
 
     if (!profile?.uuid || !user?.uuid)
       return <View/>;
 
-    const editable = user.uuid === profile.uuid;
+    const editable = profile.uuid == user.uuid;
 
     const infoKeys = Object.keys(profile.info);
 
@@ -129,7 +189,7 @@ class Profile extends React.Component<{
 
       <View style={ styles.info }>
         {
-          // TODO add a comment to sexuality to leave it empty if Asexual or questioning
+          // TODO editable: add a comment to sexuality to leave it empty if Asexual or questioning
           infoKeys.map((key, i) =>
           {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -141,13 +201,20 @@ class Profile extends React.Component<{
             if (Array.isArray(value))
               value = value.join(', ') + '.';
 
-            return <View key={ i } style={ styles.rectangle }>
+            return <Button
+              key={ i }
+              useAlternative={ true }
+              borderless={ true }
+              buttonStyle={ styles.rectangle }
+              disabled={ editable || this.disabledInfo(key) }
+              onPress={ () => this.pressInfo(key) }
+            >
               {/* eslint-disable-next-line react-native/no-inline-styles */}
               <View style={ { alignSelf: 'center' } }>
                 <Text style={ styles.rectangleKey }>{ key }</Text>
                 <Text style={ styles.rectangleValue }>{ value }</Text>
               </View>
-            </View>;
+            </Button>;
           })
         }
       </View>
@@ -182,12 +249,10 @@ class Profile extends React.Component<{
         {
           shared.slice(0, 6).map((value, i) =>
           {
-
             return <View key={ i } style={ styles.rectangleSlim }>
               <Text style={ styles.rectangleValue }>{ value }</Text>
             </View>;
           })
-
         }
         
         {
@@ -240,6 +305,28 @@ const styles = StyleSheet.create({
 
     marginHorizontal: sizes.windowMargin,
     marginTop: sizes.windowMargin * 1.5
+  },
+
+  titleBig: {
+    fontSize: 13,
+    color: colors.greyText,
+    fontWeight: 'bold',
+
+    textTransform: 'uppercase',
+
+    marginHorizontal: sizes.windowMargin,
+    marginTop: sizes.windowMargin * 1.5
+  },
+
+  demographic: {
+    fontSize: 14,
+    color: colors.greyText,
+    fontWeight: 'bold',
+    lineHeight: 14 * 1.35,
+
+    marginHorizontal: sizes.windowMargin,
+    marginTop: sizes.windowMargin * 1.5,
+    marginBottom: sizes.windowMargin * 2
   },
 
   titles: {

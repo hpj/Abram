@@ -35,7 +35,8 @@ class BottomNavigation extends StoreComponent<unknown, {
   stateWillChange({ profile, inbox }: BottomNavigation['state']): void
   {
     // turn badge on if inbox has any entries with unanswered messages
-    this.inboxBadge = inbox.some(entry => entry.messages[entry.messages.length - 1].owner !== profile.uuid);
+    this.inboxBadge = inbox.some(entry =>
+      entry.messages.length <= 0 || entry.messages[entry.messages.length - 1].owner !== profile.uuid);
   }
 
   stateWhitelist(changes: BottomNavigation['state']): boolean

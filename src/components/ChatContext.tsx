@@ -51,7 +51,7 @@ class ChatContext extends React.Component<{
         {/* eslint-disable-next-line react-native/no-inline-styles */}
         <View style={ { flex: 1, justifyContent: 'center' } }>
           <Text style={ styles.name }>{ member?.displayName }</Text>
-          <Text style={ styles.time }>{ relativeDate(message?.timestamp, true) }</Text>
+          <Text style={ styles.time }>{ relativeDate(message?.createdAt, true) }</Text>
         </View>
 
         <Button

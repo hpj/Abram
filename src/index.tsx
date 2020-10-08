@@ -79,6 +79,8 @@ const store = createStore({
   inbox: [
     {
       id: 'C-0001',
+      createdAt: subDays(new Date(), 22),
+      updatedAt: subHours(new Date(), 1),
       displayName: 'Dina El-Wedidi',
       members: [
         {
@@ -99,7 +101,7 @@ const store = createStore({
             speaks: [ 'English', 'Arabic' ],
             profession: 'Singer',
             romantically: 'Closed',
-            sex: 'Woman',
+            gender: 'Woman',
             sexuality: 'Straight',
             religion: 'Muslim',
             age: 33
@@ -118,13 +120,15 @@ const store = createStore({
         }
       ],
       messages: [
-        { owner: '0002', text: 'Did you really made it through the world’s championship of shit?', timestamp: subDays(new Date(), 21) },
-        { owner: '0001', text: 'No.', timestamp: addMinutes(subDays(new Date(), 21), 3) },
-        { owner: '0002', text: 'Hey Kay, We need to talk about your face.', timestamp: subHours(new Date(), 1) }
+        // { owner: '0002', text: 'Did you really made it through the world’s championship of shit?', createdAt: subDays(new Date(), 21) },
+        // { owner: '0001', text: 'No.', createdAt: addMinutes(subDays(new Date(), 21), 3) },
+        // { owner: '0002', text: 'Hey Kay, We need to talk about your face.', createdAt: subHours(new Date(), 1) }
       ]
     },
     {
       id: 'C-0002',
+      createdAt: subDays(new Date(), 24),
+      updatedAt: subHours(new Date(), 26),
       displayName: 'Councill of Karkars',
       members: [
         {
@@ -182,13 +186,15 @@ const store = createStore({
         }
       ],
       messages: [
-        { owner: '0011', text: 'Ahmed is an idiot.', timestamp: subDays(new Date(), 21) },
-        { owner: '0001', text: 'I agree.', timestamp: addMinutes(subDays(new Date(), 21), 6) },
-        { owner: '0013', text: 'Maybe, we could kill him.', timestamp: subHours(new Date(), 26) }
+        { owner: '0011', text: 'Ahmed is an idiot.', createdAt: subDays(new Date(), 22) },
+        { owner: '0001', text: 'I agree.', createdAt: addMinutes(subDays(new Date(), 21), 6) },
+        { owner: '0013', text: 'Maybe, we could kill him.', createdAt: subHours(new Date(), 26) }
       ]
     },
     {
       id: 'C-0003',
+      createdAt: subDays(new Date(), 50),
+      updatedAt: subDays(new Date(), 50),
       displayName: 'Amir Eid',
       members: [
         {
@@ -214,7 +220,7 @@ const store = createStore({
         }
       ],
       messages: [
-        { owner: '0100', text: 'Sharmoofers bad.', timestamp: subDays(new Date(), 50) }
+        { owner: '0100', text: 'Sharmoofers bad.', createdAt: subDays(new Date(), 50) }
       ]
     }
   ] as InboxEntry[]

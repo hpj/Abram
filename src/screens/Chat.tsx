@@ -26,14 +26,12 @@ const colors = getTheme();
 
 const emojiRegex = EmojiRegex();
 
-function relativeDate(messageTimestamp: Date, prevMessageTimestamp: Date): string | undefined
+function relativeDate(currMessageDate: Date, prevMessageDate: Date): string | undefined
 {
   let showTime = false;
 
-  const date = new Date(messageTimestamp);
-
   // if this is the first message in the conversation
-  if (!prevMessageTimestamp)
+  if (!prevMessageDate)
   {
     showTime = true;
   }
@@ -42,21 +40,19 @@ function relativeDate(messageTimestamp: Date, prevMessageTimestamp: Date): strin
     // 5 minutes
     const maxDiff = 5;
 
-    const prevMessageDate = new Date(prevMessageTimestamp);
-
     // messages are on a different days
-    if (!isSameDay(messageTimestamp, prevMessageDate))
+    if (!isSameDay(currMessageDate, prevMessageDate))
       showTime = true;
 
     // messages are from today but have a [max] minutes between them
-    else if (isToday(messageTimestamp) && differenceInMinutes(date, prevMessageDate) > maxDiff)
+    else if (isToday(currMessageDate) && differenceInMinutes(currMessageDate, prevMessageDate) > maxDiff)
       showTime = true;
   }
 
   if (!showTime)
     return;
 
-  return utils.relativeDate(date, false);
+  return utils.relativeDate(currMessageDate, false);
 }
 
 class Chat extends StoreComponent<unknown, {
@@ -85,14 +81,64 @@ class Chat extends StoreComponent<unknown, {
     this.sendMessage = this.sendMessage.bind(this);
   }
 
+  hints: JSX.Element[] = [];
+
   messages: Message[] = [];
 
-  stateWillChange({ activeChat }: Chat['state']): void
+  stateWillChange({ activeChat, profile }: Chat['state']): void
   {
     // TODO limit the number of messages using the backend, so this won't slow performance much
-    
+      
+    if (activeChat?.id && activeChat?.id !== this.state.activeChat?.id)
+    {
+      this.hints = [];
+
+      const members = [ ...activeChat.members ];
+
+      // remove self from array
+      members.splice(
+        members.findIndex(member => member.uuid === profile.uuid), 1);
+
+      // TODO show some hints inside groups too
+      if (activeChat.members.length === 2)
+      {
+        const user = members[0];
+  
+        // show a greeting
+        this.hints.push(<Text style={ styles.hint }>{ `Hello, ${profile.nickname}.` }</Text>);
+  
+        // show nickname preference
+        if (user.nickname)
+          this.hints.push(<Text style={ styles.hint }>
+            {
+              user.displayName + ' prefers to be called '
+            }
+            <Text style={ styles.hintBold }>{ user.nickname }</Text>
+            <Text>.</Text>
+          </Text>);
+  
+        // show ice breakers
+        if (user.iceBreakers?.length > 1)
+        {
+          this.hints.push(
+            <Text style={ styles.hint }>{ `You can start the conversation by asking one of those questions ${user.nickname} likes:` }</Text>,
+            ...user.iceBreakers.map((question, i) => <Text key={ i } style={ { ...styles.hintSlim, ...styles.hintBold } }>{ `- ${question}` }</Text>),
+            <Text style={ styles.hint }></Text>
+          );
+        }
+        // TODO show shared interest instead of ice breaks
+        else
+        {
+          //
+        }
+      }
+    }
+
     // reverse happens because the way flat-list works
-    this.messages = activeChat?.messages?.concat().reverse();
+    if (activeChat?.messages)
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      this.messages = [ ...this.hints, ...activeChat.messages ].reverse();
   }
 
   stateWhitelist(changes: Chat['state']): boolean
@@ -131,8 +177,11 @@ class Chat extends StoreComponent<unknown, {
     const message: Message = {
       owner: profile.uuid,
       text: this.strip(value).trim(),
-      timestamp: new Date()
+      createdAt: new Date()
     };
+
+    // update the last active timestamp
+    activeChat.updatedAt = message.createdAt;
 
     // add message to UI
     activeChat.messages.push(message);
@@ -190,6 +239,54 @@ class Chat extends StoreComponent<unknown, {
     const bubbleTextWidth = bubbleWidth - (sizes.windowMargin * 2);
     const avatarBubbleTextWidth = bubbleTextWidth - sizes.chatAvatar - sizes.windowMargin;
 
+    const renderMessage = ({ item, index }: { item: Message, index: number }) =>
+    {
+      if (!item.owner)
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        return React.cloneElement(item as any, { key: index });
+      
+      const message = item as Message;
+
+      const self = message.owner === profile.uuid;
+
+      const avatar =
+          (!self && activeChat.members.length > 2) ?
+            activeChat.members.find(member => member.uuid === message.owner)?.avatar :
+            undefined;
+        
+      const time = relativeDate(message.createdAt, this.messages[index + 1]?.createdAt);
+        
+      return <View>
+        {
+          (time) ?
+            <Text style={ styles.time }>{ time }</Text> :
+            <View/>
+        }
+
+        {
+          (avatar) ?
+            <TouchableWithoutFeedback
+              testID={ 'bn-context' }
+              style={ { ...styles.message, maxWidth: bubbleWidth } }
+              onPress={ () => this.onPress(message) }
+            >
+              {/* @ts-ignore */}
+              <Image style={ styles.avatar } source={ avatar }/>
+              {/* <Image style={ styles.avatar } source={ { uri: avatar } }/> */}
+              <Text style={ { ...styles.text, maxWidth: avatarBubbleTextWidth } }>{ message.text }</Text>
+            </TouchableWithoutFeedback> :
+
+            <TouchableWithoutFeedback
+              testID={ 'bn-context' }
+              style={ { ...styles.message, ...(self ? styles.messageAlt : undefined), maxWidth: bubbleWidth } }
+              onPress={ () => this.onPress(message) }
+            >
+              <Text style={ { ...styles.text, maxWidth: bubbleTextWidth } }>{ message.text }</Text>
+            </TouchableWithoutFeedback>
+        }
+      </View>;
+    };
+
     return <View testID={ 'v-chat' } style={ {
       ...styles.container,
       height: viewHeight
@@ -199,47 +296,7 @@ class Chat extends StoreComponent<unknown, {
         inverted={ true }
         data={ this.messages }
         keyExtractor={ (item, index) => index.toString() }
-        renderItem={ ({ item, index }) =>
-        {
-          const self = item.owner === profile.uuid;
-
-          const avatar =
-              (!self && activeChat.members.length > 2) ?
-                activeChat.members.find(member => member.uuid === item.owner)?.avatar :
-                undefined;
-            
-          const time = relativeDate(item.timestamp, this.messages[index + 1]?.timestamp);
-            
-          return <View>
-            {
-              (time) ?
-                <Text style={ styles.time }>{ time }</Text> :
-                <View/>
-            }
-
-            {
-              (avatar) ?
-                <TouchableWithoutFeedback
-                  testID={ 'bn-context' }
-                  style={ { ...styles.message, maxWidth: bubbleWidth } }
-                  onPress={ () => this.onPress(item) }
-                >
-                  {/* @ts-ignore */}
-                  <Image style={ styles.avatar } source={ avatar }/>
-                  {/* <Image style={ styles.avatar } source={ { uri: avatar } }/> */}
-                  <Text style={ { ...styles.text, maxWidth: avatarBubbleTextWidth } }>{ item.text }</Text>
-                </TouchableWithoutFeedback> :
-
-                <TouchableWithoutFeedback
-                  testID={ 'bn-context' }
-                  style={ { ...styles.message, ...(self ? styles.messageAlt : undefined), maxWidth: bubbleWidth } }
-                  onPress={ () => this.onPress(item) }
-                >
-                  <Text style={ { ...styles.text, maxWidth: bubbleTextWidth } }>{ item.text }</Text>
-                </TouchableWithoutFeedback>
-            }
-          </View>;
-        } }
+        renderItem={ renderMessage }
       />
 
       <View style={ {
@@ -271,6 +328,27 @@ class Chat extends StoreComponent<unknown, {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.blackBackground
+  },
+
+  hint: {
+    color: colors.greyText,
+    fontSize: 13,
+
+    marginBottom: sizes.windowMargin * 1.5,
+    marginHorizontal: sizes.windowMargin * 1.25
+  },
+  
+  hintSlim: {
+    color: colors.greyText,
+    fontSize: 13,
+
+    marginVertical: sizes.windowMargin * 0.15,
+    marginHorizontal: sizes.windowMargin * 1.25
+  },
+
+  hintBold: {
+    fontWeight: 'bold',
+    fontSize: 13
   },
 
   time: {

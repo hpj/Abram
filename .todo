@@ -1,8 +1,13 @@
 Performance Issues and Bugs:
   ☐ search's holder does not expend with its width @high 
 
+  ☐ opening a chat context and closing the bottom sheet quickly before the chat context menu appears
+    breaks the bottom sheet (this is related to the state.activeChat)
+
 Public Beta:
   ☐ work on branding descriptions and motto
+
+  ☐ add section to rules and principles about spamming @high 
 
   ☐ consuming native sign-in with google 
     ☐ region locking
@@ -17,8 +22,12 @@ Public Beta:
 Testing:
   - test profile view
     ☐ test others @high
-    
-    ☐ test personal (needs more UI elements first)
+
+  - test expanding profile elements
+    - interests
+    - romantic status
+
+  ☐ test editable personal profile
 
   ☐ on different screen sizes
   

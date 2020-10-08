@@ -37,12 +37,12 @@ class Inbox extends StoreComponent<{
     return {
       inbox: inbox.sort((a, b) =>
       {
-        const tA = a.messages[a.messages.length - 1];
-        const tB = b.messages[b.messages.length - 1];
+        const tA = a.updatedAt;
+        const tB = b.updatedAt;
 
-        if (tA.timestamp.getTime() > tB.timestamp.getTime())
+        if (tA.getTime() > tB.getTime())
           return -1;
-        else if (tA.timestamp.getTime() < tB.timestamp.getTime())
+        else if (tA.getTime() < tB.getTime())
           return 1;
         else
           return 0;
@@ -102,10 +102,11 @@ class Inbox extends StoreComponent<{
           members.splice(
             members.findIndex(member => member.uuid === profile.uuid), 1);
 
+          const lastUpdated = relativeDate(entry.updatedAt);
+            
           const lastMessage = entry.messages[entry.messages.length - 1];
-          const lastMessageTime = relativeDate(lastMessage.timestamp);
 
-          const badge = lastMessage.owner !== profile.uuid ;
+          const badge = entry.messages.length <= 0 || lastMessage.owner !== profile.uuid;
 
           return <Button
             key={ t }
@@ -217,11 +218,18 @@ class Inbox extends StoreComponent<{
 
                 <View style={ styles.info }>
                   <Text style={ { ...styles.name, fontSize: this.responsive(22) } }>{ entry.displayName }</Text>
-                  <Text style={ { ...styles.time, fontSize: this.responsive(20) } }>{ lastMessageTime }</Text>
-                  {/* \u200E is used to force all text to renter from left to right */}
-                  <Text style={ { ...styles.preview, fontSize: this.responsive(22) } } numberOfLines={ 1 }>
-                    { '\u200E' + lastMessage.text }
-                  </Text>
+                  <Text style={ { ...styles.time, fontSize: this.responsive(20) } }>{ lastUpdated }</Text>
+
+                  {
+                    lastMessage?.text ?
+                      <Text style={ { ...styles.preview, fontSize: this.responsive(22) } } numberOfLines={ 1 }>
+                        { lastMessage.text }
+                      </Text> : <View style={ styles.newBadge }>
+                        <Text style={ styles.newBadgeText }>
+                          New Match
+                        </Text>
+                      </View>
+                  }
                 </View>
 
               </View>
@@ -291,7 +299,30 @@ const styles = StyleSheet.create({
 
   preview: {
     color: colors.greyText,
-    marginTop: 10
+    fontSize: 13,
+
+    alignSelf: 'flex-start',
+
+    marginTop: sizes.windowMargin * 0.5
+  },
+
+  newBadge: {
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: colors.whiteText,
+
+    alignSelf: 'flex-start',
+
+    paddingHorizontal: sizes.windowMargin * 0.5,
+    paddingVertical: sizes.windowMargin * 0.25,
+    
+    marginTop: sizes.windowMargin * 0.5
+  },
+  
+  newBadgeText: {
+    color: colors.whiteText,
+    textTransform: 'uppercase',
+    fontSize: 11
   }
 });
 

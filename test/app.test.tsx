@@ -367,7 +367,7 @@ describe('Testing <App/>', () =>
             }
           ],
           messages: [
-            { owner: '1', text: '', timestamp: new Date(1999, 9, 9) }
+            { owner: '1', text: '', createdAt: new Date(1999, 9, 9) }
           ]
         } as InboxEntry
       });
@@ -425,7 +425,7 @@ describe('Testing <App/>', () =>
             }
           ],
           messages: [
-            { owner: '1', text: '', timestamp: new Date(1999, 9, 9) }
+            { owner: '1', text: '', createdAt: new Date(1999, 9, 9) }
           ]
         } ] as InboxEntry[]
       });
@@ -493,7 +493,7 @@ describe('Testing <App/>', () =>
             }
           ],
           messages: [
-            { owner: '1', text: '', timestamp: new Date(1999, 9, 9) }
+            { owner: '1', text: '', createdAt: new Date(1999, 9, 9) }
           ]
         } ] as InboxEntry[]
       });
@@ -583,7 +583,7 @@ describe('Testing <App/>', () =>
               }
             ],
             messages: [
-              { owner: '1', text: '', timestamp: new Date(1999, 9, 9) }
+              { owner: '1', text: '', createdAt: new Date(1999, 9, 9) }
             ]
           }
         ] as InboxEntry[]
@@ -641,7 +641,7 @@ describe('Testing <App/>', () =>
               }
             ],
             messages: [
-              { owner: '1', text: '', timestamp: new Date(1999, 9, 9) }
+              { owner: '1', text: '', createdAt: new Date(1999, 9, 9) }
             ]
           }
         ] as InboxEntry[]
@@ -703,7 +703,7 @@ describe('Testing <App/>', () =>
               }
             ],
             messages: [
-              { owner: '1', text: '', timestamp: new Date(1999, 9, 9) }
+              { owner: '1', text: '', createdAt: new Date(1999, 9, 9) }
             ]
           }
         ] as InboxEntry[]
@@ -897,7 +897,7 @@ describe('Testing <App/>', () =>
               }
             ],
             messages: [
-              { owner: '1', text: 'Yay', timestamp: new Date() }
+              { owner: '1', text: 'Yay', createdAt: new Date() }
             ]
           }
         ] as InboxEntry[]
@@ -959,8 +959,8 @@ describe('Testing <App/>', () =>
               }
             ],
             messages: [
-              { owner: '1', text: '', timestamp: new Date(1999, 9, 9) },
-              { owner: '2', text: '', timestamp: new Date(2001, 1, 1) }
+              { owner: '1', text: '', createdAt: new Date(1999, 9, 9) },
+              { owner: '2', text: '', createdAt: new Date(2001, 1, 1) }
             ]
           }
         ] as InboxEntry[]
@@ -1017,7 +1017,7 @@ describe('Testing <App/>', () =>
               }
             ],
             messages: [
-              { owner: '1', text: '<3', timestamp: new Date(1999, 9, 9) }
+              { owner: '1', text: '<3', createdAt: new Date(1999, 9, 9) }
             ]
           }
         ] as InboxEntry[]
@@ -1085,8 +1085,8 @@ describe('Testing <App/>', () =>
                 }
               ],
               messages: [
-                { owner: '1', text: 'Yay', timestamp: new Date(1999, 9, 9, 9, 0) },
-                { owner: '0', text: '<3', timestamp: new Date(1999, 9, 9, 9, 1) }
+                { owner: '1', text: 'Yay', createdAt: new Date(1999, 9, 9, 9, 0) },
+                { owner: '0', text: '<3', createdAt: new Date(1999, 9, 9, 9, 1) }
               ]
             }
           ] as InboxEntry[]
@@ -1141,10 +1141,10 @@ describe('Testing <App/>', () =>
                 }
               ],
               messages: [
-                { owner: '1', text: 'Yay', timestamp: new Date(1999, 9, 9, 9, 0) },
-                { owner: '1', text: 'Yay', timestamp: subDays(new Date(), 3) },
-                { owner: '1', text: 'Yay', timestamp: subDays(new Date(), 1) },
-                { owner: '1', text: 'Yay', timestamp: new Date() }
+                { owner: '1', text: 'Yay', createdAt: new Date(1999, 9, 9, 9, 0) },
+                { owner: '1', text: 'Yay', createdAt: subDays(new Date(), 3) },
+                { owner: '1', text: 'Yay', createdAt: subDays(new Date(), 1) },
+                { owner: '1', text: 'Yay', createdAt: new Date() }
               ]
             }
           ] as InboxEntry[]
@@ -1200,8 +1200,8 @@ describe('Testing <App/>', () =>
                 }
               ],
               messages: [
-                { owner: '1', text: 'Yay', timestamp: new Date(1999, 9, 9, 9, 0) },
-                { owner: '0', text: '<3', timestamp: new Date(1999, 9, 9, 9, 1) }
+                { owner: '1', text: 'Yay', createdAt: new Date(1999, 9, 9, 9, 0) },
+                { owner: '0', text: '<3', createdAt: new Date(1999, 9, 9, 9, 1) }
               ]
             }
           ] as InboxEntry[]
@@ -1250,8 +1250,8 @@ describe('Testing <App/>', () =>
               }
             ],
             messages: [
-              { owner: '1', text: 'Yay', timestamp: new Date(1999, 9, 9, 9, 0) },
-              { owner: '0', text: '<3', timestamp: new Date(1999, 9, 9, 9, 1) }
+              { owner: '1', text: 'Yay', createdAt: new Date(1999, 9, 9, 9, 0) },
+              { owner: '0', text: '<3', createdAt: new Date(1999, 9, 9, 9, 1) }
             ]
           }
         ] as InboxEntry[]
@@ -1308,7 +1308,7 @@ describe('Testing <App/>', () =>
               }
             ],
             messages: [
-              { owner: '1', text: 'Yay', timestamp: subDays(new Date(), 2) }
+              { owner: '1', text: 'Yay', createdAt: subDays(new Date(), 2) }
             ]
           },
           {
@@ -1325,7 +1325,7 @@ describe('Testing <App/>', () =>
               }
             ],
             messages: [
-              { owner: '1', text: 'Ya?', timestamp: subDays(new Date(), 3) }
+              { owner: '1', text: 'Ya?', createdAt: subDays(new Date(), 3) }
             ]
           }
         ] as InboxEntry[]
@@ -1411,7 +1411,7 @@ describe('Testing <App/>', () =>
               }
             ],
             messages: [
-              { owner: '1', text: 'Yay', timestamp: new Date() }
+              { owner: '1', text: 'Yay', createdAt: new Date() }
             ]
           }
         ] as InboxEntry[]
@@ -1480,7 +1480,7 @@ describe('Testing <App/>', () =>
               }
             ],
             messages: [
-              { owner: '1', text: 'Yay', timestamp: new Date() }
+              { owner: '1', text: 'Yay', createdAt: new Date() }
             ]
           }
         ] as InboxEntry[]
@@ -1536,7 +1536,7 @@ describe('Testing <Inbox/>', () =>
             }
           ],
           messages: [
-            { owner: '1', text: '', timestamp: new Date(1999, 9, 9, 9) }
+            { owner: '1', text: '', createdAt: new Date(1999, 9, 9, 9) }
           ]
         }
       ] as InboxEntry[]
@@ -1571,7 +1571,7 @@ describe('Testing <Inbox/>', () =>
             }
           ],
           messages: [
-            { owner: '1', text: 'Yay', timestamp: new Date() }
+            { owner: '1', text: 'Yay', createdAt: new Date() }
           ]
         },
         {
@@ -1588,7 +1588,7 @@ describe('Testing <Inbox/>', () =>
             }
           ],
           messages: [
-            { owner: '1', text: 'Yay', timestamp: subDays(new Date(), 1) }
+            { owner: '1', text: 'Yay', createdAt: subDays(new Date(), 1) }
           ]
         },
         {
@@ -1605,7 +1605,7 @@ describe('Testing <Inbox/>', () =>
             }
           ],
           messages: [
-            { owner: '1', text: 'Yay', timestamp: subDays(new Date(), 3) }
+            { owner: '1', text: 'Yay', createdAt: subDays(new Date(), 3) }
           ]
         },
         {
@@ -1622,7 +1622,7 @@ describe('Testing <Inbox/>', () =>
             }
           ],
           messages: [
-            { owner: '1', text: 'Yay', timestamp: new Date(1999, 9, 9, 9, 0) }
+            { owner: '1', text: 'Yay', createdAt: new Date(1999, 9, 9, 9, 0) }
           ]
         }
       ] as InboxEntry[]
@@ -1669,8 +1669,8 @@ describe('Testing <Inbox/>', () =>
             }
           ],
           messages: [
-            { owner: '1', text: '', timestamp: new Date(1999, 9, 9) },
-            { owner: '2', text: '', timestamp: new Date(2001, 1, 1) }
+            { owner: '1', text: '', createdAt: new Date(1999, 9, 9) },
+            { owner: '2', text: '', createdAt: new Date(2001, 1, 1) }
           ]
         }
       ] as InboxEntry[]
@@ -1713,9 +1713,9 @@ describe('Testing <Inbox/>', () =>
             }
           ],
           messages: [
-            { owner: '1', text: '', timestamp: new Date(1999, 9, 9) },
-            { owner: '2', text: '', timestamp: new Date(2001, 1, 1) },
-            { owner: '3', text: '', timestamp: new Date(2002, 2, 2) }
+            { owner: '1', text: '', createdAt: new Date(1999, 9, 9) },
+            { owner: '2', text: '', createdAt: new Date(2001, 1, 1) },
+            { owner: '3', text: '', createdAt: new Date(2002, 2, 2) }
           ]
         }
       ] as InboxEntry[]
@@ -1762,10 +1762,10 @@ describe('Testing <Inbox/>', () =>
             }
           ],
           messages: [
-            { owner: '1', text: '', timestamp: new Date(1999, 9, 9) },
-            { owner: '2', text: '', timestamp: new Date(2001, 1, 1) },
-            { owner: '3', text: '', timestamp: new Date(2002, 2, 2) },
-            { owner: '4', text: '', timestamp: new Date(2003, 3, 3) }
+            { owner: '1', text: '', createdAt: new Date(1999, 9, 9) },
+            { owner: '2', text: '', createdAt: new Date(2001, 1, 1) },
+            { owner: '3', text: '', createdAt: new Date(2002, 2, 2) },
+            { owner: '4', text: '', createdAt: new Date(2003, 3, 3) }
           ]
         }
       ] as InboxEntry[]
@@ -1812,10 +1812,10 @@ describe('Testing <Inbox/>', () =>
             }
           ],
           messages: [
-            { owner: '1', text: '', timestamp: new Date(1999, 9, 9) },
-            { owner: '2', text: '', timestamp: new Date(2001, 1, 1) },
-            { owner: '3', text: '', timestamp: new Date(2002, 2, 2) },
-            { owner: '4', text: '', timestamp: new Date(2003, 3, 3) }
+            { owner: '1', text: '', createdAt: new Date(1999, 9, 9) },
+            { owner: '2', text: '', createdAt: new Date(2001, 1, 1) },
+            { owner: '3', text: '', createdAt: new Date(2002, 2, 2) },
+            { owner: '4', text: '', createdAt: new Date(2003, 3, 3) }
           ]
         }
       ] as InboxEntry[]
@@ -1862,10 +1862,10 @@ describe('Testing <Inbox/>', () =>
             }
           ],
           messages: [
-            { owner: '1', text: '', timestamp: new Date(1999, 9, 9) },
-            { owner: '2', text: '', timestamp: new Date(2001, 1, 1) },
-            { owner: '3', text: '', timestamp: new Date(2002, 2, 2) },
-            { owner: '4', text: '', timestamp: new Date(2003, 3, 3) }
+            { owner: '1', text: '', createdAt: new Date(1999, 9, 9) },
+            { owner: '2', text: '', createdAt: new Date(2001, 1, 1) },
+            { owner: '3', text: '', createdAt: new Date(2002, 2, 2) },
+            { owner: '4', text: '', createdAt: new Date(2003, 3, 3) }
           ]
         }
       ] as InboxEntry[]

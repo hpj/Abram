@@ -31,19 +31,19 @@ class ChatHeader extends StoreComponent<unknown, {
     if (!activeChat?.id)
       return <View/>;
 
-    let lastMessageDate = '';
+    let lastActive = '';
 
     const current = new Date();
-    const last = activeChat.messages[activeChat.messages.length - 1].timestamp;
+    const last = activeChat.updatedAt;
 
     if (current.getTime() - last.getTime() <= 60 * 1000)
-      lastMessageDate = 'Active recently';
+      lastActive = 'Active recently';
     else
-      lastMessageDate = `Active ${formatDistanceStrict(last, current)} ago`;
+      lastActive = `Active ${formatDistanceStrict(last, current)} ago`;
 
     return <View testID={ 'v-chat-header' } style={ styles.container }>
       <Text style={ styles.name }>{ activeChat.displayName }</Text>
-      <Text style={ styles.time }>{ lastMessageDate }</Text>
+      <Text style={ styles.time }>{ lastActive }</Text>
     </View>;
   }
 }
