@@ -192,7 +192,7 @@ class Chat extends StoreComponent<unknown, {
     // update state
     this.setState({ inputs },
       // update store
-      () =>  this.store.set({ activeChat }));
+      () => this.store.set({ activeChat }));
   }
 
   onPress(message: Message): void

@@ -1,8 +1,12 @@
 Performance Issues and Bugs:
-  ☐ search's holder does not expend with its width @high 
 
-  ☐ opening a chat context and closing the bottom sheet quickly before the chat context menu appears
-    breaks the bottom sheet (this is related to the state.activeChat)
+  ☐ opening a chat context and closing the bottom sheet quickly before the chat context menu appears @low 
+    breaks the bottom sheet
+      - this might be some issue we want to ignore
+      - since no events get called on bottom sheet
+      - we have no idea what causes that to... not happen?
+
+  ☐ lower the time it takes for the popup element to trigger @high 
 
 Public Beta:
   ☐ work on branding descriptions and motto

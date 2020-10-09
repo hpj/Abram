@@ -159,9 +159,7 @@ class Search extends StoreComponent<{
       <Animated.View style={ {
         ...styles.holder,
         
-        width: searchBarMinWidth,
-        height: searchBarMinWidth,
-
+        width: searchBarWidth,
         opacity: holderOpacity
       } }/>
 
@@ -224,6 +222,8 @@ const styles = StyleSheet.create({
     zIndex: depth.topBar,
     position: 'absolute',
     backgroundColor: colors.blackBackground,
+
+    height: sizes.avatar,
 
     top: 0,
     left: 0

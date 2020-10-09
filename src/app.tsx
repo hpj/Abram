@@ -148,13 +148,13 @@ export default class App extends StoreComponent<unknown, {
     {
       Keyboard.dismiss();
 
-      this.store.set({ activeChat: undefined, chatCooldown: false });
+      this.store.set({ chat: false });
 
       BackHandler.removeEventListener('hardwareBackPress', this.onBack);
     }
     else
     {
-      this.store.set({ chatCooldown: false });
+      this.store.set({ chat: true });
 
       BackHandler.addEventListener('hardwareBackPress', this.onBack);
     }
@@ -194,7 +194,7 @@ export default class App extends StoreComponent<unknown, {
 
       <Popup content={ popupContent?.() } holderNode={ this.holderNode }/>
 
-      <Menu snapTo={ this.bottomSheetRef.current?.snapTo } holderNode={ this.holderNode } deactivate={ this.topBarRef.current?.chatAvatarsRef.current?.deactivate }/>
+      <Menu close={ this.onBack } holderNode={ this.holderNode } deactivate={ this.topBarRef.current?.chatAvatarsRef.current?.deactivate }/>
 
       <TopBar ref={ this.topBarRef } holderNode={ this.holderNode } bottomSheetNode={ this.bottomSheetNode }/>
 
@@ -248,6 +248,9 @@ export default class App extends StoreComponent<unknown, {
           enabledContentGestureInteraction={ false }
 
           onOpenStart={ () => this.onClose(false) }
+          onOpenEnd={ () => this.onClose(false) }
+          
+          onCloseStart={ () => this.onClose(true) }
           onCloseEnd={ () => this.onClose(true) }
 
           renderHeader = {

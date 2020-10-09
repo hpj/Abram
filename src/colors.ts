@@ -34,7 +34,8 @@ export default function()
     text: alpha('#ffffff', 0.8),
 
     green: '#2f9634',
-    red: '#631515'
+    red: '#631515',
+    brightRed: '#bf0404'
   };
 
   // const lightTheme = {

@@ -20,14 +20,12 @@ class Inbox extends StoreComponent<{
   snapTo?: ((index: number) => void) | undefined
 }, {
   profile: Profile,
+  chat: boolean,
   activeChat: InboxEntry,
-  chatCooldown: boolean,
   inbox: InboxEntry[]
 }>
 {
   responsive = responsive.bind(this);
-
-  queue?: InboxEntry;
 
   stateWillChange({ inbox }: Inbox['state']): Partial<Inbox['state']>
   {
@@ -54,8 +52,8 @@ class Inbox extends StoreComponent<{
   {
     if (
       changes.profile ||
+      changes.chat ||
       changes.activeChat ||
-      changes.chatCooldown ||
       changes.inbox
     )
       return true;
@@ -63,34 +61,17 @@ class Inbox extends StoreComponent<{
     return false;
   }
 
-  stateDidChange(state: Inbox['state']): void
-  {
-    if (!state.activeChat && this.queue)
-      this.onPress(this.queue);
-  }
-
   onPress(entry: InboxEntry): void
   {
-    if (this.state.chatCooldown)
-      return;
-    
-    // if there's already an active chat then queue the new one to open after
-    // this one is closed
-    if (this.state.activeChat)
-    {
-      this.queue = entry;
-    }
-    else
-    {
-      this.queue = undefined;
-  
-      this.store.set({ activeChat: entry, chatCooldown: true }, () => this.props.snapTo?.(0));
-    }
+    this.store.set({
+      chat: true,
+      activeChat: entry
+    }, () => this.props.snapTo?.(0));
   }
 
   render(): JSX.Element
   {
-    const { inbox, profile } = this.state;
+    const { inbox, chat, profile } = this.state;
 
     return <ScrollView testID={ 'v-inbox' } style={ styles.wrapper }>
       {
@@ -111,6 +92,8 @@ class Inbox extends StoreComponent<{
           return <Button
             key={ t }
             testID={ 'bn-chat' }
+            disabled={ chat }
+            useAlternative={ true }
             borderless={ false }
             onPress={ () => this.onPress(entry) }
           >

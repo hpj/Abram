@@ -101,12 +101,17 @@ class Profile extends React.Component<{
       popup: true,
       popupContent: () =>
       {
-        const p = pronoun(profile.info.gender);
+        const { they, their, them } = pronoun(profile.info.gender);
 
         return <View>
 
           <Text style={ styles.titleBig }>
-            Romantic Availability
+            <Text>{ `${profile.nickname} is Romantically ` }</Text>
+            {
+              profile.info.romantically === 'Open' ?
+                <Text style={ { color: colors.whiteText } }>Available.</Text> :
+                <Text style={ { color: colors.brightRed } }>Unavailable.</Text>
+            }
           </Text>
 
           {
@@ -114,28 +119,38 @@ class Profile extends React.Component<{
 
               // Closed
               <Text style={ styles.demographic }>
-                <Text>{`${profile.nickname} has ${p.their} romantic availability set to `}</Text>
-                <Text style={ { color: colors.whiteText } }>CLOSED</Text>
-                <Text>{ `,\n\nIf you attempt flirting with ${p.them}, it can result in your account getting ` }</Text>
-                <Text style={ { color: colors.whiteText } }>TERMINATED</Text>
+                <Text>{ `If you attempt flirting with ${them},\nit can result in your account getting ` }</Text>
+                <Text style={ { color: colors.brightRed } }>Terminated</Text>
                 <Text>.</Text>
               </Text> :
               
               // Open
               <Text style={ styles.demographic }>
-                <Text>{`${profile.nickname} has ${p.their} romantic availability set to `}</Text>
-                <Text style={ { color: colors.whiteText } }>OPEN</Text>
-                <Text>{ `, meaning that ${p.they} is okay with flirting.` }</Text>
-
-                {/* Keep in mind sexuality, religion, gender do exist when flirting with someone. */}
+                {/* Keep in mind age, sexuality, religion, gender do exist when flirting with someone. */}
+                <Text>Keep in mind,</Text>
                 <Text>
-                  { `\n\nKeep in mind, ${profile.nickname} is a ` }
-                </Text>
-                <Text style={ { color: colors.whiteText } }>
-                  { [ profile.info.sexuality, profile.info.religion, profile.info.gender ].join(' ').trim() }
+                  <Text style={ { color: colors.greyText } }>{`\n${profile.nickname} is a `}</Text>
+                  <Text style={ { color: colors.whiteText } }>
+                    {
+                      profile.info.age < 18 ?
+                        <Text style={ { color: colors.brightRed } }>Underage </Text> : undefined
+                    }
+                    { [ profile.info.sexuality, profile.info.religion, profile.info.gender ].join(' ').trim() }
+                  </Text>
                 </Text>
                 {
-                  !profile.info.sexuality ? <Text>{`, and ${p.they} did not specify ${p.their} sexuality`}</Text> : undefined
+                  // eslint-disable-next-line react-native/no-inline-styles
+                  !profile.info.age ? <Text>
+                    <Text>{`,\n${they} did not specify ${their} `}</Text>
+                    <Text style={ { color: colors.brightRed } }>Age</Text>
+                  </Text> : undefined
+                }
+                {
+                  // eslint-disable-next-line react-native/no-inline-styles
+                  !profile.info.sexuality ? <Text>
+                    <Text>{`,\n${they} did not specify ${their} `}</Text>
+                    <Text style={ { color: colors.brightRed } }>Sexuality</Text>
+                  </Text> : undefined
                 }
                 <Text>.</Text>
               </Text>
@@ -197,20 +212,34 @@ class Profile extends React.Component<{
             // eslint-disable-next-line security/detect-object-injection
             let value = profile.info[key];
 
+            // don't render info where the value is false-ish
+            if (!value)
+              return;
+            
             // handle formatting arrays
             if (Array.isArray(value))
               value = value.join(', ') + '.';
+
+            const disabled = this.disabledInfo(key);
 
             return <Button
               key={ i }
               useAlternative={ true }
               borderless={ true }
               buttonStyle={ styles.rectangle }
-              disabled={ editable || this.disabledInfo(key) }
+              disabled={ !editable && disabled }
+              // show an edit icon inside each info box to show its editability
+              icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
               onPress={ () => this.pressInfo(key) }
             >
-              {/* eslint-disable-next-line react-native/no-inline-styles */}
-              <View style={ { alignSelf: 'center' } }>
+              {
+                // a badge that appears if a info button can be pressed
+                !editable && !disabled ?
+                  <View style={ styles.rectangleIndicator }/> :
+                  undefined
+              }
+
+              <View>
                 <Text style={ styles.rectangleKey }>{ key }</Text>
                 <Text style={ styles.rectangleValue }>{ value }</Text>
               </View>
@@ -322,7 +351,9 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: colors.greyText,
     fontWeight: 'bold',
-    lineHeight: 14 * 1.35,
+    lineHeight: 14 * 1.45,
+
+    textTransform: 'capitalize',
 
     marginHorizontal: sizes.windowMargin,
     marginTop: sizes.windowMargin * 1.5,
@@ -355,6 +386,9 @@ const styles = StyleSheet.create({
   },
 
   rectangle: {
+    alignItems: 'center',
+    flexDirection: 'row-reverse',
+
     borderRadius: 10,
     backgroundColor: colors.rectangleBackground,
 
@@ -391,6 +425,20 @@ const styles = StyleSheet.create({
     color: colors.whiteText,
 
     textTransform: 'capitalize'
+  },
+
+  rectangleIndicator: {
+    backgroundColor: colors.whiteText,
+
+    width: 5,
+    height: 5,
+    borderRadius: 5,
+
+    marginLeft: 10
+  },
+
+  rectangleIcon: {
+    marginLeft: 10
   },
 
   rectangleExtend: {

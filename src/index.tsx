@@ -59,7 +59,7 @@ const store = createStore({
     avatar: require('../assets/mockup/karkar-0.jpg'),
     // avatar: `${env.API_ENDPOINT}/avatar`,
 
-    bio: 'The self-proclaimed world\'s greatest Mastermind.',
+    bio: 'The self-proclaimed Greatest Mastermind on Earth.',
     displayName: 'Kerolos Zaki',
     nickname: 'Kay',
 
@@ -92,7 +92,7 @@ const store = createStore({
           uuid: '0002',
           avatar: require('../assets/mockup/dina-0.jpg'),
 
-          bio: 'I love screaming and I hate this app.',
+          bio: 'Yet, there is something bold and innocent.',
           displayName: 'Dina El-Wedidi',
           nickname: 'Dina',
 
@@ -102,7 +102,6 @@ const store = createStore({
             profession: 'Singer',
             romantically: 'Closed',
             gender: 'Woman',
-            sexuality: 'Straight',
             religion: 'Muslim',
             age: 33
           },
@@ -119,11 +118,7 @@ const store = createStore({
           ]
         }
       ],
-      messages: [
-        // { owner: '0002', text: 'Did you really made it through the world’s championship of shit?', createdAt: subDays(new Date(), 21) },
-        // { owner: '0001', text: 'No.', createdAt: addMinutes(subDays(new Date(), 21), 3) },
-        // { owner: '0002', text: 'Hey Kay, We need to talk about your face.', createdAt: subHours(new Date(), 1) }
-      ]
+      messages: []
     },
     {
       id: 'C-0002',
@@ -188,7 +183,7 @@ const store = createStore({
       messages: [
         { owner: '0011', text: 'Ahmed is an idiot.', createdAt: subDays(new Date(), 22) },
         { owner: '0001', text: 'I agree.', createdAt: addMinutes(subDays(new Date(), 21), 6) },
-        { owner: '0013', text: 'Maybe, we could kill him.', createdAt: subHours(new Date(), 26) }
+        { owner: '0013', text: 'Maybe, we could hug him.', createdAt: subHours(new Date(), 26) }
       ]
     },
     {

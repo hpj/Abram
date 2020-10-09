@@ -21,13 +21,14 @@ import getTheme from '../colors';
 const colors = getTheme();
 
 class Menu extends StoreComponent<{
-  snapTo?: ((index: number) => void) | undefined,
+  close?: (() => void) | undefined,
   holderNode: Animated.Value<number>,
   deactivate: (() => boolean) | undefined
 }, {
   size: Size,
   menu: boolean,
   profile: Profile,
+  chat: boolean,
   activeChat: InboxEntry
 }>
 {
@@ -37,6 +38,7 @@ class Menu extends StoreComponent<{
       changes.size ||
       changes.menu ||
       changes.profile ||
+      changes.chat ||
       changes.activeChat
     )
       return true;
@@ -80,7 +82,7 @@ class Menu extends StoreComponent<{
     this.props.deactivate?.();
 
     // snap close the bottom sheet
-    this.props.snapTo?.(1);
+    this.props.close?.();
   }
 
   openSettings(): void
@@ -169,17 +171,6 @@ class Menu extends StoreComponent<{
       <View style={ styles.actions }>
 
         {
-          activeChat.members.length > 2 ?
-            <Button
-              testID={ 'bn-chat-group-title' }
-              buttonStyle={ styles.button  }
-              textStyle={ styles.buttonText  }
-              icon={ { name: 'edit-2', size: sizes.icon * 0.6, color: colors.whiteText, style: styles.buttonIcon } }
-              text={ 'Title' }
-            /> : undefined
-        }
-
-        {
           members.map((member, index) => <Button
             key={ index }
             testID={ 'bn-chat-profile' }
@@ -192,6 +183,17 @@ class Menu extends StoreComponent<{
         }
 
         <View style={ styles.space }/>
+
+        {
+          activeChat.members.length > 2 ?
+            <Button
+              testID={ 'bn-chat-group-title' }
+              buttonStyle={ styles.button  }
+              textStyle={ styles.buttonText  }
+              icon={ { name: 'edit-2', size: sizes.icon * 0.6, color: colors.whiteText, style: styles.buttonIcon } }
+              text={ 'Title' }
+            /> : undefined
+        }
 
         <Button
           testID={ 'bn-chat-mute' }
@@ -215,7 +217,7 @@ class Menu extends StoreComponent<{
 
   render(): JSX.Element
   {
-    const { size, activeChat, menu } = this.state;
+    const { size, chat, menu } = this.state;
 
     const width = size.width - sizes.windowMargin - 10;
     const height = size.height * 0.55;
@@ -243,7 +245,7 @@ class Menu extends StoreComponent<{
       opacity
     } }
     pointerEvents={ menu ? 'box-none' : 'none' }>
-      { activeChat?.id ? this.renderChat() : this.renderMain() }
+      { chat ? this.renderChat() : this.renderMain() }
     </Animated.View>;
   }
 }
