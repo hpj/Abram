@@ -19,11 +19,11 @@ declare const global: {
 const colors = getTheme();
 
 class Popup extends StoreComponent<{
-  holderNode: Animated.Value<number>,
-  content: JSX.Element
+  holderNode: Animated.Value<number>
 }, {
   size: Size,
-  popup: boolean
+  popup: boolean,
+  popupContent?: (() => JSX.Element)
 }>
 {
   constructor()
@@ -54,6 +54,21 @@ class Popup extends StoreComponent<{
     return false;
   }
 
+  stateWillChange(newState: Popup['state']): Partial<Popup['state']> | void
+  {
+    if (typeof newState.popupContent === 'function')
+    {
+      return {
+        // clone the element and add the deactivate function
+        // to it so it is able to deactivate itself
+        popupContent: React.cloneElement(newState.popupContent(), {
+          deactivate: this.deactivate
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        }) as any
+      };
+    }
+  }
+
   stateDidChange(state: Popup['state'], changes: Popup['state'], old: Popup['state']): void
   {
     if (state.popup !== old.popup && state.popup === true)
@@ -78,7 +93,7 @@ class Popup extends StoreComponent<{
     }, () =>
     {
       Animated.timing(this.props.holderNode, {
-        duration: 200,
+        duration: 150,
         toValue: 1,
         easing: Easing.linear
       }).start();
@@ -110,13 +125,13 @@ class Popup extends StoreComponent<{
     }, () =>
     {
       Animated.timing(this.props.holderNode, {
-        duration: 200,
+        duration: 150,
         toValue: 0,
         easing: Easing.linear
       }).start();
 
       Animated.timing(this.progress, {
-        duration: 300,
+        duration: 200,
         toValue: 0,
         easing: Easing.inOut(Easing.circle)
       // returns component which is used by the reanimated mocks while testing
@@ -128,13 +143,11 @@ class Popup extends StoreComponent<{
 
   render(): JSX.Element
   {
-    const { content } = this.props;
-
-    const { size } = this.state;
+    const { size, popupContent } = this.state;
 
     const bottom = this.progress.interpolate({
       inputRange: [ 0, 1 ],
-      outputRange: [ -size.height, 0 ]
+      outputRange: [ -(size.height * 0.65), 0 ]
     });
 
     return <Animated.View testID={ 'v-popup' } style={ {
@@ -147,12 +160,7 @@ class Popup extends StoreComponent<{
         ...styles.container,
         maxHeight: size.height * 0.65
       } }>
-        {
-          // clone the element and add the deactivate button to it so it can deactivate itself
-          content ? React.cloneElement(content, {
-            deactivate: this.deactivate
-          }) : undefined
-        }
+        { popupContent }
       </ScrollView>
     </Animated.View>;
   }

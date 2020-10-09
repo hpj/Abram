@@ -125,15 +125,21 @@ export default class Store
 
   set(state: object, callback?: () => void): Store
   {
-    this.changes = {
-      ...this.changes,
-      ...state
-    };
+    const keys = Object.keys(state);
 
-    this.state = {
-      ...this.state,
-      ...state
-    };
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    keys.forEach((key) => this.changes[key] = this.state[key] = state[key]);
+
+    // this.changes = {
+    //   ...this.changes,
+    //   ...state
+    // };
+
+    // this.state = {
+    //   ...this.state,
+    //   ...state
+    // };
 
     // dispatch changes
     this.dispatch().then(callback);
@@ -151,13 +157,15 @@ export default class Store
 
       const keys = Object.keys(obj);
 
-      keys.forEach((key) =>
-      {
-        if (!Array.isArray(obj[key]) && typeof obj[key] === 'object')
-          out[key] = booleanify(obj[key]);
-        else
-          out[key] = true;
-      });
+      keys.forEach(key => out[key] = true);
+
+      // keys.forEach((key) =>
+      // {
+      //   if (!Array.isArray(obj[key]) && typeof obj[key] === 'object')
+      //     out[key] = booleanify(obj[key]);
+      //   else
+      //     out[key] = true;
+      // });
 
       return out;
     };
@@ -173,10 +181,16 @@ export default class Store
 
       if (modified)
       {
-        this.state = {
-          ...this.state,
-          ...modified
-        };
+        const keys = Object.keys(modified);
+
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        keys.forEach(key => this.state[key] = modified[key]);
+
+        // this.state = {
+        //   ...this.state,
+        //   ...modified
+        // };
       }
     });
 

@@ -60,7 +60,6 @@ export default class App extends StoreComponent<unknown, {
   popup: boolean,
   holder: boolean,
   
-  popupContent: (() => JSX.Element),
   holderCallback: (() => void)
 }>
 {
@@ -95,7 +94,6 @@ export default class App extends StoreComponent<unknown, {
       changes.popup ||
       changes.holder ||
 
-      changes.popupContent ||
       changes.holderCallback
     )
       return true;
@@ -181,8 +179,7 @@ export default class App extends StoreComponent<unknown, {
     const {
       size,
       profile, focusedProfile,
-      popup, holder,
-      popupContent, holderCallback
+      popup, holder, holderCallback
     } = this.state;
 
     const holderOpacity = this.holderNode.interpolate({
@@ -192,7 +189,7 @@ export default class App extends StoreComponent<unknown, {
 
     return <SafeAreaView testID={ 'v-main-area' } style={ styles.container }>
 
-      <Popup content={ popupContent?.() } holderNode={ this.holderNode }/>
+      <Popup holderNode={ this.holderNode }/>
 
       <Menu close={ this.onBack } holderNode={ this.holderNode } deactivate={ this.topBarRef.current?.chatAvatarsRef.current?.deactivate }/>
 

@@ -6,8 +6,6 @@ Performance Issues and Bugs:
       - since no events get called on bottom sheet
       - we have no idea what causes that to... not happen?
 
-  ☐ lower the time it takes for the popup element to trigger @high 
-
 Public Beta:
   ☐ work on branding descriptions and motto
 
@@ -27,6 +25,9 @@ Testing:
   - test profile view
     ☐ test others @high
 
+    ☐ test personal @high
+      ☐ test editable elements
+
   - test expanding profile elements
     - interests
     - romantic status
@@ -36,6 +37,9 @@ Testing:
   ☐ on different screen sizes
   
 UI/UX:
+  ☐ add interests to chat hints @high 
+  ☐ show chat hints in groups @high 
+
   ☐ design a mockup for Sign up views
 
   ☐ design a mockup for Discover view

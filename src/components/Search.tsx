@@ -30,6 +30,7 @@ class Search extends StoreComponent<{
 }, {
   size: Size,
   activeChat: InboxEntry,
+  holder: boolean,
   searchMaximized: boolean,
 
   // local state
@@ -56,6 +57,7 @@ class Search extends StoreComponent<{
     if (
       changes.size ||
       changes.activeChat ||
+      changes.holder ||
       changes.searchMaximized
     )
       return true;
@@ -94,7 +96,7 @@ class Search extends StoreComponent<{
 
   render(): JSX.Element
   {
-    const { size, activeChat, searchMaximized, searchValue } = this.state;
+    const { size, activeChat, holder, searchMaximized, searchValue } = this.state;
 
     const avatarsAmount = Math.min(activeChat?.members?.length - 1 || 0, 2);
 
@@ -161,7 +163,7 @@ class Search extends StoreComponent<{
         
         width: searchBarWidth,
         opacity: holderOpacity
-      } }/>
+      } } pointerEvents={ holder ? 'box-only' : 'none' }/>
 
       <Animated.View style={ {
         ...styles.background,
@@ -172,6 +174,8 @@ class Search extends StoreComponent<{
         ...styles.input,
         width: searchBarInputWidth
       } }
+      // TODO disabled because search is not functional yet
+      editable={ false }
       multiline={ false }
       value={ searchValue }
       onChangeText={ this.onChange }
