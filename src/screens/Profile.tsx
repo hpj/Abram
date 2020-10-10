@@ -60,8 +60,8 @@ class Profile extends React.Component<{
       popup: true,
       popupContent: () =>
       {
-        return <View>
-          <Text style={ styles.title }>
+        return <View style={ styles.section }>
+          <Text style={ styles.titleBig }>
             { editable ? 'Your Interests' : `Interests of ${profile.nickname}` }
           </Text>
 
@@ -105,7 +105,7 @@ class Profile extends React.Component<{
 
         return <View>
 
-          <Text style={ styles.titleBig }>
+          <Text style={ styles.titleBigger }>
             <Text>{ `${profile.nickname} is Romantically ` }</Text>
             {
               profile.info.romantically === 'Open' ?
@@ -118,14 +118,14 @@ class Profile extends React.Component<{
             profile.info.romantically === 'Closed' ?
 
               // Closed
-              <Text style={ styles.demographic }>
+              <Text style={ styles.paragraph }>
                 <Text>{ `If you attempt flirting with ${them},\nit can result in your account getting ` }</Text>
                 <Text style={ { color: colors.brightRed } }>Terminated</Text>
                 <Text>.</Text>
               </Text> :
               
               // Open
-              <Text style={ styles.demographic }>
+              <Text style={ styles.paragraph }>
                 {/* Keep in mind age, sexuality, religion, gender do exist when flirting with someone. */}
                 <Text>Keep in mind,</Text>
                 <Text>
@@ -196,7 +196,7 @@ class Profile extends React.Component<{
       {/* Titles and Names */}
 
       <View style={ styles.titles }>
-        <Text style={ styles.displayName }>{ profile.displayName }</Text>
+        <Text style={ styles.displayName }>{ profile.fullName }</Text>
         <Text style={ styles.nickname }>{ profile.nickname }</Text>
       </View>
 
@@ -253,9 +253,11 @@ class Profile extends React.Component<{
       {
         // ice breakers are optional
         profile.iceBreakers?.length ?
-          <Text style={ styles.title }>
-            {`Questions ${editable ? 'You' : profile.nickname} Likes` }
-          </Text> : undefined
+          <View style={ styles.space }>
+            <Text style={ styles.titleBig }>
+              {`Questions ${editable ? 'You' : profile.nickname} Likes` }
+            </Text>
+          </View> : undefined
       }
 
       {
@@ -270,26 +272,41 @@ class Profile extends React.Component<{
 
       {/* Interests */}
 
-      <Text style={ styles.title }>
-        { editable ? 'Your Interests' : 'Shared Interests' }
-      </Text>
+      <View style={ styles.space }>
 
-      <Button buttonStyle={ styles.interests } onPress={ () => this.openInterests({ shared, mismatched }) }>
-        {
-          shared.slice(0, 6).map((value, i) =>
+        <Button buttonStyle={ styles.section } onPress={ () => this.openInterests({ shared, mismatched }) }>
+          <Text style={ styles.title }>
+            { editable ?
+              'Your Interests' :
+              shared.length <= 0 ?
+                'No Shared Interests' :
+                shared.length === 1 ?
+                  '1 Shared Interest' :
+                  `${shared.length} Shared Interests`
+            }
+          </Text>
+
           {
-            return <View key={ i } style={ styles.rectangleSlim }>
-              <Text style={ styles.rectangleValue }>{ value }</Text>
-            </View>;
-          })
-        }
-        
-        {
-          (shared.length - 6 > 0) ? <View key={ 6 } style={ styles.rectangleSlim }>
-            <Text style={ styles.rectangleExtend }>{ `${shared.length - 6}+` }</Text>
-          </View> : undefined
-        }
-      </Button>
+            shared.length > 0 ?
+              <View style={ styles.interests }>
+                {
+                  shared.slice(0, 6).map((value, i) =>
+                  {
+                    return <View key={ i } style={ styles.rectangleSlim }>
+                      <Text style={ styles.rectangleValue }>{ value }</Text>
+                    </View>;
+                  })
+                }
+                {
+                  (shared.length - 6 > 0) ? <View key={ 6 } style={ styles.rectangleSlim }>
+                    <Text style={ styles.rectangleExtend }>{ `${shared.length - 6}+` }</Text>
+                  </View> : undefined
+                }
+              </View> : undefined
+          }
+        </Button>
+      
+      </View>
 
     </ScrollView>;
   }
@@ -332,11 +349,21 @@ const styles = StyleSheet.create({
 
     textTransform: 'uppercase',
 
-    marginHorizontal: sizes.windowMargin,
-    marginTop: sizes.windowMargin * 1.5
+    marginHorizontal: sizes.windowMargin
   },
 
   titleBig: {
+    fontSize: 11,
+    color: colors.greyText,
+    fontWeight: 'bold',
+
+    textTransform: 'uppercase',
+
+    marginHorizontal: sizes.windowMargin,
+    marginTop: sizes.windowMargin * 0.5
+  },
+
+  titleBigger: {
     fontSize: 13,
     color: colors.greyText,
     fontWeight: 'bold',
@@ -347,7 +374,7 @@ const styles = StyleSheet.create({
     marginTop: sizes.windowMargin * 1.5
   },
 
-  demographic: {
+  paragraph: {
     fontSize: 14,
     color: colors.greyText,
     fontWeight: 'bold',
@@ -405,8 +432,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: colors.rectangleBackground,
 
-    marginVertical: sizes.windowMargin * 0.35,
-    marginHorizontal: sizes.windowMargin * 0.35,
+    marginBottom: sizes.windowMargin * 0.55,
+    marginLeft: sizes.windowMargin * 0.5,
 
     paddingVertical: sizes.windowMargin * 0.5,
     paddingHorizontal: sizes.windowMargin * 0.75
@@ -459,13 +486,20 @@ const styles = StyleSheet.create({
     marginTop: sizes.windowMargin * 0.35
   },
 
+  space: {
+    marginTop: sizes.windowMargin * 1
+  },
+
+  section: {
+    paddingVertical: sizes.windowMargin
+  },
+
   interests: {
     flexDirection: 'row',
     flexWrap: 'wrap',
 
-    marginHorizontal: sizes.windowMargin * 0.6,
     marginTop: sizes.windowMargin * 0.5,
-    marginBottom: sizes.windowMargin * 0.5
+    marginHorizontal: sizes.windowMargin * 0.5
   }
 });
 

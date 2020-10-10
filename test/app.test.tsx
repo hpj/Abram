@@ -891,7 +891,7 @@ describe('Testing <App/>', () =>
               },
               {
                 uuid: '1',
-                displayName: 'Mika',
+                fullName: 'Mika',
                 nickname: 'Mika',
                 avatar: 1
               }
@@ -948,13 +948,13 @@ describe('Testing <App/>', () =>
               {
                 uuid: '1',
                 avatar: 1,
-                displayName: 'Mika',
+                fullName: 'Mika',
                 nickname: 'Mika'
               },
               {
                 uuid: '2',
                 avatar: 2,
-                displayName: 'Skye',
+                fullName: 'Skye',
                 nickname: 'Skye'
               }
             ],
@@ -1475,7 +1475,7 @@ describe('Testing <App/>', () =>
               },
               {
                 uuid: '1',
-                displayName: 'Mika',
+                fullName: 'Mika',
                 avatar: 1
               }
             ],

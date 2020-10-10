@@ -60,7 +60,7 @@ const store = createStore({
     // avatar: `${env.API_ENDPOINT}/avatar`,
 
     bio: 'The self-proclaimed Greatest Mastermind on Earth.',
-    displayName: 'Kerolos Zaki',
+    fullName: 'Kerolos Zaki',
     nickname: 'Kay',
 
     info: {
@@ -70,7 +70,7 @@ const store = createStore({
     interests: [
       'Visual Novels', 'Anime', 'Books', 'Cooking', 'Romance', 'Storytelling',
       'Acting', 'Directing', 'Reading', 'Design', 'Technology', 'Walking',
-      'Video Games'
+      'Psychology', 'Video Games'
     ]
   } as Profile,
 
@@ -85,7 +85,7 @@ const store = createStore({
       members: [
         {
           uuid: '0001',
-          displayName: 'Kerolos Zaki',
+          fullName: 'Kerolos Zaki',
           avatar: require('../assets/mockup/karkar-0.jpg')
         },
         {
@@ -93,7 +93,7 @@ const store = createStore({
           avatar: require('../assets/mockup/dina-0.jpg'),
 
           bio: 'Yet, there is something bold and innocent.',
-          displayName: 'Dina El-Wedidi',
+          fullName: 'Dina El-Wedidi',
           nickname: 'Dina',
 
           info: {
@@ -129,54 +129,54 @@ const store = createStore({
         {
           uuid: '0001',
           avatar: require('../assets/mockup/karkar-0.jpg'),
-          displayName: 'Kerolos Zaki'
+          fullName: 'Kerolos Zaki'
         },
         {
           uuid: '0010',
           avatar: require('../assets/mockup/karkar-1.jpg'),
-          displayName: 'Kerolos Zaki',
+          fullName: 'Kerolos Zaki',
           nickname: 'Karkar',
           info: {
             romantically: 'Open'
           },
           interests: [
-            'Meditation', 'Mountain Biking', 'Kite Flying'
+            'Psychology', 'Mountain Biking', 'Kite Flying'
           ]
         },
         {
           uuid: '0011',
           avatar: require('../assets/mockup/karkar-3.jpg'),
-          displayName: 'Kerolos Zaki',
+          fullName: 'Kerolos Zaki',
           nickname: 'Karkar',
           info: {
             romantically: 'Open'
           },
           interests: [
-            'Knitting', 'Wine Tasting', 'Model Trains'
+            'Psychology', 'Wine Tasting', 'Model Trains'
           ]
         },
         {
           uuid: '0012',
           avatar: require('../assets/mockup/karkar-4.jpg'),
-          displayName: 'Kerolos Zaki',
+          fullName: 'Kerolos Zaki',
           nickname: 'Karkar',
           info: {
             romantically: 'Open'
           },
           interests: [
-            'Croquet', 'Mountain Biking', 'Jigsaw Puzzles'
+            'Psychology', 'Mountain Biking', 'Jigsaw Puzzles'
           ]
         },
         {
           uuid: '0013',
           avatar: require('../assets/mockup/karkar-5.jpg'),
-          displayName: 'Kerolos Zaki',
+          fullName: 'Kerolos Zaki',
           nickname: 'Karkar',
           info: {
             romantically: 'Open'
           },
           interests: [
-            'Home brewing', 'Tombstone rubbing', 'Squash'
+            'Psychology', 'Tombstone rubbing', 'Squash'
           ]
         }
       ],
@@ -194,7 +194,7 @@ const store = createStore({
       members: [
         {
           uuid: '0001',
-          displayName: 'Kerolos Zaki',
+          fullName: 'Kerolos Zaki',
           avatar: require('../assets/mockup/karkar-0.jpg')
         },
         {
@@ -202,7 +202,7 @@ const store = createStore({
           avatar: require('../assets/mockup/amir-0.jpg'),
           
           bio: 'I am depressed because of Sharmoofers.',
-          displayName: 'Amid Eid',
+          fullName: 'Amid Eid',
           nickname: 'Amir',
 
           info: {

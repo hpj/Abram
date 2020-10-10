@@ -39,20 +39,29 @@ export function relativeDate(date?: Date, full?: boolean): string
     return format(date, 'd MMM yyyy');
 }
 
-export function sharedInterests(user: Profile, profile: Profile): { shared: string[], mismatched: string[] }
+export function sharedInterests(...profiles: Profile[]): { shared: string[], mismatched: string[] }
 {
   const shared: string[] = [];
   const mismatched: string[] = [];
 
-  profile.interests.forEach((value) =>
-  {
-    if (user.interests.includes(value))
-      shared.push(value);
-    else
-      mismatched.push(value);
-  });
+  const interests = profiles.map(p => p.interests);
 
-  profile.interests.filter(value => user.interests.includes(value));
+  if (profiles.length === 2)
+  {
+    const [ a, b ] = interests;
+
+    b.forEach((value) =>
+    {
+      if (a.includes(value))
+        shared.push(value);
+      else
+        mismatched.push(value);
+    });
+  }
+  else if (profiles.length > 2)
+  {
+    shared.push(...interests.reduce((a, b) => a.filter(c => b.includes(c))));
+  }
 
   return {
     shared,

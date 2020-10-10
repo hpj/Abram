@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyleSheet, View, Image } from 'react-native';
+import { StyleSheet, View, Image, Text } from 'react-native';
 
 import Animated, { Easing } from 'react-native-reanimated';
 
@@ -141,12 +141,24 @@ class Menu extends StoreComponent<{
           onPress={ () => openURL('https://herpproject.com/abram/privacy') }
         />
 
+        <Text style={ styles.buttonTextAlt }> | </Text>
+
         <Button
           testID={ 'bn-terms' }
           buttonStyle={ styles.buttonAlt  }
           textStyle={ styles.buttonTextAlt  }
           text={ 'Terms of Service' }
           onPress={ () => openURL('https://herpproject.com/abram/terms') }
+        />
+
+        <Text style={ styles.buttonTextAlt }> | </Text>
+
+        <Button
+          testID={ 'bn-terms' }
+          buttonStyle={ styles.buttonAlt  }
+          textStyle={ styles.buttonTextAlt  }
+          text={ 'Ethics & Rules' }
+          onPress={ () => openURL('https://herpproject.com/abram/ethics') }
         />
       </View>
 
@@ -326,9 +338,12 @@ const styles = StyleSheet.create({
   },
 
   buttonTextAlt: {
+    color: colors.greyText,
+
+    alignSelf: 'center',
+
     fontSize: 11,
-    fontWeight: 'bold',
-    color: colors.greyText
+    fontWeight: 'bold'
   },
 
   footer: {

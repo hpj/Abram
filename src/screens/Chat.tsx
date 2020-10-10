@@ -99,25 +99,37 @@ class Chat extends StoreComponent<unknown, {
       members.splice(
         members.findIndex(member => member.uuid === profile.uuid), 1);
 
-      // TODO show some hints inside groups too
+      const shared = utils.sharedInterests(profile, ...members)
+        .shared
+        .slice(0, 6)
+        .join(', ');
+
+      // show a greeting
+      this.hints.push(<Text style={ styles.hint }>{ `Hey, ${profile.nickname}.` }</Text>);
+
+      // 1 on 1 chats hints
       if (activeChat.members.length === 2)
       {
         const user = members[0];
   
-        // show a greeting
-        this.hints.push(<Text style={ styles.hint }>{ `Hello, ${profile.nickname}.` }</Text>);
-  
         // show nickname preference
-        if (user.nickname)
+        this.hints.push(<Text style={ styles.hint }>
+          <Text>{ user.fullName + ' prefers to be called ' }</Text>
+          <Text style={ styles.hintBold }>{ user.nickname }</Text>
+          <Text>.</Text>
+        </Text>);
+
+        // interests
+        if (shared.length > 0)
+        {
           this.hints.push(<Text style={ styles.hint }>
-            {
-              user.displayName + ' prefers to be called '
-            }
-            <Text style={ styles.hintBold }>{ user.nickname }</Text>
+            <Text>Your shared interests are </Text>
+            <Text style={ { ...styles.hintSlim, ...styles.hintBold } }>{ shared }</Text>
             <Text>.</Text>
           </Text>);
-  
-        // show ice breakers
+        }
+
+        // questions
         if (user.iceBreakers?.length > 1)
         {
           this.hints.push(
@@ -126,10 +138,27 @@ class Chat extends StoreComponent<unknown, {
             <Text style={ styles.hint }></Text>
           );
         }
-        // TODO show shared interest instead of ice breaks
-        else
+      }
+      else if (activeChat.members.length > 2)
+      // group chats hints
+      {
+        const nicknames = members.map(member => member.nickname).join(', ');
+        
+        // show nicknames
+        this.hints.push(<Text style={ styles.hint }>
+          <Text>This is a group chat with </Text>
+          <Text style={ styles.hintBold }>{ nicknames }</Text>
+          <Text>.</Text>
+        </Text>);
+
+        // interests
+        if (shared.length > 0)
         {
-          //
+          this.hints.push(<Text style={ styles.hint }>
+            <Text>Your shared interests are </Text>
+            <Text style={ { ...styles.hintSlim, ...styles.hintBold } }>{ shared }</Text>
+            <Text>.</Text>
+          </Text>);
         }
       }
     }
@@ -347,6 +376,7 @@ const styles = StyleSheet.create({
   },
 
   hintBold: {
+    color: colors.greyText,
     fontWeight: 'bold',
     fontSize: 13
   },

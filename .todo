@@ -9,7 +9,8 @@ Performance Issues and Bugs:
 Public Beta:
   ☐ work on branding descriptions and motto
 
-  ☐ add section to rules and principles about spamming @high 
+  - vote kick people from groups
+    ☐ design the UI
 
   ☐ consuming native sign-in with google 
     ☐ region locking
@@ -37,9 +38,6 @@ Testing:
   ☐ on different screen sizes
   
 UI/UX:
-  ☐ add interests to chat hints @high 
-  ☐ show chat hints in groups @high 
-
   ☐ design a mockup for Sign up views
 
   ☐ design a mockup for Discover view

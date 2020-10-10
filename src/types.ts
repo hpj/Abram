@@ -13,6 +13,19 @@ export type Message = {
   text: string
 }
 
+export type Profile = {
+  uuid: string,
+  avatar: string | number,
+  
+  bio: string,
+  fullName: string,
+  nickname: string,
+
+  info: ProfileInfo,
+  interests: string[],
+  iceBreakers: string[]
+}
+
 export type ProfileInfo = {
   origin: string,
   speaks: string[],
@@ -23,19 +36,6 @@ export type ProfileInfo = {
   sexuality: 'Straight' | 'Gay' | 'Lesbian' | 'Bi',
   religion: string,
   age: number
-}
-
-export type Profile = {
-  uuid: string,
-  avatar: string | number,
-  
-  bio: string,
-  displayName: string,
-  nickname: string,
-
-  info: ProfileInfo,
-  interests: string[],
-  iceBreakers: string[]
 }
 
 export type Size = {
