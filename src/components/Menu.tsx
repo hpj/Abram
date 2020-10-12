@@ -154,7 +154,7 @@ class Menu extends StoreComponent<{
         <Text style={ styles.buttonTextAlt }> | </Text>
 
         <Button
-          testID={ 'bn-terms' }
+          testID={ 'bn-ethics' }
           buttonStyle={ styles.buttonAlt  }
           textStyle={ styles.buttonTextAlt  }
           text={ 'Ethics & Rules' }

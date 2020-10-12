@@ -352,10 +352,13 @@ describe('Testing <App/>', () =>
       getStore().set({
         profile: {
           uuid: '0',
-          avatar: 0
+          avatar: 0,
+          interests: [] as string[]
         } as Profile,
-        activeChat: {
+        inbox: [ {
           id: '0',
+          createdAt: new Date(1999, 9, 9),
+          updatedAt: new Date(1999, 9, 9),
           members: [
             {
               uuid: '0',
@@ -363,13 +366,19 @@ describe('Testing <App/>', () =>
             },
             {
               uuid: '1',
-              avatar: 1
+              avatar: 1,
+              interests: [] as string[]
+            },
+            {
+              uuid: '2',
+              avatar: 2,
+              interests: [] as string[]
             }
           ],
           messages: [
             { owner: '1', text: '', createdAt: new Date(1999, 9, 9) }
           ]
-        } as InboxEntry
+        } ] as InboxEntry[]
       });
 
       const component = render(<App/>);
@@ -410,10 +419,13 @@ describe('Testing <App/>', () =>
       getStore().set({
         profile: {
           uuid: '0',
-          avatar: 0
+          avatar: 0,
+          interests: [] as string[]
         } as Profile,
         inbox: [ {
           id: '0',
+          createdAt: new Date(1999, 9, 9),
+          updatedAt: new Date(1999, 9, 9),
           members: [
             {
               uuid: '0',
@@ -421,7 +433,13 @@ describe('Testing <App/>', () =>
             },
             {
               uuid: '1',
-              avatar: 1
+              avatar: 1,
+              interests: [] as string[]
+            },
+            {
+              uuid: '2',
+              avatar: 2,
+              interests: [] as string[]
             }
           ],
           messages: [
@@ -474,10 +492,13 @@ describe('Testing <App/>', () =>
       getStore().set({
         profile: {
           uuid: '0',
-          avatar: 0
+          avatar: 0,
+          interests: [] as string[]
         } as Profile,
         inbox: [ {
           id: '0',
+          createdAt: new Date(1999, 9, 9),
+          updatedAt: new Date(1999, 9, 9),
           members: [
             {
               uuid: '0',
@@ -485,11 +506,13 @@ describe('Testing <App/>', () =>
             },
             {
               uuid: '1',
-              avatar: 1
+              avatar: 1,
+              interests: [] as string[]
             },
             {
               uuid: '2',
-              avatar: 2
+              avatar: 2,
+              interests: [] as string[]
             }
           ],
           messages: [
@@ -566,12 +589,15 @@ describe('Testing <App/>', () =>
       getStore().set({
         profile: {
           uuid: '0',
-          avatar: 0
+          avatar: 0,
+          interests: [] as string[]
         } as Profile,
         inbox: [
           {
             id: '0',
             displayName: 'Mika',
+            createdAt: new Date(1999, 9, 9),
+            updatedAt: new Date(1999, 9, 9),
             members: [
               {
                 uuid: '0',
@@ -579,11 +605,12 @@ describe('Testing <App/>', () =>
               },
               {
                 uuid: '1',
-                avatar: 1
+                avatar: 1,
+                interests: [] as string[]
               }
             ],
             messages: [
-              { owner: '1', text: '', createdAt: new Date(1999, 9, 9) }
+              { owner: '1', text: '<3', createdAt: new Date(1999, 9, 9) }
             ]
           }
         ] as InboxEntry[]
@@ -620,12 +647,15 @@ describe('Testing <App/>', () =>
       getStore().set({
         profile: {
           uuid: '0',
-          avatar: 0
+          avatar: 0,
+          interests: [] as string[]
         } as Profile,
         inbox: [
           {
             id: '0',
             displayName: 'Mika',
+            createdAt: new Date(1999, 9, 9),
+            updatedAt: new Date(1999, 9, 9),
             members: [
               {
                 uuid: '0',
@@ -633,15 +663,17 @@ describe('Testing <App/>', () =>
               },
               {
                 uuid: '1',
-                avatar: 1
+                avatar: 1,
+                interests: [] as string[]
               },
               {
                 uuid: '2',
-                avatar: 2
+                avatar: 2,
+                interests: [] as string[]
               }
             ],
             messages: [
-              { owner: '1', text: '', createdAt: new Date(1999, 9, 9) }
+              { owner: '1', text: '<3', createdAt: new Date(1999, 9, 9) }
             ]
           }
         ] as InboxEntry[]
@@ -678,12 +710,15 @@ describe('Testing <App/>', () =>
       getStore().set({
         profile: {
           uuid: '0',
-          avatar: 0
+          avatar: 0,
+          interests: [] as string[]
         } as Profile,
         inbox: [
           {
             id: '0',
             displayName: 'Mika',
+            createdAt: new Date(1999, 9, 9),
+            updatedAt: new Date(1999, 9, 9),
             members: [
               {
                 uuid: '0',
@@ -691,19 +726,22 @@ describe('Testing <App/>', () =>
               },
               {
                 uuid: '1',
-                avatar: 1
+                avatar: 1,
+                interests: [] as string[]
               },
               {
                 uuid: '2',
-                avatar: 2
+                avatar: 2,
+                interests: [] as string[]
               },
               {
                 uuid: '3',
-                avatar: 3
+                avatar: 3,
+                interests: [] as string[]
               }
             ],
             messages: [
-              { owner: '1', text: '', createdAt: new Date(1999, 9, 9) }
+              { owner: '1', text: '<3', createdAt: new Date(1999, 9, 9) }
             ]
           }
         ] as InboxEntry[]
@@ -812,6 +850,22 @@ describe('Testing <App/>', () =>
 
       expect(Linking.openURL).toHaveBeenCalledWith('https://herpproject.com/abram/terms');
     });
+
+    test('Opening Ethics', async() =>
+    {
+      const component = render(<App/>);
+
+      // wait for app loading
+      await waitFor(() => component.getByTestId('v-main-area'));
+
+      // show the main menu
+      // by simulating pressing the menu button
+      fireEvent.press(component.getByTestId('bn-ethics'));
+
+      expect(Linking.openURL).toHaveBeenCalledTimes(1);
+
+      expect(Linking.openURL).toHaveBeenCalledWith('https://herpproject.com/abram/ethics');
+    });
   
     test('Navigating to Profile', async() =>
     {
@@ -878,12 +932,15 @@ describe('Testing <App/>', () =>
       getStore().set({
         profile: {
           uuid: '0',
-          avatar: 0
+          avatar: 0,
+          interests: [] as string[]
         } as Profile,
         inbox: [
           {
             id: '0',
             displayName: 'Mika',
+            createdAt: new Date(),
+            updatedAt: new Date(),
             members: [
               {
                 uuid: '0',
@@ -893,7 +950,8 @@ describe('Testing <App/>', () =>
                 uuid: '1',
                 fullName: 'Mika',
                 nickname: 'Mika',
-                avatar: 1
+                avatar: 1,
+                interests: [] as string[]
               }
             ],
             messages: [
@@ -934,12 +992,15 @@ describe('Testing <App/>', () =>
       getStore().set({
         profile: {
           uuid: '0',
-          avatar: 0
+          avatar: 0,
+          interests: [] as string[]
         } as Profile,
         inbox: [
           {
             id: '0',
             displayName: 'Group of Wholesome Girls',
+            createdAt: new Date(1999, 9, 9),
+            updatedAt: new Date(2001, 1, 1),
             members: [
               {
                 uuid: '0',
@@ -949,13 +1010,15 @@ describe('Testing <App/>', () =>
                 uuid: '1',
                 avatar: 1,
                 fullName: 'Mika',
-                nickname: 'Mika'
+                nickname: 'Mika',
+                interests: [] as string[]
               },
               {
                 uuid: '2',
                 avatar: 2,
                 fullName: 'Skye',
-                nickname: 'Skye'
+                nickname: 'Skye',
+                interests: [] as string[]
               }
             ],
             messages: [
@@ -1000,12 +1063,15 @@ describe('Testing <App/>', () =>
       getStore().set({
         profile: {
           uuid: '0',
-          avatar: 0
+          avatar: 0,
+          interests: [] as string[]
         } as Profile,
         inbox: [
           {
             id: '0',
             displayName: 'Mika',
+            createdAt: new Date(1999, 9, 9),
+            updatedAt: new Date(1999, 9, 9),
             members: [
               {
                 uuid: '0',
@@ -1013,7 +1079,8 @@ describe('Testing <App/>', () =>
               },
               {
                 uuid: '1',
-                avatar: 1
+                avatar: 1,
+                interests: [] as string[]
               }
             ],
             messages: [
@@ -1068,20 +1135,29 @@ describe('Testing <App/>', () =>
         getStore().set({
           profile: {
             uuid: '0',
-            avatar: 0
+            avatar: 0,
+            fullName: 'User',
+            nickname: 'User',
+            interests: [] as string[]
           } as Profile,
           inbox: [
             {
               id: '0',
               displayName: 'Mika',
+              createdAt: new Date(1999, 9, 9, 9, 0),
+              updatedAt: new Date(1999, 9, 9, 9, 1),
               members: [
                 {
                   uuid: '0',
-                  avatar: 0
+                  avatar: 0,
+                  interests: [] as string[]
                 },
                 {
                   uuid: '1',
-                  avatar: 1
+                  avatar: 1,
+                  fullName: 'Mika',
+                  nickname: 'Mika',
+                  interests: [] as string[]
                 }
               ],
               messages: [
@@ -1124,20 +1200,29 @@ describe('Testing <App/>', () =>
         getStore().set({
           profile: {
             uuid: '0',
-            avatar: 0
+            avatar: 0,
+            fullName: 'User',
+            nickname: 'User',
+            interests: [] as string[]
           } as Profile,
           inbox: [
             {
               id: '0',
               displayName: 'Mika',
+              createdAt: new Date(1999, 9, 9, 9, 0),
+              updatedAt: new Date(),
               members: [
                 {
                   uuid: '0',
-                  avatar: 0
+                  avatar: 0,
+                  interests: [] as string[]
                 },
                 {
                   uuid: '1',
-                  avatar: 1
+                  avatar: 1,
+                  fullName: 'Mika',
+                  nickname: 'Mika',
+                  interests: [] as string[]
                 }
               ],
               messages: [
@@ -1179,12 +1264,17 @@ describe('Testing <App/>', () =>
         getStore().set({
           profile: {
             uuid: '0',
-            avatar: 0
+            avatar: 0,
+            fullName: 'User',
+            nickname: 'User',
+            interests: [] as string[]
           } as Profile,
           inbox: [
             {
               id: '0',
               displayName: 'Group of Wholesome Girls',
+              createdAt: new Date(1999, 9, 9, 9, 0),
+              updatedAt: new Date(1999, 9, 9, 9, 1),
               members: [
                 {
                   uuid: '0',
@@ -1192,11 +1282,17 @@ describe('Testing <App/>', () =>
                 },
                 {
                   uuid: '1',
-                  avatar: 1
+                  avatar: 1,
+                  fullName: 'Mika',
+                  nickname: 'Mika',
+                  interests: [] as string[]
                 },
                 {
                   uuid: '2',
-                  avatar: 2
+                  avatar: 2,
+                  fullName: 'Skye',
+                  nickname: 'Skye',
+                  interests: [] as string[]
                 }
               ],
               messages: [
@@ -1233,20 +1329,29 @@ describe('Testing <App/>', () =>
       const store = getStore().set({
         profile: {
           uuid: '0',
-          avatar: 0
+          avatar: 0,
+          fullName: 'User',
+          nickname: 'User',
+          interests: [] as string[]
         } as Profile,
         inbox: [
           {
             id: '0',
             displayName: 'Mika',
+            createdAt: new Date(1999, 9, 9, 9, 0),
+            updatedAt: new Date(1999, 9, 9, 9, 1),
             members: [
               {
                 uuid: '0',
-                avatar: 0
+                avatar: 0,
+                interests: [] as string[]
               },
               {
                 uuid: '1',
-                avatar: 1
+                avatar: 1,
+                fullName: 'Mika',
+                nickname: 'Mika',
+                interests: [] as string[]
               }
             ],
             messages: [
@@ -1291,20 +1396,29 @@ describe('Testing <App/>', () =>
       getStore().set({
         profile: {
           uuid: '0',
-          avatar: 0
+          avatar: 0,
+          fullName: 'User',
+          nickname: 'User',
+          interests: [] as string[]
         } as Profile,
         inbox: [
           {
             id: '0',
             displayName: 'Mika',
+            createdAt: subDays(new Date(), 2),
+            updatedAt: subDays(new Date(), 2),
             members: [
               {
                 uuid: '0',
-                avatar: 0
+                avatar: 0,
+                interests: [] as string[]
               },
               {
                 uuid: '1',
-                avatar: 1
+                avatar: 1,
+                fullName: 'Mika',
+                nickname: 'Mika',
+                interests: [] as string[]
               }
             ],
             messages: [
@@ -1314,14 +1428,20 @@ describe('Testing <App/>', () =>
           {
             id: '1',
             displayName: 'Skye',
+            createdAt: subDays(new Date(), 3),
+            updatedAt: subDays(new Date(), 3),
             members: [
               {
                 uuid: '0',
-                avatar: 0
+                avatar: 0,
+                interests: [] as string[]
               },
               {
                 uuid: '2',
-                avatar: 2
+                avatar: 2,
+                fullName: 'Skye',
+                nickname: 'Skye',
+                interests: [] as string[]
               }
             ],
             messages: [
@@ -1352,7 +1472,7 @@ describe('Testing <App/>', () =>
       
       expect(initialInbox).toMatchSnapshot();
 
-      expect(initialMessages?.children).toHaveLength(1);
+      expect(initialMessages?.children).toHaveLength(3);
 
       // typing message
 
@@ -1382,7 +1502,7 @@ describe('Testing <App/>', () =>
 
       expect(inbox).toMatchSnapshot('Should Be Sorted With Skye on Top');
         
-      expect(messages?.children).toHaveLength(2);
+      expect(messages?.children).toHaveLength(4);
 
       expect(messages?.children?.[0]).toMatchSnapshot('Should Be A Message Equal to <3');
   
@@ -1394,12 +1514,15 @@ describe('Testing <App/>', () =>
       getStore().set({
         profile: {
           uuid: '0',
-          avatar: 0
+          avatar: 0,
+          interests: [] as string[]
         } as Profile,
         inbox: [
           {
             id: '0',
             displayName: 'Mika',
+            createdAt: new Date(),
+            updatedAt: new Date(),
             members: [
               {
                 uuid: '0',
@@ -1407,7 +1530,9 @@ describe('Testing <App/>', () =>
               },
               {
                 uuid: '1',
-                avatar: 1
+                fullName: 'Mika',
+                avatar: 1,
+                interests: [] as string[]
               }
             ],
             messages: [
@@ -1462,12 +1587,15 @@ describe('Testing <App/>', () =>
       getStore().set({
         profile: {
           uuid: '0',
-          avatar: 0
+          avatar: 0,
+          interests: [] as string[]
         } as Profile,
         inbox: [
           {
             id: '0',
             displayName: 'Mika',
+            createdAt: new Date(),
+            updatedAt: new Date(),
             members: [
               {
                 uuid: '0',
@@ -1476,7 +1604,8 @@ describe('Testing <App/>', () =>
               {
                 uuid: '1',
                 fullName: 'Mika',
-                avatar: 1
+                avatar: 1,
+                interests: [] as string[]
               }
             ],
             messages: [
@@ -1536,7 +1665,7 @@ describe('Testing <Inbox/>', () =>
             }
           ],
           messages: [
-            { owner: '1', text: '', createdAt: new Date(1999, 9, 9, 9) }
+            { owner: '1', text: 'Yay', createdAt: new Date(1999, 9, 9, 9) }
           ]
         }
       ] as InboxEntry[]
@@ -1669,8 +1798,8 @@ describe('Testing <Inbox/>', () =>
             }
           ],
           messages: [
-            { owner: '1', text: '', createdAt: new Date(1999, 9, 9) },
-            { owner: '2', text: '', createdAt: new Date(2001, 1, 1) }
+            { owner: '1', text: 'Yay', createdAt: new Date(1999, 9, 9) },
+            { owner: '2', text: 'UwU', createdAt: new Date(2001, 1, 1) }
           ]
         }
       ] as InboxEntry[]
@@ -1713,9 +1842,9 @@ describe('Testing <Inbox/>', () =>
             }
           ],
           messages: [
-            { owner: '1', text: '', createdAt: new Date(1999, 9, 9) },
-            { owner: '2', text: '', createdAt: new Date(2001, 1, 1) },
-            { owner: '3', text: '', createdAt: new Date(2002, 2, 2) }
+            { owner: '1', text: 'Yay', createdAt: new Date(1999, 9, 9) },
+            { owner: '2', text: 'UwU', createdAt: new Date(2001, 1, 1) },
+            { owner: '3', text: '<3', createdAt: new Date(2002, 2, 2) }
           ]
         }
       ] as InboxEntry[]
@@ -1762,10 +1891,10 @@ describe('Testing <Inbox/>', () =>
             }
           ],
           messages: [
-            { owner: '1', text: '', createdAt: new Date(1999, 9, 9) },
-            { owner: '2', text: '', createdAt: new Date(2001, 1, 1) },
-            { owner: '3', text: '', createdAt: new Date(2002, 2, 2) },
-            { owner: '4', text: '', createdAt: new Date(2003, 3, 3) }
+            { owner: '1', text: 'Yay', createdAt: new Date(1999, 9, 9) },
+            { owner: '2', text: 'UwU', createdAt: new Date(2001, 1, 1) },
+            { owner: '3', text: '<3', createdAt: new Date(2002, 2, 2) },
+            { owner: '4', text: '^^', createdAt: new Date(2003, 3, 3) }
           ]
         }
       ] as InboxEntry[]
@@ -1812,10 +1941,10 @@ describe('Testing <Inbox/>', () =>
             }
           ],
           messages: [
-            { owner: '1', text: '', createdAt: new Date(1999, 9, 9) },
-            { owner: '2', text: '', createdAt: new Date(2001, 1, 1) },
-            { owner: '3', text: '', createdAt: new Date(2002, 2, 2) },
-            { owner: '4', text: '', createdAt: new Date(2003, 3, 3) }
+            { owner: '1', text: 'Yay', createdAt: new Date(1999, 9, 9) },
+            { owner: '2', text: 'UwU', createdAt: new Date(2001, 1, 1) },
+            { owner: '3', text: '<3', createdAt: new Date(2002, 2, 2) },
+            { owner: '4', text: '^^', createdAt: new Date(2003, 3, 3) }
           ]
         }
       ] as InboxEntry[]
@@ -1862,10 +1991,10 @@ describe('Testing <Inbox/>', () =>
             }
           ],
           messages: [
-            { owner: '1', text: '', createdAt: new Date(1999, 9, 9) },
-            { owner: '2', text: '', createdAt: new Date(2001, 1, 1) },
-            { owner: '3', text: '', createdAt: new Date(2002, 2, 2) },
-            { owner: '4', text: '', createdAt: new Date(2003, 3, 3) }
+            { owner: '1', text: 'Yay', createdAt: new Date(1999, 9, 9) },
+            { owner: '2', text: 'UwU', createdAt: new Date(2001, 1, 1) },
+            { owner: '3', text: '<3', createdAt: new Date(2002, 2, 2) },
+            { owner: '4', text: '^^', createdAt: new Date(2003, 3, 3) }
           ]
         }
       ] as InboxEntry[]
