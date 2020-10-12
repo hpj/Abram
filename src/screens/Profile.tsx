@@ -2,6 +2,8 @@ import React from 'react';
 
 import { StyleSheet, ScrollView, View, Text, Image } from 'react-native';
 
+import Icon from 'react-native-vector-icons/Feather';
+
 import type { Profile as TProfile } from '../types';
 
 import { getStore } from '../store';
@@ -21,20 +23,6 @@ class Profile extends React.Component<{
   profile: TProfile
 }>
 {
-  disabledInfo(key: string): boolean
-  {
-    if (key === 'romantically')
-      return false;
-    
-    return true;
-  }
-
-  pressInfo(key: string): void
-  {
-    if (key === 'romantically')
-      this.openRomantic();
-  }
-
   sharedInterests(): { shared: string[], mismatched: string[] }
   {
     const { user, profile } = this.props;
@@ -94,8 +82,6 @@ class Profile extends React.Component<{
     
     const { profile } = this.props;
 
-    // const editable = profile.uuid == user.uuid;
-
     // open a popup containing the all interests
     store.set({
       popup: true,
@@ -132,21 +118,19 @@ class Profile extends React.Component<{
                   <Text style={ { color: colors.greyText } }>{`\n${profile.nickname} is a `}</Text>
                   <Text style={ { color: colors.whiteText } }>
                     {
-                      profile.info.age < 18 ?
-                        <Text style={ { color: colors.brightRed } }>Underage </Text> : undefined
+                      profile.info.age && profile.info.age < 18 ?
+                        <Text style={ { color: colors.brightRed } }>Minor </Text> : undefined
                     }
                     { [ profile.info.sexuality, profile.info.religion, profile.info.gender ].join(' ').trim() }
                   </Text>
                 </Text>
                 {
-                  // eslint-disable-next-line react-native/no-inline-styles
                   !profile.info.age ? <Text>
                     <Text>{`,\n${they} did not specify ${their} `}</Text>
                     <Text style={ { color: colors.brightRed } }>Age</Text>
                   </Text> : undefined
                 }
                 {
-                  // eslint-disable-next-line react-native/no-inline-styles
                   !profile.info.sexuality ? <Text>
                     <Text>{`,\n${they} did not specify ${their} `}</Text>
                     <Text style={ { color: colors.brightRed } }>Sexuality</Text>
@@ -160,6 +144,193 @@ class Profile extends React.Component<{
     });
   }
 
+  renderDemographic(): JSX.Element
+  {
+    const { profile, user } = this.props;
+
+    const editable = profile.uuid == user.uuid;
+
+    return <View style={ styles.info }>
+
+      {/* Origin */}
+
+      {
+        profile.info.origin?.length || editable ?
+          <Button
+            useAlternative={ true }
+            borderless={ true }
+            buttonStyle={ styles.rectangle }
+            disabled={ !editable }
+            icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+          >
+            <View>
+              <Text style={ styles.rectangleKey }>Origin</Text>
+              {
+                profile.info.origin?.length ?
+                  <Text style={ styles.rectangleValue }>{ profile.info.origin }</Text> : undefined
+              }
+            </View>
+          </Button> : undefined
+      }
+
+      {/* Speaks */}
+
+      <Button
+        useAlternative={ true }
+        borderless={ true }
+        buttonStyle={ styles.rectangle }
+        disabled={ !editable }
+        icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+      >
+        <View>
+          <Text style={ styles.rectangleKey }>Speaks</Text>
+          <Text style={ styles.rectangleValue }>{ profile.info.speaks.join(', ') + '.' }</Text>
+        </View>
+      </Button>
+
+      {/* Profession */}
+
+      {
+        profile.info.profession?.length || editable ?
+          <Button
+            useAlternative={ true }
+            borderless={ true }
+            buttonStyle={ styles.rectangle }
+            disabled={ !editable }
+            icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+          >
+            <View>
+              <Text style={ styles.rectangleKey }>Profession</Text>
+              {
+                profile.info.profession?.length ?
+                  <Text style={ styles.rectangleValue }>{ profile.info.profession }</Text> : undefined
+              }
+            </View>
+          </Button> : undefined
+      }
+
+      {/* Romantically */}
+
+      <Button
+        useAlternative={ true }
+        borderless={ true }
+        buttonStyle={ styles.rectangle }
+        icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+        onPress={ () => this.openRomantic() }
+      >
+        {
+          !editable ?
+            <View style={ styles.rectangleIndicator }/> : undefined
+        }
+
+        <View>
+          <Text style={ styles.rectangleKey }>Romantically</Text>
+          <Text style={ styles.rectangleValue }>{ profile.info.romantically }</Text>
+        </View>
+      </Button>
+
+      {/* Works At */}
+
+      {
+        profile.info.worksAt?.length || editable ?
+          <Button
+            useAlternative={ true }
+            borderless={ true }
+            buttonStyle={ styles.rectangle }
+            disabled={ !editable }
+            icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+          >
+            <View>
+              <Text style={ styles.rectangleKey }>Works At</Text>
+              {
+                profile.info.worksAt?.length ?
+                  <Text style={ styles.rectangleValue }>{ profile.info.worksAt }</Text> : undefined
+              }
+            </View>
+          </Button> : undefined
+      }
+
+      {/* Gender */}
+
+      <Button
+        useAlternative={ true }
+        borderless={ true }
+        buttonStyle={ styles.rectangle }
+        icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+        disabled={ !editable }
+      >
+        <View>
+          <Text style={ styles.rectangleKey }>Gender</Text>
+          <Text style={ styles.rectangleValue }>{ profile.info.gender }</Text>
+        </View>
+      </Button>
+
+      {/* Sexuality */}
+
+      {
+        profile.info.sexuality?.length || editable ?
+          <Button
+            useAlternative={ true }
+            borderless={ true }
+            buttonStyle={ styles.rectangle }
+            disabled={ !editable }
+            icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+          >
+            <View>
+              <Text style={ styles.rectangleKey }>Sexuality</Text>
+              {
+                profile.info.sexuality?.length ?
+                  <Text style={ styles.rectangleValue }>{ profile.info.sexuality }</Text> : undefined
+              }
+            </View>
+          </Button> : undefined
+      }
+
+      {/* Religion */}
+
+      {
+        profile.info.religion?.length || editable ?
+          <Button
+            useAlternative={ true }
+            borderless={ true }
+            buttonStyle={ styles.rectangle }
+            disabled={ !editable }
+            icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+          >
+            <View>
+              <Text style={ styles.rectangleKey }>Religion</Text>
+              {
+                profile.info.religion?.length ?
+                  <Text style={ styles.rectangleValue }>{ profile.info.religion }</Text> : undefined
+              }
+            </View>
+          </Button> : undefined
+      }
+
+      {/* Age */}
+
+      {
+        profile.info.age || editable ?
+          <Button
+            useAlternative={ true }
+            borderless={ true }
+            buttonStyle={ styles.rectangle }
+            disabled={ !editable }
+            icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+          >
+            <View>
+              <Text style={ styles.rectangleKey }>Age</Text>
+              {
+                profile.info.age ?
+                  <Text style={ styles.rectangleValue }>{ profile.info.age }</Text> : undefined
+              }
+            </View>
+          </Button> : undefined
+      }
+
+    </View>;
+  }
+
   render(): JSX.Element
   {
     const { profile, user } = this.props;
@@ -169,8 +340,6 @@ class Profile extends React.Component<{
 
     const editable = profile.uuid == user.uuid;
 
-    const infoKeys = Object.keys(profile.info);
-
     const { shared, mismatched } = this.sharedInterests();
 
     return <ScrollView style={ styles.container }>
@@ -178,113 +347,139 @@ class Profile extends React.Component<{
       {/* Bio */}
 
       {
-        // bio is optional
-        profile.bio?.length ?
-          <Text style={ styles.bio }>{ `"${profile.bio}"` }</Text>
-          : undefined
+        profile.bio?.length || editable ?
+          <View style={ { ...styles.space, marginTop: sizes.windowMargin * 1.25 } }>
+            <Button
+              buttonStyle={ { ...styles.section, paddingVertical: sizes.windowMargin * 0.5 } }
+              useAlternative={ true }
+              disabled={ !editable }
+            >
+              {
+                editable ?
+                  // eslint-disable-next-line react-native/no-inline-styles
+                  <View style={ { ...styles.sectionEditable, flexDirection: 'row-reverse' } }>
+                    <Icon name={ 'edit-2' } size={ sizes.icon * 0.5 } color={ colors.whiteText } style={ styles.sectionIcon }/>
+                  </View> : undefined
+              }
+
+              {
+                profile.bio?.length ?
+                  <Text style={ styles.bio }>{ `"${profile.bio}"` }</Text> :
+                // eslint-disable-next-line react-native/no-inline-styles
+                  <Text style={ { ...styles.bio, color: colors.greyText, fontStyle: 'italic' } }>{ 'What\'s... a bio?' }</Text>
+              }
+              
+            </Button>
+          </View> : undefined
       }
 
       {/* Avatar */}
 
-      {/* eslint-disable-next-line react-native/no-inline-styles */}
-      <View style={ { alignItems: 'center' } }>
-        {/* @ts-ignore */}
-        <Image style={ styles.avatar } source={ profile.avatar }/>
-        {/* <Image style={ styles.avatar } source={ { uri: avatar } }/> */}
+      <View style={ styles.space }>
+        <Button
+          buttonStyle={ styles.section }
+          useAlternative={ true }
+          disabled={ !editable }
+        >
+          <View style={ styles.sectionEditable }>
+            {/* eslint-disable-next-line react-native/no-inline-styles */}
+            <View style={ { flexGrow: 1 } }>
+              {/* @ts-ignore */}
+              <Image style={ styles.avatar } source={ profile.avatar }/>
+              {/* <Image style={ styles.avatar } source={ { uri: avatar } }/> */}
+            </View>
+            {
+              editable ?
+                <Icon name={ 'edit-2' } size={ sizes.icon * 0.5 } color={ colors.whiteText } style={ styles.sectionIcon }/> : undefined
+            }
+          </View>
+
+        </Button>
+
       </View>
 
       {/* Titles and Names */}
 
-      <View style={ styles.titles }>
-        <Text style={ styles.displayName }>{ profile.fullName }</Text>
-        <Text style={ styles.nickname }>{ profile.nickname }</Text>
+      <View style={ styles.space }>
+        <Button
+          buttonStyle={ styles.section }
+          useAlternative={ true }
+          disabled={ !editable }
+        >
+          <View style={ styles.sectionEditable }>
+            {/* eslint-disable-next-line react-native/no-inline-styles */}
+            <View style={ { flexGrow: 1 } }>
+              <Text style={ styles.displayName }>{ profile.fullName }</Text>
+              <Text style={ styles.nickname }>{ profile.nickname }</Text>
+            </View>
+            {
+              editable ?
+                <Icon name={ 'edit-2' } size={ sizes.icon * 0.5 } color={ colors.whiteText } style={ styles.sectionIcon }/> : undefined
+            }
+          </View>
+        </Button>
       </View>
 
       {/* Demographics and Info */}
 
-      <View style={ styles.info }>
-        {
-          // TODO editable: add a comment to sexuality to leave it empty if Asexual or questioning
-          infoKeys.map((key, i) =>
-          {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            // eslint-disable-next-line security/detect-object-injection
-            let value = profile.info[key];
-
-            // don't render info where the value is false-ish
-            if (!value)
-              return;
-            
-            // handle formatting arrays
-            if (Array.isArray(value))
-              value = value.join(', ') + '.';
-
-            const disabled = this.disabledInfo(key);
-
-            return <Button
-              key={ i }
-              useAlternative={ true }
-              borderless={ true }
-              buttonStyle={ styles.rectangle }
-              disabled={ !editable && disabled }
-              // show an edit icon inside each info box to show its editability
-              icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
-              onPress={ () => this.pressInfo(key) }
-            >
-              {
-                // a badge that appears if a info button can be pressed
-                !editable && !disabled ?
-                  <View style={ styles.rectangleIndicator }/> :
-                  undefined
-              }
-
-              <View>
-                <Text style={ styles.rectangleKey }>{ key }</Text>
-                <Text style={ styles.rectangleValue }>{ value }</Text>
-              </View>
-            </Button>;
-          })
-        }
-      </View>
+      { this.renderDemographic() }
 
       {/* Questions and Ice Breakers */}
 
       {
-        // ice breakers are optional
-        profile.iceBreakers?.length ?
+        profile.iceBreakers?.length || editable ?
           <View style={ styles.space }>
-            <Text style={ styles.titleBig }>
-              {`Questions ${editable ? 'You' : profile.nickname} Likes` }
-            </Text>
-          </View> : undefined
-      }
+            <Button
+              buttonStyle={ styles.section }
+              useAlternative={ true }
+              disabled={ !editable }
+            >
+              <View style={ styles.sectionEditable }>
+                <Text style={ styles.title }>
+                  { editable ? 'Your Ice Breakers' : `Questions ${profile.nickname} Likes` }
+                </Text>
+                {
+                  editable ?
+                    <Icon name={ 'edit-2' } size={ sizes.icon * 0.5 } color={ colors.whiteText } style={ styles.sectionIcon }/> : undefined
+                }
+              </View>
 
-      {
-        profile.iceBreakers?.length ?
-          <View style={ styles.iceBreakers }>
-            {
-              profile.iceBreakers.map((question, i) =>
-                <Text key={ i } style={ styles.iceBreakersQuestion }>{ question }</Text>)
-            }
+              {
+                profile.iceBreakers?.length ?
+                  <View style={ styles.iceBreakers }>
+                    {
+                      profile.iceBreakers.map((question, i) =>
+                        <Text key={ i } style={ styles.iceBreakersQuestion }>{ question }</Text>)
+                    }
+                  </View> : undefined
+              }
+            </Button>
           </View> : undefined
       }
 
       {/* Interests */}
 
-      <View style={ styles.space }>
-
-        <Button buttonStyle={ styles.section } onPress={ () => this.openInterests({ shared, mismatched }) }>
-          <Text style={ styles.title }>
-            { editable ?
-              'Your Interests' :
-              shared.length <= 0 ?
-                'No Shared Interests' :
-                shared.length === 1 ?
-                  '1 Shared Interest' :
-                  `${shared.length} Shared Interests`
+      <View style={ styles.space } >
+        <Button
+          buttonStyle={ styles.section }
+          onPress={ () => this.openInterests({ shared, mismatched }) }
+        >
+          <View style={ styles.sectionEditable }>
+            <Text style={ styles.title }>
+              { editable ?
+                'Your Interests' :
+                shared.length <= 0 ?
+                  'No Shared Interests' :
+                  shared.length === 1 ?
+                    '1 Shared Interest' :
+                    `${shared.length} Shared Interests`
+              }
+            </Text>
+            {
+              editable ?
+                <Icon name={ 'edit-2' } size={ sizes.icon * 0.5 } color={ colors.whiteText } style={ styles.sectionIcon }/> : undefined
             }
-          </Text>
+          </View>
 
           {
             shared.length > 0 ?
@@ -305,7 +500,6 @@ class Profile extends React.Component<{
               </View> : undefined
           }
         </Button>
-      
       </View>
 
     </ScrollView>;
@@ -326,23 +520,21 @@ const styles = StyleSheet.create({
 
     textAlign: 'center',
 
-    marginHorizontal: sizes.windowMargin,
-    marginTop: sizes.windowMargin * 2,
-    marginBottom: sizes.windowMargin
+    marginHorizontal: sizes.windowMargin
   },
 
   avatar: {
+    alignSelf: 'center',
+
     width: 256,
     height: 256,
 
-    borderRadius: 10,
-
-    marginHorizontal: sizes.windowMargin,
-    marginTop: sizes.windowMargin,
-    marginBottom: sizes.windowMargin * 1.25
+    borderRadius: 10
   },
 
   title: {
+    flexGrow: 1,
+    
     fontSize: 11,
     color: colors.greyText,
     fontWeight: 'bold',
@@ -387,22 +579,20 @@ const styles = StyleSheet.create({
     marginBottom: sizes.windowMargin * 2
   },
 
-  titles: {
-    marginHorizontal: sizes.windowMargin,
-    marginTop: sizes.windowMargin * 0.15,
-    marginBottom: sizes.windowMargin * 0.65
-  },
-
   displayName: {
     color: colors.whiteText,
 
     fontSize: 18,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+
+    marginHorizontal: sizes.windowMargin
   },
 
   nickname: {
     fontSize: 13,
-    color: colors.greyText
+    color: colors.greyText,
+
+    marginHorizontal: sizes.windowMargin
   },
 
   info: {
@@ -487,11 +677,20 @@ const styles = StyleSheet.create({
   },
 
   space: {
-    marginTop: sizes.windowMargin * 1
+    marginTop: sizes.windowMargin * 0.65
   },
 
   section: {
     paddingVertical: sizes.windowMargin
+  },
+
+  sectionEditable: {
+    flexDirection: 'row'
+  },
+
+  sectionIcon: {
+    alignSelf: 'center',
+    marginHorizontal: sizes.windowMargin
   },
 
   interests: {

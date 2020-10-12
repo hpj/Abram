@@ -9,9 +9,6 @@ Performance Issues and Bugs:
 Public Beta:
   ☐ work on branding descriptions and motto
 
-  - vote kick people from groups
-    ☐ design the UI
-
   ☐ consuming native sign-in with google 
     ☐ region locking
 
@@ -21,6 +18,8 @@ Public Beta:
 
   ☐ use expo-updates
     ☐ expo's over-the-air updates
+
+  ☐ test every thing
 
 Testing:
   - test profile view
@@ -38,6 +37,8 @@ Testing:
   ☐ on different screen sizes
   
 UI/UX:
+  ☐ design the UI for kick voting from groups
+
   ☐ design a mockup for Sign up views
 
   ☐ design a mockup for Discover view

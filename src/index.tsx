@@ -60,11 +60,15 @@ const store = createStore({
     // avatar: `${env.API_ENDPOINT}/avatar`,
 
     bio: 'The self-proclaimed Greatest Mastermind on Earth.',
+    
     fullName: 'Kerolos Zaki',
     nickname: 'Kay',
 
     info: {
-      romantically: 'Open'
+      speaks: [ 'English', 'Arabic' ],
+      romantically: 'Open',
+      gender: 'Man',
+      worksAt: 'Herp Project'
     },
     
     interests: [
@@ -93,12 +97,13 @@ const store = createStore({
           avatar: require('../assets/mockup/dina-0.jpg'),
 
           bio: 'Yet, there is something bold and innocent.',
+
           fullName: 'Dina El-Wedidi',
           nickname: 'Dina',
 
           info: {
             origin: 'Egypt',
-            speaks: [ 'English', 'Arabic' ],
+            speaks: [ 'Arabic' ],
             profession: 'Singer',
             romantically: 'Closed',
             gender: 'Woman',
@@ -112,7 +117,7 @@ const store = createStore({
           ],
 
           interests: [
-            'Visual Novels', 'Music', 'Books', 'Cooking', 'Blacksmithing', 'Travailing', 'Bath Rooms',
+            'Music', 'Books', 'Cooking', 'Blacksmithing', 'Travailing', 'Bath Rooms',
             'Boxing', 'Mountain Climbing', 'Acting', 'Sculpting', 'Tennis', 'Woodworking', 'Cars', 'Driving',
             'Singing', 'Movies', 'Moving Making', 'Directing', 'Sculpting', 'Drawing'
           ]
@@ -124,7 +129,7 @@ const store = createStore({
       id: 'C-0002',
       createdAt: subDays(new Date(), 24),
       updatedAt: subHours(new Date(), 26),
-      displayName: 'Councill of Karkars',
+      displayName: 'Council of Karkars',
       members: [
         {
           uuid: '0001',
@@ -137,7 +142,9 @@ const store = createStore({
           fullName: 'Kerolos Zaki',
           nickname: 'Karkar',
           info: {
-            romantically: 'Open'
+            speaks: [ 'English', 'Arabic' ],
+            romantically: 'Open',
+            gender: 'Man'
           },
           interests: [
             'Psychology', 'Mountain Biking', 'Kite Flying'
@@ -149,7 +156,9 @@ const store = createStore({
           fullName: 'Kerolos Zaki',
           nickname: 'Karkar',
           info: {
-            romantically: 'Open'
+            speaks: [ 'English', 'Arabic' ],
+            romantically: 'Open',
+            gender: 'Man'
           },
           interests: [
             'Psychology', 'Wine Tasting', 'Model Trains'
@@ -161,7 +170,9 @@ const store = createStore({
           fullName: 'Kerolos Zaki',
           nickname: 'Karkar',
           info: {
-            romantically: 'Open'
+            speaks: [ 'English', 'Arabic' ],
+            romantically: 'Open',
+            gender: 'Man'
           },
           interests: [
             'Psychology', 'Mountain Biking', 'Jigsaw Puzzles'
@@ -173,10 +184,12 @@ const store = createStore({
           fullName: 'Kerolos Zaki',
           nickname: 'Karkar',
           info: {
-            romantically: 'Open'
+            speaks: [ 'English', 'Arabic' ],
+            romantically: 'Open',
+            gender: 'Man'
           },
           interests: [
-            'Psychology', 'Tombstone rubbing', 'Squash'
+            'Psychology', 'Tombstone Rubbing', 'Squash'
           ]
         }
       ],
@@ -202,11 +215,14 @@ const store = createStore({
           avatar: require('../assets/mockup/amir-0.jpg'),
           
           bio: 'I am depressed because of Sharmoofers.',
+
           fullName: 'Amid Eid',
           nickname: 'Amir',
 
           info: {
-            romantically: 'Closed'
+            speaks: [ 'Arabic' ],
+            romantically: 'Closed',
+            gender: 'Man'
           },
 
           interests: [

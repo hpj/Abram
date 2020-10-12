@@ -17,25 +17,25 @@ export type Profile = {
   uuid: string,
   avatar: string | number,
   
-  bio: string,
+  bio?: string,
   fullName: string,
   nickname: string,
 
   info: ProfileInfo,
   interests: string[],
-  iceBreakers: string[]
+  iceBreakers?: string[]
 }
 
 export type ProfileInfo = {
-  origin: string,
+  origin?: string,
   speaks: string[],
-  profession: string,
+  profession?: string,
   romantically: 'Open' | 'Closed',
-  worksAt: string,
+  worksAt?: string,
   gender: 'Woman' | 'Man' | 'Non-binary',
-  sexuality: 'Straight' | 'Gay' | 'Lesbian' | 'Bi',
-  religion: string,
-  age: number
+  sexuality?: 'Straight' | 'Gay' | 'Lesbian' | 'Bi',
+  religion?: string,
+  age?: number
 }
 
 export type Size = {

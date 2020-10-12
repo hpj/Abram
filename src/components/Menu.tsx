@@ -199,10 +199,10 @@ class Menu extends StoreComponent<{
         {
           activeChat.members.length > 2 ?
             <Button
-              testID={ 'bn-chat-group-title' }
+              testID={ 'bn-chat-title' }
               buttonStyle={ styles.button  }
               textStyle={ styles.buttonText  }
-              icon={ { name: 'edit-2', size: sizes.icon * 0.6, color: colors.whiteText, style: styles.buttonIcon } }
+              icon={ { name: 'edit-2', size: sizes.icon * 0.65, color: colors.whiteText, style: styles.buttonIcon } }
               text={ 'Title' }
             /> : undefined
         }
@@ -211,9 +211,20 @@ class Menu extends StoreComponent<{
           testID={ 'bn-chat-mute' }
           buttonStyle={ styles.button  }
           textStyle={ styles.buttonText  }
-          icon={ { name: 'volume-x', size: sizes.icon * 0.75, color: colors.whiteText, style: styles.buttonIcon } }
+          icon={ { name: 'volume-x', size: sizes.icon * 0.7, color: colors.whiteText, style: styles.buttonIcon } }
           text={ 'Mute' }
         />
+
+        {
+          activeChat.members.length > 2 ?
+            <Button
+              testID={ 'bn-chat-kick' }
+              buttonStyle={ styles.button  }
+              textStyle={ styles.buttonText  }
+              icon={ { name: 'user-minus', size: sizes.icon * 0.7, color: colors.whiteText, style: styles.buttonIcon } }
+              text={ 'Kick' }
+            /> : undefined
+        }
 
         <Button
           testID={ 'bn-chat-block' }
@@ -252,7 +263,7 @@ class Menu extends StoreComponent<{
       top: y,
       
       width: width,
-      height: height,
+      minHeight: height,
 
       opacity
     } }

@@ -130,11 +130,11 @@ class Chat extends StoreComponent<unknown, {
         }
 
         // questions
-        if (user.iceBreakers?.length > 1)
+        if (user.iceBreakers && user.iceBreakers.length > 1)
         {
           this.hints.push(
             <Text style={ styles.hint }>{ `You can start the conversation by asking one of those questions ${user.nickname} likes:` }</Text>,
-            ...user.iceBreakers.map((question, i) => <Text key={ i } style={ { ...styles.hintSlim, ...styles.hintBold } }>{ `- ${question}` }</Text>),
+            ...user.iceBreakers.slice(0, 3).map((question, i) => <Text key={ i } style={ { ...styles.hintSlim, ...styles.hintBold } }>{ `- ${question}` }</Text>),
             <Text style={ styles.hint }></Text>
           );
         }
