@@ -34,6 +34,7 @@ class Profile extends React.Component<{
   {
     const store = getStore();
 
+    // istanbul ignore next
     if (store.state.popup)
       return;
     
@@ -48,7 +49,7 @@ class Profile extends React.Component<{
       popup: true,
       popupContent: () =>
       {
-        return <View style={ styles.section }>
+        return <View testID={ 'v-interests' } style={ styles.section }>
           <Text style={ styles.titleBig }>
             { editable ? 'Your Interests' : `Interests of ${profile.nickname}` }
           </Text>
@@ -77,6 +78,7 @@ class Profile extends React.Component<{
   {
     const store = getStore();
 
+    // istanbul ignore next
     if (store.state.popup)
       return;
     
@@ -89,8 +91,7 @@ class Profile extends React.Component<{
       {
         const { they, their, them } = pronoun(profile.info.gender);
 
-        return <View>
-
+        return <View testID={ 'v-romantic' }>
           <Text style={ styles.titleBigger }>
             <Text>{ `${profile.nickname} is Romantically ` }</Text>
             {
@@ -157,6 +158,7 @@ class Profile extends React.Component<{
       {
         profile.info.origin?.length || editable ?
           <Button
+            testID={ 'bn-origin' }
             useAlternative={ true }
             borderless={ true }
             buttonStyle={ styles.rectangle }
@@ -176,6 +178,7 @@ class Profile extends React.Component<{
       {/* Speaks */}
 
       <Button
+        testID={ 'bn-speaks' }
         useAlternative={ true }
         borderless={ true }
         buttonStyle={ styles.rectangle }
@@ -193,6 +196,7 @@ class Profile extends React.Component<{
       {
         profile.info.profession?.length || editable ?
           <Button
+            testID={ 'bn-profession' }
             useAlternative={ true }
             borderless={ true }
             buttonStyle={ styles.rectangle }
@@ -212,6 +216,7 @@ class Profile extends React.Component<{
       {/* Romantically */}
 
       <Button
+        testID={ 'bn-romantic' }
         useAlternative={ true }
         borderless={ true }
         buttonStyle={ styles.rectangle }
@@ -234,6 +239,7 @@ class Profile extends React.Component<{
       {
         profile.info.worksAt?.length || editable ?
           <Button
+            testID={ 'bn-works' }
             useAlternative={ true }
             borderless={ true }
             buttonStyle={ styles.rectangle }
@@ -253,6 +259,7 @@ class Profile extends React.Component<{
       {/* Gender */}
 
       <Button
+        testID={ 'bn-gender' }
         useAlternative={ true }
         borderless={ true }
         buttonStyle={ styles.rectangle }
@@ -270,6 +277,7 @@ class Profile extends React.Component<{
       {
         profile.info.sexuality?.length || editable ?
           <Button
+            testID={ 'bn-sexuality' }
             useAlternative={ true }
             borderless={ true }
             buttonStyle={ styles.rectangle }
@@ -291,6 +299,7 @@ class Profile extends React.Component<{
       {
         profile.info.religion?.length || editable ?
           <Button
+            testID={ 'bn-religion' }
             useAlternative={ true }
             borderless={ true }
             buttonStyle={ styles.rectangle }
@@ -312,6 +321,7 @@ class Profile extends React.Component<{
       {
         profile.info.age || editable ?
           <Button
+            testID={ 'bn-age' }
             useAlternative={ true }
             borderless={ true }
             buttonStyle={ styles.rectangle }
@@ -350,6 +360,7 @@ class Profile extends React.Component<{
         profile.bio?.length || editable ?
           <View style={ { ...styles.space, marginTop: sizes.windowMargin * 1.25 } }>
             <Button
+              testID={ 'bn-bio' }
               buttonStyle={ { ...styles.section, paddingVertical: sizes.windowMargin * 0.5 } }
               useAlternative={ true }
               disabled={ !editable }
@@ -377,6 +388,7 @@ class Profile extends React.Component<{
 
       <View style={ styles.space }>
         <Button
+          testID={ 'bn-avatar' }
           buttonStyle={ styles.section }
           useAlternative={ true }
           disabled={ !editable }
@@ -402,6 +414,7 @@ class Profile extends React.Component<{
 
       <View style={ styles.space }>
         <Button
+          testID={ 'bn-titles' }
           buttonStyle={ styles.section }
           useAlternative={ true }
           disabled={ !editable }
@@ -430,6 +443,7 @@ class Profile extends React.Component<{
         profile.iceBreakers?.length || editable ?
           <View style={ styles.space }>
             <Button
+              testID={ 'bn-ice-breakers' }
               buttonStyle={ styles.section }
               useAlternative={ true }
               disabled={ !editable }
@@ -461,6 +475,7 @@ class Profile extends React.Component<{
 
       <View style={ styles.space } >
         <Button
+          testID={ 'bn-interests' }
           buttonStyle={ styles.section }
           onPress={ () => this.openInterests({ shared, mismatched }) }
         >

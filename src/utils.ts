@@ -6,6 +6,7 @@ export function relativeDate(date?: Date, full?: boolean): string
 {
   const baseDate = new Date();
   
+  // istanbul ignore next
   if (!date)
     return '';
 
@@ -58,7 +59,7 @@ export function sharedInterests(...profiles: Profile[]): { shared: string[], mis
         mismatched.push(value);
     });
   }
-  else if (profiles.length > 2)
+  else
   {
     shared.push(...interests.reduce((a, b) => a.filter(c => b.includes(c))));
   }

@@ -4,7 +4,7 @@ import { StyleSheet, View, FlatList, TextInput, Text, Image } from 'react-native
 
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
-import { isToday, differenceInMinutes, isSameDay } from 'date-fns';
+import { isToday, differenceInMilliseconds, isSameDay } from 'date-fns';
 
 import EmojiRegex from 'emoji-regex';
 
@@ -38,14 +38,14 @@ function relativeDate(currMessageDate: Date, prevMessageDate: Date): string | un
   else
   {
     // 5 minutes
-    const maxDiff = 5;
+    const maxDiff = 5 * 60 * 1000;
 
     // messages are on a different days
     if (!isSameDay(currMessageDate, prevMessageDate))
       showTime = true;
 
     // messages are from today but have a [max] minutes between them
-    else if (isToday(currMessageDate) && differenceInMinutes(currMessageDate, prevMessageDate) > maxDiff)
+    else if (isToday(currMessageDate) && differenceInMilliseconds(currMessageDate, prevMessageDate) >= maxDiff)
       showTime = true;
   }
 
@@ -188,7 +188,7 @@ class Chat extends StoreComponent<unknown, {
     let striped = s;
     
     // filter emojis out of text
-    striped = s.replace(emojiRegex, '');
+    striped = s?.replace(emojiRegex, '');
 
     return striped;
   }
@@ -198,9 +198,10 @@ class Chat extends StoreComponent<unknown, {
     const  { profile, activeChat, inputs } = this.state;
 
     // strip and trim
-    const value = this.strip(inputs[activeChat.id] ?? '').trim();
+    const value = this.strip(inputs[activeChat.id])?.trim();
 
-    if (value.length <= 0)
+    // istanbul ignore next
+    if (!value)
       return;
 
     const message: Message = {
@@ -226,6 +227,7 @@ class Chat extends StoreComponent<unknown, {
 
   onPress(message: Message): void
   {
+    // istanbul ignore next
     if (this.store.state.popup)
       return;
     
@@ -363,7 +365,7 @@ const styles = StyleSheet.create({
     color: colors.greyText,
     fontSize: 13,
 
-    marginBottom: sizes.windowMargin * 1.5,
+    marginVertical: sizes.windowMargin * 0.75,
     marginHorizontal: sizes.windowMargin * 1.25
   },
   

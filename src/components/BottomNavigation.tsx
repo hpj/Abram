@@ -79,7 +79,6 @@ class BottomNavigation extends StoreComponent<unknown, {
       <Button
         testID={ 'bn-discover' }
         useAlternative={ true }
-        badgeStyle={ this.discoverBadge ? styles.badge : undefined }
         backgroundStyle={  (index === 1) ? styles.background : styles.backgroundInactive }
         borderless={ true }
         buttonStyle={ styles.entry }

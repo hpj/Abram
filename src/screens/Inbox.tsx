@@ -38,6 +38,7 @@ class Inbox extends StoreComponent<{
         const tA = a.updatedAt;
         const tB = b.updatedAt;
 
+        // istanbul ignore else
         if (tA.getTime() > tB.getTime())
           return -1;
         else if (tA.getTime() < tB.getTime())

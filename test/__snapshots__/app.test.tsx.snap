@@ -570,7 +570,7 @@ exports[`Testing <App/> Chat Chat Context 1`] = `
           }
         }
       >
-        Today, 12:00 AM
+        Today, 12:00 PM
       </Text>
     </View>
     <View
@@ -666,27 +666,95 @@ exports[`Testing <App/> Chat Height With Keyboard: Should Have Height Minus Keyb
 />
 `;
 
-exports[`Testing <App/> Chat Messages List Normal 1`] = `
+exports[`Testing <App/> Chat Messages List All Hints 1`] = `
 <View
   data={
     Array [
-      Object {
-        "createdAt": 1999-10-09T09:01:00.000Z,
-        "owner": "0",
-        "text": "<3",
-      },
-      Object {
-        "createdAt": 1999-10-09T09:00:00.000Z,
-        "owner": "1",
-        "text": "Yay",
-      },
       <Text
         style={
           Object {
             "color": "#818181",
             "fontSize": 13,
-            "marginBottom": 30,
             "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      />,
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "fontWeight": "bold",
+            "marginHorizontal": 25,
+            "marginVertical": 3,
+          }
+        }
+      >
+        - Ajay?
+      </Text>,
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "fontWeight": "bold",
+            "marginHorizontal": 25,
+            "marginVertical": 3,
+          }
+        }
+      >
+        - Skye?
+      </Text>,
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        You can start the conversation by asking one of those questions Mika likes:
+      </Text>,
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        <Text>
+          Your shared interests are 
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "fontWeight": "bold",
+              "marginHorizontal": 25,
+              "marginVertical": 3,
+            }
+          }
+        >
+          A, B, C, D, E, F
+        </Text>
+        <Text>
+          .
+        </Text>
+      </Text>,
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
           }
         }
       >
@@ -713,8 +781,532 @@ exports[`Testing <App/> Chat Messages List Normal 1`] = `
           Object {
             "color": "#818181",
             "fontSize": 13,
-            "marginBottom": 30,
             "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        Hey, User.
+      </Text>,
+    ]
+  }
+  inverted={true}
+  keyExtractor={[Function]}
+  renderItem={[Function]}
+  testID="v-messages"
+>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  />
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "marginHorizontal": 25,
+        "marginVertical": 3,
+      }
+    }
+  >
+    - Ajay?
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "marginHorizontal": 25,
+        "marginVertical": 3,
+      }
+    }
+  >
+    - Skye?
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    You can start the conversation by asking one of those questions Mika likes:
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    <Text>
+      Your shared interests are 
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#818181",
+          "fontSize": 13,
+          "fontWeight": "bold",
+          "marginHorizontal": 25,
+          "marginVertical": 3,
+        }
+      }
+    >
+      A, B, C, D, E, F
+    </Text>
+    <Text>
+      .
+    </Text>
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    <Text>
+      Mika prefers to be called 
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#818181",
+          "fontSize": 13,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Mika
+    </Text>
+    <Text>
+      .
+    </Text>
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    Hey, User.
+  </Text>
+</View>
+`;
+
+exports[`Testing <App/> Chat Messages List Bare Hints 1`] = `
+<View
+  data={
+    Array [
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        <Text>
+          Mika prefers to be called 
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Mika
+        </Text>
+        <Text>
+          .
+        </Text>
+      </Text>,
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        Hey, User.
+      </Text>,
+    ]
+  }
+  inverted={true}
+  keyExtractor={[Function]}
+  renderItem={[Function]}
+  testID="v-messages"
+>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    <Text>
+      Mika prefers to be called 
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#818181",
+          "fontSize": 13,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Mika
+    </Text>
+    <Text>
+      .
+    </Text>
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    Hey, User.
+  </Text>
+</View>
+`;
+
+exports[`Testing <App/> Chat Messages List Group All Hints 1`] = `
+<View
+  data={
+    Array [
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        <Text>
+          Your shared interests are 
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "fontWeight": "bold",
+              "marginHorizontal": 25,
+              "marginVertical": 3,
+            }
+          }
+        >
+          E, F, G, H, I, J
+        </Text>
+        <Text>
+          .
+        </Text>
+      </Text>,
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        <Text>
+          This is a group chat with 
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Mika, Skye
+        </Text>
+        <Text>
+          .
+        </Text>
+      </Text>,
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        Hey, User.
+      </Text>,
+    ]
+  }
+  inverted={true}
+  keyExtractor={[Function]}
+  renderItem={[Function]}
+  testID="v-messages"
+>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    <Text>
+      Your shared interests are 
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#818181",
+          "fontSize": 13,
+          "fontWeight": "bold",
+          "marginHorizontal": 25,
+          "marginVertical": 3,
+        }
+      }
+    >
+      E, F, G, H, I, J
+    </Text>
+    <Text>
+      .
+    </Text>
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    <Text>
+      This is a group chat with 
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#818181",
+          "fontSize": 13,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Mika, Skye
+    </Text>
+    <Text>
+      .
+    </Text>
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    Hey, User.
+  </Text>
+</View>
+`;
+
+exports[`Testing <App/> Chat Messages List Group Bare Hints 1`] = `
+<View
+  data={
+    Array [
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        <Text>
+          This is a group chat with 
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Mika, Skye
+        </Text>
+        <Text>
+          .
+        </Text>
+      </Text>,
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        Hey, User.
+      </Text>,
+    ]
+  }
+  inverted={true}
+  keyExtractor={[Function]}
+  renderItem={[Function]}
+  testID="v-messages"
+>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    <Text>
+      This is a group chat with 
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#818181",
+          "fontSize": 13,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Mika, Skye
+    </Text>
+    <Text>
+      .
+    </Text>
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    Hey, User.
+  </Text>
+</View>
+`;
+
+exports[`Testing <App/> Chat Messages List Normal 1`] = `
+<View
+  data={
+    Array [
+      Object {
+        "createdAt": 1999-10-09T09:01:00.000Z,
+        "owner": "0",
+        "text": "<3",
+      },
+      Object {
+        "createdAt": 1999-10-09T09:00:00.000Z,
+        "owner": "1",
+        "text": "Yay",
+      },
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        <Text>
+          Mika prefers to be called 
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Mika
+        </Text>
+        <Text>
+          .
+        </Text>
+      </Text>,
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
           }
         }
       >
@@ -847,7 +1439,7 @@ exports[`Testing <App/> Chat Messages List Normal: Should Be Message Without Tim
 </View>
 `;
 
-exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A Timestamp of Full Date 1`] = `
+exports[`Testing <App/> Chat Messages List Timestamps Formatting: Also Should Have A Timestamp 1`] = `
 <View>
   <Text
     style={
@@ -861,7 +1453,7 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
       }
     }
   >
-    9 Oct 1999
+    12:00 PM
   </Text>
   <RNGestureHandlerButton
     collapsable={false}
@@ -905,7 +1497,72 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
           }
         }
       >
-        Yay
+        Now
+      </Text>
+    </View>
+  </RNGestureHandlerButton>
+</View>
+`;
+
+exports[`Testing <App/> Chat Messages List Timestamps Formatting: Old Enough To Have Its Own Timestamp 1`] = `
+<View>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 12,
+        "marginBottom": 7,
+        "marginHorizontal": 40,
+        "marginTop": 40,
+        "textAlign": "center",
+      }
+    }
+  >
+    11:37 AM
+  </Text>
+  <RNGestureHandlerButton
+    collapsable={false}
+    onGestureEvent={[Function]}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    onHandlerStateChange={[Function]}
+    rippleColor={0}
+    testID="bn-context"
+  >
+    <View
+      accessible={true}
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "flex-start",
+          "borderColor": "#1C1C1C",
+          "borderRadius": 25,
+          "borderWidth": 3,
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "marginBottom": 5,
+          "marginLeft": 20,
+          "marginRight": 20,
+          "marginTop": 10,
+          "maxWidth": 418.40000000000003,
+          "minHeight": 40,
+          "minWidth": 55,
+          "paddingVertical": 10,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "rgba(255,255,255,0.8)",
+            "fontSize": 16,
+            "marginLeft": 20,
+            "marginRight": 20,
+            "maxWidth": 378.40000000000003,
+          }
+        }
+      >
+        T-23 Minutes
       </Text>
     </View>
   </RNGestureHandlerButton>
@@ -970,7 +1627,7 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
           }
         }
       >
-        Yay
+        T-3 Days
       </Text>
     </View>
   </RNGestureHandlerButton>
@@ -991,7 +1648,7 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
       }
     }
   >
-    12:00 AM
+    11:30 AM
   </Text>
   <RNGestureHandlerButton
     collapsable={false}
@@ -1035,7 +1692,72 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
           }
         }
       >
-        Yay
+        T-30 Minutes
+      </Text>
+    </View>
+  </RNGestureHandlerButton>
+</View>
+`;
+
+exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A Timestamp of With The Year 1`] = `
+<View>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 12,
+        "marginBottom": 7,
+        "marginHorizontal": 40,
+        "marginTop": 40,
+        "textAlign": "center",
+      }
+    }
+  >
+    9 Oct 1999
+  </Text>
+  <RNGestureHandlerButton
+    collapsable={false}
+    onGestureEvent={[Function]}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    onHandlerStateChange={[Function]}
+    rippleColor={0}
+    testID="bn-context"
+  >
+    <View
+      accessible={true}
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "flex-start",
+          "borderColor": "#1C1C1C",
+          "borderRadius": 25,
+          "borderWidth": 3,
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "marginBottom": 5,
+          "marginLeft": 20,
+          "marginRight": 20,
+          "marginTop": 10,
+          "maxWidth": 418.40000000000003,
+          "minHeight": 40,
+          "minWidth": 55,
+          "paddingVertical": 10,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "rgba(255,255,255,0.8)",
+            "fontSize": 16,
+            "marginLeft": 20,
+            "marginRight": 20,
+            "maxWidth": 378.40000000000003,
+          }
+        }
+      >
+        1999
       </Text>
     </View>
   </RNGestureHandlerButton>
@@ -1100,7 +1822,59 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
           }
         }
       >
-        Yay
+        T-1 Day
+      </Text>
+    </View>
+  </RNGestureHandlerButton>
+</View>
+`;
+
+exports[`Testing <App/> Chat Messages List Timestamps Formatting: Shouldn't Have A Timestamp 1`] = `
+<View>
+  <View />
+  <RNGestureHandlerButton
+    collapsable={false}
+    onGestureEvent={[Function]}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    onHandlerStateChange={[Function]}
+    rippleColor={0}
+    testID="bn-context"
+  >
+    <View
+      accessible={true}
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "flex-start",
+          "borderColor": "#1C1C1C",
+          "borderRadius": 25,
+          "borderWidth": 3,
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "marginBottom": 5,
+          "marginLeft": 20,
+          "marginRight": 20,
+          "marginTop": 10,
+          "maxWidth": 418.40000000000003,
+          "minHeight": 40,
+          "minWidth": 55,
+          "paddingVertical": 10,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "rgba(255,255,255,0.8)",
+            "fontSize": 16,
+            "marginLeft": 20,
+            "marginRight": 20,
+            "maxWidth": 378.40000000000003,
+          }
+        }
+      >
+        T-28 Minutes
       </Text>
     </View>
   </RNGestureHandlerButton>
@@ -1626,7 +2400,7 @@ exports[`Testing <App/> Chat Sending Messages: Should Be A Message Equal to <3 1
       }
     }
   >
-    12:00 AM
+    12:00 PM
   </Text>
   <RNGestureHandlerButton
     collapsable={false}
@@ -1815,7 +2589,7 @@ exports[`Testing <App/> Chat Sending Messages: Should Be Sorted With Skye on Top
                     }
                   }
                 >
-                  12:00 AM
+                  12:00 PM
                 </Text>
                 <Text
                   numberOfLines={1}
@@ -4347,6 +5121,1231 @@ exports[`Testing <App/> Navigation Views: Navigation View Should Be Discover 1`]
 </View>
 `;
 
+exports[`Testing <App/> Profile Others Interests Popup 1`] = `
+<View
+  deactivate={[Function]}
+  style={
+    Object {
+      "paddingVertical": 20,
+    }
+  }
+  testID="v-interests"
+>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "marginHorizontal": 20,
+        "marginTop": 10,
+        "textTransform": "uppercase",
+      }
+    }
+  >
+    Interests of Mika
+  </Text>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "flexWrap": "wrap",
+        "marginHorizontal": 10,
+        "marginTop": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#2f9634",
+          "borderRadius": 10,
+          "marginBottom": 11,
+          "marginLeft": 10,
+          "paddingHorizontal": 15,
+          "paddingVertical": 10,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 13,
+            "textTransform": "capitalize",
+          }
+        }
+      >
+        A
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#2f9634",
+          "borderRadius": 10,
+          "marginBottom": 11,
+          "marginLeft": 10,
+          "paddingHorizontal": 15,
+          "paddingVertical": 10,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 13,
+            "textTransform": "capitalize",
+          }
+        }
+      >
+        B
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#2f9634",
+          "borderRadius": 10,
+          "marginBottom": 11,
+          "marginLeft": 10,
+          "paddingHorizontal": 15,
+          "paddingVertical": 10,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 13,
+            "textTransform": "capitalize",
+          }
+        }
+      >
+        C
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#2f9634",
+          "borderRadius": 10,
+          "marginBottom": 11,
+          "marginLeft": 10,
+          "paddingHorizontal": 15,
+          "paddingVertical": 10,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 13,
+            "textTransform": "capitalize",
+          }
+        }
+      >
+        D
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#2f9634",
+          "borderRadius": 10,
+          "marginBottom": 11,
+          "marginLeft": 10,
+          "paddingHorizontal": 15,
+          "paddingVertical": 10,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 13,
+            "textTransform": "capitalize",
+          }
+        }
+      >
+        E
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#2f9634",
+          "borderRadius": 10,
+          "marginBottom": 11,
+          "marginLeft": 10,
+          "paddingHorizontal": 15,
+          "paddingVertical": 10,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 13,
+            "textTransform": "capitalize",
+          }
+        }
+      >
+        F
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#631515",
+          "borderRadius": 10,
+          "marginBottom": 11,
+          "marginLeft": 10,
+          "paddingHorizontal": 15,
+          "paddingVertical": 10,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 13,
+            "textTransform": "capitalize",
+          }
+        }
+      >
+        G
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#631515",
+          "borderRadius": 10,
+          "marginBottom": 11,
+          "marginLeft": 10,
+          "paddingHorizontal": 15,
+          "paddingVertical": 10,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 13,
+            "textTransform": "capitalize",
+          }
+        }
+      >
+        H
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#631515",
+          "borderRadius": 10,
+          "marginBottom": 11,
+          "marginLeft": 10,
+          "paddingHorizontal": 15,
+          "paddingVertical": 10,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 13,
+            "textTransform": "capitalize",
+          }
+        }
+      >
+        I
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#631515",
+          "borderRadius": 10,
+          "marginBottom": 11,
+          "marginLeft": 10,
+          "paddingHorizontal": 15,
+          "paddingVertical": 10,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 13,
+            "textTransform": "capitalize",
+          }
+        }
+      >
+        J
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#631515",
+          "borderRadius": 10,
+          "marginBottom": 11,
+          "marginLeft": 10,
+          "paddingHorizontal": 15,
+          "paddingVertical": 10,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 13,
+            "textTransform": "capitalize",
+          }
+        }
+      >
+        K
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Testing <App/> Profile Others Interests Popup: Should Be Mika's Profile 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "height": "100%",
+      "opacity": 1,
+      "position": "absolute",
+      "width": "100%",
+    }
+  }
+  testID="v-profile"
+>
+  <RCTScrollView
+    style={
+      Object {
+        "backgroundColor": "#000000",
+        "flex": 1,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "marginTop": 13,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={false}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="bn-avatar"
+        >
+          <View
+            style={
+              Object {
+                "paddingVertical": 20,
+              }
+            }
+          >
+            <View>
+              <View />
+            </View>
+            <View
+              style={
+                Object {
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "flexGrow": 1,
+                  }
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "alignSelf": "center",
+                      "borderRadius": 10,
+                      "height": 256,
+                      "width": 256,
+                    }
+                  }
+                />
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "marginTop": 13,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={false}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="bn-titles"
+        >
+          <View
+            style={
+              Object {
+                "paddingVertical": 20,
+              }
+            }
+          >
+            <View>
+              <View />
+            </View>
+            <View
+              style={
+                Object {
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "flexGrow": 1,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 18,
+                      "fontWeight": "bold",
+                      "marginHorizontal": 20,
+                    }
+                  }
+                >
+                  Mika
+                </Text>
+                <Text
+                  style={
+                    Object {
+                      "color": "#818181",
+                      "fontSize": 13,
+                      "marginHorizontal": 20,
+                    }
+                  }
+                >
+                  Mika
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "marginHorizontal": 12,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={false}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="bn-speaks"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#151515",
+                "borderRadius": 10,
+                "flexDirection": "row-reverse",
+                "marginHorizontal": 7,
+                "marginVertical": 7,
+                "minWidth": 65,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <View>
+              <View />
+            </View>
+            <View>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 12,
+                    "fontWeight": "bold",
+                    "textTransform": "uppercase",
+                  }
+                }
+              >
+                Speaks
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 13,
+                    "textTransform": "capitalize",
+                  }
+                }
+              >
+                English.
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="bn-romantic"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#151515",
+                "borderRadius": 10,
+                "flexDirection": "row-reverse",
+                "marginHorizontal": 7,
+                "marginVertical": 7,
+                "minWidth": 65,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <View>
+              <View />
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#ffffff",
+                  "borderRadius": 5,
+                  "height": 5,
+                  "marginLeft": 10,
+                  "width": 5,
+                }
+              }
+            />
+            <View>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 12,
+                    "fontWeight": "bold",
+                    "textTransform": "uppercase",
+                  }
+                }
+              >
+                Romantically
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 13,
+                    "textTransform": "capitalize",
+                  }
+                }
+              >
+                Closed
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={false}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="bn-gender"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#151515",
+                "borderRadius": 10,
+                "flexDirection": "row-reverse",
+                "marginHorizontal": 7,
+                "marginVertical": 7,
+                "minWidth": 65,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <View>
+              <View />
+            </View>
+            <View>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 12,
+                    "fontWeight": "bold",
+                    "textTransform": "uppercase",
+                  }
+                }
+              >
+                Gender
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 13,
+                    "textTransform": "capitalize",
+                  }
+                }
+              >
+                Woman
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "marginTop": 13,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "paddingVertical": 20,
+            }
+          }
+          testID="bn-interests"
+        >
+          <View>
+            <View />
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "flexGrow": 1,
+                  "fontSize": 11,
+                  "fontWeight": "bold",
+                  "marginHorizontal": 20,
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              6 Shared Interests
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "marginHorizontal": 10,
+                "marginTop": 10,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#151515",
+                  "borderRadius": 10,
+                  "marginBottom": 11,
+                  "marginLeft": 10,
+                  "paddingHorizontal": 15,
+                  "paddingVertical": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 13,
+                    "textTransform": "capitalize",
+                  }
+                }
+              >
+                A
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#151515",
+                  "borderRadius": 10,
+                  "marginBottom": 11,
+                  "marginLeft": 10,
+                  "paddingHorizontal": 15,
+                  "paddingVertical": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 13,
+                    "textTransform": "capitalize",
+                  }
+                }
+              >
+                B
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#151515",
+                  "borderRadius": 10,
+                  "marginBottom": 11,
+                  "marginLeft": 10,
+                  "paddingHorizontal": 15,
+                  "paddingVertical": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 13,
+                    "textTransform": "capitalize",
+                  }
+                }
+              >
+                C
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#151515",
+                  "borderRadius": 10,
+                  "marginBottom": 11,
+                  "marginLeft": 10,
+                  "paddingHorizontal": 15,
+                  "paddingVertical": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 13,
+                    "textTransform": "capitalize",
+                  }
+                }
+              >
+                D
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#151515",
+                  "borderRadius": 10,
+                  "marginBottom": 11,
+                  "marginLeft": 10,
+                  "paddingHorizontal": 15,
+                  "paddingVertical": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 13,
+                    "textTransform": "capitalize",
+                  }
+                }
+              >
+                E
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#151515",
+                  "borderRadius": 10,
+                  "marginBottom": 11,
+                  "marginLeft": 10,
+                  "paddingHorizontal": 15,
+                  "paddingVertical": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 13,
+                    "textTransform": "capitalize",
+                  }
+                }
+              >
+                F
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`Testing <App/> Profile Others Romantically Popup Romantically Available (Bare) 1`] = `
+<View
+  deactivate={[Function]}
+  testID="v-romantic"
+>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "marginHorizontal": 20,
+        "marginTop": 30,
+        "textTransform": "uppercase",
+      }
+    }
+  >
+    <Text>
+      Mika is Romantically 
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+        }
+      }
+    >
+      Available.
+    </Text>
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 14,
+        "fontWeight": "bold",
+        "lineHeight": 20.3,
+        "marginBottom": 40,
+        "marginHorizontal": 20,
+        "marginTop": 30,
+        "textTransform": "capitalize",
+      }
+    }
+  >
+    <Text>
+      Keep in mind,
+    </Text>
+    <Text>
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+          }
+        }
+      >
+        
+Mika is a 
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+          }
+        }
+      >
+        Woman
+      </Text>
+    </Text>
+    <Text>
+      <Text>
+        ,
+she did not specify her 
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#bf0404",
+          }
+        }
+      >
+        Age
+      </Text>
+    </Text>
+    <Text>
+      <Text>
+        ,
+she did not specify her 
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#bf0404",
+          }
+        }
+      >
+        Sexuality
+      </Text>
+    </Text>
+    <Text>
+      .
+    </Text>
+  </Text>
+</View>
+`;
+
+exports[`Testing <App/> Profile Others Romantically Popup Romantically Available (Full) 1`] = `
+<View
+  deactivate={[Function]}
+  testID="v-romantic"
+>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "marginHorizontal": 20,
+        "marginTop": 30,
+        "textTransform": "uppercase",
+      }
+    }
+  >
+    <Text>
+      Mana is Romantically 
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+        }
+      }
+    >
+      Available.
+    </Text>
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 14,
+        "fontWeight": "bold",
+        "lineHeight": 20.3,
+        "marginBottom": 40,
+        "marginHorizontal": 20,
+        "marginTop": 30,
+        "textTransform": "capitalize",
+      }
+    }
+  >
+    <Text>
+      Keep in mind,
+    </Text>
+    <Text>
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+          }
+        }
+      >
+        
+Mana is a 
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+          }
+        }
+      >
+        Bi Apatheisme Woman
+      </Text>
+    </Text>
+    <Text>
+      .
+    </Text>
+  </Text>
+</View>
+`;
+
+exports[`Testing <App/> Profile Others Romantically Popup Romantically Available (Minor) 1`] = `
+<View
+  deactivate={[Function]}
+  testID="v-romantic"
+>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "marginHorizontal": 20,
+        "marginTop": 30,
+        "textTransform": "uppercase",
+      }
+    }
+  >
+    <Text>
+      Mika is Romantically 
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+        }
+      }
+    >
+      Available.
+    </Text>
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 14,
+        "fontWeight": "bold",
+        "lineHeight": 20.3,
+        "marginBottom": 40,
+        "marginHorizontal": 20,
+        "marginTop": 30,
+        "textTransform": "capitalize",
+      }
+    }
+  >
+    <Text>
+      Keep in mind,
+    </Text>
+    <Text>
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+          }
+        }
+      >
+        
+Mika is a 
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#bf0404",
+            }
+          }
+        >
+          Minor 
+        </Text>
+        Woman
+      </Text>
+    </Text>
+    <Text>
+      <Text>
+        ,
+she did not specify her 
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#bf0404",
+          }
+        }
+      >
+        Sexuality
+      </Text>
+    </Text>
+    <Text>
+      .
+    </Text>
+  </Text>
+</View>
+`;
+
+exports[`Testing <App/> Profile Others Romantically Popup Romantically Unavailable 1`] = `
+<View
+  deactivate={[Function]}
+  testID="v-romantic"
+>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "marginHorizontal": 20,
+        "marginTop": 30,
+        "textTransform": "uppercase",
+      }
+    }
+  >
+    <Text>
+      Mika is Romantically 
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#bf0404",
+        }
+      }
+    >
+      Unavailable.
+    </Text>
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 14,
+        "fontWeight": "bold",
+        "lineHeight": 20.3,
+        "marginBottom": 40,
+        "marginHorizontal": 20,
+        "marginTop": 30,
+        "textTransform": "capitalize",
+      }
+    }
+  >
+    <Text>
+      If you attempt flirting with her,
+it can result in your account getting 
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#bf0404",
+        }
+      }
+    >
+      Terminated
+    </Text>
+    <Text>
+      .
+    </Text>
+  </Text>
+</View>
+`;
+
 exports[`Testing <App/> Search Bar Width (2 Avatars) (With Activated Bottom Sheet) 1`] = `
 Snapshot Diff:
 Compared values have no visual difference.
@@ -5209,7 +7208,7 @@ exports[`Testing <Inbox/> Group of 3 View: Should Be A Group View With 2 Avatars
                   }
                 }
               >
-                
+                1 Feb 2001
               </Text>
               <Text
                 numberOfLines={1}
@@ -5438,7 +7437,7 @@ exports[`Testing <Inbox/> Group of 4 View: Should Be A Group View With 3 Avatars
                   }
                 }
               >
-                
+                2 Mar 2002
               </Text>
               <Text
                 numberOfLines={1}
@@ -5707,7 +7706,7 @@ exports[`Testing <Inbox/> Group of 5 View: Should Be A Group View With 4 Avatars
                   }
                 }
               >
-                
+                3 Apr 2003
               </Text>
               <Text
                 numberOfLines={1}
@@ -5734,6 +7733,167 @@ exports[`Testing <Inbox/> Group of 5 View: Should Be A Group View With 4 Avatars
 exports[`Testing <Inbox/> Group of 6 View 1`] = `
 Snapshot Diff:
 Compared values have no visual difference.
+`;
+
+exports[`Testing <Inbox/> New Match View: Should Be A New Match Inbox View 1`] = `
+<RCTScrollView
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+  testID="v-inbox"
+>
+  <View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="bn-chat"
+    >
+      <View>
+        <View>
+          <View />
+        </View>
+        <View
+          style={
+            Object {
+              "marginBottom": 20,
+              "marginTop": 20,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "marginLeft": 20,
+                "marginRight": 20,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "height": 70,
+                  "marginLeft": 5,
+                  "width": 70,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "height": 70,
+                    "justifyContent": "center",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": 70,
+                  }
+                }
+              >
+                <Image
+                  source={1}
+                  style={
+                    Object {
+                      "backgroundColor": "#4B4B4B",
+                      "borderRadius": 70,
+                      "height": 70,
+                      "position": "absolute",
+                      "width": 70,
+                    }
+                  }
+                />
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "#ffffff",
+                      "borderColor": "#000000",
+                      "borderRadius": 23,
+                      "borderWidth": 3,
+                      "height": 23,
+                      "marginLeft": -10,
+                      "opacity": 1,
+                      "position": "absolute",
+                      "width": 23,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "marginLeft": 20,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 22,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                Mika
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 20,
+                  }
+                }
+              >
+                9 Oct 1999
+              </Text>
+              <View
+                style={
+                  Object {
+                    "alignSelf": "flex-start",
+                    "borderColor": "#ffffff",
+                    "borderRadius": 5,
+                    "borderWidth": 1,
+                    "marginTop": 10,
+                    "paddingHorizontal": 10,
+                    "paddingVertical": 5,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 11,
+                      "textTransform": "uppercase",
+                    }
+                  }
+                >
+                  New Match
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
 `;
 
 exports[`Testing <Inbox/> Normal View: Should Be A Normal Inbox View With 1 Avatar 1`] = `
@@ -5861,7 +8021,7 @@ exports[`Testing <Inbox/> Normal View: Should Be A Normal Inbox View With 1 Avat
                   }
                 }
               >
-                
+                9 Oct 1999
               </Text>
               <Text
                 numberOfLines={1}
@@ -6001,7 +8161,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Full
               }
             }
           >
-            
+            9 Oct 1999
           </Text>
           <Text
             numberOfLines={1}
@@ -6139,7 +8299,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of This
               }
             }
           >
-            
+            Saturday
           </Text>
           <Text
             numberOfLines={1}
@@ -6277,7 +8437,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Toda
               }
             }
           >
-            
+            12:00 PM
           </Text>
           <Text
             numberOfLines={1}
@@ -6415,7 +8575,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Yest
               }
             }
           >
-            
+            Yesterday
           </Text>
           <Text
             numberOfLines={1}
@@ -6435,4 +8595,4229 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Yest
     </View>
   </View>
 </View>
+`;
+
+exports[`Testing <Profile/> Others Bare Profile 1`] = `
+<RCTScrollView
+  style={
+    Object {
+      "backgroundColor": "#000000",
+      "flex": 1,
+    }
+  }
+>
+  <View>
+    <View
+      style={
+        Object {
+          "marginTop": 13,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-avatar"
+      >
+        <View
+          style={
+            Object {
+              "paddingVertical": 20,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexGrow": 1,
+                }
+              }
+            >
+              <Image
+                source={1}
+                style={
+                  Object {
+                    "alignSelf": "center",
+                    "borderRadius": 10,
+                    "height": 256,
+                    "width": 256,
+                  }
+                }
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "marginTop": 13,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-titles"
+      >
+        <View
+          style={
+            Object {
+              "paddingVertical": 20,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexGrow": 1,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 18,
+                    "fontWeight": "bold",
+                    "marginHorizontal": 20,
+                  }
+                }
+              >
+                Mika
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 13,
+                    "marginHorizontal": 20,
+                  }
+                }
+              >
+                Mika
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "flexWrap": "wrap",
+          "marginHorizontal": 12,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-speaks"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Speaks
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              English.
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-romantic"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#ffffff",
+                "borderRadius": 5,
+                "height": 5,
+                "marginLeft": 10,
+                "width": 5,
+              }
+            }
+          />
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Romantically
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              Closed
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-gender"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Gender
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              Woman
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "marginTop": 13,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "paddingVertical": 20,
+          }
+        }
+        testID="bn-interests"
+      >
+        <View>
+          <View />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#818181",
+                "flexGrow": 1,
+                "fontSize": 11,
+                "fontWeight": "bold",
+                "marginHorizontal": 20,
+                "textTransform": "uppercase",
+              }
+            }
+          >
+            No Shared Interests
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`Testing <Profile/> Others Full Profile 1`] = `
+<RCTScrollView
+  style={
+    Object {
+      "backgroundColor": "#000000",
+      "flex": 1,
+    }
+  }
+>
+  <View>
+    <View
+      style={
+        Object {
+          "marginTop": 25,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-bio"
+      >
+        <View
+          style={
+            Object {
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 22,
+                "fontWeight": "bold",
+                "marginHorizontal": 20,
+                "textAlign": "center",
+              }
+            }
+          >
+            "Leave My Skye Alone!"
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "marginTop": 13,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-avatar"
+      >
+        <View
+          style={
+            Object {
+              "paddingVertical": 20,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexGrow": 1,
+                }
+              }
+            >
+              <Image
+                source={1}
+                style={
+                  Object {
+                    "alignSelf": "center",
+                    "borderRadius": 10,
+                    "height": 256,
+                    "width": 256,
+                  }
+                }
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "marginTop": 13,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-titles"
+      >
+        <View
+          style={
+            Object {
+              "paddingVertical": 20,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexGrow": 1,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 18,
+                    "fontWeight": "bold",
+                    "marginHorizontal": 20,
+                  }
+                }
+              >
+                Mika
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 13,
+                    "marginHorizontal": 20,
+                  }
+                }
+              >
+                Mika
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "flexWrap": "wrap",
+          "marginHorizontal": 12,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-origin"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Origin
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              United States
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-speaks"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Speaks
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              English.
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-profession"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Profession
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              Actor
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-romantic"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#ffffff",
+                "borderRadius": 5,
+                "height": 5,
+                "marginLeft": 10,
+                "width": 5,
+              }
+            }
+          />
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Romantically
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              Closed
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-works"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Works At
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              HSS
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-gender"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Gender
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              Woman
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-sexuality"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Sexuality
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              Lesbian
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-religion"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Religion
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              Apatheisme
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-age"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Age
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              16
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "marginTop": 13,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-ice-breakers"
+      >
+        <View
+          style={
+            Object {
+              "paddingVertical": 20,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "flexGrow": 1,
+                  "fontSize": 11,
+                  "fontWeight": "bold",
+                  "marginHorizontal": 20,
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Questions Mika Likes
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "marginHorizontal": 20,
+                "marginTop": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                  "marginTop": 7,
+                }
+              }
+            >
+              Skye?
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                  "marginTop": 7,
+                }
+              }
+            >
+              Ajay?
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "marginTop": 13,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "paddingVertical": 20,
+          }
+        }
+        testID="bn-interests"
+      >
+        <View>
+          <View />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#818181",
+                "flexGrow": 1,
+                "fontSize": 11,
+                "fontWeight": "bold",
+                "marginHorizontal": 20,
+                "textTransform": "uppercase",
+              }
+            }
+          >
+            6 Shared Interests
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+              "marginHorizontal": 10,
+              "marginTop": 10,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "#151515",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              A
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#151515",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              B
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#151515",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              C
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#151515",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              D
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#151515",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              E
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#151515",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              F
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`Testing <Profile/> Personal Bare Profile 1`] = `
+<RCTScrollView
+  style={
+    Object {
+      "backgroundColor": "#000000",
+      "flex": 1,
+    }
+  }
+>
+  <View>
+    <View
+      style={
+        Object {
+          "marginTop": 25,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-bio"
+      >
+        <View
+          style={
+            Object {
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row-reverse",
+              }
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 12,
+                  },
+                  Object {
+                    "alignSelf": "center",
+                    "marginHorizontal": 20,
+                  },
+                  Object {
+                    "fontFamily": "feather",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+          <Text
+            style={
+              Object {
+                "color": "#818181",
+                "fontSize": 22,
+                "fontStyle": "italic",
+                "fontWeight": "bold",
+                "marginHorizontal": 20,
+                "textAlign": "center",
+              }
+            }
+          >
+            What's... a bio?
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "marginTop": 13,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-avatar"
+      >
+        <View
+          style={
+            Object {
+              "paddingVertical": 20,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexGrow": 1,
+                }
+              }
+            >
+              <Image
+                source={0}
+                style={
+                  Object {
+                    "alignSelf": "center",
+                    "borderRadius": 10,
+                    "height": 256,
+                    "width": 256,
+                  }
+                }
+              />
+            </View>
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 12,
+                  },
+                  Object {
+                    "alignSelf": "center",
+                    "marginHorizontal": 20,
+                  },
+                  Object {
+                    "fontFamily": "feather",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "marginTop": 13,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-titles"
+      >
+        <View
+          style={
+            Object {
+              "paddingVertical": 20,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexGrow": 1,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 18,
+                    "fontWeight": "bold",
+                    "marginHorizontal": 20,
+                  }
+                }
+              >
+                User
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 13,
+                    "marginHorizontal": 20,
+                  }
+                }
+              >
+                User's Nickname
+              </Text>
+            </View>
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 12,
+                  },
+                  Object {
+                    "alignSelf": "center",
+                    "marginHorizontal": 20,
+                  },
+                  Object {
+                    "fontFamily": "feather",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "flexWrap": "wrap",
+          "marginHorizontal": 12,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-origin"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                },
+                Object {
+                  "marginLeft": 10,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Origin
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-speaks"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                },
+                Object {
+                  "marginLeft": 10,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Speaks
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              English.
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-profession"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                },
+                Object {
+                  "marginLeft": 10,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Profession
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-romantic"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                },
+                Object {
+                  "marginLeft": 10,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Romantically
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              Open
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-works"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                },
+                Object {
+                  "marginLeft": 10,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Works At
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-gender"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                },
+                Object {
+                  "marginLeft": 10,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Gender
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              Non-binary
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-sexuality"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                },
+                Object {
+                  "marginLeft": 10,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Sexuality
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-religion"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                },
+                Object {
+                  "marginLeft": 10,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Religion
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-age"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                },
+                Object {
+                  "marginLeft": 10,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Age
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "marginTop": 13,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-ice-breakers"
+      >
+        <View
+          style={
+            Object {
+              "paddingVertical": 20,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "flexGrow": 1,
+                  "fontSize": 11,
+                  "fontWeight": "bold",
+                  "marginHorizontal": 20,
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Your Ice Breakers
+            </Text>
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 12,
+                  },
+                  Object {
+                    "alignSelf": "center",
+                    "marginHorizontal": 20,
+                  },
+                  Object {
+                    "fontFamily": "feather",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "marginTop": 13,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "paddingVertical": 20,
+          }
+        }
+        testID="bn-interests"
+      >
+        <View>
+          <View />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#818181",
+                "flexGrow": 1,
+                "fontSize": 11,
+                "fontWeight": "bold",
+                "marginHorizontal": 20,
+                "textTransform": "uppercase",
+              }
+            }
+          >
+            Your Interests
+          </Text>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                },
+                Object {
+                  "alignSelf": "center",
+                  "marginHorizontal": 20,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+              "marginHorizontal": 10,
+              "marginTop": 10,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "#151515",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              A
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#151515",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              B
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#151515",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              C
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#151515",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              D
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#151515",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              E
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#151515",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              F
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#151515",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 13,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              5+
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`Testing <Profile/> Personal Full Profile 1`] = `
+<RCTScrollView
+  style={
+    Object {
+      "backgroundColor": "#000000",
+      "flex": 1,
+    }
+  }
+>
+  <View>
+    <View
+      style={
+        Object {
+          "marginTop": 25,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-bio"
+      >
+        <View
+          style={
+            Object {
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row-reverse",
+              }
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 12,
+                  },
+                  Object {
+                    "alignSelf": "center",
+                    "marginHorizontal": 20,
+                  },
+                  Object {
+                    "fontFamily": "feather",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 22,
+                "fontWeight": "bold",
+                "marginHorizontal": 20,
+                "textAlign": "center",
+              }
+            }
+          >
+            "Skye is the only true Goddess."
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "marginTop": 13,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-avatar"
+      >
+        <View
+          style={
+            Object {
+              "paddingVertical": 20,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexGrow": 1,
+                }
+              }
+            >
+              <Image
+                source={0}
+                style={
+                  Object {
+                    "alignSelf": "center",
+                    "borderRadius": 10,
+                    "height": 256,
+                    "width": 256,
+                  }
+                }
+              />
+            </View>
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 12,
+                  },
+                  Object {
+                    "alignSelf": "center",
+                    "marginHorizontal": 20,
+                  },
+                  Object {
+                    "fontFamily": "feather",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "marginTop": 13,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-titles"
+      >
+        <View
+          style={
+            Object {
+              "paddingVertical": 20,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexGrow": 1,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 18,
+                    "fontWeight": "bold",
+                    "marginHorizontal": 20,
+                  }
+                }
+              >
+                User
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 13,
+                    "marginHorizontal": 20,
+                  }
+                }
+              >
+                User's Nickname
+              </Text>
+            </View>
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 12,
+                  },
+                  Object {
+                    "alignSelf": "center",
+                    "marginHorizontal": 20,
+                  },
+                  Object {
+                    "fontFamily": "feather",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "flexWrap": "wrap",
+          "marginHorizontal": 12,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-origin"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                },
+                Object {
+                  "marginLeft": 10,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Origin
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              United States
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-speaks"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                },
+                Object {
+                  "marginLeft": 10,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Speaks
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              English.
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-profession"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                },
+                Object {
+                  "marginLeft": 10,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Profession
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              Cultist
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-romantic"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                },
+                Object {
+                  "marginLeft": 10,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Romantically
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              Open
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-works"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                },
+                Object {
+                  "marginLeft": 10,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Works At
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              Skyenet
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-gender"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                },
+                Object {
+                  "marginLeft": 10,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Gender
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              Non-binary
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-sexuality"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                },
+                Object {
+                  "marginLeft": 10,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Sexuality
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              Bi
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-religion"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                },
+                Object {
+                  "marginLeft": 10,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Religion
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              Skyeism
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-age"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#151515",
+              "borderRadius": 10,
+              "flexDirection": "row-reverse",
+              "marginHorizontal": 7,
+              "marginVertical": 7,
+              "minWidth": 65,
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                },
+                Object {
+                  "marginLeft": 10,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Age
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              44
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "marginTop": 13,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="bn-ice-breakers"
+      >
+        <View
+          style={
+            Object {
+              "paddingVertical": 20,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "flexGrow": 1,
+                  "fontSize": 11,
+                  "fontWeight": "bold",
+                  "marginHorizontal": 20,
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Your Ice Breakers
+            </Text>
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 12,
+                  },
+                  Object {
+                    "alignSelf": "center",
+                    "marginHorizontal": 20,
+                  },
+                  Object {
+                    "fontFamily": "feather",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "marginHorizontal": 20,
+                "marginTop": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                  "marginTop": 7,
+                }
+              }
+            >
+              Aren't you going overboard with this Skye joke?
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                  "marginTop": 7,
+                }
+              }
+            >
+              No.
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "marginTop": 13,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "paddingVertical": 20,
+          }
+        }
+        testID="bn-interests"
+      >
+        <View>
+          <View />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#818181",
+                "flexGrow": 1,
+                "fontSize": 11,
+                "fontWeight": "bold",
+                "marginHorizontal": 20,
+                "textTransform": "uppercase",
+              }
+            }
+          >
+            Your Interests
+          </Text>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                },
+                Object {
+                  "alignSelf": "center",
+                  "marginHorizontal": 20,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+              "marginHorizontal": 10,
+              "marginTop": 10,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "#151515",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              A
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#151515",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              B
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#151515",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              C
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#151515",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              D
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#151515",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              E
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#151515",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              F
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#151515",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 13,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              5+
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
 `;

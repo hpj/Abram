@@ -22,17 +22,11 @@ Public Beta:
   ☐ test every thing
 
 Testing:
-  - test profile view
-    ☐ test others @high
+  - test personal
+    ☐ test editable elements
 
-    ☐ test personal @high
-      ☐ test editable elements
-
-  - test expanding profile elements
-    - interests
-    - romantic status
-
-  ☐ test editable personal profile
+  ☐ mock and test Clipboard
+    - with <ChatContext/>
 
   ☐ on different screen sizes
   
