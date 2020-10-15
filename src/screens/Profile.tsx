@@ -122,7 +122,13 @@ class Profile extends React.Component<{
                       profile.info.age && profile.info.age < 18 ?
                         <Text style={ { color: colors.brightRed } }>Minor </Text> : undefined
                     }
-                    { [ profile.info.sexuality, profile.info.religion, profile.info.gender ].join(' ').trim() }
+                    {
+                      [
+                        profile.info.sexuality === 'None' ? 'Asexual' : profile.info.sexuality,
+                        profile.info.religion === 'None' ? 'Non-Religious' : profile.info.religion,
+                        profile.info.gender
+                      ].join(' ').trim()
+                    }
                   </Text>
                 </Text>
                 {
@@ -396,6 +402,7 @@ class Profile extends React.Component<{
           <View style={ styles.sectionEditable }>
             {/* eslint-disable-next-line react-native/no-inline-styles */}
             <View style={ { flexGrow: 1 } }>
+              {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
               {/* @ts-ignore */}
               <Image style={ styles.avatar } source={ profile.avatar }/>
               {/* <Image style={ styles.avatar } source={ { uri: avatar } }/> */}

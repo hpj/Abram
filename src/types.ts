@@ -33,7 +33,7 @@ export type ProfileInfo = {
   romantically: 'Open' | 'Closed',
   worksAt?: string,
   gender: 'Woman' | 'Man' | 'Non-binary',
-  sexuality?: 'Straight' | 'Gay' | 'Lesbian' | 'Bi',
+  sexuality?: 'Straight' | 'Gay' | 'Lesbian' | 'Bi' | 'None',
   religion?: string,
   age?: number
 }

@@ -1466,11 +1466,11 @@ describe('Testing <App/>', () =>
                     nickname: 'Mana',
                     info: {
                       gender: 'Woman',
-                      sexuality: 'Bi',
+                      sexuality: 'None',
                       romantically: 'Open',
                       speaks: [ 'English' ],
                       age: 21,
-                      religion: 'Apatheisme'
+                      religion: 'None'
                     },
                     interests: [] as string[]
                   }
@@ -1687,7 +1687,7 @@ describe('Testing <App/>', () =>
                     age: 16,
                     origin: 'United States',
                     profession: 'Actor',
-                    religion: 'Apatheisme',
+                    religion: 'None',
                     worksAt: 'HSS'
                   },
                   iceBreakers: [
@@ -1755,7 +1755,7 @@ describe('Testing <App/>', () =>
                     age: 16,
                     origin: 'United States',
                     profession: 'Actor',
-                    religion: 'Apatheisme',
+                    religion: 'None',
                     worksAt: 'HSS'
                   },
                   iceBreakers: [
@@ -1777,7 +1777,7 @@ describe('Testing <App/>', () =>
                     age: 15,
                     origin: 'United States',
                     profession: 'Actor',
-                    religion: 'Apatheisme',
+                    religion: 'None',
                     worksAt: 'CA'
                   },
                   iceBreakers: [
@@ -2810,7 +2810,7 @@ describe('Testing <Profile/>', () =>
           age: 16,
           origin: 'United States',
           profession: 'Actor',
-          religion: 'Apatheisme',
+          religion: 'None',
           worksAt: 'HSS'
         },
         iceBreakers: [
