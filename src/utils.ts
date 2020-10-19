@@ -76,6 +76,7 @@ export function pronoun(gender: ProfileInfo['gender']): {
   them: string,
   their: string,
   theirs: string,
+  themselves: string,
   are: string
 }
 {
@@ -83,6 +84,7 @@ export function pronoun(gender: ProfileInfo['gender']): {
     return {
       they: 'she',
       them: 'her',
+      themselves: 'herself',
       their: 'her',
       theirs: 'hers',
       are: 'is'
@@ -94,6 +96,7 @@ export function pronoun(gender: ProfileInfo['gender']): {
       them: 'him',
       their: 'his',
       theirs: 'his',
+      themselves: 'himself',
       are: 'is'
     };
   
@@ -103,6 +106,7 @@ export function pronoun(gender: ProfileInfo['gender']): {
       them: 'them',
       their: 'their',
       theirs: 'theirs',
+      themselves: 'themselves',
       are: 'are'
     };
 }

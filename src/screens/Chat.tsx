@@ -111,6 +111,8 @@ class Chat extends StoreComponent<unknown, {
       if (activeChat.members.length === 2)
       {
         const user = members[0];
+
+        const { them } = utils.pronoun(user.info.gender);
   
         // show nickname preference
         this.hints.push(<Text style={ styles.hint }>
@@ -119,12 +121,49 @@ class Chat extends StoreComponent<unknown, {
           <Text>.</Text>
         </Text>);
 
+        // romanic availability
+        if (user.info.romantically === 'Closed')
+        {
+          this.hints.push(<Text style={ styles.hint }>
+            <Text>{`If you attempt flirting with ${them}, it can result in your account getting`} </Text>
+            <Text style={ { ...styles.hintSlim, ...styles.hintBold } }>Terminated</Text>
+            <Text>.</Text>
+          </Text>);
+        }
+
         // interests
         if (shared.length > 0)
         {
           this.hints.push(<Text style={ styles.hint }>
             <Text>Your shared interests are </Text>
             <Text style={ { ...styles.hintSlim, ...styles.hintBold } }>{ shared }</Text>
+            <Text>.</Text>
+          </Text>);
+        }
+
+        // doesn't show the hint if the user only defined their gender
+        // and defined it as a "Man"
+        // to avoid things like
+        // "Amir is a Man", which sounds very sexist
+        if (
+          user.info.romantically === 'Open' && (
+            user.info.gender !== 'Man' ||
+            user.info.age && user.info.age < 18 ||
+            user.info.sexuality ||
+            user.info.religion
+          )
+        )
+        {
+          const s = [
+            user.info.age && user.info.age < 18 ? 'Minor' : '',
+            user.info.sexuality === 'None' ? 'Asexual' : user.info.sexuality,
+            user.info.religion === 'None' ? 'Non-Religious' : user.info.religion,
+            user.info.gender
+          ].join(' ').trim();
+
+          this.hints.push(<Text style={ styles.hint }>
+            <Text>{`${user.nickname} is a `}</Text>
+            <Text style={ { ...styles.hintSlim, ...styles.hintBold } }>{ s }</Text>
             <Text>.</Text>
           </Text>);
         }
@@ -160,6 +199,11 @@ class Chat extends StoreComponent<unknown, {
             <Text>.</Text>
           </Text>);
         }
+
+        //
+        this.hints.push(<Text style={ styles.hint }>
+          Check their individual profiles for more info.
+        </Text>);
       }
     }
 
@@ -301,6 +345,7 @@ class Chat extends StoreComponent<unknown, {
               style={ { ...styles.message, maxWidth: bubbleWidth } }
               onPress={ () => this.onPress(message) }
             >
+              {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
               {/* @ts-ignore */}
               <Image style={ styles.avatar } source={ avatar }/>
               {/* <Image style={ styles.avatar } source={ { uri: avatar } }/> */}

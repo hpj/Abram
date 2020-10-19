@@ -14,6 +14,7 @@ describe('Testing Utils', () =>
       expect(pronoun('Non-binary')).toEqual({
         they: 'they',
         them: 'them',
+        themselves: 'themselves',
         their: 'their',
         theirs: 'theirs',
         are: 'are'
@@ -25,6 +26,7 @@ describe('Testing Utils', () =>
       expect(pronoun('Woman')).toEqual({
         they: 'she',
         them: 'her',
+        themselves: 'herself',
         their: 'her',
         theirs: 'hers',
         are: 'is'
@@ -36,6 +38,7 @@ describe('Testing Utils', () =>
       expect(pronoun('Man')).toEqual({
         they: 'he',
         them: 'him',
+        themselves: 'himself',
         their: 'his',
         theirs: 'his',
         are: 'is'

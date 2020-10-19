@@ -375,11 +375,25 @@ describe('Testing <App/>', () =>
             {
               uuid: '1',
               avatar: 1,
+              fullName: 'Mika',
+              nickname: 'Mika',
+              info: {
+                romantically: 'Closed',
+                gender: 'Woman',
+                speaks: [ 'English' ]
+              },
               interests: [] as string[]
             },
             {
               uuid: '2',
               avatar: 2,
+              fullName: 'Skye',
+              nickname: 'Skye',
+              info: {
+                romantically: 'Closed',
+                gender: 'Woman',
+                speaks: [ 'English' ]
+              },
               interests: [] as string[]
             }
           ],
@@ -442,11 +456,25 @@ describe('Testing <App/>', () =>
             {
               uuid: '1',
               avatar: 1,
+              fullName: 'Mika',
+              nickname: 'Mika',
+              info: {
+                romantically: 'Closed',
+                gender: 'Woman',
+                speaks: [ 'English' ]
+              },
               interests: [] as string[]
             },
             {
               uuid: '2',
               avatar: 2,
+              fullName: 'Skye',
+              nickname: 'Skye',
+              info: {
+                romantically: 'Closed',
+                gender: 'Woman',
+                speaks: [ 'English' ]
+              },
               interests: [] as string[]
             }
           ],
@@ -515,11 +543,25 @@ describe('Testing <App/>', () =>
             {
               uuid: '1',
               avatar: 1,
+              fullName: 'Mika',
+              nickname: 'Mika',
+              info: {
+                romantically: 'Closed',
+                gender: 'Woman',
+                speaks: [ 'English' ]
+              },
               interests: [] as string[]
             },
             {
               uuid: '2',
               avatar: 2,
+              fullName: 'Skye',
+              nickname: 'Skye',
+              info: {
+                romantically: 'Closed',
+                gender: 'Woman',
+                speaks: [ 'English' ]
+              },
               interests: [] as string[]
             }
           ],
@@ -614,6 +656,13 @@ describe('Testing <App/>', () =>
               {
                 uuid: '1',
                 avatar: 1,
+                fullName: 'Mika',
+                nickname: 'Mika',
+                info: {
+                  romantically: 'Closed',
+                  gender: 'Woman',
+                  speaks: [ 'English' ]
+                },
                 interests: [] as string[]
               }
             ],
@@ -672,11 +721,25 @@ describe('Testing <App/>', () =>
               {
                 uuid: '1',
                 avatar: 1,
+                fullName: 'Mika',
+                nickname: 'Mika',
+                info: {
+                  romantically: 'Closed',
+                  gender: 'Woman',
+                  speaks: [ 'English' ]
+                },
                 interests: [] as string[]
               },
               {
                 uuid: '2',
                 avatar: 2,
+                fullName: 'Skye',
+                nickname: 'Skye',
+                info: {
+                  romantically: 'Closed',
+                  gender: 'Woman',
+                  speaks: [ 'English' ]
+                },
                 interests: [] as string[]
               }
             ],
@@ -735,16 +798,37 @@ describe('Testing <App/>', () =>
               {
                 uuid: '1',
                 avatar: 1,
+                fullName: 'Mika',
+                nickname: 'Mika',
+                info: {
+                  romantically: 'Closed',
+                  gender: 'Woman',
+                  speaks: [ 'English' ]
+                },
                 interests: [] as string[]
               },
               {
                 uuid: '2',
                 avatar: 2,
+                fullName: 'Skye',
+                nickname: 'Skye',
+                info: {
+                  romantically: 'Closed',
+                  gender: 'Woman',
+                  speaks: [ 'English' ]
+                },
                 interests: [] as string[]
               },
               {
                 uuid: '3',
                 avatar: 3,
+                fullName: 'Mana',
+                nickname: 'Mana',
+                info: {
+                  romantically: 'Closed',
+                  gender: 'Woman',
+                  speaks: [ 'English' ]
+                },
                 interests: [] as string[]
               }
             ],
@@ -958,6 +1042,11 @@ describe('Testing <App/>', () =>
                 uuid: '1',
                 fullName: 'Mika',
                 nickname: 'Mika',
+                info: {
+                  romantically: 'Closed',
+                  gender: 'Woman',
+                  speaks: [ 'English' ]
+                },
                 avatar: 1,
                 interests: [] as string[]
               }
@@ -1019,6 +1108,11 @@ describe('Testing <App/>', () =>
                 avatar: 1,
                 fullName: 'Mika',
                 nickname: 'Mika',
+                info: {
+                  romantically: 'Closed',
+                  gender: 'Woman',
+                  speaks: [ 'English' ]
+                },
                 interests: [] as string[]
               },
               {
@@ -1026,6 +1120,11 @@ describe('Testing <App/>', () =>
                 avatar: 2,
                 fullName: 'Skye',
                 nickname: 'Skye',
+                info: {
+                  romantically: 'Closed',
+                  gender: 'Woman',
+                  speaks: [ 'English' ]
+                },
                 interests: [] as string[]
               }
             ],
@@ -1088,6 +1187,13 @@ describe('Testing <App/>', () =>
               {
                 uuid: '1',
                 avatar: 1,
+                fullName: 'Mika',
+                nickname: 'Mika',
+                info: {
+                  romantically: 'Closed',
+                  gender: 'Woman',
+                  speaks: [ 'English' ]
+                },
                 interests: [] as string[]
               }
             ],
@@ -1201,7 +1307,7 @@ describe('Testing <App/>', () =>
   
         const profile = toJSON(component, 'v-profile', 'all');
   
-        expect(profile).toMatchSnapshot('Should Be Mika\'s Profile');
+        expect(profile).toMatchSnapshot('Should Be Mika Profile');
   
         // activate interests popup view
         fireEvent.press(component.getByTestId('bn-interests'));
@@ -1525,7 +1631,230 @@ describe('Testing <App/>', () =>
   {
     describe('Messages List', () =>
     {
-      test('Bare Hints', async() =>
+      test('Normal', async() =>
+      {
+        getStore().set({
+          profile: {
+            uuid: '0',
+            avatar: 0,
+            fullName: 'User',
+            nickname: 'User',
+            interests: [] as string[]
+          } as TProfile,
+          inbox: [
+            {
+              id: '0',
+              displayName: 'Mika',
+              createdAt: new Date(1999, 9, 9, 9, 0),
+              updatedAt: new Date(1999, 9, 9, 9, 1),
+              members: [
+                {
+                  uuid: '0',
+                  avatar: 0
+                },
+                {
+                  uuid: '1',
+                  avatar: 1,
+                  fullName: 'Mika',
+                  nickname: 'Mika',
+                  info: {
+                    romantically: 'Closed',
+                    gender: 'Woman',
+                    speaks: [ 'English' ]
+                  },
+                  interests: [] as string[]
+                }
+              ],
+              messages: [
+                { owner: '1', text: 'Yay', createdAt: new Date(1999, 9, 9, 9, 0) },
+                { owner: '0', text: '<3', createdAt: new Date(1999, 9, 9, 9, 1) }
+              ]
+            }
+          ] as InboxEntry[]
+        });
+    
+        const component = render(<App/>);
+    
+        // wait for app loading
+        await waitFor(() => component.getByTestId('v-main-area'));
+  
+        // snap the bottom sheet the top of the screen
+        // by simulating pressing a chat from inbox
+        fireEvent.press(component.getByTestId('bn-chat'));
+  
+        await waitFor(() => true);
+  
+        const parent = toJSON(component, 'v-messages', 'all');
+        
+        expect(parent?.children?.[0]).toMatchSnapshot('Should Be Message Without Timestamp And With A Background');
+  
+        expect(parent?.children?.[1]).toMatchSnapshot('Should Be Message With Timestamp And Without A Background');
+  
+        // separated messages to their own snapshots
+        if (parent)
+          parent.children = [];
+
+        // to make sure when props change
+        expect(parent).toMatchSnapshot();
+
+        component.unmount();
+      });
+
+      test('Timestamps Formatting', async() =>
+      {
+        getStore().set({
+          profile: {
+            uuid: '0',
+            avatar: 0,
+            fullName: 'User',
+            nickname: 'User',
+            interests: [] as string[]
+          } as TProfile,
+          inbox: [
+            {
+              id: '0',
+              displayName: 'Mika',
+              createdAt: new Date(1999, 9, 9, 9, 0),
+              updatedAt: new Date(),
+              members: [
+                {
+                  uuid: '0',
+                  avatar: 0
+                },
+                {
+                  uuid: '1',
+                  avatar: 1,
+                  fullName: 'Mika',
+                  nickname: 'Mika',
+                  info: {
+                    romantically: 'Closed',
+                    gender: 'Woman',
+                    speaks: [ 'English' ]
+                  },
+                  interests: [] as string[]
+                }
+              ],
+              messages: [
+                { owner: '1', text: '1999', createdAt: new Date(1999, 9, 9, 9, 0) },
+                { owner: '1', text: 'T-3 Days', createdAt: subDays(new Date(), 3) },
+                { owner: '1', text: 'T-1 Day', createdAt: subDays(new Date(), 1) },
+                { owner: '1', text: 'T-30 Minutes', createdAt: subMinutes(new Date(), 30) },
+                { owner: '1', text: 'T-28 Minutes', createdAt: subMinutes(new Date(), 28) },
+                { owner: '1', text: 'T-23 Minutes', createdAt: subMinutes(new Date(), 23) },
+                { owner: '1', text: 'Now', createdAt: new Date() }
+              ]
+            }
+          ] as InboxEntry[]
+        });
+    
+        const component = render(<App/>);
+    
+        // wait for app loading
+        await waitFor(() => component.getByTestId('v-main-area'));
+  
+        // snap the bottom sheet the top of the screen
+        // by simulating pressing a chat from inbox
+        fireEvent.press(component.getByTestId('bn-chat'));
+  
+        await waitFor(() => true);
+  
+        const parent = toJSON(component, 'v-messages', 'all');
+        
+        expect(parent?.children?.[0]).toMatchSnapshot('Also Should Have A Timestamp');
+
+        expect(parent?.children?.[1]).toMatchSnapshot('Old Enough To Have Its Own Timestamp');
+
+        expect(parent?.children?.[2]).toMatchSnapshot('Shouldn\'t Have A Timestamp');
+
+        expect(parent?.children?.[3]).toMatchSnapshot('Should Have A Timestamp of Today');
+  
+        expect(parent?.children?.[4]).toMatchSnapshot('Should Have A Timestamp of Yesterday');
+        
+        expect(parent?.children?.[5]).toMatchSnapshot('Should Have A Timestamp of This Week');
+  
+        expect(parent?.children?.[6]).toMatchSnapshot('Should Have A Timestamp of With The Year');
+        
+        component.unmount();
+      });
+      
+      test('With Avatars', async() =>
+      {
+        getStore().set({
+          profile: {
+            uuid: '0',
+            avatar: 0,
+            fullName: 'User',
+            nickname: 'User',
+            interests: [] as string[]
+          } as TProfile,
+          inbox: [
+            {
+              id: '0',
+              displayName: 'Group of Wholesome Girls',
+              createdAt: new Date(1999, 9, 9, 9, 0),
+              updatedAt: new Date(1999, 9, 9, 9, 1),
+              members: [
+                {
+                  uuid: '0',
+                  avatar: 0
+                },
+                {
+                  uuid: '1',
+                  avatar: 1,
+                  fullName: 'Mika',
+                  nickname: 'Mika',
+                  info: {
+                    romantically: 'Closed',
+                    gender: 'Woman',
+                    speaks: [ 'English' ]
+                  },
+                  interests: [] as string[]
+                },
+                {
+                  uuid: '2',
+                  avatar: 2,
+                  fullName: 'Skye',
+                  nickname: 'Skye',
+                  info: {
+                    romantically: 'Closed',
+                    gender: 'Woman',
+                    speaks: [ 'English' ]
+                  },
+                  interests: [] as string[]
+                }
+              ],
+              messages: [
+                { owner: '1', text: 'Yay', createdAt: new Date(1999, 9, 9, 9, 0) },
+                { owner: '0', text: '<3', createdAt: new Date(1999, 9, 9, 9, 1) }
+              ]
+            }
+          ] as InboxEntry[]
+        });
+    
+        const component = render(<App/>);
+    
+        // wait for app loading
+        await waitFor(() => component.getByTestId('v-main-area'));
+  
+        // snap the bottom sheet the top of the screen
+        // by simulating pressing a chat from inbox
+        fireEvent.press(component.getByTestId('bn-chat'));
+  
+        await waitFor(() => true);
+  
+        const parent = toJSON(component, 'v-messages', 'all');
+        
+        expect(parent?.children?.[0]).toMatchSnapshot('Should Be Message Without Timestamp And With A Background');
+  
+        expect(parent?.children?.[1]).toMatchSnapshot('Should Be Message With Timestamp And Avatar And Without A Background');
+        
+        component.unmount();
+      });
+    });
+
+    describe('Hints', () =>
+    {
+      test('Bare', async() =>
       {
         getStore().set({
           profile: {
@@ -1582,8 +1911,442 @@ describe('Testing <App/>', () =>
 
         component.unmount();
       });
+
+      test('All', async() =>
+      {
+        getStore().set({
+          profile: {
+            uuid: '0',
+            avatar: 0,
+            fullName: 'User',
+            nickname: 'User',
+            interests: [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K' ] as string[]
+          } as TProfile,
+          inbox: [
+            {
+              id: '0',
+              displayName: 'Mika',
+              createdAt: new Date(1999, 9, 9, 9),
+              updatedAt: new Date(1999, 9, 9, 9),
+              members: [
+                {
+                  uuid: '0',
+                  avatar: 0
+                },
+                {
+                  uuid: '1',
+                  avatar: 1,
+                  fullName: 'Mika',
+                  nickname: 'Mika',
+                  info: {
+                    gender: 'Woman',
+                    sexuality: 'Lesbian',
+                    romantically: 'Closed',
+                    speaks: [ 'English' ],
+                    age: 16,
+                    origin: 'United States',
+                    profession: 'Actor',
+                    religion: 'None',
+                    worksAt: 'HSS'
+                  },
+                  iceBreakers: [
+                    'Skye?',
+                    'Ajay?'
+                  ],
+                  interests: [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K' ] as string[]
+                }
+              ],
+              messages: [] as InboxEntry['messages']
+            }
+          ] as InboxEntry[]
+        });
+    
+        const component = render(<App/>);
+    
+        // wait for app loading
+        await waitFor(() => component.getByTestId('v-main-area'));
+  
+        // snap the bottom sheet the top of the screen
+        // by simulating pressing a chat from inbox
+        fireEvent.press(component.getByTestId('bn-chat'));
+  
+        await waitFor(() => true);
+  
+        const parent = toJSON(component, 'v-messages', 'all');
+        
+        // to make sure when props change
+        expect(parent).toMatchSnapshot();
+
+        component.unmount();
+      });
       
-      test('Group Bare Hints', async() =>
+      test('Romantically Open Woman Bare', async() =>
+      {
+        getStore().set({
+          profile: {
+            uuid: '0',
+            avatar: 0,
+            fullName: 'User',
+            nickname: 'User',
+            interests: [] as string[]
+          } as TProfile,
+          inbox: [
+            {
+              id: '0',
+              displayName: 'Mika',
+              createdAt: new Date(1999, 9, 9, 9),
+              updatedAt: new Date(1999, 9, 9, 9),
+              members: [
+                {
+                  uuid: '0',
+                  avatar: 0
+                },
+                {
+                  uuid: '1',
+                  avatar: 1,
+                  fullName: 'Mika',
+                  nickname: 'Mika',
+                  info: {
+                    gender: 'Woman',
+                    romantically: 'Open',
+                    speaks: [ 'English' ]
+                  },
+                  interests: [] as string[]
+                }
+              ],
+              messages: [] as InboxEntry['messages']
+            }
+          ] as InboxEntry[]
+        });
+    
+        const component = render(<App/>);
+    
+        // wait for app loading
+        await waitFor(() => component.getByTestId('v-main-area'));
+  
+        // snap the bottom sheet the top of the screen
+        // by simulating pressing a chat from inbox
+        fireEvent.press(component.getByTestId('bn-chat'));
+  
+        await waitFor(() => true);
+  
+        const parent = toJSON(component, 'v-messages', 'all');
+        
+        // to make sure when props change
+        expect(parent).toMatchSnapshot();
+
+        component.unmount();
+      });
+
+      test('Romantically Open Man Bare', async() =>
+      {
+        getStore().set({
+          profile: {
+            uuid: '0',
+            avatar: 0,
+            fullName: 'User',
+            nickname: 'User',
+            interests: [] as string[]
+          } as TProfile,
+          inbox: [
+            {
+              id: '0',
+              displayName: 'Amir',
+              createdAt: new Date(1999, 9, 9, 9),
+              updatedAt: new Date(1999, 9, 9, 9),
+              members: [
+                {
+                  uuid: '0',
+                  avatar: 0
+                },
+                {
+                  uuid: '1',
+                  avatar: 1,
+                  fullName: 'Amir',
+                  nickname: 'Amir',
+                  info: {
+                    gender: 'Man',
+                    romantically: 'Open',
+                    speaks: [ 'Arabic' ]
+                  },
+                  interests: [] as string[]
+                }
+              ],
+              messages: [] as InboxEntry['messages']
+            }
+          ] as InboxEntry[]
+        });
+    
+        const component = render(<App/>);
+    
+        // wait for app loading
+        await waitFor(() => component.getByTestId('v-main-area'));
+  
+        // snap the bottom sheet the top of the screen
+        // by simulating pressing a chat from inbox
+        fireEvent.press(component.getByTestId('bn-chat'));
+  
+        await waitFor(() => true);
+  
+        const parent = toJSON(component, 'v-messages', 'all');
+        
+        // to make sure when props change
+        expect(parent).toMatchSnapshot();
+
+        component.unmount();
+      });
+
+      test('Romantically Open Non-binary Bare', async() =>
+      {
+        getStore().set({
+          profile: {
+            uuid: '0',
+            avatar: 0,
+            fullName: 'User',
+            nickname: 'User',
+            interests: [] as string[]
+          } as TProfile,
+          inbox: [
+            {
+              id: '0',
+              displayName: 'Amir',
+              createdAt: new Date(1999, 9, 9, 9),
+              updatedAt: new Date(1999, 9, 9, 9),
+              members: [
+                {
+                  uuid: '0',
+                  avatar: 0
+                },
+                {
+                  uuid: '1',
+                  avatar: 1,
+                  fullName: 'Alex',
+                  nickname: 'Alex',
+                  info: {
+                    gender: 'Non-binary',
+                    romantically: 'Open',
+                    speaks: [ 'English' ]
+                  },
+                  interests: [] as string[]
+                }
+              ],
+              messages: [] as InboxEntry['messages']
+            }
+          ] as InboxEntry[]
+        });
+    
+        const component = render(<App/>);
+    
+        // wait for app loading
+        await waitFor(() => component.getByTestId('v-main-area'));
+  
+        // snap the bottom sheet the top of the screen
+        // by simulating pressing a chat from inbox
+        fireEvent.press(component.getByTestId('bn-chat'));
+  
+        await waitFor(() => true);
+  
+        const parent = toJSON(component, 'v-messages', 'all');
+        
+        // to make sure when props change
+        expect(parent).toMatchSnapshot();
+
+        component.unmount();
+      });
+
+      test('Romantically Open Woman All', async() =>
+      {
+        getStore().set({
+          profile: {
+            uuid: '0',
+            avatar: 0,
+            fullName: 'User',
+            nickname: 'User',
+            interests: [] as string[]
+          } as TProfile,
+          inbox: [
+            {
+              id: '0',
+              displayName: 'Mika',
+              createdAt: new Date(1999, 9, 9, 9),
+              updatedAt: new Date(1999, 9, 9, 9),
+              members: [
+                {
+                  uuid: '0',
+                  avatar: 0
+                },
+                {
+                  uuid: '1',
+                  avatar: 1,
+                  fullName: 'Mika',
+                  nickname: 'Mika',
+                  info: {
+                    gender: 'Woman',
+                    sexuality: 'Lesbian',
+                    romantically: 'Open',
+                    religion: 'None',
+                    age: 18,
+                    origin: 'United States',
+                    speaks: [ 'English' ],
+                    worksAt: 'HSS',
+                    profession: 'Actor'
+                  },
+                  interests: [] as string[]
+                }
+              ],
+              messages: [] as InboxEntry['messages']
+            }
+          ] as InboxEntry[]
+        });
+    
+        const component = render(<App/>);
+    
+        // wait for app loading
+        await waitFor(() => component.getByTestId('v-main-area'));
+  
+        // snap the bottom sheet the top of the screen
+        // by simulating pressing a chat from inbox
+        fireEvent.press(component.getByTestId('bn-chat'));
+  
+        await waitFor(() => true);
+  
+        const parent = toJSON(component, 'v-messages', 'all');
+        
+        // to make sure when props change
+        expect(parent).toMatchSnapshot();
+
+        component.unmount();
+      });
+
+      test('Romantically Open Man All', async() =>
+      {
+        getStore().set({
+          profile: {
+            uuid: '0',
+            avatar: 0,
+            fullName: 'User',
+            nickname: 'User',
+            interests: [] as string[]
+          } as TProfile,
+          inbox: [
+            {
+              id: '0',
+              displayName: 'Amir',
+              createdAt: new Date(1999, 9, 9, 9),
+              updatedAt: new Date(1999, 9, 9, 9),
+              members: [
+                {
+                  uuid: '0',
+                  avatar: 0
+                },
+                {
+                  uuid: '1',
+                  avatar: 1,
+                  fullName: 'Amir',
+                  nickname: 'Amir',
+                  info: {
+                    gender: 'Man',
+                    age: 23,
+                    origin: 'Egypt',
+                    profession: 'Singer',
+                    religion: 'Muslim',
+                    romantically: 'Open',
+                    sexuality: 'Straight',
+                    worksAt: 'Cairokee',
+                    speaks: [ 'Arabic' ]
+                  },
+                  interests: [] as string[]
+                }
+              ],
+              messages: [] as InboxEntry['messages']
+            }
+          ] as InboxEntry[]
+        });
+    
+        const component = render(<App/>);
+    
+        // wait for app loading
+        await waitFor(() => component.getByTestId('v-main-area'));
+  
+        // snap the bottom sheet the top of the screen
+        // by simulating pressing a chat from inbox
+        fireEvent.press(component.getByTestId('bn-chat'));
+  
+        await waitFor(() => true);
+  
+        const parent = toJSON(component, 'v-messages', 'all');
+        
+        // to make sure when props change
+        expect(parent).toMatchSnapshot();
+
+        component.unmount();
+      });
+
+      test('Romantically Open Underage Non-binary All', async() =>
+      {
+        getStore().set({
+          profile: {
+            uuid: '0',
+            avatar: 0,
+            fullName: 'User',
+            nickname: 'User',
+            interests: [] as string[]
+          } as TProfile,
+          inbox: [
+            {
+              id: '0',
+              displayName: 'Amir',
+              createdAt: new Date(1999, 9, 9, 9),
+              updatedAt: new Date(1999, 9, 9, 9),
+              members: [
+                {
+                  uuid: '0',
+                  avatar: 0
+                },
+                {
+                  uuid: '1',
+                  avatar: 1,
+                  fullName: 'Alex',
+                  nickname: 'Alex',
+                  info: {
+                    gender: 'Non-binary',
+                    age: 16,
+                    origin: 'United States',
+                    profession: 'Activist',
+                    religion: 'None',
+                    romantically: 'Open',
+                    sexuality: 'None',
+                    worksAt: 'United Nations',
+                    speaks: [ 'English' ]
+                  },
+                  interests: [] as string[]
+                }
+              ],
+              messages: [] as InboxEntry['messages']
+            }
+          ] as InboxEntry[]
+        });
+    
+        const component = render(<App/>);
+    
+        // wait for app loading
+        await waitFor(() => component.getByTestId('v-main-area'));
+  
+        // snap the bottom sheet the top of the screen
+        // by simulating pressing a chat from inbox
+        fireEvent.press(component.getByTestId('bn-chat'));
+  
+        await waitFor(() => true);
+  
+        const parent = toJSON(component, 'v-messages', 'all');
+        
+        // to make sure when props change
+        expect(parent).toMatchSnapshot();
+
+        component.unmount();
+      });
+
+      test('Group Bare', async() =>
       {
         getStore().set({
           profile: {
@@ -1653,75 +2416,7 @@ describe('Testing <App/>', () =>
         component.unmount();
       });
 
-      test('All Hints', async() =>
-      {
-        getStore().set({
-          profile: {
-            uuid: '0',
-            avatar: 0,
-            fullName: 'User',
-            nickname: 'User',
-            interests: [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K' ] as string[]
-          } as TProfile,
-          inbox: [
-            {
-              id: '0',
-              displayName: 'Mika',
-              createdAt: new Date(1999, 9, 9, 9),
-              updatedAt: new Date(1999, 9, 9, 9),
-              members: [
-                {
-                  uuid: '0',
-                  avatar: 0
-                },
-                {
-                  uuid: '1',
-                  avatar: 1,
-                  fullName: 'Mika',
-                  nickname: 'Mika',
-                  info: {
-                    gender: 'Woman',
-                    sexuality: 'Lesbian',
-                    romantically: 'Closed',
-                    speaks: [ 'English' ],
-                    age: 16,
-                    origin: 'United States',
-                    profession: 'Actor',
-                    religion: 'None',
-                    worksAt: 'HSS'
-                  },
-                  iceBreakers: [
-                    'Skye?',
-                    'Ajay?'
-                  ],
-                  interests: [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K' ] as string[]
-                }
-              ],
-              messages: [] as InboxEntry['messages']
-            }
-          ] as InboxEntry[]
-        });
-    
-        const component = render(<App/>);
-    
-        // wait for app loading
-        await waitFor(() => component.getByTestId('v-main-area'));
-  
-        // snap the bottom sheet the top of the screen
-        // by simulating pressing a chat from inbox
-        fireEvent.press(component.getByTestId('bn-chat'));
-  
-        await waitFor(() => true);
-  
-        const parent = toJSON(component, 'v-messages', 'all');
-        
-        // to make sure when props change
-        expect(parent).toMatchSnapshot();
-
-        component.unmount();
-      });
-
-      test('Group All Hints', async() =>
+      test('Group All', async() =>
       {
         getStore().set({
           profile: {
@@ -1809,206 +2504,6 @@ describe('Testing <App/>', () =>
 
         component.unmount();
       });
-
-      test('Normal', async() =>
-      {
-        getStore().set({
-          profile: {
-            uuid: '0',
-            avatar: 0,
-            fullName: 'User',
-            nickname: 'User',
-            interests: [] as string[]
-          } as TProfile,
-          inbox: [
-            {
-              id: '0',
-              displayName: 'Mika',
-              createdAt: new Date(1999, 9, 9, 9, 0),
-              updatedAt: new Date(1999, 9, 9, 9, 1),
-              members: [
-                {
-                  uuid: '0',
-                  avatar: 0
-                },
-                {
-                  uuid: '1',
-                  avatar: 1,
-                  fullName: 'Mika',
-                  nickname: 'Mika',
-                  interests: [] as string[]
-                }
-              ],
-              messages: [
-                { owner: '1', text: 'Yay', createdAt: new Date(1999, 9, 9, 9, 0) },
-                { owner: '0', text: '<3', createdAt: new Date(1999, 9, 9, 9, 1) }
-              ]
-            }
-          ] as InboxEntry[]
-        });
-    
-        const component = render(<App/>);
-    
-        // wait for app loading
-        await waitFor(() => component.getByTestId('v-main-area'));
-  
-        // snap the bottom sheet the top of the screen
-        // by simulating pressing a chat from inbox
-        fireEvent.press(component.getByTestId('bn-chat'));
-  
-        await waitFor(() => true);
-  
-        const parent = toJSON(component, 'v-messages', 'all');
-        
-        expect(parent?.children?.[0]).toMatchSnapshot('Should Be Message Without Timestamp And With A Background');
-  
-        expect(parent?.children?.[1]).toMatchSnapshot('Should Be Message With Timestamp And Without A Background');
-  
-        // separated messages to their own snapshots
-        if (parent)
-          parent.children = [];
-
-        // to make sure when props change
-        expect(parent).toMatchSnapshot();
-
-        component.unmount();
-      });
-
-      test('Timestamps Formatting', async() =>
-      {
-        getStore().set({
-          profile: {
-            uuid: '0',
-            avatar: 0,
-            fullName: 'User',
-            nickname: 'User',
-            interests: [] as string[]
-          } as TProfile,
-          inbox: [
-            {
-              id: '0',
-              displayName: 'Mika',
-              createdAt: new Date(1999, 9, 9, 9, 0),
-              updatedAt: new Date(),
-              members: [
-                {
-                  uuid: '0',
-                  avatar: 0
-                },
-                {
-                  uuid: '1',
-                  avatar: 1,
-                  fullName: 'Mika',
-                  nickname: 'Mika',
-                  interests: [] as string[]
-                }
-              ],
-              messages: [
-                { owner: '1', text: '1999', createdAt: new Date(1999, 9, 9, 9, 0) },
-                { owner: '1', text: 'T-3 Days', createdAt: subDays(new Date(), 3) },
-                { owner: '1', text: 'T-1 Day', createdAt: subDays(new Date(), 1) },
-                { owner: '1', text: 'T-30 Minutes', createdAt: subMinutes(new Date(), 30) },
-                { owner: '1', text: 'T-28 Minutes', createdAt: subMinutes(new Date(), 28) },
-                { owner: '1', text: 'T-23 Minutes', createdAt: subMinutes(new Date(), 23) },
-                { owner: '1', text: 'Now', createdAt: new Date() }
-              ]
-            }
-          ] as InboxEntry[]
-        });
-    
-        const component = render(<App/>);
-    
-        // wait for app loading
-        await waitFor(() => component.getByTestId('v-main-area'));
-  
-        // snap the bottom sheet the top of the screen
-        // by simulating pressing a chat from inbox
-        fireEvent.press(component.getByTestId('bn-chat'));
-  
-        await waitFor(() => true);
-  
-        const parent = toJSON(component, 'v-messages', 'all');
-        
-        expect(parent?.children?.[0]).toMatchSnapshot('Also Should Have A Timestamp');
-
-        expect(parent?.children?.[1]).toMatchSnapshot('Old Enough To Have Its Own Timestamp');
-
-        expect(parent?.children?.[2]).toMatchSnapshot('Shouldn\'t Have A Timestamp');
-
-        expect(parent?.children?.[3]).toMatchSnapshot('Should Have A Timestamp of Today');
-  
-        expect(parent?.children?.[4]).toMatchSnapshot('Should Have A Timestamp of Yesterday');
-        
-        expect(parent?.children?.[5]).toMatchSnapshot('Should Have A Timestamp of This Week');
-  
-        expect(parent?.children?.[6]).toMatchSnapshot('Should Have A Timestamp of With The Year');
-        
-        component.unmount();
-      });
-      
-      test('With Avatars', async() =>
-      {
-        getStore().set({
-          profile: {
-            uuid: '0',
-            avatar: 0,
-            fullName: 'User',
-            nickname: 'User',
-            interests: [] as string[]
-          } as TProfile,
-          inbox: [
-            {
-              id: '0',
-              displayName: 'Group of Wholesome Girls',
-              createdAt: new Date(1999, 9, 9, 9, 0),
-              updatedAt: new Date(1999, 9, 9, 9, 1),
-              members: [
-                {
-                  uuid: '0',
-                  avatar: 0
-                },
-                {
-                  uuid: '1',
-                  avatar: 1,
-                  fullName: 'Mika',
-                  nickname: 'Mika',
-                  interests: [] as string[]
-                },
-                {
-                  uuid: '2',
-                  avatar: 2,
-                  fullName: 'Skye',
-                  nickname: 'Skye',
-                  interests: [] as string[]
-                }
-              ],
-              messages: [
-                { owner: '1', text: 'Yay', createdAt: new Date(1999, 9, 9, 9, 0) },
-                { owner: '0', text: '<3', createdAt: new Date(1999, 9, 9, 9, 1) }
-              ]
-            }
-          ] as InboxEntry[]
-        });
-    
-        const component = render(<App/>);
-    
-        // wait for app loading
-        await waitFor(() => component.getByTestId('v-main-area'));
-  
-        // snap the bottom sheet the top of the screen
-        // by simulating pressing a chat from inbox
-        fireEvent.press(component.getByTestId('bn-chat'));
-  
-        await waitFor(() => true);
-  
-        const parent = toJSON(component, 'v-messages', 'all');
-        
-        expect(parent?.children?.[0]).toMatchSnapshot('Should Be Message Without Timestamp And With A Background');
-  
-        expect(parent?.children?.[1]).toMatchSnapshot('Should Be Message With Timestamp And Avatar And Without A Background');
-        
-        component.unmount();
-      });
     });
 
     test('Height With Keyboard', async() =>
@@ -2038,6 +2533,11 @@ describe('Testing <App/>', () =>
                 avatar: 1,
                 fullName: 'Mika',
                 nickname: 'Mika',
+                info: {
+                  romantically: 'Closed',
+                  gender: 'Woman',
+                  speaks: [ 'English' ]
+                },
                 interests: [] as string[]
               }
             ],
@@ -2105,6 +2605,11 @@ describe('Testing <App/>', () =>
                 avatar: 1,
                 fullName: 'Mika',
                 nickname: 'Mika',
+                info: {
+                  romantically: 'Closed',
+                  gender: 'Woman',
+                  speaks: [ 'English' ]
+                },
                 interests: [] as string[]
               }
             ],
@@ -2128,6 +2633,11 @@ describe('Testing <App/>', () =>
                 avatar: 2,
                 fullName: 'Skye',
                 nickname: 'Skye',
+                info: {
+                  romantically: 'Closed',
+                  gender: 'Woman',
+                  speaks: [ 'English' ]
+                },
                 interests: [] as string[]
               }
             ],
@@ -2159,7 +2669,7 @@ describe('Testing <App/>', () =>
       
       expect(initialInbox).toMatchSnapshot();
 
-      expect(initialMessages?.children).toHaveLength(3);
+      expect(initialMessages?.children).toHaveLength(4);
 
       // typing message
 
@@ -2189,7 +2699,7 @@ describe('Testing <App/>', () =>
 
       expect(inbox).toMatchSnapshot('Should Be Sorted With Skye on Top');
         
-      expect(messages?.children).toHaveLength(4);
+      expect(messages?.children).toHaveLength(5);
 
       expect(messages?.children?.[0]).toMatchSnapshot('Should Be A Message Equal to <3');
   
@@ -2219,6 +2729,11 @@ describe('Testing <App/>', () =>
                 uuid: '1',
                 fullName: 'Mika',
                 avatar: 1,
+                info: {
+                  romantically: 'Closed',
+                  gender: 'Woman',
+                  speaks: [ 'English' ]
+                },
                 interests: [] as string[]
               }
             ],
@@ -2292,6 +2807,11 @@ describe('Testing <App/>', () =>
                 uuid: '1',
                 fullName: 'Mika',
                 avatar: 1,
+                info: {
+                  romantically: 'Closed',
+                  gender: 'Woman',
+                  speaks: [ 'English' ]
+                },
                 interests: [] as string[]
               }
             ],

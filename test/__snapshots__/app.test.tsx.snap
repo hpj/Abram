@@ -666,7 +666,7 @@ exports[`Testing <App/> Chat Height With Keyboard: Should Have Height Minus Keyb
 />
 `;
 
-exports[`Testing <App/> Chat Messages List All Hints 1`] = `
+exports[`Testing <App/> Chat Hints All 1`] = `
 <View
   data={
     Array [
@@ -743,6 +743,37 @@ exports[`Testing <App/> Chat Messages List All Hints 1`] = `
           }
         >
           A, B, C, D, E, F
+        </Text>
+        <Text>
+          .
+        </Text>
+      </Text>,
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        <Text>
+          If you attempt flirting with her, it can result in your account getting
+           
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "fontWeight": "bold",
+              "marginHorizontal": 25,
+              "marginVertical": 3,
+            }
+          }
+        >
+          Terminated
         </Text>
         <Text>
           .
@@ -884,6 +915,37 @@ exports[`Testing <App/> Chat Messages List All Hints 1`] = `
     }
   >
     <Text>
+      If you attempt flirting with her, it can result in your account getting
+       
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#818181",
+          "fontSize": 13,
+          "fontWeight": "bold",
+          "marginHorizontal": 25,
+          "marginVertical": 3,
+        }
+      }
+    >
+      Terminated
+    </Text>
+    <Text>
+      .
+    </Text>
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    <Text>
       Mika prefers to be called 
     </Text>
     <Text
@@ -916,10 +978,41 @@ exports[`Testing <App/> Chat Messages List All Hints 1`] = `
 </View>
 `;
 
-exports[`Testing <App/> Chat Messages List Bare Hints 1`] = `
+exports[`Testing <App/> Chat Hints Bare 1`] = `
 <View
   data={
     Array [
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        <Text>
+          If you attempt flirting with her, it can result in your account getting
+           
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "fontWeight": "bold",
+              "marginHorizontal": 25,
+              "marginVertical": 3,
+            }
+          }
+        >
+          Terminated
+        </Text>
+        <Text>
+          .
+        </Text>
+      </Text>,
       <Text
         style={
           Object {
@@ -978,6 +1071,37 @@ exports[`Testing <App/> Chat Messages List Bare Hints 1`] = `
     }
   >
     <Text>
+      If you attempt flirting with her, it can result in your account getting
+       
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#818181",
+          "fontSize": 13,
+          "fontWeight": "bold",
+          "marginHorizontal": 25,
+          "marginVertical": 3,
+        }
+      }
+    >
+      Terminated
+    </Text>
+    <Text>
+      .
+    </Text>
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    <Text>
       Mika prefers to be called 
     </Text>
     <Text
@@ -1010,10 +1134,22 @@ exports[`Testing <App/> Chat Messages List Bare Hints 1`] = `
 </View>
 `;
 
-exports[`Testing <App/> Chat Messages List Group All Hints 1`] = `
+exports[`Testing <App/> Chat Hints Group All 1`] = `
 <View
   data={
     Array [
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        Check their individual profiles for more info.
+      </Text>,
       <Text
         style={
           Object {
@@ -1101,6 +1237,18 @@ exports[`Testing <App/> Chat Messages List Group All Hints 1`] = `
       }
     }
   >
+    Check their individual profiles for more info.
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
     <Text>
       Your shared interests are 
     </Text>
@@ -1164,10 +1312,22 @@ exports[`Testing <App/> Chat Messages List Group All Hints 1`] = `
 </View>
 `;
 
-exports[`Testing <App/> Chat Messages List Group Bare Hints 1`] = `
+exports[`Testing <App/> Chat Hints Group Bare 1`] = `
 <View
   data={
     Array [
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        Check their individual profiles for more info.
+      </Text>,
       <Text
         style={
           Object {
@@ -1225,6 +1385,18 @@ exports[`Testing <App/> Chat Messages List Group Bare Hints 1`] = `
       }
     }
   >
+    Check their individual profiles for more info.
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
     <Text>
       This is a group chat with 
     </Text>
@@ -1238,6 +1410,870 @@ exports[`Testing <App/> Chat Messages List Group Bare Hints 1`] = `
       }
     >
       Mika, Skye
+    </Text>
+    <Text>
+      .
+    </Text>
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    Hey, User.
+  </Text>
+</View>
+`;
+
+exports[`Testing <App/> Chat Hints Romantically Open Man All 1`] = `
+<View
+  data={
+    Array [
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        <Text>
+          Amir is a 
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "fontWeight": "bold",
+              "marginHorizontal": 25,
+              "marginVertical": 3,
+            }
+          }
+        >
+          Straight Muslim Man
+        </Text>
+        <Text>
+          .
+        </Text>
+      </Text>,
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        <Text>
+          Amir prefers to be called 
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Amir
+        </Text>
+        <Text>
+          .
+        </Text>
+      </Text>,
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        Hey, User.
+      </Text>,
+    ]
+  }
+  inverted={true}
+  keyExtractor={[Function]}
+  renderItem={[Function]}
+  testID="v-messages"
+>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    <Text>
+      Amir is a 
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#818181",
+          "fontSize": 13,
+          "fontWeight": "bold",
+          "marginHorizontal": 25,
+          "marginVertical": 3,
+        }
+      }
+    >
+      Straight Muslim Man
+    </Text>
+    <Text>
+      .
+    </Text>
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    <Text>
+      Amir prefers to be called 
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#818181",
+          "fontSize": 13,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Amir
+    </Text>
+    <Text>
+      .
+    </Text>
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    Hey, User.
+  </Text>
+</View>
+`;
+
+exports[`Testing <App/> Chat Hints Romantically Open Man Bare 1`] = `
+<View
+  data={
+    Array [
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        <Text>
+          Amir prefers to be called 
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Amir
+        </Text>
+        <Text>
+          .
+        </Text>
+      </Text>,
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        Hey, User.
+      </Text>,
+    ]
+  }
+  inverted={true}
+  keyExtractor={[Function]}
+  renderItem={[Function]}
+  testID="v-messages"
+>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    <Text>
+      Amir prefers to be called 
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#818181",
+          "fontSize": 13,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Amir
+    </Text>
+    <Text>
+      .
+    </Text>
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    Hey, User.
+  </Text>
+</View>
+`;
+
+exports[`Testing <App/> Chat Hints Romantically Open Non-binary Bare 1`] = `
+<View
+  data={
+    Array [
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        <Text>
+          Alex is a 
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "fontWeight": "bold",
+              "marginHorizontal": 25,
+              "marginVertical": 3,
+            }
+          }
+        >
+          Non-binary
+        </Text>
+        <Text>
+          .
+        </Text>
+      </Text>,
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        <Text>
+          Alex prefers to be called 
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Alex
+        </Text>
+        <Text>
+          .
+        </Text>
+      </Text>,
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        Hey, User.
+      </Text>,
+    ]
+  }
+  inverted={true}
+  keyExtractor={[Function]}
+  renderItem={[Function]}
+  testID="v-messages"
+>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    <Text>
+      Alex is a 
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#818181",
+          "fontSize": 13,
+          "fontWeight": "bold",
+          "marginHorizontal": 25,
+          "marginVertical": 3,
+        }
+      }
+    >
+      Non-binary
+    </Text>
+    <Text>
+      .
+    </Text>
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    <Text>
+      Alex prefers to be called 
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#818181",
+          "fontSize": 13,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Alex
+    </Text>
+    <Text>
+      .
+    </Text>
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    Hey, User.
+  </Text>
+</View>
+`;
+
+exports[`Testing <App/> Chat Hints Romantically Open Underage Non-binary All 1`] = `
+<View
+  data={
+    Array [
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        <Text>
+          Alex is a 
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "fontWeight": "bold",
+              "marginHorizontal": 25,
+              "marginVertical": 3,
+            }
+          }
+        >
+          Minor Asexual Non-Religious Non-binary
+        </Text>
+        <Text>
+          .
+        </Text>
+      </Text>,
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        <Text>
+          Alex prefers to be called 
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Alex
+        </Text>
+        <Text>
+          .
+        </Text>
+      </Text>,
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        Hey, User.
+      </Text>,
+    ]
+  }
+  inverted={true}
+  keyExtractor={[Function]}
+  renderItem={[Function]}
+  testID="v-messages"
+>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    <Text>
+      Alex is a 
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#818181",
+          "fontSize": 13,
+          "fontWeight": "bold",
+          "marginHorizontal": 25,
+          "marginVertical": 3,
+        }
+      }
+    >
+      Minor Asexual Non-Religious Non-binary
+    </Text>
+    <Text>
+      .
+    </Text>
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    <Text>
+      Alex prefers to be called 
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#818181",
+          "fontSize": 13,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Alex
+    </Text>
+    <Text>
+      .
+    </Text>
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    Hey, User.
+  </Text>
+</View>
+`;
+
+exports[`Testing <App/> Chat Hints Romantically Open Woman All 1`] = `
+<View
+  data={
+    Array [
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        <Text>
+          Mika is a 
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "fontWeight": "bold",
+              "marginHorizontal": 25,
+              "marginVertical": 3,
+            }
+          }
+        >
+          Lesbian Non-Religious Woman
+        </Text>
+        <Text>
+          .
+        </Text>
+      </Text>,
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        <Text>
+          Mika prefers to be called 
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Mika
+        </Text>
+        <Text>
+          .
+        </Text>
+      </Text>,
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        Hey, User.
+      </Text>,
+    ]
+  }
+  inverted={true}
+  keyExtractor={[Function]}
+  renderItem={[Function]}
+  testID="v-messages"
+>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    <Text>
+      Mika is a 
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#818181",
+          "fontSize": 13,
+          "fontWeight": "bold",
+          "marginHorizontal": 25,
+          "marginVertical": 3,
+        }
+      }
+    >
+      Lesbian Non-Religious Woman
+    </Text>
+    <Text>
+      .
+    </Text>
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    <Text>
+      Mika prefers to be called 
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#818181",
+          "fontSize": 13,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Mika
+    </Text>
+    <Text>
+      .
+    </Text>
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    Hey, User.
+  </Text>
+</View>
+`;
+
+exports[`Testing <App/> Chat Hints Romantically Open Woman Bare 1`] = `
+<View
+  data={
+    Array [
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        <Text>
+          Mika is a 
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "fontWeight": "bold",
+              "marginHorizontal": 25,
+              "marginVertical": 3,
+            }
+          }
+        >
+          Woman
+        </Text>
+        <Text>
+          .
+        </Text>
+      </Text>,
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        <Text>
+          Mika prefers to be called 
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Mika
+        </Text>
+        <Text>
+          .
+        </Text>
+      </Text>,
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        Hey, User.
+      </Text>,
+    ]
+  }
+  inverted={true}
+  keyExtractor={[Function]}
+  renderItem={[Function]}
+  testID="v-messages"
+>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    <Text>
+      Mika is a 
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#818181",
+          "fontSize": 13,
+          "fontWeight": "bold",
+          "marginHorizontal": 25,
+          "marginVertical": 3,
+        }
+      }
+    >
+      Woman
+    </Text>
+    <Text>
+      .
+    </Text>
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#818181",
+        "fontSize": 13,
+        "marginHorizontal": 25,
+        "marginVertical": 15,
+      }
+    }
+  >
+    <Text>
+      Mika prefers to be called 
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#818181",
+          "fontSize": 13,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Mika
     </Text>
     <Text>
       .
@@ -1272,6 +2308,37 @@ exports[`Testing <App/> Chat Messages List Normal 1`] = `
         "owner": "1",
         "text": "Yay",
       },
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 25,
+            "marginVertical": 15,
+          }
+        }
+      >
+        <Text>
+          If you attempt flirting with her, it can result in your account getting
+           
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "fontWeight": "bold",
+              "marginHorizontal": 25,
+              "marginVertical": 3,
+            }
+          }
+        >
+          Terminated
+        </Text>
+        <Text>
+          .
+        </Text>
+      </Text>,
       <Text
         style={
           Object {
@@ -5423,7 +6490,7 @@ exports[`Testing <App/> Profile Others Interests Popup 1`] = `
 </View>
 `;
 
-exports[`Testing <App/> Profile Others Interests Popup: Should Be Mika's Profile 1`] = `
+exports[`Testing <App/> Profile Others Interests Popup: Should Be Mika Profile 1`] = `
 <View
   pointerEvents="box-none"
   style={
@@ -5454,7 +6521,7 @@ exports[`Testing <App/> Profile Others Interests Popup: Should Be Mika's Profile
       >
         <View
           accessible={true}
-          focusable={false}
+          focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -8616,7 +9683,7 @@ exports[`Testing <Profile/> Others Bare Profile 1`] = `
     >
       <View
         accessible={true}
-        focusable={false}
+        focusable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -9078,7 +10145,7 @@ exports[`Testing <Profile/> Others Full Profile 1`] = `
     >
       <View
         accessible={true}
-        focusable={false}
+        focusable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -10191,7 +11258,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
     >
       <View
         accessible={true}
-        focusable={false}
+        focusable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -11507,7 +12574,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
     >
       <View
         accessible={true}
-        focusable={false}
+        focusable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
