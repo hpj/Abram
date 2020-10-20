@@ -6190,303 +6190,326 @@ exports[`Testing <App/> Navigation Views: Navigation View Should Be Discover 1`]
 
 exports[`Testing <App/> Profile Others Interests Popup 1`] = `
 <View
-  deactivate={[Function]}
   style={
     Object {
-      "paddingVertical": 20,
+      "bottom": 0,
+      "flex": 1,
+      "position": "absolute",
+      "width": 523,
+      "zIndex": 5,
     }
   }
-  testID="v-interests"
+  testID="v-popup"
 >
-  <Text
+  <RCTScrollView
     style={
       Object {
-        "color": "#818181",
-        "fontSize": 11,
-        "fontWeight": "bold",
-        "marginHorizontal": 20,
-        "marginTop": 10,
-        "textTransform": "uppercase",
+        "backgroundColor": "#171717",
+        "maxHeight": 735.15,
       }
     }
   >
-    Interests of Mika
-  </Text>
-  <View
-    style={
-      Object {
-        "flexDirection": "row",
-        "flexWrap": "wrap",
-        "marginHorizontal": 10,
-        "marginTop": 10,
-      }
-    }
-  >
-    <View
-      style={
-        Object {
-          "backgroundColor": "#2f9634",
-          "borderRadius": 10,
-          "marginBottom": 11,
-          "marginLeft": 10,
-          "paddingHorizontal": 15,
-          "paddingVertical": 10,
-        }
-      }
-    >
-      <Text
+    <View>
+      <View
+        deactivate={[Function]}
         style={
           Object {
-            "color": "#ffffff",
-            "fontSize": 13,
-            "textTransform": "capitalize",
+            "paddingVertical": 20,
           }
         }
       >
-        A
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "backgroundColor": "#2f9634",
-          "borderRadius": 10,
-          "marginBottom": 11,
-          "marginLeft": 10,
-          "paddingHorizontal": 15,
-          "paddingVertical": 10,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 13,
-            "textTransform": "capitalize",
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 11,
+              "fontWeight": "bold",
+              "marginHorizontal": 20,
+              "marginTop": 10,
+              "textTransform": "uppercase",
+            }
           }
-        }
-      >
-        B
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "backgroundColor": "#2f9634",
-          "borderRadius": 10,
-          "marginBottom": 11,
-          "marginLeft": 10,
-          "paddingHorizontal": 15,
-          "paddingVertical": 10,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 13,
-            "textTransform": "capitalize",
+        >
+          Interests of Mika
+        </Text>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+              "marginHorizontal": 10,
+              "marginTop": 10,
+            }
           }
-        }
-      >
-        C
-      </Text>
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "#2f9634",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              A
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#2f9634",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              B
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#2f9634",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              C
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#2f9634",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              D
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#2f9634",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              E
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#2f9634",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              F
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#631515",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              G
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#631515",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              H
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#631515",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              I
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#631515",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              J
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "#631515",
+                "borderRadius": 10,
+                "marginBottom": 11,
+                "marginLeft": 10,
+                "paddingHorizontal": 15,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 13,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              K
+            </Text>
+          </View>
+        </View>
+      </View>
     </View>
-    <View
-      style={
-        Object {
-          "backgroundColor": "#2f9634",
-          "borderRadius": 10,
-          "marginBottom": 11,
-          "marginLeft": 10,
-          "paddingHorizontal": 15,
-          "paddingVertical": 10,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 13,
-            "textTransform": "capitalize",
-          }
-        }
-      >
-        D
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "backgroundColor": "#2f9634",
-          "borderRadius": 10,
-          "marginBottom": 11,
-          "marginLeft": 10,
-          "paddingHorizontal": 15,
-          "paddingVertical": 10,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 13,
-            "textTransform": "capitalize",
-          }
-        }
-      >
-        E
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "backgroundColor": "#2f9634",
-          "borderRadius": 10,
-          "marginBottom": 11,
-          "marginLeft": 10,
-          "paddingHorizontal": 15,
-          "paddingVertical": 10,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 13,
-            "textTransform": "capitalize",
-          }
-        }
-      >
-        F
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "backgroundColor": "#631515",
-          "borderRadius": 10,
-          "marginBottom": 11,
-          "marginLeft": 10,
-          "paddingHorizontal": 15,
-          "paddingVertical": 10,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 13,
-            "textTransform": "capitalize",
-          }
-        }
-      >
-        G
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "backgroundColor": "#631515",
-          "borderRadius": 10,
-          "marginBottom": 11,
-          "marginLeft": 10,
-          "paddingHorizontal": 15,
-          "paddingVertical": 10,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 13,
-            "textTransform": "capitalize",
-          }
-        }
-      >
-        H
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "backgroundColor": "#631515",
-          "borderRadius": 10,
-          "marginBottom": 11,
-          "marginLeft": 10,
-          "paddingHorizontal": 15,
-          "paddingVertical": 10,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 13,
-            "textTransform": "capitalize",
-          }
-        }
-      >
-        I
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "backgroundColor": "#631515",
-          "borderRadius": 10,
-          "marginBottom": 11,
-          "marginLeft": 10,
-          "paddingHorizontal": 15,
-          "paddingVertical": 10,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 13,
-            "textTransform": "capitalize",
-          }
-        }
-      >
-        J
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "backgroundColor": "#631515",
-          "borderRadius": 10,
-          "marginBottom": 11,
-          "marginLeft": 10,
-          "paddingHorizontal": 15,
-          "paddingVertical": 10,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 13,
-            "textTransform": "capitalize",
-          }
-        }
-      >
-        K
-      </Text>
-    </View>
-  </View>
+  </RCTScrollView>
 </View>
 `;
 
@@ -7072,344 +7095,731 @@ exports[`Testing <App/> Profile Others Interests Popup: Should Be Mika Profile 1
 
 exports[`Testing <App/> Profile Others Romantically Popup Romantically Available (Bare) 1`] = `
 <View
-  deactivate={[Function]}
-  testID="v-romantic"
+  style={
+    Object {
+      "bottom": 0,
+      "flex": 1,
+      "position": "absolute",
+      "width": 523,
+      "zIndex": 5,
+    }
+  }
+  testID="v-popup"
 >
-  <Text
+  <RCTScrollView
     style={
       Object {
-        "color": "#818181",
-        "fontSize": 13,
-        "fontWeight": "bold",
-        "marginHorizontal": 20,
-        "marginTop": 30,
-        "textTransform": "uppercase",
+        "backgroundColor": "#171717",
+        "maxHeight": 735.15,
       }
     }
   >
-    <Text>
-      Mika is Romantically 
-    </Text>
-    <Text
-      style={
-        Object {
-          "color": "#ffffff",
-        }
-      }
-    >
-      Available.
-    </Text>
-  </Text>
-  <Text
-    style={
-      Object {
-        "color": "#818181",
-        "fontSize": 14,
-        "fontWeight": "bold",
-        "lineHeight": 20.3,
-        "marginBottom": 40,
-        "marginHorizontal": 20,
-        "marginTop": 30,
-        "textTransform": "capitalize",
-      }
-    }
-  >
-    <Text>
-      Keep in mind,
-    </Text>
-    <Text>
-      <Text
-        style={
-          Object {
-            "color": "#818181",
-          }
-        }
+    <View>
+      <View
+        deactivate={[Function]}
       >
-        
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "fontWeight": "bold",
+              "marginHorizontal": 20,
+              "marginTop": 30,
+              "textTransform": "uppercase",
+            }
+          }
+        >
+          <Text>
+            Mika is Romantically 
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+              }
+            }
+          >
+            Available.
+          </Text>
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 14,
+              "fontWeight": "bold",
+              "lineHeight": 20.3,
+              "marginBottom": 40,
+              "marginHorizontal": 20,
+              "marginTop": 30,
+              "textTransform": "capitalize",
+            }
+          }
+        >
+          <Text>
+            Keep in mind,
+          </Text>
+          <Text>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                }
+              }
+            >
+              
 Mika is a 
-      </Text>
-      <Text
-        style={
-          Object {
-            "color": "#ffffff",
-          }
-        }
-      >
-        Woman
-      </Text>
-    </Text>
-    <Text>
-      <Text>
-        ,
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                }
+              }
+            >
+              Woman
+            </Text>
+          </Text>
+          <Text>
+            <Text>
+              ,
 she did not specify her 
-      </Text>
-      <Text
-        style={
-          Object {
-            "color": "#bf0404",
-          }
-        }
-      >
-        Age
-      </Text>
-    </Text>
-    <Text>
-      <Text>
-        ,
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#bf0404",
+                }
+              }
+            >
+              Age
+            </Text>
+          </Text>
+          <Text>
+            <Text>
+              ,
 she did not specify her 
-      </Text>
-      <Text
-        style={
-          Object {
-            "color": "#bf0404",
-          }
-        }
-      >
-        Sexuality
-      </Text>
-    </Text>
-    <Text>
-      .
-    </Text>
-  </Text>
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#bf0404",
+                }
+              }
+            >
+              Sexuality
+            </Text>
+          </Text>
+          <Text>
+            .
+          </Text>
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
 </View>
 `;
 
 exports[`Testing <App/> Profile Others Romantically Popup Romantically Available (Full) 1`] = `
 <View
-  deactivate={[Function]}
-  testID="v-romantic"
+  style={
+    Object {
+      "bottom": 0,
+      "flex": 1,
+      "position": "absolute",
+      "width": 523,
+      "zIndex": 5,
+    }
+  }
+  testID="v-popup"
 >
-  <Text
+  <RCTScrollView
     style={
       Object {
-        "color": "#818181",
-        "fontSize": 13,
-        "fontWeight": "bold",
-        "marginHorizontal": 20,
-        "marginTop": 30,
-        "textTransform": "uppercase",
+        "backgroundColor": "#171717",
+        "maxHeight": 735.15,
       }
     }
   >
-    <Text>
-      Mana is Romantically 
-    </Text>
-    <Text
-      style={
-        Object {
-          "color": "#ffffff",
-        }
-      }
-    >
-      Available.
-    </Text>
-  </Text>
-  <Text
-    style={
-      Object {
-        "color": "#818181",
-        "fontSize": 14,
-        "fontWeight": "bold",
-        "lineHeight": 20.3,
-        "marginBottom": 40,
-        "marginHorizontal": 20,
-        "marginTop": 30,
-        "textTransform": "capitalize",
-      }
-    }
-  >
-    <Text>
-      Keep in mind,
-    </Text>
-    <Text>
-      <Text
-        style={
-          Object {
-            "color": "#818181",
-          }
-        }
+    <View>
+      <View
+        deactivate={[Function]}
       >
-        
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "fontWeight": "bold",
+              "marginHorizontal": 20,
+              "marginTop": 30,
+              "textTransform": "uppercase",
+            }
+          }
+        >
+          <Text>
+            Mana is Romantically 
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+              }
+            }
+          >
+            Available.
+          </Text>
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 14,
+              "fontWeight": "bold",
+              "lineHeight": 20.3,
+              "marginBottom": 40,
+              "marginHorizontal": 20,
+              "marginTop": 30,
+              "textTransform": "capitalize",
+            }
+          }
+        >
+          <Text>
+            Keep in mind,
+          </Text>
+          <Text>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                }
+              }
+            >
+              
 Mana is a 
-      </Text>
-      <Text
-        style={
-          Object {
-            "color": "#ffffff",
-          }
-        }
-      >
-        Asexual Non-Religious Woman
-      </Text>
-    </Text>
-    <Text>
-      .
-    </Text>
-  </Text>
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                }
+              }
+            >
+              Asexual Non-Religious Woman
+            </Text>
+          </Text>
+          <Text>
+            .
+          </Text>
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
 </View>
 `;
 
 exports[`Testing <App/> Profile Others Romantically Popup Romantically Available (Minor) 1`] = `
 <View
-  deactivate={[Function]}
-  testID="v-romantic"
+  style={
+    Object {
+      "bottom": 0,
+      "flex": 1,
+      "position": "absolute",
+      "width": 523,
+      "zIndex": 5,
+    }
+  }
+  testID="v-popup"
 >
-  <Text
+  <RCTScrollView
     style={
       Object {
-        "color": "#818181",
-        "fontSize": 13,
-        "fontWeight": "bold",
-        "marginHorizontal": 20,
-        "marginTop": 30,
-        "textTransform": "uppercase",
+        "backgroundColor": "#171717",
+        "maxHeight": 735.15,
       }
     }
   >
-    <Text>
-      Mika is Romantically 
-    </Text>
-    <Text
-      style={
-        Object {
-          "color": "#ffffff",
-        }
-      }
-    >
-      Available.
-    </Text>
-  </Text>
-  <Text
+    <View>
+      <View
+        deactivate={[Function]}
+      >
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "fontWeight": "bold",
+              "marginHorizontal": 20,
+              "marginTop": 30,
+              "textTransform": "uppercase",
+            }
+          }
+        >
+          <Text>
+            Mika is Romantically 
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+              }
+            }
+          >
+            Available.
+          </Text>
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 14,
+              "fontWeight": "bold",
+              "lineHeight": 20.3,
+              "marginBottom": 40,
+              "marginHorizontal": 20,
+              "marginTop": 30,
+              "textTransform": "capitalize",
+            }
+          }
+        >
+          <Text>
+            Keep in mind,
+          </Text>
+          <Text>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                }
+              }
+            >
+              
+Mika is a 
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#bf0404",
+                  }
+                }
+              >
+                Minor 
+              </Text>
+              Woman
+            </Text>
+          </Text>
+          <Text>
+            <Text>
+              ,
+she did not specify her 
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#bf0404",
+                }
+              }
+            >
+              Sexuality
+            </Text>
+          </Text>
+          <Text>
+            .
+          </Text>
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`Testing <App/> Profile Others Romantically Popup Romantically Unavailable 1`] = `
+<View
+  style={
+    Object {
+      "bottom": 0,
+      "flex": 1,
+      "position": "absolute",
+      "width": 523,
+      "zIndex": 5,
+    }
+  }
+  testID="v-popup"
+>
+  <RCTScrollView
     style={
       Object {
-        "color": "#818181",
-        "fontSize": 14,
-        "fontWeight": "bold",
-        "lineHeight": 20.3,
-        "marginBottom": 40,
-        "marginHorizontal": 20,
-        "marginTop": 30,
-        "textTransform": "capitalize",
+        "backgroundColor": "#171717",
+        "maxHeight": 735.15,
       }
     }
   >
-    <Text>
-      Keep in mind,
-    </Text>
-    <Text>
-      <Text
+    <View>
+      <View
+        deactivate={[Function]}
+      >
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 13,
+              "fontWeight": "bold",
+              "marginHorizontal": 20,
+              "marginTop": 30,
+              "textTransform": "uppercase",
+            }
+          }
+        >
+          <Text>
+            Mika is Romantically 
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#bf0404",
+              }
+            }
+          >
+            Unavailable.
+          </Text>
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 14,
+              "fontWeight": "bold",
+              "lineHeight": 20.3,
+              "marginBottom": 40,
+              "marginHorizontal": 20,
+              "marginTop": 30,
+              "textTransform": "capitalize",
+            }
+          }
+        >
+          <Text>
+            If you attempt flirting with her,
+it can result in your account getting 
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#bf0404",
+              }
+            }
+          >
+            Terminated
+          </Text>
+          <Text>
+            .
+          </Text>
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`Testing <App/> Profile Personal Edits Avatar 1`] = `
+<View
+  style={
+    Object {
+      "bottom": 0,
+      "flex": 1,
+      "position": "absolute",
+      "width": 523,
+      "zIndex": 5,
+    }
+  }
+  testID="v-popup"
+>
+  <RCTScrollView
+    style={
+      Object {
+        "backgroundColor": "#171717",
+        "maxHeight": 735.15,
+      }
+    }
+  >
+    <View>
+      <View
         style={
           Object {
-            "color": "#818181",
+            "margin": 20,
           }
         }
       >
-        
-Mika is a 
-      </Text>
-      <Text
+        <View
+          style={
+            Object {
+              "margin": 10,
+            }
+          }
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`Testing <App/> Profile Personal Edits Romantic 1`] = `
+<View
+  style={
+    Object {
+      "bottom": 0,
+      "flex": 1,
+      "position": "absolute",
+      "width": 523,
+      "zIndex": 5,
+    }
+  }
+  testID="v-popup"
+>
+  <RCTScrollView
+    style={
+      Object {
+        "backgroundColor": "#171717",
+        "maxHeight": 735.15,
+      }
+    }
+  >
+    <View>
+      <View
         style={
           Object {
-            "color": "#ffffff",
+            "margin": 20,
           }
         }
       >
         <Text
           style={
             Object {
-              "color": "#bf0404",
+              "color": "#818181",
+              "fontSize": 12,
+              "fontWeight": "bold",
+              "textTransform": "uppercase",
             }
           }
         >
-          Minor 
+          Choose Your Romantic Availability 
         </Text>
-        Woman
-      </Text>
-    </Text>
-    <Text>
-      <Text>
-        ,
-she did not specify her 
-      </Text>
-      <Text
-        style={
-          Object {
-            "color": "#bf0404",
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 12,
+              "fontWeight": "bold",
+              "marginVertical": 10,
+            }
           }
-        }
-      >
-        Sexuality
-      </Text>
-    </Text>
-    <Text>
-      .
-    </Text>
-  </Text>
-</View>
-`;
-
-exports[`Testing <App/> Profile Others Romantically Popup Romantically Unavailable 1`] = `
-<View
-  deactivate={[Function]}
-  testID="v-romantic"
->
-  <Text
-    style={
-      Object {
-        "color": "#818181",
-        "fontSize": 13,
-        "fontWeight": "bold",
-        "marginHorizontal": 20,
-        "marginTop": 30,
-        "textTransform": "uppercase",
-      }
-    }
-  >
-    <Text>
-      Mika is Romantically 
-    </Text>
-    <Text
-      style={
-        Object {
-          "color": "#bf0404",
-        }
-      }
-    >
-      Unavailable.
-    </Text>
-  </Text>
-  <Text
-    style={
-      Object {
-        "color": "#818181",
-        "fontSize": 14,
-        "fontWeight": "bold",
-        "lineHeight": 20.3,
-        "marginBottom": 40,
-        "marginHorizontal": 20,
-        "marginTop": 30,
-        "textTransform": "capitalize",
-      }
-    }
-  >
-    <Text>
-      If you attempt flirting with her,
-it can result in your account getting 
-    </Text>
-    <Text
-      style={
-        Object {
-          "color": "#bf0404",
-        }
-      }
-    >
-      Terminated
-    </Text>
-    <Text>
-      .
-    </Text>
-  </Text>
+        >
+          <Text>
+            While being 
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+              }
+            }
+          >
+            Romantically Closed, 
+          </Text>
+          <Text>
+            Reporting any user for flirting will result in their account getting 
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#bf0404",
+              }
+            }
+          >
+            Terminated
+          </Text>
+          <Text>
+            .
+          </Text>
+        </Text>
+        <View
+          style={
+            Object {
+              "margin": 10,
+            }
+          }
+        />
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row-reverse",
+              "padding": 15,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 15.600000000000001,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "flexGrow": 1,
+                "fontSize": 14,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Open
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row-reverse",
+              "padding": 15,
+            }
+          }
+        >
+          <View>
+            <View />
+          </View>
+          <Text
+            style={
+              Object {
+                "color": "#818181",
+                "flexGrow": 1,
+                "fontSize": 14,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Closed
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={false}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "paddingHorizontal": 25,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <View>
+              <View />
+            </View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              Cancel
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            focusable={false}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "paddingHorizontal": 25,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <View>
+              <View />
+            </View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              Save
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
 </View>
 `;
 

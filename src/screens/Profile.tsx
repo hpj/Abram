@@ -16,6 +16,8 @@ import { pronoun, sharedInterests } from '../utils';
 
 import Button from '../components/Button';
 
+import { AvatarEdits, RomanticEdits } from '../components/ProfileEdits';
+
 const colors = getTheme();
 
 class Profile extends React.Component<{
@@ -23,11 +25,33 @@ class Profile extends React.Component<{
   profile: TProfile
 }>
 {
+  constructor(props: Profile['props'])
+  {
+    super(props);
+
+    this.openAvatar = this.openAvatar.bind(this);
+    this.openRomantic = this.openRomantic.bind(this);
+  }
+
   sharedInterests(): { shared: string[], mismatched: string[] }
   {
     const { user, profile } = this.props;
 
     return sharedInterests(user, profile);
+  }
+
+  openAvatar(): void
+  {
+    const store = getStore();
+
+    // istanbul ignore next
+    if (store.state.popup)
+      return;
+
+    store.set({
+      popup: true,
+      popupContent: () => <AvatarEdits/>
+    });
   }
 
   openInterests({ shared, mismatched }: { shared: string[], mismatched: string[] }): void
@@ -49,7 +73,7 @@ class Profile extends React.Component<{
       popup: true,
       popupContent: () =>
       {
-        return <View testID={ 'v-interests' } style={ styles.section }>
+        return <View style={ styles.section }>
           <Text style={ styles.titleBig }>
             { editable ? 'Your Interests' : `Interests of ${profile.nickname}` }
           </Text>
@@ -81,8 +105,10 @@ class Profile extends React.Component<{
     // istanbul ignore next
     if (store.state.popup)
       return;
-    
-    const { profile } = this.props;
+      
+    const { user, profile } = this.props;
+
+    const editable = user.uuid === profile.uuid;
 
     // open a popup containing the all interests
     store.set({
@@ -91,7 +117,10 @@ class Profile extends React.Component<{
       {
         const { they, their, them } = pronoun(profile.info.gender);
 
-        return <View testID={ 'v-romantic' }>
+        if (editable)
+          return <RomanticEdits initial={ profile.info.romantically }/>;
+
+        return <View>
           <Text style={ styles.titleBigger }>
             <Text>{ `${profile.nickname} is Romantically ` }</Text>
             {
@@ -227,7 +256,7 @@ class Profile extends React.Component<{
         borderless={ true }
         buttonStyle={ styles.rectangle }
         icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
-        onPress={ () => this.openRomantic() }
+        onPress={ this.openRomantic }
       >
         {
           !editable ?
@@ -398,6 +427,7 @@ class Profile extends React.Component<{
           buttonStyle={ styles.section }
           useAlternative={ true }
           disabled={ !editable }
+          onPress={ this.openAvatar }
         >
           <View style={ styles.sectionEditable }>
             {/* eslint-disable-next-line react-native/no-inline-styles */}

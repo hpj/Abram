@@ -1239,7 +1239,7 @@ describe('Testing <App/>', () =>
       component.unmount();
     });
   });
-
+    
   describe('Profile', () =>
   {
     describe('Others', () =>
@@ -1307,6 +1307,8 @@ describe('Testing <App/>', () =>
   
         const profile = toJSON(component, 'v-profile', 'all');
   
+        // TODO testing navigation to other profiles should
+        // be moved to its own test instead
         expect(profile).toMatchSnapshot('Should Be Mika Profile');
   
         // activate interests popup view
@@ -1314,7 +1316,7 @@ describe('Testing <App/>', () =>
   
         await waitFor(() => true);
   
-        const popup = toJSON(component, 'v-interests', 'all');
+        const popup = toJSON(component, 'v-popup', 'all');
   
         expect(popup).toMatchSnapshot();
   
@@ -1389,7 +1391,7 @@ describe('Testing <App/>', () =>
     
           await waitFor(() => true);
     
-          const popup = toJSON(component, 'v-romantic', 'all');
+          const popup = toJSON(component, 'v-popup', 'all');
     
           expect(popup).toMatchSnapshot();
     
@@ -1462,7 +1464,7 @@ describe('Testing <App/>', () =>
     
           await waitFor(() => true);
     
-          const popup = toJSON(component, 'v-romantic', 'all');
+          const popup = toJSON(component, 'v-popup', 'all');
     
           expect(popup).toMatchSnapshot();
     
@@ -1536,7 +1538,7 @@ describe('Testing <App/>', () =>
     
           await waitFor(() => true);
     
-          const popup = toJSON(component, 'v-romantic', 'all');
+          const popup = toJSON(component, 'v-popup', 'all');
     
           expect(popup).toMatchSnapshot();
     
@@ -1612,7 +1614,7 @@ describe('Testing <App/>', () =>
     
           await waitFor(() => true);
     
-          const popup = toJSON(component, 'v-romantic', 'all');
+          const popup = toJSON(component, 'v-popup', 'all');
     
           expect(popup).toMatchSnapshot();
     
@@ -1623,7 +1625,98 @@ describe('Testing <App/>', () =>
 
     describe('Personal', () =>
     {
-      //
+      describe('Edits', () =>
+      {
+        test('Avatar', async() =>
+        {
+          getStore().set({
+            profile: {
+              uuid: '0',
+              avatar: 0,
+              fullName: 'User Using Used',
+              nickname: 'User',
+              info: {
+                romantically: 'Open',
+                gender: 'Non-binary',
+                speaks: [ 'English' ]
+              },
+              interests: [ 'A', 'B', 'C', 'D', 'E', 'F' ] as string[]
+            } as TProfile
+          });
+
+          const component = render(<App/>);
+
+          // wait for app loading
+          await waitFor(() => component.getByTestId('v-main-area'));
+
+          // press menu
+          fireEvent.press(component.getByTestId('bn-menu'));
+
+          await waitFor(() => true);
+    
+          // press profile
+          fireEvent.press(component.getByTestId('bn-profile'));
+    
+          await waitFor(() => true);
+            
+          // activate avatar popup view
+          fireEvent.press(component.getByTestId('bn-avatar'));
+    
+          await waitFor(() => true);
+    
+          const popup = toJSON(component, 'v-popup', 'all');
+    
+          expect(popup).toMatchSnapshot();
+    
+          component.unmount();
+        });
+
+        test('Romantic', async() =>
+        {
+          getStore().set({
+            profile: {
+              uuid: '0',
+              avatar: 0,
+              fullName: 'User Using Used',
+              nickname: 'User',
+              info: {
+                romantically: 'Open',
+                gender: 'Non-binary',
+                speaks: [ 'English' ]
+              },
+              interests: [ 'A', 'B', 'C', 'D', 'E', 'F' ] as string[]
+            } as TProfile
+          });
+
+          const component = render(<App/>);
+
+          // wait for app loading
+          await waitFor(() => component.getByTestId('v-main-area'));
+
+          // press menu
+          fireEvent.press(component.getByTestId('bn-menu'));
+
+          await waitFor(() => true);
+    
+          // press profile
+          fireEvent.press(component.getByTestId('bn-profile'));
+    
+          await waitFor(() => true);
+            
+          // activate avatar popup view
+          fireEvent.press(component.getByTestId('bn-romantic'));
+    
+          await waitFor(() => true);
+    
+          const popup = toJSON(component, 'v-popup', 'all');
+    
+          expect(popup).toMatchSnapshot();
+    
+          component.unmount();
+        });
+
+        // TODO test romantic edits
+      });
     });
   });
 
