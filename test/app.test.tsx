@@ -1627,6 +1627,51 @@ describe('Testing <App/>', () =>
     {
       describe('Edits', () =>
       {
+        test('Bio', async() =>
+        {
+          getStore().set({
+            profile: {
+              uuid: '0',
+              avatar: 0,
+              fullName: 'User Using Used',
+              nickname: 'User',
+              bio: 'Test Bio',
+              info: {
+                romantically: 'Open',
+                gender: 'Non-binary',
+                speaks: [ 'English' ]
+              },
+              interests: [ 'A', 'B', 'C', 'D', 'E', 'F' ] as string[]
+            } as TProfile
+          });
+
+          const component = render(<App/>);
+
+          // wait for app loading
+          await waitFor(() => component.getByTestId('v-main-area'));
+
+          // press menu
+          fireEvent.press(component.getByTestId('bn-menu'));
+
+          await waitFor(() => true);
+    
+          // press profile
+          fireEvent.press(component.getByTestId('bn-profile'));
+    
+          await waitFor(() => true);
+            
+          // activate avatar popup view
+          fireEvent.press(component.getByTestId('bn-bio'));
+    
+          await waitFor(() => true);
+    
+          const popup = toJSON(component, 'v-popup', 'all');
+    
+          expect(popup).toMatchSnapshot();
+    
+          component.unmount();
+        });
+
         test('Avatar', async() =>
         {
           getStore().set({
@@ -1635,6 +1680,7 @@ describe('Testing <App/>', () =>
               avatar: 0,
               fullName: 'User Using Used',
               nickname: 'User',
+              bio: 'Test Bio',
               info: {
                 romantically: 'Open',
                 gender: 'Non-binary',
@@ -1679,6 +1725,7 @@ describe('Testing <App/>', () =>
               avatar: 0,
               fullName: 'User Using Used',
               nickname: 'User',
+              bio: 'Test Bio',
               info: {
                 romantically: 'Open',
                 gender: 'Non-binary',
@@ -1714,8 +1761,6 @@ describe('Testing <App/>', () =>
     
           component.unmount();
         });
-
-        // TODO test romantic edits
       });
     });
   });

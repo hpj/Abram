@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BackHandler, StyleSheet, ScrollView } from 'react-native';
+import { BackHandler, Keyboard, StyleSheet, ScrollView } from 'react-native';
 
 import Animated, { Easing } from 'react-native-reanimated';
 
@@ -115,6 +115,8 @@ class Popup extends StoreComponent<{
       this.timestamp = Date.now();
     else
       return true;
+
+    Keyboard.dismiss();
 
     BackHandler.removeEventListener('hardwareBackPress', this.deactivate);
 

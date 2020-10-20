@@ -6588,6 +6588,7 @@ exports[`Testing <App/> Profile Others Interests Popup: Should Be Mika Profile 1
                   style={
                     Object {
                       "alignSelf": "center",
+                      "backgroundColor": "#818181",
                       "borderRadius": 10,
                       "height": 256,
                       "width": 256,
@@ -7557,6 +7558,65 @@ exports[`Testing <App/> Profile Personal Edits Avatar 1`] = `
           }
         }
       >
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 12,
+              "fontWeight": "bold",
+              "textTransform": "uppercase",
+            }
+          }
+        >
+          Choose Your Avatar
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`Testing <App/> Profile Personal Edits Bio 1`] = `
+<View
+  style={
+    Object {
+      "bottom": 0,
+      "flex": 1,
+      "position": "absolute",
+      "width": 523,
+      "zIndex": 5,
+    }
+  }
+  testID="v-popup"
+>
+  <RCTScrollView
+    style={
+      Object {
+        "backgroundColor": "#171717",
+        "maxHeight": 735.15,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "margin": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 12,
+              "fontWeight": "bold",
+              "textTransform": "uppercase",
+            }
+          }
+        >
+          Choose Your Bio
+        </Text>
         <View
           style={
             Object {
@@ -7564,6 +7624,97 @@ exports[`Testing <App/> Profile Personal Edits Avatar 1`] = `
             }
           }
         />
+        <TextInput
+          allowFontScaling={true}
+          multiline={false}
+          onChangeText={[Function]}
+          placeholder="Bio"
+          placeholderTextColor="rgba(255,255,255,0.45)"
+          rejectResponderTermination={true}
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 13,
+              "paddingVertical": 5,
+            }
+          }
+          testID="in-bio"
+          underlineColorAndroid="transparent"
+          value="Test Bio"
+        />
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={false}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "paddingHorizontal": 25,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <View>
+              <View />
+            </View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              Cancel
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            focusable={false}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "paddingHorizontal": 25,
+                "paddingVertical": 10,
+              }
+            }
+          >
+            <View>
+              <View />
+            </View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              Save
+            </Text>
+          </View>
+        </View>
       </View>
     </View>
   </RCTScrollView>
@@ -7609,7 +7760,7 @@ exports[`Testing <App/> Profile Personal Edits Romantic 1`] = `
             }
           }
         >
-          Choose Your Romantic Availability 
+          Choose Your Romantic Availability
         </Text>
         <Text
           style={
@@ -7634,19 +7785,7 @@ exports[`Testing <App/> Profile Personal Edits Romantic 1`] = `
             Romantically Closed, 
           </Text>
           <Text>
-            Reporting any user for flirting will result in their account getting 
-          </Text>
-          <Text
-            style={
-              Object {
-                "color": "#bf0404",
-              }
-            }
-          >
-            Terminated
-          </Text>
-          <Text>
-            .
+            Reporting any user for flirting will result in their account getting terminated.
           </Text>
         </Text>
         <View
@@ -10137,6 +10276,7 @@ exports[`Testing <Profile/> Others Bare Profile 1`] = `
                 style={
                   Object {
                     "alignSelf": "center",
+                    "backgroundColor": "#818181",
                     "borderRadius": 10,
                     "height": 256,
                     "width": 256,
@@ -10505,7 +10645,7 @@ exports[`Testing <Profile/> Others Full Profile 1`] = `
     >
       <View
         accessible={true}
-        focusable={false}
+        focusable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -10599,6 +10739,7 @@ exports[`Testing <Profile/> Others Full Profile 1`] = `
                 style={
                   Object {
                     "alignSelf": "center",
+                    "backgroundColor": "#818181",
                     "borderRadius": 10,
                     "height": 256,
                     "width": 256,
@@ -11586,7 +11727,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
     >
       <View
         accessible={true}
-        focusable={false}
+        focusable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -11712,6 +11853,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
                 style={
                   Object {
                     "alignSelf": "center",
+                    "backgroundColor": "#818181",
                     "borderRadius": 10,
                     "height": 256,
                     "width": 256,
@@ -12903,7 +13045,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
     >
       <View
         accessible={true}
-        focusable={false}
+        focusable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -13028,6 +13170,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
                 style={
                   Object {
                     "alignSelf": "center",
+                    "backgroundColor": "#818181",
                     "borderRadius": 10,
                     "height": 256,
                     "width": 256,

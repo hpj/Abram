@@ -16,7 +16,7 @@ import { pronoun, sharedInterests } from '../utils';
 
 import Button from '../components/Button';
 
-import { AvatarEdits, RomanticEdits } from '../components/ProfileEdits';
+import { BioEdits, AvatarEdits, RomanticEdits } from '../components/ProfileEdits';
 
 const colors = getTheme();
 
@@ -29,7 +29,9 @@ class Profile extends React.Component<{
   {
     super(props);
 
+    this.openBio = this.openBio.bind(this);
     this.openAvatar = this.openAvatar.bind(this);
+
     this.openRomantic = this.openRomantic.bind(this);
   }
 
@@ -38,6 +40,22 @@ class Profile extends React.Component<{
     const { user, profile } = this.props;
 
     return sharedInterests(user, profile);
+  }
+
+  openBio(): void
+  {
+    const store = getStore();
+
+    // istanbul ignore next
+    if (store.state.popup)
+      return;
+
+    const { profile } = this.props;
+
+    store.set({
+      popup: true,
+      popupContent: () => <BioEdits initial={ profile.bio }/>
+    });
   }
 
   openAvatar(): void
@@ -399,6 +417,7 @@ class Profile extends React.Component<{
               buttonStyle={ { ...styles.section, paddingVertical: sizes.windowMargin * 0.5 } }
               useAlternative={ true }
               disabled={ !editable }
+              onPress={ this.openBio }
             >
               {
                 editable ?
@@ -577,6 +596,8 @@ const styles = StyleSheet.create({
 
   avatar: {
     alignSelf: 'center',
+
+    backgroundColor: colors.greyText,
 
     width: 256,
     height: 256,

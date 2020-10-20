@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyleSheet, ScrollView, View, Text } from 'react-native';
+import { StyleSheet, ScrollView, View, Text, TextInput } from 'react-native';
 
 // import Icon from 'react-native-vector-icons/Feather';
 
@@ -16,12 +16,72 @@ import Button from './Button';
 
 const colors = getTheme();
 
+export class BioEdits extends React.Component<{
+  initial: Profile['bio']
+}, {
+  current: Profile['bio']
+}>
+{
+  constructor(props: BioEdits['props'])
+  {
+    super(props);
+
+    this.state = {
+      current: props.initial
+    };
+
+    this.onChange = this.onChange.bind(this);
+  }
+
+  onChange(text: string): void
+  {
+    this.setState({ current: text });
+  }
+
+  render(): JSX.Element
+  {
+    const { current } = this.state;
+
+    return <View style={ styles.section }>
+      <Text style={ styles.title }>Choose Your Bio</Text>
+
+      <View style={ styles.space }/>
+
+      <TextInput
+        testID={ 'in-bio' }
+        style={ styles.input }
+        multiline={ false }
+        value={ current }
+        onChangeText={ this.onChange }
+        placeholderTextColor={ colors.placeholder }
+        placeholder={ 'Bio' }
+      />
+
+      <View style={ styles.buttons }>
+        <Button
+          text={ 'Cancel' }
+          borderless={ true }
+          buttonStyle={ styles.button }
+          textStyle={ styles.buttonText }
+        />
+
+        <Button
+          text={ 'Save' }
+          borderless={ true }
+          buttonStyle={ styles.button }
+          textStyle={ styles.buttonText }
+        />
+      </View>
+    </View>;
+  }
+}
+
 export class AvatarEdits extends React.Component
 {
   render(): JSX.Element
   {
     return <View style={ styles.section }>
-      <View style={ styles.space }/>
+      <Text style={ styles.title }>Choose Your Avatar</Text>
     </View>;
   }
 }
@@ -46,14 +106,12 @@ export class RomanticEdits extends React.Component<{
     const { current } = this.state;
 
     return <View style={ styles.section }>
-      <Text style={ styles.title }>{ 'Choose Your Romantic Availability ' }</Text>
+      <Text style={ styles.title }>Choose Your Romantic Availability</Text>
 
       <Text style={ styles.text }>
         <Text>While being </Text>
         <Text style={ { color: colors.whiteText } }>Romantically Closed, </Text>
-        <Text>Reporting any user for flirting will result in their account getting </Text>
-        <Text style={ { color: colors.brightRed } }>Terminated</Text>
-        <Text>.</Text>
+        <Text>Reporting any user for flirting will result in their account getting terminated.</Text>
       </Text>
 
       <View style={ styles.space }/>
@@ -145,5 +203,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
     color: colors.greyText
+  },
+
+  input: {
+    fontSize: 13,
+    color: colors.whiteText,
+
+    paddingVertical: sizes.windowMargin * 0.25
   }
 });
