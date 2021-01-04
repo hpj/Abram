@@ -9,6 +9,25 @@ Performance Issues and Bugs:
 Public Beta:
   ☐ work on branding descriptions and motto
 
+  - editable profile @high
+    ☐ profession
+    ☐ works at
+    ☐ gender & sexuality
+
+  - editable profile @low
+    - heavy
+      ☐ interests
+      ☐ ice breakers
+      ☐ age
+
+    - datasets
+      ☐ speaks
+      ☐ religion
+      ☐ origin
+
+    - requires contract work
+      ☐ avatar
+
   ☐ consuming native sign-in with google 
     ☐ region locking
 
@@ -22,8 +41,9 @@ Public Beta:
   ☐ test every thing
 
 Testing:
-  - test personal
-    ☐ test editable elements
+  - test all editable profile elements
+    ☐ bio
+    ☐ romantically
 
   ☐ mock and test Clipboard
     - with <ChatContext/>

@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { Clipboard, StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
+
+import Clipboard from 'expo-clipboard';
 
 import type { Message, InboxEntry } from '../types';
 
