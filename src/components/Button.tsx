@@ -34,6 +34,7 @@ class Button extends React.Component<{
   useAlternative?: boolean,
   disabled?: boolean,
   borderless?: boolean,
+  ripple?: string,
   activeOpacity?: number,
   onPress?: () => void
 }>
@@ -44,7 +45,7 @@ class Button extends React.Component<{
       useAlternative,
       wrapperStyle, backgroundStyle, badgeStyle, buttonStyle,
       textStyle, testID, text, icon, disabled,
-      borderless, activeOpacity, onPress
+      borderless, ripple, activeOpacity, onPress
     } = this.props;
 
     /* istanbul ignore next */
@@ -64,7 +65,7 @@ class Button extends React.Component<{
       style={ wrapperStyle }
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-ignore
-      background={ (!useAlternative ? GHTouchableNativeFeedback : TouchableNativeFeedback).Ripple(colors.ripple, borderless) }
+      background={ (!useAlternative ? GHTouchableNativeFeedback : TouchableNativeFeedback).Ripple(ripple ?? colors.ripple, borderless) }
       activeOpacity={ activeOpacity }
       disabled={ disabled }
       onPress={ onPress }

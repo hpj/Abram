@@ -73,6 +73,7 @@ class BottomNavigation extends StoreComponent<unknown, {
         borderless={ true }
         buttonStyle={ styles.entry }
         icon={ { name: 'inbox', size: sizes.icon, color: (index === 0) ? colors.whiteText : colors.inactiveWhiteText } }
+        ripple={ colors.transparent }
         onPress={ () => this.setIndex(0) }
       />
 
@@ -83,6 +84,7 @@ class BottomNavigation extends StoreComponent<unknown, {
         borderless={ true }
         buttonStyle={ styles.entry }
         icon={ { name: 'compass', size: sizes.icon, color: (index === 1) ? colors.whiteText : colors.inactiveWhiteText } }
+        ripple={ colors.transparent }
         onPress={ () => this.setIndex(1) }
       />
 
@@ -95,6 +97,7 @@ class BottomNavigation extends StoreComponent<unknown, {
             borderless={ true }
             buttonStyle={ styles.entry }
             icon={ { name: additionNavigationIcon, size: sizes.icon, color: colors.whiteText } }
+            ripple={ colors.transparent }
           /> : undefined
       }
         
