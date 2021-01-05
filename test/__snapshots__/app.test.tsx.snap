@@ -619,7 +619,7 @@ exports[`Testing <App/> Chat Chat Context 1`] = `
             ]
           }
         >
-          
+          
         </Text>
       </View>
     </View>
@@ -4012,7 +4012,7 @@ exports[`Testing <App/> Menus Navigating to Profile: Bottom Should Have A Additi
           ]
         }
       >
-        
+        
       </Text>
     </View>
   </View>
@@ -4076,7 +4076,7 @@ exports[`Testing <App/> Menus Navigating to Profile: Bottom Should Have A Additi
           ]
         }
       >
-        
+        
       </Text>
     </View>
   </View>
@@ -4140,7 +4140,7 @@ exports[`Testing <App/> Menus Navigating to Profile: Bottom Should Have A Additi
           ]
         }
       >
-        
+        
       </Text>
     </View>
   </View>
@@ -4334,7 +4334,7 @@ exports[`Testing <App/> Menus Navigating to Settings: Bottom Should Have A Addit
           ]
         }
       >
-        
+        
       </Text>
     </View>
   </View>
@@ -4398,7 +4398,7 @@ exports[`Testing <App/> Menus Navigating to Settings: Bottom Should Have A Addit
           ]
         }
       >
-        
+        
       </Text>
     </View>
   </View>
@@ -4462,7 +4462,7 @@ exports[`Testing <App/> Menus Navigating to Settings: Bottom Should Have A Addit
           ]
         }
       >
-        
+        
       </Text>
     </View>
   </View>
@@ -4686,7 +4686,7 @@ exports[`Testing <App/> Menus Showing Group Chat Menu: Menu View Should Be Visib
             ]
           }
         >
-          
+          
         </Text>
         <Text
           style={
@@ -4743,7 +4743,7 @@ exports[`Testing <App/> Menus Showing Group Chat Menu: Menu View Should Be Visib
             ]
           }
         >
-          
+          
         </Text>
         <Text
           style={
@@ -4811,7 +4811,7 @@ exports[`Testing <App/> Menus Showing Group Chat Menu: Menu View Should Be Visib
             ]
           }
         >
-          
+          
         </Text>
         <Text
           style={
@@ -4868,7 +4868,7 @@ exports[`Testing <App/> Menus Showing Group Chat Menu: Menu View Should Be Visib
             ]
           }
         >
-          
+          
         </Text>
         <Text
           style={
@@ -4925,7 +4925,7 @@ exports[`Testing <App/> Menus Showing Group Chat Menu: Menu View Should Be Visib
             ]
           }
         >
-          
+          
         </Text>
         <Text
           style={
@@ -5104,7 +5104,7 @@ exports[`Testing <App/> Menus Showing Normal Chat Menu: Menu View Should Be Visi
             ]
           }
         >
-          
+          
         </Text>
         <Text
           style={
@@ -5172,7 +5172,7 @@ exports[`Testing <App/> Menus Showing Normal Chat Menu: Menu View Should Be Visi
             ]
           }
         >
-          
+          
         </Text>
         <Text
           style={
@@ -5387,7 +5387,7 @@ exports[`Testing <App/> Menus Showing and Hiding Main Menu: Initial Menu View Sh
             ]
           }
         >
-          
+          
         </Text>
         <Text
           style={
@@ -5455,7 +5455,7 @@ exports[`Testing <App/> Menus Showing and Hiding Main Menu: Initial Menu View Sh
             ]
           }
         >
-          
+          
         </Text>
         <Text
           style={
@@ -5512,7 +5512,7 @@ exports[`Testing <App/> Menus Showing and Hiding Main Menu: Initial Menu View Sh
             ]
           }
         >
-          
+          
         </Text>
         <Text
           style={
@@ -5763,7 +5763,7 @@ exports[`Testing <App/> Menus Showing and Hiding Main Menu: Menu View Should Be 
             ]
           }
         >
-          
+          
         </Text>
         <Text
           style={
@@ -5831,7 +5831,7 @@ exports[`Testing <App/> Menus Showing and Hiding Main Menu: Menu View Should Be 
             ]
           }
         >
-          
+          
         </Text>
         <Text
           style={
@@ -5888,7 +5888,7 @@ exports[`Testing <App/> Menus Showing and Hiding Main Menu: Menu View Should Be 
             ]
           }
         >
-          
+          
         </Text>
         <Text
           style={
@@ -11780,7 +11780,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
                 ]
               }
             >
-              
+              
             </Text>
           </View>
           <Text
@@ -11882,7 +11882,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
                 ]
               }
             >
-              
+              
             </Text>
           </View>
         </View>
@@ -11981,7 +11981,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
                 ]
               }
             >
-              
+              
             </Text>
           </View>
         </View>
@@ -12051,7 +12051,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -12124,7 +12124,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -12208,7 +12208,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -12281,7 +12281,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -12365,7 +12365,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -12438,7 +12438,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -12522,7 +12522,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -12595,7 +12595,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -12668,7 +12668,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -12763,7 +12763,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
                 ]
               }
             >
-              
+              
             </Text>
           </View>
         </View>
@@ -12838,7 +12838,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
         <View
@@ -13098,7 +13098,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
                 ]
               }
             >
-              
+              
             </Text>
           </View>
           <Text
@@ -13199,7 +13199,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
                 ]
               }
             >
-              
+              
             </Text>
           </View>
         </View>
@@ -13298,7 +13298,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
                 ]
               }
             >
-              
+              
             </Text>
           </View>
         </View>
@@ -13368,7 +13368,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -13452,7 +13452,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -13536,7 +13536,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -13620,7 +13620,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -13704,7 +13704,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -13788,7 +13788,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -13872,7 +13872,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -13956,7 +13956,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -14040,7 +14040,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -14146,7 +14146,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
                 ]
               }
             >
-              
+              
             </Text>
           </View>
           <View
@@ -14254,7 +14254,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
         <View
