@@ -2,7 +2,7 @@ import React from 'react';
 
 import { StyleSheet, View, ScrollView, Image, Text } from 'react-native';
 
-import type { Profile, InboxEntry } from '../types';
+import type { Size, Profile, InboxEntry } from '../types';
 
 import Button from '../components/Button';
 
@@ -19,6 +19,7 @@ const colors = getTheme();
 class Inbox extends StoreComponent<{
   snapTo?: ((index: number) => void) | undefined
 }, {
+  size: Size,
   profile: Profile,
   chat: boolean,
   activeChat: InboxEntry,
@@ -52,6 +53,7 @@ class Inbox extends StoreComponent<{
   stateWhitelist(changes: Inbox['state']): boolean
   {
     if (
+      changes.size ||
       changes.profile ||
       changes.chat ||
       changes.activeChat ||

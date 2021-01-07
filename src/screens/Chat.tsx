@@ -8,7 +8,7 @@ import { isToday, differenceInMilliseconds, isSameDay } from 'date-fns';
 
 import EmojiRegex from 'emoji-regex';
 
-import type { Size, Keyboard, Profile, InboxEntry, Message } from '../types';
+import type { Size, Profile, InboxEntry, Message } from '../types';
 
 import ChatContext from '../components/ChatContext';
 
@@ -57,7 +57,8 @@ function relativeDate(currMessageDate: Date, prevMessageDate: Date): string | un
 
 class Chat extends StoreComponent<unknown, {
   size: Size,
-  keyboard: Keyboard,
+  layout: Size,
+
   profile: Profile,
   activeChat: InboxEntry,
 
@@ -218,7 +219,8 @@ class Chat extends StoreComponent<unknown, {
   {
     if (
       changes.size ||
-      changes.keyboard ||
+      changes.layout ||
+
       changes.profile ||
       changes.activeChat
     )
@@ -293,23 +295,15 @@ class Chat extends StoreComponent<unknown, {
 
   render(): JSX.Element
   {
-    const { size, keyboard, profile, activeChat, inputs } = this.state;
+    const { size, layout, profile, activeChat, inputs } = this.state;
 
     if (!activeChat?.id)
       return <View/>;
 
     const value = inputs[activeChat.id] ?? '';
 
-    const fieldHeight = (keyboard.height) ?
-      (sizes.topBarHeight + sizes.windowMargin) :
-      0;
+    const inputHeight = sizes.topBarHeight + sizes.windowMargin;
 
-    const viewHeight =
-      size.height -
-      keyboard.height -
-      fieldHeight -
-      (sizes.topBarHeight + sizes.topBarBigMargin);
-    
     const bubbleWidth = size.width * sizes.chatBubbleMaxWidth;
     const bubbleTextWidth = bubbleWidth - (sizes.windowMargin * 2);
     const avatarBubbleTextWidth = bubbleTextWidth - sizes.chatAvatar - sizes.windowMargin;
@@ -365,15 +359,17 @@ class Chat extends StoreComponent<unknown, {
 
     return <View testID={ 'v-chat' } style={ {
       ...styles.container,
-      height: viewHeight
+      height: layout.height - inputHeight
     } }>
-      <FlatList
-        testID={ 'v-messages' }
-        inverted={ true }
-        data={ this.messages }
-        keyExtractor={ (item, index) => index.toString() }
-        renderItem={ renderMessage }
-      />
+      <View style={ styles.wrapper }>
+        <FlatList
+          testID={ 'v-messages' }
+          inverted={ true }
+          data={ this.messages }
+          keyExtractor={ (item, index) => index.toString() }
+          renderItem={ renderMessage }
+        />
+      </View>
 
       <View style={ {
         ...styles.input,
@@ -396,12 +392,15 @@ class Chat extends StoreComponent<unknown, {
           icon={ { name: 'arrow-right', size: 18, color: value.length > 0 ? colors.whiteText : colors.greyText } }
         />
       </View>
-
     </View>;
   }
 }
 
 const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1
+  },
+
   container: {
     backgroundColor: colors.blackBackground
   },

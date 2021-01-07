@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Dimensions, Keyboard } from 'react-native';
+import { Dimensions } from 'react-native';
 
 import { registerRootComponent } from 'expo';
 
@@ -10,7 +10,7 @@ import { activateKeepAwake } from 'expo-keep-awake';
 
 import * as Sentry from 'sentry-expo';
 
-import { Profile, InboxEntry, Keyboard as TKeyboard, Size } from './types';
+import { Profile, InboxEntry, Size } from './types';
 
 import { createStore } from './store';
 
@@ -46,13 +46,14 @@ const store = createStore({
   holder: false,
 
   size: {
-    width: Dimensions.get('screen').width,
-    height: Dimensions.get('screen').height - constants.statusBarHeight
+    width: 0,
+    height: 0
   } as Size,
 
-  keyboard: {
+  layout: {
+    width: 0,
     height: 0
-  } as TKeyboard,
+  } as Size,
 
   profile: {
     uuid: '0001',
@@ -238,21 +239,9 @@ const store = createStore({
 });
 
 // update state when size changes
-Dimensions.addEventListener('change', ({ screen }) => store.set({
+Dimensions.addEventListener('change', () => store.set({
   size: {
-    width: screen.width,
-    height: screen.height - constants.statusBarHeight
-  }
-}));
-
-Keyboard.addListener('keyboardDidShow', (e) => store.set({
-  keyboard: {
-    height: e.endCoordinates.height
-  }
-}));
-
-Keyboard.addListener('keyboardDidHide', () => store.set({
-  keyboard: {
+    width: 0,
     height: 0
   }
 }));

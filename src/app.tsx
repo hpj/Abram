@@ -2,7 +2,7 @@ import React from 'react';
 
 import {
   StyleSheet, StatusBar, Platform, BackHandler, Keyboard,
-  SafeAreaView, View, Text, TouchableWithoutFeedback
+  SafeAreaView, View, Text, TouchableWithoutFeedback, LayoutChangeEvent
 } from 'react-native';
 
 import * as SplashScreen from 'expo-splash-screen';
@@ -29,7 +29,7 @@ import Popup from './components/Popup';
 import Chat from './screens/Chat';
 import ChatHeader from './components/ChatHeader';
 
-import { Profile as TProfile } from './types';
+import { Size, Profile as TProfile } from './types';
 
 import { fetch, locale } from './i18n';
 
@@ -47,10 +47,7 @@ export default class App extends StoreComponent<unknown, {
   error: string,
   loaded: boolean,
 
-  size: {
-    width: number,
-    height: number
-  },
+  size: Size,
 
   index: number,
 
@@ -69,6 +66,7 @@ export default class App extends StoreComponent<unknown, {
 
     // bind functions to use as callbacks
 
+    this.onLayout = this.onLayout.bind(this);
     this.onBack = this.onBack.bind(this);
   }
 
@@ -134,9 +132,48 @@ export default class App extends StoreComponent<unknown, {
 
       StatusBar.setBarStyle('light-content');
       // StatusBar.setBarStyle((colors.theme === 'dark') ? 'light-content' : 'dark-content');
-  
+
       // hides the splash screen and shows the app
       await SplashScreen.hideAsync();
+    }
+  }
+
+  onLayout({ nativeEvent }: LayoutChangeEvent): void
+  {
+    const { size } = this.state;
+    
+    const { width, height } = nativeEvent.layout;
+
+    if (size.width === 0 || size.height === 0)
+    {
+      // get the correct size of window on android
+      // https://github.com/facebook/react-native/issues/23693
+
+      this.store.set({
+        size: {
+          width,
+          height
+        },
+        layout: {
+          width,
+          height
+        }
+        // FIX workaround: an issue that cases
+        // the bottom sheet does not get assigned
+        // its correct snap points
+        // although this does slow the app start time
+      }, () => this.forceUpdate());
+    }
+    else
+    {
+      // layout is used in some cases
+      // like the bottom sheet resizing to account for the keyboard height
+      this.store.set({
+        layout: {
+          width,
+          height
+        }
+      });
     }
   }
 
@@ -157,7 +194,7 @@ export default class App extends StoreComponent<unknown, {
       BackHandler.addEventListener('hardwareBackPress', this.onBack);
     }
   }
-
+  
   onBack(): boolean
   {
     // close bottom sheet
@@ -175,6 +212,13 @@ export default class App extends StoreComponent<unknown, {
 
     if (!this.state.loaded)
       return <View/>;
+    
+    // get the correct size of window on android
+    // https://github.com/facebook/react-native/issues/23693
+    if (this.state.size.width === 0 || this.state.size.height === 0)
+    {
+      return <SafeAreaView onLayout={ this.onLayout } style={ styles.container }/>;
+    }
 
     const {
       size,
@@ -187,7 +231,7 @@ export default class App extends StoreComponent<unknown, {
       outputRange: [ 0, 0.75 ]
     });
 
-    return <SafeAreaView testID={ 'v-main-area' } style={ styles.container }>
+    return <SafeAreaView testID={ 'v-main-area' } onLayout={ this.onLayout } style={ styles.container }>
 
       <Popup holderNode={ this.holderNode }/>
 
@@ -264,14 +308,7 @@ export default class App extends StoreComponent<unknown, {
               </View>
           }
 
-          renderContent = { () =>
-            <View style={ {
-              ...styles.bottomSheetContent,
-              height: size.height
-            } }>
-              <Chat/>
-            </View>
-          }
+          renderContent = { () => <Chat/> }
         />
       </View>
 
@@ -328,7 +365,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.whiteText,
 
     width: 45,
-    height: 5,
+    height: 4,
 
     marginTop: 10,
     borderRadius: 10
@@ -339,9 +376,5 @@ const styles = StyleSheet.create({
 
     marginLeft: sizes.windowMargin,
     marginRight: sizes.windowMargin
-  },
-
-  bottomSheetContent: {
-    backgroundColor: colors.blackBackground
   }
 });
