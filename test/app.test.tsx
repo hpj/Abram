@@ -249,8 +249,10 @@ beforeEach(() =>
       height: 1131
     },
 
-    keyboard: {
-      height: 0
+    layout:
+    {
+      width: 523,
+      height: 1090
     },
 
     profile: {},
@@ -2704,8 +2706,9 @@ describe('Testing <App/>', () =>
 
       // update keyboard height
       store.set({
-        keyboard: {
-          height: 500
+        layout: {
+          width: store.state.layout.width,
+          height: store.state.layout.height - 500
         }
       });
 

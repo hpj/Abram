@@ -364,7 +364,7 @@ const styles = StyleSheet.create({
   bottomSheetHandler: {
     backgroundColor: colors.whiteText,
 
-    width: 45,
+    width: 65,
     height: 4,
 
     marginTop: 10,
