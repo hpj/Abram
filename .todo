@@ -6,7 +6,7 @@ Performance Issues and Bugs:
       - since no events get called on bottom sheet
       - we have no idea what causes that to... not happen?
 
-Public Beta:
+Alpha:
   ☐ work on branding descriptions and motto
 
   - editable profile @high
@@ -38,9 +38,11 @@ Public Beta:
   ☐ use expo-updates
     ☐ expo's over-the-air updates
 
-  ☐ test every thing
+  ☐ test everything (high code coverage)
 
 Testing:
+  ☐ all te keyboard stuff
+
   - test all editable profile elements
     ☐ bio
     ☐ romantically

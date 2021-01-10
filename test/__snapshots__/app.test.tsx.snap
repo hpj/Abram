@@ -642,30 +642,6 @@ exports[`Testing <App/> Chat Chat Context 1`] = `
 </View>
 `;
 
-exports[`Testing <App/> Chat Height With Keyboard: Should Have Full Height 1`] = `
-<View
-  style={
-    Object {
-      "backgroundColor": "#000000",
-      "height": 1018,
-    }
-  }
-  testID="v-chat"
-/>
-`;
-
-exports[`Testing <App/> Chat Height With Keyboard: Should Have Height Minus Keyboard Height & Margin 1`] = `
-<View
-  style={
-    Object {
-      "backgroundColor": "#000000",
-      "height": 518,
-    }
-  }
-  testID="v-chat"
-/>
-`;
-
 exports[`Testing <App/> Chat Hints All 1`] = `
 <View
   data={
@@ -3441,10 +3417,10 @@ exports[`Testing <App/> Chat Sending Messages: Sent Message 1`] = `
       "color": "#ffffff",
       "flex": 1,
       "fontSize": 16,
-      "marginBottom": 5,
       "marginLeft": 20,
       "marginRight": 5,
-      "marginTop": 5,
+      "paddingBottom": 6.666666666666667,
+      "paddingTop": 6.666666666666667,
     }
   }
   testID="in-message"
@@ -3899,10 +3875,10 @@ exports[`Testing <App/> Chat Sending Messages: Typing Message 1`] = `
       "color": "#ffffff",
       "flex": 1,
       "fontSize": 16,
-      "marginBottom": 5,
       "marginLeft": 20,
       "marginRight": 5,
-      "marginTop": 5,
+      "paddingBottom": 6.666666666666667,
+      "paddingTop": 6.666666666666667,
     }
   }
   testID="in-message"

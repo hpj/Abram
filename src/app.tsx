@@ -144,7 +144,7 @@ export default class App extends StoreComponent<unknown, {
     
     const { width, height } = nativeEvent.layout;
 
-    if (size.width === 0 || size.height === 0)
+    if (size.width !== width || size.height !== height)
     {
       // get the correct size of window on android
       // https://github.com/facebook/react-native/issues/23693
@@ -153,27 +153,12 @@ export default class App extends StoreComponent<unknown, {
         size: {
           width,
           height
-        },
-        layout: {
-          width,
-          height
         }
         // FIX workaround: an issue that cases
         // the bottom sheet does not get assigned
         // its correct snap points
         // although this does slow the app start time
       }, () => this.forceUpdate());
-    }
-    else
-    {
-      // layout is used in some cases
-      // like the bottom sheet resizing to account for the keyboard height
-      this.store.set({
-        layout: {
-          width,
-          height
-        }
-      });
     }
   }
 
@@ -308,7 +293,12 @@ export default class App extends StoreComponent<unknown, {
               </View>
           }
 
-          renderContent = { () => <Chat/> }
+          renderContent = { () => <View style={ {
+            // height minus the header height
+            height: size.height - (sizes.topBarHeight + sizes.topBarBigMargin)
+          } }>
+            <Chat/>
+          </View> }
         />
       </View>
 

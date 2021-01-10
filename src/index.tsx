@@ -50,11 +50,6 @@ const store = createStore({
     height: 0
   } as Size,
 
-  layout: {
-    width: 0,
-    height: 0
-  } as Size,
-
   profile: {
     uuid: '0001',
     avatar: require('../assets/mockup/karkar-0.jpg'),

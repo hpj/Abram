@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { StyleSheet, View, FlatList, TextInput, Text, Image } from 'react-native';
+import { StyleSheet, Keyboard, View, FlatList, TextInput, Text, Image } from 'react-native';
+
+import Animated, { Easing } from 'react-native-reanimated';
 
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
@@ -57,7 +59,6 @@ function relativeDate(currMessageDate: Date, prevMessageDate: Date): string | un
 
 class Chat extends StoreComponent<unknown, {
   size: Size,
-  layout: Size,
 
   profile: Profile,
   activeChat: InboxEntry,
@@ -78,6 +79,9 @@ class Chat extends StoreComponent<unknown, {
     // bind functions to use as callbacks
 
     this.onChange = this.onChange.bind(this);
+    
+    this.keyboardShow = this.keyboardShow.bind(this);
+    this.keyboardHide = this.keyboardHide.bind(this);
 
     this.sendMessage = this.sendMessage.bind(this);
   }
@@ -219,7 +223,6 @@ class Chat extends StoreComponent<unknown, {
   {
     if (
       changes.size ||
-      changes.layout ||
 
       changes.profile ||
       changes.activeChat
@@ -227,6 +230,44 @@ class Chat extends StoreComponent<unknown, {
       return true;
     
     return false;
+  }
+
+  componentDidMount(): void
+  {
+    super.componentDidMount();
+
+    Keyboard.addListener('keyboardDidShow', this.keyboardShow);
+    Keyboard.addListener('keyboardDidHide', this.keyboardHide);
+  }
+
+  componentWillUnmount(): void
+  {
+    super.componentWillUnmount();
+
+    Keyboard.removeListener('keyboardDidShow', this.keyboardShow);
+    Keyboard.removeListener('keyboardDidHide', this.keyboardHide);
+  }
+
+  keyboardProgress = new Animated.Value(0);
+
+  keyboardShow(): void
+  {
+    Animated.timing(this.keyboardProgress, {
+      duration: 200,
+      toValue: 1,
+      easing: Easing.inOut(Easing.ease)
+    // returns component which is used by the reanimated mocks while testing
+    }).start(() => this);
+  }
+
+  keyboardHide(): void
+  {
+    Animated.timing(this.keyboardProgress, {
+      duration: 200,
+      toValue: 0,
+      easing: Easing.inOut(Easing.ease)
+    // returns component which is used by the reanimated mocks while testing
+    }).start(() => this);
   }
 
   strip(s: string): string
@@ -295,18 +336,31 @@ class Chat extends StoreComponent<unknown, {
 
   render(): JSX.Element
   {
-    const { size, layout, profile, activeChat, inputs } = this.state;
+    const { size, profile, activeChat, inputs } = this.state;
 
     if (!activeChat?.id)
       return <View/>;
 
     const value = inputs[activeChat.id] ?? '';
 
-    const inputHeight = sizes.topBarHeight + sizes.windowMargin;
-
     const bubbleWidth = size.width * sizes.chatBubbleMaxWidth;
     const bubbleTextWidth = bubbleWidth - (sizes.windowMargin * 2);
     const avatarBubbleTextWidth = bubbleTextWidth - sizes.chatAvatar - sizes.windowMargin;
+
+    const width = this.keyboardProgress.interpolate({
+      inputRange: [ 0, 1 ],
+      outputRange: [ size.width - (sizes.windowMargin * 2), size.width ]
+    });
+
+    const margin = this.keyboardProgress.interpolate({
+      inputRange: [ 0, 1 ],
+      outputRange: [ sizes.windowMargin, 0 ]
+    });
+
+    const borderRadius = this.keyboardProgress.interpolate({
+      inputRange: [ 0, 1 ],
+      outputRange: [ sizes.topBarHeight + (sizes.windowMargin / 3), 0 ]
+    });
 
     const renderMessage = ({ item, index }: { item: Message, index: number }) =>
     {
@@ -357,10 +411,7 @@ class Chat extends StoreComponent<unknown, {
       </View>;
     };
 
-    return <View testID={ 'v-chat' } style={ {
-      ...styles.container,
-      height: layout.height - inputHeight
-    } }>
+    return <View testID={ 'v-chat' } style={ styles.container }>
       <View style={ styles.wrapper }>
         <FlatList
           testID={ 'v-messages' }
@@ -371,9 +422,19 @@ class Chat extends StoreComponent<unknown, {
         />
       </View>
 
-      <View style={ {
+      <Animated.View style={ {
         ...styles.input,
-        width: size.width - (sizes.windowMargin * 2)
+        
+        // number is based on the padding
+        // of the text input field itself
+        height: sizes.topBarHeight + (sizes.windowMargin / 3),
+        
+        width,
+
+        marginLeft: margin,
+        marginRight: margin,
+
+        borderRadius
       } }>
         <TextInput
           testID={ 'in-message' }
@@ -391,7 +452,7 @@ class Chat extends StoreComponent<unknown, {
           onPress={ this.sendMessage }
           icon={ { name: 'arrow-right', size: 18, color: value.length > 0 ? colors.whiteText : colors.greyText } }
         />
-      </View>
+      </Animated.View>
     </View>;
   }
 }
@@ -402,7 +463,8 @@ const styles = StyleSheet.create({
   },
 
   container: {
-    backgroundColor: colors.blackBackground
+    backgroundColor: colors.blackBackground,
+    height: '100%'
   },
 
   hint: {
@@ -496,14 +558,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: colors.messageBackground,
     
-    height: sizes.topBarHeight,
-    
-    marginLeft: sizes.windowMargin,
-    marginRight: sizes.windowMargin,
     marginTop: sizes.windowMargin / 2,
-    marginBottom: sizes.windowMargin / 2,
-    
-    borderRadius: sizes.topBarHeight
+    marginBottom: sizes.windowMargin / 2
   },
 
   field: {
@@ -512,9 +568,9 @@ const styles = StyleSheet.create({
     color: colors.whiteText,
     fontSize: 16,
 
-    marginTop: sizes.windowMargin / 4,
-    marginBottom: sizes.windowMargin / 4,
-    
+    paddingTop: sizes.windowMargin / 3,
+    paddingBottom: sizes.windowMargin / 3,
+
     marginLeft: sizes.windowMargin,
     marginRight: sizes.windowMargin / 4
   },
@@ -524,7 +580,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
 
     width: sizes.avatar,
-    height: sizes.topBarHeight,
+    height: '100%',
     
     marginLeft: sizes.windowMargin / 4,
     marginRight: sizes.windowMargin / 2,

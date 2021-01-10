@@ -249,12 +249,6 @@ beforeEach(() =>
       height: 1131
     },
 
-    layout:
-    {
-      width: 523,
-      height: 1090
-    },
-
     profile: {},
 
     activeChat: undefined,
@@ -2646,7 +2640,9 @@ describe('Testing <App/>', () =>
       });
     });
 
-    test('Height With Keyboard', async() =>
+    // TODO due to the new way we handle the keyboard on android
+    // this test is obsolete
+    test.skip('Height With Keyboard', async() =>
     {
       const store = getStore().set({
         profile: {
