@@ -4,8 +4,12 @@
     "slug": "abram",
     "version": "0.1.0",
     "privacy": "unlisted",
+    "platforms": [ "android" ],
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "primaryColor": "#000000",
+    "backgroundColor": "#000000",
+    "userInterfaceStyle": "dark",
     "updates": {
       "enabled": true,
       "checkAutomatically": "ON_LOAD",
@@ -14,22 +18,20 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "userInterfaceStyle": "dark",
     "splash": {
       "image": "./assets/icon-t.png",
       "resizeMode": "contain",
       "backgroundColor": "#000000"
     },
     "androidStatusBar": {
-      "translucent": false,
+      "translucent": true,
+      "barStyle": "light-content"
+    },
+    "androidNavigationBar": {
       "barStyle": "light-content",
       "backgroundColor": "#000000"
     },
-    "androidNavigationBar": {
-      "barStyle": "light-content"
-    },
     "android": {
-      "icon": "./assets/icon.png",
       "softwareKeyboardLayoutMode": "pan",
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon-t.png",

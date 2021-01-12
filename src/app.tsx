@@ -5,6 +5,8 @@ import {
   SafeAreaView, View, Text, TouchableWithoutFeedback, LayoutChangeEvent
 } from 'react-native';
 
+import constants from 'expo-constants';
+
 import * as SplashScreen from 'expo-splash-screen';
 
 import Animated from 'react-native-reanimated';
@@ -142,7 +144,13 @@ export default class App extends StoreComponent<unknown, {
   {
     const { size } = this.state;
     
-    const { width, height } = nativeEvent.layout;
+    const { width } = nativeEvent.layout;
+    let { height } = nativeEvent.layout;
+
+    // since on android we have a translucent status bar
+    // we need to subtract its size from height to have an accurate assessment
+    // of the real window height
+    height -= constants.statusBarHeight;
 
     if (size.width !== width || size.height !== height)
     {
@@ -217,91 +225,97 @@ export default class App extends StoreComponent<unknown, {
     });
 
     return <SafeAreaView testID={ 'v-main-area' } onLayout={ this.onLayout } style={ styles.container }>
-
-      <Popup holderNode={ this.holderNode }/>
-
-      <Menu close={ this.onBack } holderNode={ this.holderNode } deactivate={ this.topBarRef.current?.chatAvatarsRef.current?.deactivate }/>
-
-      <TopBar ref={ this.topBarRef } holderNode={ this.holderNode } bottomSheetNode={ this.bottomSheetNode }/>
-
-      <View testID={ 'v-navigation' } style={ styles.views }>
-
-        <NavigationView testID={ 'v-inbox' } index={ 0 }>
-          <Inbox snapTo={ this.bottomSheetRef.current?.snapTo }/>
-        </NavigationView>
-
-        <NavigationView testID={ 'v-discover' } index={ 1 }>
-          <Discover/>
-        </NavigationView>
-
-        <NavigationView testID={ 'v-profile' } index={ 2 }>
-          <Profile user={ profile } profile={ focusedProfile }/>
-        </NavigationView>
-
-        <NavigationView testID={ 'v-settings' } index={ 3 }>
-          <Settings/>
-        </NavigationView>
-
-      </View>
-
-      <TouchableWithoutFeedback onPress={ holderCallback }>
-        <Animated.View testID={ 'v-holder' } style={ {
-          ...styles.holder,
-
-          zIndex: popup ? depth.popupHolder : depth.menuHolder,
-
-          width: size.width,
-          height: size.height,
-          opacity: holderOpacity
-        } }
-        pointerEvents={ (popup || holder) ? 'box-only' : 'none' }/>
-      </TouchableWithoutFeedback>
-
-      <BottomNavigation/>
-
-      <View testID={ 'v-bottom-sheet' } style={ {
-        ...styles.bottomSheet,
+      <View style={ {
+        top: constants.statusBarHeight,
         width: size.width,
         height: size.height
-      } } pointerEvents={ 'box-none' }>
-        <BottomSheet
-          ref={ this.bottomSheetRef }
-          callbackNode={ this.bottomSheetNode }
+      } }>
 
-          initialSnap={ 1 }
-          snapPoints = { [ size.height, 0  ] }
+        <Popup holderNode={ this.holderNode }/>
 
-          enabledContentGestureInteraction={ false }
+        <Menu close={ this.onBack } holderNode={ this.holderNode } deactivate={ this.topBarRef.current?.chatAvatarsRef.current?.deactivate }/>
 
-          onOpenStart={ () => this.onClose(false) }
-          onOpenEnd={ () => this.onClose(false) }
+        <TopBar ref={ this.topBarRef } holderNode={ this.holderNode } bottomSheetNode={ this.bottomSheetNode }/>
+
+        <View testID={ 'v-navigation' } style={ styles.views }>
+
+          <NavigationView testID={ 'v-inbox' } index={ 0 }>
+            <Inbox snapTo={ this.bottomSheetRef.current?.snapTo }/>
+          </NavigationView>
+
+          <NavigationView testID={ 'v-discover' } index={ 1 }>
+            <Discover/>
+          </NavigationView>
+
+          <NavigationView testID={ 'v-profile' } index={ 2 }>
+            <Profile user={ profile } profile={ focusedProfile }/>
+          </NavigationView>
+
+          <NavigationView testID={ 'v-settings' } index={ 3 }>
+            <Settings/>
+          </NavigationView>
+
+        </View>
+
+        <TouchableWithoutFeedback onPress={ holderCallback }>
+          <Animated.View testID={ 'v-holder' } style={ {
+            ...styles.holder,
+
+            zIndex: popup ? depth.popupHolder : depth.menuHolder,
+
+            width: size.width,
+            height: size.height,
+            opacity: holderOpacity
+          } }
+          pointerEvents={ (popup || holder) ? 'box-only' : 'none' }/>
+        </TouchableWithoutFeedback>
+
+        <BottomNavigation/>
+
+        <View testID={ 'v-bottom-sheet' } style={ {
+          ...styles.bottomSheet,
+          width: size.width,
+          height: size.height
+        } } pointerEvents={ 'box-none' }>
+          <BottomSheet
+            ref={ this.bottomSheetRef }
+            callbackNode={ this.bottomSheetNode }
+
+            initialSnap={ 1 }
+            snapPoints = { [ size.height, 0  ] }
+
+            enabledContentGestureInteraction={ false }
+
+            onOpenStart={ () => this.onClose(false) }
+            onOpenEnd={ () => this.onClose(false) }
           
-          onCloseStart={ () => this.onClose(true) }
-          onCloseEnd={ () => this.onClose(true) }
+            onCloseStart={ () => this.onClose(true) }
+            onCloseEnd={ () => this.onClose(true) }
 
-          renderHeader = {
-            () =>
-              <View style={ styles.bottomSheetHeader }>
-                <View style={ styles.bottomSheetHandler }/>
+            renderHeader = {
+              () =>
+                <View style={ styles.bottomSheetHeader }>
+                  <View style={ styles.bottomSheetHandler }/>
 
-                <View style={ {
-                  ...styles.bottomSheetHeaderContent,
-                  width: this.state.size.width - (sizes.windowMargin * 2)
-                } }>
-                  <ChatHeader/>
+                  <View style={ {
+                    ...styles.bottomSheetHeaderContent,
+                    width: this.state.size.width - (sizes.windowMargin * 2)
+                  } }>
+                    <ChatHeader/>
+                  </View>
                 </View>
-              </View>
-          }
+            }
 
-          renderContent = { () => <View style={ {
+            renderContent = { () => <View style={ {
             // height minus the header height
-            height: size.height - (sizes.topBarHeight + sizes.topBarBigMargin)
-          } }>
-            <Chat/>
-          </View> }
-        />
-      </View>
+              height: size.height - (sizes.topBarHeight + sizes.topBarBigMargin)
+            } }>
+              <Chat/>
+            </View> }
+          />
+        </View>
 
+      </View>
     </SafeAreaView>;
   }
 }
