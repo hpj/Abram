@@ -536,7 +536,8 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    color: colors.text,
+    color: colors.whiteText,
+    opacity: 0.8,
 
     fontSize: 16,
 

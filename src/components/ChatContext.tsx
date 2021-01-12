@@ -59,8 +59,8 @@ class ChatContext extends React.Component<{
         <Button
           borderless={ true }
           useAlternative={ true }
-          buttonStyle={ { ...styles.button, width: sizes.avatar * 1.2 } }
-          icon={ { name: 'copy', size: sizes.icon / 1.2, color: colors.whiteText } }
+          buttonStyle={ styles.button }
+          icon={ { name: 'copy', size: sizes.icon * 0.75, color: colors.whiteText } }
           onPress={ this.onClipboard }
         />
       </View>
@@ -99,7 +99,13 @@ const styles = StyleSheet.create({
 
   button: {
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+
+    width: sizes.avatar * 1.15,
+    height: sizes.avatar * 1.15,
+
+    backgroundColor: colors.iconBackground,
+    borderRadius: sizes.avatar * 1.15
   },
 
   message: {

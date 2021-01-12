@@ -85,7 +85,7 @@ exports[`Testing <App/> Chat Avatars 1 Avatars: Should Have 1 Avatar 1`] = `
       source={0}
       style={
         Object {
-          "backgroundColor": "#4B4B4B",
+          "backgroundColor": "#373434",
           "borderRadius": 38,
           "height": 38,
           "position": "absolute",
@@ -131,7 +131,7 @@ exports[`Testing <App/> Chat Avatars 2 Avatars: Should Have Client Avatar And 1 
       source={0}
       style={
         Object {
-          "backgroundColor": "#4B4B4B",
+          "backgroundColor": "#373434",
           "borderRadius": 38,
           "height": 38,
           "position": "absolute",
@@ -161,7 +161,7 @@ exports[`Testing <App/> Chat Avatars 2 Avatars: Should Have Client Avatar And 1 
         source={1}
         style={
           Object {
-            "backgroundColor": "#4B4B4B",
+            "backgroundColor": "#373434",
             "borderRadius": 38,
             "height": 38,
             "position": "absolute",
@@ -208,7 +208,7 @@ exports[`Testing <App/> Chat Avatars 2 Avatars: Should Have Client Avatar And De
       source={0}
       style={
         Object {
-          "backgroundColor": "#4B4B4B",
+          "backgroundColor": "#373434",
           "borderRadius": 38,
           "height": 38,
           "position": "absolute",
@@ -254,7 +254,7 @@ exports[`Testing <App/> Chat Avatars 3 Avatars: Should Have Client Avatar And 2 
       source={0}
       style={
         Object {
-          "backgroundColor": "#4B4B4B",
+          "backgroundColor": "#373434",
           "borderRadius": 38,
           "height": 38,
           "position": "absolute",
@@ -284,7 +284,7 @@ exports[`Testing <App/> Chat Avatars 3 Avatars: Should Have Client Avatar And 2 
         source={1}
         style={
           Object {
-            "backgroundColor": "#4B4B4B",
+            "backgroundColor": "#373434",
             "borderRadius": 38,
             "height": 38,
             "position": "absolute",
@@ -315,7 +315,7 @@ exports[`Testing <App/> Chat Avatars 3 Avatars: Should Have Client Avatar And 2 
         source={2}
         style={
           Object {
-            "backgroundColor": "#4B4B4B",
+            "backgroundColor": "#373434",
             "borderRadius": 38,
             "height": 38,
             "position": "absolute",
@@ -362,7 +362,7 @@ exports[`Testing <App/> Chat Avatars 3 Avatars: Should Have Client Avatar And De
       source={0}
       style={
         Object {
-          "backgroundColor": "#4B4B4B",
+          "backgroundColor": "#373434",
           "borderRadius": 38,
           "height": 38,
           "position": "absolute",
@@ -408,7 +408,7 @@ exports[`Testing <App/> Chat Avatars 4 Avatars: Should Have Client Avatar And 2 
       source={0}
       style={
         Object {
-          "backgroundColor": "#4B4B4B",
+          "backgroundColor": "#373434",
           "borderRadius": 38,
           "height": 38,
           "position": "absolute",
@@ -438,7 +438,7 @@ exports[`Testing <App/> Chat Avatars 4 Avatars: Should Have Client Avatar And 2 
         source={1}
         style={
           Object {
-            "backgroundColor": "#4B4B4B",
+            "backgroundColor": "#373434",
             "borderRadius": 38,
             "height": 38,
             "position": "absolute",
@@ -469,7 +469,7 @@ exports[`Testing <App/> Chat Avatars 4 Avatars: Should Have Client Avatar And 2 
         source={2}
         style={
           Object {
-            "backgroundColor": "#4B4B4B",
+            "backgroundColor": "#373434",
             "borderRadius": 38,
             "height": 38,
             "position": "absolute",
@@ -516,7 +516,7 @@ exports[`Testing <App/> Chat Avatars 4 Avatars: Should Have Client Avatar And De
       source={0}
       style={
         Object {
-          "backgroundColor": "#4B4B4B",
+          "backgroundColor": "#373434",
           "borderRadius": 38,
           "height": 38,
           "position": "absolute",
@@ -593,8 +593,11 @@ exports[`Testing <App/> Chat Chat Context 1`] = `
         style={
           Object {
             "alignItems": "center",
+            "backgroundColor": "#373434",
+            "borderRadius": 43.699999999999996,
+            "height": 43.699999999999996,
             "justifyContent": "center",
-            "width": 45.6,
+            "width": 43.699999999999996,
           }
         }
       >
@@ -607,7 +610,7 @@ exports[`Testing <App/> Chat Chat Context 1`] = `
             Array [
               Object {
                 "color": "#ffffff",
-                "fontSize": 20,
+                "fontSize": 18,
               },
               undefined,
               Object {
@@ -2414,11 +2417,12 @@ exports[`Testing <App/> Chat Messages List Normal: Should Be Message With Timest
       <Text
         style={
           Object {
-            "color": "rgba(255,255,255,0.8)",
+            "color": "#ffffff",
             "fontSize": 16,
             "marginLeft": 20,
             "marginRight": 20,
             "maxWidth": 378.40000000000003,
+            "opacity": 0.8,
           }
         }
       >
@@ -2467,11 +2471,12 @@ exports[`Testing <App/> Chat Messages List Normal: Should Be Message Without Tim
       <Text
         style={
           Object {
-            "color": "rgba(255,255,255,0.8)",
+            "color": "#ffffff",
             "fontSize": 16,
             "marginLeft": 20,
             "marginRight": 20,
             "maxWidth": 378.40000000000003,
+            "opacity": 0.8,
           }
         }
       >
@@ -2532,11 +2537,12 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Also Should Ha
       <Text
         style={
           Object {
-            "color": "rgba(255,255,255,0.8)",
+            "color": "#ffffff",
             "fontSize": 16,
             "marginLeft": 20,
             "marginRight": 20,
             "maxWidth": 378.40000000000003,
+            "opacity": 0.8,
           }
         }
       >
@@ -2597,11 +2603,12 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Old Enough To 
       <Text
         style={
           Object {
-            "color": "rgba(255,255,255,0.8)",
+            "color": "#ffffff",
             "fontSize": 16,
             "marginLeft": 20,
             "marginRight": 20,
             "maxWidth": 378.40000000000003,
+            "opacity": 0.8,
           }
         }
       >
@@ -2662,11 +2669,12 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
       <Text
         style={
           Object {
-            "color": "rgba(255,255,255,0.8)",
+            "color": "#ffffff",
             "fontSize": 16,
             "marginLeft": 20,
             "marginRight": 20,
             "maxWidth": 378.40000000000003,
+            "opacity": 0.8,
           }
         }
       >
@@ -2727,11 +2735,12 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
       <Text
         style={
           Object {
-            "color": "rgba(255,255,255,0.8)",
+            "color": "#ffffff",
             "fontSize": 16,
             "marginLeft": 20,
             "marginRight": 20,
             "maxWidth": 378.40000000000003,
+            "opacity": 0.8,
           }
         }
       >
@@ -2792,11 +2801,12 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
       <Text
         style={
           Object {
-            "color": "rgba(255,255,255,0.8)",
+            "color": "#ffffff",
             "fontSize": 16,
             "marginLeft": 20,
             "marginRight": 20,
             "maxWidth": 378.40000000000003,
+            "opacity": 0.8,
           }
         }
       >
@@ -2857,11 +2867,12 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Should Have A 
       <Text
         style={
           Object {
-            "color": "rgba(255,255,255,0.8)",
+            "color": "#ffffff",
             "fontSize": 16,
             "marginLeft": 20,
             "marginRight": 20,
             "maxWidth": 378.40000000000003,
+            "opacity": 0.8,
           }
         }
       >
@@ -2909,11 +2920,12 @@ exports[`Testing <App/> Chat Messages List Timestamps Formatting: Shouldn't Have
       <Text
         style={
           Object {
-            "color": "rgba(255,255,255,0.8)",
+            "color": "#ffffff",
             "fontSize": 16,
             "marginLeft": 20,
             "marginRight": 20,
             "maxWidth": 378.40000000000003,
+            "opacity": 0.8,
           }
         }
       >
@@ -2986,11 +2998,12 @@ exports[`Testing <App/> Chat Messages List With Avatars: Should Be Message With 
       <Text
         style={
           Object {
-            "color": "rgba(255,255,255,0.8)",
+            "color": "#ffffff",
             "fontSize": 16,
             "marginLeft": 20,
             "marginRight": 20,
             "maxWidth": 330.40000000000003,
+            "opacity": 0.8,
           }
         }
       >
@@ -3039,11 +3052,12 @@ exports[`Testing <App/> Chat Messages List With Avatars: Should Be Message Witho
       <Text
         style={
           Object {
-            "color": "rgba(255,255,255,0.8)",
+            "color": "#ffffff",
             "fontSize": 16,
             "marginLeft": 20,
             "marginRight": 20,
             "maxWidth": 378.40000000000003,
+            "opacity": 0.8,
           }
         }
       >
@@ -3075,7 +3089,7 @@ exports[`Testing <App/> Chat Popup: Y-Axis should be 0 1`] = `
   <RCTScrollView
     style={
       Object {
-        "backgroundColor": "#171717",
+        "backgroundColor": "#000000",
         "maxHeight": 735.15,
       }
     }
@@ -3099,7 +3113,7 @@ exports[`Testing <App/> Chat Popup: Y-Axis should be equal to screen's hight 1`]
   <RCTScrollView
     style={
       Object {
-        "backgroundColor": "#171717",
+        "backgroundColor": "#000000",
         "maxHeight": 735.15,
       }
     }
@@ -3192,7 +3206,7 @@ exports[`Testing <App/> Chat Sending Messages 1`] = `
                     source={1}
                     style={
                       Object {
-                        "backgroundColor": "#4B4B4B",
+                        "backgroundColor": "#373434",
                         "borderRadius": 70,
                         "height": 70,
                         "position": "absolute",
@@ -3327,7 +3341,7 @@ exports[`Testing <App/> Chat Sending Messages 1`] = `
                     source={2}
                     style={
                       Object {
-                        "backgroundColor": "#4B4B4B",
+                        "backgroundColor": "#373434",
                         "borderRadius": 70,
                         "height": 70,
                         "position": "absolute",
@@ -3480,11 +3494,12 @@ exports[`Testing <App/> Chat Sending Messages: Should Be A Message Equal to <3 1
       <Text
         style={
           Object {
-            "color": "rgba(255,255,255,0.8)",
+            "color": "#ffffff",
             "fontSize": 16,
             "marginLeft": 20,
             "marginRight": 20,
             "maxWidth": 378.40000000000003,
+            "opacity": 0.8,
           }
         }
       >
@@ -3580,7 +3595,7 @@ exports[`Testing <App/> Chat Sending Messages: Should Be Sorted With Skye on Top
                     source={2}
                     style={
                       Object {
-                        "backgroundColor": "#4B4B4B",
+                        "backgroundColor": "#373434",
                         "borderRadius": 70,
                         "height": 70,
                         "position": "absolute",
@@ -3715,7 +3730,7 @@ exports[`Testing <App/> Chat Sending Messages: Should Be Sorted With Skye on Top
                     source={1}
                     style={
                       Object {
-                        "backgroundColor": "#4B4B4B",
+                        "backgroundColor": "#373434",
                         "borderRadius": 70,
                         "height": 70,
                         "position": "absolute",
@@ -3960,7 +3975,7 @@ exports[`Testing <App/> Menus Navigating to Profile: Bottom Should Have A Additi
         style={
           Object {
             "alignItems": "flex-end",
-            "backgroundColor": "rgba(75,75,75,0.3)",
+            "backgroundColor": "rgba(55,52,52,0.3)",
             "borderRadius": 44,
             "height": 44,
             "position": "absolute",
@@ -4024,7 +4039,7 @@ exports[`Testing <App/> Menus Navigating to Profile: Bottom Should Have A Additi
         style={
           Object {
             "alignItems": "flex-end",
-            "backgroundColor": "rgba(75,75,75,0.3)",
+            "backgroundColor": "rgba(55,52,52,0.3)",
             "borderRadius": 44,
             "height": 44,
             "position": "absolute",
@@ -4088,7 +4103,7 @@ exports[`Testing <App/> Menus Navigating to Profile: Bottom Should Have A Additi
         style={
           Object {
             "alignItems": "flex-end",
-            "backgroundColor": "#4B4B4B",
+            "backgroundColor": "#373434",
             "borderRadius": 44,
             "height": 44,
             "position": "absolute",
@@ -4154,7 +4169,7 @@ exports[`Testing <App/> Menus Navigating to Profile: Menu View Should Be Hidden 
   pointerEvents="none"
   style={
     Object {
-      "backgroundColor": "#414141",
+      "backgroundColor": "#3a3737",
       "borderRadius": 15,
       "minHeight": 622.0500000000001,
       "opacity": 0,
@@ -4282,7 +4297,7 @@ exports[`Testing <App/> Menus Navigating to Settings: Bottom Should Have A Addit
         style={
           Object {
             "alignItems": "flex-end",
-            "backgroundColor": "rgba(75,75,75,0.3)",
+            "backgroundColor": "rgba(55,52,52,0.3)",
             "borderRadius": 44,
             "height": 44,
             "position": "absolute",
@@ -4346,7 +4361,7 @@ exports[`Testing <App/> Menus Navigating to Settings: Bottom Should Have A Addit
         style={
           Object {
             "alignItems": "flex-end",
-            "backgroundColor": "rgba(75,75,75,0.3)",
+            "backgroundColor": "rgba(55,52,52,0.3)",
             "borderRadius": 44,
             "height": 44,
             "position": "absolute",
@@ -4410,7 +4425,7 @@ exports[`Testing <App/> Menus Navigating to Settings: Bottom Should Have A Addit
         style={
           Object {
             "alignItems": "flex-end",
-            "backgroundColor": "#4B4B4B",
+            "backgroundColor": "#373434",
             "borderRadius": 44,
             "height": 44,
             "position": "absolute",
@@ -4476,7 +4491,7 @@ exports[`Testing <App/> Menus Navigating to Settings: Menu View Should Be Hidden
   pointerEvents="none"
   style={
     Object {
-      "backgroundColor": "#414141",
+      "backgroundColor": "#3a3737",
       "borderRadius": 15,
       "minHeight": 622.0500000000001,
       "opacity": 0,
@@ -4591,7 +4606,7 @@ exports[`Testing <App/> Menus Showing Group Chat Menu: Menu View Should Be Visib
   pointerEvents="box-none"
   style={
     Object {
-      "backgroundColor": "#414141",
+      "backgroundColor": "#3a3737",
       "borderRadius": 15,
       "minHeight": 622.0500000000001,
       "opacity": 1,
@@ -5009,7 +5024,7 @@ exports[`Testing <App/> Menus Showing Normal Chat Menu: Menu View Should Be Visi
   pointerEvents="box-none"
   style={
     Object {
-      "backgroundColor": "#414141",
+      "backgroundColor": "#3a3737",
       "borderRadius": 15,
       "minHeight": 622.0500000000001,
       "opacity": 1,
@@ -5292,7 +5307,7 @@ exports[`Testing <App/> Menus Showing and Hiding Main Menu: Initial Menu View Sh
   pointerEvents="none"
   style={
     Object {
-      "backgroundColor": "#414141",
+      "backgroundColor": "#3a3737",
       "borderRadius": 15,
       "minHeight": 622.0500000000001,
       "opacity": 0,
@@ -5668,7 +5683,7 @@ exports[`Testing <App/> Menus Showing and Hiding Main Menu: Menu View Should Be 
   pointerEvents="box-none"
   style={
     Object {
-      "backgroundColor": "#414141",
+      "backgroundColor": "#3a3737",
       "borderRadius": 15,
       "minHeight": 622.0500000000001,
       "opacity": 1,
@@ -6180,7 +6195,7 @@ exports[`Testing <App/> Profile Others Interests Popup 1`] = `
   <RCTScrollView
     style={
       Object {
-        "backgroundColor": "#171717",
+        "backgroundColor": "#000000",
         "maxHeight": 735.15,
       }
     }
@@ -7086,7 +7101,7 @@ exports[`Testing <App/> Profile Others Romantically Popup Romantically Available
   <RCTScrollView
     style={
       Object {
-        "backgroundColor": "#171717",
+        "backgroundColor": "#000000",
         "maxHeight": 735.15,
       }
     }
@@ -7214,7 +7229,7 @@ exports[`Testing <App/> Profile Others Romantically Popup Romantically Available
   <RCTScrollView
     style={
       Object {
-        "backgroundColor": "#171717",
+        "backgroundColor": "#000000",
         "maxHeight": 735.15,
       }
     }
@@ -7312,7 +7327,7 @@ exports[`Testing <App/> Profile Others Romantically Popup Romantically Available
   <RCTScrollView
     style={
       Object {
-        "backgroundColor": "#171717",
+        "backgroundColor": "#000000",
         "maxHeight": 735.15,
       }
     }
@@ -7434,7 +7449,7 @@ exports[`Testing <App/> Profile Others Romantically Popup Romantically Unavailab
   <RCTScrollView
     style={
       Object {
-        "backgroundColor": "#171717",
+        "backgroundColor": "#000000",
         "maxHeight": 735.15,
       }
     }
@@ -7521,7 +7536,7 @@ exports[`Testing <App/> Profile Personal Edits Avatar 1`] = `
   <RCTScrollView
     style={
       Object {
-        "backgroundColor": "#171717",
+        "backgroundColor": "#000000",
         "maxHeight": 735.15,
       }
     }
@@ -7568,7 +7583,7 @@ exports[`Testing <App/> Profile Personal Edits Bio 1`] = `
   <RCTScrollView
     style={
       Object {
-        "backgroundColor": "#171717",
+        "backgroundColor": "#000000",
         "maxHeight": 735.15,
       }
     }
@@ -7713,7 +7728,7 @@ exports[`Testing <App/> Profile Personal Edits Romantic 1`] = `
   <RCTScrollView
     style={
       Object {
-        "backgroundColor": "#171717",
+        "backgroundColor": "#000000",
         "maxHeight": 735.15,
       }
     }
@@ -7999,7 +8014,7 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Activated Bottom Shee
   <View
     style={
       Object {
-        "backgroundColor": "#4B4B4B",
+        "backgroundColor": "#373434",
         "borderRadius": 38,
         "height": 38,
         "position": "absolute",
@@ -8075,7 +8090,7 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Activated Bottom Shee
   <View
     style={
       Object {
-        "backgroundColor": "#4B4B4B",
+        "backgroundColor": "#373434",
         "borderRadius": 38,
         "height": 38,
         "position": "absolute",
@@ -8179,7 +8194,7 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Deactivated Bottom Sh
   <View
     style={
       Object {
-        "backgroundColor": "#4B4B4B",
+        "backgroundColor": "#373434",
         "borderRadius": 38,
         "height": 38,
         "position": "absolute",
@@ -8255,7 +8270,7 @@ exports[`Testing <App/> Search Bar Width (2 Avatars) (With Deactivated Bottom Sh
   <View
     style={
       Object {
-        "backgroundColor": "#4B4B4B",
+        "backgroundColor": "#373434",
         "borderRadius": 38,
         "height": 38,
         "position": "absolute",
@@ -8359,7 +8374,7 @@ exports[`Testing <App/> Search Bar Width (3 Avatars): Search Bar Should Be Maxim
   <View
     style={
       Object {
-        "backgroundColor": "#4B4B4B",
+        "backgroundColor": "#373434",
         "borderRadius": 38,
         "height": 38,
         "position": "absolute",
@@ -8435,7 +8450,7 @@ exports[`Testing <App/> Search Bar Width (3 Avatars): Search Bar Should Be Minim
   <View
     style={
       Object {
-        "backgroundColor": "#4B4B4B",
+        "backgroundColor": "#373434",
         "borderRadius": 38,
         "height": 38,
         "position": "absolute",
@@ -8516,7 +8531,7 @@ exports[`Testing <App/> Search Bar Width (With Deactivated Bottom Sheet): Initia
   <View
     style={
       Object {
-        "backgroundColor": "#4B4B4B",
+        "backgroundColor": "#373434",
         "borderRadius": 38,
         "height": 38,
         "position": "absolute",
@@ -8592,7 +8607,7 @@ exports[`Testing <App/> Search Bar Width (With Deactivated Bottom Sheet): Search
   <View
     style={
       Object {
-        "backgroundColor": "#4B4B4B",
+        "backgroundColor": "#373434",
         "borderRadius": 38,
         "height": 38,
         "position": "absolute",
@@ -8708,7 +8723,7 @@ exports[`Testing <Inbox/> Group of 3 View: Should Be A Group View With 2 Avatars
                   source={1}
                   style={
                     Object {
-                      "backgroundColor": "#4B4B4B",
+                      "backgroundColor": "#373434",
                       "borderRadius": 70,
                       "height": 52.5,
                       "position": "absolute",
@@ -8748,7 +8763,7 @@ exports[`Testing <Inbox/> Group of 3 View: Should Be A Group View With 2 Avatars
                   source={2}
                   style={
                     Object {
-                      "backgroundColor": "#4B4B4B",
+                      "backgroundColor": "#373434",
                       "borderRadius": 70,
                       "height": 52.5,
                       "position": "absolute",
@@ -8897,7 +8912,7 @@ exports[`Testing <Inbox/> Group of 4 View: Should Be A Group View With 3 Avatars
                   source={1}
                   style={
                     Object {
-                      "backgroundColor": "#4B4B4B",
+                      "backgroundColor": "#373434",
                       "borderRadius": 70,
                       "height": 45.5,
                       "position": "absolute",
@@ -8937,7 +8952,7 @@ exports[`Testing <Inbox/> Group of 4 View: Should Be A Group View With 3 Avatars
                   source={2}
                   style={
                     Object {
-                      "backgroundColor": "#4B4B4B",
+                      "backgroundColor": "#373434",
                       "borderRadius": 70,
                       "height": 45.5,
                       "position": "absolute",
@@ -8977,7 +8992,7 @@ exports[`Testing <Inbox/> Group of 4 View: Should Be A Group View With 3 Avatars
                   source={3}
                   style={
                     Object {
-                      "backgroundColor": "#4B4B4B",
+                      "backgroundColor": "#373434",
                       "borderRadius": 70,
                       "height": 45.5,
                       "position": "absolute",
@@ -9126,7 +9141,7 @@ exports[`Testing <Inbox/> Group of 5 View: Should Be A Group View With 4 Avatars
                   source={1}
                   style={
                     Object {
-                      "backgroundColor": "#4B4B4B",
+                      "backgroundColor": "#373434",
                       "borderRadius": 70,
                       "height": 35,
                       "position": "absolute",
@@ -9166,7 +9181,7 @@ exports[`Testing <Inbox/> Group of 5 View: Should Be A Group View With 4 Avatars
                   source={2}
                   style={
                     Object {
-                      "backgroundColor": "#4B4B4B",
+                      "backgroundColor": "#373434",
                       "borderRadius": 70,
                       "height": 35,
                       "position": "absolute",
@@ -9206,7 +9221,7 @@ exports[`Testing <Inbox/> Group of 5 View: Should Be A Group View With 4 Avatars
                   source={3}
                   style={
                     Object {
-                      "backgroundColor": "#4B4B4B",
+                      "backgroundColor": "#373434",
                       "borderRadius": 70,
                       "height": 35,
                       "position": "absolute",
@@ -9246,7 +9261,7 @@ exports[`Testing <Inbox/> Group of 5 View: Should Be A Group View With 4 Avatars
                   source={4}
                   style={
                     Object {
-                      "backgroundColor": "#4B4B4B",
+                      "backgroundColor": "#373434",
                       "borderRadius": 70,
                       "height": 35,
                       "position": "absolute",
@@ -9400,7 +9415,7 @@ exports[`Testing <Inbox/> New Match View: Should Be A New Match Inbox View 1`] =
                   source={1}
                   style={
                     Object {
-                      "backgroundColor": "#4B4B4B",
+                      "backgroundColor": "#373434",
                       "borderRadius": 70,
                       "height": 70,
                       "position": "absolute",
@@ -9561,7 +9576,7 @@ exports[`Testing <Inbox/> Normal View: Should Be A Normal Inbox View With 1 Avat
                   source={1}
                   style={
                     Object {
-                      "backgroundColor": "#4B4B4B",
+                      "backgroundColor": "#373434",
                       "borderRadius": 70,
                       "height": 70,
                       "position": "absolute",
@@ -9701,7 +9716,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Full
               source={1}
               style={
                 Object {
-                  "backgroundColor": "#4B4B4B",
+                  "backgroundColor": "#373434",
                   "borderRadius": 70,
                   "height": 70,
                   "position": "absolute",
@@ -9839,7 +9854,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of This
               source={1}
               style={
                 Object {
-                  "backgroundColor": "#4B4B4B",
+                  "backgroundColor": "#373434",
                   "borderRadius": 70,
                   "height": 70,
                   "position": "absolute",
@@ -9977,7 +9992,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Toda
               source={1}
               style={
                 Object {
-                  "backgroundColor": "#4B4B4B",
+                  "backgroundColor": "#373434",
                   "borderRadius": 70,
                   "height": 70,
                   "position": "absolute",
@@ -10115,7 +10130,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Yest
               source={1}
               style={
                 Object {
-                  "backgroundColor": "#4B4B4B",
+                  "backgroundColor": "#373434",
                   "borderRadius": 70,
                   "height": 70,
                   "position": "absolute",

@@ -262,6 +262,7 @@ export default class App extends StoreComponent<unknown, {
             ...styles.holder,
 
             zIndex: popup ? depth.popupHolder : depth.menuHolder,
+            backgroundColor: popup ? colors.popupHolder : colors.menuHolder,
 
             width: size.width,
             height: size.height,
@@ -353,9 +354,7 @@ const styles = StyleSheet.create({
   },
 
   holder: {
-    position: 'absolute',
-
-    backgroundColor: colors.blackBackground
+    position: 'absolute'
   },
 
   bottomSheetHeader: {

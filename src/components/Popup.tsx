@@ -101,7 +101,7 @@ class Popup extends StoreComponent<{
       Animated.timing(this.progress, {
         duration: 200,
         toValue: 1,
-        easing: Easing.inOut(Easing.circle)
+        easing: Easing.out(Easing.cubic)
       // returns component which is used by the reanimated mocks while testing
       }).start(() => this);
     });

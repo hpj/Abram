@@ -213,6 +213,7 @@ jest.mock('react-native-reanimated', () =>
     Easing: {
       linear: 0,
       in: jest.fn(),
+      out: jest.fn(),
       inOut: jest.fn()
     },
     Value: jest.fn().mockImplementation((value) =>
