@@ -50,6 +50,9 @@ const store = createStore({
     height: 0
   } as Size,
 
+  // input values
+  inputs: {},
+
   profile: {
     uuid: '0001',
     avatar: require('../assets/mockup/karkar-0.jpg'),
@@ -101,7 +104,7 @@ const store = createStore({
             origin: 'Egypt',
             speaks: [ 'Arabic' ],
             profession: 'Singer',
-            romantically: 'Closed',
+            romantically: 'Open',
             gender: 'Woman',
             religion: 'Muslim',
             age: 33

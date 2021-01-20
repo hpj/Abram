@@ -12,6 +12,8 @@ import EmojiRegex from 'emoji-regex';
 
 import type { Size, Profile, InboxEntry, Message } from '../types';
 
+import ChatHints from '../components/ChatHints';
+
 import ChatContext from '../components/ChatContext';
 
 import Button from '../components/Button';
@@ -59,22 +61,14 @@ function relativeDate(currMessageDate: Date, prevMessageDate: Date): string | un
 
 class Chat extends StoreComponent<unknown, {
   size: Size,
-
+  inputs: Record<string, string>,
   profile: Profile,
-  activeChat: InboxEntry,
-
-  // not a store property
-  inputs: Record<string, string>
+  activeChat: InboxEntry
 }>
 {
   constructor()
   {
     super();
-
-    this.state = {
-      ...this.state,
-      inputs: {}
-    };
 
     // bind functions to use as callbacks
 
@@ -86,144 +80,47 @@ class Chat extends StoreComponent<unknown, {
     this.sendMessage = this.sendMessage.bind(this);
   }
 
-  hints: JSX.Element[] = [];
+  hints: JSX.Element | undefined = undefined;
 
   messages: Message[] = [];
 
-  stateWillChange({ activeChat, profile }: Chat['state']): void
+  stateWillChange({ inputs, activeChat, profile }: Chat['state']): Partial<Chat['state']> | undefined
   {
     // TODO limit the number of messages using the backend, so this won't slow performance much
-      
+
     if (activeChat?.id && activeChat?.id !== this.state.activeChat?.id)
     {
-      this.hints = [];
-
       const members = [ ...activeChat.members ];
 
       // remove self from array
       members.splice(
         members.findIndex(member => member.uuid === profile.uuid), 1);
 
-      const shared = utils.sharedInterests(profile, ...members)
-        .shared
-        .slice(0, 6)
-        .join(', ');
-
-      // show a greeting
-      this.hints.push(<Text style={ styles.hint }>{ `Hey, ${profile.nickname}.` }</Text>);
-
-      // 1 on 1 chats hints
-      if (activeChat.members.length === 2)
-      {
-        const user = members[0];
-
-        const { them } = utils.pronoun(user.info.gender);
-  
-        // show nickname preference
-        this.hints.push(<Text style={ styles.hint }>
-          <Text>{ user.fullName + ' prefers to be called ' }</Text>
-          <Text style={ styles.hintBold }>{ user.nickname }</Text>
-          <Text>.</Text>
-        </Text>);
-
-        // romanic availability
-        if (user.info.romantically === 'Closed')
-        {
-          this.hints.push(<Text style={ styles.hint }>
-            <Text>{`If you attempt flirting with ${them}, it can result in your account getting`} </Text>
-            <Text style={ { ...styles.hintSlim, ...styles.hintBold } }>Terminated</Text>
-            <Text>.</Text>
-          </Text>);
-        }
-
-        // interests
-        if (shared.length > 0)
-        {
-          this.hints.push(<Text style={ styles.hint }>
-            <Text>Your shared interests are </Text>
-            <Text style={ { ...styles.hintSlim, ...styles.hintBold } }>{ shared }</Text>
-            <Text>.</Text>
-          </Text>);
-        }
-
-        // doesn't show the hint if the user only defined their gender
-        // and defined it as a "Man"
-        // to avoid things like
-        // "Amir is a Man", which sounds very sexist
-        if (
-          user.info.romantically === 'Open' && (
-            user.info.gender !== 'Man' ||
-            user.info.age && user.info.age < 18 ||
-            user.info.sexuality ||
-            user.info.religion
-          )
-        )
-        {
-          const s = [
-            user.info.age && user.info.age < 18 ? 'Minor' : '',
-            user.info.sexuality === 'None' ? 'Asexual' : user.info.sexuality,
-            user.info.religion === 'None' ? 'Non-Religious' : user.info.religion,
-            user.info.gender
-          ].join(' ').trim();
-
-          this.hints.push(<Text style={ styles.hint }>
-            <Text>{`${user.nickname} is a `}</Text>
-            <Text style={ { ...styles.hintSlim, ...styles.hintBold } }>{ s }</Text>
-            <Text>.</Text>
-          </Text>);
-        }
-
-        // questions
-        if (user.iceBreakers && user.iceBreakers.length > 1)
-        {
-          this.hints.push(
-            <Text style={ styles.hint }>{ `You can start the conversation by asking one of those questions ${user.nickname} likes:` }</Text>,
-            ...user.iceBreakers.slice(0, 3).map((question, i) => <Text key={ i } style={ { ...styles.hintSlim, ...styles.hintBold } }>{ `- ${question}` }</Text>),
-            <Text style={ styles.hint }></Text>
-          );
-        }
-      }
-      else if (activeChat.members.length > 2)
-      // group chats hints
-      {
-        const nicknames = members.map(member => member.nickname).join(', ');
-        
-        // show nicknames
-        this.hints.push(<Text style={ styles.hint }>
-          <Text>This is a group chat with </Text>
-          <Text style={ styles.hintBold }>{ nicknames }</Text>
-          <Text>.</Text>
-        </Text>);
-
-        // interests
-        if (shared.length > 0)
-        {
-          this.hints.push(<Text style={ styles.hint }>
-            <Text>Your shared interests are </Text>
-            <Text style={ { ...styles.hintSlim, ...styles.hintBold } }>{ shared }</Text>
-            <Text>.</Text>
-          </Text>);
-        }
-
-        //
-        this.hints.push(<Text style={ styles.hint }>
-          Check their individual profiles for more info.
-        </Text>);
-      }
+      this.hints = <ChatHints user={ profile } profiles={ members }/>;
     }
 
     // reverse happens because the way flat-list works
     if (activeChat?.messages)
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      this.messages = [ ...this.hints, ...activeChat.messages ].reverse();
+      this.messages = [ this.hints, ...activeChat.messages ].reverse();
+
+    // new input value
+    if (inputs && this.state.activeChat?.id)
+    {
+      // strip input value of unwanted characters
+      inputs[this.state.activeChat.id] =
+        this.strip(inputs[this.state.activeChat.id]);
+
+      return { inputs };
+    }
   }
 
   stateWhitelist(changes: Chat['state']): boolean
   {
     if (
       changes.size ||
-
+      changes.inputs ||
       changes.profile ||
       changes.activeChat
     )
@@ -306,10 +203,8 @@ class Chat extends StoreComponent<unknown, {
     // clear input value
     inputs[activeChat.id] = '';
 
-    // update state
-    this.setState({ inputs },
-      // update store
-      () => this.store.set({ activeChat }));
+    // update store
+    this.store.set({ inputs, activeChat });
   }
 
   onPress(message: Message): void
@@ -329,9 +224,9 @@ class Chat extends StoreComponent<unknown, {
   {
     const { inputs, activeChat } = this.state;
 
-    inputs[activeChat.id] = this.strip(text);
+    inputs[activeChat.id] = text;
 
-    this.setState({ inputs });
+    this.store.set({ inputs });
   }
 
   render(): JSX.Element
