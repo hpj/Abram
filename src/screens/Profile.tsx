@@ -289,7 +289,7 @@ class Profile extends React.Component<{
       <View style={ styles.space } >
         <Interests
           user={ user }
-          profile={ profile }
+          profiles={ [ profile ] }
           buttonStyle={ styles.section }
         >
           <View style={ styles.sectionEditable }>

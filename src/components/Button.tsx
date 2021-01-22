@@ -65,10 +65,9 @@ class Button extends React.Component<{
       style={ wrapperStyle }
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-ignore
-      background={ (!useAlternative ? GHTouchableNativeFeedback : TouchableNativeFeedback).Ripple(ripple ?? colors.ripple, borderless) }
-      activeOpacity={ activeOpacity }
-      disabled={ disabled }
-      onPress={ onPress }
+      background={ (!useAlternative ? GHTouchableNativeFeedback : TouchableNativeFeedback).Ripple(disabled ? colors.transparent : (ripple ?? colors.ripple), borderless) }
+      activeOpacity={ disabled ? 1 : activeOpacity }
+      onPress={  disabled ? undefined : onPress }
     >
       <View style={ buttonStyle }>
 

@@ -18,7 +18,7 @@ const colors = getTheme();
 
 export default class Interests extends React.Component<{
   user: Profile,
-  profile: Profile,
+  profiles: Profile[],
   buttonStyle?: StyleProp<ViewStyle>,
   children?: JSX.Element | JSX.Element[]
 }>
@@ -31,7 +31,9 @@ export default class Interests extends React.Component<{
     if (store.state.popup)
       return;
 
-    const { user, profile } = this.props;
+    const { user } = this.props;
+
+    const [ profile ] = this.props.profiles;
 
     const editable = user.uuid === profile.uuid;
 
@@ -69,13 +71,14 @@ export default class Interests extends React.Component<{
 
   render(): JSX.Element
   {
-    const { user, profile, buttonStyle, children } = this.props;
+    const { user, profiles, buttonStyle, children } = this.props;
 
-    const { shared, mismatched } = sharedInterests(user, profile);
+    const { shared, mismatched } = sharedInterests(user, ...profiles);
 
     return <Button
       testID={ 'bn-interests' }
       buttonStyle={ buttonStyle }
+      disabled={ profiles.length > 1 }
       onPress={ () => this.openInterests({ shared, mismatched }) }
     >
       { children }

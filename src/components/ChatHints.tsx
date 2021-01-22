@@ -38,15 +38,27 @@ export default class ChatHints extends React.Component<{
   {
     const { user, profiles } = this.props;
 
-    // TODO work on rendering groups hints
+    // group hints
+
     if (profiles.length > 1)
-      return <View/>;
+    {
+      return <View>
+        <Interests user={ user } profiles={ profiles }/>
+
+        {
+          profiles.map((profile, i) =>
+            <MiniProfile key={ i } profile={ profile }/>)
+        }
+      </View>;
+    }
+
+    // normal hints
 
     const profile = profiles[0];
 
     return <View testID={ 'v-chat-hints' }>
 
-      <Interests user={ user } profile={ profile }/>
+      <Interests user={ user } profiles={ profiles }/>
 
       <Titles profile={ profile }/>
 
@@ -80,6 +92,23 @@ const Titles = (props: { profile: Profile }) =>
     <View>
       <Text style={ styles.displayName }>{ profile.fullName }</Text>
       <Text style={ styles.nickname }>{ profile.nickname }</Text>
+    </View>
+
+  </View>;
+};
+
+const MiniProfile = (props: { profile: Profile }) =>
+{
+  const { profile } = props;
+
+  return <View style={ styles.container }>
+    {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+    {/* @ts-ignore */}
+    <Image style={ styles.miniAvatar } source={ profile.avatar }/>
+    
+    <View>
+      <Text style={ styles.miniDisplayName }>{ profile.fullName }</Text>
+      <Text style={ styles.miniNickname }>{ profile.nickname }</Text>
     </View>
 
   </View>;
@@ -126,6 +155,17 @@ const styles = StyleSheet.create({
     borderRadius: 10
   },
 
+  miniAvatar: {
+    backgroundColor: colors.greyText,
+
+    marginRight: sizes.windowMargin,
+
+    width: 38,
+    height: 38,
+
+    borderRadius: 10
+  },
+
   displayName: {
     fontSize: 12,
     color: colors.greyText
@@ -135,6 +175,18 @@ const styles = StyleSheet.create({
     color: colors.whiteText,
 
     fontSize: 18,
+    fontWeight: 'bold'
+  },
+
+  miniDisplayName: {
+    fontSize: 12,
+    color: colors.greyText
+  },
+
+  miniNickname: {
+    color: colors.whiteText,
+
+    fontSize: 16,
     fontWeight: 'bold'
   },
 
