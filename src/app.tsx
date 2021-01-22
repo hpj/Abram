@@ -177,14 +177,10 @@ export default class App extends StoreComponent<unknown, {
       Keyboard.dismiss();
 
       this.store.set({ chat: false });
-
-      // BackHandler.removeEventListener('hardwareBackPress', this.onBack);
     }
     else
     {
       this.store.set({ chat: true });
-
-      // BackHandler.addEventListener('hardwareBackPress', this.onBack);
     }
   }
   

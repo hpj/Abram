@@ -71,6 +71,8 @@ class Menu extends StoreComponent<{
 
   openProfile(profile: Profile): void
   {
+    const { chat }: { chat: boolean } = this.store.state;
+    
     this.store.set({
       title: '',
       index: 2,
@@ -80,9 +82,10 @@ class Menu extends StoreComponent<{
 
     // deactivate menu
     this.props.deactivate?.();
-
+    
     // snap close the bottom sheet
-    this.props.close?.();
+    if (chat)
+      this.props.close?.();
   }
 
   openSettings(): void

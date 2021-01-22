@@ -106,7 +106,9 @@ export default class Demographic extends React.Component<{
                     <Text style={ styles.rectangleKey }>Origin</Text>
                     <Text style={ styles.rectangleValue }>{ profile.info.origin }</Text>
                   </View> :
-                  <Text style={ styles.rectangleNull }>Unspecified Origin</Text>
+                  editable ?
+                    <Text style={ styles.rectangleKey }>Origin</Text> :
+                    <Text style={ styles.rectangleNull }>Unspecified Origin</Text>
               }
             </View>
           </Button> : undefined
@@ -234,7 +236,9 @@ export default class Demographic extends React.Component<{
                     <Text style={ styles.rectangleKey }>Sexuality</Text>
                     <Text style={ styles.rectangleValue }>{ profile.info.sexuality }</Text>
                   </View> :
-                  <Text style={ styles.rectangleNullHighlighted }>Unspecified Sexuality</Text>
+                  editable ?
+                    <Text style={ styles.rectangleKey }>Sexuality</Text> :
+                    <Text style={ styles.rectangleNullHighlighted }>Unspecified Sexuality</Text>
               }
             </View>
           </Button> : undefined
@@ -259,7 +263,9 @@ export default class Demographic extends React.Component<{
                     <Text style={ styles.rectangleKey }>Religion</Text>
                     <Text style={ styles.rectangleValue }>{ profile.info.religion }</Text>
                   </View> :
-                  <Text style={ styles.rectangleNull }>Non-Religious</Text>
+                  editable ?
+                    <Text style={ styles.rectangleKey }>Religion</Text> :
+                    <Text style={ styles.rectangleNull }>Non-Religious</Text>
               }
             </View>
           </Button> : undefined
@@ -286,7 +292,9 @@ export default class Demographic extends React.Component<{
                       <Text style={ styles.rectangleKey }>Age</Text>
                       <Text style={ styles.rectangleValue }>{ profile.info.age }</Text>
                     </View> :
-                    <Text style={ styles.rectangleNullHighlighted }>Unspecified Age</Text>
+                    editable ?
+                      <Text style={ styles.rectangleKey }>Age</Text> :
+                      <Text style={ styles.rectangleNullHighlighted }>Unspecified Age</Text>
               }
             </View>
           </Button> : undefined
