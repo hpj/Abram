@@ -20,7 +20,8 @@ const colors = getTheme();
 
 export default class Demographic extends React.Component<{
   user: Profile,
-  profile: Profile
+  profile: Profile,
+  romanceShowcase?: boolean
 }>
 {
   openRomantic(): void
@@ -40,65 +41,38 @@ export default class Demographic extends React.Component<{
       popup: true,
       popupContent: () =>
       {
-        const { they, their, them } = pronoun(profile.info.gender);
-
         if (editable)
           return <RomanticEdits initial={ profile.info.romantically }/>;
 
         return <View>
-          <Text style={ styles.title }>
-            <Text>{ `${profile.nickname} is Romantically ` }</Text>
-            {
-              profile.info.romantically === 'Open' ?
-                <Text style={ { color: colors.whiteText } }>Available.</Text> :
-                <Text style={ { color: colors.brightRed } }>Unavailable.</Text>
-            }
-          </Text>
 
           {
             profile.info.romantically === 'Closed' ?
 
               // Closed
-              <Text style={ styles.paragraph }>
-                <Text>{ `If you attempt flirting with ${them},\nit can result in your account getting ` }</Text>
-                <Text style={ { color: colors.brightRed } }>Terminated</Text>
-                <Text>.</Text>
-              </Text> :
+              <View>
+                <Text style={ styles.title }>
+                  <Text>{ `${profile.nickname} is ` }</Text>
+                  <Text style={ { color: colors.brightRed } }>Unavailable</Text>
+                </Text>
+
+                <Text style={ styles.paragraph }>
+                  <Text>{ `Any attempt to flirt with ${profile.nickname} can result in your account getting terminated.` }</Text>
+                </Text>
+              </View> :
               
               // Open
-              <Text style={ styles.paragraph }>
-                {/* Keep in mind age, sexuality, religion, gender do exist when flirting with someone. */}
-                <Text>Keep in mind,</Text>
-                <Text>
-                  <Text style={ { color: colors.greyText } }>{`\n${profile.nickname} is a `}</Text>
-                  <Text style={ { color: colors.whiteText } }>
-                    {
-                      profile.info.age && profile.info.age < 18 ?
-                        <Text style={ { color: colors.brightRed } }>Minor </Text> : undefined
-                    }
-                    {
-                      [
-                        profile.info.sexuality === 'None' ? 'Asexual' : profile.info.sexuality,
-                        profile.info.religion === 'None' ? 'Non-Religious' : profile.info.religion,
-                        profile.info.gender
-                      ].join(' ').trim()
-                    }
-                  </Text>
+              <View>
+                <Text style={ styles.title }>
+                  <Text>{ `${profile.nickname} is Open For Romance` }</Text>
                 </Text>
-                {
-                  !profile.info.age ? <Text>
-                    <Text>{`,\n${they} did not specify ${their} `}</Text>
-                    <Text style={ { color: colors.brightRed } }>Age</Text>
-                  </Text> : undefined
-                }
-                {
-                  !profile.info.sexuality ? <Text>
-                    <Text>{`,\n${they} did not specify ${their} `}</Text>
-                    <Text style={ { color: colors.brightRed } }>Sexuality</Text>
-                  </Text> : undefined
-                }
-                <Text>.</Text>
-              </Text>
+
+                <View style={ {
+                  marginVertical: sizes.windowMargin * 0.75
+                } }>
+                  <Demographic romanceShowcase user={ user } profile={ profile }/>
+                </View>
+              </View>
           }
         </View>;
       }
@@ -107,7 +81,7 @@ export default class Demographic extends React.Component<{
 
   render(): JSX.Element
   {
-    const { user, profile } = this.props;
+    const { romanceShowcase, user, profile } = this.props;
 
     const editable = user.uuid === profile.uuid;
 
@@ -116,7 +90,7 @@ export default class Demographic extends React.Component<{
       {/* Origin */}
 
       {
-        profile.info.origin?.length || editable ?
+        profile.info.origin?.length || editable || romanceShowcase ?
           <Button
             testID={ 'bn-origin' }
             useAlternative={ true }
@@ -126,10 +100,13 @@ export default class Demographic extends React.Component<{
             icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
           >
             <View>
-              <Text style={ styles.rectangleKey }>Origin</Text>
               {
                 profile.info.origin?.length ?
-                  <Text style={ styles.rectangleValue }>{ profile.info.origin }</Text> : undefined
+                  <View>
+                    <Text style={ styles.rectangleKey }>Origin</Text>
+                    <Text style={ styles.rectangleValue }>{ profile.info.origin }</Text>
+                  </View> :
+                  <Text style={ styles.rectangleNull }>Unspecified Origin</Text>
               }
             </View>
           </Button> : undefined
@@ -137,24 +114,27 @@ export default class Demographic extends React.Component<{
 
       {/* Speaks */}
 
-      <Button
-        testID={ 'bn-speaks' }
-        useAlternative={ true }
-        borderless={ true }
-        buttonStyle={ styles.rectangle }
-        disabled={ !editable }
-        icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
-      >
-        <View>
-          <Text style={ styles.rectangleKey }>Speaks</Text>
-          <Text style={ styles.rectangleValue }>{ profile.info.speaks.join(', ') + '.' }</Text>
-        </View>
-      </Button>
+      {
+        !romanceShowcase ?
+          <Button
+            testID={ 'bn-speaks' }
+            useAlternative={ true }
+            borderless={ true }
+            buttonStyle={ styles.rectangle }
+            disabled={ !editable }
+            icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+          >
+            <View>
+              <Text style={ styles.rectangleKey }>Speaks</Text>
+              <Text style={ styles.rectangleValue }>{ profile.info.speaks.join(', ') + '.' }</Text>
+            </View>
+          </Button> : undefined
+      }
 
       {/* Profession */}
 
       {
-        profile.info.profession?.length || editable ?
+        (profile.info.profession?.length || editable) && (!romanceShowcase) ?
           <Button
             testID={ 'bn-profession' }
             useAlternative={ true }
@@ -175,29 +155,32 @@ export default class Demographic extends React.Component<{
 
       {/* Romantically */}
 
-      <Button
-        testID={ 'bn-romantic' }
-        useAlternative={ true }
-        borderless={ true }
-        buttonStyle={ styles.rectangle }
-        icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
-        onPress={ () => this.openRomantic() }
-      >
-        {
-          !editable ?
-            <View style={ styles.rectangleIndicator }/> : undefined
-        }
+      {
+        !romanceShowcase ?
+          <Button
+            testID={ 'bn-romantic' }
+            useAlternative={ true }
+            borderless={ true }
+            buttonStyle={ styles.rectangle }
+            icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+            onPress={ () => this.openRomantic() }
+          >
+            {
+              !editable ?
+                <View style={ styles.rectangleIndicator }/> : undefined
+            }
 
-        <View>
-          <Text style={ styles.rectangleKey }>Romantically</Text>
-          <Text style={ styles.rectangleValue }>{ profile.info.romantically }</Text>
-        </View>
-      </Button>
+            <View>
+              <Text style={ styles.rectangleKey }>Romantically</Text>
+              <Text style={ styles.rectangleValue }>{ profile.info.romantically }</Text>
+            </View>
+          </Button> : undefined
+      }
 
       {/* Works At */}
 
       {
-        profile.info.worksAt?.length || editable ?
+        (profile.info.worksAt?.length || editable) && (!romanceShowcase)?
           <Button
             testID={ 'bn-works' }
             useAlternative={ true }
@@ -235,7 +218,7 @@ export default class Demographic extends React.Component<{
       {/* Sexuality */}
 
       {
-        profile.info.sexuality?.length || editable ?
+        profile.info.sexuality?.length || editable || romanceShowcase ?
           <Button
             testID={ 'bn-sexuality' }
             useAlternative={ true }
@@ -245,10 +228,13 @@ export default class Demographic extends React.Component<{
             icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
           >
             <View>
-              <Text style={ styles.rectangleKey }>Sexuality</Text>
               {
                 profile.info.sexuality?.length ?
-                  <Text style={ styles.rectangleValue }>{ profile.info.sexuality }</Text> : undefined
+                  <View>
+                    <Text style={ styles.rectangleKey }>Sexuality</Text>
+                    <Text style={ styles.rectangleValue }>{ profile.info.sexuality }</Text>
+                  </View> :
+                  <Text style={ styles.rectangleNullHighlighted }>Unspecified Sexuality</Text>
               }
             </View>
           </Button> : undefined
@@ -257,7 +243,7 @@ export default class Demographic extends React.Component<{
       {/* Religion */}
 
       {
-        profile.info.religion?.length || editable ?
+        profile.info.religion?.length || editable || romanceShowcase ?
           <Button
             testID={ 'bn-religion' }
             useAlternative={ true }
@@ -267,10 +253,13 @@ export default class Demographic extends React.Component<{
             icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
           >
             <View>
-              <Text style={ styles.rectangleKey }>Religion</Text>
               {
                 profile.info.religion?.length ?
-                  <Text style={ styles.rectangleValue }>{ profile.info.religion }</Text> : undefined
+                  <View>
+                    <Text style={ styles.rectangleKey }>Religion</Text>
+                    <Text style={ styles.rectangleValue }>{ profile.info.religion }</Text>
+                  </View> :
+                  <Text style={ styles.rectangleNull }>Non-Religious</Text>
               }
             </View>
           </Button> : undefined
@@ -279,7 +268,7 @@ export default class Demographic extends React.Component<{
       {/* Age */}
 
       {
-        profile.info.age || editable ?
+        profile.info.age || editable || romanceShowcase ?
           <Button
             testID={ 'bn-age' }
             useAlternative={ true }
@@ -289,10 +278,15 @@ export default class Demographic extends React.Component<{
             icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
           >
             <View>
-              <Text style={ styles.rectangleKey }>Age</Text>
               {
-                profile.info.age ?
-                  <Text style={ styles.rectangleValue }>{ profile.info.age }</Text> : undefined
+                romanceShowcase && profile.info.age && profile.info.age < 18 ?
+                  <Text style={ styles.rectangleNullHighlighted }>{ `${profile.nickname} Is A Minor` }</Text> :
+                  profile.info.age ?
+                    <View>
+                      <Text style={ styles.rectangleKey }>Age</Text>
+                      <Text style={ styles.rectangleValue }>{ profile.info.age }</Text>
+                    </View> :
+                    <Text style={ styles.rectangleNullHighlighted }>Unspecified Age</Text>
               }
             </View>
           </Button> : undefined
@@ -324,11 +318,9 @@ const styles = StyleSheet.create({
 
   paragraph: {
     fontSize: 14,
-    color: colors.greyText,
+    color: colors.whiteText,
     fontWeight: 'bold',
     lineHeight: 14 * 1.45,
-
-    textTransform: 'capitalize',
 
     marginHorizontal: sizes.windowMargin,
     marginTop: sizes.windowMargin * 1.5,
@@ -364,6 +356,22 @@ const styles = StyleSheet.create({
     color: colors.whiteText,
 
     textTransform: 'capitalize'
+  },
+
+  rectangleNull: {
+    fontSize: 13,
+    color: colors.greyText,
+
+    textTransform: 'uppercase',
+    fontWeight: 'bold'
+  },
+
+  rectangleNullHighlighted: {
+    fontSize: 13,
+    color: colors.brightRed,
+
+    textTransform: 'uppercase',
+    fontWeight: 'bold'
   },
 
   rectangleIndicator: {

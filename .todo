@@ -12,9 +12,9 @@ Alpha:
   ☐ pressing back on a screen with an index above 0 returns you to screen 0 @high 
 
   Chat Hints Remodel:
-    ☐ create separate components for interests and demographics
+    ✔ create separate components for interests and demographics @done(21-01-21 13:03)
     ✔ create a new component for chat hints @done(21-01-15 08:31)
-      ☐ append it on state change
+      ✔ append it on state change @done(21-01-21 13:03)
       ✔ clean up the old dead code @done(21-01-15 08:31)
       ☐ re-model groups chat hints to only append each member's name and picture
         and all members interests
@@ -22,6 +22,8 @@ Alpha:
   ☐ check TODOs if ny are do-able @high
 
   ☐ subtle new message bubble animations
+
+  ☐ redesign profile edits
 
   - editable profile @high
     ☐ profession
@@ -55,8 +57,6 @@ Alpha:
   ☐ test everything (high code coverage)
 
 Testing:
-  ☐ all te keyboard stuff
-
   - test all editable profile elements
     ☐ bio
     ☐ romantically

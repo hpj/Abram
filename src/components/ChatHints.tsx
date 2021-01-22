@@ -45,11 +45,11 @@ export default class ChatHints extends React.Component<{
     const profile = profiles[0];
 
     return <View testID={ 'v-chat-hints' }>
+
       <Interests user={ user } profile={ profile }/>
 
       <Titles profile={ profile }/>
 
-      {/* TODO demographics */}
       <Demographic user={ user } profile={ profile }/>
 
       {
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
   },
 
   displayName: {
-    fontSize: 13,
+    fontSize: 12,
     color: colors.greyText
   },
 

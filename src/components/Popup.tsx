@@ -160,6 +160,7 @@ class Popup extends StoreComponent<{
     } }>
       <ScrollView style={ {
         ...styles.container,
+        minHeight: size.height * 0.3,
         maxHeight: size.height * 0.65
       } }>
         { popupContent }
