@@ -128,12 +128,12 @@ export default class App extends StoreComponent<unknown, {
     {
       // set status-bar style
 
-      /* istanbul ignore next */
-      if (Platform.OS === 'android')
-        StatusBar.setBackgroundColor(colors.blackBackground);
-
+      StatusBar.setBackgroundColor(colors.blackBackground);
       StatusBar.setBarStyle('light-content');
+
       // StatusBar.setBarStyle((colors.theme === 'dark') ? 'light-content' : 'dark-content');
+
+      BackHandler.addEventListener('hardwareBackPress', this.onBack);
 
       // hides the splash screen and shows the app
       await SplashScreen.hideAsync();
@@ -178,20 +178,28 @@ export default class App extends StoreComponent<unknown, {
 
       this.store.set({ chat: false });
 
-      BackHandler.removeEventListener('hardwareBackPress', this.onBack);
+      // BackHandler.removeEventListener('hardwareBackPress', this.onBack);
     }
     else
     {
       this.store.set({ chat: true });
 
-      BackHandler.addEventListener('hardwareBackPress', this.onBack);
+      // BackHandler.addEventListener('hardwareBackPress', this.onBack);
     }
   }
   
   onBack(): boolean
   {
     // close bottom sheet
-    this.bottomSheetRef.current?.snapTo(1);
+
+    const { chat, index }: { chat: boolean, index: number } = this.store.state;
+
+    if (chat)
+      this.bottomSheetRef.current?.snapTo(1);
+    else if (index > 0)
+      this.store.set({ index: 0, title: 'Inbox' });
+    else
+      BackHandler.exitApp();
 
     return true;
   }
