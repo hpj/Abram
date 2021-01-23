@@ -1,10 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { pronoun, relativeDate, sharedInterests } from '../src/utils';
 
-jest.mock('axios', () => ({
-  get: jest.fn()
-}));
-
 describe('Testing Utils', () =>
 {
   describe('Pronouns', () =>

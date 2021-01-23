@@ -46,7 +46,7 @@ export default class Interests extends React.Component<{
       {
         return <View style={ styles.section }>
           <Text style={ styles.title }>
-            { editable ? 'Your Interests' : `Interests of ${profile.nickname}` }
+            { editable ? 'Your Interests' : `${profile.nickname} Is Interested In` }
           </Text>
 
           <View style={ styles.container }>

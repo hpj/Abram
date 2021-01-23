@@ -1,7 +1,5 @@
 import * as Localization from 'expo-localization';
 
-import axios from 'axios';
-
 export const locales: Locale[] = [
   { label: 'English (United States)', id: 'en-US', direction: 'ltr' }
 ];
@@ -25,19 +23,10 @@ export async function fetch(localeId: string): Promise<void>
 {
   const request = async() =>
   {
-    const projectID = 547;
-
-    // https://api.crowdl.io/projects/547
-    // https://api.crowdl.io/547/languages
-    // https://api.crowdl.io/547/translationCounts
+    // TODO load json files from resources
   
-    const json = await axios.get(`https://api.crowdl.io/${projectID}/${localeId}.json`, {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-  
-    return json.data;
+    return {};
+    // return json.data;
   };
 
   try
@@ -46,7 +35,7 @@ export async function fetch(localeId: string): Promise<void>
   }
   catch
   {
-    locale.json = { 'offline': 'You need access to the internet to use Abram.' };
+    locale.json = { 'error': 'Couldn\'t load the localization files.' };
   }
 }
 

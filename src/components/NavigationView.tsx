@@ -78,7 +78,6 @@ class NavigationView extends StoreComponent<{
         height: '100%',
         top,
         opacity
-        // opacity: active ? 1 : 0
       } }
       pointerEvents={ active ? 'box-none' : 'none' }
     >

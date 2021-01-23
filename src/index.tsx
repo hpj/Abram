@@ -104,7 +104,7 @@ const store = createStore({
             origin: 'Egypt',
             speaks: [ 'Arabic' ],
             profession: 'Singer',
-            romantically: 'Open',
+            romantically: 'Closed',
             gender: 'Woman',
             religion: 'Muslim',
             age: 33
@@ -118,7 +118,7 @@ const store = createStore({
           interests: [
             'Music', 'Books', 'Cooking', 'Blacksmithing', 'Travailing', 'Bath Rooms',
             'Boxing', 'Mountain Climbing', 'Acting', 'Sculpting', 'Tennis', 'Woodworking', 'Cars', 'Driving',
-            'Singing', 'Movies', 'Moving Making', 'Directing', 'Sculpting', 'Drawing'
+            'Singing', 'Movies', 'Movie Making', 'Directing', 'Sculpting', 'Drawing'
           ]
         }
       ],

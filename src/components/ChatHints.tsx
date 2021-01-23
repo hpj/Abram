@@ -71,7 +71,7 @@ export default class ChatHints extends React.Component<{
             <Button
               borderless={ true }
               buttonStyle={ styles.questionIcon }
-              icon={ { name: 'message-circle', size: sizes.icon, color: colors.greyText } }
+              icon={ { name: 'message-circle', size: sizes.icon * 0.85, color: colors.greyText } }
               onPress={ () => this.setInput(question) }
             />
           </View>)
@@ -128,22 +128,6 @@ const styles = StyleSheet.create({
     marginHorizontal: sizes.windowMargin
   },
 
-  question: {
-    flexDirection: 'row',
-    alignItems: 'center',
-
-    height: sizes.avatar * 1.5,
-
-    borderRadius: 10,
-    backgroundColor: colors.rectangleBackground,
-
-    paddingVertical: sizes.windowMargin * 0.5,
-    paddingHorizontal: sizes.windowMargin,
-
-    marginVertical: sizes.windowMargin * 0.5,
-    marginHorizontal: sizes.windowMargin
-  },
-
   avatar: {
     backgroundColor: colors.greyText,
 
@@ -190,13 +174,29 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
 
+  question: {
+    flexDirection: 'row',
+    alignItems: 'center',
+
+    height: sizes.avatar * 1.35,
+
+    borderRadius: 10,
+    backgroundColor: colors.rectangleBackground,
+
+    paddingVertical: sizes.windowMargin * 0.5,
+    paddingHorizontal: sizes.windowMargin,
+
+    marginVertical: sizes.windowMargin * 0.5,
+    marginHorizontal: sizes.windowMargin
+  },
+
   questionText: {
     flexGrow: 1,
     color: colors.whiteText,
 
     marginRight: sizes.windowMargin,
 
-    fontSize: 15,
+    fontSize: 14,
     fontWeight: 'bold'
   },
 

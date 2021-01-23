@@ -6,8 +6,6 @@ import React from 'react';
 
 import { BackHandler } from 'react-native';
 
-import axios from 'axios';
-
 import * as Linking from 'expo-linking';
 
 import { render, fireEvent, waitFor, cleanup } from 'react-native-testing-library';
@@ -85,10 +83,6 @@ function toJSON(renderer: RenderAPI, testId: string, shallow?: 'none' | 'one' | 
   
   return target;
 }
-
-jest.mock('axios', () => ({
-  get: jest.fn().mockResolvedValue({ data: { test: true } })
-}));
 
 jest.mock('expo-splash-screen', () => ({
   preventAutoHideAsync: jest.fn().mockResolvedValue(true),
@@ -260,7 +254,6 @@ beforeEach(() =>
 
 afterEach(() =>
 {
-  (axios.get as jest.Mock).mockReset();
   (Linking.openURL as jest.Mock).mockReset();
 
   cleanup();

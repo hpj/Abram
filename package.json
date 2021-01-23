@@ -22,10 +22,10 @@
   },
   "dependencies": {
     "@react-native-community/async-storage": "~1.12.1",
-    "axios": "^0.21.1",
     "date-fns": "^2.16.1",
     "emoji-regex": "^9.2.0",
     "expo": "^40.0.0",
+    "expo-clipboard": "~1.0.1",
     "expo-constants": "~9.3.5",
     "expo-linking": "~2.0.0",
     "expo-localization": "~9.1.0",
@@ -40,8 +40,7 @@
     "react-native-vector-icons": "^7.1.0",
     "react-native-web": "~0.13.18",
     "reanimated-bottom-sheet": "^1.0.0-alpha.22",
-    "sentry-expo": "^3.0.4",
-    "expo-clipboard": "~1.0.1"
+    "sentry-expo": "^3.0.4"
   },
   "devDependencies": {
     "@babel/core": "~7.9.6",
