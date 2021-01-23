@@ -1,10 +1,8 @@
 import React from 'react';
 
-import { StyleSheet, Keyboard, View, FlatList, TextInput, Text, Image } from 'react-native';
+import { StyleSheet, Keyboard, View, FlatList, TextInput, Text } from 'react-native';
 
 import Animated, { Easing } from 'react-native-reanimated';
-
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 import { isToday, differenceInMilliseconds, isSameDay } from 'date-fns';
 
@@ -14,7 +12,7 @@ import type { Size, Profile, InboxEntry, Message } from '../types';
 
 import ChatHints from '../components/ChatHints';
 
-import ChatContext from '../components/ChatContext';
+import ChatMessage from '../components/ChatMessage';
 
 import Button from '../components/Button';
 
@@ -189,6 +187,7 @@ class Chat extends StoreComponent<unknown, {
       return;
 
     const message: Message = {
+      animate: true,
       owner: profile.uuid,
       text: this.strip(value).trim(),
       createdAt: new Date()
@@ -205,19 +204,6 @@ class Chat extends StoreComponent<unknown, {
 
     // update store
     this.store.set({ inputs, activeChat });
-  }
-
-  onPress(message: Message): void
-  {
-    // istanbul ignore next
-    if (this.store.state.popup)
-      return;
-    
-    // open a popup containing the chat context
-    this.store.set({
-      popup: true,
-      popupContent: () => <ChatContext activeChat={ this.state.activeChat } message={ message }/>
-    });
   }
 
   onChange(text: string): void
@@ -238,10 +224,6 @@ class Chat extends StoreComponent<unknown, {
 
     const value = inputs[activeChat.id] ?? '';
 
-    const bubbleWidth = size.width * sizes.chatBubbleMaxWidth;
-    const bubbleTextWidth = bubbleWidth - (sizes.windowMargin * 2);
-    const avatarBubbleTextWidth = bubbleTextWidth - sizes.chatAvatar - sizes.windowMargin;
-
     const width = this.keyboardProgress.interpolate({
       inputRange: [ 0, 1 ],
       outputRange: [ size.width - (sizes.windowMargin * 2), size.width ]
@@ -259,6 +241,9 @@ class Chat extends StoreComponent<unknown, {
 
     const renderMessage = ({ item, index }: { item: Message, index: number }) =>
     {
+      // if the item is not message
+      // then clone it (to assign it a key)
+      // and return it as is (an already constructed element)
       if (!item.owner)
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         return React.cloneElement(item as any, { key: index });
@@ -273,7 +258,7 @@ class Chat extends StoreComponent<unknown, {
             undefined;
         
       const time = relativeDate(message.createdAt, this.messages[index + 1]?.createdAt);
-        
+
       return <View>
         {
           (time) ?
@@ -281,28 +266,14 @@ class Chat extends StoreComponent<unknown, {
             <View/>
         }
 
-        {
-          (avatar) ?
-            <TouchableWithoutFeedback
-              testID={ 'bn-context' }
-              style={ { ...styles.message, maxWidth: bubbleWidth } }
-              onPress={ () => this.onPress(message) }
-            >
-              {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-              {/* @ts-ignore */}
-              <Image style={ styles.avatar } source={ avatar }/>
-              {/* <Image style={ styles.avatar } source={ { uri: avatar } }/> */}
-              <Text style={ { ...styles.text, maxWidth: avatarBubbleTextWidth } }>{ message.text }</Text>
-            </TouchableWithoutFeedback> :
-
-            <TouchableWithoutFeedback
-              testID={ 'bn-context' }
-              style={ { ...styles.message, ...(self ? styles.messageAlt : undefined), maxWidth: bubbleWidth } }
-              onPress={ () => this.onPress(message) }
-            >
-              <Text style={ { ...styles.text, maxWidth: bubbleTextWidth } }>{ message.text }</Text>
-            </TouchableWithoutFeedback>
-        }
+        <ChatMessage
+          size={ size }
+          self={ self }
+          /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+          /* @ts-ignore */
+          avatar={ avatar }
+          message={ message }
+        />
       </View>;
     };
 

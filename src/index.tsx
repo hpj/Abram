@@ -193,9 +193,9 @@ const store = createStore({
         }
       ],
       messages: [
-        { owner: '0011', text: 'Ahmed is an idiot.', createdAt: subDays(new Date(), 22) },
-        { owner: '0001', text: 'I agree.', createdAt: addMinutes(subDays(new Date(), 21), 6) },
-        { owner: '0013', text: 'Maybe, we could hug him.', createdAt: subHours(new Date(), 26) }
+        { owner: '0011', text: 'Mohammed is a good friend.', createdAt: subDays(new Date(), 3) },
+        { owner: '0001', text: 'I agree.', createdAt: addMinutes(subDays(new Date(), 2), 6) },
+        { owner: '0013', text: 'We should hug him.', createdAt: subHours(new Date(), 26) }
       ]
     },
     {

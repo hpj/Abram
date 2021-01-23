@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {
-  StyleSheet, StatusBar, Platform, BackHandler, Keyboard,
+  StyleSheet, StatusBar, BackHandler, Keyboard,
   SafeAreaView, View, Text, TouchableWithoutFeedback, LayoutChangeEvent
 } from 'react-native';
 

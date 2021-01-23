@@ -8,6 +8,7 @@ export type InboxEntry = {
 }
 
 export type Message = {
+  animate?: boolean,
   createdAt: Date,
   owner: string,
   text: string
