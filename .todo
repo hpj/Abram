@@ -45,6 +45,10 @@ Alpha:
   ☐ test everything (high code coverage)
 
 Testing:
+  - test chat hints ice breaker button @high
+
+  - find a way to test keyboard showing @high 
+
   - test all editable profile elements
     ☐ bio
     ☐ romantically

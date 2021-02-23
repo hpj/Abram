@@ -8,6 +8,8 @@ import Button from './Button';
 
 import { StoreComponent } from '../store';
 
+import i18n from '../i18n';
+
 import { sizes } from '../sizes';
 
 import getTheme from '../colors';
@@ -55,7 +57,7 @@ class BottomNavigation extends StoreComponent<unknown, {
   setIndex(value: number): void
   {
     this.store.set({
-      title: value ? 'Discover' : 'Inbox',
+      title: value ? i18n('discover') : i18n('inbox'),
       index: value
     });
   }
@@ -96,7 +98,13 @@ class BottomNavigation extends StoreComponent<unknown, {
             backgroundStyle={ styles.background }
             borderless={ true }
             buttonStyle={ styles.entry }
-            icon={ { name: additionNavigationIcon, size: sizes.icon, color: colors.whiteText } }
+            icon={ {
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              //@ts-ignore
+              name: additionNavigationIcon,
+              size: sizes.icon,
+              color: colors.whiteText
+            } }
             ripple={ colors.transparent }
           /> : undefined
       }

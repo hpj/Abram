@@ -6,7 +6,7 @@
     "privacy": "unlisted",
     "platforms": [ "android" ],
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "assets/icon.png",
     "primaryColor": "#000000",
     "backgroundColor": "#000000",
     "userInterfaceStyle": "dark",
@@ -16,10 +16,12 @@
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
-      "**/*"
+      "assets/*",
+      "assets/mockups/*",
+      "i18n/*"
     ],
     "splash": {
-      "image": "./assets/icon-t.png",
+      "image": "assets/icon-t.png",
       "resizeMode": "contain",
       "backgroundColor": "#000000"
     },
@@ -34,7 +36,7 @@
     "android": {
       "softwareKeyboardLayoutMode": "pan",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icon-t.png",
+        "foregroundImage": "assets/icon-t.png",
         "backgroundColor": "#000000"
       }
     },

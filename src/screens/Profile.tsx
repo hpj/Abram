@@ -2,7 +2,7 @@ import React from 'react';
 
 import { StyleSheet, ScrollView, View, Text, Image } from 'react-native';
 
-import Icon from 'react-native-vector-icons/Feather';
+import { Feather as Icon } from '@expo/vector-icons';
 
 import type { Profile as TProfile } from '../types';
 
@@ -35,8 +35,6 @@ class Profile extends React.Component<{
 
     this.openBio = this.openBio.bind(this);
     this.openAvatar = this.openAvatar.bind(this);
-
-    this.openRomantic = this.openRomantic.bind(this);
   }
 
   openBio(): void
@@ -66,88 +64,6 @@ class Profile extends React.Component<{
     store.set({
       popup: true,
       popupContent: () => <AvatarEdits/>
-    });
-  }
-
-  openRomantic(): void
-  {
-    const store = getStore();
-
-    // istanbul ignore next
-    if (store.state.popup)
-      return;
-      
-    const { user, profile } = this.props;
-
-    const editable = user.uuid === profile.uuid;
-
-    // open a popup containing the all interests
-    store.set({
-      popup: true,
-      popupContent: () =>
-      {
-        const { they, their, them } = pronoun(profile.info.gender);
-
-        if (editable)
-          return <RomanticEdits initial={ profile.info.romantically }/>;
-
-        return <View>
-          <Text style={ styles.titleBig }>
-            <Text>{ `${profile.nickname} is Romantically ` }</Text>
-            {
-              profile.info.romantically === 'Open' ?
-                <Text style={ { color: colors.whiteText } }>Available.</Text> :
-                <Text style={ { color: colors.brightRed } }>Unavailable.</Text>
-            }
-          </Text>
-
-          {
-            profile.info.romantically === 'Closed' ?
-
-              // Closed
-              <Text style={ styles.paragraph }>
-                <Text>{ `If you attempt flirting with ${them},\nit can result in your account getting ` }</Text>
-                <Text style={ { color: colors.brightRed } }>Terminated</Text>
-                <Text>.</Text>
-              </Text> :
-              
-              // Open
-              <Text style={ styles.paragraph }>
-                {/* Keep in mind age, sexuality, religion, gender do exist when flirting with someone. */}
-                <Text>Keep in mind,</Text>
-                <Text>
-                  <Text style={ { color: colors.greyText } }>{`\n${profile.nickname} is a `}</Text>
-                  <Text style={ { color: colors.whiteText } }>
-                    {
-                      profile.info.age && profile.info.age < 18 ?
-                        <Text style={ { color: colors.brightRed } }>Minor </Text> : undefined
-                    }
-                    {
-                      [
-                        profile.info.sexuality === 'None' ? 'Asexual' : profile.info.sexuality,
-                        profile.info.religion === 'None' ? 'Non-Religious' : profile.info.religion,
-                        profile.info.gender
-                      ].join(' ').trim()
-                    }
-                  </Text>
-                </Text>
-                {
-                  !profile.info.age ? <Text>
-                    <Text>{`,\n${they} did not specify ${their} `}</Text>
-                    <Text style={ { color: colors.brightRed } }>Age</Text>
-                  </Text> : undefined
-                }
-                {
-                  !profile.info.sexuality ? <Text>
-                    <Text>{`,\n${they} did not specify ${their} `}</Text>
-                    <Text style={ { color: colors.brightRed } }>Sexuality</Text>
-                  </Text> : undefined
-                }
-                <Text>.</Text>
-              </Text>
-          }
-        </View>;
-      }
     });
   }
 
@@ -354,30 +270,6 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
 
     marginHorizontal: sizes.windowMargin
-  },
-
-  titleBig: {
-    fontSize: 13,
-    color: colors.greyText,
-    fontWeight: 'bold',
-
-    textTransform: 'uppercase',
-
-    marginHorizontal: sizes.windowMargin,
-    marginTop: sizes.windowMargin * 1.5
-  },
-
-  paragraph: {
-    fontSize: 14,
-    color: colors.greyText,
-    fontWeight: 'bold',
-    lineHeight: 14 * 1.45,
-
-    textTransform: 'capitalize',
-
-    marginHorizontal: sizes.windowMargin,
-    marginTop: sizes.windowMargin * 1.5,
-    marginBottom: sizes.windowMargin * 2
   },
 
   displayName: {

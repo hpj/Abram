@@ -8,9 +8,7 @@ let store: Store;
 
 export function createStore(state: object): Store
 {
-  store = new Store(state);
-
-  return store;
+  return (store = new Store(state));
 }
 
 export function getStore(): Store
@@ -185,7 +183,7 @@ export default class Store
 
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        keys.forEach(key => this.state[key] = modified[key]);
+        keys.forEach(key => this.changes[key] = this.state[key] = modified[key]);
 
         // this.state = {
         //   ...this.state,
@@ -217,6 +215,7 @@ export default class Store
 
     this.changes = {};
 
+    // new state dispatched to all subscriptions
     await Promise.all(promises);
   }
 }

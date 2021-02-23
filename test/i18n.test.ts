@@ -1,26 +1,26 @@
 import * as Localization from 'expo-localization';
 
-import i18n, { getDefault, fetch, locales, locale, setLocale } from '../src/i18n';
+import i18n, { getDefault, setLocale, locale, locales } from '../src/i18n';
 
-afterEach(() =>
-{
-  // delete any data that was fetched
-  locales.forEach((locale) => delete locale.json);
-});
+// mock en-US data
+locales[0].data = {
+  'test-a': 'test-%0',
+  'test-b': 'tests~test'
+};
 
 describe('Testing i18n', () =>
 {
-  test.skip('Getting Default', () =>
+  test('Getting Default', () =>
   {
     const locale = getDefault();
 
     expect(locale.id).toBe('en-US');
     expect(locale.direction).toBe('ltr');
     
-    expect(locale.json).toBeUndefined();
+    expect(locale.data).toBeObject();
   });
 
-  test.skip('Getting Default (Mocked)', () =>
+  test('Getting Default (Mocked)', () =>
   {
     // mock expo's response for the device's locale
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -32,75 +32,33 @@ describe('Testing i18n', () =>
     expect(locale.id).toBe('en-US');
     expect(locale.direction).toBe('ltr');
     
-    expect(locale.json).toBeUndefined();
+    expect(locale.data).toBeObject();
   });
 
-  test.skip('Fetching Data', async() =>
+  test('Changing The Locale', () =>
   {
-    expect(locale.id).toBe('en-US');
-    expect(locale.direction).toBe('ltr');
-    
-    expect(locale.json).toBeUndefined();
-    
-    // fetch locale data
-    await fetch('en-US');
-    
-    expect(locale.json).toContainAllKeys([
-      'test'
-    ]);
-
-    expect(i18n('test')).toBeTruthy();
-  });
-
-  test.skip(('Fetching Data (Error)', async() =>
-  {
-    expect(locale.id).toBe('en-US');
-    expect(locale.direction).toBe('ltr');
-    
-    expect(locale.json).toBeUndefined();
-    
-    // fetch locale data
-    await fetch('en-US');
-
-    expect(locale.json).toContainAllKeys([
-      'offline'
-    ]);
-
-    expect(i18n('offline')).toBeString();
-  });
-
-  test.skip('Completing A Value', async() =>
-  {
-    expect(locale.id).toBe('en-US');
-    expect(locale.direction).toBe('ltr');
-    
-    expect(locale.json).toBeUndefined();
-    
-    // fetch locale data
-    await fetch('en-US');
-
-    expect(locale.json).toContainAllKeys([
-      'test'
-    ]);
-
-    expect(i18n('test', 'i18n')).toBe('test-i18n');
-  });
-
-  test.skip('Changing The Locale', () =>
-  {
-    expect(locale.id).toBe('en-US');
-    expect(locale.direction).toBe('ltr');
-
-    // setting locale to non-existing id
-    setLocale('any-ZZ');
-
-    expect(locale.id).toBe('en-US');
-    expect(locale.direction).toBe('ltr');
-    
     // setting locale to an existing id
-    setLocale('ar-EG');
+    expect(setLocale('en-US')).toBeTrue();
 
-    expect(locale.id).toBe('ar-EG');
-    expect(locale.direction).toBe('rtl');
+    expect(locale.id).toBe('en-US');
+    expect(locale.direction).toBe('ltr');
+  });
+
+  test('Changing The Locale (Non-existent)', () =>
+  {
+    // setting locale to a non-existing id
+    expect(setLocale('any-ZZ')).toBeFalse();
+  });
+
+  test('Getting A Value', async() =>
+  {
+    setLocale(locales[0].id);
+
+    expect(i18n('test-a', 'i18n')).toBe('test-i18n');
+
+    expect(i18n('test-b', '1')).toBe('1 test');
+
+    expect(i18n('test-b', '2')).toBe('2 tests');
+    expect(i18n('test-b', '10')).toBe('10 tests');
   });
 });

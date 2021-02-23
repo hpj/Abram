@@ -1,9 +1,11 @@
 import React from 'react';
 
 import {
-  StyleSheet, StatusBar, BackHandler, Keyboard,
+  StyleSheet, StatusBar, BackHandler, Keyboard, Platform,
   SafeAreaView, View, Text, TouchableWithoutFeedback, LayoutChangeEvent
 } from 'react-native';
+
+import * as Font from 'expo-font';
 
 import constants from 'expo-constants';
 
@@ -12,6 +14,8 @@ import * as SplashScreen from 'expo-splash-screen';
 import Animated from 'react-native-reanimated';
 
 import BottomSheet from 'reanimated-bottom-sheet';
+
+import { Feather } from '@expo/vector-icons';
 
 import NavigationView from './components/NavigationView';
 
@@ -33,9 +37,9 @@ import ChatHeader from './components/ChatHeader';
 
 import { Size, Profile as TProfile } from './types';
 
-import { fetch, locale } from './i18n';
-
 import { StoreComponent } from './store';
+
+import i18n from './i18n';
 
 import { sizes } from './sizes';
 
@@ -103,7 +107,9 @@ export default class App extends StoreComponent<unknown, {
 
   async load(): Promise<void>
   {
-    await fetch(locale.id);
+    await Promise.all([
+      Font.loadAsync(Feather.font)
+    ]);
   }
 
   async componentDidMount(): Promise<void>
@@ -128,10 +134,13 @@ export default class App extends StoreComponent<unknown, {
     {
       // set status-bar style
 
-      StatusBar.setBackgroundColor(colors.blackBackground);
-      StatusBar.setBarStyle('light-content');
+      if (Platform.OS === 'android')
+      {
+        StatusBar.setBackgroundColor(colors.blackBackground);
+        StatusBar.setBarStyle('light-content');
 
-      // StatusBar.setBarStyle((colors.theme === 'dark') ? 'light-content' : 'dark-content');
+        // StatusBar.setBarStyle((colors.theme === 'dark') ? 'light-content' : 'dark-content');
+      }
 
       BackHandler.addEventListener('hardwareBackPress', this.onBack);
 
@@ -193,7 +202,7 @@ export default class App extends StoreComponent<unknown, {
     if (chat)
       this.bottomSheetRef.current?.snapTo(1);
     else if (index > 0)
-      this.store.set({ index: 0, title: 'Inbox' });
+      this.store.set({ index: 0, title: i18n('inbox') });
     else
       BackHandler.exitApp();
 

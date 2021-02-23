@@ -41,7 +41,8 @@ class NavigationView extends StoreComponent<{
         duration: 125,
         toValue: 1,
         easing: Easing.circle
-      }).start();
+      // returns component which is used by the reanimated mocks while testing
+      }).start(() => this);
     }
     // start hide page animation
     else if (old.index === index && state.index !== old.index)

@@ -14,9 +14,9 @@ import type {
   TouchableOpacityProps, TouchableNativeFeedbackProps
 } from 'react-native';
 
-import type { IconProps } from 'react-native-vector-icons/Icon';
+import type { IconProps } from '@expo/vector-icons/build/createIconSet';
 
-import Icon from 'react-native-vector-icons/Feather';
+import { Feather as Icon } from '@expo/vector-icons';
 
 import getTheme from '../colors';
 
@@ -30,7 +30,7 @@ class Button extends React.Component<{
   textStyle?: StyleProp<TextStyle>,
   testID?: string,
   text?: string,
-  icon?: IconProps,
+  icon?: IconProps<keyof (typeof Icon)['glyphMap']>,
   useAlternative?: boolean,
   disabled?: boolean,
   borderless?: boolean,

@@ -10,13 +10,15 @@ import { activateKeepAwake } from 'expo-keep-awake';
 
 import * as Sentry from 'sentry-expo';
 
+import { subDays, addMinutes, subHours } from 'date-fns';
+
 import { Profile, InboxEntry, Size } from './types';
 
 import { createStore } from './store';
 
 import App from './app';
 
-import { subDays, addMinutes, subHours } from 'date-fns';
+import i18n, { setLocale } from './i18n';
 
 // const env = {
 //   'API_ENDPOINT': (__DEV__) ?
@@ -36,10 +38,13 @@ Sentry.init({
 if (__DEV__)
   activateKeepAwake();
 
+// set default locale
+setLocale();
+
 // create app-wide store
 const store = createStore({
   // default view
-  title: 'Inbox',
+  title: i18n('inbox'),
   index: 0,
   
   // used to control the pointer events of the app holder view
