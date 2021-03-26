@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { StyleSheet, ScrollView, View, Text, TextInput } from 'react-native';
-
-// import Icon from 'react-native-vector-icons/Feather';
+import { StyleSheet, View, Image, Text, TextInput } from 'react-native';
 
 import type { Profile } from '../types';
 
@@ -12,14 +10,14 @@ import { sizes } from '../sizes';
 
 import Button from './Button';
 
-// import { pronoun, sharedInterests } from '../utils';
-
 const colors = getTheme();
 
-export class BioEdits extends React.Component<{
-  initial: Profile['bio']
+export class BaseEdits extends React.Component<{
+  profile: Profile,
+  deactivate?: (() => void)
 }, {
-  current: Profile['bio']
+  loading: boolean,
+  current: Profile
 }>
 {
   constructor(props: BioEdits['props'])
@@ -27,93 +25,150 @@ export class BioEdits extends React.Component<{
     super(props);
 
     this.state = {
-      current: props.initial
+      loading: false,
+      current: props.profile
     };
+
+    this.onApply = this.onApply.bind(this);
+  }
+
+  onApply(): void
+  {
+    this.setState({
+      loading: true
+    });
+
+    // TODO change the code to actually send the apply request to the backend
+    setTimeout(() =>
+    {
+      this.props.deactivate?.();
+
+      // await deactivation animation
+      setTimeout(() =>
+      {
+        this.setState({
+          loading: false
+        });
+      }, 200);
+    }, 2000);
+  }
+
+  render(title?: string, children?: React.ReactNode): JSX.Element
+  {
+    const { loading } = this.state;
+
+    if (!loading)
+    {
+      return <View style={ styles.section }>
+        <Text style={ styles.title }>{ title }</Text>
+
+        <View style={ styles.space }/>
+
+        {
+          children
+        }
+
+        {
+          !loading ?
+            <View style={ styles.buttons }>
+              <Button
+                text={ 'Cancel' }
+                borderless={ true }
+                useAlternative={ true }
+                buttonStyle={ styles.button }
+                textStyle={ styles.buttonText }
+                onPress={ this.props.deactivate }
+              />
+
+              <Button
+                text={ 'Save' }
+                borderless={ true }
+                useAlternative={ true }
+                buttonStyle={ styles.button }
+                textStyle={ styles.buttonText }
+                onPress={ this.onApply }
+              />
+            </View> : undefined
+        }
+      </View>;
+    }
+    else
+    {
+      return <View style={ styles.section }>
+        <View style={ styles.loaderContainer }>
+          <Image style={ styles.loader } source={ require('../../assets/loader.gif') }/>
+        </View>
+      </View>;
+    }
+  }
+}
+
+export class BioEdits extends BaseEdits
+{
+  constructor(props: BioEdits['props'])
+  {
+    super(props);
 
     this.onChange = this.onChange.bind(this);
   }
 
   onChange(text: string): void
   {
-    this.setState({ current: text });
+    this.setState({ current: {
+      ...this.state.current,
+      bio: text
+    } });
   }
 
   render(): JSX.Element
   {
     const { current } = this.state;
 
-    return <View style={ styles.section }>
-      <Text style={ styles.title }>Choose Your Bio</Text>
-
-      <View style={ styles.space }/>
-
-      <TextInput
-        testID={ 'in-bio' }
-        style={ styles.input }
-        multiline={ false }
-        value={ current }
-        onChangeText={ this.onChange }
-        placeholderTextColor={ colors.placeholder }
-        placeholder={ 'Bio' }
-      />
-
-      <View style={ styles.buttons }>
-        <Button
-          text={ 'Cancel' }
-          borderless={ true }
-          buttonStyle={ styles.button }
-          textStyle={ styles.buttonText }
-        />
-
-        <Button
-          text={ 'Save' }
-          borderless={ true }
-          buttonStyle={ styles.button }
-          textStyle={ styles.buttonText }
-        />
-      </View>
-    </View>;
+    return super.render('Choose Your Bio', <TextInput
+      testID={ 'in-bio' }
+      style={ styles.input }
+      multiline={ false }
+      value={ current?.bio }
+      onChangeText={ this.onChange }
+      placeholderTextColor={ colors.placeholder }
+      placeholder={ 'Bio' }
+      maxLength={ 255 }
+    />);
   }
 }
 
-export class AvatarEdits extends React.Component
+export class AvatarEdits extends BaseEdits
 {
   render(): JSX.Element
   {
-    return <View style={ styles.section }>
-      <Text style={ styles.title }>Choose Your Avatar</Text>
-    </View>;
+    return super.render('Choose Your Avatar');
   }
 }
 
-export class RomanticEdits extends React.Component<{
-  initial: Profile['info']['romantically']
-}, {
-  current: Profile['info']['romantically']
-}>
+export class RomanticEdits extends BaseEdits
 {
-  constructor(props: RomanticEdits['props'])
+  onChange(romantically: BaseEdits['props']['profile']['info']['romantically']): void
   {
-    super(props);
-
-    this.state = {
-      current: props.initial
-    };
+    this.setState({ current: {
+      ...this.state.current,
+      info: {
+        ...this.state.current.info,
+        romantically
+      }
+    } });
   }
 
   render(): JSX.Element
   {
-    const { current } = this.state;
+    const current = this.state.current?.info.romantically;
 
-    return <View style={ styles.section }>
-      <Text style={ styles.title }>Choose Your Romantic Availability</Text>
-
+    return super.render('wChoose Your Romantic Availability', <View>
       <Text style={ styles.text }>
         <Text>While being </Text>
         <Text style={ { color: colors.whiteText } }>Romantically Closed, </Text>
         <Text>Reporting any user for flirting will result in their account getting terminated.</Text>
       </Text>
-
+      
       <View style={ styles.space }/>
 
       <Button
@@ -121,7 +176,7 @@ export class RomanticEdits extends React.Component<{
         buttonStyle={ styles.toggle }
         icon={ current === 'Open' ? { name: 'check', size: sizes.icon * 0.65, color: colors.whiteText } : undefined }
         textStyle={ { ...styles.toggleText, color: current === 'Open' ? colors.whiteText : colors.greyText } }
-        onPress={ () => this.setState({ current: 'Open' }) }
+        onPress={ () => this.onChange('Open') }
       />
 
       <Button
@@ -129,31 +184,28 @@ export class RomanticEdits extends React.Component<{
         buttonStyle={ styles.toggle }
         icon={ current === 'Closed' ? { name: 'check', size: sizes.icon * 0.65, color: colors.whiteText } : undefined }
         textStyle={ { ...styles.toggleText, color: current === 'Closed' ? colors.whiteText : colors.greyText } }
-        onPress={ () => this.setState({ current: 'Closed' }) }
+        onPress={ () => this.onChange('Closed') }
       />
-
-      <View style={ styles.buttons }>
-        <Button
-          text={ 'Cancel' }
-          borderless={ true }
-          buttonStyle={ styles.button }
-          textStyle={ styles.buttonText }
-        />
-
-        <Button
-          text={ 'Save' }
-          borderless={ true }
-          buttonStyle={ styles.button }
-          textStyle={ styles.buttonText }
-        />
-      </View>
-    </View>;
+    </View>);
   }
 }
 
 const styles = StyleSheet.create({
   section: {
     margin: sizes.windowMargin
+  },
+
+  loaderContainer: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.blackBackground
+  },
+
+  loader: {
+    width: 200,
+    height: 200
   },
 
   title: {
@@ -206,7 +258,8 @@ const styles = StyleSheet.create({
   },
 
   input: {
-    fontSize: 13,
+    fontSize: 14,
+    fontWeight: 'bold',
     color: colors.whiteText,
 
     paddingVertical: sizes.windowMargin * 0.25

@@ -10,8 +10,6 @@ import getTheme from '../colors';
 
 import { sizes } from '../sizes';
 
-import { pronoun } from '../utils';
-
 import { RomanticEdits } from '../components/ProfileEdits';
 
 import Button from '../components/Button';
@@ -42,7 +40,7 @@ export default class Demographic extends React.Component<{
       popupContent: () =>
       {
         if (editable)
-          return <RomanticEdits initial={ profile.info.romantically }/>;
+          return <RomanticEdits profile={ profile }/>;
 
         return <View>
 
@@ -97,7 +95,7 @@ export default class Demographic extends React.Component<{
             borderless={ true }
             buttonStyle={ styles.rectangle }
             disabled={ !editable }
-            icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+            icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
           >
             <View>
               {
@@ -124,7 +122,7 @@ export default class Demographic extends React.Component<{
             borderless={ true }
             buttonStyle={ styles.rectangle }
             disabled={ !editable }
-            icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+            icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
           >
             <View>
               <Text style={ styles.rectangleKey }>Speaks</Text>
@@ -143,7 +141,7 @@ export default class Demographic extends React.Component<{
             borderless={ true }
             buttonStyle={ styles.rectangle }
             disabled={ !editable }
-            icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+            icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
           >
             <View>
               <Text style={ styles.rectangleKey }>Profession</Text>
@@ -164,7 +162,7 @@ export default class Demographic extends React.Component<{
             useAlternative={ true }
             borderless={ true }
             buttonStyle={ styles.rectangle }
-            icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+            icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
             onPress={ () => this.openRomantic() }
           >
             {
@@ -189,7 +187,7 @@ export default class Demographic extends React.Component<{
             borderless={ true }
             buttonStyle={ styles.rectangle }
             disabled={ !editable }
-            icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+            icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
           >
             <View>
               <Text style={ styles.rectangleKey }>Works At</Text>
@@ -208,7 +206,7 @@ export default class Demographic extends React.Component<{
         useAlternative={ true }
         borderless={ true }
         buttonStyle={ styles.rectangle }
-        icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+        icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
         disabled={ !editable }
       >
         <View>
@@ -227,7 +225,7 @@ export default class Demographic extends React.Component<{
             borderless={ true }
             buttonStyle={ styles.rectangle }
             disabled={ !editable }
-            icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+            icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
           >
             <View>
               {
@@ -254,7 +252,7 @@ export default class Demographic extends React.Component<{
             borderless={ true }
             buttonStyle={ styles.rectangle }
             disabled={ !editable }
-            icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+            icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
           >
             <View>
               {
@@ -281,7 +279,7 @@ export default class Demographic extends React.Component<{
             borderless={ true }
             buttonStyle={ styles.rectangle }
             disabled={ !editable }
-            icon={ editable ? { name: 'edit-2', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+            icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
           >
             <View>
               {

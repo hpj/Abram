@@ -11739,6 +11739,102 @@ exports[`Testing <App/> Profile Personal Edits Avatar 1`] = `
         >
           Choose Your Avatar
         </Text>
+        <View
+          style={
+            Object {
+              "margin": 10,
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "paddingHorizontal": 25,
+                  "paddingVertical": 10,
+                }
+              }
+            >
+              <View>
+                <View />
+              </View>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 14,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                Cancel
+              </Text>
+            </View>
+          </View>
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "paddingHorizontal": 25,
+                  "paddingVertical": 10,
+                }
+              }
+            >
+              <View>
+                <View />
+              </View>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 14,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                Save
+              </Text>
+            </View>
+          </View>
+        </View>
       </View>
     </View>
   </RCTScrollView>
@@ -11796,6 +11892,7 @@ exports[`Testing <App/> Profile Personal Edits Bio 1`] = `
         />
         <TextInput
           allowFontScaling={true}
+          maxLength={255}
           multiline={false}
           onChangeText={[Function]}
           placeholder="Bio"
@@ -11804,7 +11901,8 @@ exports[`Testing <App/> Profile Personal Edits Bio 1`] = `
           style={
             Object {
               "color": "#ffffff",
-              "fontSize": 13,
+              "fontSize": 14,
+              "fontWeight": "bold",
               "paddingVertical": 5,
             }
           }
@@ -11822,7 +11920,7 @@ exports[`Testing <App/> Profile Personal Edits Bio 1`] = `
         >
           <View
             accessible={true}
-            focusable={false}
+            focusable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -11832,29 +11930,37 @@ exports[`Testing <App/> Profile Personal Edits Bio 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "paddingHorizontal": 25,
-                "paddingVertical": 10,
+                "opacity": 1,
               }
             }
           >
-            <View>
-              <View />
-            </View>
-            <Text
+            <View
               style={
                 Object {
-                  "color": "#818181",
-                  "fontSize": 14,
-                  "fontWeight": "bold",
+                  "paddingHorizontal": 25,
+                  "paddingVertical": 10,
                 }
               }
             >
-              Cancel
-            </Text>
+              <View>
+                <View />
+              </View>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 14,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                Cancel
+              </Text>
+            </View>
           </View>
           <View
             accessible={true}
-            focusable={false}
+            focusable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -11864,25 +11970,33 @@ exports[`Testing <App/> Profile Personal Edits Bio 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "paddingHorizontal": 25,
-                "paddingVertical": 10,
+                "opacity": 1,
               }
             }
           >
-            <View>
-              <View />
-            </View>
-            <Text
+            <View
               style={
                 Object {
-                  "color": "#818181",
-                  "fontSize": 14,
-                  "fontWeight": "bold",
+                  "paddingHorizontal": 25,
+                  "paddingVertical": 10,
                 }
               }
             >
-              Save
-            </Text>
+              <View>
+                <View />
+              </View>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 14,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                Save
+              </Text>
+            </View>
           </View>
         </View>
       </View>
@@ -11931,33 +12045,7 @@ exports[`Testing <App/> Profile Personal Edits Romantic 1`] = `
             }
           }
         >
-          Choose Your Romantic Availability
-        </Text>
-        <Text
-          style={
-            Object {
-              "color": "#818181",
-              "fontSize": 12,
-              "fontWeight": "bold",
-              "marginVertical": 10,
-            }
-          }
-        >
-          <Text>
-            While being 
-          </Text>
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-              }
-            }
-          >
-            Romantically Closed, 
-          </Text>
-          <Text>
-            Reporting any user for flirting will result in their account getting terminated.
-          </Text>
+          wChoose Your Romantic Availability
         </Text>
         <View
           style={
@@ -11966,93 +12054,128 @@ exports[`Testing <App/> Profile Personal Edits Romantic 1`] = `
             }
           }
         />
-        <View
-          accessible={true}
-          focusable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "alignItems": "center",
-              "flexDirection": "row-reverse",
-              "padding": 15,
-            }
-          }
-        >
-          <View>
-            <View />
-          </View>
-          <Text
-            allowFontScaling={false}
-            style={
-              Array [
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 15.600000000000001,
-                },
-                undefined,
-                Object {
-                  "fontFamily": "feather",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
-              ]
-            }
-          >
-            
-          </Text>
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "flexGrow": 1,
-                "fontSize": 14,
-                "fontWeight": "bold",
-              }
-            }
-          >
-            Open
-          </Text>
-        </View>
-        <View
-          accessible={true}
-          focusable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "alignItems": "center",
-              "flexDirection": "row-reverse",
-              "padding": 15,
-            }
-          }
-        >
-          <View>
-            <View />
-          </View>
+        <View>
           <Text
             style={
               Object {
                 "color": "#818181",
-                "flexGrow": 1,
-                "fontSize": 14,
+                "fontSize": 12,
                 "fontWeight": "bold",
+                "marginVertical": 10,
               }
             }
           >
-            Closed
+            <Text>
+              While being 
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                }
+              }
+            >
+              Romantically Closed, 
+            </Text>
+            <Text>
+              Reporting any user for flirting will result in their account getting terminated.
+            </Text>
           </Text>
+          <View
+            style={
+              Object {
+                "margin": 10,
+              }
+            }
+          />
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row-reverse",
+                "padding": 15,
+              }
+            }
+          >
+            <View>
+              <View />
+            </View>
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 15.600000000000001,
+                  },
+                  undefined,
+                  Object {
+                    "fontFamily": "feather",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "flexGrow": 1,
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              Open
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row-reverse",
+                "padding": 15,
+              }
+            }
+          >
+            <View>
+              <View />
+            </View>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "flexGrow": 1,
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              Closed
+            </Text>
+          </View>
         </View>
         <View
           style={
@@ -12064,7 +12187,7 @@ exports[`Testing <App/> Profile Personal Edits Romantic 1`] = `
         >
           <View
             accessible={true}
-            focusable={false}
+            focusable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -12074,29 +12197,37 @@ exports[`Testing <App/> Profile Personal Edits Romantic 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "paddingHorizontal": 25,
-                "paddingVertical": 10,
+                "opacity": 1,
               }
             }
           >
-            <View>
-              <View />
-            </View>
-            <Text
+            <View
               style={
                 Object {
-                  "color": "#818181",
-                  "fontSize": 14,
-                  "fontWeight": "bold",
+                  "paddingHorizontal": 25,
+                  "paddingVertical": 10,
                 }
               }
             >
-              Cancel
-            </Text>
+              <View>
+                <View />
+              </View>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 14,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                Cancel
+              </Text>
+            </View>
           </View>
           <View
             accessible={true}
-            focusable={false}
+            focusable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -12106,25 +12237,33 @@ exports[`Testing <App/> Profile Personal Edits Romantic 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "paddingHorizontal": 25,
-                "paddingVertical": 10,
+                "opacity": 1,
               }
             }
           >
-            <View>
-              <View />
-            </View>
-            <Text
+            <View
               style={
                 Object {
-                  "color": "#818181",
-                  "fontSize": 14,
-                  "fontWeight": "bold",
+                  "paddingHorizontal": 25,
+                  "paddingVertical": 10,
                 }
               }
             >
-              Save
-            </Text>
+              <View>
+                <View />
+              </View>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 14,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                Save
+              </Text>
+            </View>
           </View>
         </View>
       </View>
@@ -14835,6 +14974,7 @@ exports[`Testing <Profile/> Others Full Profile 1`] = `
         <View
           style={
             Object {
+              "flexDirection": "row",
               "paddingVertical": 10,
             }
           }
@@ -14846,6 +14986,7 @@ exports[`Testing <Profile/> Others Full Profile 1`] = `
             style={
               Object {
                 "color": "#ffffff",
+                "flex": 1,
                 "fontSize": 22,
                 "fontWeight": "bold",
                 "marginHorizontal": 20,
@@ -15926,6 +16067,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
         <View
           style={
             Object {
+              "flexDirection": "row",
               "paddingVertical": 10,
             }
           }
@@ -15933,41 +16075,11 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
           <View>
             <View />
           </View>
-          <View
-            style={
-              Object {
-                "flexDirection": "row-reverse",
-              }
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 12,
-                  },
-                  Object {
-                    "alignSelf": "center",
-                    "marginHorizontal": 20,
-                  },
-                  Object {
-                    "fontFamily": "feather",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
           <Text
             style={
               Object {
                 "color": "#818181",
+                "flex": 1,
                 "fontSize": 22,
                 "fontStyle": "italic",
                 "fontWeight": "bold",
@@ -15976,7 +16088,30 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
               }
             }
           >
-            What's... a bio?
+            This is a Random Bio...
+          </Text>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                },
+                Object {
+                  "alignSelf": "center",
+                  "marginHorizontal": 20,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
           </Text>
         </View>
       </View>
@@ -16063,7 +16198,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
                 ]
               }
             >
-              
+              
             </Text>
           </View>
         </View>
@@ -16162,7 +16297,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
                 ]
               }
             >
-              
+              
             </Text>
           </View>
         </View>
@@ -16233,7 +16368,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -16306,7 +16441,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -16390,7 +16525,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -16463,7 +16598,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -16547,7 +16682,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -16620,7 +16755,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -16704,7 +16839,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -16777,7 +16912,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -16850,7 +16985,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -16945,7 +17080,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
                 ]
               }
             >
-              
+              
             </Text>
           </View>
         </View>
@@ -17020,7 +17155,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
         <View
@@ -17245,6 +17380,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
         <View
           style={
             Object {
+              "flexDirection": "row",
               "paddingVertical": 10,
             }
           }
@@ -17252,41 +17388,11 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
           <View>
             <View />
           </View>
-          <View
-            style={
-              Object {
-                "flexDirection": "row-reverse",
-              }
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 12,
-                  },
-                  Object {
-                    "alignSelf": "center",
-                    "marginHorizontal": 20,
-                  },
-                  Object {
-                    "fontFamily": "feather",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
           <Text
             style={
               Object {
                 "color": "#ffffff",
+                "flex": 1,
                 "fontSize": 22,
                 "fontWeight": "bold",
                 "marginHorizontal": 20,
@@ -17295,6 +17401,29 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             }
           >
             "Skye is the only true Goddess."
+          </Text>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                },
+                Object {
+                  "alignSelf": "center",
+                  "marginHorizontal": 20,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
           </Text>
         </View>
       </View>
@@ -17381,7 +17510,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
                 ]
               }
             >
-              
+              
             </Text>
           </View>
         </View>
@@ -17480,7 +17609,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
                 ]
               }
             >
-              
+              
             </Text>
           </View>
         </View>
@@ -17551,7 +17680,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <View>
@@ -17637,7 +17766,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -17721,7 +17850,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -17805,7 +17934,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -17889,7 +18018,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -17973,7 +18102,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <Text
@@ -18057,7 +18186,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <View>
@@ -18143,7 +18272,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <View>
@@ -18229,7 +18358,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
           <View>
             <View>
@@ -18337,7 +18466,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
                 ]
               }
             >
-              
+              
             </Text>
           </View>
           <View
@@ -18445,7 +18574,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
               ]
             }
           >
-            
+            
           </Text>
         </View>
         <View

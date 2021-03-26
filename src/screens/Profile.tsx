@@ -12,7 +12,7 @@ import getTheme from '../colors';
 
 import { sizes } from '../sizes';
 
-import { pronoun, sharedInterests } from '../utils';
+import { sharedInterests } from '../utils';
 
 import Interests from '../components/Interests';
 
@@ -20,7 +20,9 @@ import Demographic from '../components/Demographic';
 
 import Button from '../components/Button';
 
-import { BioEdits, AvatarEdits, RomanticEdits } from '../components/ProfileEdits';
+import { BioEdits, AvatarEdits } from '../components/ProfileEdits';
+
+import type { BaseEdits } from '../components/ProfileEdits';
 
 const colors = getTheme();
 
@@ -33,11 +35,10 @@ class Profile extends React.Component<{
   {
     super(props);
 
-    this.openBio = this.openBio.bind(this);
-    this.openAvatar = this.openAvatar.bind(this);
+    this.openEdit = this.openEdit.bind(this);
   }
 
-  openBio(): void
+  openEdit(Component: typeof BaseEdits): void
   {
     const store = getStore();
 
@@ -49,21 +50,7 @@ class Profile extends React.Component<{
 
     store.set({
       popup: true,
-      popupContent: () => <BioEdits initial={ profile.bio }/>
-    });
-  }
-
-  openAvatar(): void
-  {
-    const store = getStore();
-
-    // istanbul ignore next
-    if (store.state.popup)
-      return;
-
-    store.set({
-      popup: true,
-      popupContent: () => <AvatarEdits/>
+      popupContent: () => <Component profile={ profile }/>
     });
   }
 
@@ -87,24 +74,23 @@ class Profile extends React.Component<{
           <View style={ { ...styles.space, marginTop: sizes.windowMargin * 1.25 } }>
             <Button
               testID={ 'bn-bio' }
-              buttonStyle={ { ...styles.section, paddingVertical: sizes.windowMargin * 0.5 } }
+              // eslint-disable-next-line react-native/no-inline-styles
+              buttonStyle={ { ...styles.section, flexDirection: 'row', paddingVertical: sizes.windowMargin * 0.5 } }
               useAlternative={ true }
               disabled={ !editable }
-              onPress={ this.openBio }
+              onPress={ () => this.openEdit(BioEdits) }
             >
-              {
-                editable ?
-                  // eslint-disable-next-line react-native/no-inline-styles
-                  <View style={ { ...styles.sectionEditable, flexDirection: 'row-reverse' } }>
-                    <Icon name={ 'edit-2' } size={ sizes.icon * 0.5 } color={ colors.whiteText } style={ styles.sectionIcon }/>
-                  </View> : undefined
-              }
-
               {
                 profile.bio?.length ?
                   <Text style={ styles.bio }>{ `"${profile.bio}"` }</Text> :
-                // eslint-disable-next-line react-native/no-inline-styles
-                  <Text style={ { ...styles.bio, color: colors.greyText, fontStyle: 'italic' } }>{ 'What\'s... a bio?' }</Text>
+                  // eslint-disable-next-line react-native/no-inline-styles
+                  <Text style={ { ...styles.bio, color: colors.greyText, fontStyle: 'italic' } }>This is a Random Bio...</Text>
+              }
+
+              {
+                editable ?
+                  <Icon name={ 'tool' } size={ sizes.icon * 0.5 } color={ colors.whiteText } style={ styles.sectionIcon }/>
+                  : undefined
               }
               
             </Button>
@@ -119,7 +105,7 @@ class Profile extends React.Component<{
           buttonStyle={ styles.section }
           useAlternative={ true }
           disabled={ !editable }
-          onPress={ this.openAvatar }
+          onPress={ () => this.openEdit(AvatarEdits) }
         >
           <View style={ styles.sectionEditable }>
             {/* eslint-disable-next-line react-native/no-inline-styles */}
@@ -131,7 +117,7 @@ class Profile extends React.Component<{
             </View>
             {
               editable ?
-                <Icon name={ 'edit-2' } size={ sizes.icon * 0.5 } color={ colors.whiteText } style={ styles.sectionIcon }/> : undefined
+                <Icon name={ 'tool' } size={ sizes.icon * 0.5 } color={ colors.whiteText } style={ styles.sectionIcon }/> : undefined
             }
           </View>
 
@@ -156,7 +142,7 @@ class Profile extends React.Component<{
             </View>
             {
               editable ?
-                <Icon name={ 'edit-2' } size={ sizes.icon * 0.5 } color={ colors.whiteText } style={ styles.sectionIcon }/> : undefined
+                <Icon name={ 'tool' } size={ sizes.icon * 0.5 } color={ colors.whiteText } style={ styles.sectionIcon }/> : undefined
             }
           </View>
         </Button>
@@ -183,7 +169,7 @@ class Profile extends React.Component<{
                 </Text>
                 {
                   editable ?
-                    <Icon name={ 'edit-2' } size={ sizes.icon * 0.5 } color={ colors.whiteText } style={ styles.sectionIcon }/> : undefined
+                    <Icon name={ 'tool' } size={ sizes.icon * 0.5 } color={ colors.whiteText } style={ styles.sectionIcon }/> : undefined
                 }
               </View>
 
@@ -222,7 +208,7 @@ class Profile extends React.Component<{
 
             {
               editable ?
-                <Icon name={ 'edit-2' } size={ sizes.icon * 0.5 } color={ colors.whiteText } style={ styles.sectionIcon }/> : undefined
+                <Icon name={ 'tool' } size={ sizes.icon * 0.5 } color={ colors.whiteText } style={ styles.sectionIcon }/> : undefined
             }
           </View>
         </Interests>
@@ -239,6 +225,7 @@ const styles = StyleSheet.create({
   },
 
   bio: {
+    flex: 1,
     color: colors.whiteText,
 
     fontSize: 22,
