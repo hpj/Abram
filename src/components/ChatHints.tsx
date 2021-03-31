@@ -43,12 +43,14 @@ export default class ChatHints extends React.Component<{
     if (profiles.length > 1)
     {
       return <View>
+        <View style={ styles.miniGroup }>
+          {
+            profiles.map((profile, i) =>
+              <MiniProfile key={ i } profile={ profile }/>)
+          }
+        </View>
+        
         <Interests user={ user } profiles={ profiles }/>
-
-        {
-          profiles.map((profile, i) =>
-            <MiniProfile key={ i } profile={ profile }/>)
-        }
       </View>;
     }
 
@@ -104,7 +106,7 @@ const MiniProfile = (props: { profile: Profile }) =>
 {
   const { profile } = props;
 
-  return <View style={ styles.container }>
+  return <View style={ { ...styles.container, ...styles.miniContainer } }>
     {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
     {/* @ts-ignore */}
     <Image style={ styles.miniAvatar } source={ profile.avatar }/>
@@ -118,6 +120,14 @@ const MiniProfile = (props: { profile: Profile }) =>
 };
 
 const styles = StyleSheet.create({
+  miniGroup: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+
+    justifyContent: 'space-between',
+    marginHorizontal: sizes.windowMargin
+  },
+
   container: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -125,10 +135,16 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: colors.rectangleBackground,
 
-    padding: sizes.windowMargin,
+    paddingHorizontal: sizes.windowMargin,
+    paddingVertical: sizes.windowMargin * 0.85,
 
     marginVertical: sizes.windowMargin * 0.5,
     marginHorizontal: sizes.windowMargin
+  },
+
+  miniContainer: {
+    marginVertical: 10,
+    marginHorizontal: 0
   },
 
   avatar: {
