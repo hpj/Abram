@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
   },
 
   container: {
-    backgroundColor: colors.popupBackground
+    backgroundColor: colors.blackBackground
   }
 });
 

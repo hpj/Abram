@@ -10,7 +10,7 @@ import { StoreComponent } from '../store';
 
 import { relativeDate } from '../utils';
 
-import { sizes, responsive } from '../sizes';
+import { sizes } from '../sizes';
 
 import getTheme from '../colors';
 
@@ -26,8 +26,6 @@ class Inbox extends StoreComponent<{
   inbox: InboxEntry[]
 }>
 {
-  responsive = responsive.bind(this);
-
   stateWillChange({ inbox }: Inbox['state']): Partial<Inbox['state']>
   {
     // TODO limit entries using the backend, so this won't slow performance much
@@ -91,7 +89,7 @@ class Inbox extends StoreComponent<{
           const lastMessage = entry.messages[entry.messages.length - 1];
 
           const badge = entry.messages.length <= 0 || lastMessage.owner !== profile.uuid;
-
+          
           return <Button
             key={ t }
             testID={ 'bn-chat' }
@@ -106,13 +104,13 @@ class Inbox extends StoreComponent<{
                 <View style={ {
                   ...styles.avatars,
 
-                  width: this.responsive(sizes.inboxAvatar),
-                  height: this.responsive(sizes.inboxAvatar)
+                  width: sizes.inboxAvatar,
+                  height: sizes.inboxAvatar,
                 } }>
                   {
                     members.splice(0, 4).map((member, i, array) =>
                     {
-                      let size = this.responsive(sizes.inboxAvatar);
+                      let size = sizes.inboxAvatar;
 
                       let left = 0;
                       let top = 0;
@@ -178,7 +176,7 @@ class Inbox extends StoreComponent<{
                             width: size,
                             height: size,
                               
-                            borderRadius: this.responsive(sizes.inboxAvatar)
+                            borderRadius: sizes.inboxAvatar
                           } }
                           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                           //@ts-ignore
@@ -189,12 +187,6 @@ class Inbox extends StoreComponent<{
                         {/* eslint-disable-next-line react-native/no-inline-styles */}
                         <View style={ {
                           ...styles.badge,
-
-                          width: this.responsive(23),
-                          height: this.responsive(23),
-
-                          borderRadius: this.responsive(23),
-
                           opacity: (badge && left === 0 && top === 0) ? 1 : 0
                         } }/>
                       </View>;
@@ -203,12 +195,12 @@ class Inbox extends StoreComponent<{
                 </View>
 
                 <View style={ styles.info }>
-                  <Text style={ { ...styles.name, fontSize: this.responsive(22) } }>{ entry.displayName }</Text>
-                  <Text style={ { ...styles.time, fontSize: this.responsive(20) } }>{ lastUpdated }</Text>
+                  <Text style={ styles.name }>{ entry.displayName }</Text>
+                  <Text style={ styles.time }>{ lastUpdated }</Text>
 
                   {
                     lastMessage?.text ?
-                      <Text style={ { ...styles.preview, fontSize: this.responsive(22) } } numberOfLines={ 1 }>
+                      <Text style={ styles.preview } numberOfLines={ 1 }>
                         { lastMessage.text }
                       </Text> : <View style={ styles.newBadge }>
                         <Text style={ styles.newBadgeText }>
@@ -263,9 +255,12 @@ const styles = StyleSheet.create({
 
     backgroundColor: colors.whiteText,
 
+    width: 16,
+    height: 16,
     marginLeft: -10,
 
     borderWidth: 3,
+    borderRadius: 16,
     borderColor: colors.blackText
   },
 
@@ -276,19 +271,21 @@ const styles = StyleSheet.create({
 
   name: {
     color: colors.whiteText,
-    fontWeight: 'bold'
+
+    fontWeight: 'bold',
+    fontSize: 16
   },
 
   time: {
-    color: colors.greyText
+    color: colors.greyText,
+    fontSize: 14
   },
 
   preview: {
     color: colors.greyText,
-    fontSize: 13,
-
     alignSelf: 'flex-start',
-
+    
+    fontSize: 16,
     marginTop: sizes.windowMargin * 0.5
   },
 

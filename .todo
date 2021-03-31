@@ -7,9 +7,6 @@ Performance Issues and Bugs:
       - we have no idea what causes that to... not happen?
 
 Alpha:
-
-  ☐ change the view size of the app to test how it scales on smaller screens and fix the issues. @high
-
   ☐ check TODOs if any are do-able @high
 
   ☐ work on branding descriptions and motto

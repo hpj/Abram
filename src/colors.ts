@@ -25,7 +25,6 @@ export default function()
     iconBackgroundInactive: alpha('#373434', 0.3),
 
     menuBackground: '#3a3737',
-    popupBackground: '#000000',
 
     menuHolder: '#000000',
     popupHolder: '#181818',
