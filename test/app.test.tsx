@@ -265,23 +265,6 @@ afterEach(() =>
 
 describe('Testing <App/>', () =>
 {
-  test.skip('Loading Error', async() =>
-  {
-    // mock i18n module to throw error
-    // which will make the app fail loading
-    // (setLocale as jest.MockedFunction<any>).mockRejectedValueOnce('test');
-
-    const component = render(<App/>);
-
-    // wait for app error view
-    await waitFor(() => component.getByTestId('v-error'));
-
-    // initial view
-    const view = component.toJSON();
-
-    expect(view).toMatchSnapshot();
-  });
-
   test('Navigation Views', async() =>
   {
     const component = render(<App/>);
@@ -1652,7 +1635,7 @@ describe('Testing <App/>', () =>
     
           await waitFor(() => true);
             
-          // activate avatar popup view
+          // activate popup view
           fireEvent.press(component.getByTestId('bn-bio'));
     
           await waitFor(() => true);
@@ -1697,8 +1680,53 @@ describe('Testing <App/>', () =>
     
           await waitFor(() => true);
             
-          // activate avatar popup view
+          // activate popup view
           fireEvent.press(component.getByTestId('bn-avatar'));
+    
+          await waitFor(() => true);
+    
+          const popup = toJSON(component, 'v-popup', 'all');
+    
+          expect(popup).toMatchSnapshot();
+    
+          component.unmount();
+        });
+
+        test('Titles', async() =>
+        {
+          getStore().set({
+            profile: {
+              uuid: '0',
+              avatar: 0,
+              fullName: 'User Using Used',
+              nickname: 'User',
+              bio: 'Test Bio',
+              info: {
+                romantically: 'Open',
+                gender: 'Non-binary',
+                speaks: [ 'English' ]
+              },
+              interests: [ 'A', 'B', 'C', 'D', 'E', 'F' ] as string[]
+            } as TProfile
+          });
+
+          const component = render(<App/>);
+
+          // wait for app loading
+          await waitFor(() => component.getByTestId('v-main-area'));
+
+          // press menu
+          fireEvent.press(component.getByTestId('bn-menu'));
+
+          await waitFor(() => true);
+    
+          // press profile
+          fireEvent.press(component.getByTestId('bn-profile'));
+    
+          await waitFor(() => true);
+            
+          // activate popup view
+          fireEvent.press(component.getByTestId('bn-titles'));
     
           await waitFor(() => true);
     
@@ -1742,7 +1770,7 @@ describe('Testing <App/>', () =>
     
           await waitFor(() => true);
             
-          // activate avatar popup view
+          // activate popup view
           fireEvent.press(component.getByTestId('bn-romantic'));
     
           await waitFor(() => true);
@@ -2636,81 +2664,6 @@ describe('Testing <App/>', () =>
       });
     });
 
-    // TODO due to the new way we handle the keyboard on android
-    // this test is obsolete
-    test.skip('Height With Keyboard', async() =>
-    {
-      const store = getStore().set({
-        profile: {
-          uuid: '0',
-          avatar: 0,
-          fullName: 'User',
-          nickname: 'User',
-          interests: [] as string[]
-        } as TProfile,
-        inbox: [
-          {
-            id: '0',
-            displayName: 'Mika',
-            createdAt: new Date(1999, 9, 9, 9, 0),
-            updatedAt: new Date(1999, 9, 9, 9, 1),
-            members: [
-              {
-                uuid: '0',
-                avatar: 0,
-                interests: [] as string[]
-              },
-              {
-                uuid: '1',
-                avatar: 1,
-                fullName: 'Mika',
-                nickname: 'Mika',
-                info: {
-                  romantically: 'Closed',
-                  gender: 'Woman',
-                  speaks: [ 'English' ]
-                },
-                interests: [] as string[]
-              }
-            ],
-            messages: [
-              { owner: '1', text: 'Yay', createdAt: new Date(1999, 9, 9, 9, 0) },
-              { owner: '0', text: '<3', createdAt: new Date(1999, 9, 9, 9, 1) }
-            ]
-          }
-        ] as InboxEntry[]
-      });
-  
-      const component = render(<App/>);
-  
-      // wait for app loading
-      await waitFor(() => component.getByTestId('v-main-area'));
-
-      // snap the bottom sheet the top of the screen
-      // by simulating pressing a chat from inbox
-      fireEvent.press(component.getByTestId('bn-chat'));
-
-      await waitFor(() => true);
-
-      const initial = toJSON(component, 'v-chat');
-
-      expect(initial).toMatchSnapshot('Should Have Full Height');
-
-      // update keyboard height
-      store.set({
-        layout: {
-          width: store.state.layout.width,
-          height: store.state.layout.height - 500
-        }
-      });
-
-      const altered = toJSON(component, 'v-chat');
-
-      expect(altered).toMatchSnapshot('Should Have Height Minus Keyboard Height & Margin');
-
-      component.unmount();
-    });
-  
     test('Sending Messages', async() =>
     {
       getStore().set({
@@ -2835,6 +2788,86 @@ describe('Testing <App/>', () =>
       expect(messages?.children).toHaveLength(3);
 
       expect(messages?.children?.[0]).toMatchSnapshot('Should Be A Message Equal to <3');
+  
+      component.unmount();
+    });
+
+    test('Sending Ice Breaker', async() =>
+    {
+      getStore().set({
+        profile: {
+          uuid: '0',
+          avatar: 0,
+          fullName: 'User',
+          nickname: 'User',
+          interests: [] as string[]
+        } as TProfile,
+        inbox: [
+          {
+            id: '0',
+            displayName: 'Mika',
+            createdAt: subDays(new Date(), 2),
+            updatedAt: subDays(new Date(), 2),
+            members: [
+              {
+                uuid: '0',
+                avatar: 0,
+                interests: [] as string[]
+              },
+              {
+                uuid: '1',
+                avatar: 1,
+                fullName: 'Mika',
+                nickname: 'Mika',
+                iceBreakers: [
+                  'What is your favorite food?',
+                  'How much do you love Skye?'
+                ],
+                info: {
+                  romantically: 'Closed',
+                  gender: 'Woman',
+                  speaks: [ 'English' ]
+                },
+                interests: [] as string[]
+              }
+            ],
+            messages: []
+          }
+        ] as InboxEntry[]
+      });
+    
+      const component = render(<App/>);
+    
+      // wait for app loading
+      await waitFor(() => component.getByTestId('v-main-area'));
+  
+      // snap the bottom sheet the top of the screen
+      // by simulating pressing a chat from inbox
+      fireEvent.press(component.getAllByTestId('bn-chat')[0]);
+  
+      await waitFor(() => true);
+  
+      const iceBreakers = toJSON(component, 'v-ice-breaker', 'all');
+      
+      const initialMessages = toJSON(component, 'v-messages', 'all');
+      
+      expect(initialMessages?.children).toHaveLength(1);
+      
+      expect(iceBreakers).toMatchSnapshot();
+
+      // send message
+
+      fireEvent.press(component.getAllByTestId('bn-ice-breaker')[1]);
+
+      fireEvent.press(component.getByTestId('bn-message'));
+
+      await waitFor(() => true);
+      
+      const messages = toJSON(component, 'v-messages', 'all');
+      
+      expect(messages?.children).toHaveLength(2);
+
+      expect(messages?.children?.[0]).toMatchSnapshot();
   
       component.unmount();
     });

@@ -7,9 +7,10 @@ Performance Issues and Bugs:
       - we have no idea what causes that to... not happen?
 
 Alpha:
-  ☐ check TODOs if ny are do-able @high
 
-  ☐ redesign profile edits
+  ☐ change the view size of the app to test how it scales on smaller screens and fix the issues. @high
+
+  ☐ check TODOs if any are do-able @high
 
   ☐ work on branding descriptions and motto
 
@@ -45,12 +46,9 @@ Alpha:
   ☐ test everything (high code coverage)
 
 Testing:
-  - test chat hints ice breaker button @high
-
-  - find a way to test keyboard showing @high 
-
   - test all editable profile elements
     ☐ bio
+    ☐ titles
     ☐ romantically
 
   ☐ mock and test Clipboard

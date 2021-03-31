@@ -64,18 +64,21 @@ export default class ChatHints extends React.Component<{
 
       <Demographic user={ user } profile={ profile }/>
 
-      {
-        profile.iceBreakers?.slice(0, 2).map((question, i) =>
-          <View key={ i } style={ styles.question }>
-            <Text style={ styles.questionText }>{ question }</Text>
-            <Button
-              borderless={ true }
-              buttonStyle={ styles.questionIcon }
-              icon={ { name: 'message-circle', size: sizes.icon * 0.85, color: colors.greyText } }
-              onPress={ () => this.setInput(question) }
-            />
-          </View>)
-      }
+      <View testID={ 'v-ice-breaker' }>
+        {
+          profile.iceBreakers?.slice(0, 2).map((question, i) =>
+            <View key={ i } style={ styles.question }>
+              <Text style={ styles.questionText }>{ question }</Text>
+              <Button
+                testID={ 'bn-ice-breaker' }
+                borderless={ true }
+                buttonStyle={ styles.questionIcon }
+                icon={ { name: 'message-circle', size: sizes.icon * 0.85, color: colors.greyText } }
+                onPress={ () => this.setInput(question) }
+              />
+            </View>)
+        }
+      </View>
     </View>;
   }
 }

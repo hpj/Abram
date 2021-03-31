@@ -20,7 +20,7 @@ import Demographic from '../components/Demographic';
 
 import Button from '../components/Button';
 
-import { BioEdits, AvatarEdits } from '../components/ProfileEdits';
+import { BioEdits, AvatarEdits, TitlesEdits } from '../components/ProfileEdits';
 
 import type { BaseEdits } from '../components/ProfileEdits';
 
@@ -133,6 +133,7 @@ class Profile extends React.Component<{
           buttonStyle={ styles.section }
           useAlternative={ true }
           disabled={ !editable }
+          onPress={ () => this.openEdit(TitlesEdits) }
         >
           <View style={ styles.sectionEditable }>
             {/* eslint-disable-next-line react-native/no-inline-styles */}

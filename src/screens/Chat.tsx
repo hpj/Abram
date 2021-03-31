@@ -145,6 +145,7 @@ class Chat extends StoreComponent<unknown, {
 
   keyboardProgress = new Animated.Value(0);
 
+  // istanbul ignore next
   keyboardShow(): void
   {
     Animated.timing(this.keyboardProgress, {
@@ -155,6 +156,7 @@ class Chat extends StoreComponent<unknown, {
     }).start(() => this);
   }
 
+  // istanbul ignore next
   keyboardHide(): void
   {
     Animated.timing(this.keyboardProgress, {

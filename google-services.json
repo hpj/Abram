@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "82949879705",
+    "firebase_url": "https://abramy.firebaseio.com",
+    "project_id": "abramy",
+    "storage_bucket": "abramy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:82949879705:android:4b5757da63c35d56bd8508",
+        "android_client_info": {
+          "package_name": "me.hpj.abram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "82949879705-8i255b58e7t3hk23or78kf758g0012uj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "me.hpj.abram",
+            "certificate_hash": "35995f25a4a3ff1f9d09e9933bade79acbf32685"
+          }
+        },
+        {
+          "client_id": "82949879705-cdkefv5kad4jdip3c681kvg6pkricqlu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMMguP2bWWGJid14Ci6BmYzmrZz4jL4Kw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "82949879705-cdkefv5kad4jdip3c681kvg6pkricqlu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

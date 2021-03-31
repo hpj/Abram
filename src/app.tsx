@@ -134,6 +134,7 @@ export default class App extends StoreComponent<unknown, {
     {
       // set status-bar style
 
+      // istanbul ignore next
       if (Platform.OS === 'android')
       {
         StatusBar.setBackgroundColor(colors.blackBackground);

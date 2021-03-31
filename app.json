@@ -4,7 +4,9 @@
     "slug": "abram",
     "version": "0.1.0",
     "privacy": "unlisted",
-    "platforms": [ "android" ],
+    "platforms": [
+      "android"
+    ],
     "orientation": "portrait",
     "icon": "assets/icon.png",
     "primaryColor": "#000000",
@@ -38,7 +40,9 @@
       "adaptiveIcon": {
         "foregroundImage": "assets/icon-t.png",
         "backgroundColor": "#000000"
-      }
+      },
+      "package": "me.hpj.abram",
+      "googleServicesFile": "./google-services.json"
     },
     "hooks": {
       "postPublish": [

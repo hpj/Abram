@@ -4,6 +4,8 @@ import { StyleSheet, View, Image, Text, TextInput } from 'react-native';
 
 import type { Profile } from '../types';
 
+import { getStore } from '../store';
+
 import getTheme from '../colors';
 
 import { sizes } from '../sizes';
@@ -41,6 +43,13 @@ export class BaseEdits extends React.Component<{
     // TODO change the code to actually send the apply request to the backend
     setTimeout(() =>
     {
+      // update the profile in store
+      getStore().set({
+        profile: this.state.current,
+        focusedProfile: this.state.current
+      });
+
+      // deactivate the edit popup
       this.props.deactivate?.();
 
       // await deactivation animation
@@ -50,7 +59,7 @@ export class BaseEdits extends React.Component<{
           loading: false
         });
       }, 200);
-    }, 2000);
+    }, 1000);
   }
 
   render(title?: string, children?: React.ReactNode): JSX.Element
@@ -72,21 +81,21 @@ export class BaseEdits extends React.Component<{
           !loading ?
             <View style={ styles.buttons }>
               <Button
-                text={ 'Cancel' }
-                borderless={ true }
-                useAlternative={ true }
-                buttonStyle={ styles.button }
-                textStyle={ styles.buttonText }
-                onPress={ this.props.deactivate }
-              />
-
-              <Button
                 text={ 'Save' }
                 borderless={ true }
                 useAlternative={ true }
                 buttonStyle={ styles.button }
                 textStyle={ styles.buttonText }
                 onPress={ this.onApply }
+              />
+
+              <Button
+                text={ 'Cancel' }
+                borderless={ true }
+                useAlternative={ true }
+                buttonStyle={ styles.button }
+                textStyle={ styles.buttonText }
+                onPress={ this.props.deactivate }
               />
             </View> : undefined
         }
@@ -145,15 +154,55 @@ export class AvatarEdits extends BaseEdits
   }
 }
 
+export class TitlesEdits extends BaseEdits
+{
+  onChange(obj: string, text: string): void
+  {
+    this.setState({ current: {
+      ...this.state.current,
+      [obj]: text
+    } });
+  }
+
+  render(): JSX.Element
+  {
+    const { current } = this.state;
+
+    return super.render('Choose Your Titles', <View>
+      <TextInput
+        testID={ 'in-display' }
+        style={ styles.input }
+        multiline={ false }
+        value={ current?.fullName }
+        onChangeText={ (s: string) => this.onChange('fullName', s) }
+        placeholderTextColor={ colors.placeholder }
+        placeholder={ 'Full Name' }
+        maxLength={ 64 }
+      />
+
+      <TextInput
+        testID={ 'in-nickname' }
+        style={ styles.input }
+        multiline={ false }
+        value={ current?.nickname }
+        onChangeText={ (s: string) => this.onChange('nickname', s) }
+        placeholderTextColor={ colors.placeholder }
+        placeholder={ 'Nickname' }
+        maxLength={ 64 }
+      />
+    </View>);
+  }
+}
+
 export class RomanticEdits extends BaseEdits
 {
-  onChange(romantically: BaseEdits['props']['profile']['info']['romantically']): void
+  onChange(obj: string, text: string): void
   {
     this.setState({ current: {
       ...this.state.current,
       info: {
         ...this.state.current.info,
-        romantically
+        [obj]: text
       }
     } });
   }
@@ -162,12 +211,10 @@ export class RomanticEdits extends BaseEdits
   {
     const current = this.state.current?.info.romantically;
 
-    return super.render('wChoose Your Romantic Availability', <View>
-      <Text style={ styles.text }>
-        <Text>While being </Text>
-        <Text style={ { color: colors.whiteText } }>Romantically Closed, </Text>
-        <Text>Reporting any user for flirting will result in their account getting terminated.</Text>
-      </Text>
+    return super.render('Choose Your Romantic Availability', <View>
+      <View style={ styles.infoBox }>
+        <Text style={ styles.text }>While being Romantically Closed, Reporting any user for flirting will result in their account getting terminated.</Text>
+      </View>
       
       <View style={ styles.space }/>
 
@@ -176,7 +223,7 @@ export class RomanticEdits extends BaseEdits
         buttonStyle={ styles.toggle }
         icon={ current === 'Open' ? { name: 'check', size: sizes.icon * 0.65, color: colors.whiteText } : undefined }
         textStyle={ { ...styles.toggleText, color: current === 'Open' ? colors.whiteText : colors.greyText } }
-        onPress={ () => this.onChange('Open') }
+        onPress={ () => this.onChange('romantically', 'Open') }
       />
 
       <Button
@@ -184,7 +231,7 @@ export class RomanticEdits extends BaseEdits
         buttonStyle={ styles.toggle }
         icon={ current === 'Closed' ? { name: 'check', size: sizes.icon * 0.65, color: colors.whiteText } : undefined }
         textStyle={ { ...styles.toggleText, color: current === 'Closed' ? colors.whiteText : colors.greyText } }
-        onPress={ () => this.onChange('Closed') }
+        onPress={ () => this.onChange('romantically', 'Closed') }
       />
     </View>);
   }
@@ -204,8 +251,8 @@ const styles = StyleSheet.create({
   },
 
   loader: {
-    width: 200,
-    height: 200
+    width: 250,
+    height: 250
   },
 
   title: {
@@ -220,12 +267,17 @@ const styles = StyleSheet.create({
     margin: sizes.windowMargin * 0.5
   },
 
+  infoBox: {
+    padding: sizes.windowMargin * 0.75,
+    backgroundColor: colors.rectangleBackground,
+    borderRadius: 5
+  },
+
   text: {
     fontSize: 12,
-    color: colors.greyText,
-    fontWeight: 'bold',
-
-    marginVertical: sizes.windowMargin * 0.5
+    color: colors.whiteText,
+    textTransform: 'uppercase',
+    fontWeight: 'bold'
   },
 
   toggle: {
