@@ -88,18 +88,6 @@ class Menu extends StoreComponent<{
       this.props.close?.();
   }
 
-  openSettings(): void
-  {
-    this.store.set({
-      title: 'Settings',
-      index: 3,
-      additionNavigationIcon: 'settings'
-    });
-
-    // deactivate menu
-    this.props.deactivate?.();
-  }
-
   renderMain(): JSX.Element
   {
     return <View testID={ 'v-menu-content' } style={ styles.container }>
@@ -115,15 +103,6 @@ class Menu extends StoreComponent<{
         />
 
         <View style={ styles.space }/>
-
-        <Button
-          testID={ 'bn-settings' }
-          buttonStyle={ styles.button  }
-          textStyle={ styles.buttonText  }
-          icon={ { name: 'settings', size: sizes.icon * 0.75, color: colors.whiteText, style: styles.buttonIcon } }
-          text={ 'Settings' }
-          onPress={ () => this.openSettings() }
-        />
 
         <Button
           testID={ 'bn-logout' }

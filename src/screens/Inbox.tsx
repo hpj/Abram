@@ -103,9 +103,8 @@ class Inbox extends StoreComponent<{
 
                 <View style={ {
                   ...styles.avatars,
-
                   width: sizes.inboxAvatar,
-                  height: sizes.inboxAvatar,
+                  height: sizes.inboxAvatar
                 } }>
                   {
                     members.splice(0, 4).map((member, i, array) =>

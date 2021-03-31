@@ -6903,21 +6903,21 @@ exports[`Testing <App/> Chat Sending Messages 1`] = `
               <View
                 style={
                   Object {
-                    "height": 70,
+                    "height": 50,
                     "marginLeft": 5,
-                    "width": 70,
+                    "width": 50,
                   }
                 }
               >
                 <View
                   style={
                     Object {
-                      "height": 70,
+                      "height": 50,
                       "justifyContent": "center",
                       "left": 0,
                       "position": "absolute",
                       "top": 0,
-                      "width": 70,
+                      "width": 50,
                     }
                   }
                 >
@@ -6926,10 +6926,10 @@ exports[`Testing <App/> Chat Sending Messages 1`] = `
                     style={
                       Object {
                         "backgroundColor": "#373434",
-                        "borderRadius": 70,
-                        "height": 70,
+                        "borderRadius": 50,
+                        "height": 50,
                         "position": "absolute",
-                        "width": 70,
+                        "width": 50,
                       }
                     }
                   />
@@ -6938,13 +6938,13 @@ exports[`Testing <App/> Chat Sending Messages 1`] = `
                       Object {
                         "backgroundColor": "#ffffff",
                         "borderColor": "#000000",
-                        "borderRadius": 23,
+                        "borderRadius": 16,
                         "borderWidth": 3,
-                        "height": 23,
+                        "height": 16,
                         "marginLeft": -10,
                         "opacity": 1,
                         "position": "absolute",
-                        "width": 23,
+                        "width": 16,
                       }
                     }
                   />
@@ -6962,7 +6962,7 @@ exports[`Testing <App/> Chat Sending Messages 1`] = `
                   style={
                     Object {
                       "color": "#ffffff",
-                      "fontSize": 22,
+                      "fontSize": 16,
                       "fontWeight": "bold",
                     }
                   }
@@ -6973,7 +6973,7 @@ exports[`Testing <App/> Chat Sending Messages 1`] = `
                   style={
                     Object {
                       "color": "#818181",
-                      "fontSize": 20,
+                      "fontSize": 14,
                     }
                   }
                 >
@@ -6985,7 +6985,7 @@ exports[`Testing <App/> Chat Sending Messages 1`] = `
                     Object {
                       "alignSelf": "flex-start",
                       "color": "#818181",
-                      "fontSize": 22,
+                      "fontSize": 16,
                       "marginTop": 10,
                     }
                   }
@@ -7038,21 +7038,21 @@ exports[`Testing <App/> Chat Sending Messages 1`] = `
               <View
                 style={
                   Object {
-                    "height": 70,
+                    "height": 50,
                     "marginLeft": 5,
-                    "width": 70,
+                    "width": 50,
                   }
                 }
               >
                 <View
                   style={
                     Object {
-                      "height": 70,
+                      "height": 50,
                       "justifyContent": "center",
                       "left": 0,
                       "position": "absolute",
                       "top": 0,
-                      "width": 70,
+                      "width": 50,
                     }
                   }
                 >
@@ -7061,10 +7061,10 @@ exports[`Testing <App/> Chat Sending Messages 1`] = `
                     style={
                       Object {
                         "backgroundColor": "#373434",
-                        "borderRadius": 70,
-                        "height": 70,
+                        "borderRadius": 50,
+                        "height": 50,
                         "position": "absolute",
-                        "width": 70,
+                        "width": 50,
                       }
                     }
                   />
@@ -7073,13 +7073,13 @@ exports[`Testing <App/> Chat Sending Messages 1`] = `
                       Object {
                         "backgroundColor": "#ffffff",
                         "borderColor": "#000000",
-                        "borderRadius": 23,
+                        "borderRadius": 16,
                         "borderWidth": 3,
-                        "height": 23,
+                        "height": 16,
                         "marginLeft": -10,
                         "opacity": 1,
                         "position": "absolute",
-                        "width": 23,
+                        "width": 16,
                       }
                     }
                   />
@@ -7097,7 +7097,7 @@ exports[`Testing <App/> Chat Sending Messages 1`] = `
                   style={
                     Object {
                       "color": "#ffffff",
-                      "fontSize": 22,
+                      "fontSize": 16,
                       "fontWeight": "bold",
                     }
                   }
@@ -7108,7 +7108,7 @@ exports[`Testing <App/> Chat Sending Messages 1`] = `
                   style={
                     Object {
                       "color": "#818181",
-                      "fontSize": 20,
+                      "fontSize": 14,
                     }
                   }
                 >
@@ -7120,7 +7120,7 @@ exports[`Testing <App/> Chat Sending Messages 1`] = `
                     Object {
                       "alignSelf": "flex-start",
                       "color": "#818181",
-                      "fontSize": 22,
+                      "fontSize": 16,
                       "marginTop": 10,
                     }
                   }
@@ -7302,21 +7302,21 @@ exports[`Testing <App/> Chat Sending Messages: Should Be Sorted With Skye on Top
               <View
                 style={
                   Object {
-                    "height": 70,
+                    "height": 50,
                     "marginLeft": 5,
-                    "width": 70,
+                    "width": 50,
                   }
                 }
               >
                 <View
                   style={
                     Object {
-                      "height": 70,
+                      "height": 50,
                       "justifyContent": "center",
                       "left": 0,
                       "position": "absolute",
                       "top": 0,
-                      "width": 70,
+                      "width": 50,
                     }
                   }
                 >
@@ -7325,10 +7325,10 @@ exports[`Testing <App/> Chat Sending Messages: Should Be Sorted With Skye on Top
                     style={
                       Object {
                         "backgroundColor": "#373434",
-                        "borderRadius": 70,
-                        "height": 70,
+                        "borderRadius": 50,
+                        "height": 50,
                         "position": "absolute",
-                        "width": 70,
+                        "width": 50,
                       }
                     }
                   />
@@ -7337,13 +7337,13 @@ exports[`Testing <App/> Chat Sending Messages: Should Be Sorted With Skye on Top
                       Object {
                         "backgroundColor": "#ffffff",
                         "borderColor": "#000000",
-                        "borderRadius": 23,
+                        "borderRadius": 16,
                         "borderWidth": 3,
-                        "height": 23,
+                        "height": 16,
                         "marginLeft": -10,
                         "opacity": 0,
                         "position": "absolute",
-                        "width": 23,
+                        "width": 16,
                       }
                     }
                   />
@@ -7361,7 +7361,7 @@ exports[`Testing <App/> Chat Sending Messages: Should Be Sorted With Skye on Top
                   style={
                     Object {
                       "color": "#ffffff",
-                      "fontSize": 22,
+                      "fontSize": 16,
                       "fontWeight": "bold",
                     }
                   }
@@ -7372,7 +7372,7 @@ exports[`Testing <App/> Chat Sending Messages: Should Be Sorted With Skye on Top
                   style={
                     Object {
                       "color": "#818181",
-                      "fontSize": 20,
+                      "fontSize": 14,
                     }
                   }
                 >
@@ -7384,7 +7384,7 @@ exports[`Testing <App/> Chat Sending Messages: Should Be Sorted With Skye on Top
                     Object {
                       "alignSelf": "flex-start",
                       "color": "#818181",
-                      "fontSize": 22,
+                      "fontSize": 16,
                       "marginTop": 10,
                     }
                   }
@@ -7437,21 +7437,21 @@ exports[`Testing <App/> Chat Sending Messages: Should Be Sorted With Skye on Top
               <View
                 style={
                   Object {
-                    "height": 70,
+                    "height": 50,
                     "marginLeft": 5,
-                    "width": 70,
+                    "width": 50,
                   }
                 }
               >
                 <View
                   style={
                     Object {
-                      "height": 70,
+                      "height": 50,
                       "justifyContent": "center",
                       "left": 0,
                       "position": "absolute",
                       "top": 0,
-                      "width": 70,
+                      "width": 50,
                     }
                   }
                 >
@@ -7460,10 +7460,10 @@ exports[`Testing <App/> Chat Sending Messages: Should Be Sorted With Skye on Top
                     style={
                       Object {
                         "backgroundColor": "#373434",
-                        "borderRadius": 70,
-                        "height": 70,
+                        "borderRadius": 50,
+                        "height": 50,
                         "position": "absolute",
-                        "width": 70,
+                        "width": 50,
                       }
                     }
                   />
@@ -7472,13 +7472,13 @@ exports[`Testing <App/> Chat Sending Messages: Should Be Sorted With Skye on Top
                       Object {
                         "backgroundColor": "#ffffff",
                         "borderColor": "#000000",
-                        "borderRadius": 23,
+                        "borderRadius": 16,
                         "borderWidth": 3,
-                        "height": 23,
+                        "height": 16,
                         "marginLeft": -10,
                         "opacity": 1,
                         "position": "absolute",
-                        "width": 23,
+                        "width": 16,
                       }
                     }
                   />
@@ -7496,7 +7496,7 @@ exports[`Testing <App/> Chat Sending Messages: Should Be Sorted With Skye on Top
                   style={
                     Object {
                       "color": "#ffffff",
-                      "fontSize": 22,
+                      "fontSize": 16,
                       "fontWeight": "bold",
                     }
                   }
@@ -7507,7 +7507,7 @@ exports[`Testing <App/> Chat Sending Messages: Should Be Sorted With Skye on Top
                   style={
                     Object {
                       "color": "#818181",
-                      "fontSize": 20,
+                      "fontSize": 14,
                     }
                   }
                 >
@@ -7519,7 +7519,7 @@ exports[`Testing <App/> Chat Sending Messages: Should Be Sorted With Skye on Top
                     Object {
                       "alignSelf": "flex-start",
                       "color": "#818181",
-                      "fontSize": 22,
+                      "fontSize": 16,
                       "marginTop": 10,
                     }
                   }
@@ -7940,345 +7940,6 @@ exports[`Testing <App/> Menus Navigating to Profile: Navigation View Should Be P
       }
     }
     testID="v-profile"
-  />
-  <View
-    pointerEvents="none"
-    style={
-      Object {
-        "height": "100%",
-        "opacity": 0,
-        "position": "absolute",
-        "top": 25,
-        "width": "100%",
-      }
-    }
-    testID="v-settings"
-  />
-</View>
-`;
-
-exports[`Testing <App/> Menus Navigating to Settings: Bottom Should Have A Additional Button With Settings Icon 1`] = `
-<View
-  style={
-    Object {
-      "backgroundColor": "#000000",
-      "flexDirection": "row",
-      "height": 56,
-      "justifyContent": "center",
-    }
-  }
-  testID="v-bottom"
->
-  <View
-    accessible={true}
-    focusable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-      }
-    }
-    testID="bn-inbox"
-  >
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-          "maxWidth": 168,
-          "minWidth": 80,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "alignItems": "flex-end",
-            "backgroundColor": "rgba(55,52,52,0.3)",
-            "borderRadius": 44,
-            "height": 44,
-            "position": "absolute",
-            "width": 44,
-          }
-        }
-      >
-        <View />
-      </View>
-      <Text
-        allowFontScaling={false}
-        style={
-          Array [
-            Object {
-              "color": "rgba(255,255,255,0.6)",
-              "fontSize": 24,
-            },
-            undefined,
-            Object {
-              "fontFamily": "feather",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-    </View>
-  </View>
-  <View
-    accessible={true}
-    focusable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-      }
-    }
-    testID="bn-discover"
-  >
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-          "maxWidth": 168,
-          "minWidth": 80,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "alignItems": "flex-end",
-            "backgroundColor": "rgba(55,52,52,0.3)",
-            "borderRadius": 44,
-            "height": 44,
-            "position": "absolute",
-            "width": 44,
-          }
-        }
-      >
-        <View />
-      </View>
-      <Text
-        allowFontScaling={false}
-        style={
-          Array [
-            Object {
-              "color": "rgba(255,255,255,0.6)",
-              "fontSize": 24,
-            },
-            undefined,
-            Object {
-              "fontFamily": "feather",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-    </View>
-  </View>
-  <View
-    accessible={true}
-    focusable={false}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-      }
-    }
-    testID="bn-additional"
-  >
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-          "maxWidth": 168,
-          "minWidth": 80,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "alignItems": "flex-end",
-            "backgroundColor": "#373434",
-            "borderRadius": 44,
-            "height": 44,
-            "position": "absolute",
-            "width": 44,
-          }
-        }
-      >
-        <View />
-      </View>
-      <Text
-        allowFontScaling={false}
-        style={
-          Array [
-            Object {
-              "color": "#ffffff",
-              "fontSize": 24,
-            },
-            undefined,
-            Object {
-              "fontFamily": "feather",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-            Object {},
-          ]
-        }
-      >
-        
-      </Text>
-    </View>
-  </View>
-</View>
-`;
-
-exports[`Testing <App/> Menus Navigating to Settings: Holder View Should Be Hidden 1`] = `
-<View
-  accessible={true}
-  focusable={false}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  pointerEvents="none"
-  style={
-    Object {
-      "backgroundColor": "#000000",
-      "height": 1131,
-      "opacity": 0,
-      "position": "absolute",
-      "width": 523,
-      "zIndex": 2,
-    }
-  }
-  testID="v-holder"
-/>
-`;
-
-exports[`Testing <App/> Menus Navigating to Settings: Menu View Should Be Hidden 1`] = `
-<View
-  pointerEvents="none"
-  style={
-    Object {
-      "backgroundColor": "#3a3737",
-      "borderRadius": 15,
-      "minHeight": 622.0500000000001,
-      "opacity": 0,
-      "position": "absolute",
-      "right": 10,
-      "top": 72,
-      "width": 493,
-      "zIndex": 3,
-    }
-  }
-  testID="v-menu"
->
-  <View
-    style={
-      Object {
-        "flex": 1,
-      }
-    }
-    testID="v-menu-content"
-  />
-</View>
-`;
-
-exports[`Testing <App/> Menus Navigating to Settings: Navigation View Should Be Settings 1`] = `
-<View
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
-  testID="v-navigation"
->
-  <View
-    pointerEvents="none"
-    style={
-      Object {
-        "height": "100%",
-        "opacity": 0,
-        "position": "absolute",
-        "top": 25,
-        "width": "100%",
-      }
-    }
-    testID="v-inbox"
-  />
-  <View
-    pointerEvents="none"
-    style={
-      Object {
-        "height": "100%",
-        "opacity": 0,
-        "position": "absolute",
-        "top": 25,
-        "width": "100%",
-      }
-    }
-    testID="v-discover"
-  />
-  <View
-    pointerEvents="none"
-    style={
-      Object {
-        "height": "100%",
-        "opacity": 0,
-        "position": "absolute",
-        "top": 25,
-        "width": "100%",
-      }
-    }
-    testID="v-profile"
-  />
-  <View
-    pointerEvents="box-none"
-    style={
-      Object {
-        "height": "100%",
-        "opacity": 1,
-        "position": "absolute",
-        "top": 0,
-        "width": "100%",
-      }
-    }
-    testID="v-settings"
   />
 </View>
 `;
@@ -9114,63 +8775,6 @@ exports[`Testing <App/> Menus Showing and Hiding Main Menu: Initial Menu View Sh
       />
       <View
         accessible={true}
-        focusable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row-reverse",
-            "padding": 17,
-          }
-        }
-        testID="bn-settings"
-      >
-        <View>
-          <View />
-        </View>
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontSize": 18,
-              },
-              Object {
-                "marginHorizontal": 23,
-              },
-              Object {
-                "fontFamily": "feather",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-        <Text
-          style={
-            Object {
-              "color": "#ffffff",
-              "flex": 1,
-              "fontSize": 14,
-              "marginHorizontal": 23,
-            }
-          }
-        >
-          Settings
-        </Text>
-      </View>
-      <View
-        accessible={true}
         focusable={false}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -9490,63 +9094,6 @@ exports[`Testing <App/> Menus Showing and Hiding Main Menu: Menu View Should Be 
       />
       <View
         accessible={true}
-        focusable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row-reverse",
-            "padding": 17,
-          }
-        }
-        testID="bn-settings"
-      >
-        <View>
-          <View />
-        </View>
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": "#ffffff",
-                "fontSize": 18,
-              },
-              Object {
-                "marginHorizontal": 23,
-              },
-              Object {
-                "fontFamily": "feather",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-        <Text
-          style={
-            Object {
-              "color": "#ffffff",
-              "flex": 1,
-              "fontSize": 14,
-              "marginHorizontal": 23,
-            }
-          }
-        >
-          Settings
-        </Text>
-      </View>
-      <View
-        accessible={true}
         focusable={false}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -9815,19 +9362,6 @@ exports[`Testing <App/> Navigation Views: Initial Navigation View Should Be Inbo
     }
     testID="v-profile"
   />
-  <View
-    pointerEvents="none"
-    style={
-      Object {
-        "height": "100%",
-        "opacity": 0,
-        "position": "absolute",
-        "top": 25,
-        "width": "100%",
-      }
-    }
-    testID="v-settings"
-  />
 </View>
 `;
 
@@ -9878,19 +9412,6 @@ exports[`Testing <App/> Navigation Views: Navigation View Should Be Discover 1`]
       }
     }
     testID="v-profile"
-  />
-  <View
-    pointerEvents="none"
-    style={
-      Object {
-        "height": "100%",
-        "opacity": 0,
-        "position": "absolute",
-        "top": 25,
-        "width": "100%",
-      }
-    }
-    testID="v-settings"
   />
 </View>
 `;
@@ -13429,21 +12950,21 @@ exports[`Testing <Inbox/> Group of 3 View: Should Be A Group View With 2 Avatars
             <View
               style={
                 Object {
-                  "height": 70,
+                  "height": 50,
                   "marginLeft": 5,
-                  "width": 70,
+                  "width": 50,
                 }
               }
             >
               <View
                 style={
                   Object {
-                    "height": 52.5,
+                    "height": 37.5,
                     "justifyContent": "center",
-                    "left": 18.375,
+                    "left": 13.125,
                     "position": "absolute",
-                    "top": 26.25,
-                    "width": 52.5,
+                    "top": 18.75,
+                    "width": 37.5,
                   }
                 }
               >
@@ -13452,10 +12973,10 @@ exports[`Testing <Inbox/> Group of 3 View: Should Be A Group View With 2 Avatars
                   style={
                     Object {
                       "backgroundColor": "#373434",
-                      "borderRadius": 70,
-                      "height": 52.5,
+                      "borderRadius": 50,
+                      "height": 37.5,
                       "position": "absolute",
-                      "width": 52.5,
+                      "width": 37.5,
                     }
                   }
                 />
@@ -13464,13 +12985,13 @@ exports[`Testing <Inbox/> Group of 3 View: Should Be A Group View With 2 Avatars
                     Object {
                       "backgroundColor": "#ffffff",
                       "borderColor": "#000000",
-                      "borderRadius": 23,
+                      "borderRadius": 16,
                       "borderWidth": 3,
-                      "height": 23,
+                      "height": 16,
                       "marginLeft": -10,
                       "opacity": 0,
                       "position": "absolute",
-                      "width": 23,
+                      "width": 16,
                     }
                   }
                 />
@@ -13478,12 +12999,12 @@ exports[`Testing <Inbox/> Group of 3 View: Should Be A Group View With 2 Avatars
               <View
                 style={
                   Object {
-                    "height": 52.5,
+                    "height": 37.5,
                     "justifyContent": "center",
                     "left": 0,
                     "position": "absolute",
                     "top": 0,
-                    "width": 52.5,
+                    "width": 37.5,
                   }
                 }
               >
@@ -13492,10 +13013,10 @@ exports[`Testing <Inbox/> Group of 3 View: Should Be A Group View With 2 Avatars
                   style={
                     Object {
                       "backgroundColor": "#373434",
-                      "borderRadius": 70,
-                      "height": 52.5,
+                      "borderRadius": 50,
+                      "height": 37.5,
                       "position": "absolute",
-                      "width": 52.5,
+                      "width": 37.5,
                     }
                   }
                 />
@@ -13504,13 +13025,13 @@ exports[`Testing <Inbox/> Group of 3 View: Should Be A Group View With 2 Avatars
                     Object {
                       "backgroundColor": "#ffffff",
                       "borderColor": "#000000",
-                      "borderRadius": 23,
+                      "borderRadius": 16,
                       "borderWidth": 3,
-                      "height": 23,
+                      "height": 16,
                       "marginLeft": -10,
                       "opacity": 1,
                       "position": "absolute",
-                      "width": 23,
+                      "width": 16,
                     }
                   }
                 />
@@ -13528,7 +13049,7 @@ exports[`Testing <Inbox/> Group of 3 View: Should Be A Group View With 2 Avatars
                 style={
                   Object {
                     "color": "#ffffff",
-                    "fontSize": 22,
+                    "fontSize": 16,
                     "fontWeight": "bold",
                   }
                 }
@@ -13539,7 +13060,7 @@ exports[`Testing <Inbox/> Group of 3 View: Should Be A Group View With 2 Avatars
                 style={
                   Object {
                     "color": "#818181",
-                    "fontSize": 20,
+                    "fontSize": 14,
                   }
                 }
               >
@@ -13551,7 +13072,7 @@ exports[`Testing <Inbox/> Group of 3 View: Should Be A Group View With 2 Avatars
                   Object {
                     "alignSelf": "flex-start",
                     "color": "#818181",
-                    "fontSize": 22,
+                    "fontSize": 16,
                     "marginTop": 10,
                   }
                 }
@@ -13618,21 +13139,21 @@ exports[`Testing <Inbox/> Group of 4 View: Should Be A Group View With 3 Avatars
             <View
               style={
                 Object {
-                  "height": 70,
+                  "height": 50,
                   "marginLeft": 5,
-                  "width": 70,
+                  "width": 50,
                 }
               }
             >
               <View
                 style={
                   Object {
-                    "height": 45.5,
+                    "height": 32.5,
                     "justifyContent": "center",
-                    "left": 7.75,
+                    "left": 1.25,
                     "position": "absolute",
-                    "top": 35.5,
-                    "width": 45.5,
+                    "top": 22.5,
+                    "width": 32.5,
                   }
                 }
               >
@@ -13641,10 +13162,10 @@ exports[`Testing <Inbox/> Group of 4 View: Should Be A Group View With 3 Avatars
                   style={
                     Object {
                       "backgroundColor": "#373434",
-                      "borderRadius": 70,
-                      "height": 45.5,
+                      "borderRadius": 50,
+                      "height": 32.5,
                       "position": "absolute",
-                      "width": 45.5,
+                      "width": 32.5,
                     }
                   }
                 />
@@ -13653,13 +13174,13 @@ exports[`Testing <Inbox/> Group of 4 View: Should Be A Group View With 3 Avatars
                     Object {
                       "backgroundColor": "#ffffff",
                       "borderColor": "#000000",
-                      "borderRadius": 23,
+                      "borderRadius": 16,
                       "borderWidth": 3,
-                      "height": 23,
+                      "height": 16,
                       "marginLeft": -10,
                       "opacity": 0,
                       "position": "absolute",
-                      "width": 23,
+                      "width": 16,
                     }
                   }
                 />
@@ -13667,12 +13188,12 @@ exports[`Testing <Inbox/> Group of 4 View: Should Be A Group View With 3 Avatars
               <View
                 style={
                   Object {
-                    "height": 45.5,
+                    "height": 32.5,
                     "justifyContent": "center",
                     "left": 0,
                     "position": "absolute",
                     "top": 0,
-                    "width": 45.5,
+                    "width": 32.5,
                   }
                 }
               >
@@ -13681,10 +13202,10 @@ exports[`Testing <Inbox/> Group of 4 View: Should Be A Group View With 3 Avatars
                   style={
                     Object {
                       "backgroundColor": "#373434",
-                      "borderRadius": 70,
-                      "height": 45.5,
+                      "borderRadius": 50,
+                      "height": 32.5,
                       "position": "absolute",
-                      "width": 45.5,
+                      "width": 32.5,
                     }
                   }
                 />
@@ -13693,13 +13214,13 @@ exports[`Testing <Inbox/> Group of 4 View: Should Be A Group View With 3 Avatars
                     Object {
                       "backgroundColor": "#ffffff",
                       "borderColor": "#000000",
-                      "borderRadius": 23,
+                      "borderRadius": 16,
                       "borderWidth": 3,
-                      "height": 23,
+                      "height": 16,
                       "marginLeft": -10,
                       "opacity": 1,
                       "position": "absolute",
-                      "width": 23,
+                      "width": 16,
                     }
                   }
                 />
@@ -13707,12 +13228,12 @@ exports[`Testing <Inbox/> Group of 4 View: Should Be A Group View With 3 Avatars
               <View
                 style={
                   Object {
-                    "height": 45.5,
+                    "height": 32.5,
                     "justifyContent": "center",
-                    "left": 30.5,
+                    "left": 17.5,
                     "position": "absolute",
                     "top": 10,
-                    "width": 45.5,
+                    "width": 32.5,
                   }
                 }
               >
@@ -13721,10 +13242,10 @@ exports[`Testing <Inbox/> Group of 4 View: Should Be A Group View With 3 Avatars
                   style={
                     Object {
                       "backgroundColor": "#373434",
-                      "borderRadius": 70,
-                      "height": 45.5,
+                      "borderRadius": 50,
+                      "height": 32.5,
                       "position": "absolute",
-                      "width": 45.5,
+                      "width": 32.5,
                     }
                   }
                 />
@@ -13733,13 +13254,13 @@ exports[`Testing <Inbox/> Group of 4 View: Should Be A Group View With 3 Avatars
                     Object {
                       "backgroundColor": "#ffffff",
                       "borderColor": "#000000",
-                      "borderRadius": 23,
+                      "borderRadius": 16,
                       "borderWidth": 3,
-                      "height": 23,
+                      "height": 16,
                       "marginLeft": -10,
                       "opacity": 0,
                       "position": "absolute",
-                      "width": 23,
+                      "width": 16,
                     }
                   }
                 />
@@ -13757,7 +13278,7 @@ exports[`Testing <Inbox/> Group of 4 View: Should Be A Group View With 3 Avatars
                 style={
                   Object {
                     "color": "#ffffff",
-                    "fontSize": 22,
+                    "fontSize": 16,
                     "fontWeight": "bold",
                   }
                 }
@@ -13768,7 +13289,7 @@ exports[`Testing <Inbox/> Group of 4 View: Should Be A Group View With 3 Avatars
                 style={
                   Object {
                     "color": "#818181",
-                    "fontSize": 20,
+                    "fontSize": 14,
                   }
                 }
               >
@@ -13780,7 +13301,7 @@ exports[`Testing <Inbox/> Group of 4 View: Should Be A Group View With 3 Avatars
                   Object {
                     "alignSelf": "flex-start",
                     "color": "#818181",
-                    "fontSize": 22,
+                    "fontSize": 16,
                     "marginTop": 10,
                   }
                 }
@@ -13847,21 +13368,21 @@ exports[`Testing <Inbox/> Group of 5 View: Should Be A Group View With 4 Avatars
             <View
               style={
                 Object {
-                  "height": 70,
+                  "height": 50,
                   "marginLeft": 5,
-                  "width": 70,
+                  "width": 50,
                 }
               }
             >
               <View
                 style={
                   Object {
-                    "height": 35,
+                    "height": 25,
                     "justifyContent": "center",
                     "left": 0,
                     "position": "absolute",
-                    "top": 30,
-                    "width": 35,
+                    "top": 20,
+                    "width": 25,
                   }
                 }
               >
@@ -13870,10 +13391,10 @@ exports[`Testing <Inbox/> Group of 5 View: Should Be A Group View With 4 Avatars
                   style={
                     Object {
                       "backgroundColor": "#373434",
-                      "borderRadius": 70,
-                      "height": 35,
+                      "borderRadius": 50,
+                      "height": 25,
                       "position": "absolute",
-                      "width": 35,
+                      "width": 25,
                     }
                   }
                 />
@@ -13882,13 +13403,13 @@ exports[`Testing <Inbox/> Group of 5 View: Should Be A Group View With 4 Avatars
                     Object {
                       "backgroundColor": "#ffffff",
                       "borderColor": "#000000",
-                      "borderRadius": 23,
+                      "borderRadius": 16,
                       "borderWidth": 3,
-                      "height": 23,
+                      "height": 16,
                       "marginLeft": -10,
                       "opacity": 0,
                       "position": "absolute",
-                      "width": 23,
+                      "width": 16,
                     }
                   }
                 />
@@ -13896,12 +13417,12 @@ exports[`Testing <Inbox/> Group of 5 View: Should Be A Group View With 4 Avatars
               <View
                 style={
                   Object {
-                    "height": 35,
+                    "height": 25,
                     "justifyContent": "center",
                     "left": 0,
                     "position": "absolute",
                     "top": 0,
-                    "width": 35,
+                    "width": 25,
                   }
                 }
               >
@@ -13910,10 +13431,10 @@ exports[`Testing <Inbox/> Group of 5 View: Should Be A Group View With 4 Avatars
                   style={
                     Object {
                       "backgroundColor": "#373434",
-                      "borderRadius": 70,
-                      "height": 35,
+                      "borderRadius": 50,
+                      "height": 25,
                       "position": "absolute",
-                      "width": 35,
+                      "width": 25,
                     }
                   }
                 />
@@ -13922,13 +13443,13 @@ exports[`Testing <Inbox/> Group of 5 View: Should Be A Group View With 4 Avatars
                     Object {
                       "backgroundColor": "#ffffff",
                       "borderColor": "#000000",
-                      "borderRadius": 23,
+                      "borderRadius": 16,
                       "borderWidth": 3,
-                      "height": 23,
+                      "height": 16,
                       "marginLeft": -10,
                       "opacity": 1,
                       "position": "absolute",
-                      "width": 23,
+                      "width": 16,
                     }
                   }
                 />
@@ -13936,12 +13457,12 @@ exports[`Testing <Inbox/> Group of 5 View: Should Be A Group View With 4 Avatars
               <View
                 style={
                   Object {
-                    "height": 35,
+                    "height": 25,
                     "justifyContent": "center",
-                    "left": 30,
+                    "left": 20,
                     "position": "absolute",
-                    "top": 40,
-                    "width": 35,
+                    "top": 30,
+                    "width": 25,
                   }
                 }
               >
@@ -13950,10 +13471,10 @@ exports[`Testing <Inbox/> Group of 5 View: Should Be A Group View With 4 Avatars
                   style={
                     Object {
                       "backgroundColor": "#373434",
-                      "borderRadius": 70,
-                      "height": 35,
+                      "borderRadius": 50,
+                      "height": 25,
                       "position": "absolute",
-                      "width": 35,
+                      "width": 25,
                     }
                   }
                 />
@@ -13962,13 +13483,13 @@ exports[`Testing <Inbox/> Group of 5 View: Should Be A Group View With 4 Avatars
                     Object {
                       "backgroundColor": "#ffffff",
                       "borderColor": "#000000",
-                      "borderRadius": 23,
+                      "borderRadius": 16,
                       "borderWidth": 3,
-                      "height": 23,
+                      "height": 16,
                       "marginLeft": -10,
                       "opacity": 0,
                       "position": "absolute",
-                      "width": 23,
+                      "width": 16,
                     }
                   }
                 />
@@ -13976,12 +13497,12 @@ exports[`Testing <Inbox/> Group of 5 View: Should Be A Group View With 4 Avatars
               <View
                 style={
                   Object {
-                    "height": 35,
+                    "height": 25,
                     "justifyContent": "center",
-                    "left": 30,
+                    "left": 20,
                     "position": "absolute",
                     "top": 8,
-                    "width": 35,
+                    "width": 25,
                   }
                 }
               >
@@ -13990,10 +13511,10 @@ exports[`Testing <Inbox/> Group of 5 View: Should Be A Group View With 4 Avatars
                   style={
                     Object {
                       "backgroundColor": "#373434",
-                      "borderRadius": 70,
-                      "height": 35,
+                      "borderRadius": 50,
+                      "height": 25,
                       "position": "absolute",
-                      "width": 35,
+                      "width": 25,
                     }
                   }
                 />
@@ -14002,13 +13523,13 @@ exports[`Testing <Inbox/> Group of 5 View: Should Be A Group View With 4 Avatars
                     Object {
                       "backgroundColor": "#ffffff",
                       "borderColor": "#000000",
-                      "borderRadius": 23,
+                      "borderRadius": 16,
                       "borderWidth": 3,
-                      "height": 23,
+                      "height": 16,
                       "marginLeft": -10,
                       "opacity": 0,
                       "position": "absolute",
-                      "width": 23,
+                      "width": 16,
                     }
                   }
                 />
@@ -14026,7 +13547,7 @@ exports[`Testing <Inbox/> Group of 5 View: Should Be A Group View With 4 Avatars
                 style={
                   Object {
                     "color": "#ffffff",
-                    "fontSize": 22,
+                    "fontSize": 16,
                     "fontWeight": "bold",
                   }
                 }
@@ -14037,7 +13558,7 @@ exports[`Testing <Inbox/> Group of 5 View: Should Be A Group View With 4 Avatars
                 style={
                   Object {
                     "color": "#818181",
-                    "fontSize": 20,
+                    "fontSize": 14,
                   }
                 }
               >
@@ -14049,7 +13570,7 @@ exports[`Testing <Inbox/> Group of 5 View: Should Be A Group View With 4 Avatars
                   Object {
                     "alignSelf": "flex-start",
                     "color": "#818181",
-                    "fontSize": 22,
+                    "fontSize": 16,
                     "marginTop": 10,
                   }
                 }
@@ -14121,21 +13642,21 @@ exports[`Testing <Inbox/> New Match View: Should Be A New Match Inbox View 1`] =
             <View
               style={
                 Object {
-                  "height": 70,
+                  "height": 50,
                   "marginLeft": 5,
-                  "width": 70,
+                  "width": 50,
                 }
               }
             >
               <View
                 style={
                   Object {
-                    "height": 70,
+                    "height": 50,
                     "justifyContent": "center",
                     "left": 0,
                     "position": "absolute",
                     "top": 0,
-                    "width": 70,
+                    "width": 50,
                   }
                 }
               >
@@ -14144,10 +13665,10 @@ exports[`Testing <Inbox/> New Match View: Should Be A New Match Inbox View 1`] =
                   style={
                     Object {
                       "backgroundColor": "#373434",
-                      "borderRadius": 70,
-                      "height": 70,
+                      "borderRadius": 50,
+                      "height": 50,
                       "position": "absolute",
-                      "width": 70,
+                      "width": 50,
                     }
                   }
                 />
@@ -14156,13 +13677,13 @@ exports[`Testing <Inbox/> New Match View: Should Be A New Match Inbox View 1`] =
                     Object {
                       "backgroundColor": "#ffffff",
                       "borderColor": "#000000",
-                      "borderRadius": 23,
+                      "borderRadius": 16,
                       "borderWidth": 3,
-                      "height": 23,
+                      "height": 16,
                       "marginLeft": -10,
                       "opacity": 1,
                       "position": "absolute",
-                      "width": 23,
+                      "width": 16,
                     }
                   }
                 />
@@ -14180,7 +13701,7 @@ exports[`Testing <Inbox/> New Match View: Should Be A New Match Inbox View 1`] =
                 style={
                   Object {
                     "color": "#ffffff",
-                    "fontSize": 22,
+                    "fontSize": 16,
                     "fontWeight": "bold",
                   }
                 }
@@ -14191,7 +13712,7 @@ exports[`Testing <Inbox/> New Match View: Should Be A New Match Inbox View 1`] =
                 style={
                   Object {
                     "color": "#818181",
-                    "fontSize": 20,
+                    "fontSize": 14,
                   }
                 }
               >
@@ -14282,21 +13803,21 @@ exports[`Testing <Inbox/> Normal View: Should Be A Normal Inbox View With 1 Avat
             <View
               style={
                 Object {
-                  "height": 70,
+                  "height": 50,
                   "marginLeft": 5,
-                  "width": 70,
+                  "width": 50,
                 }
               }
             >
               <View
                 style={
                   Object {
-                    "height": 70,
+                    "height": 50,
                     "justifyContent": "center",
                     "left": 0,
                     "position": "absolute",
                     "top": 0,
-                    "width": 70,
+                    "width": 50,
                   }
                 }
               >
@@ -14305,10 +13826,10 @@ exports[`Testing <Inbox/> Normal View: Should Be A Normal Inbox View With 1 Avat
                   style={
                     Object {
                       "backgroundColor": "#373434",
-                      "borderRadius": 70,
-                      "height": 70,
+                      "borderRadius": 50,
+                      "height": 50,
                       "position": "absolute",
-                      "width": 70,
+                      "width": 50,
                     }
                   }
                 />
@@ -14317,13 +13838,13 @@ exports[`Testing <Inbox/> Normal View: Should Be A Normal Inbox View With 1 Avat
                     Object {
                       "backgroundColor": "#ffffff",
                       "borderColor": "#000000",
-                      "borderRadius": 23,
+                      "borderRadius": 16,
                       "borderWidth": 3,
-                      "height": 23,
+                      "height": 16,
                       "marginLeft": -10,
                       "opacity": 1,
                       "position": "absolute",
-                      "width": 23,
+                      "width": 16,
                     }
                   }
                 />
@@ -14341,7 +13862,7 @@ exports[`Testing <Inbox/> Normal View: Should Be A Normal Inbox View With 1 Avat
                 style={
                   Object {
                     "color": "#ffffff",
-                    "fontSize": 22,
+                    "fontSize": 16,
                     "fontWeight": "bold",
                   }
                 }
@@ -14352,7 +13873,7 @@ exports[`Testing <Inbox/> Normal View: Should Be A Normal Inbox View With 1 Avat
                 style={
                   Object {
                     "color": "#818181",
-                    "fontSize": 20,
+                    "fontSize": 14,
                   }
                 }
               >
@@ -14364,7 +13885,7 @@ exports[`Testing <Inbox/> Normal View: Should Be A Normal Inbox View With 1 Avat
                   Object {
                     "alignSelf": "flex-start",
                     "color": "#818181",
-                    "fontSize": 22,
+                    "fontSize": 16,
                     "marginTop": 10,
                   }
                 }
@@ -14422,21 +13943,21 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Full
         <View
           style={
             Object {
-              "height": 70,
+              "height": 50,
               "marginLeft": 5,
-              "width": 70,
+              "width": 50,
             }
           }
         >
           <View
             style={
               Object {
-                "height": 70,
+                "height": 50,
                 "justifyContent": "center",
                 "left": 0,
                 "position": "absolute",
                 "top": 0,
-                "width": 70,
+                "width": 50,
               }
             }
           >
@@ -14445,10 +13966,10 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Full
               style={
                 Object {
                   "backgroundColor": "#373434",
-                  "borderRadius": 70,
-                  "height": 70,
+                  "borderRadius": 50,
+                  "height": 50,
                   "position": "absolute",
-                  "width": 70,
+                  "width": 50,
                 }
               }
             />
@@ -14457,13 +13978,13 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Full
                 Object {
                   "backgroundColor": "#ffffff",
                   "borderColor": "#000000",
-                  "borderRadius": 23,
+                  "borderRadius": 16,
                   "borderWidth": 3,
-                  "height": 23,
+                  "height": 16,
                   "marginLeft": -10,
                   "opacity": 1,
                   "position": "absolute",
-                  "width": 23,
+                  "width": 16,
                 }
               }
             />
@@ -14481,7 +14002,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Full
             style={
               Object {
                 "color": "#ffffff",
-                "fontSize": 22,
+                "fontSize": 16,
                 "fontWeight": "bold",
               }
             }
@@ -14492,7 +14013,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Full
             style={
               Object {
                 "color": "#818181",
-                "fontSize": 20,
+                "fontSize": 14,
               }
             }
           >
@@ -14504,7 +14025,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Full
               Object {
                 "alignSelf": "flex-start",
                 "color": "#818181",
-                "fontSize": 22,
+                "fontSize": 16,
                 "marginTop": 10,
               }
             }
@@ -14560,21 +14081,21 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of This
         <View
           style={
             Object {
-              "height": 70,
+              "height": 50,
               "marginLeft": 5,
-              "width": 70,
+              "width": 50,
             }
           }
         >
           <View
             style={
               Object {
-                "height": 70,
+                "height": 50,
                 "justifyContent": "center",
                 "left": 0,
                 "position": "absolute",
                 "top": 0,
-                "width": 70,
+                "width": 50,
               }
             }
           >
@@ -14583,10 +14104,10 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of This
               style={
                 Object {
                   "backgroundColor": "#373434",
-                  "borderRadius": 70,
-                  "height": 70,
+                  "borderRadius": 50,
+                  "height": 50,
                   "position": "absolute",
-                  "width": 70,
+                  "width": 50,
                 }
               }
             />
@@ -14595,13 +14116,13 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of This
                 Object {
                   "backgroundColor": "#ffffff",
                   "borderColor": "#000000",
-                  "borderRadius": 23,
+                  "borderRadius": 16,
                   "borderWidth": 3,
-                  "height": 23,
+                  "height": 16,
                   "marginLeft": -10,
                   "opacity": 1,
                   "position": "absolute",
-                  "width": 23,
+                  "width": 16,
                 }
               }
             />
@@ -14619,7 +14140,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of This
             style={
               Object {
                 "color": "#ffffff",
-                "fontSize": 22,
+                "fontSize": 16,
                 "fontWeight": "bold",
               }
             }
@@ -14630,7 +14151,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of This
             style={
               Object {
                 "color": "#818181",
-                "fontSize": 20,
+                "fontSize": 14,
               }
             }
           >
@@ -14642,7 +14163,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of This
               Object {
                 "alignSelf": "flex-start",
                 "color": "#818181",
-                "fontSize": 22,
+                "fontSize": 16,
                 "marginTop": 10,
               }
             }
@@ -14698,21 +14219,21 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Toda
         <View
           style={
             Object {
-              "height": 70,
+              "height": 50,
               "marginLeft": 5,
-              "width": 70,
+              "width": 50,
             }
           }
         >
           <View
             style={
               Object {
-                "height": 70,
+                "height": 50,
                 "justifyContent": "center",
                 "left": 0,
                 "position": "absolute",
                 "top": 0,
-                "width": 70,
+                "width": 50,
               }
             }
           >
@@ -14721,10 +14242,10 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Toda
               style={
                 Object {
                   "backgroundColor": "#373434",
-                  "borderRadius": 70,
-                  "height": 70,
+                  "borderRadius": 50,
+                  "height": 50,
                   "position": "absolute",
-                  "width": 70,
+                  "width": 50,
                 }
               }
             />
@@ -14733,13 +14254,13 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Toda
                 Object {
                   "backgroundColor": "#ffffff",
                   "borderColor": "#000000",
-                  "borderRadius": 23,
+                  "borderRadius": 16,
                   "borderWidth": 3,
-                  "height": 23,
+                  "height": 16,
                   "marginLeft": -10,
                   "opacity": 1,
                   "position": "absolute",
-                  "width": 23,
+                  "width": 16,
                 }
               }
             />
@@ -14757,7 +14278,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Toda
             style={
               Object {
                 "color": "#ffffff",
-                "fontSize": 22,
+                "fontSize": 16,
                 "fontWeight": "bold",
               }
             }
@@ -14768,7 +14289,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Toda
             style={
               Object {
                 "color": "#818181",
-                "fontSize": 20,
+                "fontSize": 14,
               }
             }
           >
@@ -14780,7 +14301,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Toda
               Object {
                 "alignSelf": "flex-start",
                 "color": "#818181",
-                "fontSize": 22,
+                "fontSize": 16,
                 "marginTop": 10,
               }
             }
@@ -14836,21 +14357,21 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Yest
         <View
           style={
             Object {
-              "height": 70,
+              "height": 50,
               "marginLeft": 5,
-              "width": 70,
+              "width": 50,
             }
           }
         >
           <View
             style={
               Object {
-                "height": 70,
+                "height": 50,
                 "justifyContent": "center",
                 "left": 0,
                 "position": "absolute",
                 "top": 0,
-                "width": 70,
+                "width": 50,
               }
             }
           >
@@ -14859,10 +14380,10 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Yest
               style={
                 Object {
                   "backgroundColor": "#373434",
-                  "borderRadius": 70,
-                  "height": 70,
+                  "borderRadius": 50,
+                  "height": 50,
                   "position": "absolute",
-                  "width": 70,
+                  "width": 50,
                 }
               }
             />
@@ -14871,13 +14392,13 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Yest
                 Object {
                   "backgroundColor": "#ffffff",
                   "borderColor": "#000000",
-                  "borderRadius": 23,
+                  "borderRadius": 16,
                   "borderWidth": 3,
-                  "height": 23,
+                  "height": 16,
                   "marginLeft": -10,
                   "opacity": 1,
                   "position": "absolute",
-                  "width": 23,
+                  "width": 16,
                 }
               }
             />
@@ -14895,7 +14416,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Yest
             style={
               Object {
                 "color": "#ffffff",
-                "fontSize": 22,
+                "fontSize": 16,
                 "fontWeight": "bold",
               }
             }
@@ -14906,7 +14427,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Yest
             style={
               Object {
                 "color": "#818181",
-                "fontSize": 20,
+                "fontSize": 14,
               }
             }
           >
@@ -14918,7 +14439,7 @@ exports[`Testing <Inbox/> Timestamps Formatting: Should Have A Timestamp of Yest
               Object {
                 "alignSelf": "flex-start",
                 "color": "#818181",
-                "fontSize": 22,
+                "fontSize": 16,
                 "marginTop": 10,
               }
             }

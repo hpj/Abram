@@ -23,7 +23,6 @@ import Inbox from './screens/Inbox';
 import Discover from './screens/Discover';
 
 import Profile from './screens/Profile';
-import Settings from './screens/Settings';
 
 import Menu from './components/Menu';
 
@@ -263,10 +262,6 @@ export default class App extends StoreComponent<unknown, {
 
           <NavigationView testID={ 'v-profile' } index={ 2 }>
             <Profile user={ profile } profile={ focusedProfile }/>
-          </NavigationView>
-
-          <NavigationView testID={ 'v-settings' } index={ 3 }>
-            <Settings/>
           </NavigationView>
 
         </View>

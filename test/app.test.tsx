@@ -963,36 +963,6 @@ describe('Testing <App/>', () =>
 
       expect(profile).toMatchSnapshot('Navigation View Should Be Profile');
     });
-  
-    test('Navigating to Settings', async() =>
-    {
-      const component = render(<App/>);
-
-      // wait for app loading
-      await waitFor(() => component.getByTestId('v-main-area'));
-
-      fireEvent.press(component.getByTestId('bn-menu'));
-
-      await waitFor(() => true);
-
-      fireEvent.press(component.getByTestId('bn-settings'));
-
-      await waitFor(() => true);
-
-      const menu = toJSON(component, 'v-menu', 'one');
-      const holder = toJSON(component, 'v-holder');
-
-      expect(menu).toMatchSnapshot('Menu View Should Be Hidden');
-      expect(holder).toMatchSnapshot('Holder View Should Be Hidden');
-
-      const bottom = toJSON(component, 'v-bottom', 'all');
-      
-      const profile = toJSON(component, 'v-navigation', 'one');
-
-      expect(bottom).toMatchSnapshot('Bottom Should Have A Additional Button With Settings Icon');
-
-      expect(profile).toMatchSnapshot('Navigation View Should Be Settings');
-    });
  
     test('Showing Normal Chat Menu', async() =>
     {
