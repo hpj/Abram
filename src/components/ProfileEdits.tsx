@@ -2,6 +2,8 @@ import React from 'react';
 
 import { StyleSheet, View, Image, Text, TextInput } from 'react-native';
 
+import { Feather as Icon } from '@expo/vector-icons';
+
 import type { Profile } from '../types';
 
 import { getStore } from '../store';
@@ -14,15 +16,18 @@ import Button from './Button';
 
 const colors = getTheme();
 
-export class BaseEdits extends React.Component<{
+interface BaseEditsProps {
   profile: Profile,
   deactivate?: (() => void)
-}, {
+}
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+export class BaseEdits<P> extends React.Component<P & BaseEditsProps, {
   loading: boolean,
   current: Profile
 }>
 {
-  constructor(props: BioEdits['props'])
+  constructor(props: P & BaseEditsProps)
   {
     super(props);
 
@@ -112,15 +117,8 @@ export class BaseEdits extends React.Component<{
   }
 }
 
-export class BioEdits extends BaseEdits
+export class BioEdits<P> extends BaseEdits<P & BaseEditsProps>
 {
-  constructor(props: BioEdits['props'])
-  {
-    super(props);
-
-    this.onChange = this.onChange.bind(this);
-  }
-
   onChange(text: string): void
   {
     this.setState({ current: {
@@ -138,7 +136,7 @@ export class BioEdits extends BaseEdits
       style={ styles.input }
       multiline={ false }
       value={ current?.bio }
-      onChangeText={ this.onChange }
+      onChangeText={ (s: string) => this.onChange(s) }
       placeholderTextColor={ colors.placeholder }
       placeholder={ 'Bio' }
       maxLength={ 255 }
@@ -146,7 +144,7 @@ export class BioEdits extends BaseEdits
   }
 }
 
-export class AvatarEdits extends BaseEdits
+export class AvatarEdits<P> extends BaseEdits<P & BaseEditsProps>
 {
   render(): JSX.Element
   {
@@ -154,7 +152,7 @@ export class AvatarEdits extends BaseEdits
   }
 }
 
-export class TitlesEdits extends BaseEdits
+export class TitlesEdits<P> extends BaseEdits<P & BaseEditsProps>
 {
   onChange(obj: string, text: string): void
   {
@@ -188,13 +186,13 @@ export class TitlesEdits extends BaseEdits
         onChangeText={ (s: string) => this.onChange('nickname', s) }
         placeholderTextColor={ colors.placeholder }
         placeholder={ 'Nickname' }
-        maxLength={ 64 }
+        maxLength={ 32 }
       />
     </View>);
   }
 }
 
-export class RomanticEdits extends BaseEdits
+export class RomanticEdits<P> extends BaseEdits<P & BaseEditsProps>
 {
   onChange(obj: string, text: string): void
   {
@@ -213,7 +211,8 @@ export class RomanticEdits extends BaseEdits
 
     return super.render('Choose Your Romantic Availability', <View>
       <View style={ styles.infoBox }>
-        <Text style={ styles.text }>While being Romantically Closed, Reporting any user for flirting will result in their account getting terminated.</Text>
+        <Icon name={ 'alert-triangle' } size={ sizes.icon * 0.75 } color={ colors.whiteText } style={ styles.icon }/>
+        <Text style={ styles.text } >While being Romantically Closed, Reporting any user for flirting will result in their account getting terminated.</Text>
       </View>
       
       <View style={ styles.space }/>
@@ -234,6 +233,43 @@ export class RomanticEdits extends BaseEdits
         onPress={ () => this.onChange('romantically', 'Closed') }
       />
     </View>);
+  }
+}
+
+export class SimpleDemographicEdits extends BaseEdits<{
+  title: string,
+  placeholder: string,
+  field: keyof Profile['info']
+} & BaseEditsProps>
+{
+  onChange(field: string, text: string): void
+  {
+    this.setState({ current: {
+      ...this.state.current,
+      info: {
+        ...this.state.current.info,
+        [field]: text
+      }
+    } });
+  }
+
+  render(): JSX.Element
+  {
+    const { title, field, placeholder } = this.props;
+
+    const { current } = this.state;
+
+    return super.render(title, <TextInput
+      testID={ `in-${field}` }
+      style={ styles.input }
+      multiline={ false }
+      // eslint-disable-next-line security/detect-object-injection
+      value={ `${current?.info[field] ?? ''}` }
+      onChangeText={ (s: string) => this.onChange(field, s) }
+      placeholderTextColor={ colors.placeholder }
+      placeholder={ placeholder }
+      maxLength={ 24 }
+    />);
   }
 }
 
@@ -268,16 +304,27 @@ const styles = StyleSheet.create({
   },
 
   infoBox: {
-    padding: sizes.windowMargin * 0.75,
+    flexDirection: 'row',
+    alignItems: 'center',
+
     backgroundColor: colors.rectangleBackground,
+    padding: sizes.windowMargin * 0.75,
     borderRadius: 5
   },
 
   text: {
-    fontSize: 12,
+    flex: 1,
     color: colors.whiteText,
-    textTransform: 'uppercase',
-    fontWeight: 'bold'
+    opacity: 0.65,
+
+    fontSize: 11,
+    fontWeight: 'bold',
+    textTransform: 'capitalize'
+  },
+
+  icon: {
+    opacity: 0.65,
+    marginRight: sizes.windowMargin * 0.75
   },
 
   toggle: {

@@ -20,8 +20,6 @@ import { advanceTo, clear } from 'jest-date-mock';
 
 import { InboxEntry, Profile as TProfile } from '../src/types';
 
-import { setLocale } from '../src/i18n';
-
 import { createStore, getStore } from '../src/store';
 
 import App from '../src/app';
@@ -2075,7 +2073,7 @@ describe('Testing <App/>', () =>
                     origin: 'United States',
                     profession: 'Actor',
                     religion: 'None',
-                    worksAt: 'HSS'
+                    works: 'HSS'
                   },
                   iceBreakers: [
                     'Skye?',
@@ -2316,7 +2314,7 @@ describe('Testing <App/>', () =>
                     age: 18,
                     origin: 'United States',
                     speaks: [ 'English' ],
-                    worksAt: 'HSS',
+                    works: 'HSS',
                     profession: 'Actor'
                   },
                   interests: [] as string[]
@@ -2380,7 +2378,7 @@ describe('Testing <App/>', () =>
                     religion: 'Muslim',
                     romantically: 'Open',
                     sexuality: 'Straight',
-                    worksAt: 'Cairokee',
+                    works: 'Cairokee',
                     speaks: [ 'Arabic' ]
                   },
                   interests: [] as string[]
@@ -2444,7 +2442,7 @@ describe('Testing <App/>', () =>
                     religion: 'None',
                     romantically: 'Open',
                     sexuality: 'None',
-                    worksAt: 'United Nations',
+                    works: 'United Nations',
                     speaks: [ 'English' ]
                   },
                   interests: [] as string[]
@@ -2579,7 +2577,7 @@ describe('Testing <App/>', () =>
                     origin: 'United States',
                     profession: 'Actor',
                     religion: 'None',
-                    worksAt: 'HSS'
+                    works: 'HSS'
                   },
                   iceBreakers: [
                     'Skye?',
@@ -2601,7 +2599,7 @@ describe('Testing <App/>', () =>
                     origin: 'United States',
                     profession: 'Actor',
                     religion: 'None',
-                    worksAt: 'CA'
+                    works: 'CA'
                   },
                   iceBreakers: [
                     'Mika?'
@@ -3467,7 +3465,7 @@ describe('Testing <Profile/>', () =>
           origin: 'United States',
           profession: 'Actor',
           religion: 'None',
-          worksAt: 'HSS'
+          works: 'HSS'
         },
         iceBreakers: [
           'Skye?',
@@ -3522,7 +3520,7 @@ describe('Testing <Profile/>', () =>
           speaks: [ 'English' ],
           profession: 'Cultist',
           religion: 'Skyeism',
-          worksAt: 'Skyenet',
+          works: 'Skyenet',
           gender: 'Non-binary',
           sexuality: 'Bi',
           age: 44

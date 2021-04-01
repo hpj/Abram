@@ -10,7 +10,7 @@ import getTheme from '../colors';
 
 import { sizes } from '../sizes';
 
-import { RomanticEdits } from '../components/ProfileEdits';
+import { SimpleDemographicEdits, RomanticEdits } from '../components/ProfileEdits';
 
 import Button from '../components/Button';
 
@@ -22,6 +22,27 @@ export default class Demographic extends React.Component<{
   romanceShowcase?: boolean
 }>
 {
+  openSimple(title: string, field: keyof Profile['info'], placeholder: string): void
+  {
+    const store = getStore();
+
+    // istanbul ignore next
+    if (store.state.popup)
+      return;
+
+    const { profile } = this.props;
+
+    store.set({
+      popup: true,
+      popupContent: () => <SimpleDemographicEdits
+        profile={ profile }
+        title={ title }
+        field={ field }
+        placeholder={ placeholder }
+      />
+    });
+  }
+
   openRomantic(): void
   {
     const store = getStore();
@@ -142,6 +163,7 @@ export default class Demographic extends React.Component<{
             buttonStyle={ styles.rectangle }
             disabled={ !editable }
             icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+            onPress={ () => this.openSimple('Your Profession', 'profession', 'Profession') }
           >
             <View>
               <Text style={ styles.rectangleKey }>Profession</Text>
@@ -177,10 +199,10 @@ export default class Demographic extends React.Component<{
           </Button> : undefined
       }
 
-      {/* Works At */}
+      {/* Works */}
 
       {
-        (profile.info.worksAt?.length || editable) && (!romanceShowcase)?
+        (profile.info.works?.length || editable) && (!romanceShowcase)?
           <Button
             testID={ 'bn-works' }
             useAlternative={ true }
@@ -188,12 +210,13 @@ export default class Demographic extends React.Component<{
             buttonStyle={ styles.rectangle }
             disabled={ !editable }
             icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+            onPress={ () => this.openSimple('Your Organization/Company', 'works', 'Jobless') }
           >
             <View>
               <Text style={ styles.rectangleKey }>Works At</Text>
               {
-                profile.info.worksAt?.length ?
-                  <Text style={ styles.rectangleValue }>{ profile.info.worksAt }</Text> : undefined
+                profile.info.works?.length ?
+                  <Text style={ styles.rectangleValue }>{ profile.info.works }</Text> : undefined
               }
             </View>
           </Button> : undefined

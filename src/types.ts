@@ -32,7 +32,7 @@ export type ProfileInfo = {
   speaks: string[],
   profession?: string,
   romantically: 'Open' | 'Closed',
-  worksAt?: string,
+  works?: string,
   gender: 'Woman' | 'Man' | 'Non-binary',
   sexuality?: 'Straight' | 'Gay' | 'Lesbian' | 'Bi' | 'None',
   religion?: string,

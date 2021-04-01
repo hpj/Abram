@@ -11,11 +11,11 @@ import constants from 'expo-constants';
 
 import * as SplashScreen from 'expo-splash-screen';
 
+import { Feather } from '@expo/vector-icons';
+
 import Animated from 'react-native-reanimated';
 
 import BottomSheet from 'reanimated-bottom-sheet';
-
-import { Feather } from '@expo/vector-icons';
 
 import NavigationView from './components/NavigationView';
 

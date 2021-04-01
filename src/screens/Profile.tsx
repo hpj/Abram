@@ -35,10 +35,10 @@ class Profile extends React.Component<{
   {
     super(props);
 
-    this.openEdit = this.openEdit.bind(this);
+    this.openEdits = this.openEdits.bind(this);
   }
 
-  openEdit(Component: typeof BaseEdits): void
+  openEdits(Component: typeof BaseEdits): void
   {
     const store = getStore();
 
@@ -78,7 +78,7 @@ class Profile extends React.Component<{
               buttonStyle={ { ...styles.section, flexDirection: 'row', paddingVertical: sizes.windowMargin * 0.5 } }
               useAlternative={ true }
               disabled={ !editable }
-              onPress={ () => this.openEdit(BioEdits) }
+              onPress={ () => this.openEdits(BioEdits) }
             >
               {
                 profile.bio?.length ?
@@ -105,7 +105,7 @@ class Profile extends React.Component<{
           buttonStyle={ styles.section }
           useAlternative={ true }
           disabled={ !editable }
-          onPress={ () => this.openEdit(AvatarEdits) }
+          onPress={ () => this.openEdits(AvatarEdits) }
         >
           <View style={ styles.sectionEditable }>
             {/* eslint-disable-next-line react-native/no-inline-styles */}
@@ -133,7 +133,7 @@ class Profile extends React.Component<{
           buttonStyle={ styles.section }
           useAlternative={ true }
           disabled={ !editable }
-          onPress={ () => this.openEdit(TitlesEdits) }
+          onPress={ () => this.openEdits(TitlesEdits) }
         >
           <View style={ styles.sectionEditable }>
             {/* eslint-disable-next-line react-native/no-inline-styles */}

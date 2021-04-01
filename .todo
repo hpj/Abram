@@ -1,5 +1,4 @@
 Performance Issues and Bugs:
-
   ☐ opening a chat context and closing the bottom sheet quickly before the chat context menu appears @low 
     breaks the bottom sheet
       - this might be some issue we want to ignore
@@ -7,31 +6,20 @@ Performance Issues and Bugs:
       - we have no idea what causes that to... not happen?
 
 Alpha:
-  ☐ check TODOs if any are do-able @high
+  ☐ check TODOs if any are do-able
 
+  ☐ all profile edits
+  
   ☐ work on branding descriptions and motto
 
-  - editable profile @high
-    ☐ profession
-    ☐ works at
-    ☐ gender & sexuality
-
-  - editable profile @low
-    - heavy
-      ☐ interests
-      ☐ ice breakers
-      ☐ age
-
-    - datasets
-      ☐ speaks
-      ☐ religion
-      ☐ origin
-
-    - requires contract work
-      ☐ avatar
+  - require contract work for avatars
+    ☐ the way I want to do this is by using base64
+      in the avatar slot in the a database row instead of using storage pockets to host the avatars
+      it's more cost-efficient and way less-messy to maintain and clear
+      the question is how it will perform vs uris
 
   ☐ consuming native sign-in with google 
-    ☐ region locking
+    ☐ region-lock signing up to the united states only
 
   ☐ write the privacy policy
 
@@ -40,25 +28,16 @@ Alpha:
   ☐ use expo-updates (expo install expo-updates)
     ☐ expo's over-the-air updates
 
-  ☐ test everything (high code coverage)
-
 Testing:
-  - test all editable profile elements
-    ☐ bio
-    ☐ titles
-    ☐ romantically
+  ☐ test applying all editable profile edits
 
   ☐ mock and test Clipboard
     - with <ChatContext/>
 
-  ☐ on different screen sizes
-  
 UI/UX:
   ☐ design the UI for kick voting from groups
 
-  ☐ design a mockup for Sign up views
-
-  ☐ design a mockup for Discover view
+  ☐ design a mockup for Discover view @low 
 
   ☐ add all used strings to i18n
 

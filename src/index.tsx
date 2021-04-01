@@ -72,7 +72,7 @@ const store = createStore({
       speaks: [ 'English', 'Arabic' ],
       romantically: 'Open',
       gender: 'Man',
-      worksAt: 'Herp Project'
+      works: 'Herp Project'
     },
     
     interests: [
