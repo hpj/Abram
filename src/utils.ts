@@ -70,6 +70,23 @@ export function sharedInterests(...profiles: Profile[]): { shared: string[], mis
   };
 }
 
+export function getAge(birthday: Profile['info']['birthday']): number
+{
+  if (!birthday)
+    return -1;
+
+  const today = new Date();
+  const birthDate = new Date(birthday.year, birthday.month, birthday.day);
+  
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const m = today.getMonth() - birthDate.getMonth();
+
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate()))
+    age--;
+  
+  return age;
+}
+
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function pronoun(gender: ProfileInfo['gender']): {
   they: string,

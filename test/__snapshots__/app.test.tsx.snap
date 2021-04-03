@@ -660,7 +660,11 @@ exports[`Testing <App/> Chat Hints All 1`] = `
                 "Ajay?",
               ],
               "info": Object {
-                "age": 16,
+                "birthday": Object {
+                  "day": 2,
+                  "month": 11,
+                  "year": 2127,
+                },
                 "gender": "Woman",
                 "origin": "United States",
                 "profession": "Actor",
@@ -2048,7 +2052,11 @@ exports[`Testing <App/> Chat Hints Group All 1`] = `
                 "Ajay?",
               ],
               "info": Object {
-                "age": 16,
+                "birthday": Object {
+                  "day": 2,
+                  "month": 11,
+                  "year": 2127,
+                },
                 "gender": "Woman",
                 "origin": "United States",
                 "profession": "Actor",
@@ -2083,7 +2091,11 @@ exports[`Testing <App/> Chat Hints Group All 1`] = `
                 "Mika?",
               ],
               "info": Object {
-                "age": 15,
+                "birthday": Object {
+                  "day": 2,
+                  "month": 11,
+                  "year": 2128,
+                },
                 "gender": "Woman",
                 "origin": "United States",
                 "profession": "Actor",
@@ -2646,7 +2658,11 @@ exports[`Testing <App/> Chat Hints Romantically Open Man All 1`] = `
               "avatar": 1,
               "fullName": "Amir",
               "info": Object {
-                "age": 23,
+                "birthday": Object {
+                  "day": 2,
+                  "month": 11,
+                  "year": 2120,
+                },
                 "gender": "Man",
                 "origin": "Egypt",
                 "profession": "Singer",
@@ -4004,7 +4020,11 @@ exports[`Testing <App/> Chat Hints Romantically Open Underage Non-binary All 1`]
               "avatar": 1,
               "fullName": "Alex",
               "info": Object {
-                "age": 16,
+                "birthday": Object {
+                  "day": 2,
+                  "month": 11,
+                  "year": 2127,
+                },
                 "gender": "Non-binary",
                 "origin": "United States",
                 "profession": "Activist",
@@ -4714,7 +4734,11 @@ exports[`Testing <App/> Chat Hints Romantically Open Woman All 1`] = `
               "avatar": 1,
               "fullName": "Mika",
               "info": Object {
-                "age": 18,
+                "birthday": Object {
+                  "day": 2,
+                  "month": 11,
+                  "year": 2125,
+                },
                 "gender": "Woman",
                 "origin": "United States",
                 "profession": "Actor",
@@ -11455,23 +11479,57 @@ exports[`Testing <App/> Profile Others Romantically Popup Romantically Unavailab
               Unavailable
             </Text>
           </Text>
-          <Text
+          <View
             style={
               Object {
-                "color": "#ffffff",
-                "fontSize": 14,
-                "fontWeight": "bold",
-                "lineHeight": 20.3,
-                "marginBottom": 40,
+                "alignItems": "center",
+                "backgroundColor": "#151515",
+                "borderRadius": 5,
+                "flexDirection": "row",
                 "marginHorizontal": 20,
-                "marginTop": 30,
+                "marginTop": 20,
+                "padding": 15,
               }
             }
           >
-            <Text>
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 18,
+                  },
+                  Object {
+                    "marginRight": 15,
+                    "opacity": 0.65,
+                  },
+                  Object {
+                    "fontFamily": "feather",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "flex": 1,
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                  "opacity": 0.65,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
               Any attempt to flirt with Mika can result in your account getting terminated.
             </Text>
-          </Text>
+          </View>
         </View>
       </View>
     </View>
@@ -12129,6 +12187,7 @@ exports[`Testing <App/> Profile Personal Edits Titles 1`] = `
         <View>
           <TextInput
             allowFontScaling={true}
+            autoCompleteType="name"
             maxLength={64}
             multiline={false}
             onChangeText={[Function]}
@@ -12149,6 +12208,7 @@ exports[`Testing <App/> Profile Personal Edits Titles 1`] = `
           />
           <TextInput
             allowFontScaling={true}
+            autoCompleteType="username"
             maxLength={32}
             multiline={false}
             onChangeText={[Function]}
@@ -16306,7 +16366,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
     >
       <View
         accessible={true}
-        focusable={false}
+        focusable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -16923,7 +16983,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
       </View>
       <View
         accessible={true}
-        focusable={false}
+        focusable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -17618,7 +17678,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
     >
       <View
         accessible={true}
-        focusable={false}
+        focusable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -18296,7 +18356,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
       </View>
       <View
         accessible={true}
-        focusable={false}
+        focusable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}

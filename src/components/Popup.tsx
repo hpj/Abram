@@ -23,6 +23,7 @@ class Popup extends StoreComponent<{
 }, {
   size: Size,
   popup: boolean,
+  popupHidden: boolean,
   popupContent?: (() => JSX.Element)
 }>
 {
@@ -30,6 +31,7 @@ class Popup extends StoreComponent<{
   {
     super({
       popup: false,
+      popupHidden: true,
       popupContent: undefined
     });
 
@@ -47,7 +49,8 @@ class Popup extends StoreComponent<{
   {
     if (
       changes.size ||
-      changes.popup
+      changes.popup ||
+      changes.popupHidden
     )
       return true;
     
@@ -88,6 +91,7 @@ class Popup extends StoreComponent<{
 
     // update store
     this.store.set({
+      popupHidden: false,
       holder: true,
       holderCallback: this.deactivate
     }, () =>
@@ -137,7 +141,15 @@ class Popup extends StoreComponent<{
         toValue: 0,
         easing: Easing.inOut(Easing.circle)
       // returns component which is used by the reanimated mocks while testing
-      }).start(() => this);
+      }).start(() =>
+      {
+        if (!this.store.state.popup)
+          this.store.set({
+            popupHidden: true
+          });
+
+        return this;
+      });
     });
 
     return true;
@@ -145,7 +157,7 @@ class Popup extends StoreComponent<{
 
   render(): JSX.Element
   {
-    const { size, popupContent } = this.state;
+    const { size, popupHidden, popupContent } = this.state;
 
     const bottom = this.progress.interpolate({
       inputRange: [ 0, 1 ],
@@ -163,7 +175,7 @@ class Popup extends StoreComponent<{
         minHeight: size.height * 0.4,
         maxHeight: size.height * 0.65
       } }>
-        { popupContent }
+        { popupHidden ? undefined : popupContent }
       </ScrollView>
     </Animated.View>;
   }

@@ -9,7 +9,7 @@ Alpha:
   ☐ check TODOs if any are do-able
 
   ☐ all profile edits
-  
+
   ☐ work on branding descriptions and motto
 
   - require contract work for avatars
@@ -25,8 +25,12 @@ Alpha:
 
   ☐ write the terms of service
 
-  ☐ use expo-updates (expo install expo-updates)
-    ☐ expo's over-the-air updates
+  ☐ configure eas services
+    - eas build
+    - eas submit
+    - read on updating eas build over-the-air
+       since last I checked it's not fully developed
+       and require expo publish with --target bare
 
 Testing:
   ☐ test applying all editable profile edits

@@ -10,9 +10,17 @@ import getTheme from '../colors';
 
 import { sizes } from '../sizes';
 
-import { SimpleDemographicEdits, RomanticEdits } from '../components/ProfileEdits';
+import { getAge } from '../utils';
+
+import {
+  BaseEdits, SimpleDemographicEdits,
+  OriginEdits, RomanticEdits,
+  AgeEdits
+} from '../components/ProfileEdits';
 
 import Button from '../components/Button';
+
+import InfoBox from '../components/InfoBox';
 
 const colors = getTheme();
 
@@ -75,9 +83,7 @@ export default class Demographic extends React.Component<{
                   <Text style={ { color: colors.brightRed } }>Unavailable</Text>
                 </Text>
 
-                <Text style={ styles.paragraph }>
-                  <Text>{ `Any attempt to flirt with ${profile.nickname} can result in your account getting terminated.` }</Text>
-                </Text>
+                <InfoBox style={ styles.infoBox } text={ `Any attempt to flirt with ${profile.nickname} can result in your account getting terminated.` }/>
               </View> :
               
               // Open
@@ -98,11 +104,29 @@ export default class Demographic extends React.Component<{
     });
   }
 
+  openEdits(Component: typeof BaseEdits): void
+  {
+    const store = getStore();
+
+    // istanbul ignore next
+    if (store.state.popup)
+      return;
+
+    const { profile } = this.props;
+
+    store.set({
+      popup: true,
+      popupContent: () => <Component profile={ profile }/>
+    });
+  }
+
   render(): JSX.Element
   {
     const { romanceShowcase, user, profile } = this.props;
 
     const editable = user.uuid === profile.uuid;
+
+    const age = getAge(profile.info.birthday);
 
     return <View style={ styles.container }>
 
@@ -117,6 +141,7 @@ export default class Demographic extends React.Component<{
             buttonStyle={ styles.rectangle }
             disabled={ !editable }
             icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+            onPress={ () => this.openEdits(OriginEdits) }
           >
             <View>
               {
@@ -295,7 +320,7 @@ export default class Demographic extends React.Component<{
       {/* Age */}
 
       {
-        profile.info.age || editable || romanceShowcase ?
+        age > 0 || editable || romanceShowcase ?
           <Button
             testID={ 'bn-age' }
             useAlternative={ true }
@@ -303,15 +328,16 @@ export default class Demographic extends React.Component<{
             buttonStyle={ styles.rectangle }
             disabled={ !editable }
             icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+            onPress={ () => this.openEdits(AgeEdits) }
           >
             <View>
               {
-                romanceShowcase && profile.info.age && profile.info.age < 18 ?
+                romanceShowcase && age > 0 && age < 18 ?
                   <Text style={ styles.rectangleNullHighlighted }>{ `${profile.nickname} Is A Minor` }</Text> :
-                  profile.info.age ?
+                  age > 0 ?
                     <View>
                       <Text style={ styles.rectangleKey }>Age</Text>
-                      <Text style={ styles.rectangleValue }>{ profile.info.age }</Text>
+                      <Text style={ styles.rectangleValue }>{ age }</Text>
                     </View> :
                     editable ?
                       <Text style={ styles.rectangleKey }>Age</Text> :
@@ -345,15 +371,9 @@ const styles = StyleSheet.create({
     marginTop: sizes.windowMargin * 1.5
   },
 
-  paragraph: {
-    fontSize: 14,
-    color: colors.whiteText,
-    fontWeight: 'bold',
-    lineHeight: 14 * 1.45,
-
+  infoBox: {
     marginHorizontal: sizes.windowMargin,
-    marginTop: sizes.windowMargin * 1.5,
-    marginBottom: sizes.windowMargin * 2
+    marginTop: sizes.windowMargin * 1
   },
 
   rectangle: {

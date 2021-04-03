@@ -36,7 +36,11 @@ export type ProfileInfo = {
   gender: 'Woman' | 'Man' | 'Non-binary',
   sexuality?: 'Straight' | 'Gay' | 'Lesbian' | 'Bi' | 'None',
   religion?: string,
-  age?: number
+  birthday?: {
+    year: number,
+    month: number,
+    day: number
+  }
 }
 
 export type Size = {

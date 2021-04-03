@@ -2,7 +2,7 @@ import React from 'react';
 
 import {
   StyleSheet, StatusBar, BackHandler, Keyboard, Platform,
-  SafeAreaView, View, Text, TouchableWithoutFeedback, LayoutChangeEvent
+  View, Text, TouchableWithoutFeedback, LayoutChangeEvent
 } from 'react-native';
 
 import * as Font from 'expo-font';
@@ -212,9 +212,9 @@ export default class App extends StoreComponent<unknown, {
   render(): JSX.Element
   {
     if (this.state.error)
-      return <SafeAreaView testID={ 'v-error' } style={ styles.error }>
+      return <View testID={ 'v-error' } style={ styles.error }>
         <Text style={ styles.errorText }>{ this.state.error }</Text>
-      </SafeAreaView>;
+      </View>;
 
     if (!this.state.loaded)
       return <View/>;
@@ -223,7 +223,7 @@ export default class App extends StoreComponent<unknown, {
     // https://github.com/facebook/react-native/issues/23693
     if (this.state.size.width === 0 || this.state.size.height === 0)
     {
-      return <SafeAreaView onLayout={ this.onLayout } style={ styles.container }/>;
+      return <View onLayout={ this.onLayout } style={ styles.container }/>;
     }
 
     const {
@@ -237,7 +237,7 @@ export default class App extends StoreComponent<unknown, {
       outputRange: [ 0, 0.75 ]
     });
 
-    return <SafeAreaView testID={ 'v-main-area' } onLayout={ this.onLayout } style={ styles.container }>
+    return <View testID={ 'v-main-area' } onLayout={ this.onLayout } style={ styles.container }>
       <View style={ {
         top: constants.statusBarHeight,
         width: size.width,
@@ -326,7 +326,7 @@ export default class App extends StoreComponent<unknown, {
         </View>
 
       </View>
-    </SafeAreaView>;
+    </View>;
   }
 }
 

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { StyleSheet, View, Image, Text, TextInput } from 'react-native';
+import { StyleSheet, View, Image, Text, TextInput, Switch } from 'react-native';
 
-import { Feather as Icon } from '@expo/vector-icons';
+import { countries } from 'countries-list';
 
 import type { Profile } from '../types';
 
@@ -14,6 +14,10 @@ import { sizes } from '../sizes';
 
 import Button from './Button';
 
+import InfoBox from './InfoBox';
+
+import NumberPicker from './NumberPicker';
+
 const colors = getTheme();
 
 interface BaseEditsProps {
@@ -21,11 +25,12 @@ interface BaseEditsProps {
   deactivate?: (() => void)
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export class BaseEdits<P> extends React.Component<P & BaseEditsProps, {
+interface BaseEditsState {
   loading: boolean,
   current: Profile
-}>
+}
+
+export class BaseEdits<P> extends React.Component<P & BaseEditsProps, BaseEditsState>
 {
   constructor(props: P & BaseEditsProps)
   {
@@ -52,18 +57,19 @@ export class BaseEdits<P> extends React.Component<P & BaseEditsProps, {
       getStore().set({
         profile: this.state.current,
         focusedProfile: this.state.current
-      });
-
-      // deactivate the edit popup
-      this.props.deactivate?.();
-
-      // await deactivation animation
-      setTimeout(() =>
+      }, () =>
       {
-        this.setState({
-          loading: false
-        });
-      }, 200);
+        // deactivate the edit popup
+        this.props.deactivate?.();
+  
+        // await deactivation animation
+        setTimeout(() =>
+        {
+          this.setState({
+            loading: false
+          });
+        }, 200);
+      });
     }, 1000);
   }
 
@@ -75,8 +81,6 @@ export class BaseEdits<P> extends React.Component<P & BaseEditsProps, {
     {
       return <View style={ styles.section }>
         <Text style={ styles.title }>{ title }</Text>
-
-        <View style={ styles.space }/>
 
         {
           children
@@ -121,10 +125,12 @@ export class BioEdits<P> extends BaseEdits<P & BaseEditsProps>
 {
   onChange(text: string): void
   {
-    this.setState({ current: {
-      ...this.state.current,
-      bio: text
-    } });
+    this.setState({
+      current: {
+        ...this.state.current,
+        bio: text
+      }
+    });
   }
 
   render(): JSX.Element
@@ -156,10 +162,12 @@ export class TitlesEdits<P> extends BaseEdits<P & BaseEditsProps>
 {
   onChange(obj: string, text: string): void
   {
-    this.setState({ current: {
-      ...this.state.current,
-      [obj]: text
-    } });
+    this.setState({
+      current: {
+        ...this.state.current,
+        [obj]: text
+      }
+    });
   }
 
   render(): JSX.Element
@@ -169,6 +177,7 @@ export class TitlesEdits<P> extends BaseEdits<P & BaseEditsProps>
     return super.render('Choose Your Titles', <View>
       <TextInput
         testID={ 'in-display' }
+        autoCompleteType={ 'name' }
         style={ styles.input }
         multiline={ false }
         value={ current?.fullName }
@@ -180,6 +189,7 @@ export class TitlesEdits<P> extends BaseEdits<P & BaseEditsProps>
 
       <TextInput
         testID={ 'in-nickname' }
+        autoCompleteType={ 'username' }
         style={ styles.input }
         multiline={ false }
         value={ current?.nickname }
@@ -187,50 +197,6 @@ export class TitlesEdits<P> extends BaseEdits<P & BaseEditsProps>
         placeholderTextColor={ colors.placeholder }
         placeholder={ 'Nickname' }
         maxLength={ 32 }
-      />
-    </View>);
-  }
-}
-
-export class RomanticEdits<P> extends BaseEdits<P & BaseEditsProps>
-{
-  onChange(obj: string, text: string): void
-  {
-    this.setState({ current: {
-      ...this.state.current,
-      info: {
-        ...this.state.current.info,
-        [obj]: text
-      }
-    } });
-  }
-
-  render(): JSX.Element
-  {
-    const current = this.state.current?.info.romantically;
-
-    return super.render('Choose Your Romantic Availability', <View>
-      <View style={ styles.infoBox }>
-        <Icon name={ 'alert-triangle' } size={ sizes.icon * 0.75 } color={ colors.whiteText } style={ styles.icon }/>
-        <Text style={ styles.text } >While being Romantically Closed, Reporting any user for flirting will result in their account getting terminated.</Text>
-      </View>
-      
-      <View style={ styles.space }/>
-
-      <Button
-        text={ 'Open' }
-        buttonStyle={ styles.toggle }
-        icon={ current === 'Open' ? { name: 'check', size: sizes.icon * 0.65, color: colors.whiteText } : undefined }
-        textStyle={ { ...styles.toggleText, color: current === 'Open' ? colors.whiteText : colors.greyText } }
-        onPress={ () => this.onChange('romantically', 'Open') }
-      />
-
-      <Button
-        text={ 'Closed' }
-        buttonStyle={ styles.toggle }
-        icon={ current === 'Closed' ? { name: 'check', size: sizes.icon * 0.65, color: colors.whiteText } : undefined }
-        textStyle={ { ...styles.toggleText, color: current === 'Closed' ? colors.whiteText : colors.greyText } }
-        onPress={ () => this.onChange('romantically', 'Closed') }
       />
     </View>);
   }
@@ -244,13 +210,15 @@ export class SimpleDemographicEdits extends BaseEdits<{
 {
   onChange(field: string, text: string): void
   {
-    this.setState({ current: {
-      ...this.state.current,
-      info: {
-        ...this.state.current.info,
-        [field]: text
+    this.setState({
+      current: {
+        ...this.state.current,
+        info: {
+          ...this.state.current.info,
+          [field]: text
+        }
       }
-    } });
+    });
   }
 
   render(): JSX.Element
@@ -273,17 +241,185 @@ export class SimpleDemographicEdits extends BaseEdits<{
   }
 }
 
+export class RomanticEdits<P> extends BaseEdits<P & BaseEditsProps>
+{
+  onChange(state: Profile['info']['romantically']): void
+  {
+    this.setState({
+      current: {
+        ...this.state.current,
+        info: {
+          ...this.state.current.info,
+          romantically: state
+        }
+      }
+    });
+  }
+
+  render(): JSX.Element
+  {
+    const enabled = this.state.current?.info.romantically === 'Open';
+
+    return super.render('Choose Your Romantic Availability', <View>
+      <InfoBox style={ { marginBottom: sizes.windowMargin * 0.5 } } fontSize={ 11 } text={ 'While being Romantically Closed, Reporting any user for flirting will result in their account getting terminated.' }/>
+
+      <View style={ styles.switch }>
+        <Text style={ {
+          ...styles.switchText,
+          color: enabled ? colors.whiteText : colors.placeholder
+        } }>{ this.state.current?.info.romantically }</Text>
+
+        <Switch
+          style={ styles.switch }
+          trackColor={ { false: colors.menuBackground, true: colors.menuBackground } }
+          thumbColor={ enabled ? colors.whiteText : colors.placeholder }
+          onValueChange={ (value) => this.onChange(value ? 'Open' : 'Closed') }
+          value={ enabled }
+        />
+      </View>
+    </View>);
+  }
+}
+
+export class OriginEdits<P> extends BaseEdits<P & BaseEditsProps>
+{
+  onChange(text: string): void
+  {
+    this.setState({
+      current: {
+        ...this.state.current,
+        info: {
+          ...this.state.current.info,
+          origin: text
+        }
+      }
+    });
+  }
+
+  render(): JSX.Element
+  {
+    // const { current } = this.state;
+
+    return super.render('The Origin of Your Traditions and Culture');
+
+    // TODO
+    // <TextInput
+    //   testID={ 'in-bio' }
+    //   style={ styles.input }
+    //   multiline={ false }
+    //   value={ current?.bio }
+    //   onChangeText={ (s: string) => this.onChange(s) }
+    //   placeholderTextColor={ colors.placeholder }
+    //   placeholder={ 'Bio' }
+    //   maxLength={ 255 }
+    // />);
+  }
+}
+
+export class AgeEdits<P> extends BaseEdits<P & BaseEditsProps>
+{
+  daysRef: React.RefObject<NumberPicker>;
+
+  constructor(props: P & BaseEditsProps)
+  {
+    super(props);
+
+    this.daysRef = React.createRef();
+
+    this.state = {
+      ...this.state
+    };
+  }
+
+  onChange(type: 'year' | 'month' | 'day', n: number): void
+  {
+    const { current } = this.state;
+
+    this.setState({
+      current: {
+        ...current,
+        info: {
+          ...current.info,
+          birthday: {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            //@ts-ignore
+            year: current.info.birthday?.year ?? undefined,
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            //@ts-ignore
+            month: current.info.birthday?.month ?? undefined,
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            //@ts-ignore
+            day: current.info.birthday?.day ?? undefined,
+
+            [type]: n
+          }
+        }
+      }
+    });
+  }
+
+  render(): JSX.Element
+  {
+    const { current } = this.state;
+
+    const now = new Date();
+    const maxDays = new Date(current.info.birthday?.year ?? now.getFullYear(), current.info.birthday?.month ?? now.getMonth(), 0).getDate();
+
+    return super.render('Your Birthday', <View>
+      <NumberPicker
+        min={ 1 }
+        max={ now.getFullYear() }
+        initial={ now.getFullYear() }
+        placeholder={ 'Year' }
+        onChange={ (n) => this.onChange('year', n) }
+      />
+
+      {/* eslint-disable-next-line react-native/no-inline-styles */}
+      <View style={ {
+        flexDirection: 'row',
+        marginVertical: sizes.windowMargin * 0.65
+      } }>
+        <NumberPicker
+          min={ 1 }
+          max={ 12 }
+          placeholder={ 'Mo' }
+          onChange={
+            (n) =>
+            {
+              this.onChange('month', n);
+
+              if (this.daysRef.current?.state.value !== undefined)
+                this.daysRef.current?.onPress(0, undefined, new Date(current.info.birthday?.year ?? now.getFullYear(), n, 0).getDate());
+            }
+          }
+        />
+
+        <View style={ { marginHorizontal: sizes.windowMargin * 0.5 } }/>
+
+        <NumberPicker ref={ this.daysRef }
+          min={ 1 }
+          max={ maxDays }
+          placeholder={ 'Da' }
+          onChange={ (n) => this.onChange('day', n) }
+        />
+      </View>
+    </View>);
+  }
+}
+
 const styles = StyleSheet.create({
   section: {
     margin: sizes.windowMargin
   },
 
   loaderContainer: {
-    width: '100%',
-    height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.blackBackground
+
+    backgroundColor: colors.blackBackground,
+
+    width: '100%',
+    height: '100%'
   },
 
   loader: {
@@ -296,53 +432,30 @@ const styles = StyleSheet.create({
     color: colors.greyText,
     fontWeight: 'bold',
 
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
+    marginBottom: sizes.windowMargin * 0.5
   },
 
-  space: {
-    margin: sizes.windowMargin * 0.5
-  },
-
-  infoBox: {
+  switch: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-
-    backgroundColor: colors.rectangleBackground,
-    padding: sizes.windowMargin * 0.75,
-    borderRadius: 5
+    marginLeft: sizes.windowMargin * 1.25,
+    marginRight: sizes.windowMargin * 0.5,
+    marginVertical: sizes.windowMargin * 0.25
   },
 
-  text: {
-    flex: 1,
-    color: colors.whiteText,
-    opacity: 0.65,
-
-    fontSize: 11,
+  switchText: {
+    fontSize: 12,
     fontWeight: 'bold',
-    textTransform: 'capitalize'
-  },
-
-  icon: {
-    opacity: 0.65,
-    marginRight: sizes.windowMargin * 0.75
-  },
-
-  toggle: {
-    flexDirection: 'row-reverse',
-    alignItems: 'center',
-
-    padding: sizes.windowMargin * 0.75
-  },
-
-  toggleText: {
-    flexGrow: 1,
-    fontSize: 14,
-    fontWeight: 'bold'
+    textTransform: 'uppercase'
   },
 
   buttons: {
     flexDirection: 'row',
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
+
+    marginTop: sizes.windowMargin * 0.25
   },
 
   button: {

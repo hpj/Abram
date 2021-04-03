@@ -1445,7 +1445,11 @@ describe('Testing <App/>', () =>
                       gender: 'Woman',
                       romantically: 'Open',
                       speaks: [ 'English' ],
-                      age: 16
+                      birthday: {
+                        year: new Date().getFullYear() - 16,
+                        month: new Date().getMonth(),
+                        day: new Date().getDay()
+                      }
                     },
                     interests: [] as string[]
                   }
@@ -1520,7 +1524,11 @@ describe('Testing <App/>', () =>
                       sexuality: 'None',
                       romantically: 'Open',
                       speaks: [ 'English' ],
-                      age: 21,
+                      birthday: {
+                        year: new Date().getFullYear() - 21,
+                        month: new Date().getMonth(),
+                        day: new Date().getDay()
+                      },
                       religion: 'None'
                     },
                     interests: [] as string[]
@@ -1705,6 +1713,12 @@ describe('Testing <App/>', () =>
           component.unmount();
         });
 
+        test.todo('Profession');
+        
+        test.todo('Works At');
+        
+        test.todo('Origin');
+
         test('Romantic', async() =>
         {
           getStore().set({
@@ -1749,6 +1763,8 @@ describe('Testing <App/>', () =>
     
           component.unmount();
         });
+
+        test.todo('Age');
       });
     });
   });
@@ -2069,7 +2085,11 @@ describe('Testing <App/>', () =>
                     sexuality: 'Lesbian',
                     romantically: 'Closed',
                     speaks: [ 'English' ],
-                    age: 16,
+                    birthday: {
+                      year: new Date().getFullYear() - 16,
+                      month: new Date().getMonth(),
+                      day: new Date().getDay()
+                    },
                     origin: 'United States',
                     profession: 'Actor',
                     religion: 'None',
@@ -2311,7 +2331,11 @@ describe('Testing <App/>', () =>
                     sexuality: 'Lesbian',
                     romantically: 'Open',
                     religion: 'None',
-                    age: 18,
+                    birthday: {
+                      year: new Date().getFullYear() - 18,
+                      month: new Date().getMonth(),
+                      day: new Date().getDay()
+                    },
                     origin: 'United States',
                     speaks: [ 'English' ],
                     works: 'HSS',
@@ -2372,7 +2396,11 @@ describe('Testing <App/>', () =>
                   nickname: 'Amir',
                   info: {
                     gender: 'Man',
-                    age: 23,
+                    birthday: {
+                      year: new Date().getFullYear() - 23,
+                      month: new Date().getMonth(),
+                      day: new Date().getDay()
+                    },
                     origin: 'Egypt',
                     profession: 'Singer',
                     religion: 'Muslim',
@@ -2436,7 +2464,11 @@ describe('Testing <App/>', () =>
                   nickname: 'Alex',
                   info: {
                     gender: 'Non-binary',
-                    age: 16,
+                    birthday: {
+                      year: new Date().getFullYear() - 16,
+                      month: new Date().getMonth(),
+                      day: new Date().getDay()
+                    },
                     origin: 'United States',
                     profession: 'Activist',
                     religion: 'None',
@@ -2573,7 +2605,11 @@ describe('Testing <App/>', () =>
                     sexuality: 'Lesbian',
                     romantically: 'Closed',
                     speaks: [ 'English' ],
-                    age: 16,
+                    birthday: {
+                      year: new Date().getFullYear() - 16,
+                      month: new Date().getMonth(),
+                      day: new Date().getDay()
+                    },
                     origin: 'United States',
                     profession: 'Actor',
                     religion: 'None',
@@ -2595,7 +2631,11 @@ describe('Testing <App/>', () =>
                     sexuality: 'Lesbian',
                     romantically: 'Closed',
                     speaks: [ 'English' ],
-                    age: 15,
+                    birthday: {
+                      year: new Date().getFullYear() - 15,
+                      month: new Date().getMonth(),
+                      day: new Date().getDay()
+                    },
                     origin: 'United States',
                     profession: 'Actor',
                     religion: 'None',
@@ -3461,7 +3501,11 @@ describe('Testing <Profile/>', () =>
           sexuality: 'Lesbian',
           romantically: 'Closed',
           speaks: [ 'English' ],
-          age: 16,
+          birthday: {
+            year: new Date().getFullYear() - 16,
+            month: new Date().getMonth(),
+            day: new Date().getDay()
+          },
           origin: 'United States',
           profession: 'Actor',
           religion: 'None',
@@ -3523,7 +3567,11 @@ describe('Testing <Profile/>', () =>
           works: 'Skyenet',
           gender: 'Non-binary',
           sexuality: 'Bi',
-          age: 44
+          birthday: {
+            year: new Date().getFullYear() - 44,
+            month: new Date().getMonth(),
+            day: new Date().getDay()
+          }
         },
         iceBreakers: [
           'Aren\'t you going overboard with this Skye joke?',

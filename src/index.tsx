@@ -112,7 +112,11 @@ const store = createStore({
             romantically: 'Closed',
             gender: 'Woman',
             religion: 'Muslim',
-            age: 33
+            birthday: {
+              year: 1987,
+              month: 10,
+              day: 1
+            }
           },
 
           iceBreakers: [
