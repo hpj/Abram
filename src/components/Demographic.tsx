@@ -136,11 +136,11 @@ export default class Demographic extends React.Component<{
         profile.info.origin?.length || editable || romanceShowcase ?
           <Button
             testID={ 'bn-origin' }
-            useAlternative={ true }
             borderless={ true }
+            useAlternative={ true }
             buttonStyle={ styles.rectangle }
             disabled={ !editable }
-            icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+            icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.greyText, style: styles.rectangleIcon } : undefined }
             onPress={ () => this.openEdits(OriginEdits) }
           >
             <View>
@@ -168,7 +168,7 @@ export default class Demographic extends React.Component<{
             borderless={ true }
             buttonStyle={ styles.rectangle }
             disabled={ !editable }
-            icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+            icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.greyText, style: styles.rectangleIcon } : undefined }
           >
             <View>
               <Text style={ styles.rectangleKey }>Speaks</Text>
@@ -187,7 +187,7 @@ export default class Demographic extends React.Component<{
             borderless={ true }
             buttonStyle={ styles.rectangle }
             disabled={ !editable }
-            icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+            icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.greyText, style: styles.rectangleIcon } : undefined }
             onPress={ () => this.openSimple('Your Profession', 'profession', 'Profession') }
           >
             <View>
@@ -209,7 +209,7 @@ export default class Demographic extends React.Component<{
             useAlternative={ true }
             borderless={ true }
             buttonStyle={ styles.rectangle }
-            icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+            icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.greyText, style: styles.rectangleIcon } : undefined }
             onPress={ () => this.openRomantic() }
           >
             {
@@ -234,7 +234,7 @@ export default class Demographic extends React.Component<{
             borderless={ true }
             buttonStyle={ styles.rectangle }
             disabled={ !editable }
-            icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+            icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.greyText, style: styles.rectangleIcon } : undefined }
             onPress={ () => this.openSimple('Your Organization/Company', 'works', 'Jobless') }
           >
             <View>
@@ -254,7 +254,7 @@ export default class Demographic extends React.Component<{
         useAlternative={ true }
         borderless={ true }
         buttonStyle={ styles.rectangle }
-        icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+        icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.greyText, style: styles.rectangleIcon } : undefined }
         disabled={ !editable }
       >
         <View>
@@ -273,7 +273,7 @@ export default class Demographic extends React.Component<{
             borderless={ true }
             buttonStyle={ styles.rectangle }
             disabled={ !editable }
-            icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+            icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.greyText, style: styles.rectangleIcon } : undefined }
           >
             <View>
               {
@@ -300,7 +300,7 @@ export default class Demographic extends React.Component<{
             borderless={ true }
             buttonStyle={ styles.rectangle }
             disabled={ !editable }
-            icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+            icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.greyText, style: styles.rectangleIcon } : undefined }
           >
             <View>
               {
@@ -327,7 +327,7 @@ export default class Demographic extends React.Component<{
             borderless={ true }
             buttonStyle={ styles.rectangle }
             disabled={ !editable }
-            icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.whiteText, style: styles.rectangleIcon } : undefined }
+            icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.greyText, style: styles.rectangleIcon } : undefined }
             onPress={ () => this.openEdits(AgeEdits) }
           >
             <View>
@@ -380,9 +380,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row-reverse',
 
-    borderRadius: 10,
     backgroundColor: colors.rectangleBackground,
-
+    
+    borderRadius: 5,
     minWidth: 65,
 
     marginVertical: sizes.windowMargin * 0.35,

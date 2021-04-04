@@ -76,7 +76,6 @@ class Profile extends React.Component<{
               testID={ 'bn-bio' }
               // eslint-disable-next-line react-native/no-inline-styles
               buttonStyle={ { ...styles.section, flexDirection: 'row', paddingVertical: sizes.windowMargin * 0.5 } }
-              useAlternative={ true }
               disabled={ !editable }
               onPress={ () => this.openEdits(BioEdits) }
             >
@@ -89,7 +88,7 @@ class Profile extends React.Component<{
 
               {
                 editable ?
-                  <Icon name={ 'tool' } size={ sizes.icon * 0.5 } color={ colors.whiteText } style={ styles.sectionIcon }/>
+                  <Icon name={ 'tool' } size={ sizes.icon * 0.5 } color={ colors.greyText } style={ styles.sectionIcon }/>
                   : undefined
               }
               
@@ -103,7 +102,6 @@ class Profile extends React.Component<{
         <Button
           testID={ 'bn-avatar' }
           buttonStyle={ styles.section }
-          useAlternative={ true }
           disabled={ !editable }
           onPress={ () => this.openEdits(AvatarEdits) }
         >
@@ -117,7 +115,7 @@ class Profile extends React.Component<{
             </View>
             {
               editable ?
-                <Icon name={ 'tool' } size={ sizes.icon * 0.5 } color={ colors.whiteText } style={ styles.sectionIcon }/> : undefined
+                <Icon name={ 'tool' } size={ sizes.icon * 0.5 } color={ colors.greyText } style={ styles.sectionIcon }/> : undefined
             }
           </View>
 
@@ -131,7 +129,6 @@ class Profile extends React.Component<{
         <Button
           testID={ 'bn-titles' }
           buttonStyle={ styles.section }
-          useAlternative={ true }
           disabled={ !editable }
           onPress={ () => this.openEdits(TitlesEdits) }
         >
@@ -143,7 +140,7 @@ class Profile extends React.Component<{
             </View>
             {
               editable ?
-                <Icon name={ 'tool' } size={ sizes.icon * 0.5 } color={ colors.whiteText } style={ styles.sectionIcon }/> : undefined
+                <Icon name={ 'tool' } size={ sizes.icon * 0.5 } color={ colors.greyText } style={ styles.sectionIcon }/> : undefined
             }
           </View>
         </Button>
@@ -161,7 +158,6 @@ class Profile extends React.Component<{
             <Button
               testID={ 'bn-ice-breakers' }
               buttonStyle={ styles.section }
-              useAlternative={ true }
               disabled={ !editable }
             >
               <View style={ styles.sectionEditable }>
@@ -170,7 +166,7 @@ class Profile extends React.Component<{
                 </Text>
                 {
                   editable ?
-                    <Icon name={ 'tool' } size={ sizes.icon * 0.5 } color={ colors.whiteText } style={ styles.sectionIcon }/> : undefined
+                    <Icon name={ 'tool' } size={ sizes.icon * 0.5 } color={ colors.greyText } style={ styles.sectionIcon }/> : undefined
                 }
               </View>
 
@@ -209,7 +205,7 @@ class Profile extends React.Component<{
 
             {
               editable ?
-                <Icon name={ 'tool' } size={ sizes.icon * 0.5 } color={ colors.whiteText } style={ styles.sectionIcon }/> : undefined
+                <Icon name={ 'tool' } size={ sizes.icon * 0.5 } color={ colors.greyText } style={ styles.sectionIcon }/> : undefined
             }
           </View>
         </Interests>

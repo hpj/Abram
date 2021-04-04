@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
   },
 
   rectangleSlim: {
-    borderRadius: 10,
+    borderRadius: 5,
     backgroundColor: colors.rectangleBackground,
 
     marginBottom: sizes.windowMargin * 0.55,

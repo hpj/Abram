@@ -755,7 +755,7 @@ exports[`Testing <App/> Chat Hints All 1`] = `
           style={
             Object {
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "marginBottom": 11,
               "marginLeft": 10,
               "paddingHorizontal": 15,
@@ -779,7 +779,7 @@ exports[`Testing <App/> Chat Hints All 1`] = `
           style={
             Object {
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "marginBottom": 11,
               "marginLeft": 10,
               "paddingHorizontal": 15,
@@ -803,7 +803,7 @@ exports[`Testing <App/> Chat Hints All 1`] = `
           style={
             Object {
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "marginBottom": 11,
               "marginLeft": 10,
               "paddingHorizontal": 15,
@@ -827,7 +827,7 @@ exports[`Testing <App/> Chat Hints All 1`] = `
           style={
             Object {
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "marginBottom": 11,
               "marginLeft": 10,
               "paddingHorizontal": 15,
@@ -851,7 +851,7 @@ exports[`Testing <App/> Chat Hints All 1`] = `
           style={
             Object {
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "marginBottom": 11,
               "marginLeft": 10,
               "paddingHorizontal": 15,
@@ -875,7 +875,7 @@ exports[`Testing <App/> Chat Hints All 1`] = `
           style={
             Object {
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "marginBottom": 11,
               "marginLeft": 10,
               "paddingHorizontal": 15,
@@ -899,7 +899,7 @@ exports[`Testing <App/> Chat Hints All 1`] = `
           style={
             Object {
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "marginBottom": 11,
               "marginLeft": 10,
               "paddingHorizontal": 15,
@@ -1003,7 +1003,7 @@ exports[`Testing <App/> Chat Hints All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -1067,7 +1067,7 @@ exports[`Testing <App/> Chat Hints All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -1129,7 +1129,7 @@ exports[`Testing <App/> Chat Hints All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -1191,7 +1191,7 @@ exports[`Testing <App/> Chat Hints All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -1264,7 +1264,7 @@ exports[`Testing <App/> Chat Hints All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -1326,7 +1326,7 @@ exports[`Testing <App/> Chat Hints All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -1388,7 +1388,7 @@ exports[`Testing <App/> Chat Hints All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -1452,7 +1452,7 @@ exports[`Testing <App/> Chat Hints All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -1516,7 +1516,7 @@ exports[`Testing <App/> Chat Hints All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -1854,7 +1854,7 @@ exports[`Testing <App/> Chat Hints Bare 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -1916,7 +1916,7 @@ exports[`Testing <App/> Chat Hints Bare 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -1989,7 +1989,7 @@ exports[`Testing <App/> Chat Hints Bare 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -2291,7 +2291,7 @@ exports[`Testing <App/> Chat Hints Group All 1`] = `
           style={
             Object {
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "marginBottom": 11,
               "marginLeft": 10,
               "paddingHorizontal": 15,
@@ -2315,7 +2315,7 @@ exports[`Testing <App/> Chat Hints Group All 1`] = `
           style={
             Object {
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "marginBottom": 11,
               "marginLeft": 10,
               "paddingHorizontal": 15,
@@ -2339,7 +2339,7 @@ exports[`Testing <App/> Chat Hints Group All 1`] = `
           style={
             Object {
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "marginBottom": 11,
               "marginLeft": 10,
               "paddingHorizontal": 15,
@@ -2363,7 +2363,7 @@ exports[`Testing <App/> Chat Hints Group All 1`] = `
           style={
             Object {
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "marginBottom": 11,
               "marginLeft": 10,
               "paddingHorizontal": 15,
@@ -2387,7 +2387,7 @@ exports[`Testing <App/> Chat Hints Group All 1`] = `
           style={
             Object {
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "marginBottom": 11,
               "marginLeft": 10,
               "paddingHorizontal": 15,
@@ -2411,7 +2411,7 @@ exports[`Testing <App/> Chat Hints Group All 1`] = `
           style={
             Object {
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "marginBottom": 11,
               "marginLeft": 10,
               "paddingHorizontal": 15,
@@ -2435,7 +2435,7 @@ exports[`Testing <App/> Chat Hints Group All 1`] = `
           style={
             Object {
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "marginBottom": 11,
               "marginLeft": 10,
               "paddingHorizontal": 15,
@@ -2798,7 +2798,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Man All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -2862,7 +2862,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Man All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -2924,7 +2924,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Man All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -2986,7 +2986,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Man All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -3059,7 +3059,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Man All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -3121,7 +3121,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Man All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -3183,7 +3183,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Man All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -3247,7 +3247,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Man All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -3311,7 +3311,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Man All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -3502,7 +3502,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Man Bare 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -3564,7 +3564,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Man Bare 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -3637,7 +3637,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Man Bare 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -3826,7 +3826,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Non-binary Bare 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -3888,7 +3888,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Non-binary Bare 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -3961,7 +3961,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Non-binary Bare 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -4160,7 +4160,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Underage Non-binary All 1`]
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -4224,7 +4224,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Underage Non-binary All 1`]
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -4286,7 +4286,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Underage Non-binary All 1`]
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -4348,7 +4348,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Underage Non-binary All 1`]
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -4421,7 +4421,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Underage Non-binary All 1`]
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -4483,7 +4483,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Underage Non-binary All 1`]
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -4545,7 +4545,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Underage Non-binary All 1`]
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -4609,7 +4609,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Underage Non-binary All 1`]
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -4673,7 +4673,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Underage Non-binary All 1`]
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -4874,7 +4874,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Woman All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -4938,7 +4938,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Woman All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -5000,7 +5000,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Woman All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -5062,7 +5062,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Woman All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -5135,7 +5135,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Woman All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -5197,7 +5197,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Woman All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -5259,7 +5259,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Woman All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -5323,7 +5323,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Woman All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -5387,7 +5387,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Woman All 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -5578,7 +5578,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Woman Bare 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -5640,7 +5640,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Woman Bare 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -5713,7 +5713,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Woman Bare 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -9533,7 +9533,7 @@ exports[`Testing <App/> Profile Others Interests Popup 1`] = `
             style={
               Object {
                 "backgroundColor": "#2f9634",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -9557,7 +9557,7 @@ exports[`Testing <App/> Profile Others Interests Popup 1`] = `
             style={
               Object {
                 "backgroundColor": "#2f9634",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -9581,7 +9581,7 @@ exports[`Testing <App/> Profile Others Interests Popup 1`] = `
             style={
               Object {
                 "backgroundColor": "#2f9634",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -9605,7 +9605,7 @@ exports[`Testing <App/> Profile Others Interests Popup 1`] = `
             style={
               Object {
                 "backgroundColor": "#2f9634",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -9629,7 +9629,7 @@ exports[`Testing <App/> Profile Others Interests Popup 1`] = `
             style={
               Object {
                 "backgroundColor": "#2f9634",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -9653,7 +9653,7 @@ exports[`Testing <App/> Profile Others Interests Popup 1`] = `
             style={
               Object {
                 "backgroundColor": "#2f9634",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -9677,7 +9677,7 @@ exports[`Testing <App/> Profile Others Interests Popup 1`] = `
             style={
               Object {
                 "backgroundColor": "#631515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -9701,7 +9701,7 @@ exports[`Testing <App/> Profile Others Interests Popup 1`] = `
             style={
               Object {
                 "backgroundColor": "#631515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -9725,7 +9725,7 @@ exports[`Testing <App/> Profile Others Interests Popup 1`] = `
             style={
               Object {
                 "backgroundColor": "#631515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -9749,7 +9749,7 @@ exports[`Testing <App/> Profile Others Interests Popup 1`] = `
             style={
               Object {
                 "backgroundColor": "#631515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -9773,7 +9773,7 @@ exports[`Testing <App/> Profile Others Interests Popup 1`] = `
             style={
               Object {
                 "backgroundColor": "#631515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -9842,48 +9842,40 @@ exports[`Testing <App/> Profile Others Interests Popup: Should Be Mika Profile 1
           onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "opacity": 1,
+              "paddingVertical": 20,
             }
           }
           testID="bn-avatar"
         >
+          <View>
+            <View />
+          </View>
           <View
             style={
               Object {
-                "paddingVertical": 20,
+                "flexDirection": "row",
               }
             }
           >
-            <View>
-              <View />
-            </View>
             <View
               style={
                 Object {
-                  "flexDirection": "row",
+                  "flexGrow": 1,
                 }
               }
             >
-              <View
+              <Image
+                source={1}
                 style={
                   Object {
-                    "flexGrow": 1,
+                    "alignSelf": "center",
+                    "backgroundColor": "#818181",
+                    "borderRadius": 10,
+                    "height": 256,
+                    "width": 256,
                   }
                 }
-              >
-                <Image
-                  source={1}
-                  style={
-                    Object {
-                      "alignSelf": "center",
-                      "backgroundColor": "#818181",
-                      "borderRadius": 10,
-                      "height": 256,
-                      "width": 256,
-                    }
-                  }
-                />
-              </View>
+              />
             </View>
           </View>
         </View>
@@ -9907,59 +9899,51 @@ exports[`Testing <App/> Profile Others Interests Popup: Should Be Mika Profile 1
           onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "opacity": 1,
+              "paddingVertical": 20,
             }
           }
           testID="bn-titles"
         >
+          <View>
+            <View />
+          </View>
           <View
             style={
               Object {
-                "paddingVertical": 20,
+                "flexDirection": "row",
               }
             }
           >
-            <View>
-              <View />
-            </View>
             <View
               style={
                 Object {
-                  "flexDirection": "row",
+                  "flexGrow": 1,
                 }
               }
             >
-              <View
+              <Text
                 style={
                   Object {
-                    "flexGrow": 1,
+                    "color": "#ffffff",
+                    "fontSize": 18,
+                    "fontWeight": "bold",
+                    "marginHorizontal": 20,
                   }
                 }
               >
-                <Text
-                  style={
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 18,
-                      "fontWeight": "bold",
-                      "marginHorizontal": 20,
-                    }
+                Mika
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 13,
+                    "marginHorizontal": 20,
                   }
-                >
-                  Mika
-                </Text>
-                <Text
-                  style={
-                    Object {
-                      "color": "#818181",
-                      "fontSize": 13,
-                      "marginHorizontal": 20,
-                    }
-                  }
-                >
-                  Mika
-                </Text>
-              </View>
+                }
+              >
+                Mika
+              </Text>
             </View>
           </View>
         </View>
@@ -9996,7 +9980,7 @@ exports[`Testing <App/> Profile Others Interests Popup: Should Be Mika Profile 1
               Object {
                 "alignItems": "center",
                 "backgroundColor": "#151515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "flexDirection": "row-reverse",
                 "marginHorizontal": 7,
                 "marginVertical": 7,
@@ -10058,7 +10042,7 @@ exports[`Testing <App/> Profile Others Interests Popup: Should Be Mika Profile 1
               Object {
                 "alignItems": "center",
                 "backgroundColor": "#151515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "flexDirection": "row-reverse",
                 "marginHorizontal": 7,
                 "marginVertical": 7,
@@ -10131,7 +10115,7 @@ exports[`Testing <App/> Profile Others Interests Popup: Should Be Mika Profile 1
               Object {
                 "alignItems": "center",
                 "backgroundColor": "#151515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "flexDirection": "row-reverse",
                 "marginHorizontal": 7,
                 "marginVertical": 7,
@@ -10235,7 +10219,7 @@ exports[`Testing <App/> Profile Others Interests Popup: Should Be Mika Profile 1
               style={
                 Object {
                   "backgroundColor": "#151515",
-                  "borderRadius": 10,
+                  "borderRadius": 5,
                   "marginBottom": 11,
                   "marginLeft": 10,
                   "paddingHorizontal": 15,
@@ -10259,7 +10243,7 @@ exports[`Testing <App/> Profile Others Interests Popup: Should Be Mika Profile 1
               style={
                 Object {
                   "backgroundColor": "#151515",
-                  "borderRadius": 10,
+                  "borderRadius": 5,
                   "marginBottom": 11,
                   "marginLeft": 10,
                   "paddingHorizontal": 15,
@@ -10283,7 +10267,7 @@ exports[`Testing <App/> Profile Others Interests Popup: Should Be Mika Profile 1
               style={
                 Object {
                   "backgroundColor": "#151515",
-                  "borderRadius": 10,
+                  "borderRadius": 5,
                   "marginBottom": 11,
                   "marginLeft": 10,
                   "paddingHorizontal": 15,
@@ -10307,7 +10291,7 @@ exports[`Testing <App/> Profile Others Interests Popup: Should Be Mika Profile 1
               style={
                 Object {
                   "backgroundColor": "#151515",
-                  "borderRadius": 10,
+                  "borderRadius": 5,
                   "marginBottom": 11,
                   "marginLeft": 10,
                   "paddingHorizontal": 15,
@@ -10331,7 +10315,7 @@ exports[`Testing <App/> Profile Others Interests Popup: Should Be Mika Profile 1
               style={
                 Object {
                   "backgroundColor": "#151515",
-                  "borderRadius": 10,
+                  "borderRadius": 5,
                   "marginBottom": 11,
                   "marginLeft": 10,
                   "paddingHorizontal": 15,
@@ -10355,7 +10339,7 @@ exports[`Testing <App/> Profile Others Interests Popup: Should Be Mika Profile 1
               style={
                 Object {
                   "backgroundColor": "#151515",
-                  "borderRadius": 10,
+                  "borderRadius": 5,
                   "marginBottom": 11,
                   "marginLeft": 10,
                   "paddingHorizontal": 15,
@@ -10465,7 +10449,7 @@ exports[`Testing <App/> Profile Others Romantically Popup Romantically Available
                     Object {
                       "alignItems": "center",
                       "backgroundColor": "#151515",
-                      "borderRadius": 10,
+                      "borderRadius": 5,
                       "flexDirection": "row-reverse",
                       "marginHorizontal": 7,
                       "marginVertical": 7,
@@ -10516,7 +10500,7 @@ exports[`Testing <App/> Profile Others Romantically Popup Romantically Available
                     Object {
                       "alignItems": "center",
                       "backgroundColor": "#151515",
-                      "borderRadius": 10,
+                      "borderRadius": 5,
                       "flexDirection": "row-reverse",
                       "marginHorizontal": 7,
                       "marginVertical": 7,
@@ -10578,7 +10562,7 @@ exports[`Testing <App/> Profile Others Romantically Popup Romantically Available
                     Object {
                       "alignItems": "center",
                       "backgroundColor": "#151515",
-                      "borderRadius": 10,
+                      "borderRadius": 5,
                       "flexDirection": "row-reverse",
                       "marginHorizontal": 7,
                       "marginVertical": 7,
@@ -10629,7 +10613,7 @@ exports[`Testing <App/> Profile Others Romantically Popup Romantically Available
                     Object {
                       "alignItems": "center",
                       "backgroundColor": "#151515",
-                      "borderRadius": 10,
+                      "borderRadius": 5,
                       "flexDirection": "row-reverse",
                       "marginHorizontal": 7,
                       "marginVertical": 7,
@@ -10680,7 +10664,7 @@ exports[`Testing <App/> Profile Others Romantically Popup Romantically Available
                     Object {
                       "alignItems": "center",
                       "backgroundColor": "#151515",
-                      "borderRadius": 10,
+                      "borderRadius": 5,
                       "flexDirection": "row-reverse",
                       "marginHorizontal": 7,
                       "marginVertical": 7,
@@ -10800,7 +10784,7 @@ exports[`Testing <App/> Profile Others Romantically Popup Romantically Available
                     Object {
                       "alignItems": "center",
                       "backgroundColor": "#151515",
-                      "borderRadius": 10,
+                      "borderRadius": 5,
                       "flexDirection": "row-reverse",
                       "marginHorizontal": 7,
                       "marginVertical": 7,
@@ -10851,7 +10835,7 @@ exports[`Testing <App/> Profile Others Romantically Popup Romantically Available
                     Object {
                       "alignItems": "center",
                       "backgroundColor": "#151515",
-                      "borderRadius": 10,
+                      "borderRadius": 5,
                       "flexDirection": "row-reverse",
                       "marginHorizontal": 7,
                       "marginVertical": 7,
@@ -10913,7 +10897,7 @@ exports[`Testing <App/> Profile Others Romantically Popup Romantically Available
                     Object {
                       "alignItems": "center",
                       "backgroundColor": "#151515",
-                      "borderRadius": 10,
+                      "borderRadius": 5,
                       "flexDirection": "row-reverse",
                       "marginHorizontal": 7,
                       "marginVertical": 7,
@@ -10977,7 +10961,7 @@ exports[`Testing <App/> Profile Others Romantically Popup Romantically Available
                     Object {
                       "alignItems": "center",
                       "backgroundColor": "#151515",
-                      "borderRadius": 10,
+                      "borderRadius": 5,
                       "flexDirection": "row-reverse",
                       "marginHorizontal": 7,
                       "marginVertical": 7,
@@ -11041,7 +11025,7 @@ exports[`Testing <App/> Profile Others Romantically Popup Romantically Available
                     Object {
                       "alignItems": "center",
                       "backgroundColor": "#151515",
-                      "borderRadius": 10,
+                      "borderRadius": 5,
                       "flexDirection": "row-reverse",
                       "marginHorizontal": 7,
                       "marginVertical": 7,
@@ -11174,7 +11158,7 @@ exports[`Testing <App/> Profile Others Romantically Popup Romantically Available
                     Object {
                       "alignItems": "center",
                       "backgroundColor": "#151515",
-                      "borderRadius": 10,
+                      "borderRadius": 5,
                       "flexDirection": "row-reverse",
                       "marginHorizontal": 7,
                       "marginVertical": 7,
@@ -11225,7 +11209,7 @@ exports[`Testing <App/> Profile Others Romantically Popup Romantically Available
                     Object {
                       "alignItems": "center",
                       "backgroundColor": "#151515",
-                      "borderRadius": 10,
+                      "borderRadius": 5,
                       "flexDirection": "row-reverse",
                       "marginHorizontal": 7,
                       "marginVertical": 7,
@@ -11287,7 +11271,7 @@ exports[`Testing <App/> Profile Others Romantically Popup Romantically Available
                     Object {
                       "alignItems": "center",
                       "backgroundColor": "#151515",
-                      "borderRadius": 10,
+                      "borderRadius": 5,
                       "flexDirection": "row-reverse",
                       "marginHorizontal": 7,
                       "marginVertical": 7,
@@ -11338,7 +11322,7 @@ exports[`Testing <App/> Profile Others Romantically Popup Romantically Available
                     Object {
                       "alignItems": "center",
                       "backgroundColor": "#151515",
-                      "borderRadius": 10,
+                      "borderRadius": 5,
                       "flexDirection": "row-reverse",
                       "marginHorizontal": 7,
                       "marginVertical": 7,
@@ -11389,7 +11373,7 @@ exports[`Testing <App/> Profile Others Romantically Popup Romantically Available
                     Object {
                       "alignItems": "center",
                       "backgroundColor": "#151515",
-                      "borderRadius": 10,
+                      "borderRadius": 5,
                       "flexDirection": "row-reverse",
                       "marginHorizontal": 7,
                       "marginVertical": 7,
@@ -11573,6 +11557,7 @@ exports[`Testing <App/> Profile Personal Edits Avatar 1`] = `
               "color": "#818181",
               "fontSize": 12,
               "fontWeight": "bold",
+              "marginBottom": 10,
               "textTransform": "uppercase",
             }
           }
@@ -11582,15 +11567,9 @@ exports[`Testing <App/> Profile Personal Edits Avatar 1`] = `
         <View
           style={
             Object {
-              "margin": 10,
-            }
-          }
-        />
-        <View
-          style={
-            Object {
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginTop": 5,
             }
           }
         >
@@ -11717,19 +11696,13 @@ exports[`Testing <App/> Profile Personal Edits Bio 1`] = `
               "color": "#818181",
               "fontSize": 12,
               "fontWeight": "bold",
+              "marginBottom": 10,
               "textTransform": "uppercase",
             }
           }
         >
           Choose Your Bio
         </Text>
-        <View
-          style={
-            Object {
-              "margin": 10,
-            }
-          }
-        />
         <TextInput
           allowFontScaling={true}
           maxLength={255}
@@ -11755,6 +11728,7 @@ exports[`Testing <App/> Profile Personal Edits Bio 1`] = `
             Object {
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginTop": 5,
             }
           }
         >
@@ -11881,19 +11855,13 @@ exports[`Testing <App/> Profile Personal Edits Romantic 1`] = `
               "color": "#818181",
               "fontSize": 12,
               "fontWeight": "bold",
+              "marginBottom": 10,
               "textTransform": "uppercase",
             }
           }
         >
           Choose Your Romantic Availability
         </Text>
-        <View
-          style={
-            Object {
-              "margin": 10,
-            }
-          }
-        />
         <View>
           <View
             style={
@@ -11902,6 +11870,7 @@ exports[`Testing <App/> Profile Personal Edits Romantic 1`] = `
                 "backgroundColor": "#151515",
                 "borderRadius": 5,
                 "flexDirection": "row",
+                "marginBottom": 10,
                 "padding": 15,
               }
             }
@@ -11947,97 +11916,53 @@ exports[`Testing <App/> Profile Personal Edits Romantic 1`] = `
           <View
             style={
               Object {
-                "margin": 10,
-              }
-            }
-          />
-          <View
-            accessible={true}
-            focusable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
                 "alignItems": "center",
-                "flexDirection": "row-reverse",
-                "padding": 15,
+                "flex": 1,
+                "flexDirection": "row",
+                "marginLeft": 25,
+                "marginRight": 10,
+                "marginVertical": 5,
               }
             }
           >
-            <View>
-              <View />
-            </View>
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 15.600000000000001,
-                  },
-                  undefined,
-                  Object {
-                    "fontFamily": "feather",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
             <Text
               style={
                 Object {
                   "color": "#ffffff",
-                  "flexGrow": 1,
-                  "fontSize": 14,
+                  "fontSize": 12,
                   "fontWeight": "bold",
+                  "textTransform": "uppercase",
                 }
               }
             >
               Open
             </Text>
-          </View>
-          <View
-            accessible={true}
-            focusable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "alignItems": "center",
-                "flexDirection": "row-reverse",
-                "padding": 15,
-              }
-            }
-          >
-            <View>
-              <View />
-            </View>
-            <Text
+            <RCTSwitch
+              accessibilityRole="switch"
+              onChange={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              onTintColor="#3a3737"
               style={
-                Object {
-                  "color": "#818181",
-                  "flexGrow": 1,
-                  "fontSize": 14,
-                  "fontWeight": "bold",
-                }
+                Array [
+                  Object {
+                    "height": 31,
+                    "width": 51,
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "marginLeft": 25,
+                    "marginRight": 10,
+                    "marginVertical": 5,
+                  },
+                ]
               }
-            >
-              Closed
-            </Text>
+              thumbTintColor="#ffffff"
+              tintColor="#3a3737"
+              value={true}
+            />
           </View>
         </View>
         <View
@@ -12045,6 +11970,7 @@ exports[`Testing <App/> Profile Personal Edits Romantic 1`] = `
             Object {
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginTop": 5,
             }
           }
         >
@@ -12171,19 +12097,13 @@ exports[`Testing <App/> Profile Personal Edits Titles 1`] = `
               "color": "#818181",
               "fontSize": 12,
               "fontWeight": "bold",
+              "marginBottom": 10,
               "textTransform": "uppercase",
             }
           }
         >
           Choose Your Titles
         </Text>
-        <View
-          style={
-            Object {
-              "margin": 10,
-            }
-          }
-        />
         <View>
           <TextInput
             allowFontScaling={true}
@@ -12233,6 +12153,7 @@ exports[`Testing <App/> Profile Personal Edits Titles 1`] = `
             Object {
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginTop": 5,
             }
           }
         >
@@ -14603,48 +14524,40 @@ exports[`Testing <Profile/> Others Bare Profile 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "opacity": 1,
+            "paddingVertical": 20,
           }
         }
         testID="bn-avatar"
       >
+        <View>
+          <View />
+        </View>
         <View
           style={
             Object {
-              "paddingVertical": 20,
+              "flexDirection": "row",
             }
           }
         >
-          <View>
-            <View />
-          </View>
           <View
             style={
               Object {
-                "flexDirection": "row",
+                "flexGrow": 1,
               }
             }
           >
-            <View
+            <Image
+              source={1}
               style={
                 Object {
-                  "flexGrow": 1,
+                  "alignSelf": "center",
+                  "backgroundColor": "#818181",
+                  "borderRadius": 10,
+                  "height": 256,
+                  "width": 256,
                 }
               }
-            >
-              <Image
-                source={1}
-                style={
-                  Object {
-                    "alignSelf": "center",
-                    "backgroundColor": "#818181",
-                    "borderRadius": 10,
-                    "height": 256,
-                    "width": 256,
-                  }
-                }
-              />
-            </View>
+            />
           </View>
         </View>
       </View>
@@ -14668,59 +14581,51 @@ exports[`Testing <Profile/> Others Bare Profile 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "opacity": 1,
+            "paddingVertical": 20,
           }
         }
         testID="bn-titles"
       >
+        <View>
+          <View />
+        </View>
         <View
           style={
             Object {
-              "paddingVertical": 20,
+              "flexDirection": "row",
             }
           }
         >
-          <View>
-            <View />
-          </View>
           <View
             style={
               Object {
-                "flexDirection": "row",
+                "flexGrow": 1,
               }
             }
           >
-            <View
+            <Text
               style={
                 Object {
-                  "flexGrow": 1,
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                  "fontWeight": "bold",
+                  "marginHorizontal": 20,
                 }
               }
             >
-              <Text
-                style={
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 18,
-                    "fontWeight": "bold",
-                    "marginHorizontal": 20,
-                  }
+              Mika
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 13,
+                  "marginHorizontal": 20,
                 }
-              >
-                Mika
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#818181",
-                    "fontSize": 13,
-                    "marginHorizontal": 20,
-                  }
-                }
-              >
-                Mika
-              </Text>
-            </View>
+              }
+            >
+              Mika
+            </Text>
           </View>
         </View>
       </View>
@@ -14757,7 +14662,7 @@ exports[`Testing <Profile/> Others Bare Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -14819,7 +14724,7 @@ exports[`Testing <Profile/> Others Bare Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -14892,7 +14797,7 @@ exports[`Testing <Profile/> Others Bare Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -15017,37 +14922,29 @@ exports[`Testing <Profile/> Others Full Profile 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "opacity": 1,
+            "flexDirection": "row",
+            "paddingVertical": 10,
           }
         }
         testID="bn-bio"
       >
-        <View
+        <View>
+          <View />
+        </View>
+        <Text
           style={
             Object {
-              "flexDirection": "row",
-              "paddingVertical": 10,
+              "color": "#ffffff",
+              "flex": 1,
+              "fontSize": 22,
+              "fontWeight": "bold",
+              "marginHorizontal": 20,
+              "textAlign": "center",
             }
           }
         >
-          <View>
-            <View />
-          </View>
-          <Text
-            style={
-              Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 22,
-                "fontWeight": "bold",
-                "marginHorizontal": 20,
-                "textAlign": "center",
-              }
-            }
-          >
-            "Leave My Skye Alone!"
-          </Text>
-        </View>
+          "Leave My Skye Alone!"
+        </Text>
       </View>
     </View>
     <View
@@ -15069,48 +14966,40 @@ exports[`Testing <Profile/> Others Full Profile 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "opacity": 1,
+            "paddingVertical": 20,
           }
         }
         testID="bn-avatar"
       >
+        <View>
+          <View />
+        </View>
         <View
           style={
             Object {
-              "paddingVertical": 20,
+              "flexDirection": "row",
             }
           }
         >
-          <View>
-            <View />
-          </View>
           <View
             style={
               Object {
-                "flexDirection": "row",
+                "flexGrow": 1,
               }
             }
           >
-            <View
+            <Image
+              source={1}
               style={
                 Object {
-                  "flexGrow": 1,
+                  "alignSelf": "center",
+                  "backgroundColor": "#818181",
+                  "borderRadius": 10,
+                  "height": 256,
+                  "width": 256,
                 }
               }
-            >
-              <Image
-                source={1}
-                style={
-                  Object {
-                    "alignSelf": "center",
-                    "backgroundColor": "#818181",
-                    "borderRadius": 10,
-                    "height": 256,
-                    "width": 256,
-                  }
-                }
-              />
-            </View>
+            />
           </View>
         </View>
       </View>
@@ -15134,59 +15023,51 @@ exports[`Testing <Profile/> Others Full Profile 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "opacity": 1,
+            "paddingVertical": 20,
           }
         }
         testID="bn-titles"
       >
+        <View>
+          <View />
+        </View>
         <View
           style={
             Object {
-              "paddingVertical": 20,
+              "flexDirection": "row",
             }
           }
         >
-          <View>
-            <View />
-          </View>
           <View
             style={
               Object {
-                "flexDirection": "row",
+                "flexGrow": 1,
               }
             }
           >
-            <View
+            <Text
               style={
                 Object {
-                  "flexGrow": 1,
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                  "fontWeight": "bold",
+                  "marginHorizontal": 20,
                 }
               }
             >
-              <Text
-                style={
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 18,
-                    "fontWeight": "bold",
-                    "marginHorizontal": 20,
-                  }
+              Mika
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 13,
+                  "marginHorizontal": 20,
                 }
-              >
-                Mika
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#818181",
-                    "fontSize": 13,
-                    "marginHorizontal": 20,
-                  }
-                }
-              >
-                Mika
-              </Text>
-            </View>
+              }
+            >
+              Mika
+            </Text>
           </View>
         </View>
       </View>
@@ -15223,7 +15104,7 @@ exports[`Testing <Profile/> Others Full Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -15287,7 +15168,7 @@ exports[`Testing <Profile/> Others Full Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -15349,7 +15230,7 @@ exports[`Testing <Profile/> Others Full Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -15411,7 +15292,7 @@ exports[`Testing <Profile/> Others Full Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -15484,7 +15365,7 @@ exports[`Testing <Profile/> Others Full Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -15546,7 +15427,7 @@ exports[`Testing <Profile/> Others Full Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -15608,7 +15489,7 @@ exports[`Testing <Profile/> Others Full Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -15672,7 +15553,7 @@ exports[`Testing <Profile/> Others Full Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -15736,7 +15617,7 @@ exports[`Testing <Profile/> Others Full Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -15798,76 +15679,68 @@ exports[`Testing <Profile/> Others Full Profile 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "opacity": 1,
+            "paddingVertical": 20,
           }
         }
         testID="bn-ice-breakers"
       >
+        <View>
+          <View />
+        </View>
         <View
           style={
             Object {
-              "paddingVertical": 20,
+              "flexDirection": "row",
             }
           }
         >
-          <View>
-            <View />
-          </View>
-          <View
+          <Text
             style={
               Object {
-                "flexDirection": "row",
-              }
-            }
-          >
-            <Text
-              style={
-                Object {
-                  "color": "#818181",
-                  "flexGrow": 1,
-                  "fontSize": 11,
-                  "fontWeight": "bold",
-                  "marginHorizontal": 20,
-                  "textTransform": "uppercase",
-                }
-              }
-            >
-              Questions Mika Likes
-            </Text>
-          </View>
-          <View
-            style={
-              Object {
+                "color": "#818181",
+                "flexGrow": 1,
+                "fontSize": 11,
+                "fontWeight": "bold",
                 "marginHorizontal": 20,
-                "marginTop": 10,
+                "textTransform": "uppercase",
               }
             }
           >
-            <Text
-              style={
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "bold",
-                  "marginTop": 7,
-                }
+            Questions Mika Likes
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "marginHorizontal": 20,
+              "marginTop": 10,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 14,
+                "fontWeight": "bold",
+                "marginTop": 7,
               }
-            >
-              Skye?
-            </Text>
-            <Text
-              style={
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "bold",
-                  "marginTop": 7,
-                }
+            }
+          >
+            Skye?
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 14,
+                "fontWeight": "bold",
+                "marginTop": 7,
               }
-            >
-              Ajay?
-            </Text>
-          </View>
+            }
+          >
+            Ajay?
+          </Text>
         </View>
       </View>
     </View>
@@ -15934,7 +15807,7 @@ exports[`Testing <Profile/> Others Full Profile 1`] = `
             style={
               Object {
                 "backgroundColor": "#151515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -15958,7 +15831,7 @@ exports[`Testing <Profile/> Others Full Profile 1`] = `
             style={
               Object {
                 "backgroundColor": "#151515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -15982,7 +15855,7 @@ exports[`Testing <Profile/> Others Full Profile 1`] = `
             style={
               Object {
                 "backgroundColor": "#151515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -16006,7 +15879,7 @@ exports[`Testing <Profile/> Others Full Profile 1`] = `
             style={
               Object {
                 "backgroundColor": "#151515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -16030,7 +15903,7 @@ exports[`Testing <Profile/> Others Full Profile 1`] = `
             style={
               Object {
                 "backgroundColor": "#151515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -16054,7 +15927,7 @@ exports[`Testing <Profile/> Others Full Profile 1`] = `
             style={
               Object {
                 "backgroundColor": "#151515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -16110,43 +15983,115 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "opacity": 1,
+            "flexDirection": "row",
+            "paddingVertical": 10,
           }
         }
         testID="bn-bio"
       >
+        <View>
+          <View />
+        </View>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "flex": 1,
+              "fontSize": 22,
+              "fontStyle": "italic",
+              "fontWeight": "bold",
+              "marginHorizontal": 20,
+              "textAlign": "center",
+            }
+          }
+        >
+          This is a Random Bio...
+        </Text>
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": "#818181",
+                "fontSize": 12,
+              },
+              Object {
+                "alignSelf": "center",
+                "marginHorizontal": 20,
+              },
+              Object {
+                "fontFamily": "feather",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "marginTop": 13,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "paddingVertical": 20,
+          }
+        }
+        testID="bn-avatar"
+      >
+        <View>
+          <View />
+        </View>
         <View
           style={
             Object {
               "flexDirection": "row",
-              "paddingVertical": 10,
             }
           }
         >
-          <View>
-            <View />
-          </View>
-          <Text
+          <View
             style={
               Object {
-                "color": "#818181",
-                "flex": 1,
-                "fontSize": 22,
-                "fontStyle": "italic",
-                "fontWeight": "bold",
-                "marginHorizontal": 20,
-                "textAlign": "center",
+                "flexGrow": 1,
               }
             }
           >
-            This is a Random Bio...
-          </Text>
+            <Image
+              source={0}
+              style={
+                Object {
+                  "alignSelf": "center",
+                  "backgroundColor": "#818181",
+                  "borderRadius": 10,
+                  "height": 256,
+                  "width": 256,
+                }
+              }
+            />
+          </View>
           <Text
             allowFontScaling={false}
             style={
               Array [
                 Object {
-                  "color": "#ffffff",
+                  "color": "#818181",
                   "fontSize": 12,
                 },
                 Object {
@@ -16186,171 +16131,75 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "opacity": 1,
-          }
-        }
-        testID="bn-avatar"
-      >
-        <View
-          style={
-            Object {
-              "paddingVertical": 20,
-            }
-          }
-        >
-          <View>
-            <View />
-          </View>
-          <View
-            style={
-              Object {
-                "flexDirection": "row",
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "flexGrow": 1,
-                }
-              }
-            >
-              <Image
-                source={0}
-                style={
-                  Object {
-                    "alignSelf": "center",
-                    "backgroundColor": "#818181",
-                    "borderRadius": 10,
-                    "height": 256,
-                    "width": 256,
-                  }
-                }
-              />
-            </View>
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 12,
-                  },
-                  Object {
-                    "alignSelf": "center",
-                    "marginHorizontal": 20,
-                  },
-                  Object {
-                    "fontFamily": "feather",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-    <View
-      style={
-        Object {
-          "marginTop": 13,
-        }
-      }
-    >
-      <View
-        accessible={true}
-        focusable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
+            "paddingVertical": 20,
           }
         }
         testID="bn-titles"
       >
+        <View>
+          <View />
+        </View>
         <View
           style={
             Object {
-              "paddingVertical": 20,
+              "flexDirection": "row",
             }
           }
         >
-          <View>
-            <View />
-          </View>
           <View
             style={
               Object {
-                "flexDirection": "row",
+                "flexGrow": 1,
               }
             }
           >
-            <View
+            <Text
               style={
                 Object {
-                  "flexGrow": 1,
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                  "fontWeight": "bold",
+                  "marginHorizontal": 20,
                 }
               }
             >
-              <Text
-                style={
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 18,
-                    "fontWeight": "bold",
-                    "marginHorizontal": 20,
-                  }
-                }
-              >
-                User
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#818181",
-                    "fontSize": 13,
-                    "marginHorizontal": 20,
-                  }
-                }
-              >
-                User's Nickname
-              </Text>
-            </View>
+              User
+            </Text>
             <Text
-              allowFontScaling={false}
               style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 12,
-                  },
-                  Object {
-                    "alignSelf": "center",
-                    "marginHorizontal": 20,
-                  },
-                  Object {
-                    "fontFamily": "feather",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
+                Object {
+                  "color": "#818181",
+                  "fontSize": 13,
+                  "marginHorizontal": 20,
+                }
               }
             >
-              
+              User's Nickname
             </Text>
           </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                },
+                Object {
+                  "alignSelf": "center",
+                  "marginHorizontal": 20,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
         </View>
       </View>
     </View>
@@ -16386,7 +16235,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -16404,7 +16253,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#ffffff",
+                  "color": "#818181",
                   "fontSize": 12,
                 },
                 Object {
@@ -16459,7 +16308,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -16477,7 +16326,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#ffffff",
+                  "color": "#818181",
                   "fontSize": 12,
                 },
                 Object {
@@ -16543,7 +16392,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -16561,7 +16410,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#ffffff",
+                  "color": "#818181",
                   "fontSize": 12,
                 },
                 Object {
@@ -16616,7 +16465,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -16634,7 +16483,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#ffffff",
+                  "color": "#818181",
                   "fontSize": 12,
                 },
                 Object {
@@ -16700,7 +16549,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -16718,7 +16567,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#ffffff",
+                  "color": "#818181",
                   "fontSize": 12,
                 },
                 Object {
@@ -16773,7 +16622,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -16791,7 +16640,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#ffffff",
+                  "color": "#818181",
                   "fontSize": 12,
                 },
                 Object {
@@ -16857,7 +16706,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -16875,7 +16724,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#ffffff",
+                  "color": "#818181",
                   "fontSize": 12,
                 },
                 Object {
@@ -16930,7 +16779,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -16948,7 +16797,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#ffffff",
+                  "color": "#818181",
                   "fontSize": 12,
                 },
                 Object {
@@ -17003,7 +16852,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -17021,7 +16870,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#ffffff",
+                  "color": "#818181",
                   "fontSize": 12,
                 },
                 Object {
@@ -17074,66 +16923,58 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "opacity": 1,
+            "paddingVertical": 20,
           }
         }
         testID="bn-ice-breakers"
       >
+        <View>
+          <View />
+        </View>
         <View
           style={
             Object {
-              "paddingVertical": 20,
+              "flexDirection": "row",
             }
           }
         >
-          <View>
-            <View />
-          </View>
-          <View
+          <Text
             style={
               Object {
-                "flexDirection": "row",
+                "color": "#818181",
+                "flexGrow": 1,
+                "fontSize": 11,
+                "fontWeight": "bold",
+                "marginHorizontal": 20,
+                "textTransform": "uppercase",
               }
             }
           >
-            <Text
-              style={
+            Your Ice Breakers
+          </Text>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
                 Object {
                   "color": "#818181",
-                  "flexGrow": 1,
-                  "fontSize": 11,
-                  "fontWeight": "bold",
+                  "fontSize": 12,
+                },
+                Object {
+                  "alignSelf": "center",
                   "marginHorizontal": 20,
-                  "textTransform": "uppercase",
-                }
-              }
-            >
-              Your Ice Breakers
-            </Text>
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 12,
-                  },
-                  Object {
-                    "alignSelf": "center",
-                    "marginHorizontal": 20,
-                  },
-                  Object {
-                    "fontFamily": "feather",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
         </View>
       </View>
     </View>
@@ -17190,7 +17031,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#ffffff",
+                  "color": "#818181",
                   "fontSize": 12,
                 },
                 Object {
@@ -17223,7 +17064,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
             style={
               Object {
                 "backgroundColor": "#151515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -17247,7 +17088,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
             style={
               Object {
                 "backgroundColor": "#151515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -17271,7 +17112,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
             style={
               Object {
                 "backgroundColor": "#151515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -17295,7 +17136,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
             style={
               Object {
                 "backgroundColor": "#151515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -17319,7 +17160,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
             style={
               Object {
                 "backgroundColor": "#151515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -17343,7 +17184,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
             style={
               Object {
                 "backgroundColor": "#151515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -17367,7 +17208,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
             style={
               Object {
                 "backgroundColor": "#151515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -17423,42 +17264,114 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "opacity": 1,
+            "flexDirection": "row",
+            "paddingVertical": 10,
           }
         }
         testID="bn-bio"
       >
+        <View>
+          <View />
+        </View>
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "flex": 1,
+              "fontSize": 22,
+              "fontWeight": "bold",
+              "marginHorizontal": 20,
+              "textAlign": "center",
+            }
+          }
+        >
+          "Skye is the only true Goddess."
+        </Text>
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": "#818181",
+                "fontSize": 12,
+              },
+              Object {
+                "alignSelf": "center",
+                "marginHorizontal": 20,
+              },
+              Object {
+                "fontFamily": "feather",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "marginTop": 13,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "paddingVertical": 20,
+          }
+        }
+        testID="bn-avatar"
+      >
+        <View>
+          <View />
+        </View>
         <View
           style={
             Object {
               "flexDirection": "row",
-              "paddingVertical": 10,
             }
           }
         >
-          <View>
-            <View />
-          </View>
-          <Text
+          <View
             style={
               Object {
-                "color": "#ffffff",
-                "flex": 1,
-                "fontSize": 22,
-                "fontWeight": "bold",
-                "marginHorizontal": 20,
-                "textAlign": "center",
+                "flexGrow": 1,
               }
             }
           >
-            "Skye is the only true Goddess."
-          </Text>
+            <Image
+              source={0}
+              style={
+                Object {
+                  "alignSelf": "center",
+                  "backgroundColor": "#818181",
+                  "borderRadius": 10,
+                  "height": 256,
+                  "width": 256,
+                }
+              }
+            />
+          </View>
           <Text
             allowFontScaling={false}
             style={
               Array [
                 Object {
-                  "color": "#ffffff",
+                  "color": "#818181",
                   "fontSize": 12,
                 },
                 Object {
@@ -17498,171 +17411,75 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "opacity": 1,
-          }
-        }
-        testID="bn-avatar"
-      >
-        <View
-          style={
-            Object {
-              "paddingVertical": 20,
-            }
-          }
-        >
-          <View>
-            <View />
-          </View>
-          <View
-            style={
-              Object {
-                "flexDirection": "row",
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "flexGrow": 1,
-                }
-              }
-            >
-              <Image
-                source={0}
-                style={
-                  Object {
-                    "alignSelf": "center",
-                    "backgroundColor": "#818181",
-                    "borderRadius": 10,
-                    "height": 256,
-                    "width": 256,
-                  }
-                }
-              />
-            </View>
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 12,
-                  },
-                  Object {
-                    "alignSelf": "center",
-                    "marginHorizontal": 20,
-                  },
-                  Object {
-                    "fontFamily": "feather",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-    <View
-      style={
-        Object {
-          "marginTop": 13,
-        }
-      }
-    >
-      <View
-        accessible={true}
-        focusable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
+            "paddingVertical": 20,
           }
         }
         testID="bn-titles"
       >
+        <View>
+          <View />
+        </View>
         <View
           style={
             Object {
-              "paddingVertical": 20,
+              "flexDirection": "row",
             }
           }
         >
-          <View>
-            <View />
-          </View>
           <View
             style={
               Object {
-                "flexDirection": "row",
+                "flexGrow": 1,
               }
             }
           >
-            <View
+            <Text
               style={
                 Object {
-                  "flexGrow": 1,
+                  "color": "#ffffff",
+                  "fontSize": 18,
+                  "fontWeight": "bold",
+                  "marginHorizontal": 20,
                 }
               }
             >
-              <Text
-                style={
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 18,
-                    "fontWeight": "bold",
-                    "marginHorizontal": 20,
-                  }
-                }
-              >
-                User
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#818181",
-                    "fontSize": 13,
-                    "marginHorizontal": 20,
-                  }
-                }
-              >
-                User's Nickname
-              </Text>
-            </View>
+              User
+            </Text>
             <Text
-              allowFontScaling={false}
               style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 12,
-                  },
-                  Object {
-                    "alignSelf": "center",
-                    "marginHorizontal": 20,
-                  },
-                  Object {
-                    "fontFamily": "feather",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
+                Object {
+                  "color": "#818181",
+                  "fontSize": 13,
+                  "marginHorizontal": 20,
+                }
               }
             >
-              
+              User's Nickname
             </Text>
           </View>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                },
+                Object {
+                  "alignSelf": "center",
+                  "marginHorizontal": 20,
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
         </View>
       </View>
     </View>
@@ -17698,7 +17515,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -17716,7 +17533,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#ffffff",
+                  "color": "#818181",
                   "fontSize": 12,
                 },
                 Object {
@@ -17784,7 +17601,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -17802,7 +17619,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#ffffff",
+                  "color": "#818181",
                   "fontSize": 12,
                 },
                 Object {
@@ -17868,7 +17685,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -17886,7 +17703,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#ffffff",
+                  "color": "#818181",
                   "fontSize": 12,
                 },
                 Object {
@@ -17952,7 +17769,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -17970,7 +17787,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#ffffff",
+                  "color": "#818181",
                   "fontSize": 12,
                 },
                 Object {
@@ -18036,7 +17853,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -18054,7 +17871,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#ffffff",
+                  "color": "#818181",
                   "fontSize": 12,
                 },
                 Object {
@@ -18120,7 +17937,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -18138,7 +17955,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#ffffff",
+                  "color": "#818181",
                   "fontSize": 12,
                 },
                 Object {
@@ -18204,7 +18021,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -18222,7 +18039,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#ffffff",
+                  "color": "#818181",
                   "fontSize": 12,
                 },
                 Object {
@@ -18290,7 +18107,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -18308,7 +18125,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#ffffff",
+                  "color": "#818181",
                   "fontSize": 12,
                 },
                 Object {
@@ -18376,7 +18193,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#151515",
-              "borderRadius": 10,
+              "borderRadius": 5,
               "flexDirection": "row-reverse",
               "marginHorizontal": 7,
               "marginVertical": 7,
@@ -18394,7 +18211,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#ffffff",
+                  "color": "#818181",
                   "fontSize": 12,
                 },
                 Object {
@@ -18460,99 +18277,91 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "opacity": 1,
+            "paddingVertical": 20,
           }
         }
         testID="bn-ice-breakers"
       >
+        <View>
+          <View />
+        </View>
         <View
           style={
             Object {
-              "paddingVertical": 20,
+              "flexDirection": "row",
             }
           }
         >
-          <View>
-            <View />
-          </View>
-          <View
+          <Text
             style={
               Object {
-                "flexDirection": "row",
+                "color": "#818181",
+                "flexGrow": 1,
+                "fontSize": 11,
+                "fontWeight": "bold",
+                "marginHorizontal": 20,
+                "textTransform": "uppercase",
               }
             }
           >
-            <Text
-              style={
+            Your Ice Breakers
+          </Text>
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
                 Object {
                   "color": "#818181",
-                  "flexGrow": 1,
-                  "fontSize": 11,
-                  "fontWeight": "bold",
+                  "fontSize": 12,
+                },
+                Object {
+                  "alignSelf": "center",
                   "marginHorizontal": 20,
-                  "textTransform": "uppercase",
-                }
-              }
-            >
-              Your Ice Breakers
-            </Text>
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 12,
-                  },
-                  Object {
-                    "alignSelf": "center",
-                    "marginHorizontal": 20,
-                  },
-                  Object {
-                    "fontFamily": "feather",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-          <View
+                },
+                Object {
+                  "fontFamily": "feather",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "marginHorizontal": 20,
+              "marginTop": 10,
+            }
+          }
+        >
+          <Text
             style={
               Object {
-                "marginHorizontal": 20,
-                "marginTop": 10,
+                "color": "#ffffff",
+                "fontSize": 14,
+                "fontWeight": "bold",
+                "marginTop": 7,
               }
             }
           >
-            <Text
-              style={
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "bold",
-                  "marginTop": 7,
-                }
+            Aren't you going overboard with this Skye joke?
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 14,
+                "fontWeight": "bold",
+                "marginTop": 7,
               }
-            >
-              Aren't you going overboard with this Skye joke?
-            </Text>
-            <Text
-              style={
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "bold",
-                  "marginTop": 7,
-                }
-              }
-            >
-              No.
-            </Text>
-          </View>
+            }
+          >
+            No.
+          </Text>
         </View>
       </View>
     </View>
@@ -18609,7 +18418,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#ffffff",
+                  "color": "#818181",
                   "fontSize": 12,
                 },
                 Object {
@@ -18642,7 +18451,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             style={
               Object {
                 "backgroundColor": "#151515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -18666,7 +18475,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             style={
               Object {
                 "backgroundColor": "#151515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -18690,7 +18499,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             style={
               Object {
                 "backgroundColor": "#151515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -18714,7 +18523,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             style={
               Object {
                 "backgroundColor": "#151515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -18738,7 +18547,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             style={
               Object {
                 "backgroundColor": "#151515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -18762,7 +18571,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             style={
               Object {
                 "backgroundColor": "#151515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,
@@ -18786,7 +18595,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             style={
               Object {
                 "backgroundColor": "#151515",
-                "borderRadius": 10,
+                "borderRadius": 5,
                 "marginBottom": 11,
                 "marginLeft": 10,
                 "paddingHorizontal": 15,

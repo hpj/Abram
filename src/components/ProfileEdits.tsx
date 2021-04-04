@@ -18,6 +18,8 @@ import InfoBox from './InfoBox';
 
 import NumberPicker from './NumberPicker';
 
+import Searchable from './Searchable';
+
 const colors = getTheme();
 
 interface BaseEditsProps {
@@ -283,6 +285,8 @@ export class RomanticEdits<P> extends BaseEdits<P & BaseEditsProps>
 
 export class OriginEdits<P> extends BaseEdits<P & BaseEditsProps>
 {
+  data: string[] = Object.values(countries).map(c => c.name);
+
   onChange(text: string): void
   {
     this.setState({
@@ -298,21 +302,10 @@ export class OriginEdits<P> extends BaseEdits<P & BaseEditsProps>
 
   render(): JSX.Element
   {
-    // const { current } = this.state;
+    const { current } = this.state;
 
-    return super.render('The Origin of Your Traditions and Culture');
-
-    // TODO
-    // <TextInput
-    //   testID={ 'in-bio' }
-    //   style={ styles.input }
-    //   multiline={ false }
-    //   value={ current?.bio }
-    //   onChangeText={ (s: string) => this.onChange(s) }
-    //   placeholderTextColor={ colors.placeholder }
-    //   placeholder={ 'Bio' }
-    //   maxLength={ 255 }
-    // />);
+    return super.render('The Origin of Your Traditions and Culture',
+      <Searchable initial={ current.info.origin } data={ this.data } onChange={ (s) => this.onChange(s) }/>);
   }
 }
 
