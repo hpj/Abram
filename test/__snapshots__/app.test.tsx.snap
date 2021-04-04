@@ -670,7 +670,7 @@ exports[`Testing <App/> Chat Hints All 1`] = `
                 "profession": "Actor",
                 "religion": "None",
                 "romantically": "Closed",
-                "sexuality": "Lesbian",
+                "sexuality": "Homosexual",
                 "speaks": Array [
                   "English",
                 ],
@@ -2062,7 +2062,7 @@ exports[`Testing <App/> Chat Hints Group All 1`] = `
                 "profession": "Actor",
                 "religion": "None",
                 "romantically": "Closed",
-                "sexuality": "Lesbian",
+                "sexuality": "Homosexual",
                 "speaks": Array [
                   "English",
                 ],
@@ -2101,7 +2101,7 @@ exports[`Testing <App/> Chat Hints Group All 1`] = `
                 "profession": "Actor",
                 "religion": "None",
                 "romantically": "Closed",
-                "sexuality": "Lesbian",
+                "sexuality": "Homosexual",
                 "speaks": Array [
                   "English",
                 ],
@@ -2668,7 +2668,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Man All 1`] = `
                 "profession": "Singer",
                 "religion": "Muslim",
                 "romantically": "Open",
-                "sexuality": "Straight",
+                "sexuality": "Heterosexual",
                 "speaks": Array [
                   "Arabic",
                 ],
@@ -4581,7 +4581,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Underage Non-binary All 1`]
                   }
                 }
               >
-                None
+                Asexual
               </Text>
             </View>
           </View>
@@ -4744,7 +4744,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Woman All 1`] = `
                 "profession": "Actor",
                 "religion": "None",
                 "romantically": "Open",
-                "sexuality": "Lesbian",
+                "sexuality": "Homosexual",
                 "speaks": Array [
                   "English",
                 ],
@@ -10933,7 +10933,7 @@ exports[`Testing <App/> Profile Others Romantically Popup Romantically Available
                           }
                         }
                       >
-                        None
+                        Asexual
                       </Text>
                     </View>
                   </View>
@@ -16602,7 +16602,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
       </View>
       <View
         accessible={true}
-        focusable={false}
+        focusable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -16686,7 +16686,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
       </View>
       <View
         accessible={true}
-        focusable={false}
+        focusable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -17917,7 +17917,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
       </View>
       <View
         accessible={true}
-        focusable={false}
+        focusable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -18001,7 +18001,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
       </View>
       <View
         accessible={true}
-        focusable={false}
+        focusable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}

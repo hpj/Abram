@@ -10,13 +10,23 @@ import Button from './Button';
 
 const colors = getTheme();
 
-const Searchable = ({ initial, data, onChange }:
-  { initial?: string, data: string[], onChange?: (value: string) => void }): JSX.Element =>
+const Select = ({ initial, data, searchable, required, onChange }:
+  {
+    initial?: string,
+    required?: boolean,
+    searchable?: boolean,
+    data: string[],
+    onChange?: (value: string) => void }): JSX.Element =>
 {
   const [ value, setValue ] = useState(initial ?? '');
 
   const [ query, setQuery ] = useState('');
 
+  let queryData = data;
+
+  if (searchable)
+    queryData = data.filter(s => s.includes(query)).slice(0, 4);
+  
   return <View>
     {
       value ?
@@ -29,19 +39,19 @@ const Searchable = ({ initial, data, onChange }:
           onPress={ () =>
           {
             setValue('');
-            onChange?.('');
+
+            if (!required)
+              onChange?.('');
           } }
         /> :
         <View>
           <ScrollView horizontal={ true } overScrollMode={ 'never' }>
             {
-              query ?
-                data
-                  .filter(s => s.includes(query))
-                  .slice(0, 4)
+              query || !searchable ?
+                queryData
                   .map((item, i) =>
                     // eslint-disable-next-line react-native/no-inline-styles
-                    <View key={ i } style={ { marginRight: i < 3 ?sizes.windowMargin * 0.75 : 0 } }>
+                    <View key={ i } style={ { marginRight: i < queryData.length ? sizes.windowMargin * 0.75 : 0 } }>
                       <Button
                         text={ item }
                         textStyle={ styles.text }
@@ -57,15 +67,18 @@ const Searchable = ({ initial, data, onChange }:
             }
           </ScrollView>
 
-          <TextInput
-            value={ query }
-            autoFocus={ true }
-            multiline={ false }
-            style={ styles.input }
-            placeholder={ 'Search' }
-            placeholderTextColor={ colors.placeholder }
-            onChangeText={ (s: string) => setQuery(s) }
-          />
+          {
+            searchable ?
+              <TextInput
+                value={ query }
+                autoFocus={ true }
+                multiline={ false }
+                style={ styles.input }
+                placeholder={ 'Search' }
+                placeholderTextColor={ colors.placeholder }
+                onChangeText={ (s: string) => setQuery(s) }
+              /> : undefined
+          }
         </View>
     }
   </View>;
@@ -114,4 +127,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Searchable;
+export default Select;

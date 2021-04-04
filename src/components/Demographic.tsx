@@ -15,7 +15,7 @@ import { getAge } from '../utils';
 import {
   BaseEdits, SimpleDemographicEdits,
   OriginEdits, RomanticEdits,
-  AgeEdits
+  AgeEdits, SimpleSelectEdits
 } from '../components/ProfileEdits';
 
 import Button from '../components/Button';
@@ -117,6 +117,28 @@ export default class Demographic extends React.Component<{
     store.set({
       popup: true,
       popupContent: () => <Component profile={ profile }/>
+    });
+  }
+
+  openSelect(title: string, field: keyof Profile['info'], data: string[], required?: boolean): void
+  {
+    const store = getStore();
+
+    // istanbul ignore next
+    if (store.state.popup)
+      return;
+
+    const { profile } = this.props;
+
+    store.set({
+      popup: true,
+      popupContent: () => <SimpleSelectEdits
+        profile={ profile }
+        title={ title }
+        field={ field }
+        required={ required }
+        data={ data }
+      />
     });
   }
 
@@ -256,6 +278,7 @@ export default class Demographic extends React.Component<{
         buttonStyle={ styles.rectangle }
         icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.greyText, style: styles.rectangleIcon } : undefined }
         disabled={ !editable }
+        onPress={ () => this.openSelect('Your Gender', 'gender', [ 'Woman', 'Man', 'Non-binary' ], true) }
       >
         <View>
           <Text style={ styles.rectangleKey }>Gender</Text>
@@ -274,13 +297,20 @@ export default class Demographic extends React.Component<{
             buttonStyle={ styles.rectangle }
             disabled={ !editable }
             icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.greyText, style: styles.rectangleIcon } : undefined }
+            onPress={ () => this.openSelect('Your Sexuality', 'sexuality', [ 'Heterosexual', 'Homosexual', 'Bisexual', 'None' ]) }
           >
             <View>
               {
                 profile.info.sexuality?.length ?
                   <View>
                     <Text style={ styles.rectangleKey }>Sexuality</Text>
-                    <Text style={ styles.rectangleValue }>{ profile.info.sexuality }</Text>
+                    <Text style={ styles.rectangleValue }>{
+                      profile.info.sexuality
+                        .replace('Heterosexual', 'Straight')
+                        .replace(profile.info.gender.toLowerCase().endsWith('man') ? 'Homosexual' : ' ', profile.info.gender === 'Man' ? 'Gay' : 'Lesbian')
+                        .replace('Bisexual', 'Bi')
+                        .replace('None', 'Asexual')
+                    }</Text>
                   </View> :
                   editable ?
                     <Text style={ styles.rectangleKey }>Sexuality</Text> :

@@ -18,7 +18,7 @@ import InfoBox from './InfoBox';
 
 import NumberPicker from './NumberPicker';
 
-import Searchable from './Searchable';
+import Select from './Select';
 
 const colors = getTheme();
 
@@ -210,8 +210,10 @@ export class SimpleDemographicEdits extends BaseEdits<{
   field: keyof Profile['info']
 } & BaseEditsProps>
 {
-  onChange(field: string, text: string): void
+  onChange(text: string): void
   {
+    const { field } = this.props;
+
     this.setState({
       current: {
         ...this.state.current,
@@ -235,7 +237,7 @@ export class SimpleDemographicEdits extends BaseEdits<{
       multiline={ false }
       // eslint-disable-next-line security/detect-object-injection
       value={ `${current?.info[field] ?? ''}` }
-      onChangeText={ (s: string) => this.onChange(field, s) }
+      onChangeText={ (s: string) => this.onChange(s) }
       placeholderTextColor={ colors.placeholder }
       placeholder={ placeholder }
       maxLength={ 24 }
@@ -305,7 +307,7 @@ export class OriginEdits<P> extends BaseEdits<P & BaseEditsProps>
     const { current } = this.state;
 
     return super.render('The Origin of Your Traditions and Culture',
-      <Searchable initial={ current.info.origin } data={ this.data } onChange={ (s) => this.onChange(s) }/>);
+      <Select initial={ current.info.origin } data={ this.data } searchable={ true } onChange={ (s) => this.onChange(s) }/>);
   }
 }
 
@@ -397,6 +399,40 @@ export class AgeEdits<P> extends BaseEdits<P & BaseEditsProps>
         />
       </View>
     </View>);
+  }
+}
+
+export class SimpleSelectEdits extends BaseEdits<{
+  title: string,
+  field: keyof Profile['info'],
+  required?: boolean,
+  data: string[]
+} & BaseEditsProps>
+{
+  onChange(text: string): void
+  {
+    const { field } = this.props;
+
+    this.setState({
+      current: {
+        ...this.state.current,
+        info: {
+          ...this.state.current.info,
+          [field]: text
+        }
+      }
+    });
+  }
+
+  render(): JSX.Element
+  {
+    const { title, field, required, data } = this.props;
+
+    const { current } = this.state;
+
+    return super.render(title,
+      // eslint-disable-next-line security/detect-object-injection
+      <Select initial={ current?.info[field] as string ?? ''  } required={ required } data={ data } onChange={ (s) => this.onChange(s) }/>);
   }
 }
 

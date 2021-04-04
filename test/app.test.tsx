@@ -1765,6 +1765,10 @@ describe('Testing <App/>', () =>
         });
 
         test.todo('Age');
+
+        test.todo('Gender');
+
+        test.todo('Sexuality');
       });
     });
   });
@@ -2082,7 +2086,7 @@ describe('Testing <App/>', () =>
                   nickname: 'Mika',
                   info: {
                     gender: 'Woman',
-                    sexuality: 'Lesbian',
+                    sexuality: 'Homosexual',
                     romantically: 'Closed',
                     speaks: [ 'English' ],
                     birthday: {
@@ -2328,7 +2332,7 @@ describe('Testing <App/>', () =>
                   nickname: 'Mika',
                   info: {
                     gender: 'Woman',
-                    sexuality: 'Lesbian',
+                    sexuality: 'Homosexual',
                     romantically: 'Open',
                     religion: 'None',
                     birthday: {
@@ -2405,7 +2409,7 @@ describe('Testing <App/>', () =>
                     profession: 'Singer',
                     religion: 'Muslim',
                     romantically: 'Open',
-                    sexuality: 'Straight',
+                    sexuality: 'Heterosexual',
                     works: 'Cairokee',
                     speaks: [ 'Arabic' ]
                   },
@@ -2602,7 +2606,7 @@ describe('Testing <App/>', () =>
                   nickname: 'Mika',
                   info: {
                     gender: 'Woman',
-                    sexuality: 'Lesbian',
+                    sexuality: 'Homosexual',
                     romantically: 'Closed',
                     speaks: [ 'English' ],
                     birthday: {
@@ -2628,7 +2632,7 @@ describe('Testing <App/>', () =>
                   nickname: 'Skye',
                   info: {
                     gender: 'Woman',
-                    sexuality: 'Lesbian',
+                    sexuality: 'Homosexual',
                     romantically: 'Closed',
                     speaks: [ 'English' ],
                     birthday: {
@@ -3498,7 +3502,7 @@ describe('Testing <Profile/>', () =>
         bio: 'Leave My Skye Alone!',
         info: {
           gender: 'Woman',
-          sexuality: 'Lesbian',
+          sexuality: 'Homosexual',
           romantically: 'Closed',
           speaks: [ 'English' ],
           birthday: {
@@ -3566,7 +3570,7 @@ describe('Testing <Profile/>', () =>
           religion: 'Skyeism',
           works: 'Skyenet',
           gender: 'Non-binary',
-          sexuality: 'Bi',
+          sexuality: 'Bisexual',
           birthday: {
             year: new Date().getFullYear() - 44,
             month: new Date().getMonth(),
