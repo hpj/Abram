@@ -6,9 +6,12 @@ Performance Issues and Bugs:
       - we have no idea what causes that to... not happen?
 
 Alpha:
-  ☐ check TODOs if any are do-able
+  ☐ ice breaker edits
+  ☐ interests edits
 
-  ☐ all profile edits
+  ☐ tests UI responsiveness on genymotion
+
+  ☐ check TODOs if any are do-able
 
   ☐ work on branding descriptions and motto
 
@@ -38,14 +41,12 @@ Testing:
   ☐ mock and test Clipboard
     - with <ChatContext/>
 
-UI/UX:
+UX:
   ☐ design the UI for kick voting from groups
 
   ☐ design a mockup for Discover view @low 
 
   ☐ add all used strings to i18n
-
-  ☐ RTL Layout support
 
   ☐ make search actually function
 

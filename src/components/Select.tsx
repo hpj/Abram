@@ -33,15 +33,21 @@ const Select = ({ initial, data, searchable, required, multiple, onChange }: {
 
   if (searchable)
     queryData = data.filter(s => s.includes(query)).slice(0, 4);
-  
+
   return <View>
     {
       !active ?
-        <ScrollView horizontal={ true } overScrollMode={ 'never' }>
+        <View style={ styles.wrap }>
           {
             values.map((v, i) =>
+            {
+              const margin = (i < values.length - 1) || (i === values.length - 1 && values.length !== max) ? sizes.windowMargin * 0.75 : 0;
+
               // eslint-disable-next-line react-native/no-inline-styles
-              <View key={ i } style={ { marginRight: (i < values.length  - 1) || (i === values.length - 1 && values.length !== max) ? sizes.windowMargin * 0.75 : 0 } }>
+              return <View key={ i } style={ {
+                marginRight: margin,
+                marginBottom: margin
+              } }>
                 <Button
                   text={ v }
                   useAlternative={ true }
@@ -63,7 +69,8 @@ const Select = ({ initial, data, searchable, required, multiple, onChange }: {
                       onChange?.(values);
                   } }
                 />
-              </View>)
+              </View>;
+            })
           }
 
           {
@@ -77,7 +84,7 @@ const Select = ({ initial, data, searchable, required, multiple, onChange }: {
               } }
             /> : undefined
           }
-        </ScrollView>
+        </View>
         :
         <View>
           <ScrollView horizontal={ true } overScrollMode={ 'never' }>
@@ -85,8 +92,13 @@ const Select = ({ initial, data, searchable, required, multiple, onChange }: {
               query || !searchable ?
                 queryData
                   .map((item, i) =>
+                  {
+                    const margin = i < queryData.length - 1 ? sizes.windowMargin * 0.75 : 0;
+                    
                     // eslint-disable-next-line react-native/no-inline-styles
-                    <View key={ i } style={ { marginRight: i < queryData.length - 1 ? sizes.windowMargin * 0.75 : 0 } }>
+                    return <View key={ i } style={ {
+                      marginRight: margin
+                    } }>
                       <Button
                         text={ item }
                         textStyle={ styles.text }
@@ -104,7 +116,8 @@ const Select = ({ initial, data, searchable, required, multiple, onChange }: {
                           onChange?.(max > 1 ? values : values[0]);
                         } }
                       />
-                    </View>) : undefined
+                    </View>;
+                  }) : undefined
             }
           </ScrollView>
 
@@ -127,8 +140,6 @@ const Select = ({ initial, data, searchable, required, multiple, onChange }: {
 
 const styles = StyleSheet.create({
   value: {
-    flex: 1,
-
     alignItems: 'center',
     flexDirection: 'row-reverse',
     backgroundColor: colors.rectangleBackground,
@@ -159,9 +170,12 @@ const styles = StyleSheet.create({
     color: colors.whiteText
   },
 
-  multiple: {
-    flex: 1,
+  wrap: {
+    flexDirection: 'row',
+    flexWrap: 'wrap'
+  },
 
+  multiple: {
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.rectangleBackground,
