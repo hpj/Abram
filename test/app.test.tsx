@@ -1528,8 +1528,7 @@ describe('Testing <App/>', () =>
                         year: new Date().getFullYear() - 21,
                         month: new Date().getMonth(),
                         day: new Date().getDay()
-                      },
-                      religion: 'None'
+                      }
                     },
                     interests: [] as string[]
                   }
@@ -1713,11 +1712,11 @@ describe('Testing <App/>', () =>
           component.unmount();
         });
 
-        test.todo('Profession');
-        
-        test.todo('Works At');
-        
         test.todo('Origin');
+        
+        test.todo('Speaks');
+        
+        test.todo('Profession');
 
         test('Romantic', async() =>
         {
@@ -1764,11 +1763,15 @@ describe('Testing <App/>', () =>
           component.unmount();
         });
 
-        test.todo('Age');
+        test.todo('Works');
 
         test.todo('Gender');
 
         test.todo('Sexuality');
+        
+        test.todo('Religion');
+
+        test.todo('Age');
       });
     });
   });
@@ -2096,7 +2099,6 @@ describe('Testing <App/>', () =>
                     },
                     origin: 'United States',
                     profession: 'Actor',
-                    religion: 'None',
                     works: 'HSS'
                   },
                   iceBreakers: [
@@ -2334,7 +2336,6 @@ describe('Testing <App/>', () =>
                     gender: 'Woman',
                     sexuality: 'Homosexual',
                     romantically: 'Open',
-                    religion: 'None',
                     birthday: {
                       year: new Date().getFullYear() - 18,
                       month: new Date().getMonth(),
@@ -2407,7 +2408,7 @@ describe('Testing <App/>', () =>
                     },
                     origin: 'Egypt',
                     profession: 'Singer',
-                    religion: 'Muslim',
+                    religion: 'Islam',
                     romantically: 'Open',
                     sexuality: 'Heterosexual',
                     works: 'Cairokee',
@@ -2475,7 +2476,6 @@ describe('Testing <App/>', () =>
                     },
                     origin: 'United States',
                     profession: 'Activist',
-                    religion: 'None',
                     romantically: 'Open',
                     sexuality: 'None',
                     works: 'United Nations',
@@ -2616,7 +2616,6 @@ describe('Testing <App/>', () =>
                     },
                     origin: 'United States',
                     profession: 'Actor',
-                    religion: 'None',
                     works: 'HSS'
                   },
                   iceBreakers: [
@@ -2642,7 +2641,6 @@ describe('Testing <App/>', () =>
                     },
                     origin: 'United States',
                     profession: 'Actor',
-                    religion: 'None',
                     works: 'CA'
                   },
                   iceBreakers: [
@@ -3512,7 +3510,6 @@ describe('Testing <Profile/>', () =>
           },
           origin: 'United States',
           profession: 'Actor',
-          religion: 'None',
           works: 'HSS'
         },
         iceBreakers: [
@@ -3567,7 +3564,6 @@ describe('Testing <Profile/>', () =>
           romantically: 'Open',
           speaks: [ 'English' ],
           profession: 'Cultist',
-          religion: 'Skyeism',
           works: 'Skyenet',
           gender: 'Non-binary',
           sexuality: 'Bisexual',

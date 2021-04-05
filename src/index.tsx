@@ -111,7 +111,7 @@ const store = createStore({
             profession: 'Singer',
             romantically: 'Closed',
             gender: 'Woman',
-            religion: 'Muslim',
+            religion: 'Islam',
             birthday: {
               year: 1987,
               month: 10,

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { StyleSheet, View, Image, Text, TextInput, Switch } from 'react-native';
 
-import { countries } from 'countries-list';
+import { countries, languages } from 'countries-list';
 
 import type { Profile } from '../types';
 
@@ -307,7 +307,12 @@ export class OriginEdits<P> extends BaseEdits<P & BaseEditsProps>
     const { current } = this.state;
 
     return super.render('The Origin of Your Traditions and Culture',
-      <Select initial={ current.info.origin } data={ this.data } searchable={ true } onChange={ (s) => this.onChange(s) }/>);
+      <Select
+        data={ this.data }
+        initial={ current.info.origin }
+        searchable={ true }
+        onChange={ (s) => this.onChange(s as string) }
+      />);
   }
 }
 
@@ -431,8 +436,45 @@ export class SimpleSelectEdits extends BaseEdits<{
     const { current } = this.state;
 
     return super.render(title,
-      // eslint-disable-next-line security/detect-object-injection
-      <Select initial={ current?.info[field] as string ?? ''  } required={ required } data={ data } onChange={ (s) => this.onChange(s) }/>);
+      <Select
+        data={ data }
+        required={ required }
+        // eslint-disable-next-line security/detect-object-injection
+        initial={ current?.info[field] as string ?? ''  }
+        onChange={ (s) => this.onChange(s as string) }
+      />);
+  }
+}
+
+export class SpeaksEdits<P> extends BaseEdits<P & BaseEditsProps>
+{
+  data: string[] = Object.values(languages).map(l => l.name);
+
+  onChange(values: string[]): void
+  {
+    this.setState({
+      current: {
+        ...this.state.current,
+        info: {
+          ...this.state.current.info,
+          speaks: values
+        }
+      }
+    });
+  }
+
+  render(): JSX.Element
+  {
+    const { current } = this.state;
+
+    return super.render('The Bunch Of Languages You Speak',
+      <Select
+        data={ this.data }
+        initial={ current.info.speaks }
+        multiple={ 3 }
+        searchable={ true }
+        onChange={ (s) => this.onChange(s as string[]) }
+      />);
   }
 }
 

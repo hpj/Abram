@@ -35,7 +35,7 @@ export type ProfileInfo = {
   works?: string,
   gender: 'Woman' | 'Man' | 'Non-binary',
   sexuality?: 'Heterosexual' | 'Homosexual' | 'Bisexual' | 'None',
-  religion?: string,
+  religion?: 'Christianity' | 'Islam',
   birthday?: {
     year: number,
     month: number,

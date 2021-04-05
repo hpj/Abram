@@ -15,7 +15,7 @@ import { getAge } from '../utils';
 import {
   BaseEdits, SimpleDemographicEdits,
   OriginEdits, RomanticEdits,
-  AgeEdits, SimpleSelectEdits
+  AgeEdits, SimpleSelectEdits, SpeaksEdits
 } from '../components/ProfileEdits';
 
 import Button from '../components/Button';
@@ -191,6 +191,7 @@ export default class Demographic extends React.Component<{
             buttonStyle={ styles.rectangle }
             disabled={ !editable }
             icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.greyText, style: styles.rectangleIcon } : undefined }
+            onPress={ () => this.openEdits(SpeaksEdits) }
           >
             <View>
               <Text style={ styles.rectangleKey }>Speaks</Text>
@@ -331,13 +332,18 @@ export default class Demographic extends React.Component<{
             buttonStyle={ styles.rectangle }
             disabled={ !editable }
             icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.greyText, style: styles.rectangleIcon } : undefined }
+            onPress={ () => this.openSelect('Your Religion', 'religion', [ 'Christianity', 'Islam' ]) }
           >
             <View>
               {
                 profile.info.religion?.length ?
                   <View>
                     <Text style={ styles.rectangleKey }>Religion</Text>
-                    <Text style={ styles.rectangleValue }>{ profile.info.religion }</Text>
+                    <Text style={ styles.rectangleValue }>{
+                      profile.info.religion
+                        .replace('Christianity', 'Christian')
+                        .replace('Islam', 'Muslim')
+                    }</Text>
                   </View> :
                   editable ?
                     <Text style={ styles.rectangleKey }>Religion</Text> :

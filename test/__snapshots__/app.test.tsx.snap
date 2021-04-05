@@ -668,7 +668,6 @@ exports[`Testing <App/> Chat Hints All 1`] = `
                 "gender": "Woman",
                 "origin": "United States",
                 "profession": "Actor",
-                "religion": "None",
                 "romantically": "Closed",
                 "sexuality": "Homosexual",
                 "speaks": Array [
@@ -1445,70 +1444,6 @@ exports[`Testing <App/> Chat Hints All 1`] = `
             "opacity": 1,
           }
         }
-        testID="bn-religion"
-      >
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#151515",
-              "borderRadius": 5,
-              "flexDirection": "row-reverse",
-              "marginHorizontal": 7,
-              "marginVertical": 7,
-              "minWidth": 65,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
-            }
-          }
-        >
-          <View>
-            <View />
-          </View>
-          <View>
-            <View>
-              <Text
-                style={
-                  Object {
-                    "color": "#818181",
-                    "fontSize": 12,
-                    "fontWeight": "bold",
-                    "textTransform": "uppercase",
-                  }
-                }
-              >
-                Religion
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 13,
-                    "textTransform": "capitalize",
-                  }
-                }
-              >
-                None
-              </Text>
-            </View>
-          </View>
-        </View>
-      </View>
-      <View
-        accessible={true}
-        focusable={false}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
         testID="bn-age"
       >
         <View
@@ -2060,7 +1995,6 @@ exports[`Testing <App/> Chat Hints Group All 1`] = `
                 "gender": "Woman",
                 "origin": "United States",
                 "profession": "Actor",
-                "religion": "None",
                 "romantically": "Closed",
                 "sexuality": "Homosexual",
                 "speaks": Array [
@@ -2099,7 +2033,6 @@ exports[`Testing <App/> Chat Hints Group All 1`] = `
                 "gender": "Woman",
                 "origin": "United States",
                 "profession": "Actor",
-                "religion": "None",
                 "romantically": "Closed",
                 "sexuality": "Homosexual",
                 "speaks": Array [
@@ -2666,7 +2599,7 @@ exports[`Testing <App/> Chat Hints Romantically Open Man All 1`] = `
                 "gender": "Man",
                 "origin": "Egypt",
                 "profession": "Singer",
-                "religion": "Muslim",
+                "religion": "Islam",
                 "romantically": "Open",
                 "sexuality": "Heterosexual",
                 "speaks": Array [
@@ -4028,7 +3961,6 @@ exports[`Testing <App/> Chat Hints Romantically Open Underage Non-binary All 1`]
                 "gender": "Non-binary",
                 "origin": "United States",
                 "profession": "Activist",
-                "religion": "None",
                 "romantically": "Open",
                 "sexuality": "None",
                 "speaks": Array [
@@ -4602,70 +4534,6 @@ exports[`Testing <App/> Chat Hints Romantically Open Underage Non-binary All 1`]
             "opacity": 1,
           }
         }
-        testID="bn-religion"
-      >
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#151515",
-              "borderRadius": 5,
-              "flexDirection": "row-reverse",
-              "marginHorizontal": 7,
-              "marginVertical": 7,
-              "minWidth": 65,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
-            }
-          }
-        >
-          <View>
-            <View />
-          </View>
-          <View>
-            <View>
-              <Text
-                style={
-                  Object {
-                    "color": "#818181",
-                    "fontSize": 12,
-                    "fontWeight": "bold",
-                    "textTransform": "uppercase",
-                  }
-                }
-              >
-                Religion
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 13,
-                    "textTransform": "capitalize",
-                  }
-                }
-              >
-                None
-              </Text>
-            </View>
-          </View>
-        </View>
-      </View>
-      <View
-        accessible={true}
-        focusable={false}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
         testID="bn-age"
       >
         <View
@@ -4742,7 +4610,6 @@ exports[`Testing <App/> Chat Hints Romantically Open Woman All 1`] = `
                 "gender": "Woman",
                 "origin": "United States",
                 "profession": "Actor",
-                "religion": "None",
                 "romantically": "Open",
                 "sexuality": "Homosexual",
                 "speaks": Array [
@@ -5296,70 +5163,6 @@ exports[`Testing <App/> Chat Hints Romantically Open Woman All 1`] = `
                 }
               >
                 Lesbian
-              </Text>
-            </View>
-          </View>
-        </View>
-      </View>
-      <View
-        accessible={true}
-        focusable={false}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-        testID="bn-religion"
-      >
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#151515",
-              "borderRadius": 5,
-              "flexDirection": "row-reverse",
-              "marginHorizontal": 7,
-              "marginVertical": 7,
-              "minWidth": 65,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
-            }
-          }
-        >
-          <View>
-            <View />
-          </View>
-          <View>
-            <View>
-              <Text
-                style={
-                  Object {
-                    "color": "#818181",
-                    "fontSize": 12,
-                    "fontWeight": "bold",
-                    "textTransform": "uppercase",
-                  }
-                }
-              >
-                Religion
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 13,
-                    "textTransform": "capitalize",
-                  }
-                }
-              >
-                None
               </Text>
             </View>
           </View>
@@ -10975,31 +10778,18 @@ exports[`Testing <App/> Profile Others Romantically Popup Romantically Available
                     <View />
                   </View>
                   <View>
-                    <View>
-                      <Text
-                        style={
-                          Object {
-                            "color": "#818181",
-                            "fontSize": 12,
-                            "fontWeight": "bold",
-                            "textTransform": "uppercase",
-                          }
+                    <Text
+                      style={
+                        Object {
+                          "color": "#818181",
+                          "fontSize": 13,
+                          "fontWeight": "bold",
+                          "textTransform": "uppercase",
                         }
-                      >
-                        Religion
-                      </Text>
-                      <Text
-                        style={
-                          Object {
-                            "color": "#ffffff",
-                            "fontSize": 13,
-                            "textTransform": "capitalize",
-                          }
-                        }
-                      >
-                        None
-                      </Text>
-                    </View>
+                      }
+                    >
+                      Non-Religious
+                    </Text>
                   </View>
                 </View>
               </View>
@@ -15546,70 +15336,6 @@ exports[`Testing <Profile/> Others Full Profile 1`] = `
             "opacity": 1,
           }
         }
-        testID="bn-religion"
-      >
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#151515",
-              "borderRadius": 5,
-              "flexDirection": "row-reverse",
-              "marginHorizontal": 7,
-              "marginVertical": 7,
-              "minWidth": 65,
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
-            }
-          }
-        >
-          <View>
-            <View />
-          </View>
-          <View>
-            <View>
-              <Text
-                style={
-                  Object {
-                    "color": "#818181",
-                    "fontSize": 12,
-                    "fontWeight": "bold",
-                    "textTransform": "uppercase",
-                  }
-                }
-              >
-                Religion
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 13,
-                    "textTransform": "capitalize",
-                  }
-                }
-              >
-                None
-              </Text>
-            </View>
-          </View>
-        </View>
-      </View>
-      <View
-        accessible={true}
-        focusable={false}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
         testID="bn-age"
       >
         <View
@@ -16288,7 +16014,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
       </View>
       <View
         accessible={true}
-        focusable={false}
+        focusable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -16759,7 +16485,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
       </View>
       <View
         accessible={true}
-        focusable={false}
+        focusable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -17581,7 +17307,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
       </View>
       <View
         accessible={true}
-        focusable={false}
+        focusable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -18087,7 +17813,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
       </View>
       <View
         accessible={true}
-        focusable={false}
+        focusable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -18143,31 +17869,18 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
             
           </Text>
           <View>
-            <View>
-              <Text
-                style={
-                  Object {
-                    "color": "#818181",
-                    "fontSize": 12,
-                    "fontWeight": "bold",
-                    "textTransform": "uppercase",
-                  }
+            <Text
+              style={
+                Object {
+                  "color": "#818181",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
                 }
-              >
-                Religion
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 13,
-                    "textTransform": "capitalize",
-                  }
-                }
-              >
-                Skyeism
-              </Text>
-            </View>
+              }
+            >
+              Religion
+            </Text>
           </View>
         </View>
       </View>

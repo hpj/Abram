@@ -10,15 +10,22 @@ import Button from './Button';
 
 const colors = getTheme();
 
-const Select = ({ initial, data, searchable, required, onChange }:
-  {
-    initial?: string,
-    required?: boolean,
-    searchable?: boolean,
-    data: string[],
-    onChange?: (value: string) => void }): JSX.Element =>
+const Select = ({ initial, data, searchable, required, multiple, onChange }: {
+  initial?: string | string[],
+  required?: boolean,
+  searchable?: boolean,
+  multiple?: number,
+  data: string[],
+  onChange?: (value: string | string[]) => void
+}): JSX.Element =>
 {
-  const [ value, setValue ] = useState(initial ?? '');
+  const max = multiple ?? 1;
+  
+  initial = max > 1 ? initial as string[] : initial ? [ initial ] as string[] : [];
+
+  const [ values, setValues ] = useState(initial);
+
+  const [ active, setActive ] = useState(values.length <= 0);
 
   const [ query, setQuery ] = useState('');
 
@@ -29,21 +36,49 @@ const Select = ({ initial, data, searchable, required, onChange }:
   
   return <View>
     {
-      value ?
-        <Button
-          text={ value }
-          useAlternative={ true }
-          buttonStyle={ styles.value }
-          textStyle={ styles.text }
-          icon={ { name: 'x', size: sizes.icon * 0.65, color: colors.greyText, style: styles.icon } }
-          onPress={ () =>
+      !active ?
+        <ScrollView horizontal={ true } overScrollMode={ 'never' }>
           {
-            setValue('');
+            values.map((v, i) =>
+              // eslint-disable-next-line react-native/no-inline-styles
+              <View key={ i } style={ { marginRight: (i < values.length  - 1) || (i === values.length - 1 && values.length !== max) ? sizes.windowMargin * 0.75 : 0 } }>
+                <Button
+                  text={ v }
+                  useAlternative={ true }
+                  buttonStyle={ styles.value }
+                  textStyle={ styles.text }
+                  icon={ { name: 'x', size: sizes.icon * 0.65, color: colors.greyText, style: styles.icon } }
+                  onPress={ () =>
+                  {
+                    values.splice(i, 1);
 
-            if (!required)
-              onChange?.('');
-          } }
-        /> :
+                    setValues(values);
+
+                    if (values.length === 0)
+                      setActive(true);
+
+                    if (!required && max === 1)
+                      onChange?.('');
+                    else if (max > 1)
+                      onChange?.(values);
+                  } }
+                />
+              </View>)
+          }
+
+          {
+            values.length !== max ? <Button
+              useAlternative={ true }
+              buttonStyle={ styles.multiple }
+              icon={ { name: 'plus', size: sizes.icon * 0.65, color: colors.whiteText } }
+              onPress={ () =>
+              {
+                setActive(true);
+              } }
+            /> : undefined
+          }
+        </ScrollView>
+        :
         <View>
           <ScrollView horizontal={ true } overScrollMode={ 'never' }>
             {
@@ -51,7 +86,7 @@ const Select = ({ initial, data, searchable, required, onChange }:
                 queryData
                   .map((item, i) =>
                     // eslint-disable-next-line react-native/no-inline-styles
-                    <View key={ i } style={ { marginRight: i < queryData.length ? sizes.windowMargin * 0.75 : 0 } }>
+                    <View key={ i } style={ { marginRight: i < queryData.length - 1 ? sizes.windowMargin * 0.75 : 0 } }>
                       <Button
                         text={ item }
                         textStyle={ styles.text }
@@ -59,8 +94,14 @@ const Select = ({ initial, data, searchable, required, onChange }:
                         onPress={ () =>
                         {
                           setQuery('');
-                          setValue(item);
-                          onChange?.(item);
+
+                          values.push(item);
+
+                          setValues(values);
+
+                          setActive(false);
+
+                          onChange?.(max > 1 ? values : values[0]);
                         } }
                       />
                     </View>) : undefined
@@ -86,7 +127,7 @@ const Select = ({ initial, data, searchable, required, onChange }:
 
 const styles = StyleSheet.create({
   value: {
-    alignSelf: 'flex-start',
+    flex: 1,
 
     alignItems: 'center',
     flexDirection: 'row-reverse',
@@ -116,6 +157,18 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textTransform: 'uppercase',
     color: colors.whiteText
+  },
+
+  multiple: {
+    flex: 1,
+
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.rectangleBackground,
+
+    borderRadius: 5,
+    paddingHorizontal: sizes.windowMargin,
+    paddingVertical: sizes.windowMargin * 0.75
   },
 
   option: {
