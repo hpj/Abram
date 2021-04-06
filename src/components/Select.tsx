@@ -10,49 +10,47 @@ import Button from './Button';
 
 const colors = getTheme();
 
-const Select = ({ initial, data, searchable, required, multiple, onChange }: {
+const Select = ({ initial, data, searchable, required, multiple, custom, onChange }: {
   initial?: string | string[],
   required?: boolean,
   searchable?: boolean,
   multiple?: number,
-  data: string[],
+  custom?: string,
+  data?: string[],
   onChange?: (value: string | string[]) => void
 }): JSX.Element =>
 {
   const max = multiple ?? 1;
-  
-  initial = max > 1 ? initial as string[] : initial ? [ initial ] as string[] : [];
+
+  initial =
+    max > 1 && initial ? initial as string[] :
+      initial ? [ initial ] as string[]
+        : [];
 
   const [ values, setValues ] = useState(initial);
 
-  const [ active, setActive ] = useState(values.length <= 0);
+  const [ active, setActive ] = useState(values.length <= 0 && !custom);
 
   const [ query, setQuery ] = useState('');
 
-  let queryData = data;
+  let queryData = data ?? [];
 
   if (searchable)
-    queryData = data.filter(s => s.includes(query)).slice(0, 4);
+    queryData = queryData.filter(s => !values.includes(s) && s.includes(query)).slice(0, 4);
 
   return <View>
     {
       !active ?
         <View style={ styles.wrap }>
           {
-            values.map((v, i) =>
+            values.map((item, i) =>
             {
-              const margin = (i < values.length - 1) || (i === values.length - 1 && values.length !== max) ? sizes.windowMargin * 0.75 : 0;
-
-              // eslint-disable-next-line react-native/no-inline-styles
-              return <View key={ i } style={ {
-                marginRight: margin,
-                marginBottom: margin
-              } }>
+              return <View key={ i } style={ styles.space }>
                 <Button
-                  text={ v }
+                  text={ item }
                   useAlternative={ true }
-                  buttonStyle={ styles.value }
                   textStyle={ styles.text }
+                  buttonStyle={ { ...styles.option, ...styles.value } }
                   icon={ { name: 'x', size: sizes.icon * 0.65, color: colors.greyText, style: styles.icon } }
                   onPress={ () =>
                   {
@@ -60,7 +58,7 @@ const Select = ({ initial, data, searchable, required, multiple, onChange }: {
 
                     setValues(values);
 
-                    if (values.length === 0)
+                    if (values.length === 0 && !custom)
                       setActive(true);
 
                     if (!required && max === 1)
@@ -74,63 +72,88 @@ const Select = ({ initial, data, searchable, required, multiple, onChange }: {
           }
 
           {
-            values.length !== max ? <Button
-              useAlternative={ true }
-              buttonStyle={ styles.multiple }
-              icon={ { name: 'plus', size: sizes.icon * 0.65, color: colors.whiteText } }
-              onPress={ () =>
-              {
-                setActive(true);
-              } }
-            /> : undefined
+            values.length !== max ?
+              <View style={ styles.space }>
+                <Button
+                  useAlternative={ true }
+                  buttonStyle={ styles.multiple }
+                  icon={ { name: 'plus', size: sizes.icon * 0.65, color: colors.whiteText } }
+                  onPress={ () =>
+                  {
+                    setActive(true);
+                  } }
+                />
+              </View>: undefined
           }
         </View>
         :
         <View>
-          <ScrollView horizontal={ true } overScrollMode={ 'never' }>
-            {
-              query || !searchable ?
-                queryData
-                  .map((item, i) =>
-                  {
-                    const margin = i < queryData.length - 1 ? sizes.windowMargin * 0.75 : 0;
-                    
-                    // eslint-disable-next-line react-native/no-inline-styles
-                    return <View key={ i } style={ {
-                      marginRight: margin
-                    } }>
-                      <Button
-                        text={ item }
-                        textStyle={ styles.text }
-                        buttonStyle={ styles.option }
-                        onPress={ () =>
-                        {
-                          setQuery('');
+          <ScrollView horizontal={ searchable } overScrollMode={ 'never' }>
+            <View style={ !searchable ? styles.wrap : styles.row }>
+              {
+                (query || !searchable) && !custom?
+                  queryData
+                    .map((item, i) =>
+                    {
+                      return <View key={ i } style={ styles.space }>
+                        <Button
+                          text={ item }
+                          textStyle={ styles.text }
+                          buttonStyle={ styles.option }
+                          onPress={ () =>
+                          {
+                            setActive(false);
 
-                          values.push(item);
+                            values.push(item);
+                            
+                            setQuery('');
 
-                          setValues(values);
+                            setValues(values);
 
-                          setActive(false);
-
-                          onChange?.(max > 1 ? values : values[0]);
-                        } }
-                      />
-                    </View>;
-                  }) : undefined
-            }
+                            onChange?.(max > 1 ? values : values[0]);
+                          } }
+                        />
+                      </View>;
+                    }) : undefined
+              }
+            </View>
           </ScrollView>
 
           {
-            searchable ?
-              <TextInput
+            searchable ? <TextInput
+              value={ query }
+              autoFocus={ true }
+              multiline={ false }
+              style={ styles.input }
+              placeholder={ 'Search' }
+              placeholderTextColor={ colors.placeholder }
+              onChangeText={ (s: string) => setQuery(s) }
+              onSubmitEditing={ () => setActive(false) }
+            /> :
+              custom ? <TextInput
                 value={ query }
+                maxLength={ 265 }
                 autoFocus={ true }
                 multiline={ false }
-                style={ styles.input }
-                placeholder={ 'Search' }
+                style={ styles.custom }
+                placeholder={ custom }
                 placeholderTextColor={ colors.placeholder }
                 onChangeText={ (s: string) => setQuery(s) }
+                onSubmitEditing={ () =>
+                {
+                  setActive(false);
+
+                  if (query.length <= 0)
+                    return;
+                  
+                  values.push(query);
+                    
+                  setQuery('');
+
+                  setValues(values);
+
+                  onChange?.(max > 1 ? values : values[0]);
+                } }
               /> : undefined
           }
         </View>
@@ -141,14 +164,14 @@ const Select = ({ initial, data, searchable, required, multiple, onChange }: {
 const styles = StyleSheet.create({
   value: {
     alignItems: 'center',
-    flexDirection: 'row-reverse',
-    backgroundColor: colors.rectangleBackground,
-
-    borderRadius: 5,
-    paddingHorizontal: sizes.windowMargin * 1.5,
-    paddingVertical: sizes.windowMargin * 0.75
+    flexDirection: 'row-reverse'
   },
-  
+
+  space: {
+    marginRight: sizes.windowMargin * 0.75,
+    marginBottom: sizes.windowMargin * 0.75
+  },
+
   icon: {
     marginLeft: sizes.windowMargin * 0.75
   },
@@ -156,11 +179,8 @@ const styles = StyleSheet.create({
   input: {
     fontSize: 12,
     fontWeight: 'bold',
-
-    color: colors.greyText,
     textTransform: 'capitalize',
-
-    marginTop: sizes.windowMargin * 0.5
+    color: colors.greyText
   },
 
   text: {
@@ -170,12 +190,24 @@ const styles = StyleSheet.create({
     color: colors.whiteText
   },
 
+  custom: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: colors.whiteText
+  },
+
   wrap: {
     flexDirection: 'row',
     flexWrap: 'wrap'
   },
 
+  row: {
+    flexDirection: 'row'
+  },
+
   multiple: {
+    flex: 1,
+
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.rectangleBackground,

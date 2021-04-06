@@ -20,7 +20,7 @@ import Demographic from '../components/Demographic';
 
 import Button from '../components/Button';
 
-import { BioEdits, AvatarEdits, TitlesEdits } from '../components/ProfileEdits';
+import { BioEdits, AvatarEdits, TitlesEdits, IceBreakersEdits } from '../components/ProfileEdits';
 
 import type { BaseEdits } from '../components/ProfileEdits';
 
@@ -159,6 +159,7 @@ class Profile extends React.Component<{
               testID={ 'bn-ice-breakers' }
               buttonStyle={ styles.section }
               disabled={ !editable }
+              onPress={ () => this.openEdits(IceBreakersEdits) }
             >
               <View style={ styles.sectionEditable }>
                 <Text style={ styles.title }>

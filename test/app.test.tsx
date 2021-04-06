@@ -1772,6 +1772,10 @@ describe('Testing <App/>', () =>
         test.todo('Religion');
 
         test.todo('Age');
+
+        test.todo('Ice Breakers');
+
+        test.todo('Interests');
       });
     });
   });

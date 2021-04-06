@@ -16639,7 +16639,7 @@ exports[`Testing <Profile/> Personal Bare Profile 1`] = `
     >
       <View
         accessible={true}
-        focusable={false}
+        focusable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -17980,7 +17980,7 @@ exports[`Testing <Profile/> Personal Full Profile 1`] = `
     >
       <View
         accessible={true}
-        focusable={false}
+        focusable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}

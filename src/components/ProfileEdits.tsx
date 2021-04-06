@@ -40,7 +40,7 @@ export class BaseEdits<P> extends React.Component<P & BaseEditsProps, BaseEditsS
 
     this.state = {
       loading: false,
-      current: props.profile
+      current: JSON.parse(JSON.stringify(props.profile))
     };
 
     this.onApply = this.onApply.bind(this);
@@ -467,12 +467,42 @@ export class SpeaksEdits<P> extends BaseEdits<P & BaseEditsProps>
   {
     const { current } = this.state;
 
-    return super.render('The Bunch Of Languages You Speak',
+    return super.render('The Languages You Speak',
       <Select
         data={ this.data }
         initial={ current.info.speaks }
         multiple={ 3 }
         searchable={ true }
+        onChange={ (s) => this.onChange(s as string[]) }
+      />);
+  }
+}
+
+export class IceBreakersEdits<P> extends BaseEdits<P & BaseEditsProps>
+{
+  onChange(values: string[]): void
+  {
+    this.setState({
+      current: {
+        ...this.state.current,
+        iceBreakers: values
+      }
+    });
+  }
+
+  render(): JSX.Element
+  {
+    const { current } = this.state;
+
+    // there's an issue where data is forced into profile regardless
+    // why is that current changes should not be able to affect the real profile in any why
+    // unless current is a real ref
+
+    return super.render('Some Questions You Like To Answer',
+      <Select
+        multiple={ 3 }
+        custom={ 'Question' }
+        initial={ current.iceBreakers }
         onChange={ (s) => this.onChange(s as string[]) }
       />);
   }
