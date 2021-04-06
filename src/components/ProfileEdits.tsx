@@ -365,7 +365,7 @@ export class AgeEdits<P> extends BaseEdits<P & BaseEditsProps>
     const now = new Date();
     const maxDays = new Date(current.info.birthday?.year ?? now.getFullYear(), current.info.birthday?.month ?? now.getMonth(), 0).getDate();
 
-    return super.render('Your Birthday', <View>
+    return super.render('Change Your Birthday', <View>
       <NumberPicker
         min={ 1 }
         max={ now.getFullYear() }

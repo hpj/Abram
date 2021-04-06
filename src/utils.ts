@@ -76,14 +76,19 @@ export function getAge(birthday: Profile['info']['birthday']): number
     return -1;
 
   const today = new Date();
-  const birthDate = new Date(birthday.year, birthday.month, birthday.day);
-  
-  let age = today.getFullYear() - birthDate.getFullYear();
-  const m = today.getMonth() - birthDate.getMonth();
 
-  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate()))
-    age--;
+  const todayYear = today.getFullYear(),
+    todayMonth = today.getMonth(),
+    todayDay = today.getDate();
+
+  let age = todayYear - birthday.year;
+
+  if (todayMonth < birthday.day - 1)
+    age -= 1;
   
+  if (birthday.month - 1 === todayMonth && todayDay < birthday.day)
+    age -= 1;
+
   return age;
 }
 
