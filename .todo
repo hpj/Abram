@@ -6,8 +6,8 @@ Performance Issues and Bugs:
       - we have no idea what causes that to... not happen?
 
 Alpha:
-  ☐ ice breaker edits
-  ☐ interests edits
+  ☐ add a red badge to required edits @high 
+    ☐ restrict app features if a profile edit is required @high 
 
   ☐ tests UI responsiveness on genymotion
 

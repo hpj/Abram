@@ -120,7 +120,7 @@ export default class Demographic extends React.Component<{
     });
   }
 
-  openSelect(title: string, field: keyof Profile['info'], data: string[], required?: boolean): void
+  openSelect(title: string, field: keyof Profile['info'], data: string[]): void
   {
     const store = getStore();
 
@@ -136,7 +136,6 @@ export default class Demographic extends React.Component<{
         profile={ profile }
         title={ title }
         field={ field }
-        required={ required }
         data={ data }
       />
     });
@@ -195,7 +194,10 @@ export default class Demographic extends React.Component<{
           >
             <View>
               <Text style={ styles.rectangleKey }>Speaks</Text>
-              <Text style={ styles.rectangleValue }>{ profile.info.speaks.join(', ') + '.' }</Text>
+              {
+                profile.info.speaks.length ?
+                  <Text style={ styles.rectangleValue }>{ profile.info.speaks.join(', ') + '.' }</Text> : undefined
+              }
             </View>
           </Button> : undefined
       }
@@ -279,11 +281,14 @@ export default class Demographic extends React.Component<{
         buttonStyle={ styles.rectangle }
         icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.greyText, style: styles.rectangleIcon } : undefined }
         disabled={ !editable }
-        onPress={ () => this.openSelect('Your Gender', 'gender', [ 'Woman', 'Man', 'Non-binary' ], true) }
+        onPress={ () => this.openSelect('Your Gender', 'gender', [ 'Woman', 'Man', 'Non-binary' ]) }
       >
         <View>
           <Text style={ styles.rectangleKey }>Gender</Text>
-          <Text style={ styles.rectangleValue }>{ profile.info.gender }</Text>
+          {
+            profile.info.gender ?
+              <Text style={ styles.rectangleValue }>{ profile.info.gender }</Text> : undefined
+          }
         </View>
       </Button>
 

@@ -69,22 +69,17 @@ const store = createStore({
     nickname: 'Kay',
 
     info: {
-      speaks: [ 'English', 'Arabic' ],
+      speaks: [],
       romantically: 'Open',
       gender: 'Man',
-      works: 'Herp Project',
       birthday: {
         year: 1999,
         month: 4,
         day: 4
       }
     },
-    
-    interests: [
-      'Visual Novels', 'Anime', 'Books', 'Cooking', 'Romance', 'Storytelling',
-      'Acting', 'Directing', 'Reading', 'Design', 'Technology', 'Walking',
-      'Psychology', 'Video Games'
-    ]
+
+    interests: []
   } as Profile,
 
   activeChat: undefined,
@@ -130,9 +125,9 @@ const store = createStore({
           ],
 
           interests: [
-            'Music', 'Books', 'Cooking', 'Blacksmithing', 'Travailing', 'Bath Rooms',
+            'Music', 'Books', 'Cooking', 'Blacksmithing', 'Travelling', 'Bath Rooms',
             'Boxing', 'Mountain Climbing', 'Acting', 'Sculpting', 'Tennis', 'Woodworking', 'Cars', 'Driving',
-            'Singing', 'Movies', 'Movie Making', 'Directing', 'Sculpting', 'Drawing'
+            'Singing', 'Movies', 'Movie Making', 'Directing', 'Drawing'
           ]
         }
       ],

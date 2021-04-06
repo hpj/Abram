@@ -14,6 +14,8 @@ import { sharedInterests } from '../utils';
 
 import Button from '../components/Button';
 
+import { InterestsEdits } from './ProfileEdits';
+
 const colors = getTheme();
 
 export default class Interests extends React.Component<{
@@ -44,27 +46,30 @@ export default class Interests extends React.Component<{
       popup: true,
       popupContent: () =>
       {
-        return <View style={ styles.section }>
-          <Text style={ styles.title }>
-            { editable ? 'Your Interests' : `${profile.nickname} Is Interested In` }
-          </Text>
+        if (editable)
+          return <InterestsEdits profile={ profile }/>;
+        else
+          return <View style={ styles.section }>
+            <Text style={ styles.title }>
+              { `${profile.nickname} Is Interested In` }
+            </Text>
 
-          <View style={ styles.container }>
-            {
-              concat.map((value, i) =>
+            <View style={ styles.container }>
               {
-                const isShared = i < shared.length;
+                concat.map((value, i) =>
+                {
+                  const isShared = i < shared.length;
 
-                return <View key={ i } style={ {
-                  ...styles.rectangleSlim,
-                  backgroundColor: isShared ? colors.green : colors.red
-                } }>
-                  <Text style={ styles.rectangleValue }>{ value }</Text>
-                </View>;
-              })
-            }
-          </View>
-        </View>;
+                  return <View key={ i } style={ {
+                    ...styles.rectangleSlim,
+                    backgroundColor: isShared ? colors.green : colors.red
+                  } }>
+                    <Text style={ styles.rectangleValue }>{ value }</Text>
+                  </View>;
+                })
+              }
+            </View>
+          </View>;
       }
     });
   }

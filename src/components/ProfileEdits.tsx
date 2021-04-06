@@ -20,6 +20,8 @@ import NumberPicker from './NumberPicker';
 
 import Select from './Select';
 
+import hobbies from '../../assets/hobbies.json';
+
 const colors = getTheme();
 
 interface BaseEditsProps {
@@ -410,7 +412,6 @@ export class AgeEdits<P> extends BaseEdits<P & BaseEditsProps>
 export class SimpleSelectEdits extends BaseEdits<{
   title: string,
   field: keyof Profile['info'],
-  required?: boolean,
   data: string[]
 } & BaseEditsProps>
 {
@@ -431,14 +432,13 @@ export class SimpleSelectEdits extends BaseEdits<{
 
   render(): JSX.Element
   {
-    const { title, field, required, data } = this.props;
+    const { title, field, data } = this.props;
 
     const { current } = this.state;
 
     return super.render(title,
       <Select
         data={ data }
-        required={ required }
         // eslint-disable-next-line security/detect-object-injection
         initial={ current?.info[field] as string ?? ''  }
         onChange={ (s) => this.onChange(s as string) }
@@ -503,6 +503,35 @@ export class IceBreakersEdits<P> extends BaseEdits<P & BaseEditsProps>
         multiple={ 3 }
         custom={ 'Question' }
         initial={ current.iceBreakers }
+        onChange={ (s) => this.onChange(s as string[]) }
+      />);
+  }
+}
+
+export class InterestsEdits<P> extends BaseEdits<P & BaseEditsProps>
+{
+  data: string[] = Object.values(hobbies).map(h => h.name);
+
+  onChange(values: string[]): void
+  {
+    this.setState({
+      current: {
+        ...this.state.current,
+        interests: values
+      }
+    });
+  }
+
+  render(): JSX.Element
+  {
+    const { current } = this.state;
+
+    return super.render('Your Interests',
+      <Select
+        multiple={ 8 }
+        data={ this.data }
+        initial={ current.interests }
+        searchable={ true }
         onChange={ (s) => this.onChange(s as string[]) }
       />);
   }

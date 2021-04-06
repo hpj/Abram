@@ -10,9 +10,8 @@ import Button from './Button';
 
 const colors = getTheme();
 
-const Select = ({ initial, data, searchable, required, multiple, custom, onChange }: {
+const Select = ({ initial, data, searchable, multiple, custom, onChange }: {
   initial?: string | string[],
-  required?: boolean,
   searchable?: boolean,
   multiple?: number,
   custom?: string,
@@ -29,7 +28,7 @@ const Select = ({ initial, data, searchable, required, multiple, custom, onChang
 
   const [ values, setValues ] = useState(initial);
 
-  const [ active, setActive ] = useState(values.length <= 0 && !custom);
+  const [ active, setActive ] = useState(values.length <= 0 && !custom && max <= 1);
 
   const [ query, setQuery ] = useState('');
 
@@ -58,13 +57,10 @@ const Select = ({ initial, data, searchable, required, multiple, custom, onChang
 
                     setValues(values);
 
-                    if (values.length === 0 && !custom)
+                    if (values.length === 0 && !custom && max <= 1)
                       setActive(true);
-
-                    if (!required && max === 1)
-                      onChange?.('');
-                    else if (max > 1)
-                      onChange?.(values);
+                    
+                    onChange?.(max <= 1 ? '' : values);
                   } }
                 />
               </View>;
