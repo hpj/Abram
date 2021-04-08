@@ -31,9 +31,6 @@ import Profile from '../src/screens/Profile';
 // define TEST env
 eval('__TEST__ = true;');
 
-// don't wait around
-eval('setTimeout = (fn) => fn()');
-
 /** splits react testing library json trees to parts to make it easier to review
 */
 function toJSON(renderer: RenderAPI, testId: string, shallow?: 'none' | 'one' | 'all'): ReactTestRendererJSON | undefined

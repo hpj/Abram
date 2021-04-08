@@ -24,6 +24,10 @@ import hobbies from '../../assets/hobbies.json';
 
 const colors = getTheme();
 
+declare const global: {
+  __TEST__: boolean
+};
+
 interface BaseEditsProps {
   profile: Profile,
   deactivate?: (() => void)
@@ -72,9 +76,9 @@ export class BaseEdits<P> extends React.Component<P & BaseEditsProps, BaseEditsS
           this.setState({
             loading: false
           });
-        }, 200);
+        }, global.__TEST__ ? 0 : 200);
       });
-    }, 1000);
+    }, global.__TEST__ ? 0 : 1000);
   }
 
   render(title?: string, children?: React.ReactNode): JSX.Element
