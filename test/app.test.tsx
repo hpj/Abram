@@ -31,6 +31,9 @@ import Profile from '../src/screens/Profile';
 // define TEST env
 eval('__TEST__ = true;');
 
+// don't wait around
+eval('setTimeout = (fn) => fn()');
+
 /** splits react testing library json trees to parts to make it easier to review
 */
 function toJSON(renderer: RenderAPI, testId: string, shallow?: 'none' | 'one' | 'all'): ReactTestRendererJSON | undefined
@@ -1810,6 +1813,10 @@ describe('Testing <App/>', () =>
           fireEvent.press(component.getByTestId('bn-profile'));
     
           await waitFor(() => true);
+          
+          const initial = toJSON(component, 'bn-bio', 'all');
+
+          expect(initial).toMatchSnapshot('Bio Should Equal Test Bio');
             
           // activate popup view
           fireEvent.press(component.getByTestId('bn-bio'));
@@ -1818,7 +1825,17 @@ describe('Testing <App/>', () =>
     
           const popup = toJSON(component, 'v-popup', 'all');
     
-          expect(popup).toMatchSnapshot();
+          expect(popup).toMatchSnapshot('Bio Edits Popup');
+
+          fireEvent.changeText(component.getByTestId('in-bio'), 'I Love You, Skye.');
+
+          fireEvent.press(component.getByTestId('bn-save'));
+
+          await waitFor(() => true);
+
+          const updated = toJSON(component, 'bn-bio', 'all');
+
+          expect(updated).toMatchSnapshot('Bio Should Equal I Love You, Skye.');
     
           component.unmount();
         });
@@ -1900,6 +1917,10 @@ describe('Testing <App/>', () =>
           fireEvent.press(component.getByTestId('bn-profile'));
     
           await waitFor(() => true);
+          
+          const initial = toJSON(component, 'bn-titles', 'all');
+
+          expect(initial).toMatchSnapshot('Initial Titles');
             
           // activate popup view
           fireEvent.press(component.getByTestId('bn-titles'));
@@ -1908,7 +1929,18 @@ describe('Testing <App/>', () =>
     
           const popup = toJSON(component, 'v-popup', 'all');
     
-          expect(popup).toMatchSnapshot();
+          expect(popup).toMatchSnapshot('Titles Edits Popup');
+
+          fireEvent.changeText(component.getByTestId('in-display'), 'Skye');
+          fireEvent.changeText(component.getByTestId('in-nickname'), 'Skya');
+
+          fireEvent.press(component.getByTestId('bn-save'));
+
+          await waitFor(() => true);
+
+          const updated = toJSON(component, 'bn-titles', 'all');
+
+          expect(updated).toMatchSnapshot('Updated Titles');
     
           component.unmount();
         });
@@ -1952,6 +1984,10 @@ describe('Testing <App/>', () =>
     
           await waitFor(() => true);
             
+          const initial = toJSON(component, 'bn-romantic', 'all');
+
+          expect(initial).toMatchSnapshot('Romantic Should Equal Open');
+
           // activate popup view
           fireEvent.press(component.getByTestId('bn-romantic'));
     
@@ -1959,8 +1995,18 @@ describe('Testing <App/>', () =>
     
           const popup = toJSON(component, 'v-popup', 'all');
     
-          expect(popup).toMatchSnapshot();
+          expect(popup).toMatchSnapshot('Romantic Edits Popup');
     
+          fireEvent(component.getByTestId('sw-romantic'), 'onValueChange', false);
+
+          fireEvent.press(component.getByTestId('bn-save'));
+
+          await waitFor(() => true);
+
+          const updated = toJSON(component, 'bn-romantic', 'all');
+
+          expect(updated).toMatchSnapshot('Romantic Should Equal Closed');
+
           component.unmount();
         });
 

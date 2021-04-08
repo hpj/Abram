@@ -95,6 +95,7 @@ export class BaseEdits<P> extends React.Component<P & BaseEditsProps, BaseEditsS
             <View style={ styles.buttons }>
               <Button
                 text={ 'Save' }
+                testID={ 'bn-save' }
                 borderless={ true }
                 useAlternative={ true }
                 buttonStyle={ styles.button }
@@ -104,6 +105,7 @@ export class BaseEdits<P> extends React.Component<P & BaseEditsProps, BaseEditsS
 
               <Button
                 text={ 'Cancel' }
+                testID={ 'bn-cancel' }
                 borderless={ true }
                 useAlternative={ true }
                 buttonStyle={ styles.button }
@@ -276,6 +278,7 @@ export class RomanticEdits<P> extends BaseEdits<P & BaseEditsProps>
         } }>{ this.state.current?.info.romantically }</Text>
 
         <Switch
+          testID={ 'sw-romantic' }
           style={ styles.switch }
           trackColor={ { false: colors.menuBackground, true: colors.menuBackground } }
           thumbColor={ enabled ? colors.whiteText : colors.placeholder }

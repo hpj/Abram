@@ -11813,6 +11813,291 @@ exports[`Testing <App/> Profile Personal Edits Bio 1`] = `
 </View>
 `;
 
+exports[`Testing <App/> Profile Personal Edits Bio: Bio Edits Popup 1`] = `
+<View
+  style={
+    Object {
+      "bottom": 0,
+      "flex": 1,
+      "position": "absolute",
+      "width": 523,
+      "zIndex": 5,
+    }
+  }
+  testID="v-popup"
+>
+  <RCTScrollView
+    style={
+      Object {
+        "backgroundColor": "#000000",
+        "maxHeight": 735.15,
+        "minHeight": 452.40000000000003,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "margin": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 12,
+              "fontWeight": "bold",
+              "marginBottom": 10,
+              "textTransform": "uppercase",
+            }
+          }
+        >
+          Choose Your Bio
+        </Text>
+        <TextInput
+          allowFontScaling={true}
+          maxLength={255}
+          multiline={false}
+          onChangeText={[Function]}
+          placeholder="Bio"
+          placeholderTextColor="rgba(255,255,255,0.45)"
+          rejectResponderTermination={true}
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "fontWeight": "bold",
+              "paddingVertical": 5,
+            }
+          }
+          testID="in-bio"
+          underlineColorAndroid="transparent"
+          value="Test Bio"
+        />
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "marginTop": 5,
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="bn-save"
+          >
+            <View
+              style={
+                Object {
+                  "paddingHorizontal": 25,
+                  "paddingVertical": 10,
+                }
+              }
+            >
+              <View>
+                <View />
+              </View>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 14,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                Save
+              </Text>
+            </View>
+          </View>
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="bn-cancel"
+          >
+            <View
+              style={
+                Object {
+                  "paddingHorizontal": 25,
+                  "paddingVertical": 10,
+                }
+              }
+            >
+              <View>
+                <View />
+              </View>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 14,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                Cancel
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`Testing <App/> Profile Personal Edits Bio: Bio Should Equal I Love You, Skye. 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "flexDirection": "row",
+      "paddingVertical": 10,
+    }
+  }
+  testID="bn-bio"
+>
+  <View>
+    <View />
+  </View>
+  <Text
+    style={
+      Object {
+        "color": "#ffffff",
+        "flex": 1,
+        "fontSize": 22,
+        "fontWeight": "bold",
+        "marginHorizontal": 20,
+        "textAlign": "center",
+      }
+    }
+  >
+    "I Love You, Skye."
+  </Text>
+  <Text
+    allowFontScaling={false}
+    style={
+      Array [
+        Object {
+          "color": "#818181",
+          "fontSize": 12,
+        },
+        Object {
+          "alignSelf": "center",
+          "marginHorizontal": 20,
+        },
+        Object {
+          "fontFamily": "feather",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;
+
+exports[`Testing <App/> Profile Personal Edits Bio: Bio Should Equal Test Bio 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "flexDirection": "row",
+      "paddingVertical": 10,
+    }
+  }
+  testID="bn-bio"
+>
+  <View>
+    <View />
+  </View>
+  <Text
+    style={
+      Object {
+        "color": "#ffffff",
+        "flex": 1,
+        "fontSize": 22,
+        "fontWeight": "bold",
+        "marginHorizontal": 20,
+        "textAlign": "center",
+      }
+    }
+  >
+    "Test Bio"
+  </Text>
+  <Text
+    allowFontScaling={false}
+    style={
+      Array [
+        Object {
+          "color": "#818181",
+          "fontSize": 12,
+        },
+        Object {
+          "alignSelf": "center",
+          "marginHorizontal": 20,
+        },
+        Object {
+          "fontFamily": "feather",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;
+
 exports[`Testing <App/> Profile Personal Edits Romantic 1`] = `
 <View
   style={
@@ -12055,6 +12340,425 @@ exports[`Testing <App/> Profile Personal Edits Romantic 1`] = `
 </View>
 `;
 
+exports[`Testing <App/> Profile Personal Edits Romantic: Romantic Edits Popup 1`] = `
+<View
+  style={
+    Object {
+      "bottom": 0,
+      "flex": 1,
+      "position": "absolute",
+      "width": 523,
+      "zIndex": 5,
+    }
+  }
+  testID="v-popup"
+>
+  <RCTScrollView
+    style={
+      Object {
+        "backgroundColor": "#000000",
+        "maxHeight": 735.15,
+        "minHeight": 452.40000000000003,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "margin": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 12,
+              "fontWeight": "bold",
+              "marginBottom": 10,
+              "textTransform": "uppercase",
+            }
+          }
+        >
+          Choose Your Romantic Availability
+        </Text>
+        <View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#151515",
+                "borderRadius": 5,
+                "flexDirection": "row",
+                "marginBottom": 10,
+                "padding": 15,
+              }
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 18,
+                  },
+                  Object {
+                    "marginRight": 15,
+                    "opacity": 0.65,
+                  },
+                  Object {
+                    "fontFamily": "feather",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "flex": 1,
+                  "fontSize": 11,
+                  "fontWeight": "bold",
+                  "opacity": 0.65,
+                  "textTransform": "capitalize",
+                }
+              }
+            >
+              While being Romantically Closed, Reporting any user for flirting will result in their account getting terminated.
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+                "flexDirection": "row",
+                "marginLeft": 25,
+                "marginRight": 10,
+                "marginVertical": 5,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 12,
+                  "fontWeight": "bold",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Open
+            </Text>
+            <RCTSwitch
+              accessibilityRole="switch"
+              onChange={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              onTintColor="#3a3737"
+              style={
+                Array [
+                  Object {
+                    "height": 31,
+                    "width": 51,
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "marginLeft": 25,
+                    "marginRight": 10,
+                    "marginVertical": 5,
+                  },
+                ]
+              }
+              testID="sw-romantic"
+              thumbTintColor="#ffffff"
+              tintColor="#3a3737"
+              value={true}
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "marginTop": 5,
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="bn-save"
+          >
+            <View
+              style={
+                Object {
+                  "paddingHorizontal": 25,
+                  "paddingVertical": 10,
+                }
+              }
+            >
+              <View>
+                <View />
+              </View>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 14,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                Save
+              </Text>
+            </View>
+          </View>
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="bn-cancel"
+          >
+            <View
+              style={
+                Object {
+                  "paddingHorizontal": 25,
+                  "paddingVertical": 10,
+                }
+              }
+            >
+              <View>
+                <View />
+              </View>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 14,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                Cancel
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`Testing <App/> Profile Personal Edits Romantic: Romantic Should Equal Closed 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="bn-romantic"
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#151515",
+        "borderRadius": 5,
+        "flexDirection": "row-reverse",
+        "marginHorizontal": 7,
+        "marginVertical": 7,
+        "minWidth": 65,
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
+      }
+    }
+  >
+    <View>
+      <View />
+    </View>
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": "#818181",
+            "fontSize": 12,
+          },
+          Object {
+            "marginLeft": 10,
+          },
+          Object {
+            "fontFamily": "feather",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+    <View>
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 12,
+            "fontWeight": "bold",
+            "textTransform": "uppercase",
+          }
+        }
+      >
+        Romantically
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 13,
+            "textTransform": "capitalize",
+          }
+        }
+      >
+        Closed
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Testing <App/> Profile Personal Edits Romantic: Romantic Should Equal Open 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="bn-romantic"
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#151515",
+        "borderRadius": 5,
+        "flexDirection": "row-reverse",
+        "marginHorizontal": 7,
+        "marginVertical": 7,
+        "minWidth": 65,
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
+      }
+    }
+  >
+    <View>
+      <View />
+    </View>
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": "#818181",
+            "fontSize": 12,
+          },
+          Object {
+            "marginLeft": 10,
+          },
+          Object {
+            "fontFamily": "feather",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+    <View>
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 12,
+            "fontWeight": "bold",
+            "textTransform": "uppercase",
+          }
+        }
+      >
+        Romantically
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 13,
+            "textTransform": "capitalize",
+          }
+        }
+      >
+        Open
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
 exports[`Testing <App/> Profile Personal Edits Titles 1`] = `
 <View
   style={
@@ -12235,6 +12939,363 @@ exports[`Testing <App/> Profile Personal Edits Titles 1`] = `
       </View>
     </View>
   </RCTScrollView>
+</View>
+`;
+
+exports[`Testing <App/> Profile Personal Edits Titles: Initial Titles 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "paddingVertical": 20,
+    }
+  }
+  testID="bn-titles"
+>
+  <View>
+    <View />
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexGrow": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 18,
+            "fontWeight": "bold",
+            "marginHorizontal": 20,
+          }
+        }
+      >
+        User Using Used
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 20,
+          }
+        }
+      >
+        User
+      </Text>
+    </View>
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": "#818181",
+            "fontSize": 12,
+          },
+          Object {
+            "alignSelf": "center",
+            "marginHorizontal": 20,
+          },
+          Object {
+            "fontFamily": "feather",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Testing <App/> Profile Personal Edits Titles: Titles Edits Popup 1`] = `
+<View
+  style={
+    Object {
+      "bottom": 0,
+      "flex": 1,
+      "position": "absolute",
+      "width": 523,
+      "zIndex": 5,
+    }
+  }
+  testID="v-popup"
+>
+  <RCTScrollView
+    style={
+      Object {
+        "backgroundColor": "#000000",
+        "maxHeight": 735.15,
+        "minHeight": 452.40000000000003,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "margin": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 12,
+              "fontWeight": "bold",
+              "marginBottom": 10,
+              "textTransform": "uppercase",
+            }
+          }
+        >
+          Choose Your Titles
+        </Text>
+        <View>
+          <TextInput
+            allowFontScaling={true}
+            autoCompleteType="name"
+            maxLength={64}
+            multiline={false}
+            onChangeText={[Function]}
+            placeholder="Full Name"
+            placeholderTextColor="rgba(255,255,255,0.45)"
+            rejectResponderTermination={true}
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 14,
+                "fontWeight": "bold",
+                "paddingVertical": 5,
+              }
+            }
+            testID="in-display"
+            underlineColorAndroid="transparent"
+            value="User Using Used"
+          />
+          <TextInput
+            allowFontScaling={true}
+            autoCompleteType="username"
+            maxLength={32}
+            multiline={false}
+            onChangeText={[Function]}
+            placeholder="Nickname"
+            placeholderTextColor="rgba(255,255,255,0.45)"
+            rejectResponderTermination={true}
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 14,
+                "fontWeight": "bold",
+                "paddingVertical": 5,
+              }
+            }
+            testID="in-nickname"
+            underlineColorAndroid="transparent"
+            value="User"
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "marginTop": 5,
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="bn-save"
+          >
+            <View
+              style={
+                Object {
+                  "paddingHorizontal": 25,
+                  "paddingVertical": 10,
+                }
+              }
+            >
+              <View>
+                <View />
+              </View>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 14,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                Save
+              </Text>
+            </View>
+          </View>
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="bn-cancel"
+          >
+            <View
+              style={
+                Object {
+                  "paddingHorizontal": 25,
+                  "paddingVertical": 10,
+                }
+              }
+            >
+              <View>
+                <View />
+              </View>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 14,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                Cancel
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`Testing <App/> Profile Personal Edits Titles: Updated Titles 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "paddingVertical": 20,
+    }
+  }
+  testID="bn-titles"
+>
+  <View>
+    <View />
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexGrow": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 18,
+            "fontWeight": "bold",
+            "marginHorizontal": 20,
+          }
+        }
+      >
+        Skye
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#818181",
+            "fontSize": 13,
+            "marginHorizontal": 20,
+          }
+        }
+      >
+        Skya
+      </Text>
+    </View>
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": "#818181",
+            "fontSize": 12,
+          },
+          Object {
+            "alignSelf": "center",
+            "marginHorizontal": 20,
+          },
+          Object {
+            "fontFamily": "feather",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
 </View>
 `;
 
