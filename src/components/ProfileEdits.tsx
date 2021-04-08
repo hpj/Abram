@@ -317,6 +317,7 @@ export class OriginEdits<P> extends BaseEdits<P & BaseEditsProps>
 
     return super.render('The Origin of Your Traditions and Culture',
       <Select
+        testID={ 'sl-origin' }
         data={ this.data }
         initial={ current.info.origin }
         searchable={ true }
@@ -417,6 +418,7 @@ export class AgeEdits<P> extends BaseEdits<P & BaseEditsProps>
 }
 
 export class SimpleSelectEdits extends BaseEdits<{
+  tag?: string,
   title: string,
   field: keyof Profile['info'],
   data: string[]
@@ -439,12 +441,13 @@ export class SimpleSelectEdits extends BaseEdits<{
 
   render(): JSX.Element
   {
-    const { title, field, data } = this.props;
+    const { tag, title, field, data } = this.props;
 
     const { current } = this.state;
 
     return super.render(title,
       <Select
+        testID={ tag }
         data={ data }
         // eslint-disable-next-line security/detect-object-injection
         initial={ current?.info[field] as string ?? ''  }
@@ -476,6 +479,7 @@ export class SpeaksEdits<P> extends BaseEdits<P & BaseEditsProps>
 
     return super.render('The Languages You Speak',
       <Select
+        testID={ 'sl-speaks' }
         data={ this.data }
         initial={ current.info.speaks }
         multiple={ 3 }

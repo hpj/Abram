@@ -10,7 +10,8 @@ import Button from './Button';
 
 const colors = getTheme();
 
-const Select = ({ initial, data, searchable, multiple, custom, onChange }: {
+const Select = ({ testID, initial, data, searchable, multiple, custom, onChange }: {
+  testID?: string,
   initial?: string | string[],
   searchable?: boolean,
   multiple?: number,
@@ -46,6 +47,7 @@ const Select = ({ initial, data, searchable, multiple, custom, onChange }: {
             {
               return <View key={ i } style={ styles.space }>
                 <Button
+                  testID={ `${testID}-value` }
                   text={ item }
                   useAlternative={ true }
                   textStyle={ styles.text }
@@ -71,6 +73,7 @@ const Select = ({ initial, data, searchable, multiple, custom, onChange }: {
             values.length !== max ?
               <View style={ styles.space }>
                 <Button
+                  testID={ `${testID}-plus` }
                   useAlternative={ true }
                   buttonStyle={ styles.multiple }
                   icon={ { name: 'plus', size: sizes.icon * 0.65, color: colors.whiteText } }
@@ -93,6 +96,7 @@ const Select = ({ initial, data, searchable, multiple, custom, onChange }: {
                     {
                       return <View key={ i } style={ styles.space }>
                         <Button
+                          testID={ `${testID}-query` }
                           text={ item }
                           textStyle={ styles.text }
                           buttonStyle={ styles.option }
@@ -117,6 +121,7 @@ const Select = ({ initial, data, searchable, multiple, custom, onChange }: {
 
           {
             searchable ? <TextInput
+              testID={ `${testID}-search` }
               value={ query }
               autoFocus={ true }
               multiline={ false }
@@ -127,6 +132,7 @@ const Select = ({ initial, data, searchable, multiple, custom, onChange }: {
               onSubmitEditing={ () => setActive(false) }
             /> :
               custom ? <TextInput
+                testID={ `${testID}-input` }
                 value={ query }
                 maxLength={ 265 }
                 autoFocus={ true }

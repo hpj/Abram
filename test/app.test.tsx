@@ -1942,11 +1942,198 @@ describe('Testing <App/>', () =>
           component.unmount();
         });
 
-        test.todo('Origin');
+        test('Origin', async() =>
+        {
+          getStore().set({
+            profile: {
+              uuid: '0',
+              avatar: 0,
+              fullName: 'User Using Used',
+              nickname: 'User',
+              bio: 'Test Bio',
+              info: {
+                romantically: 'Open',
+                gender: 'Non-binary',
+                speaks: [ 'English' ],
+                origin: 'United States'
+              },
+              interests: [ 'A', 'B', 'C', 'D', 'E', 'F' ]
+            } as TProfile
+          });
+
+          const component = render(<App/>);
+
+          // wait for app loading
+          await waitFor(() => component.getByTestId('v-main-area'));
+
+          // press menu
+          fireEvent.press(component.getByTestId('bn-menu'));
+
+          await waitFor(() => true);
+    
+          // press profile
+          fireEvent.press(component.getByTestId('bn-profile'));
+    
+          await waitFor(() => true);
+          
+          const initial = toJSON(component, 'bn-origin', 'all');
+
+          expect(initial).toMatchSnapshot('Origin Should Equal United States');
+            
+          // activate popup view
+          fireEvent.press(component.getByTestId('bn-origin'));
+    
+          await waitFor(() => true);
+    
+          const popup = toJSON(component, 'v-popup', 'all');
+    
+          expect(popup).toMatchSnapshot('Origin Edits Popup');
+
+          fireEvent.press(component.getByTestId('sl-origin-value'));
+
+          fireEvent.changeText(component.getByTestId('sl-origin-search'), 'Egypt');
+
+          await waitFor(() => true);
+
+          fireEvent.press(component.getByTestId('sl-origin-query'));
+
+          fireEvent.press(component.getByTestId('bn-save'));
+
+          await waitFor(() => true);
+
+          const updated = toJSON(component, 'bn-origin', 'all');
+
+          expect(updated).toMatchSnapshot('Origin Should Equal Egypt.');
+    
+          component.unmount();
+        });
         
-        test.todo('Speaks');
+        test('Speaks', async() =>
+        {
+          getStore().set({
+            profile: {
+              uuid: '0',
+              avatar: 0,
+              fullName: 'User Using Used',
+              nickname: 'User',
+              bio: 'Test Bio',
+              info: {
+                romantically: 'Open',
+                gender: 'Non-binary',
+                speaks: [ 'English' ]
+              },
+              interests: [ 'A', 'B', 'C', 'D', 'E', 'F' ]
+            } as TProfile
+          });
+
+          const component = render(<App/>);
+
+          // wait for app loading
+          await waitFor(() => component.getByTestId('v-main-area'));
+
+          // press menu
+          fireEvent.press(component.getByTestId('bn-menu'));
+
+          await waitFor(() => true);
+    
+          // press profile
+          fireEvent.press(component.getByTestId('bn-profile'));
+    
+          await waitFor(() => true);
+          
+          const initial = toJSON(component, 'bn-speaks', 'all');
+
+          expect(initial).toMatchSnapshot('Speaks Should Equal English');
+            
+          // activate popup view
+          fireEvent.press(component.getByTestId('bn-speaks'));
+    
+          await waitFor(() => true);
+    
+          const popup = toJSON(component, 'v-popup', 'all');
+    
+          expect(popup).toMatchSnapshot('Speaks Edits Popup');
+
+          fireEvent.press(component.getByTestId('sl-speaks-plus'));
+
+          await waitFor(() => true);
+
+          fireEvent.changeText(component.getByTestId('sl-speaks-search'), 'Arabic');
+
+          await waitFor(() => true);
+
+          fireEvent.press(component.getByTestId('sl-speaks-query'));
+
+          fireEvent.press(component.getByTestId('bn-save'));
+
+          await waitFor(() => true);
+
+          const updated = toJSON(component, 'bn-speaks', 'all');
+
+          expect(updated).toMatchSnapshot('Speaks Should Equal English, Arabic.');
+    
+          component.unmount();
+        });
         
-        test.todo('Profession');
+        test('Profession', async() =>
+        {
+          getStore().set({
+            profile: {
+              uuid: '0',
+              avatar: 0,
+              fullName: 'User Using Used',
+              nickname: 'User',
+              bio: 'Test Bio',
+              info: {
+                romantically: 'Open',
+                gender: 'Non-binary',
+                speaks: [ 'English' ],
+                profession: 'Engineer'
+              },
+              interests: [ 'A', 'B', 'C', 'D', 'E', 'F' ]
+            } as TProfile
+          });
+
+          const component = render(<App/>);
+
+          // wait for app loading
+          await waitFor(() => component.getByTestId('v-main-area'));
+
+          // press menu
+          fireEvent.press(component.getByTestId('bn-menu'));
+
+          await waitFor(() => true);
+    
+          // press profile
+          fireEvent.press(component.getByTestId('bn-profile'));
+    
+          await waitFor(() => true);
+          
+          const initial = toJSON(component, 'bn-profession', 'all');
+
+          expect(initial).toMatchSnapshot('Profession Should Equal Engineer');
+            
+          // activate popup view
+          fireEvent.press(component.getByTestId('bn-profession'));
+    
+          await waitFor(() => true);
+    
+          const popup = toJSON(component, 'v-popup', 'all');
+    
+          expect(popup).toMatchSnapshot('Profession Edits Popup');
+
+          fireEvent.changeText(component.getByTestId('in-profession'), 'Demon King');
+
+          fireEvent.press(component.getByTestId('bn-save'));
+
+          await waitFor(() => true);
+
+          const updated = toJSON(component, 'bn-profession', 'all');
+
+          expect(updated).toMatchSnapshot('Profession Should Equal Demon King');
+    
+          component.unmount();
+        });
 
         test('Romantic', async() =>
         {
