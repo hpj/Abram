@@ -42,7 +42,6 @@
         "backgroundColor": "#000000"
       },
       "package": "me.hpj.abram",
-      "googleServicesFile": "./google-services.json",
       "permissions": []
     },
     "hooks": {

@@ -92,6 +92,32 @@ export function getAge(birthday: Profile['info']['birthday']): number
   return age;
 }
 
+export function getName(profile: Profile): string
+{
+  return profile.nickname || profile.fullName;
+}
+
+export function incompleteProfile(profile: Profile): string[]
+{
+  const list = [];
+
+  if (!profile.fullName?.length)
+    list.push('name');
+
+  if (!profile.info.gender)
+    list.push('gender');
+  
+  // min languages is 1
+  if (profile.info.speaks?.length < 1)
+    list.push('speaks');
+  
+  // min interests is 3
+  if (profile.interests?.length < 3)
+    list.push('interests');
+
+  return list;
+}
+
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function pronoun(gender: ProfileInfo['gender']): {
   they: string,

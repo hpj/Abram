@@ -697,6 +697,13 @@ exports[`Testing <App/> Chat Hints All 1`] = `
           Object {
             "avatar": 0,
             "fullName": "User",
+            "info": Object {
+              "gender": "Woman",
+              "romantically": "Closed",
+              "speaks": Array [
+                "English",
+              ],
+            },
             "interests": Array [
               "A",
               "B",
@@ -1665,7 +1672,11 @@ exports[`Testing <App/> Chat Hints Bare 1`] = `
                   "English",
                 ],
               },
-              "interests": Array [],
+              "interests": Array [
+                "A",
+                "B",
+                "C",
+              ],
               "nickname": "Mika",
               "uuid": "1",
             },
@@ -1675,7 +1686,18 @@ exports[`Testing <App/> Chat Hints Bare 1`] = `
           Object {
             "avatar": 0,
             "fullName": "User",
-            "interests": Array [],
+            "info": Object {
+              "gender": "Woman",
+              "romantically": "Closed",
+              "speaks": Array [
+                "English",
+              ],
+            },
+            "interests": Array [
+              "A",
+              "B",
+              "C",
+            ],
             "nickname": "User",
             "uuid": "0",
           }
@@ -1705,6 +1727,89 @@ exports[`Testing <App/> Chat Hints Bare 1`] = `
     >
       <View>
         <View />
+      </View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "marginHorizontal": 10,
+            "marginTop": 10,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#151515",
+              "borderRadius": 5,
+              "marginBottom": 11,
+              "marginLeft": 10,
+              "paddingHorizontal": 15,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 13,
+                "textTransform": "capitalize",
+              }
+            }
+          >
+            A
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "backgroundColor": "#151515",
+              "borderRadius": 5,
+              "marginBottom": 11,
+              "marginLeft": 10,
+              "paddingHorizontal": 15,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 13,
+                "textTransform": "capitalize",
+              }
+            }
+          >
+            B
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "backgroundColor": "#151515",
+              "borderRadius": 5,
+              "marginBottom": 11,
+              "marginLeft": 10,
+              "paddingHorizontal": 15,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 13,
+                "textTransform": "capitalize",
+              }
+            }
+          >
+            C
+          </Text>
+        </View>
       </View>
     </View>
     <View
@@ -2058,6 +2163,13 @@ exports[`Testing <App/> Chat Hints Group All 1`] = `
           Object {
             "avatar": 0,
             "fullName": "User",
+            "info": Object {
+              "gender": "Woman",
+              "romantically": "Closed",
+              "speaks": Array [
+                "English",
+              ],
+            },
             "interests": Array [
               "A",
               "B",
@@ -2435,7 +2547,18 @@ exports[`Testing <App/> Chat Hints Group Bare 1`] = `
           Object {
             "avatar": 0,
             "fullName": "User",
-            "interests": Array [],
+            "info": Object {
+              "gender": "Woman",
+              "romantically": "Closed",
+              "speaks": Array [
+                "English",
+              ],
+            },
+            "interests": Array [
+              "A",
+              "B",
+              "C",
+            ],
             "nickname": "User",
             "uuid": "0",
           }
@@ -2617,7 +2740,18 @@ exports[`Testing <App/> Chat Hints Romantically Open Man All 1`] = `
           Object {
             "avatar": 0,
             "fullName": "User",
-            "interests": Array [],
+            "info": Object {
+              "gender": "Woman",
+              "romantically": "Closed",
+              "speaks": Array [
+                "English",
+              ],
+            },
+            "interests": Array [
+              "A",
+              "B",
+              "C",
+            ],
             "nickname": "User",
             "uuid": "0",
           }
@@ -3321,7 +3455,18 @@ exports[`Testing <App/> Chat Hints Romantically Open Man Bare 1`] = `
           Object {
             "avatar": 0,
             "fullName": "User",
-            "interests": Array [],
+            "info": Object {
+              "gender": "Woman",
+              "romantically": "Closed",
+              "speaks": Array [
+                "English",
+              ],
+            },
+            "interests": Array [
+              "A",
+              "B",
+              "C",
+            ],
             "nickname": "User",
             "uuid": "0",
           }
@@ -3645,7 +3790,18 @@ exports[`Testing <App/> Chat Hints Romantically Open Non-binary Bare 1`] = `
           Object {
             "avatar": 0,
             "fullName": "User",
-            "interests": Array [],
+            "info": Object {
+              "gender": "Woman",
+              "romantically": "Closed",
+              "speaks": Array [
+                "English",
+              ],
+            },
+            "interests": Array [
+              "A",
+              "B",
+              "C",
+            ],
             "nickname": "User",
             "uuid": "0",
           }
@@ -3978,7 +4134,18 @@ exports[`Testing <App/> Chat Hints Romantically Open Underage Non-binary All 1`]
           Object {
             "avatar": 0,
             "fullName": "User",
-            "interests": Array [],
+            "info": Object {
+              "gender": "Woman",
+              "romantically": "Closed",
+              "speaks": Array [
+                "English",
+              ],
+            },
+            "interests": Array [
+              "A",
+              "B",
+              "C",
+            ],
             "nickname": "User",
             "uuid": "0",
           }
@@ -4627,7 +4794,18 @@ exports[`Testing <App/> Chat Hints Romantically Open Woman All 1`] = `
           Object {
             "avatar": 0,
             "fullName": "User",
-            "interests": Array [],
+            "info": Object {
+              "gender": "Woman",
+              "romantically": "Closed",
+              "speaks": Array [
+                "English",
+              ],
+            },
+            "interests": Array [
+              "A",
+              "B",
+              "C",
+            ],
             "nickname": "User",
             "uuid": "0",
           }
@@ -5267,7 +5445,18 @@ exports[`Testing <App/> Chat Hints Romantically Open Woman Bare 1`] = `
           Object {
             "avatar": 0,
             "fullName": "User",
-            "interests": Array [],
+            "info": Object {
+              "gender": "Woman",
+              "romantically": "Closed",
+              "speaks": Array [
+                "English",
+              ],
+            },
+            "interests": Array [
+              "A",
+              "B",
+              "C",
+            ],
             "nickname": "User",
             "uuid": "0",
           }
@@ -5591,7 +5780,11 @@ exports[`Testing <App/> Chat Messages List Normal 1`] = `
                   "English",
                 ],
               },
-              "interests": Array [],
+              "interests": Array [
+                "A",
+                "B",
+                "C",
+              ],
               "nickname": "Mika",
               "uuid": "1",
             },
@@ -5601,7 +5794,18 @@ exports[`Testing <App/> Chat Messages List Normal 1`] = `
           Object {
             "avatar": 0,
             "fullName": "User",
-            "interests": Array [],
+            "info": Object {
+              "gender": "Woman",
+              "romantically": "Closed",
+              "speaks": Array [
+                "English",
+              ],
+            },
+            "interests": Array [
+              "A",
+              "B",
+              "C",
+            ],
             "nickname": "User",
             "uuid": "0",
           }

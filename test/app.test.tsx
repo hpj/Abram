@@ -265,6 +265,21 @@ describe('Testing <App/>', () =>
 {
   test('Navigation Views', async() =>
   {
+    getStore().set({
+      profile: {
+        uuid: '0',
+        avatar: 0,
+        fullName: 'User',
+        nickname: 'User',
+        info: {
+          romantically: 'Closed',
+          gender: 'Woman',
+          speaks: [ 'English' ]
+        },
+        interests: [ 'A', 'B', 'C' ]
+      } as TProfile
+    });
+
     const component = render(<App/>);
 
     // wait for app loading
@@ -299,6 +314,21 @@ describe('Testing <App/>', () =>
   {
     test('Width (With Deactivated Bottom Sheet)', async() =>
     {
+      getStore().set({
+        profile: {
+          uuid: '0',
+          avatar: 0,
+          fullName: 'User',
+          nickname: 'User',
+          info: {
+            romantically: 'Closed',
+            gender: 'Woman',
+            speaks: [ 'English' ]
+          },
+          interests: [ 'A', 'B', 'C' ]
+        } as TProfile
+      });
+
       const component = render(<App/>);
 
       // wait for app loading
@@ -334,7 +364,14 @@ describe('Testing <App/>', () =>
         profile: {
           uuid: '0',
           avatar: 0,
-          interests: [] as string[]
+          fullName: 'User',
+          nickname: 'User',
+          info: {
+            romantically: 'Closed',
+            gender: 'Woman',
+            speaks: [ 'English' ]
+          },
+          interests: [ 'A', 'B', 'C' ]
         } as TProfile,
         inbox: [ {
           id: '0',
@@ -415,7 +452,14 @@ describe('Testing <App/>', () =>
         profile: {
           uuid: '0',
           avatar: 0,
-          interests: [] as string[]
+          fullName: 'User',
+          nickname: 'User',
+          info: {
+            romantically: 'Closed',
+            gender: 'Woman',
+            speaks: [ 'English' ]
+          },
+          interests: [ 'A', 'B', 'C' ]
         } as TProfile,
         inbox: [ {
           id: '0',
@@ -502,7 +546,14 @@ describe('Testing <App/>', () =>
         profile: {
           uuid: '0',
           avatar: 0,
-          interests: [] as string[]
+          fullName: 'User',
+          nickname: 'User',
+          info: {
+            romantically: 'Closed',
+            gender: 'Woman',
+            speaks: [ 'English' ]
+          },
+          interests: [ 'A', 'B', 'C' ]
         } as TProfile,
         inbox: [ {
           id: '0',
@@ -590,9 +641,17 @@ describe('Testing <App/>', () =>
     {
       getStore().set({
         profile: {
-          displayName: 'Mana',
-          avatar: 0
-        }
+          uuid: '0',
+          avatar: 0,
+          fullName: 'User',
+          nickname: 'User',
+          info: {
+            romantically: 'Closed',
+            gender: 'Woman',
+            speaks: [ 'English' ]
+          },
+          interests: [ 'A', 'B', 'C' ]
+        } as TProfile
       });
 
       const component = render(<App/>);
@@ -613,7 +672,14 @@ describe('Testing <App/>', () =>
         profile: {
           uuid: '0',
           avatar: 0,
-          interests: [] as string[]
+          fullName: 'User',
+          nickname: 'User',
+          info: {
+            romantically: 'Closed',
+            gender: 'Woman',
+            speaks: [ 'English' ]
+          },
+          interests: [ 'A', 'B', 'C' ]
         } as TProfile,
         inbox: [
           {
@@ -678,7 +744,14 @@ describe('Testing <App/>', () =>
         profile: {
           uuid: '0',
           avatar: 0,
-          interests: [] as string[]
+          fullName: 'User',
+          nickname: 'User',
+          info: {
+            romantically: 'Closed',
+            gender: 'Woman',
+            speaks: [ 'English' ]
+          },
+          interests: [ 'A', 'B', 'C' ]
         } as TProfile,
         inbox: [
           {
@@ -755,7 +828,14 @@ describe('Testing <App/>', () =>
         profile: {
           uuid: '0',
           avatar: 0,
-          interests: [] as string[]
+          fullName: 'User',
+          nickname: 'User',
+          info: {
+            romantically: 'Closed',
+            gender: 'Woman',
+            speaks: [ 'English' ]
+          },
+          interests: [ 'A', 'B', 'C' ]
         } as TProfile,
         inbox: [
           {
@@ -843,6 +923,21 @@ describe('Testing <App/>', () =>
   {
     test('Showing and Hiding Main Menu', async() =>
     {
+      getStore().set({
+        profile: {
+          uuid: '0',
+          avatar: 0,
+          fullName: 'User',
+          nickname: 'User',
+          info: {
+            romantically: 'Closed',
+            gender: 'Woman',
+            speaks: [ 'English' ]
+          },
+          interests: [ 'A', 'B', 'C' ]
+        } as TProfile
+      });
+
       const component = render(<App/>);
 
       // wait for app loading
@@ -886,6 +981,21 @@ describe('Testing <App/>', () =>
  
     test('Opening Privacy Policy', async() =>
     {
+      getStore().set({
+        profile: {
+          uuid: '0',
+          avatar: 0,
+          fullName: 'User',
+          nickname: 'User',
+          info: {
+            romantically: 'Closed',
+            gender: 'Woman',
+            speaks: [ 'English' ]
+          },
+          interests: [ 'A', 'B', 'C' ]
+        } as TProfile
+      });
+
       const component = render(<App/>);
 
       // wait for app loading
@@ -902,6 +1012,21 @@ describe('Testing <App/>', () =>
 
     test('Opening Terms of Service', async() =>
     {
+      getStore().set({
+        profile: {
+          uuid: '0',
+          avatar: 0,
+          fullName: 'User',
+          nickname: 'User',
+          info: {
+            romantically: 'Closed',
+            gender: 'Woman',
+            speaks: [ 'English' ]
+          },
+          interests: [ 'A', 'B', 'C' ]
+        } as TProfile
+      });
+
       const component = render(<App/>);
 
       // wait for app loading
@@ -918,6 +1043,21 @@ describe('Testing <App/>', () =>
 
     test('Opening Ethics', async() =>
     {
+      getStore().set({
+        profile: {
+          uuid: '0',
+          avatar: 0,
+          fullName: 'User',
+          nickname: 'User',
+          info: {
+            romantically: 'Closed',
+            gender: 'Woman',
+            speaks: [ 'English' ]
+          },
+          interests: [ 'A', 'B', 'C' ]
+        } as TProfile
+      });
+
       const component = render(<App/>);
 
       // wait for app loading
@@ -934,6 +1074,21 @@ describe('Testing <App/>', () =>
   
     test('Navigating to Profile', async() =>
     {
+      getStore().set({
+        profile: {
+          uuid: '0',
+          avatar: 0,
+          fullName: 'User',
+          nickname: 'User',
+          info: {
+            romantically: 'Closed',
+            gender: 'Woman',
+            speaks: [ 'English' ]
+          },
+          interests: [ 'A', 'B', 'C' ]
+        } as TProfile
+      });
+
       const component = render(<App/>);
 
       // wait for app loading
@@ -968,7 +1123,14 @@ describe('Testing <App/>', () =>
         profile: {
           uuid: '0',
           avatar: 0,
-          interests: [] as string[]
+          fullName: 'User',
+          nickname: 'User',
+          info: {
+            romantically: 'Closed',
+            gender: 'Woman',
+            speaks: [ 'English' ]
+          },
+          interests: [ 'A', 'B', 'C' ]
         } as TProfile,
         inbox: [
           {
@@ -1033,7 +1195,14 @@ describe('Testing <App/>', () =>
         profile: {
           uuid: '0',
           avatar: 0,
-          interests: [] as string[]
+          fullName: 'User',
+          nickname: 'User',
+          info: {
+            romantically: 'Closed',
+            gender: 'Woman',
+            speaks: [ 'English' ]
+          },
+          interests: [ 'A', 'B', 'C' ]
         } as TProfile,
         inbox: [
           {
@@ -1114,7 +1283,14 @@ describe('Testing <App/>', () =>
         profile: {
           uuid: '0',
           avatar: 0,
-          interests: [] as string[]
+          fullName: 'User',
+          nickname: 'User',
+          info: {
+            romantically: 'Closed',
+            gender: 'Woman',
+            speaks: [ 'English' ]
+          },
+          interests: [ 'A', 'B', 'C' ]
         } as TProfile,
         inbox: [
           {
@@ -1195,7 +1371,12 @@ describe('Testing <App/>', () =>
             avatar: 0,
             fullName: 'User',
             nickname: 'User',
-            interests: [ 'A', 'B', 'C', 'D', 'E', 'F' ] as string[]
+            info: {
+              romantically: 'Closed',
+              gender: 'Woman',
+              speaks: [ 'English' ]
+            },
+            interests: [ 'A', 'B', 'C', 'D', 'E', 'F' ]
           } as TProfile,
           inbox: [
             {
@@ -1276,7 +1457,12 @@ describe('Testing <App/>', () =>
               avatar: 0,
               fullName: 'User',
               nickname: 'User',
-              interests: [] as string[]
+              info: {
+                romantically: 'Closed',
+                gender: 'Woman',
+                speaks: [ 'English' ]
+              },
+              interests: [ 'A', 'B', 'C' ]
             } as TProfile,
             inbox: [
               {
@@ -1349,7 +1535,12 @@ describe('Testing <App/>', () =>
               avatar: 0,
               fullName: 'User',
               nickname: 'User',
-              interests: [] as string[]
+              info: {
+                romantically: 'Closed',
+                gender: 'Woman',
+                speaks: [ 'English' ]
+              },
+              interests: [ 'A', 'B', 'C' ]
             } as TProfile,
             inbox: [
               {
@@ -1422,7 +1613,12 @@ describe('Testing <App/>', () =>
               avatar: 0,
               fullName: 'User',
               nickname: 'User',
-              interests: [] as string[]
+              info: {
+                romantically: 'Closed',
+                gender: 'Woman',
+                speaks: [ 'English' ]
+              },
+              interests: [ 'A', 'B', 'C' ]
             } as TProfile,
             inbox: [
               {
@@ -1500,7 +1696,12 @@ describe('Testing <App/>', () =>
               avatar: 0,
               fullName: 'User',
               nickname: 'User',
-              interests: [] as string[]
+              info: {
+                romantically: 'Closed',
+                gender: 'Woman',
+                speaks: [ 'English' ]
+              },
+              interests: [ 'A', 'B', 'C' ]
             } as TProfile,
             inbox: [
               {
@@ -1591,7 +1792,7 @@ describe('Testing <App/>', () =>
                 gender: 'Non-binary',
                 speaks: [ 'English' ]
               },
-              interests: [ 'A', 'B', 'C', 'D', 'E', 'F' ] as string[]
+              interests: [ 'A', 'B', 'C', 'D', 'E', 'F' ]
             } as TProfile
           });
 
@@ -1636,7 +1837,7 @@ describe('Testing <App/>', () =>
                 gender: 'Non-binary',
                 speaks: [ 'English' ]
               },
-              interests: [ 'A', 'B', 'C', 'D', 'E', 'F' ] as string[]
+              interests: [ 'A', 'B', 'C', 'D', 'E', 'F' ]
             } as TProfile
           });
 
@@ -1681,7 +1882,7 @@ describe('Testing <App/>', () =>
                 gender: 'Non-binary',
                 speaks: [ 'English' ]
               },
-              interests: [ 'A', 'B', 'C', 'D', 'E', 'F' ] as string[]
+              interests: [ 'A', 'B', 'C', 'D', 'E', 'F' ]
             } as TProfile
           });
 
@@ -1732,7 +1933,7 @@ describe('Testing <App/>', () =>
                 gender: 'Non-binary',
                 speaks: [ 'English' ]
               },
-              interests: [ 'A', 'B', 'C', 'D', 'E', 'F' ] as string[]
+              interests: [ 'A', 'B', 'C', 'D', 'E', 'F' ]
             } as TProfile
           });
 
@@ -1792,7 +1993,12 @@ describe('Testing <App/>', () =>
             avatar: 0,
             fullName: 'User',
             nickname: 'User',
-            interests: [] as string[]
+            info: {
+              romantically: 'Closed',
+              gender: 'Woman',
+              speaks: [ 'English' ]
+            },
+            interests: [ 'A', 'B', 'C' ]
           } as TProfile,
           inbox: [
             {
@@ -1815,7 +2021,7 @@ describe('Testing <App/>', () =>
                     gender: 'Woman',
                     speaks: [ 'English' ]
                   },
-                  interests: [] as string[]
+                  interests: [ 'A', 'B', 'C' ]
                 }
               ],
               messages: [
@@ -1861,7 +2067,12 @@ describe('Testing <App/>', () =>
             avatar: 0,
             fullName: 'User',
             nickname: 'User',
-            interests: [] as string[]
+            info: {
+              romantically: 'Closed',
+              gender: 'Woman',
+              speaks: [ 'English' ]
+            },
+            interests: [ 'A', 'B', 'C' ]
           } as TProfile,
           inbox: [
             {
@@ -1884,7 +2095,7 @@ describe('Testing <App/>', () =>
                     gender: 'Woman',
                     speaks: [ 'English' ]
                   },
-                  interests: [] as string[]
+                  interests: [ 'A', 'B', 'C' ]
                 }
               ],
               messages: [
@@ -1938,7 +2149,12 @@ describe('Testing <App/>', () =>
             avatar: 0,
             fullName: 'User',
             nickname: 'User',
-            interests: [] as string[]
+            info: {
+              romantically: 'Closed',
+              gender: 'Woman',
+              speaks: [ 'English' ]
+            },
+            interests: [ 'A', 'B', 'C' ]
           } as TProfile,
           inbox: [
             {
@@ -1961,7 +2177,7 @@ describe('Testing <App/>', () =>
                     gender: 'Woman',
                     speaks: [ 'English' ]
                   },
-                  interests: [] as string[]
+                  interests: [ 'A', 'B', 'C' ]
                 },
                 {
                   uuid: '2',
@@ -1973,7 +2189,7 @@ describe('Testing <App/>', () =>
                     gender: 'Woman',
                     speaks: [ 'English' ]
                   },
-                  interests: [] as string[]
+                  interests: [ 'A', 'B', 'C' ] as string[]
                 }
               ],
               messages: [
@@ -2015,7 +2231,12 @@ describe('Testing <App/>', () =>
             avatar: 0,
             fullName: 'User',
             nickname: 'User',
-            interests: [] as string[]
+            info: {
+              romantically: 'Closed',
+              gender: 'Woman',
+              speaks: [ 'English' ]
+            },
+            interests: [ 'A', 'B', 'C' ]
           } as TProfile,
           inbox: [
             {
@@ -2038,7 +2259,7 @@ describe('Testing <App/>', () =>
                     romantically: 'Closed',
                     speaks: [ 'English' ]
                   },
-                  interests: [] as string[]
+                  interests: [ 'A', 'B', 'C' ] as string[]
                 }
               ],
               messages: [] as InboxEntry['messages']
@@ -2073,7 +2294,12 @@ describe('Testing <App/>', () =>
             avatar: 0,
             fullName: 'User',
             nickname: 'User',
-            interests: [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K' ] as string[]
+            info: {
+              romantically: 'Closed',
+              gender: 'Woman',
+              speaks: [ 'English' ]
+            },
+            interests: [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K' ]
           } as TProfile,
           inbox: [
             {
@@ -2144,7 +2370,12 @@ describe('Testing <App/>', () =>
             avatar: 0,
             fullName: 'User',
             nickname: 'User',
-            interests: [] as string[]
+            info: {
+              romantically: 'Closed',
+              gender: 'Woman',
+              speaks: [ 'English' ]
+            },
+            interests: [ 'A', 'B', 'C' ]
           } as TProfile,
           inbox: [
             {
@@ -2202,7 +2433,12 @@ describe('Testing <App/>', () =>
             avatar: 0,
             fullName: 'User',
             nickname: 'User',
-            interests: [] as string[]
+            info: {
+              romantically: 'Closed',
+              gender: 'Woman',
+              speaks: [ 'English' ]
+            },
+            interests: [ 'A', 'B', 'C' ]
           } as TProfile,
           inbox: [
             {
@@ -2260,7 +2496,12 @@ describe('Testing <App/>', () =>
             avatar: 0,
             fullName: 'User',
             nickname: 'User',
-            interests: [] as string[]
+            info: {
+              romantically: 'Closed',
+              gender: 'Woman',
+              speaks: [ 'English' ]
+            },
+            interests: [ 'A', 'B', 'C' ]
           } as TProfile,
           inbox: [
             {
@@ -2318,7 +2559,12 @@ describe('Testing <App/>', () =>
             avatar: 0,
             fullName: 'User',
             nickname: 'User',
-            interests: [] as string[]
+            info: {
+              romantically: 'Closed',
+              gender: 'Woman',
+              speaks: [ 'English' ]
+            },
+            interests: [ 'A', 'B', 'C' ]
           } as TProfile,
           inbox: [
             {
@@ -2385,7 +2631,12 @@ describe('Testing <App/>', () =>
             avatar: 0,
             fullName: 'User',
             nickname: 'User',
-            interests: [] as string[]
+            info: {
+              romantically: 'Closed',
+              gender: 'Woman',
+              speaks: [ 'English' ]
+            },
+            interests: [ 'A', 'B', 'C' ]
           } as TProfile,
           inbox: [
             {
@@ -2453,7 +2704,12 @@ describe('Testing <App/>', () =>
             avatar: 0,
             fullName: 'User',
             nickname: 'User',
-            interests: [] as string[]
+            info: {
+              romantically: 'Closed',
+              gender: 'Woman',
+              speaks: [ 'English' ]
+            },
+            interests: [ 'A', 'B', 'C' ]
           } as TProfile,
           inbox: [
             {
@@ -2520,7 +2776,12 @@ describe('Testing <App/>', () =>
             avatar: 0,
             fullName: 'User',
             nickname: 'User',
-            interests: [] as string[]
+            info: {
+              romantically: 'Closed',
+              gender: 'Woman',
+              speaks: [ 'English' ]
+            },
+            interests: [ 'A', 'B', 'C' ]
           } as TProfile,
           inbox: [
             {
@@ -2590,7 +2851,12 @@ describe('Testing <App/>', () =>
             avatar: 0,
             fullName: 'User',
             nickname: 'User',
-            interests: [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K' ] as string[]
+            info: {
+              romantically: 'Closed',
+              gender: 'Woman',
+              speaks: [ 'English' ]
+            },
+            interests: [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K' ]
           } as TProfile,
           inbox: [
             {
@@ -2686,7 +2952,12 @@ describe('Testing <App/>', () =>
           avatar: 0,
           fullName: 'User',
           nickname: 'User',
-          interests: [] as string[]
+          info: {
+            romantically: 'Closed',
+            gender: 'Woman',
+            speaks: [ 'English' ]
+          },
+          interests: [ 'A', 'B', 'C' ]
         } as TProfile,
         inbox: [
           {
@@ -2814,7 +3085,12 @@ describe('Testing <App/>', () =>
           avatar: 0,
           fullName: 'User',
           nickname: 'User',
-          interests: [] as string[]
+          info: {
+            romantically: 'Closed',
+            gender: 'Woman',
+            speaks: [ 'English' ]
+          },
+          interests: [ 'A', 'B', 'C' ]
         } as TProfile,
         inbox: [
           {
@@ -2892,7 +3168,14 @@ describe('Testing <App/>', () =>
         profile: {
           uuid: '0',
           avatar: 0,
-          interests: [] as string[]
+          fullName: 'User',
+          nickname: 'User',
+          info: {
+            romantically: 'Closed',
+            gender: 'Woman',
+            speaks: [ 'English' ]
+          },
+          interests: [ 'A', 'B', 'C' ]
         } as TProfile,
         inbox: [
           {
@@ -2970,7 +3253,14 @@ describe('Testing <App/>', () =>
         profile: {
           uuid: '0',
           avatar: 0,
-          interests: [] as string[]
+          fullName: 'User',
+          nickname: 'User',
+          info: {
+            romantically: 'Closed',
+            gender: 'Woman',
+            speaks: [ 'English' ]
+          },
+          interests: [ 'A', 'B', 'C' ]
         } as TProfile,
         inbox: [
           {

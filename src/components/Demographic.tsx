@@ -10,7 +10,7 @@ import getTheme from '../colors';
 
 import { sizes } from '../sizes';
 
-import { getAge } from '../utils';
+import { getAge, incompleteProfile, getName } from '../utils';
 
 import {
   BaseEdits, SimpleDemographicEdits,
@@ -79,17 +79,17 @@ export default class Demographic extends React.Component<{
               // Closed
               <View>
                 <Text style={ styles.title }>
-                  <Text>{ `${profile.nickname} is ` }</Text>
+                  <Text>{ `${getName(profile)} is ` }</Text>
                   <Text style={ { color: colors.brightRed } }>Unavailable</Text>
                 </Text>
 
-                <InfoBox style={ styles.infoBox } text={ `Any attempt to flirt with ${profile.nickname} can result in your account getting terminated.` }/>
+                <InfoBox style={ styles.infoBox } text={ `Any attempt to flirt with ${getName(profile)} can result in your account getting terminated.` }/>
               </View> :
               
               // Open
               <View>
                 <Text style={ styles.title }>
-                  <Text>{ `${profile.nickname} is Open For Romance` }</Text>
+                  <Text>{ `${getName(profile)} is Open For Romance` }</Text>
                 </Text>
 
                 <View style={ {
@@ -149,6 +149,8 @@ export default class Demographic extends React.Component<{
 
     const age = getAge(profile.info.birthday);
 
+    const missing = incompleteProfile(profile);
+
     return <View style={ styles.container }>
 
       {/* Origin */}
@@ -189,9 +191,17 @@ export default class Demographic extends React.Component<{
             borderless={ true }
             buttonStyle={ styles.rectangle }
             disabled={ !editable }
-            icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.greyText, style: styles.rectangleIcon } : undefined }
+            icon={ editable && !missing.includes('speaks') ? { name: 'tool', size: sizes.icon * 0.5, color: colors.greyText, style: styles.rectangleIcon } : undefined }
             onPress={ () => this.openEdits(SpeaksEdits) }
           >
+            {
+              missing.includes('speaks') ?
+                <View style={ {
+                  ...styles.rectangleIndicator,
+                  backgroundColor: colors.brightRed
+                } }/> : undefined
+            }
+
             <View>
               <Text style={ styles.rectangleKey }>Speaks</Text>
               {
@@ -279,10 +289,17 @@ export default class Demographic extends React.Component<{
         useAlternative={ true }
         borderless={ true }
         buttonStyle={ styles.rectangle }
-        icon={ editable ? { name: 'tool', size: sizes.icon * 0.5, color: colors.greyText, style: styles.rectangleIcon } : undefined }
+        icon={ editable && !missing.includes('gender')  ? { name: 'tool', size: sizes.icon * 0.5, color: colors.greyText, style: styles.rectangleIcon } : undefined }
         disabled={ !editable }
         onPress={ () => this.openSelect('Your Gender', 'gender', [ 'Woman', 'Man', 'Non-binary' ]) }
       >
+        {
+          missing.includes('gender') ?
+            <View style={ {
+              ...styles.rectangleIndicator,
+              backgroundColor: colors.brightRed
+            } }/> : undefined
+        }
         <View>
           <Text style={ styles.rectangleKey }>Gender</Text>
           {
@@ -374,7 +391,7 @@ export default class Demographic extends React.Component<{
             <View>
               {
                 romanceShowcase && age > 0 && age < 18 ?
-                  <Text style={ styles.rectangleNullHighlighted }>{ `${profile.nickname} Is A Minor` }</Text> :
+                  <Text style={ styles.rectangleNullHighlighted }>{ `${getName(profile)} Is A Minor` }</Text> :
                   age > 0 ?
                     <View>
                       <Text style={ styles.rectangleKey }>Age</Text>

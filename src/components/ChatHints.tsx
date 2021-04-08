@@ -96,7 +96,7 @@ const Titles = (props: { profile: Profile }) =>
     
     <View>
       <Text style={ styles.displayName }>{ profile.fullName }</Text>
-      <Text style={ styles.nickname }>{ profile.nickname }</Text>
+      { profile.nickname ? <Text style={ styles.nickname }>{ profile.nickname }</Text> : undefined }
     </View>
 
   </View>;
@@ -113,7 +113,7 @@ const MiniProfile = (props: { profile: Profile }) =>
     
     <View>
       <Text style={ styles.miniDisplayName }>{ profile.fullName }</Text>
-      <Text style={ styles.miniNickname }>{ profile.nickname }</Text>
+      { profile.nickname ? <Text style={ styles.miniNickname }>{ profile.nickname }</Text> : undefined }
     </View>
 
   </View>;

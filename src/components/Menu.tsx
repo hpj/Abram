@@ -16,6 +16,8 @@ import { StoreComponent } from '../store';
 
 import { sizes } from '../sizes';
 
+import { getName } from '../utils';
+
 import getTheme from '../colors';
 
 const colors = getTheme();
@@ -171,7 +173,7 @@ class Menu extends StoreComponent<{
             buttonStyle={ styles.button  }
             textStyle={ styles.buttonText  }
             icon={ { name: 'user', size: sizes.icon * 0.75, color: colors.whiteText, style: styles.buttonIcon } }
-            text={ member.nickname }
+            text={ getName(member) }
             onPress={ () => this.openProfile(member) }
           />)
         }

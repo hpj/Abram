@@ -10,7 +10,7 @@ import getTheme from '../colors';
 
 import { sizes } from '../sizes';
 
-import { sharedInterests } from '../utils';
+import { getName, sharedInterests } from '../utils';
 
 import Button from '../components/Button';
 
@@ -51,7 +51,7 @@ export default class Interests extends React.Component<{
         else
           return <View style={ styles.section }>
             <Text style={ styles.title }>
-              { `${profile.nickname} Is Interested In` }
+              { `${getName(profile)} Is Interested In` }
             </Text>
 
             <View style={ styles.container }>

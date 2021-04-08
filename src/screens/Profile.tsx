@@ -12,7 +12,7 @@ import getTheme from '../colors';
 
 import { sizes } from '../sizes';
 
-import { sharedInterests } from '../utils';
+import { sharedInterests, incompleteProfile, getName } from '../utils';
 
 import Interests from '../components/Interests';
 
@@ -64,6 +64,8 @@ class Profile extends React.Component<{
     const editable = profile.uuid == user.uuid;
 
     const { shared } = sharedInterests(user, profile);
+
+    const missing = incompleteProfile(profile);
 
     return <ScrollView style={ styles.container }>
 
@@ -135,11 +137,24 @@ class Profile extends React.Component<{
           <View style={ styles.sectionEditable }>
             {/* eslint-disable-next-line react-native/no-inline-styles */}
             <View style={ { flexGrow: 1 } }>
-              <Text style={ styles.displayName }>{ profile.fullName }</Text>
-              <Text style={ styles.nickname }>{ profile.nickname }</Text>
+              {
+                profile.fullName ?
+                  <Text style={ styles.fullName }>{ profile.fullName }</Text> :
+                  <Text style={ styles.placeholder }>Name</Text>
+              }
+              { profile.nickname ? <Text style={ styles.nickname }>{ profile.nickname }</Text> : undefined }
             </View>
+
             {
-              editable ?
+              missing.includes('name') ?
+                <View style={ {
+                  ...styles.indicator,
+                  backgroundColor: colors.brightRed
+                } }/> : undefined
+            }
+
+            {
+              editable && !missing.includes('name') ?
                 <Icon name={ 'tool' } size={ sizes.icon * 0.5 } color={ colors.greyText } style={ styles.sectionIcon }/> : undefined
             }
           </View>
@@ -163,7 +178,7 @@ class Profile extends React.Component<{
             >
               <View style={ styles.sectionEditable }>
                 <Text style={ styles.title }>
-                  { editable ? 'Your Ice Breakers' : `Questions ${profile.nickname} Likes` }
+                  { editable ? 'Your Ice Breakers' : `Questions ${getName(profile)} Likes` }
                 </Text>
                 {
                   editable ?
@@ -205,7 +220,15 @@ class Profile extends React.Component<{
             </Text>
 
             {
-              editable ?
+              missing.includes('interests') ?
+                <View style={ {
+                  ...styles.indicator,
+                  backgroundColor: colors.brightRed
+                } }/> : undefined
+            }
+
+            {
+              editable && !missing.includes('interests') ?
                 <Icon name={ 'tool' } size={ sizes.icon * 0.5 } color={ colors.greyText } style={ styles.sectionIcon }/> : undefined
             }
           </View>
@@ -257,12 +280,31 @@ const styles = StyleSheet.create({
     marginHorizontal: sizes.windowMargin
   },
 
-  displayName: {
-    color: colors.whiteText,
+  indicator: {
+    backgroundColor: colors.whiteText,
 
+    width: 5,
+    height: 5,
+    borderRadius: 5,
+
+    alignSelf: 'center',
+    marginHorizontal: sizes.windowMargin
+  },
+
+  fullName: {
     fontSize: 18,
     fontWeight: 'bold',
+    color: colors.whiteText,
 
+    marginHorizontal: sizes.windowMargin
+  },
+
+  placeholder: {
+    fontSize: 12,
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
+
+    color: colors.greyText,
     marginHorizontal: sizes.windowMargin
   },
 

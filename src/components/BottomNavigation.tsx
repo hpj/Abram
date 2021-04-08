@@ -12,6 +12,8 @@ import i18n from '../i18n';
 
 import { sizes } from '../sizes';
 
+import { incompleteProfile } from '../utils';
+
 import getTheme from '../colors';
 
 const colors = getTheme();
@@ -64,37 +66,47 @@ class BottomNavigation extends StoreComponent<unknown, {
 
   render(): JSX.Element
   {
-    const { index, additionNavigationIcon } = this.state;
+    const { profile, index, additionNavigationIcon } = this.state;
+
+    const missing = incompleteProfile(profile);
 
     return <View testID={ 'v-bottom' } style={ styles.container }>
-      <Button
-        testID={ 'bn-inbox' }
-        useAlternative={ true }
-        badgeStyle={ this.inboxBadge ? styles.badge : undefined }
-        backgroundStyle={  (index === 0) ? styles.background : styles.backgroundInactive }
-        borderless={ true }
-        buttonStyle={ styles.entry }
-        icon={ { name: 'inbox', size: sizes.icon, color: (index === 0) ? colors.whiteText : colors.inactiveWhiteText } }
-        ripple={ colors.transparent }
-        onPress={ () => this.setIndex(0) }
-      />
+      {
+        !missing.length ? <Button
+          testID={ 'bn-inbox' }
+          useAlternative={ true }
+          badgeStyle={ this.inboxBadge ? styles.badge : undefined }
+          backgroundStyle={  (index === 0) ? styles.background : styles.backgroundInactive }
+          borderless={ true }
+          buttonStyle={ styles.entry }
+          icon={ { name: 'inbox', size: sizes.icon, color: (index === 0) ? colors.whiteText : colors.inactiveWhiteText } }
+          ripple={ colors.transparent }
+          onPress={ () => this.setIndex(0) }
+        /> : undefined
+      }
 
-      <Button
-        testID={ 'bn-discover' }
-        useAlternative={ true }
-        backgroundStyle={  (index === 1) ? styles.background : styles.backgroundInactive }
-        borderless={ true }
-        buttonStyle={ styles.entry }
-        icon={ { name: 'compass', size: sizes.icon, color: (index === 1) ? colors.whiteText : colors.inactiveWhiteText } }
-        ripple={ colors.transparent }
-        onPress={ () => this.setIndex(1) }
-      />
+      {
+        !missing.length ? <Button
+          testID={ 'bn-discover' }
+          useAlternative={ true }
+          backgroundStyle={  (index === 1) ? styles.background : styles.backgroundInactive }
+          borderless={ true }
+          buttonStyle={ styles.entry }
+          icon={ { name: 'compass', size: sizes.icon, color: (index === 1) ? colors.whiteText : colors.inactiveWhiteText } }
+          ripple={ colors.transparent }
+          onPress={ () => this.setIndex(1) }
+        /> : undefined
+      }
 
       {
         (index >= 2) ?
           <Button
             testID={ 'bn-additional' }
             useAlternative={ true }
+            badgeStyle={ missing.length > 0 ? {
+              ...styles.badge,
+              backgroundColor: colors.brightRed
+            } : undefined }
             backgroundStyle={ styles.background }
             borderless={ true }
             buttonStyle={ styles.entry }
@@ -124,12 +136,11 @@ const styles = StyleSheet.create({
   },
 
   badge: {
-    backgroundColor: colors.whiteText,
-
     width: sizes.badge,
     height: sizes.badge,
 
-    borderRadius: sizes.badge
+    borderRadius: sizes.badge,
+    backgroundColor: colors.whiteText
   },
 
   background: {

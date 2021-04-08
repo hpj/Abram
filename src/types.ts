@@ -20,7 +20,7 @@ export type Profile = {
   
   bio?: string,
   fullName: string,
-  nickname: string,
+  nickname?: string,
 
   info: ProfileInfo,
   interests: string[],

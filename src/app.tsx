@@ -42,6 +42,8 @@ import i18n from './i18n';
 
 import { sizes } from './sizes';
 
+import { incompleteProfile } from './utils';
+
 import { depth } from './depth';
 
 import getTheme from './colors';
@@ -50,10 +52,8 @@ const colors = getTheme();
 
 export default class App extends StoreComponent<unknown, {
   error: string,
-  loaded: boolean,
 
   size: Size,
-
   index: number,
 
   profile: TProfile,
@@ -85,10 +85,8 @@ export default class App extends StoreComponent<unknown, {
   {
     if (
       changes.error ||
-      changes.loaded ||
 
       changes.size ||
-
       changes.index ||
 
       changes.profile ||
@@ -121,8 +119,20 @@ export default class App extends StoreComponent<unknown, {
     try
     {
       await this.load();
+      
+      await new Promise<void>(resolve =>
+      {
+        const { profile } = this.state;
 
-      this.setState({ loaded: true }, this.forceUpdate);
+        const missing = incompleteProfile(profile);
+
+        this.store.set({
+          index: missing.length ? 2 : 0,
+          focusedProfile: missing.length ? profile : undefined,
+          additionNavigationIcon: missing.length ? 'user' : undefined,
+          title: missing.length ? '' : 'Inbox'
+        }, resolve);
+      });
     }
     catch (err)
     {
@@ -216,15 +226,10 @@ export default class App extends StoreComponent<unknown, {
         <Text style={ styles.errorText }>{ this.state.error }</Text>
       </View>;
 
-    if (!this.state.loaded)
-      return <View/>;
-    
     // get the correct size of window on android
     // https://github.com/facebook/react-native/issues/23693
     if (this.state.size.width === 0 || this.state.size.height === 0)
-    {
       return <View onLayout={ this.onLayout } style={ styles.container }/>;
-    }
 
     const {
       size,
@@ -232,6 +237,8 @@ export default class App extends StoreComponent<unknown, {
       popup, holder, holderCallback
     } = this.state;
 
+    const missing = incompleteProfile(profile);
+    
     const holderOpacity = this.holderNode.interpolate({
       inputRange: [ 0, 1 ],
       outputRange: [ 0, 0.75 ]
@@ -253,7 +260,10 @@ export default class App extends StoreComponent<unknown, {
         <View testID={ 'v-navigation' } style={ styles.views }>
 
           <NavigationView testID={ 'v-inbox' } index={ 0 }>
-            <Inbox snapTo={ this.bottomSheetRef.current?.snapTo }/>
+            {
+              !missing.length ?
+                <Inbox snapTo={ this.bottomSheetRef.current?.snapTo }/> : undefined
+            }
           </NavigationView>
 
           <NavigationView testID={ 'v-discover' } index={ 1 }>
