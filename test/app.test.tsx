@@ -2194,19 +2194,403 @@ describe('Testing <App/>', () =>
           component.unmount();
         });
 
-        test.todo('Works');
+        test('Works', async() =>
+        {
+          getStore().set({
+            profile: {
+              uuid: '0',
+              avatar: 0,
+              fullName: 'User Using Used',
+              nickname: 'User',
+              bio: 'Test Bio',
+              info: {
+                romantically: 'Open',
+                gender: 'Non-binary',
+                speaks: [ 'English' ],
+                works: 'Not A Social Worker'
+              },
+              interests: [ 'A', 'B', 'C', 'D', 'E', 'F' ]
+            } as TProfile
+          });
 
-        test.todo('Gender');
+          const component = render(<App/>);
 
-        test.todo('Sexuality');
+          // wait for app loading
+          await waitFor(() => component.getByTestId('v-main-area'));
+
+          // press menu
+          fireEvent.press(component.getByTestId('bn-menu'));
+
+          await waitFor(() => true);
+    
+          // press profile
+          fireEvent.press(component.getByTestId('bn-profile'));
+    
+          await waitFor(() => true);
+          
+          const initial = toJSON(component, 'bn-works', 'all');
+
+          expect(initial).toMatchSnapshot('Works Should Equal Not A Social Worker');
+            
+          // activate popup view
+          fireEvent.press(component.getByTestId('bn-works'));
+    
+          await waitFor(() => true);
+    
+          const popup = toJSON(component, 'v-popup', 'all');
+    
+          expect(popup).toMatchSnapshot('Works Edits Popup');
+
+          fireEvent.changeText(component.getByTestId('in-works'), 'Shadow Monarch');
+
+          fireEvent.press(component.getByTestId('bn-save'));
+
+          await waitFor(() => true);
+
+          const updated = toJSON(component, 'bn-works', 'all');
+
+          expect(updated).toMatchSnapshot('Works Should Equal Shadow Monarch');
+    
+          component.unmount();
+        });
+
+        test('Gender', async() =>
+        {
+          getStore().set({
+            profile: {
+              uuid: '0',
+              avatar: 0,
+              fullName: 'User Using Used',
+              nickname: 'User',
+              bio: 'Test Bio',
+              info: {
+                romantically: 'Open',
+                gender: 'Non-binary',
+                speaks: [ 'English' ]
+              },
+              interests: [ 'A', 'B', 'C', 'D', 'E', 'F' ]
+            } as TProfile
+          });
+
+          const component = render(<App/>);
+
+          // wait for app loading
+          await waitFor(() => component.getByTestId('v-main-area'));
+
+          // press menu
+          fireEvent.press(component.getByTestId('bn-menu'));
+
+          await waitFor(() => true);
+    
+          // press profile
+          fireEvent.press(component.getByTestId('bn-profile'));
+    
+          await waitFor(() => true);
+          
+          const initial = toJSON(component, 'bn-gender', 'all');
+
+          expect(initial).toMatchSnapshot('Gender Should Equal Non-Binary');
+            
+          // activate popup view
+          fireEvent.press(component.getByTestId('bn-gender'));
+    
+          await waitFor(() => true);
+    
+          const popup = toJSON(component, 'v-popup', 'all');
+    
+          expect(popup).toMatchSnapshot('Gender Edits Popup');
+
+          fireEvent.press(component.getByTestId('sl-gender-value'));
+
+          await waitFor(() => true);
+
+          fireEvent.press(component.getAllByTestId('sl-gender-query')[0]);
+
+          fireEvent.press(component.getByTestId('bn-save'));
+
+          await waitFor(() => true);
+
+          const updated = toJSON(component, 'bn-gender', 'all');
+
+          expect(updated).toMatchSnapshot('Gender Should Equal Woman.');
+    
+          component.unmount();
+        });
+
+        test('Sexuality', async() =>
+        {
+          getStore().set({
+            profile: {
+              uuid: '0',
+              avatar: 0,
+              fullName: 'User Using Used',
+              nickname: 'User',
+              bio: 'Test Bio',
+              info: {
+                romantically: 'Open',
+                gender: 'Woman',
+                speaks: [ 'English' ],
+                sexuality: 'None'
+              },
+              interests: [ 'A', 'B', 'C', 'D', 'E', 'F' ]
+            } as TProfile
+          });
+
+          const component = render(<App/>);
+
+          // wait for app loading
+          await waitFor(() => component.getByTestId('v-main-area'));
+
+          // press menu
+          fireEvent.press(component.getByTestId('bn-menu'));
+
+          await waitFor(() => true);
+    
+          // press profile
+          fireEvent.press(component.getByTestId('bn-profile'));
+    
+          await waitFor(() => true);
+          
+          const initial = toJSON(component, 'bn-sexuality', 'all');
+
+          expect(initial).toMatchSnapshot('Sexuality Should Equal Asexual');
+            
+          // activate popup view
+          fireEvent.press(component.getByTestId('bn-sexuality'));
+    
+          await waitFor(() => true);
+    
+          const popup = toJSON(component, 'v-popup', 'all');
+    
+          expect(popup).toMatchSnapshot('Sexuality Edits Popup');
+
+          fireEvent.press(component.getByTestId('sl-sexuality-value'));
+
+          await waitFor(() => true);
+
+          fireEvent.press(component.getAllByTestId('sl-sexuality-query')[1]);
+
+          fireEvent.press(component.getByTestId('bn-save'));
+
+          await waitFor(() => true);
+
+          const updated = toJSON(component, 'bn-sexuality', 'all');
+
+          expect(updated).toMatchSnapshot('Sexuality Should Equal Lesbian.');
+    
+          component.unmount();
+        });
         
-        test.todo('Religion');
+        test('Religion', async() =>
+        {
+          getStore().set({
+            profile: {
+              uuid: '0',
+              avatar: 0,
+              fullName: 'User Using Used',
+              nickname: 'User',
+              bio: 'Test Bio',
+              info: {
+                romantically: 'Open',
+                gender: 'Woman',
+                speaks: [ 'English' ],
+                religion: 'Christianity'
+              },
+              interests: [ 'A', 'B', 'C', 'D', 'E', 'F' ]
+            } as TProfile
+          });
+
+          const component = render(<App/>);
+
+          // wait for app loading
+          await waitFor(() => component.getByTestId('v-main-area'));
+
+          // press menu
+          fireEvent.press(component.getByTestId('bn-menu'));
+
+          await waitFor(() => true);
+    
+          // press profile
+          fireEvent.press(component.getByTestId('bn-profile'));
+    
+          await waitFor(() => true);
+          
+          const initial = toJSON(component, 'bn-religion', 'all');
+
+          expect(initial).toMatchSnapshot('Religion Should Equal Christian');
+            
+          // activate popup view
+          fireEvent.press(component.getByTestId('bn-religion'));
+    
+          await waitFor(() => true);
+    
+          const popup = toJSON(component, 'v-popup', 'all');
+    
+          expect(popup).toMatchSnapshot('Religion Edits Popup');
+
+          fireEvent.press(component.getByTestId('sl-religion-value'));
+
+          await waitFor(() => true);
+
+          fireEvent.press(component.getAllByTestId('sl-religion-query')[1]);
+
+          fireEvent.press(component.getByTestId('bn-save'));
+
+          await waitFor(() => true);
+
+          const updated = toJSON(component, 'bn-religion', 'all');
+
+          expect(updated).toMatchSnapshot('Religion Should Equal Muslim.');
+    
+          component.unmount();
+        });
 
         test.todo('Age');
 
-        test.todo('Ice Breakers');
+        test('Ice Breakers', async() =>
+        {
+          getStore().set({
+            profile: {
+              uuid: '0',
+              avatar: 0,
+              fullName: 'User Using Used',
+              nickname: 'User',
+              bio: 'Test Bio',
+              info: {
+                romantically: 'Open',
+                gender: 'Non-binary',
+                speaks: [ 'English' ]
+              },
+              iceBreakers: [ 'Beep-beeb?' ],
+              interests: [ 'A', 'B', 'C' ]
+            } as TProfile
+          });
 
-        test.todo('Interests');
+          const component = render(<App/>);
+
+          // wait for app loading
+          await waitFor(() => component.getByTestId('v-main-area'));
+
+          // press menu
+          fireEvent.press(component.getByTestId('bn-menu'));
+
+          await waitFor(() => true);
+    
+          // press profile
+          fireEvent.press(component.getByTestId('bn-profile'));
+    
+          await waitFor(() => true);
+          
+          const initial = toJSON(component, 'bn-ice-breakers', 'all');
+
+          expect(initial).toMatchSnapshot('Ice Breakers Should Equal Beep-beeb?');
+            
+          // activate popup view
+          fireEvent.press(component.getByTestId('bn-ice-breakers'));
+    
+          await waitFor(() => true);
+    
+          const popup = toJSON(component, 'v-popup', 'all');
+    
+          expect(popup).toMatchSnapshot('Ice Breakers Edits Popup');
+
+          fireEvent.press(component.getByTestId('sl-ice-breakers-value'));
+
+          await waitFor(() => true);
+
+          fireEvent.press(component.getByTestId('sl-ice-breakers-plus'));
+
+          await waitFor(() => true);
+
+          fireEvent.changeText(component.getByTestId('sl-ice-breakers-input'), 'Who Murdered The Teddy Bear?');
+
+          fireEvent(component.getByTestId('sl-ice-breakers-input'), 'onSubmitEditing');
+
+          await waitFor(() => true);
+
+          fireEvent.press(component.getByTestId('bn-save'));
+
+          await waitFor(() => true);
+
+          const updated = toJSON(component, 'bn-ice-breakers', 'all');
+
+          expect(updated).toMatchSnapshot('Ice Breakers Should Equal Who Murdered The Teddy Bear?');
+    
+          component.unmount();
+        });
+
+        test('Interests', async() =>
+        {
+          getStore().set({
+            profile: {
+              uuid: '0',
+              avatar: 0,
+              fullName: 'User Using Used',
+              nickname: 'User',
+              bio: 'Test Bio',
+              info: {
+                romantically: 'Open',
+                gender: 'Non-binary',
+                speaks: [ 'English' ]
+              },
+              interests: [ 'A', 'B', 'C' ]
+            } as TProfile
+          });
+
+          const component = render(<App/>);
+
+          // wait for app loading
+          await waitFor(() => component.getByTestId('v-main-area'));
+
+          // press menu
+          fireEvent.press(component.getByTestId('bn-menu'));
+
+          await waitFor(() => true);
+    
+          // press profile
+          fireEvent.press(component.getByTestId('bn-profile'));
+    
+          await waitFor(() => true);
+          
+          const initial = toJSON(component, 'bn-interests', 'all');
+
+          expect(initial).toMatchSnapshot('Interests Should Equal A, B, C.');
+            
+          // activate popup view
+          fireEvent.press(component.getByTestId('bn-interests'));
+    
+          await waitFor(() => true);
+    
+          const popup = toJSON(component, 'v-popup', 'all');
+    
+          expect(popup).toMatchSnapshot('Interests Edits Popup');
+
+          fireEvent.press(component.getAllByTestId('sl-interests-value')[0]);
+          fireEvent.press(component.getAllByTestId('sl-interests-value')[0]);
+          fireEvent.press(component.getAllByTestId('sl-interests-value')[0]);
+
+          await waitFor(() => true);
+
+          fireEvent.press(component.getByTestId('sl-interests-plus'));
+
+          await waitFor(() => true);
+
+          fireEvent.changeText(component.getByTestId('sl-interests-search'), 'Anime');
+
+          await waitFor(() => true);
+
+          fireEvent.press(component.getByTestId('sl-interests-query'));
+
+          fireEvent.press(component.getByTestId('bn-save'));
+
+          await waitFor(() => true);
+
+          const updated = toJSON(component, 'bn-interests', 'all');
+
+          expect(updated).toMatchSnapshot('Interests Should Equal Anime.');
+    
+          component.unmount();
+        });
       });
     });
   });

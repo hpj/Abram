@@ -418,7 +418,6 @@ export class AgeEdits<P> extends BaseEdits<P & BaseEditsProps>
 }
 
 export class SimpleSelectEdits extends BaseEdits<{
-  tag?: string,
   title: string,
   field: keyof Profile['info'],
   data: string[]
@@ -441,13 +440,13 @@ export class SimpleSelectEdits extends BaseEdits<{
 
   render(): JSX.Element
   {
-    const { tag, title, field, data } = this.props;
+    const { title, field, data } = this.props;
 
     const { current } = this.state;
 
     return super.render(title,
       <Select
-        testID={ tag }
+        testID={ `sl-${field}` }
         data={ data }
         // eslint-disable-next-line security/detect-object-injection
         initial={ current?.info[field] as string ?? ''  }
@@ -511,6 +510,7 @@ export class IceBreakersEdits<P> extends BaseEdits<P & BaseEditsProps>
 
     return super.render('Some Questions You Like To Answer',
       <Select
+        testID={ 'sl-ice-breakers' }
         multiple={ 3 }
         custom={ 'Question' }
         initial={ current.iceBreakers }
@@ -539,6 +539,7 @@ export class InterestsEdits<P> extends BaseEdits<P & BaseEditsProps>
 
     return super.render('Your Interests',
       <Select
+        testID={ 'sl-interests' }
         multiple={ 8 }
         data={ this.data }
         initial={ current.interests }
