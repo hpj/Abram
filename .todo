@@ -33,8 +33,6 @@ Alpha:
        and require expo publish with --target bare
 
 Testing:
-  ☐ test applying all editable profile edits
-
   ☐ mock and test Clipboard
     - with <ChatContext/>
 

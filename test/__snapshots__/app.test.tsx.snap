@@ -11515,6 +11515,646 @@ exports[`Testing <App/> Profile Others Romantically Popup Romantically Unavailab
 </View>
 `;
 
+exports[`Testing <App/> Profile Personal Edits Age: Age Edits Popup 1`] = `
+<View
+  style={
+    Object {
+      "bottom": 0,
+      "flex": 1,
+      "position": "absolute",
+      "width": 523,
+      "zIndex": 5,
+    }
+  }
+  testID="v-popup"
+>
+  <RCTScrollView
+    style={
+      Object {
+        "backgroundColor": "#000000",
+        "maxHeight": 735.15,
+        "minHeight": 452.40000000000003,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "margin": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 12,
+              "fontWeight": "bold",
+              "marginBottom": 10,
+              "textTransform": "uppercase",
+            }
+          }
+        >
+          Change Your Birthday
+        </Text>
+        <View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#151515",
+                "borderRadius": 5,
+                "flex": 1,
+                "flexDirection": "row",
+              }
+            }
+            testID="pk-birthday-year"
+          >
+            <View
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+            >
+              <View>
+                <View />
+              </View>
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "#818181",
+                      "fontSize": 20.4,
+                    },
+                    undefined,
+                    Object {
+                      "fontFamily": "feather",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <Text
+              adjustsFontSizeToFit={true}
+              minimumFontScale={0.85}
+              numberOfLines={1}
+              style={
+                Object {
+                  "color": "#818181",
+                  "flex": 1,
+                  "fontSize": 11,
+                  "fontWeight": "bold",
+                  "padding": 20,
+                  "textAlign": "center",
+                  "textTransform": "uppercase",
+                }
+              }
+            >
+              Year
+            </Text>
+            <View
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+            >
+              <View>
+                <View />
+              </View>
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "#818181",
+                      "fontSize": 20.4,
+                    },
+                    undefined,
+                    Object {
+                      "fontFamily": "feather",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "marginVertical": 13,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#151515",
+                  "borderRadius": 5,
+                  "flex": 1,
+                  "flexDirection": "row",
+                }
+              }
+              testID="pk-birthday-month"
+            >
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+              >
+                <View>
+                  <View />
+                </View>
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": "#818181",
+                        "fontSize": 20.4,
+                      },
+                      undefined,
+                      Object {
+                        "fontFamily": "feather",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+              </View>
+              <Text
+                adjustsFontSizeToFit={true}
+                minimumFontScale={0.85}
+                numberOfLines={1}
+                style={
+                  Object {
+                    "color": "#818181",
+                    "flex": 1,
+                    "fontSize": 11,
+                    "fontWeight": "bold",
+                    "padding": 20,
+                    "textAlign": "center",
+                    "textTransform": "uppercase",
+                  }
+                }
+              >
+                Mo
+              </Text>
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+              >
+                <View>
+                  <View />
+                </View>
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": "#818181",
+                        "fontSize": 20.4,
+                      },
+                      undefined,
+                      Object {
+                        "fontFamily": "feather",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "marginHorizontal": 10,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#151515",
+                  "borderRadius": 5,
+                  "flex": 1,
+                  "flexDirection": "row",
+                }
+              }
+              testID="pk-birthday-day"
+            >
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+              >
+                <View>
+                  <View />
+                </View>
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": "#818181",
+                        "fontSize": 20.4,
+                      },
+                      undefined,
+                      Object {
+                        "fontFamily": "feather",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+              </View>
+              <Text
+                adjustsFontSizeToFit={true}
+                minimumFontScale={0.85}
+                numberOfLines={1}
+                style={
+                  Object {
+                    "color": "#818181",
+                    "flex": 1,
+                    "fontSize": 11,
+                    "fontWeight": "bold",
+                    "padding": 20,
+                    "textAlign": "center",
+                    "textTransform": "uppercase",
+                  }
+                }
+              >
+                Da
+              </Text>
+              <View
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+              >
+                <View>
+                  <View />
+                </View>
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": "#818181",
+                        "fontSize": 20.4,
+                      },
+                      undefined,
+                      Object {
+                        "fontFamily": "feather",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "marginTop": 5,
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="bn-save"
+          >
+            <View
+              style={
+                Object {
+                  "paddingHorizontal": 25,
+                  "paddingVertical": 10,
+                }
+              }
+            >
+              <View>
+                <View />
+              </View>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 14,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                Save
+              </Text>
+            </View>
+          </View>
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="bn-cancel"
+          >
+            <View
+              style={
+                Object {
+                  "paddingHorizontal": 25,
+                  "paddingVertical": 10,
+                }
+              }
+            >
+              <View>
+                <View />
+              </View>
+              <Text
+                style={
+                  Object {
+                    "color": "#818181",
+                    "fontSize": 14,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                Cancel
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`Testing <App/> Profile Personal Edits Age: Age Should Equal 3 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="bn-age"
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#151515",
+        "borderRadius": 5,
+        "flexDirection": "row-reverse",
+        "marginHorizontal": 7,
+        "marginVertical": 7,
+        "minWidth": 65,
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
+      }
+    }
+  >
+    <View>
+      <View />
+    </View>
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": "#818181",
+            "fontSize": 12,
+          },
+          Object {
+            "marginLeft": 10,
+          },
+          Object {
+            "fontFamily": "feather",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+    <View>
+      <View>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 12,
+              "fontWeight": "bold",
+              "textTransform": "uppercase",
+            }
+          }
+        >
+          Age
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 13,
+              "textTransform": "capitalize",
+            }
+          }
+        >
+          3
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Testing <App/> Profile Personal Edits Age: Age Should Equal 16 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="bn-age"
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#151515",
+        "borderRadius": 5,
+        "flexDirection": "row-reverse",
+        "marginHorizontal": 7,
+        "marginVertical": 7,
+        "minWidth": 65,
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
+      }
+    }
+  >
+    <View>
+      <View />
+    </View>
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": "#818181",
+            "fontSize": 12,
+          },
+          Object {
+            "marginLeft": 10,
+          },
+          Object {
+            "fontFamily": "feather",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+    <View>
+      <View>
+        <Text
+          style={
+            Object {
+              "color": "#818181",
+              "fontSize": 12,
+              "fontWeight": "bold",
+              "textTransform": "uppercase",
+            }
+          }
+        >
+          Age
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 13,
+              "textTransform": "capitalize",
+            }
+          }
+        >
+          16
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
 exports[`Testing <App/> Profile Personal Edits Avatar 1`] = `
 <View
   style={

@@ -2445,7 +2445,76 @@ describe('Testing <App/>', () =>
           component.unmount();
         });
 
-        test.todo('Age');
+        test('Age', async() =>
+        {
+          getStore().set({
+            profile: {
+              uuid: '0',
+              avatar: 0,
+              fullName: 'User Using Used',
+              nickname: 'User',
+              bio: 'Test Bio',
+              info: {
+                romantically: 'Open',
+                gender: 'Non-binary',
+                speaks: [ 'English' ],
+                birthday: {
+                  year: new Date().getFullYear() - 16,
+                  month: 3,
+                  day: 7
+                }
+              },
+              interests: [ 'A', 'B', 'C', 'D', 'E', 'F' ]
+            } as TProfile
+          });
+
+          const component = render(<App/>);
+
+          // wait for app loading
+          await waitFor(() => component.getByTestId('v-main-area'));
+
+          // press menu
+          fireEvent.press(component.getByTestId('bn-menu'));
+
+          await waitFor(() => true);
+    
+          // press profile
+          fireEvent.press(component.getByTestId('bn-profile'));
+    
+          await waitFor(() => true);
+          
+          const initial = toJSON(component, 'bn-age', 'all');
+
+          expect(initial).toMatchSnapshot('Age Should Equal 16');
+            
+          // activate popup view
+          fireEvent.press(component.getByTestId('bn-age'));
+    
+          await waitFor(() => true);
+    
+          const popup = toJSON(component, 'v-popup', 'all');
+    
+          expect(popup).toMatchSnapshot('Age Edits Popup');
+
+          const yearPicker = component.getByTestId('pk-birthday-year');
+          // const monthPicker = component.getByTestId('pk-birthday-month');
+          // const dayPicker = component.getByTestId('pk-birthday-day');
+
+          fireEvent.press(yearPicker.children[0] as ReactTestInstance);
+          fireEvent.press(yearPicker.children[0] as ReactTestInstance);
+          fireEvent.press(yearPicker.children[0] as ReactTestInstance);
+          fireEvent.press(yearPicker.children[0] as ReactTestInstance);
+
+          fireEvent.press(component.getByTestId('bn-save'));
+
+          await waitFor(() => true);
+
+          const updated = toJSON(component, 'bn-age', 'all');
+
+          expect(updated).toMatchSnapshot('Age Should Equal 3');
+    
+          component.unmount();
+        });
 
         test('Ice Breakers', async() =>
         {

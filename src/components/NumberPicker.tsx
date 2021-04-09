@@ -11,6 +11,7 @@ import { sizes } from '../sizes';
 const colors = getTheme();
 
 class NumberPicker extends React.Component<{
+  testID?: string,
   min?: number,
   max?: number,
   initial?: number,
@@ -51,11 +52,11 @@ class NumberPicker extends React.Component<{
 
   render(): JSX.Element
   {
-    const { placeholder } = this.props;
+    const { testID, placeholder } = this.props;
 
     const { value } = this.state;
 
-    return <View style={ styles.container }>
+    return <View testID={ testID } style={ styles.container }>
       <Button
         icon={ { name: 'minus', size: sizes.icon * 0.85, color: colors.greyText } }
         wrapperStyle={ styles.button }

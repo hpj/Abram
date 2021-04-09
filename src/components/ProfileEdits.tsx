@@ -377,6 +377,7 @@ export class AgeEdits<P> extends BaseEdits<P & BaseEditsProps>
 
     return super.render('Change Your Birthday', <View>
       <NumberPicker
+        testID={ 'pk-birthday-year' }
         min={ 1 }
         max={ now.getFullYear() }
         initial={ now.getFullYear() }
@@ -390,6 +391,7 @@ export class AgeEdits<P> extends BaseEdits<P & BaseEditsProps>
         marginVertical: sizes.windowMargin * 0.65
       } }>
         <NumberPicker
+          testID={ 'pk-birthday-month' }
           min={ 1 }
           max={ 12 }
           placeholder={ 'Mo' }
@@ -407,6 +409,7 @@ export class AgeEdits<P> extends BaseEdits<P & BaseEditsProps>
         <View style={ { marginHorizontal: sizes.windowMargin * 0.5 } }/>
 
         <NumberPicker ref={ this.daysRef }
+          testID={ 'pk-birthday-day' }
           min={ 1 }
           max={ maxDays }
           placeholder={ 'Da' }
