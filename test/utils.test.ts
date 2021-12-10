@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { pronoun, relativeDate, sharedInterests } from '../src/utils';
+import { pronoun, sharedInterests } from '../src/utils';
 
 describe('Testing Utils', () =>
 {
