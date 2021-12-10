@@ -129,16 +129,6 @@ export default class Store
     // @ts-ignore
     keys.forEach((key) => this.changes[key] = this.state[key] = state[key]);
 
-    // this.changes = {
-    //   ...this.changes,
-    //   ...state
-    // };
-
-    // this.state = {
-    //   ...this.state,
-    //   ...state
-    // };
-
     // dispatch changes
     this.dispatch().then(callback);
 
@@ -184,11 +174,6 @@ export default class Store
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         keys.forEach(key => this.changes[key] = this.state[key] = modified[key]);
-
-        // this.state = {
-        //   ...this.state,
-        //   ...modified
-        // };
       }
     });
 
