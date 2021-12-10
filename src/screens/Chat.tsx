@@ -2,7 +2,7 @@ import React from 'react';
 
 import { StyleSheet, Keyboard, View, FlatList, TextInput, Text } from 'react-native';
 
-import Animated, { Easing } from 'react-native-reanimated';
+import Animated, { EasingNode } from 'react-native-reanimated';
 
 import { isToday, differenceInMilliseconds, isSameDay } from 'date-fns';
 
@@ -151,7 +151,7 @@ class Chat extends StoreComponent<unknown, {
     Animated.timing(this.keyboardProgress, {
       duration: 200,
       toValue: 1,
-      easing: Easing.inOut(Easing.ease)
+      easing: EasingNode.inOut(EasingNode.ease)
     // returns component which is used by the reanimated mocks while testing
     }).start(() => this);
   }
@@ -162,7 +162,7 @@ class Chat extends StoreComponent<unknown, {
     Animated.timing(this.keyboardProgress, {
       duration: 200,
       toValue: 0,
-      easing: Easing.inOut(Easing.ease)
+      easing: EasingNode.inOut(EasingNode.ease)
     // returns component which is used by the reanimated mocks while testing
     }).start(() => this);
   }

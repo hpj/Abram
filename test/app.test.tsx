@@ -202,7 +202,7 @@ jest.mock('react-native-reanimated', () =>
       };
     }),
     View: View,
-    Easing: {
+    EasingNode: {
       linear: 0,
       in: jest.fn(),
       out: jest.fn(),

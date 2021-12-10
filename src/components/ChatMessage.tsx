@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { StyleSheet, Text, Image, ImageSourcePropType, View } from 'react-native';
+import { StyleSheet, Text, Image, ImageSourcePropType } from 'react-native';
 
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
-import Animated, { Easing } from 'react-native-reanimated';
+import Animated, { EasingNode } from 'react-native-reanimated';
 
 import type { Size, Message } from '../types';
 
@@ -42,7 +42,7 @@ class ChatMessage extends React.Component<{
       Animated.timing(this.progress, {
         duration: 125,
         toValue: 1,
-        easing: Easing.inOut(Easing.linear)
+        easing: EasingNode.inOut(EasingNode.linear)
       }).start();
     }
   }

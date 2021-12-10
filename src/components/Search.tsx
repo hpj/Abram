@@ -2,7 +2,7 @@ import React from 'react';
 
 import { StyleSheet, View, TextInput } from 'react-native';
 
-import Animated, { Easing } from 'react-native-reanimated';
+import Animated, { EasingNode } from 'react-native-reanimated';
 
 import type { Size, InboxEntry } from '../types';
 
@@ -81,7 +81,7 @@ class Search extends StoreComponent<{
     Animated.timing(this.progress, {
       duration: 65,
       toValue: (maximize) ? 1 : 0,
-      easing: Easing.linear
+      easing: EasingNode.linear
     }).start(({ finished }) =>
     {
       if (!maximize && finished)

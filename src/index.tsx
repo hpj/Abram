@@ -29,7 +29,7 @@ import i18n, { setLocale } from './i18n';
 // error tracking
 
 Sentry.init({
-  release: constants.manifest.revisionId,
+  release: constants.manifest?.revisionId,
   dsn: 'https://cb0d0d5b96884ebebae0499b54a1cc9e@sentry.io/1886510',
   enableInExpoDevelopment: false
 });

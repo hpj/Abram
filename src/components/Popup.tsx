@@ -2,7 +2,7 @@ import React from 'react';
 
 import { BackHandler, Keyboard, StyleSheet, ScrollView } from 'react-native';
 
-import Animated, { Easing } from 'react-native-reanimated';
+import Animated, { EasingNode } from 'react-native-reanimated';
 
 import type { Size } from '../types';
 
@@ -99,13 +99,13 @@ class Popup extends StoreComponent<{
       Animated.timing(this.props.holderNode, {
         duration: 150,
         toValue: 1,
-        easing: Easing.linear
+        easing: EasingNode.linear
       }).start();
 
       Animated.timing(this.progress, {
         duration: 200,
         toValue: 1,
-        easing: Easing.out(Easing.cubic)
+        easing: EasingNode.out(EasingNode.cubic)
       // returns component which is used by the reanimated mocks while testing
       }).start(() => this);
     });
@@ -133,13 +133,13 @@ class Popup extends StoreComponent<{
       Animated.timing(this.props.holderNode, {
         duration: 150,
         toValue: 0,
-        easing: Easing.linear
+        easing: EasingNode.linear
       }).start();
 
       Animated.timing(this.progress, {
         duration: 200,
         toValue: 0,
-        easing: Easing.inOut(Easing.circle)
+        easing: EasingNode.inOut(EasingNode.circle)
       // returns component which is used by the reanimated mocks while testing
       }).start(() =>
       {

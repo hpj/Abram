@@ -49,8 +49,8 @@
         {
           "file": "sentry-expo/upload-sourcemaps",
           "config": {
-            "organization": "herpproject",
             "project": "abram",
+            "organization": "herpproject",
             "authToken": "a0d3d84a278c44ae8c72b941a79682ea03b90cab2bea4b519dd2d73d37ea7a88"
           }
         }

@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import Animated, { Easing } from 'react-native-reanimated';
+import Animated, { EasingNode } from 'react-native-reanimated';
 
 import { StoreComponent } from '../store';
 
@@ -40,7 +40,7 @@ class NavigationView extends StoreComponent<{
       Animated.timing(this.progress, {
         duration: 125,
         toValue: 1,
-        easing: Easing.circle
+        easing: EasingNode.circle
       // returns component which is used by the reanimated mocks while testing
       }).start(() => this);
     }
@@ -50,7 +50,7 @@ class NavigationView extends StoreComponent<{
       Animated.timing(this.progress, {
         duration: 125,
         toValue: 0,
-        easing: Easing.circle
+        easing: EasingNode.circle
       }).start();
     }
   }
