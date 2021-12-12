@@ -8,9 +8,9 @@ import { BackHandler } from 'react-native';
 
 import * as Linking from 'expo-linking';
 
-import { render, fireEvent, waitFor, cleanup } from 'react-native-testing-library';
+import { render, fireEvent, waitFor, cleanup } from '@testing-library/react-native';
 
-import type { RenderAPI } from 'react-native-testing-library';
+import type { RenderAPI } from '@testing-library/react-native';
 
 import type { ReactTestInstance, ReactTestRendererJSON } from 'react-test-renderer';
 
