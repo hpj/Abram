@@ -3,16 +3,16 @@
     "version": ">= 0.40.0"
   },
   "build": {
+    "production": {
+      "node": "16.13.1",
+      "android": {
+        "autoIncrement": "version"
+      }
+    },
     "development": {
+      "extends": "production",
       "developmentClient": true,
       "distribution": "internal"
-    },
-    "preview": {
-      "distribution": "internal"
-    },
-    "production": {}
-  },
-  "submit": {
-    "production": {}
+    }
   }
 }

@@ -8,27 +8,11 @@ Performance Issues and Bugs:
 Alpha:
   ☐ check TODOs if any are do-able
 
-  ☐ work on branding descriptions and motto
-
-  - require contract work for avatars
-    ☐ the way I want to do this is by using base64
-      in the avatar slot in the a database row instead of using storage pockets to host the avatars
-      it's more cost-efficient and way less-messy to maintain and clear
-      the question is how it will perform vs uris
-
   ☐ consuming native sign-in with google 
-    ☐ region-lock signing up to the united states only
 
   ☐ write the privacy policy
 
   ☐ write the terms of service
-
-  ☐ configure eas services
-    - eas build
-    - eas submit
-    - read on updating eas build over-the-air
-       since last I checked it's not fully developed
-       and require expo publish with --target bare
 
 Testing:
   ☐ mock and test Clipboard

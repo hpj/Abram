@@ -1,15 +1,14 @@
 {
   "private": true,
-  "main": "src/index",
   "engines": {
-    "npm": "6.14.15",
-    "node": "14.18.1"
+    "npm": "8.1.2",
+    "node": "16.13.1"
   },
   "scripts": {
-    "start": "expo start",
     "test": "jest",
-    "test:coverage": "jest --collect-coverage",
-    "test:update": "jest --updateSnapshot"
+    "start": "expo start --dev-client",
+    "test:coverage": "npm run test -- --collect-coverage",
+    "test:update": "npm run test -- --updateSnapshot"
   },
   "jest": {
     "preset": "jest-expo",
@@ -42,7 +41,9 @@
     "react-native-gesture-handler": "~1.10.3",
     "react-native-reanimated": "~2.2.4",
     "reanimated-bottom-sheet": "^1.0.0-alpha.22",
-    "sentry-expo": "^4.0.0"
+    "sentry-expo": "^4.0.0",
+    "expo-system-ui": "~1.0.0",
+    "expo-navigation-bar": "~1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",

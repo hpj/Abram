@@ -24,8 +24,8 @@
       "i18n/*"
     ],
     "splash": {
-      "image": "assets/icon-t.png",
       "resizeMode": "contain",
+      "image": "assets/icon-t.png",
       "backgroundColor": "#000000"
     },
     "androidStatusBar": {
@@ -37,13 +37,12 @@
       "backgroundColor": "#000000"
     },
     "android": {
-      "softwareKeyboardLayoutMode": "pan",
       "adaptiveIcon": {
         "foregroundImage": "assets/icon-t.png",
         "backgroundColor": "#000000"
       },
-      "package": "me.hpj.abram",
-      "permissions": []
+      "softwareKeyboardLayoutMode": "pan",
+      "package": "me.hpj.abram"
     },
     "hooks": {
       "postPublish": [

@@ -75,11 +75,11 @@ export default class App extends StoreComponent<unknown, {
     this.onBack = this.onBack.bind(this);
   }
 
-  bottomSheetRef: React.RefObject<BottomSheet> =  React.createRef()
-  topBarRef: React.RefObject<TopBar> =  React.createRef()
+  bottomSheetRef: React.RefObject<BottomSheet> =  React.createRef();
+  topBarRef: React.RefObject<TopBar> =  React.createRef();
 
-  bottomSheetNode = new Animated.Value(1)
-  holderNode = new Animated.Value(0)
+  bottomSheetNode = new Animated.Value(1);
+  holderNode = new Animated.Value(0);
 
   stateWhitelist(changes: App['state']): boolean
   {

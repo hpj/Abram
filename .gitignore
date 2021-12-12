@@ -1,8 +1,10 @@
 .DS_Store
+
 .expo
 .vscode
 
 node_modules/**
+
 coverage
 
 *.jks
@@ -11,6 +13,5 @@ coverage
 *.key
 *.mobileprovision
 *.orig.*
-
 
 /assets/mockup

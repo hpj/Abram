@@ -12,13 +12,13 @@ import * as Sentry from 'sentry-expo';
 
 import { subDays, addMinutes, subHours } from 'date-fns';
 
-import { Profile, InboxEntry, Size } from './types';
+import { Profile, InboxEntry, Size } from './src/types';
 
-import { createStore } from './store';
+import { createStore } from './src/store';
 
-import App from './app';
+import App from './src/app';
 
-import i18n, { setLocale } from './i18n';
+import i18n, { setLocale } from './src/i18n';
 
 // const env = {
 //   'API_ENDPOINT': (__DEV__) ?
