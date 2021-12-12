@@ -4,6 +4,7 @@
     "slug": "abram",
     "version": "0.1.0",
     "privacy": "unlisted",
+    "jsEngine": "hermes",
     "platforms": [
       "android"
     ],
