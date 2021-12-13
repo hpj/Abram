@@ -11,8 +11,8 @@
   "scripts": {
     "test": "jest",
     "start": "expo start --dev-client",
-    "test:coverage": "npm run test -- --collect-coverage",
-    "test:update": "npm run test -- --updateSnapshot"
+    "test:coverage": "yarn test --collect-coverage",
+    "test:update": "yarn test --updateSnapshot"
   },
   "jest": {
     "preset": "jest-expo",
