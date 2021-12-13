@@ -1,7 +1,7 @@
 {
   "env": {
-    "react-native/react-native": true,
-    "jest/globals": true
+    "jest/globals": true,
+    "react-native/react-native": true
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -12,16 +12,14 @@
     "react",
     "react-native",
     "@typescript-eslint",
-    "jest",
-    "security"
+    "jest"
   ],
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:jest/style",
-    "plugin:jest/recommended",
-    "plugin:security/recommended"
+    "plugin:jest/recommended"
   ],
   "rules": {
     "camelcase": "error",

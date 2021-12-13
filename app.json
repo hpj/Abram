@@ -1,9 +1,10 @@
 {
   "expo": {
-    "name": "Abram",
     "slug": "abram",
-    "version": "0.1.0",
-    "privacy": "unlisted",
+    "name": "Abram",
+    "version": "0.1.2",
+    "owner": "herpproject",
+    "privacy": "hidden",
     "jsEngine": "hermes",
     "platforms": [
       "android"

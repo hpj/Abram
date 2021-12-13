@@ -1,13 +1,16 @@
 {
+  "name": "abram",
   "private": true,
   "main": "src/index",
+  "version": "0.0.0",
   "engines": {
-    "npm": "8.1.2",
+    "npm": "",
+    "yarn": "1.22.17",
     "node": "16.13.1"
   },
   "scripts": {
     "test": "jest",
-    "start": "EXPO_USE_EXOTIC=1 expo start --dev-client",
+    "start": "expo start --dev-client",
     "test:coverage": "npm run test -- --collect-coverage",
     "test:update": "npm run test -- --updateSnapshot"
   },
@@ -42,12 +45,11 @@
     "expo-updates": "~0.10.15",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-native": "0.65.2",
+    "react-native": "0.64.3",
     "react-native-gesture-handler": "~1.10.3",
     "react-native-reanimated": "~2.2.4",
-    "react-native-web": "^0.17.2",
     "reanimated-bottom-sheet": "^1.0.0-alpha.22",
-    "sentry-expo": "^4.0.0"
+    "sentry-expo": "^4.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
@@ -63,7 +65,6 @@
     "eslint-plugin-jest": "^25.3.0",
     "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-native": "^3.11.0",
-    "eslint-plugin-security": "^1.4.0",
     "jest": "^26.6.3",
     "jest-date-mock": "^1.0.8",
     "jest-expo": "^43.0.1",
@@ -71,6 +72,5 @@
     "react-test-renderer": "^17.0.2",
     "snapshot-diff": "^0.9.0",
     "typescript": "~4.3.5"
-  },
-  "version": "0.0.0"
+  }
 }

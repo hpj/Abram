@@ -1,10 +1,11 @@
 {
   "cli": {
-    "version": ">= 0.40.0"
+    "version": "0.40.0"
   },
   "build": {
     "production": {
       "node": "16.13.1",
+      "yarn": "1.22.17",
       "android": {
         "autoIncrement": "version"
       }
