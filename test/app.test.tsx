@@ -28,34 +28,30 @@ import Inbox from '../src/screens/Inbox';
 
 import Profile from '../src/screens/Profile';
 
+function getByTestId(tree: ReactTestRendererJSON, testId: string): ReactTestRendererJSON | undefined
+{
+  if (!tree)
+    return;
+    
+  if (tree.props?.['testID'] === testId)
+    return tree;
+
+  for (let i = 0; i < (tree.children ?? []).length; i++)
+  {
+    if (typeof tree.children?.[i] === 'object')
+    {
+      const o = getByTestId(tree.children?.[i] as ReactTestRendererJSON, testId);
+
+      if (o !== undefined)
+        return o;
+    }
+  }
+}
+
 /** splits react testing library json trees to parts to make it easier to review
 */
 function toJSON(renderer: RenderAPI, testId: string, shallow?: 'none' | 'one' | 'all'): ReactTestRendererJSON | undefined
 {
-  function getByTestId(tree: ReactTestRendererJSON, testId: string): ReactTestRendererJSON | undefined
-  {
-    if (!tree)
-      return;
-      
-    if (tree.props?.['testID'] === testId)
-      return tree;
-
-    for (let i = 0; i < (tree.children ?? []).length; i++)
-    {
-      // eslint-disable-next-line security/detect-object-injection
-      if (typeof tree.children?.[i] === 'object')
-      {
-        // eslint-disable-next-line security/detect-object-injection
-        const o = getByTestId(tree.children?.[i] as ReactTestRendererJSON, testId);
-
-        if (o !== undefined)
-          return o;
-      }
-    }
-
-    return;
-  }
-
   // default shallow is 'none'
   shallow = shallow ?? 'none';
 
@@ -66,7 +62,7 @@ function toJSON(renderer: RenderAPI, testId: string, shallow?: 'none' | 'one' | 
   if (!testId)
     target = tree;
   else
-    target = getByTestId(tree as ReactTestRendererJSON, testId);
+    target = getByTestId(tree, testId);
 
   if (!target)
     return;
@@ -205,13 +201,13 @@ jest.mock('react-native-reanimated', () =>
       out: jest.fn(),
       inOut: jest.fn()
     },
-    Value: jest.fn().mockImplementation((value) =>
+    Value: jest.fn().mockImplementation(value =>
     {
       let v = value || 0;
   
       return {
         get: () => v,
-        setValue: (value: number) => v = value,
+        setValue: (newValue: number) => v = newValue,
         interpolate: ({ inputRange, outputRange }: any) => outputRange[inputRange.indexOf(v)]
       };
     })
@@ -976,7 +972,7 @@ describe('Testing <App/>', () =>
       component.unmount();
     });
  
-    test('Opening Privacy Policy', async() =>
+    test.skip('Opening Privacy Policy', async() =>
     {
       getStore().set({
         profile: {
@@ -1007,7 +1003,7 @@ describe('Testing <App/>', () =>
       expect(Linking.openURL).toHaveBeenCalledWith('https://herpproject.com/abram/privacy');
     });
 
-    test('Opening Terms of Service', async() =>
+    test.skip('Opening Terms of Service', async() =>
     {
       getStore().set({
         profile: {
@@ -1038,7 +1034,7 @@ describe('Testing <App/>', () =>
       expect(Linking.openURL).toHaveBeenCalledWith('https://herpproject.com/abram/terms');
     });
 
-    test('Opening Ethics', async() =>
+    test.skip('Opening Ethics', async() =>
     {
       getStore().set({
         profile: {
