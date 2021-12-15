@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {
-  StyleSheet, StatusBar, BackHandler, Keyboard, Platform,
+  StyleSheet, BackHandler, Keyboard,
   View, Text, TouchableWithoutFeedback, LayoutChangeEvent
 } from 'react-native';
 
@@ -16,8 +16,6 @@ import { Feather } from '@expo/vector-icons';
 import Animated from 'react-native-reanimated';
 
 import BottomSheet from 'reanimated-bottom-sheet';
-
-import AccountManager from 'react-native-account-manager';
 
 import NavigationView from './components/NavigationView';
 
@@ -69,6 +67,8 @@ export default class App extends StoreComponent<unknown, {
   {
     super();
 
+    SplashScreen.preventAutoHideAsync();
+
     // bind functions to use as callbacks
 
     this.onLayout = this.onLayout.bind(this);
@@ -112,19 +112,12 @@ export default class App extends StoreComponent<unknown, {
   async componentDidMount(): Promise<void>
   {
     super.componentDidMount();
-
-    await SplashScreen.preventAutoHideAsync();
   
     // load resource and cache on app-start
     try
     {
       await this.load();
       
-      AccountManager.getAccountsByType('com.google').then((accounts) =>
-      {
-        console.log('available accounts', accounts);
-      });
-
       await new Promise<void>(resolve =>
       {
         this.store.set({
@@ -140,17 +133,6 @@ export default class App extends StoreComponent<unknown, {
     }
     finally
     {
-      // set status-bar style
-
-      // istanbul ignore next
-      if (Platform.OS === 'android')
-      {
-        StatusBar.setBackgroundColor(colors.blackBackground);
-        StatusBar.setBarStyle('light-content');
-
-        // StatusBar.setBarStyle((colors.theme === 'dark') ? 'light-content' : 'dark-content');
-      }
-
       BackHandler.addEventListener('hardwareBackPress', this.onBack);
 
       // hides the splash screen and shows the app
