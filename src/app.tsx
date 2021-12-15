@@ -13,6 +13,8 @@ import * as SplashScreen from 'expo-splash-screen';
 
 import { Feather } from '@expo/vector-icons';
 
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
+
 import Animated from 'react-native-reanimated';
 
 import BottomSheet from 'reanimated-bottom-sheet';
@@ -67,6 +69,7 @@ export default class App extends StoreComponent<unknown, {
   {
     super();
 
+    // TODO move to index.tsx
     SplashScreen.preventAutoHideAsync();
 
     // bind functions to use as callbacks
@@ -117,7 +120,22 @@ export default class App extends StoreComponent<unknown, {
     try
     {
       await this.load();
+
+      // TODO move to index.tsx
+      GoogleSignin.configure();
+
+      try
+      {
+        await GoogleSignin.hasPlayServices();
+        const user = await GoogleSignin.signIn();
+        console.log(user);
+      }
+      catch (err)
+      {
+        console.error(err);
+      }
       
+      // TODO move to default store
       await new Promise<void>(resolve =>
       {
         this.store.set({

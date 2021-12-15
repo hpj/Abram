@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "82949879705",
+    "firebase_url": "https://abramy.firebaseio.com",
+    "project_id": "abramy",
+    "storage_bucket": "abramy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:82949879705:android:9f5b7c6a50c7e74dbd8508",
+        "android_client_info": {
+          "package_name": "me.hpj.abram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "82949879705-pl44hi80l5s2icfdp5uu5h7k88bub6is.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "me.hpj.abram",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "82949879705-r1no95avq1vmd3t68h9h5q9ht71u8r36.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "me.hpj.abram",
+            "certificate_hash": "acb5f7a1657b3c7b9f262b8b5cc9857d3904bac4"
+          }
+        },
+        {
+          "client_id": "82949879705-cdkefv5kad4jdip3c681kvg6pkricqlu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMMguP2bWWGJid14Ci6BmYzmrZz4jL4Kw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "82949879705-cdkefv5kad4jdip3c681kvg6pkricqlu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^12.0.0",
+    "@react-native-google-signin/google-signin": "^7.0.1",
     "@sentry/react-native": "^3.2.7",
     "countries-list": "^2.6.1",
     "date-fns": "^2.27.0",

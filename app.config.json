@@ -2,7 +2,8 @@
   "expo": {
     "slug": "abram",
     "name": "Abram",
-    "version": "0.1.7",
+    "version": "0.1.12",
+    "sdkVersion": "43.0.0",
     "owner": "herpproject",
     "privacy": "hidden",
     "jsEngine": "hermes",
@@ -40,12 +41,13 @@
       "backgroundColor": "#000000"
     },
     "android": {
+      "googleServicesFile": "./google-services.json",
+      "package": "me.hpj.abram",
+      "softwareKeyboardLayoutMode": "pan",
       "adaptiveIcon": {
         "foregroundImage": "assets/icon-t.png",
         "backgroundColor": "#000000"
-      },
-      "softwareKeyboardLayoutMode": "pan",
-      "package": "me.hpj.abram"
+      }
     },
     "hooks": {
       "postPublish": [
