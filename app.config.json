@@ -2,23 +2,25 @@
   "expo": {
     "slug": "abram",
     "name": "Abram",
-    "version": "0.1.2",
+    "version": "0.1.7",
     "owner": "herpproject",
     "privacy": "hidden",
     "jsEngine": "hermes",
     "platforms": [
       "android"
     ],
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/68ca9d55-315e-4131-acb6-cb1578f725f5",
+      "fallbackToCacheTimeout": 0
+    },
     "orientation": "portrait",
     "icon": "assets/icon.png",
     "primaryColor": "#000000",
     "backgroundColor": "#000000",
     "userInterfaceStyle": "dark",
-    "updates": {
-      "enabled": true,
-      "checkAutomatically": "ON_LOAD",
-      "fallbackToCacheTimeout": 0
-    },
     "assetBundlePatterns": [
       "assets/*",
       "assets/mockups/*",

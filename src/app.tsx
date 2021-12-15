@@ -17,6 +17,8 @@ import Animated from 'react-native-reanimated';
 
 import BottomSheet from 'reanimated-bottom-sheet';
 
+import AccountManager from 'react-native-account-manager';
+
 import NavigationView from './components/NavigationView';
 
 import Inbox from './screens/Inbox';
@@ -41,8 +43,6 @@ import { StoreComponent } from './store';
 import i18n from './i18n';
 
 import { sizes } from './sizes';
-
-import { incompleteProfile } from './utils';
 
 import { depth } from './depth';
 
@@ -120,17 +120,16 @@ export default class App extends StoreComponent<unknown, {
     {
       await this.load();
       
+      AccountManager.getAccountsByType('com.google').then((accounts) =>
+      {
+        console.log('available accounts', accounts);
+      });
+
       await new Promise<void>(resolve =>
       {
-        const { profile } = this.state;
-
-        const missing = incompleteProfile(profile);
-
         this.store.set({
-          index: missing.length ? 2 : 0,
-          focusedProfile: missing.length ? profile : undefined,
-          additionNavigationIcon: missing.length ? 'user' : undefined,
-          title: missing.length ? '' : 'Inbox'
+          index: 0,
+          title: 'Inbox'
         }, resolve);
       });
     }
@@ -237,8 +236,6 @@ export default class App extends StoreComponent<unknown, {
       popup, holder, holderCallback
     } = this.state;
 
-    const missing = incompleteProfile(profile);
-    
     const holderOpacity = this.holderNode.interpolate({
       inputRange: [ 0, 1 ],
       outputRange: [ 0, 0.75 ]
@@ -260,10 +257,7 @@ export default class App extends StoreComponent<unknown, {
         <View testID={ 'v-navigation' } style={ styles.views }>
 
           <NavigationView testID={ 'v-inbox' } index={ 0 }>
-            {
-              !missing.length ?
-                <Inbox snapTo={ this.bottomSheetRef.current?.snapTo }/> : undefined
-            }
+            <Inbox snapTo={ this.bottomSheetRef.current?.snapTo }/>
           </NavigationView>
 
           <NavigationView testID={ 'v-discover' } index={ 1 }>

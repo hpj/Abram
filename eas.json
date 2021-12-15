@@ -1,17 +1,18 @@
 {
   "cli": {
-    "version": "0.40.0"
+    "version": ">= 0.41.0"
   },
   "build": {
-    "production": {
+    "base": {
       "node": "16.13.1",
       "yarn": "1.22.17",
+      "expoCli": "4.13.0",
       "android": {
         "autoIncrement": "version"
       }
     },
     "development": {
-      "extends": "production",
+      "extends": "base",
       "developmentClient": true,
       "distribution": "internal"
     }
